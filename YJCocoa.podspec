@@ -20,20 +20,24 @@ Pod::Spec.new do |s|
     s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
+
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "6.0"
+
 
     # ――― Build settings
     s.frameworks = "UIKit", "Foundation"
     s.requires_arc = true
 
+
     # ——— Subspecs
-    core.source_files = 'Cocoa/*.{h,m}'
+    s.source_files = 'Cocoa/*.{h,m}'
     s.default_subspec = 'Foundation', 'System'
+
     #Core Services Layer
-    s.subspec 'Foundation' do |f|
-        core.source_files = 'Cocoa/Foundation/*.{h,m}'
+    s.subspec 'Foundation' do |foundation|
+        foundation.source_files = 'Cocoa/Foundation/*.{h,m}'
     end
 
     #Core OS Layer
