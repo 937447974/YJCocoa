@@ -2,11 +2,15 @@
 //  ViewController.m
 //  YJCocoa
 //
+//  HomePage:https://github.com/937447974/YJCocoa
+//  YJ技术支持群:557445088
+//
 //  Created by 阳君 on 16/5/11.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "YJCocoa.h"
 
 @interface ViewController ()
 
@@ -17,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"%@", YJStringFromClass(self.class));
+//    dispatch_async(<#dispatch_queue_t queue#>, <#^(void)block#>)
+    NSLog(@"2");
+    dispatch_after_main(1, ^{
+        NSLog(@"1");
+    });
 }
 
 - (void)didReceiveMemoryWarning {
