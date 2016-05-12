@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
+    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
