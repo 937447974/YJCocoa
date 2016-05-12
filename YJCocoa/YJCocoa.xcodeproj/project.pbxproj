@@ -17,7 +17,7 @@
 		8473F32C1CE3322700D99E7D /* YJCocoaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473F32B1CE3322700D99E7D /* YJCocoaUITests.m */; };
 		8473F35B1CE344FE00D99E7D /* YJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473F3551CE344FE00D99E7D /* YJFoundation.m */; };
 		8473F35C1CE344FE00D99E7D /* YJSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473F3581CE344FE00D99E7D /* YJSystem.m */; };
-		8473F35D1CE344FE00D99E7D /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473F35A1CE344FE00D99E7D /* YJCocoa.podspec */; };
+		848AE2DC1CE46E6E00903CB4 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 848AE2DB1CE46E6E00903CB4 /* YJCocoa.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		8473F3571CE344FE00D99E7D /* YJSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSystem.h; sourceTree = "<group>"; };
 		8473F3581CE344FE00D99E7D /* YJSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSystem.m; sourceTree = "<group>"; };
 		8473F3591CE344FE00D99E7D /* YJCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoa.h; sourceTree = "<group>"; };
-		8473F35A1CE344FE00D99E7D /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YJCocoa.podspec; sourceTree = "<group>"; };
+		848AE2DB1CE46E6E00903CB4 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../YJCocoa.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,7 @@
 		8473F3051CE3322700D99E7D /* YJCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				848AE2DB1CE46E6E00903CB4 /* YJCocoa.podspec */,
 				8473F3091CE3322700D99E7D /* AppDelegate.h */,
 				8473F30A1CE3322700D99E7D /* AppDelegate.m */,
 				8473F3521CE344FE00D99E7D /* Cocoa */,
@@ -172,7 +173,6 @@
 				8473F3531CE344FE00D99E7D /* Foundation */,
 				8473F3561CE344FE00D99E7D /* System */,
 				8473F3591CE344FE00D99E7D /* YJCocoa.h */,
-				8473F35A1CE344FE00D99E7D /* YJCocoa.podspec */,
 			);
 			name = Cocoa;
 			path = ../../Cocoa;
@@ -302,7 +302,7 @@
 				8473F3161CE3322700D99E7D /* LaunchScreen.storyboard in Resources */,
 				8473F3131CE3322700D99E7D /* Assets.xcassets in Resources */,
 				8473F3111CE3322700D99E7D /* Main.storyboard in Resources */,
-				8473F35D1CE344FE00D99E7D /* YJCocoa.podspec in Resources */,
+				848AE2DC1CE46E6E00903CB4 /* YJCocoa.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +557,7 @@
 				8473F3321CE3322700D99E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8473F3331CE3322700D99E7D /* Build configuration list for PBXNativeTarget "YJCocoaTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +566,7 @@
 				8473F3351CE3322700D99E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8473F3361CE3322700D99E7D /* Build configuration list for PBXNativeTarget "YJCocoaUITests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +575,7 @@
 				8473F3381CE3322700D99E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YJCocoa.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"%@", YJStringFromClass(self.class));
+//    dispatch_async(<#dispatch_queue_t queue#>, <#^(void)block#>)
+    NSLog(@"2");
+    dispatch_after_main(1, ^{
+        NSLog(@"1");
+    });
 }
 
 - (void)didReceiveMemoryWarning {
