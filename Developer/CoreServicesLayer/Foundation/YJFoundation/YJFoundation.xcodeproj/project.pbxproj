@@ -13,6 +13,7 @@
 		8473ABCC1CE96B57000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473ABCA1CE96B57000E3580 /* Main.storyboard */; };
 		8473ABCE1CE96B57000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473ABCD1CE96B57000E3580 /* Assets.xcassets */; };
 		8473ABD11CE96B57000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473ABCF1CE96B57000E3580 /* LaunchScreen.storyboard */; };
+		8473ABFF1CE96BEF000E3580 /* YJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABFE1CE96BEF000E3580 /* YJFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		8473ABCD1CE96B57000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473ABD01CE96B57000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473ABD21CE96B57000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8473ABFD1CE96BEF000E3580 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		8473ABFE1CE96BEF000E3580 /* YJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +65,8 @@
 				8473ABC51CE96B57000E3580 /* AppDelegate.m */,
 				8473ABC71CE96B57000E3580 /* ViewController.h */,
 				8473ABC81CE96B57000E3580 /* ViewController.m */,
-				8473ABCA1CE96B57000E3580 /* Main.storyboard */,
-				8473ABCD1CE96B57000E3580 /* Assets.xcassets */,
-				8473ABCF1CE96B57000E3580 /* LaunchScreen.storyboard */,
-				8473ABD21CE96B57000E3580 /* Info.plist */,
+				8473ABFC1CE96BEF000E3580 /* Foundation */,
+				8473ABFB1CE96BD3000E3580 /* Resources */,
 				8473ABC11CE96B57000E3580 /* Supporting Files */,
 			);
 			path = YJFoundation;
@@ -74,9 +75,30 @@
 		8473ABC11CE96B57000E3580 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8473ABD21CE96B57000E3580 /* Info.plist */,
 				8473ABC21CE96B57000E3580 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8473ABFB1CE96BD3000E3580 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8473ABCA1CE96B57000E3580 /* Main.storyboard */,
+				8473ABCD1CE96B57000E3580 /* Assets.xcassets */,
+				8473ABCF1CE96B57000E3580 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8473ABFC1CE96BEF000E3580 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8473ABFD1CE96BEF000E3580 /* YJFoundation.h */,
+				8473ABFE1CE96BEF000E3580 /* YJFoundation.m */,
+			);
+			name = Foundation;
+			path = ../../../../../Cocoa/CoreServicesLayer/Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +174,7 @@
 				8473ABC91CE96B57000E3580 /* ViewController.m in Sources */,
 				8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */,
 				8473ABC31CE96B57000E3580 /* main.m in Sources */,
+				8473ABFF1CE96BEF000E3580 /* YJFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +325,7 @@
 				8473ABD71CE96B57000E3580 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,6 +13,8 @@
 		8473AB861CE969DB000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB841CE969DB000E3580 /* Main.storyboard */; };
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
+		8473AC121CE96C94000E3580 /* YJSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC0C1CE96C94000E3580 /* YJSystem.m */; };
+		8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC101CE96C94000E3580 /* YJFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,14 @@
 		8473AB871CE969DB000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8473AC0B1CE96C94000E3580 /* YJSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSystem.h; sourceTree = "<group>"; };
+		8473AC0C1CE96C94000E3580 /* YJSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSystem.m; sourceTree = "<group>"; };
+		8473AC0F1CE96C94000E3580 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		8473AC101CE96C94000E3580 /* YJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundation.m; sourceTree = "<group>"; };
+		8473AC111CE96C94000E3580 /* YJCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoa.h; sourceTree = "<group>"; };
+		8473AC141CE96CB1000E3580 /* YJCocoaTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoaTouchLayer.h; sourceTree = "<group>"; };
+		8473AC151CE96CC4000E3580 /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
+		8473AC161CE96CD6000E3580 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +72,8 @@
 				8473AB7F1CE969DB000E3580 /* AppDelegate.m */,
 				8473AB811CE969DB000E3580 /* ViewController.h */,
 				8473AB821CE969DB000E3580 /* ViewController.m */,
-				8473AB841CE969DB000E3580 /* Main.storyboard */,
-				8473AB871CE969DB000E3580 /* Assets.xcassets */,
-				8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */,
-				8473AB8C1CE969DB000E3580 /* Info.plist */,
+				8473AC071CE96C94000E3580 /* Cocoa */,
+				8473AC051CE96C75000E3580 /* Resources */,
 				8473AB7B1CE969DB000E3580 /* Supporting Files */,
 			);
 			path = YJCocoa;
@@ -74,9 +82,76 @@
 		8473AB7B1CE969DB000E3580 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8473AB8C1CE969DB000E3580 /* Info.plist */,
 				8473AB7C1CE969DB000E3580 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8473AC051CE96C75000E3580 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8473AB841CE969DB000E3580 /* Main.storyboard */,
+				8473AB871CE969DB000E3580 /* Assets.xcassets */,
+				8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8473AC071CE96C94000E3580 /* Cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC081CE96C94000E3580 /* CocoaTouchLayer */,
+				8473AC0D1CE96C94000E3580 /* CoreServicesLayer */,
+				8473AC091CE96C94000E3580 /* CoreOSLayer */,
+				8473AC111CE96C94000E3580 /* YJCocoa.h */,
+			);
+			name = Cocoa;
+			path = ../../../Cocoa;
+			sourceTree = "<group>";
+		};
+		8473AC081CE96C94000E3580 /* CocoaTouchLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC141CE96CB1000E3580 /* YJCocoaTouchLayer.h */,
+			);
+			path = CocoaTouchLayer;
+			sourceTree = "<group>";
+		};
+		8473AC091CE96C94000E3580 /* CoreOSLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC0A1CE96C94000E3580 /* System */,
+				8473AC151CE96CC4000E3580 /* YJCoreOSLayer.h */,
+			);
+			path = CoreOSLayer;
+			sourceTree = "<group>";
+		};
+		8473AC0A1CE96C94000E3580 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC0B1CE96C94000E3580 /* YJSystem.h */,
+				8473AC0C1CE96C94000E3580 /* YJSystem.m */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		8473AC0D1CE96C94000E3580 /* CoreServicesLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC0E1CE96C94000E3580 /* Foundation */,
+				8473AC161CE96CD6000E3580 /* YJCoreServicesLayer.h */,
+			);
+			path = CoreServicesLayer;
+			sourceTree = "<group>";
+		};
+		8473AC0E1CE96C94000E3580 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC0F1CE96C94000E3580 /* YJFoundation.h */,
+				8473AC101CE96C94000E3580 /* YJFoundation.m */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
+				8473AC121CE96C94000E3580 /* YJSystem.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
+				8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
