@@ -1,6 +1,6 @@
 {
   "name": "YJCocoa",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "authors": {
     "阳君": "937447974@qq.com"
   },
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/937447974/YJCocoa",
   "source": {
     "git": "https://github.com/937447974/YJCocoa.git",
-    "branch": "developer"
+    "tag": "v1.2.0"
   },
   "summary": "YJ Cocoa",
   "platforms": {
@@ -47,10 +47,7 @@
     {
       "name": "CoreOSLayer",
       "source_files": "Cocoa/CoreOSLayer/*.{h,m}",
-      "default_subspecs": [
-        "Foundation",
-        "System"
-      ],
+      "default_subspecs": "System",
       "subspecs": [
         {
           "name": "System",
