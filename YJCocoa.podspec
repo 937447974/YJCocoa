@@ -8,18 +8,19 @@
 
 # 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='china beijing'
 # 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 1.0 -o ./Documentation ./Classes
-# 验证podspec命令：pod spec lint或 pod spec lint --allow-warnings
+# 验证podspec命令：pod spec lint或 pod spec lint --allow-warnings --verbose
 # pod发包：pod trunk push YJCocoa.podspec --allow-warnings
 
 Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "1.1.0"
+    s.version  = "1.2.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
@@ -52,10 +53,10 @@ Pod::Spec.new do |s|
     end
 
     # 3 Core OS Layer
-    s.subspec 'CoreOSLayer' do |ctl|
-        ctl.source_files = 'Cocoa/CoreOSLayer/*.{h,m}'
-        ctl.default_subspec = 'Foundation', 'System'
-        ctl.subspec 'System' do |system|
+    s.subspec 'CoreOSLayer' do |col|
+        col.source_files = 'Cocoa/CoreOSLayer/*.{h,m}'
+        col.default_subspec = 'System'
+        col.subspec 'System' do |system|
             system.source_files = 'Cocoa/CoreOSLayer/System/*.{h,m}'
         end
     end
