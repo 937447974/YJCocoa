@@ -38,6 +38,8 @@
 		8473AC151CE96CC4000E3580 /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
 		8473AC161CE96CD6000E3580 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
+		8473AC611CE9A5AD000E3580 /* YJCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionView.h; sourceTree = "<group>"; };
+		8473AC621CE9A5D7000E3580 /* YJUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		8473AC081CE96C94000E3580 /* CocoaTouchLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8473AC5F1CE9A5AD000E3580 /* UIKit */,
 				8473AC141CE96CB1000E3580 /* YJCocoaTouchLayer.h */,
 			);
 			path = CocoaTouchLayer;
@@ -155,6 +158,23 @@
 				8473AC101CE96C94000E3580 /* YJFoundation.m */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8473AC5F1CE9A5AD000E3580 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC601CE9A5AD000E3580 /* CollectionView */,
+				8473AC621CE9A5D7000E3580 /* YJUIKit.h */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		8473AC601CE9A5AD000E3580 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8473AC611CE9A5AD000E3580 /* YJCollectionView.h */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +403,7 @@
 				8473AB911CE969DB000E3580 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
-    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
@@ -41,6 +41,14 @@ Pod::Spec.new do |s|
     # 1 Cocoa Touch Layer
     s.subspec 'CocoaTouchLayer' do |ctl|
         ctl.source_files = 'Cocoa/CocoaTouchLayer/*.{h,m}'
+        ctl.subspec 'UIKit' do |uik|
+            uik.source_files = 'Cocoa/CocoaTouchLayer/UIKit/*.{h,m}'
+            uik.subspec 'CollectionView' do |cv|
+                cv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}'
+                cv.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                cv.dependency 'YJCocoa/CoreOSLayer/System'
+            end
+        end
     end
 
     # 2 Core Services Layer

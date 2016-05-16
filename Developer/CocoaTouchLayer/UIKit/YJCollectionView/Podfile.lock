@@ -1,0 +1,12 @@
+PODS:
+  - YJCocoa/CoreOSLayer/System (1.2.0)
+  - YJCocoa/CoreServicesLayer/Foundation (1.2.0)
+
+DEPENDENCIES:
+  - YJCocoa/CoreOSLayer/System
+  - YJCocoa/CoreServicesLayer/Foundation
+
+SPEC CHECKSUMS:
+  YJCocoa: e5357b8627399d7c62c776c411601c184568dc12
+
+COCOAPODS: 0.39.0
