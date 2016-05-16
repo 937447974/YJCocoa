@@ -15,6 +15,7 @@
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC121CE96C94000E3580 /* YJSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC0C1CE96C94000E3580 /* YJSystem.m */; };
 		8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC101CE96C94000E3580 /* YJFoundation.m */; };
+		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8473AC141CE96CB1000E3580 /* YJCocoaTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoaTouchLayer.h; sourceTree = "<group>"; };
 		8473AC151CE96CC4000E3580 /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
 		8473AC161CE96CD6000E3580 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
+		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		8473AB7A1CE969DB000E3580 /* YJCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				8473AC171CE96DEC000E3580 /* YJCocoa.podspec */,
 				8473AB7E1CE969DB000E3580 /* AppDelegate.h */,
 				8473AB7F1CE969DB000E3580 /* AppDelegate.m */,
 				8473AB811CE969DB000E3580 /* ViewController.h */,
@@ -214,6 +217,7 @@
 				8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */,
 				8473AB861CE969DB000E3580 /* Main.storyboard in Resources */,
+				8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

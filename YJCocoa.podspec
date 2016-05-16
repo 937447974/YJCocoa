@@ -35,16 +35,30 @@ Pod::Spec.new do |s|
 
     # ——— Subspecs
     s.source_files = 'Cocoa/*.{h,m}'
-    s.default_subspec = 'Foundation', 'System'
+    s.default_subspec = 'CocoaTouchLayer', 'CoreServicesLayer', 'CoreOSLayer'
 
-    #Core Services Layer
-    s.subspec 'Foundation' do |foundation|
-        foundation.source_files = 'Cocoa/Foundation/*.{h,m}'
+    # 1 Cocoa Touch Layer
+    s.subspec 'CocoaTouchLayer' do |ctl|
+        ctl.source_files = 'Cocoa/CocoaTouchLayer/*.{h,m}'
     end
 
-    #Core OS Layer
-    s.subspec 'System' do |system|
-        system.source_files = 'Cocoa/System/*.{h,m}'
+    # 2 Core Services Layer
+    s.subspec 'CoreServicesLayer' do |csl|
+        csl.source_files = 'Cocoa/CoreServicesLayer/*.{h,m}'
+        csl.default_subspec = 'Foundation'
+        csl.subspec 'Foundation' do |foundation|
+            foundation.source_files = 'Cocoa/CoreServicesLayer/Foundation/*.{h,m}'
+        end
     end
+
+    # 3 Core OS Layer
+    s.subspec 'CoreOSLayer' do |ctl|
+        ctl.source_files = 'Cocoa/CoreOSLayer/*.{h,m}'
+        ctl.default_subspec = 'Foundation', 'System'
+        ctl.subspec 'System' do |system|
+            system.source_files = 'Cocoa/CoreOSLayer/System/*.{h,m}'
+        end
+    end
+
 
 end
