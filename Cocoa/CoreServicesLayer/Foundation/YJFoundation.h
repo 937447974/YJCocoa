@@ -11,6 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "YJLog.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /** 获取类名，兼容OC和Swift*/

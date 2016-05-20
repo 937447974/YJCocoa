@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YJFoundation.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSArray *array = [NSArray arrayWithObjects:@"阳君", nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
+    NSSet *set = [NSSet setWithObjects:@"937447974", @"阳君", dict, nil];
+    array = [NSArray arrayWithObjects:@"阳君", dict, set, nil];
+    dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
+    NSLog(@"%@", dict);
 }
 
 - (void)didReceiveMemoryWarning {

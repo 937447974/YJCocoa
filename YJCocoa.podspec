@@ -56,6 +56,9 @@ Pod::Spec.new do |s|
         csl.source_files = 'Cocoa/CoreServicesLayer/*.{h,m}'
         csl.subspec 'Foundation' do |foundation|
             foundation.source_files = 'Cocoa/CoreServicesLayer/Foundation/*.{h,m}'
+            foundation.subspec 'Log' do |log|
+                log.source_files = 'Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}'
+            end
         end
     end
 

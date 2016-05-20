@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841F54031CEE9F370082227A /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54021CEE9F370082227A /* YJLog.m */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
 		8473AB831CE969DB000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB821CE969DB000E3580 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841F54011CEE9F370082227A /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
+		841F54021CEE9F370082227A /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AB7E1CE969DB000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841F54001CEE9F370082227A /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				841F54011CEE9F370082227A /* YJLog.h */,
+				841F54021CEE9F370082227A /* YJLog.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		8473AB6F1CE969DB000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 		8473AC0E1CE96C94000E3580 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				841F54001CEE9F370082227A /* Log */,
 				8473AC0F1CE96C94000E3580 /* YJFoundation.h */,
 				8473AC101CE96C94000E3580 /* YJFoundation.m */,
 			);
@@ -251,6 +264,7 @@
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				8473AC121CE96C94000E3580 /* YJSystem.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
+				841F54031CEE9F370082227A /* YJLog.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */,
 			);
