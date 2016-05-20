@@ -9,9 +9,4 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#ifndef YJCoreServicesLayer_h
-#define YJCoreServicesLayer_h
-
 #import "YJFoundation.h"
-
-#endif /* YJCoreServicesLayer_h */

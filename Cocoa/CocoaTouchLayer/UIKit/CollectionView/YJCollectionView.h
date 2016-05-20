@@ -9,8 +9,3 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#ifndef YJCollectionView_h
-#define YJCollectionView_h
-
-
-#endif /* YJCollectionView_h */

@@ -1,23 +1,45 @@
 PODS:
-  - YJCocoa (1.3.0):
-    - YJCocoa/CocoaTouchLayer (= 1.3.0)
-    - YJCocoa/CoreOSLayer (= 1.3.0)
-    - YJCocoa/CoreServicesLayer (= 1.3.0)
-  - YJCocoa/CocoaTouchLayer (1.3.0):
-    - YJCocoa/CocoaTouchLayer/UIKit (= 1.3.0)
-  - YJCocoa/CocoaTouchLayer/UIKit (1.3.0):
-    - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (= 1.3.0)
-  - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (1.3.0):
+  - YJCocoa (1.4.1):
+    - YJCocoa/CocoaTouchLayer (= 1.4.1)
+    - YJCocoa/CoreOSLayer (= 1.4.1)
+    - YJCocoa/CoreServicesLayer (= 1.4.1)
+  - YJCocoa/CocoaTouchLayer (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit (= 1.4.1)
+  - YJCocoa/CocoaTouchLayer/UIKit (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/PageView (= 1.4.1)
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (= 1.4.1)
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (1.4.1)
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
+  - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (1.4.1):
     - YJCocoa/CoreOSLayer/System
     - YJCocoa/CoreServicesLayer/Foundation
-  - YJCocoa/CoreOSLayer (1.3.0):
-    - YJCocoa/CoreOSLayer/System (= 1.3.0)
-  - YJCocoa/CoreOSLayer/System (1.3.0)
-  - YJCocoa/CoreServicesLayer (1.3.0):
-    - YJCocoa/CoreServicesLayer/Foundation (= 1.3.0)
-  - YJCocoa/CoreServicesLayer/Foundation (1.3.0):
-    - YJCocoa/CoreServicesLayer/Foundation/Log (= 1.3.0)
-  - YJCocoa/CoreServicesLayer/Foundation/Log (1.3.0)
+  - YJCocoa/CocoaTouchLayer/UIKit/PageView (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/PageView/Core (= 1.4.1)
+    - YJCocoa/CocoaTouchLayer/UIKit/PageView/ImagePage (= 1.4.1)
+  - YJCocoa/CocoaTouchLayer/UIKit/PageView/Core (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+    - YJCocoa/CoreOSLayer/System
+  - YJCocoa/CocoaTouchLayer/UIKit/PageView/ImagePage (1.4.1):
+    - YJCocoa/CocoaTouchLayer/UIKit/PageView/Core
+  - YJCocoa/CoreOSLayer (1.4.1):
+    - YJCocoa/CoreOSLayer/System (= 1.4.1)
+  - YJCocoa/CoreOSLayer/System (1.4.1)
+  - YJCocoa/CoreServicesLayer (1.4.1):
+    - YJCocoa/CoreServicesLayer/Foundation (= 1.4.1)
+  - YJCocoa/CoreServicesLayer/Foundation (1.4.1):
+    - YJCocoa/CoreServicesLayer/Foundation/Log (= 1.4.1)
+  - YJCocoa/CoreServicesLayer/Foundation/Log (1.4.1)
 
 DEPENDENCIES:
   - YJCocoa (from `https://github.com/937447974/YJCocoa.git`, branch `developer`)
@@ -29,10 +51,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   YJCocoa:
-    :commit: 72ae4db5da7ef2b4580c38440a740388de6a9bd7
+    :commit: e5708c35f278546a6be22fba03cba1a8bc00284c
     :git: https://github.com/937447974/YJCocoa.git
 
 SPEC CHECKSUMS:
-  YJCocoa: dbd91ca31b29ad3a51742f085e16cbc3a29c27ea
+  YJCocoa: 53a0052e93f6c36da0c805aa830b29a2324cef71
 
 COCOAPODS: 0.39.0
