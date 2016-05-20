@@ -5,3 +5,5 @@ use_frameworks!
 
 pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git', :branch => 'developer'
 
+#pod 'YJCocoa/CoreServicesLayer/Foundation/Log'
+
