@@ -53,15 +53,15 @@ Pod::Spec.new do |s|
                 al.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/*.{h,m}'
                 al.subspec 'UIView' do |v|
                     v.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView/*.{h,m}'
-                    v.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/LayoutAnchor'
+                    v.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor'
                 end
                 al.subspec 'UIViewController' do |vc|
                     vc.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/*.{h,m}'
-                    vc.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/LayoutAnchor'
+                    vc.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor'
                 end
                 al.subspec 'LayoutAnchor' do |la|
                     la.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/*.{h,m}'
-                    la.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/Extend'
+                    la.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend'
                 end
                 al.subspec 'Extend' do |ale|
                     ale.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}'
