@@ -2,19 +2,17 @@
 
 集合库
 
-#### YJCocoa/CoreServicesLayer/Foundation/Log
+---
+
+## YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+
+AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
+
+---
+
+## YJCocoa/CoreServicesLayer/Foundation/Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
-
-**效果图**
-
-优化前
-
-![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2015111701.png)
-
-优化后
-
-![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2015111702.png)
 
 ----------
 
@@ -42,6 +40,8 @@ YJ技术支持群：557445088
 | 2016-05-12 | 1.1.0 GCD封装 |
 | 2016-05-16 | 1.2.0 YJCocoa拆分，可根据自己的需求选择相关库 |
 | 2016-05-20 | 1.3.0 YJCocoa引入‘YJCocoa/CoreServicesLayer/Foundation/Log’。NSLog打印优化，Unicode自动转化为中文输出。|
+| 2016-05-21 | 1.4.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'。YJAutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。 |
+| 2016-05-21 | 1.4.1 YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
 
 ##Copyright
 
