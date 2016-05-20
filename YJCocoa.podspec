@@ -43,11 +43,6 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         ctl.source_files = 'Cocoa/CocoaTouchLayer/*.{h,m}'
         ctl.subspec 'UIKit' do |uik|
             uik.source_files = 'Cocoa/CocoaTouchLayer/UIKit/*.{h,m}'
-            uik.subspec 'CollectionView' do |cv|
-                cv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}'
-                cv.dependency 'YJCocoa/CoreServicesLayer/Foundation'
-                cv.dependency 'YJCocoa/CoreOSLayer/System'
-            end
             # AutoLayout
             uik.subspec 'AutoLayout' do |al|
                 al.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/*.{h,m}'
@@ -67,6 +62,14 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     ale.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
+            # CollectionView
+            uik.subspec 'CollectionView' do |cv|
+                cv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}'
+                cv.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                cv.dependency 'YJCocoa/CoreOSLayer/System'
+            end
+#
+
         end
     end
 

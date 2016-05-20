@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)reloadPageSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
+- (void)reloadDataSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
 
 /**
  *  根据模型刷新page(异步)
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)reloadPageAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
+- (void)reloadDataAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
 
 @end
 

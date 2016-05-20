@@ -36,12 +36,12 @@
 }
 
 #pragma mark - 刷新界面
-- (void)reloadPageSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+- (void)reloadDataSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     self.pageViewObject = pageViewObject;
     self.pageView = pageView;
 }
 
-- (void)reloadPageAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+- (void)reloadDataAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     self.pageViewObject = pageViewObject;
     self.pageView = pageView;
 }

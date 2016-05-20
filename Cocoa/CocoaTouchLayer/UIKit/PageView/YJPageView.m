@@ -106,9 +106,9 @@
     if (!pageVC.view.backgroundColor) {
         pageVC.view.backgroundColor = [UIColor whiteColor];
     }
-    [pageVC reloadPageSyncWithPageViewObject:pageVO pageView:self];
+    [pageVC reloadDataSyncWithPageViewObject:pageVO pageView:self];
     dispatch_async_UI(^{
-        [pageVC reloadPageAsyncWithPageViewObject:pageVC.pageViewObject pageView:pageVC.pageView];
+        [pageVC reloadDataAsyncWithPageViewObject:pageVC.pageViewObject pageView:pageVC.pageView];
     });
     return pageVC;
 }
