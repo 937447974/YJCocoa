@@ -12,5 +12,6 @@
 #ifndef YJCocoaTouchLayer_h
 #define YJCocoaTouchLayer_h
 
+#import "YJUIKit.h"
 
 #endif /* YJCocoaTouchLayer_h */

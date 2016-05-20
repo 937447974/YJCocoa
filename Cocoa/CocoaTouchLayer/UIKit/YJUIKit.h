@@ -13,5 +13,6 @@
 #define YJUIKit_h
 
 #import "YJCollectionView.h"
+#import "YJAutoLayout.h"
 
 #endif /* YJUIKit_h */
