@@ -16,6 +16,12 @@
 		841F543D1CEEB00E0082227A /* YJLayoutYAxisAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54301CEEB00E0082227A /* YJLayoutYAxisAnchor.m */; };
 		841F543E1CEEB00E0082227A /* UIView+YJViewLayoutConstraintCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54331CEEB00E0082227A /* UIView+YJViewLayoutConstraintCreation.m */; };
 		841F543F1CEEB00E0082227A /* UIViewController+YJLayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54361CEEB00E0082227A /* UIViewController+YJLayoutSupport.m */; };
+		841F54601CEED7350082227A /* YJImagePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54561CEED7350082227A /* YJImagePageModel.m */; };
+		841F54611CEED7350082227A /* YJImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54581CEED7350082227A /* YJImagePageViewController.m */; };
+		841F54621CEED7350082227A /* YJImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841F54591CEED7350082227A /* YJImagePageViewController.xib */; };
+		841F54631CEED7350082227A /* YJPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F545B1CEED7350082227A /* YJPageView.m */; };
+		841F54641CEED7350082227A /* YJPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F545D1CEED7350082227A /* YJPageViewController.m */; };
+		841F54651CEED7350082227A /* YJPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F545F1CEED7350082227A /* YJPageViewObject.m */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
 		8473AB831CE969DB000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB821CE969DB000E3580 /* ViewController.m */; };
@@ -47,6 +53,17 @@
 		841F54351CEEB00E0082227A /* UIViewController+YJLayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJLayoutSupport.h"; sourceTree = "<group>"; };
 		841F54361CEEB00E0082227A /* UIViewController+YJLayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJLayoutSupport.m"; sourceTree = "<group>"; };
 		841F54371CEEB00E0082227A /* YJAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAutoLayout.h; sourceTree = "<group>"; };
+		841F54551CEED7350082227A /* YJImagePageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJImagePageModel.h; sourceTree = "<group>"; };
+		841F54561CEED7350082227A /* YJImagePageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJImagePageModel.m; sourceTree = "<group>"; };
+		841F54571CEED7350082227A /* YJImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJImagePageViewController.h; sourceTree = "<group>"; };
+		841F54581CEED7350082227A /* YJImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJImagePageViewController.m; sourceTree = "<group>"; };
+		841F54591CEED7350082227A /* YJImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJImagePageViewController.xib; sourceTree = "<group>"; };
+		841F545A1CEED7350082227A /* YJPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageView.h; sourceTree = "<group>"; };
+		841F545B1CEED7350082227A /* YJPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageView.m; sourceTree = "<group>"; };
+		841F545C1CEED7350082227A /* YJPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewController.h; sourceTree = "<group>"; };
+		841F545D1CEED7350082227A /* YJPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewController.m; sourceTree = "<group>"; };
+		841F545E1CEED7350082227A /* YJPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewObject.h; sourceTree = "<group>"; };
+		841F545F1CEED7350082227A /* YJPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewObject.m; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AB7E1CE969DB000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +161,32 @@
 				841F54361CEEB00E0082227A /* UIViewController+YJLayoutSupport.m */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		841F54531CEED7350082227A /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				841F54541CEED7350082227A /* ImagePage */,
+				841F545A1CEED7350082227A /* YJPageView.h */,
+				841F545B1CEED7350082227A /* YJPageView.m */,
+				841F545C1CEED7350082227A /* YJPageViewController.h */,
+				841F545D1CEED7350082227A /* YJPageViewController.m */,
+				841F545E1CEED7350082227A /* YJPageViewObject.h */,
+				841F545F1CEED7350082227A /* YJPageViewObject.m */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		841F54541CEED7350082227A /* ImagePage */ = {
+			isa = PBXGroup;
+			children = (
+				841F54551CEED7350082227A /* YJImagePageModel.h */,
+				841F54561CEED7350082227A /* YJImagePageModel.m */,
+				841F54571CEED7350082227A /* YJImagePageViewController.h */,
+				841F54581CEED7350082227A /* YJImagePageViewController.m */,
+				841F54591CEED7350082227A /* YJImagePageViewController.xib */,
+			);
+			path = ImagePage;
 			sourceTree = "<group>";
 		};
 		8473AB6F1CE969DB000E3580 = {
@@ -259,6 +302,7 @@
 			children = (
 				841F54221CEEB00E0082227A /* AutoLayout */,
 				8473AC601CE9A5AD000E3580 /* CollectionView */,
+				841F54531CEED7350082227A /* PageView */,
 				8473AC621CE9A5D7000E3580 /* YJUIKit.h */,
 			);
 			path = UIKit;
@@ -329,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841F54621CEED7350082227A /* YJImagePageViewController.xib in Resources */,
 				8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */,
 				8473AB861CE969DB000E3580 /* Main.storyboard in Resources */,
@@ -347,15 +392,20 @@
 				8473AC121CE96C94000E3580 /* YJSystem.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				841F54031CEE9F370082227A /* YJLog.m in Sources */,
+				841F54641CEED7350082227A /* YJPageViewController.m in Sources */,
 				841F543B1CEEB00E0082227A /* YJLayoutSupport.m in Sources */,
 				841F543F1CEEB00E0082227A /* UIViewController+YJLayoutSupport.m in Sources */,
+				841F54601CEED7350082227A /* YJImagePageModel.m in Sources */,
 				841F54381CEEB00E0082227A /* NSLayoutConstraint+YJExtend.m in Sources */,
+				841F54611CEED7350082227A /* YJImagePageViewController.m in Sources */,
 				841F543D1CEEB00E0082227A /* YJLayoutYAxisAnchor.m in Sources */,
 				841F543C1CEEB00E0082227A /* YJLayoutXAxisAnchor.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				841F543A1CEEB00E0082227A /* YJLayoutDimension.m in Sources */,
+				841F54631CEED7350082227A /* YJPageView.m in Sources */,
 				841F543E1CEEB00E0082227A /* UIView+YJViewLayoutConstraintCreation.m in Sources */,
 				8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */,
+				841F54651CEED7350082227A /* YJPageViewObject.m in Sources */,
 				841F54391CEEB00E0082227A /* YJLayoutAnchor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

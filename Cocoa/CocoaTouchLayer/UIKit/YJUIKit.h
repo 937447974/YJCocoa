@@ -15,5 +15,7 @@
 #import "YJCollectionView.h"
 // NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 #import "YJAutoLayout.h"
+// 主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
+#import "YJPageView.h"
 
 #endif /* YJUIKit_h */

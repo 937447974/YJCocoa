@@ -1,0 +1,19 @@
+PODS:
+  - YJAutoLayout (1.1.0):
+    - YJAutoLayout/Core/UIView (= 1.1.0)
+    - YJAutoLayout/Core/UIViewController (= 1.1.0)
+  - YJAutoLayout/Core/LayoutAnchor (1.1.0):
+    - YJAutoLayout/Extend
+  - YJAutoLayout/Core/UIView (1.1.0):
+    - YJAutoLayout/Core/LayoutAnchor
+  - YJAutoLayout/Core/UIViewController (1.1.0):
+    - YJAutoLayout/Core/LayoutAnchor
+  - YJAutoLayout/Extend (1.1.0)
+
+DEPENDENCIES:
+  - YJAutoLayout
+
+SPEC CHECKSUMS:
+  YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
+
+COCOAPODS: 0.39.0
