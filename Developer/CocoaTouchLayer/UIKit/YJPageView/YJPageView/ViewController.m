@@ -14,6 +14,7 @@
 
 #import "YJImagePageViewController.h"
 #import "YJPageView.h"
+#import "YJAutoLayout.h"
 
 @interface ViewController ()
 

@@ -10,6 +10,7 @@
 //
 
 #import "YJPageView.h"
+#import "YJAutoLayout.h"
 
 @interface YJPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
