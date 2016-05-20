@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
@@ -68,8 +68,17 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 cv.dependency 'YJCocoa/CoreServicesLayer/Foundation'
                 cv.dependency 'YJCocoa/CoreOSLayer/System'
             end
-#
-
+            # PageView
+            uik.subspec 'PageView' do |pv|
+                pv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/*.{h,m}'
+                pv.dependency 'YJCocoa/CoreOSLayer/System'
+                pv.dependency 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout'
+                pv.subspec 'ImagePage' do |ip|
+                    ip.resources = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.xib'
+                    ip.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.{h,m}'
+                    ip.dependency 'YJPageView/Core'
+                end
+            end
         end
     end
 
