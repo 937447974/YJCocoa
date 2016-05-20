@@ -1,15 +1,23 @@
 PODS:
-  - YJCocoa (1.2.0):
-    - YJCocoa/CocoaTouchLayer (= 1.2.0)
-    - YJCocoa/CoreOSLayer (= 1.2.0)
-    - YJCocoa/CoreServicesLayer (= 1.2.0)
-  - YJCocoa/CocoaTouchLayer (1.2.0)
-  - YJCocoa/CoreOSLayer (1.2.0):
-    - YJCocoa/CoreOSLayer/System (= 1.2.0)
-  - YJCocoa/CoreOSLayer/System (1.2.0)
-  - YJCocoa/CoreServicesLayer (1.2.0):
-    - YJCocoa/CoreServicesLayer/Foundation (= 1.2.0)
-  - YJCocoa/CoreServicesLayer/Foundation (1.2.0)
+  - YJCocoa (1.3.0):
+    - YJCocoa/CocoaTouchLayer (= 1.3.0)
+    - YJCocoa/CoreOSLayer (= 1.3.0)
+    - YJCocoa/CoreServicesLayer (= 1.3.0)
+  - YJCocoa/CocoaTouchLayer (1.3.0):
+    - YJCocoa/CocoaTouchLayer/UIKit (= 1.3.0)
+  - YJCocoa/CocoaTouchLayer/UIKit (1.3.0):
+    - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (= 1.3.0)
+  - YJCocoa/CocoaTouchLayer/UIKit/CollectionView (1.3.0):
+    - YJCocoa/CoreOSLayer/System
+    - YJCocoa/CoreServicesLayer/Foundation
+  - YJCocoa/CoreOSLayer (1.3.0):
+    - YJCocoa/CoreOSLayer/System (= 1.3.0)
+  - YJCocoa/CoreOSLayer/System (1.3.0)
+  - YJCocoa/CoreServicesLayer (1.3.0):
+    - YJCocoa/CoreServicesLayer/Foundation (= 1.3.0)
+  - YJCocoa/CoreServicesLayer/Foundation (1.3.0):
+    - YJCocoa/CoreServicesLayer/Foundation/Log (= 1.3.0)
+  - YJCocoa/CoreServicesLayer/Foundation/Log (1.3.0)
 
 DEPENDENCIES:
   - YJCocoa (from `https://github.com/937447974/YJCocoa.git`, branch `developer`)
@@ -21,10 +29,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   YJCocoa:
-    :commit: b9d57735bff842870acd645e040f6f3d95e3a502
+    :commit: 3d031a4f19455665522acbe7f05b240547dc40df
     :git: https://github.com/937447974/YJCocoa.git
 
 SPEC CHECKSUMS:
-  YJCocoa: 110d8c2c2a19e6dc8b0e43905efe7e59570c82f0
+  YJCocoa: dbd91ca31b29ad3a51742f085e16cbc3a29c27ea
 
 COCOAPODS: 0.39.0
