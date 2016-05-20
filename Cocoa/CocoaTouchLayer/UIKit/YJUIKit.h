@@ -13,6 +13,7 @@
 #define YJUIKit_h
 
 #import "YJCollectionView.h"
+// NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 #import "YJAutoLayout.h"
 
 #endif /* YJUIKit_h */
