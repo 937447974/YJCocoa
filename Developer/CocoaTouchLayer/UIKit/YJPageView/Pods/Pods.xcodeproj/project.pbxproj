@@ -10,6 +10,21 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>001DFE828CD9B5AC595417F13915E043</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>YJLayoutXAxisAnchor.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutXAxisAnchor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>037C0CA694176A3C0915F62C9D20B3E6</key>
 		<dict>
 			<key>children</key>
@@ -23,19 +38,47 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>081C8E43666FBD349F08E8B4E9DBDAE0</key>
+		<key>050703607EDF4494009FC0F8544BE10D</key>
 		<dict>
-			<key>fileRef</key>
-			<string>42A10B503D930067B4BCA032D4ABC4DE</string>
+			<key>children</key>
+			<array>
+				<string>BBE7AAA69679510B331EA794CAE9E0FA</string>
+				<string>062EE8EAD4C6C656F896A5708EC600DA</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Extend</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>05E1DFCB30C1BBECA3E0107826041442</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA7826265066E722C1ED00DC16F92807</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>CocoaTouchLayer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>062EE8EAD4C6C656F896A5708EC600DA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSLayoutConstraint+YJExtend.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/NSLayoutConstraint+YJExtend.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>10749B1549649E292906C6FDDA6714F9</key>
 		<dict>
@@ -72,15 +115,29 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
+		<key>1428547445808F3BBFC8113FE18C1C19</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E40822380536E82BCA022A8710E2283E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>15B352BFE49123417BC1ACF12D687AA9</key>
 		<dict>
 			<key>buildConfigurationList</key>
 			<string>7FB9338B58A7D520D51EB2B8AC1673C5</string>
 			<key>buildPhases</key>
 			<array>
-				<string>33165A37F69E4F3116EDD623A50C398E</string>
+				<string>EA86F11ACCE60E8E9BCB9657C9F10DBC</string>
 				<string>437B2DA7EEB9ECD932E60691EB0203AF</string>
-				<string>28A9156944CF59C4916793A5149D51FA</string>
+				<string>D2D4D92A513E94DB78FDF07082EF9056</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -97,6 +154,19 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
+		<key>17020C6765E90582974CC6DDFE270669</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>YJCocoa-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>18340F12838DEE43507667CC74401EB1</key>
 		<dict>
 			<key>children</key>
@@ -111,20 +181,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1B8EF16BEAD22C0DDA49D2F7134192E9</key>
+		<key>19E3A7E874736675639AC6CAB00CF5F7</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>C3503572A158C849028CB060B0446170</string>
-			</array>
+			<key>fileRef</key>
+			<string>BBE7AAA69679510B331EA794CAE9E0FA</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UIKit</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
-		<key>1BD538C669A8D80E727D69224333A2C4</key>
+		<key>1A9C7353FD18BDC70F8C0F4DDFC4E68D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -133,28 +204,18 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>YJLayoutYAxisAnchor.h</string>
+			<string>YJLayoutAnchor.h</string>
 			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutYAxisAnchor.h</string>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutAnchor.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2324BF9826D82572CC78E84AD94B004C</key>
+		<key>1BBB2D04A07C6EC96D7237238AC13E7A</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>9A95CF8AF23316666DFFE803A836D4B8</string>
-				<string>D1930558C3BB5E98891130DA79598AA5</string>
-				<string>F3EBCE5E90AB14B35C399DB9C37045A9</string>
-			</array>
+			<key>fileRef</key>
+			<string>062EE8EAD4C6C656F896A5708EC600DA</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/YJCocoa</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>272643F56613CA0D336AE3DBF19DC404</key>
 		<dict>
@@ -169,26 +230,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>28A9156944CF59C4916793A5149D51FA</key>
+		<key>2D342E34B7747D0F1559B15764050595</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C14B7ABD21646E68B255846E6CFFA9D7</string>
-				<string>547765F82AB4EB68ED5158125C5D1EFF</string>
-				<string>51C4C986A1EB11536362C35266E4841C</string>
-				<string>32C65AC74E61823AF590BDD38AA59291</string>
-				<string>081C8E43666FBD349F08E8B4E9DBDAE0</string>
-				<string>E4A8CBC91AF5A25360744A7F08CDDDE6</string>
-				<string>82BF508E26DDE7B6985A0424A33F8355</string>
-				<string>41E369A00A6C2A099411734E61032289</string>
-				<string>A52F2FB149852CEA8EB7F8A50C07FDEE</string>
-			</array>
+			<key>fileRef</key>
+			<string>001DFE828CD9B5AC595417F13915E043</string>
 			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
 		<dict>
@@ -204,40 +251,31 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>32C65AC74E61823AF590BDD38AA59291</key>
+		<key>2FA68FB3534A6459DBA177EE3CBCF2DC</key>
 		<dict>
-			<key>fileRef</key>
-			<string>736496E8BD71BAF0FBFFE9133CA4F847</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>YJCocoa-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>33165A37F69E4F3116EDD623A50C398E</key>
+		<key>36B181D556A5451D6DFE3156AE6AB0D3</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BADE318CF4F9B55A86053FFCCE7C742E</string>
-				<string>8476D26D4E29C203D62D0A26A5EB35D1</string>
-				<string>A95A4B31ADC8E72D7ACE569D6DC4C3DE</string>
-				<string>FF3585EE346062285B7AE911AF1B9D66</string>
-				<string>ED422990831E643B2746A0F1756AD121</string>
-				<string>8AF589B5D521E44267B934066B3A14D6</string>
-				<string>468567282352D683BF78DE489520BE34</string>
-				<string>997B2D2B9E4E901941292C2D1DBA1BBB</string>
-				<string>64C2AC596C1F2EAA4F456E6DEB867E3D</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>YJCocoa.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>37DB56D75062CC75FCB0966E1C6E8A8E</key>
 		<dict>
@@ -252,19 +290,58 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3A38FC3B83821D370E4519F0C4AAD8C6</key>
+		<key>3A90DD3EE0F9D8F4E7951B84BF3D7413</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UIView+YJViewLayoutConstraintCreation.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView/UIView+YJViewLayoutConstraintCreation.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3C17C696DCA849E97FB2684515A524ED</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>86C0B4642B1ED532E235E47792A0E107</string>
-				<string>90EDB13A6F30059CAA37B073C2F6F2ED</string>
+				<string>36B181D556A5451D6DFE3156AE6AB0D3</string>
+				<string>2FA68FB3534A6459DBA177EE3CBCF2DC</string>
+				<string>17020C6765E90582974CC6DDFE270669</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Extend</string>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/YJCocoa</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D3C111A92CCD9E92DA6D6EE6376ACAC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3A90DD3EE0F9D8F4E7951B84BF3D7413</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F76907E23DBEBE59EF07379C378BF9B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>60EFA309193AF5A0ADE0F72218A4F6BA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>4124E7ABE6981E9661A32DBE40068B38</key>
 		<dict>
@@ -298,49 +375,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>41E369A00A6C2A099411734E61032289</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A75FF04B93EDBB13A1C5B1ADFD949E48</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>42089F424018767D96329BADF945F4FF</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8B6BF0031367FF5CBD87747ED047913C</string>
-				<string>711045EEE42B4C59D1F46AF0DF7AC157</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UIViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>42A10B503D930067B4BCA032D4ABC4DE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>YJLayoutAnchor.h</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutAnchor.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>433CD3331B6C3787F473C941B61FC68F</key>
 		<dict>
 			<key>children</key>
@@ -371,7 +405,7 @@
 		<key>45C2990BCDF18BB98E528F1640DED8E4</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>9A95CF8AF23316666DFFE803A836D4B8</string>
+			<string>36B181D556A5451D6DFE3156AE6AB0D3</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -402,25 +436,33 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>468567282352D683BF78DE489520BE34</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7DC3CEE2C487A2581A4C578A3A6B3A3A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4DA60D689F4DBD381FB0B1445C93FCBE</key>
+		<key>477A3119477B419D191CA4FCBA8153D7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>YJLayoutXAxisAnchor.m</string>
+			<string>YJLayoutSupport.h</string>
 			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutXAxisAnchor.m</string>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutSupport.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>491D61EB8455494D858F70573458CFD3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>UIViewController+YJLayoutSupport.h</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/UIViewController+YJLayoutSupport.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -437,21 +479,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>51C4C986A1EB11536362C35266E4841C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8B6BF0031367FF5CBD87747ED047913C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>52D8C38C179A88746350FEC67EC908DD</key>
+		<key>4FBF20B142E72CD8B757A6B1C94F2CAF</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -466,6 +494,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>51CF5B259CC245C11DCEA1C60E8A1F6E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9E73199BAEA3823D3D59F303125149E2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>53460A6ADAC05E0791AC97791E8155EA</key>
 		<dict>
 			<key>isa</key>
@@ -477,25 +512,10 @@
 			<key>targetProxy</key>
 			<string>9BA5DAC73194760F57BDA9892D658122</string>
 		</dict>
-		<key>53EE2D39AA333BE2FC55E5E1346871AF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>YJLayoutDimension.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutDimension.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>5404691EE01E88564B05419D33B3DA67</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>9A95CF8AF23316666DFFE803A836D4B8</string>
+			<string>36B181D556A5451D6DFE3156AE6AB0D3</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -526,10 +546,24 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>547765F82AB4EB68ED5158125C5D1EFF</key>
+		<key>5AF57C552172479C0230BDE1E480F5C0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4FBF20B142E72CD8B757A6B1C94F2CAF</string>
+				<string>3A90DD3EE0F9D8F4E7951B84BF3D7413</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UIView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5C5ECB042200505F12701A3E2B0DA600</key>
 		<dict>
 			<key>fileRef</key>
-			<string>52D8C38C179A88746350FEC67EC908DD</string>
+			<string>9E7011F59D9CFEE512EB9BFB78C4FDBD</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -539,21 +573,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>559C56CB16607597E26B2E2B6E5FAFE5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>YJLayoutAnchor.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutAnchor.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>5FE83C89068E8079500BCF4B837E97FE</key>
 		<dict>
@@ -569,10 +588,56 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>64C2AC596C1F2EAA4F456E6DEB867E3D</key>
+		<key>5FED21696AC0E7F75EC2D7FE79B9F745</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>05E1DFCB30C1BBECA3E0107826041442</string>
+				<string>C6B749BA491A7D2E9846AD916C251BD7</string>
+				<string>3C17C696DCA849E97FB2684515A524ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>YJCocoa</string>
+			<key>path</key>
+			<string>YJCocoa</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>60EFA309193AF5A0ADE0F72218A4F6BA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>YJLayoutYAxisAnchor.h</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutYAxisAnchor.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>63C464F475D7467BBB56D76F85C7FED1</key>
 		<dict>
 			<key>fileRef</key>
-			<string>7BDBE8D138C4BE939BC5C3CC349007C4</string>
+			<string>4FBF20B142E72CD8B757A6B1C94F2CAF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>64D4C9CF5A80B2CF572E33D6A7EA0CDA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5E72B5D1A6E8F896954D4DFCCF109FF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -662,20 +727,40 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6B5D40984252BE384D99AB6D348187CD</key>
+		<key>6BD5787D8BC2785BDB9BA2CFCDCBF97C</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>83339C57D41D7848BB758CF769F92624</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>6C3BB17A0E7E5B320DD1865C9C2CC79F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>491D61EB8455494D858F70573458CFD3</string>
+				<string>E3890A6CDCA7B41CAF9A6FD998650F56</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>YJLayoutSupport.h</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutSupport.h</string>
+			<string>UIViewController</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6D4FD59CA363D6BF0877067C08555425</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E3890A6CDCA7B41CAF9A6FD998650F56</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>6E7E5AF37923BFA48D6994B9BFC6535F</key>
 		<dict>
@@ -690,7 +775,7 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>6F9EB5CF6189A3FBE0C7DC1A5C403174</key>
+		<key>748D34C95BC1B44FAE7EF87A27513FB7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -699,39 +784,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>UIView+YJViewLayoutConstraintCreation.m</string>
+			<string>YJLayoutYAxisAnchor.m</string>
 			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView/UIView+YJViewLayoutConstraintCreation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>711045EEE42B4C59D1F46AF0DF7AC157</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UIViewController+YJLayoutSupport.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/UIViewController+YJLayoutSupport.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>736496E8BD71BAF0FBFFE9133CA4F847</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>YJAutoLayout.h</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/YJAutoLayout.h</string>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutYAxisAnchor.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -764,48 +819,18 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>7BDBE8D138C4BE939BC5C3CC349007C4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>YJLayoutYAxisAnchor.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutYAxisAnchor.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
 				<string>433CD3331B6C3787F473C941B61FC68F</string>
-				<string>EC3C916D52CA1F1BFD0371491B077A4E</string>
+				<string>D46E731C8888F3CEF6DEAF46DE8B6BD1</string>
 				<string>5FE83C89068E8079500BCF4B837E97FE</string>
 				<string>037C0CA694176A3C0915F62C9D20B3E6</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DC3CEE2C487A2581A4C578A3A6B3A3A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>YJLayoutSupport.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutSupport.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -823,28 +848,7 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>82BF508E26DDE7B6985A0424A33F8355</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6B5D40984252BE384D99AB6D348187CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>8476D26D4E29C203D62D0A26A5EB35D1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6F9EB5CF6189A3FBE0C7DC1A5C403174</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>86C0B4642B1ED532E235E47792A0E107</key>
+		<key>83339C57D41D7848BB758CF769F92624</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -853,25 +857,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>NSLayoutConstraint+YJExtend.h</string>
+			<string>YJLayoutXAxisAnchor.h</string>
 			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/NSLayoutConstraint+YJExtend.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>88A83D4D16AB1830DEA72EFD7C96AE28</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D6D2F136CC32C2197739BE0851D4F35D</string>
-				<string>2324BF9826D82572CC78E84AD94B004C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>YJCocoa</string>
-			<key>path</key>
-			<string>YJCocoa</string>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutXAxisAnchor.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -901,58 +889,6 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>8AF589B5D521E44267B934066B3A14D6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>53EE2D39AA333BE2FC55E5E1346871AF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8B6BF0031367FF5CBD87747ED047913C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UIViewController+YJLayoutSupport.h</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/UIViewController+YJLayoutSupport.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>90EDB13A6F30059CAA37B073C2F6F2ED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NSLayoutConstraint+YJExtend.m</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/NSLayoutConstraint+YJExtend.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>97345AF7E85180CACABBEAA35FBFEAAE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>YJLayoutDimension.h</string>
-			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutDimension.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9847F92803953FBB43E7D143CD21A6C6</key>
 		<dict>
 			<key>fileRef</key>
@@ -973,25 +909,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>997B2D2B9E4E901941292C2D1DBA1BBB</key>
+		<key>9907239684CDAFBE36A3D68445722355</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4DA60D689F4DBD381FB0B1445C93FCBE</string>
+			<string>A83E3E59397EB390D8D2777535780E47</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A95CF8AF23316666DFFE803A836D4B8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>YJCocoa.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>9BA5DAC73194760F57BDA9892D658122</key>
 		<dict>
@@ -1005,6 +928,36 @@
 			<string>15B352BFE49123417BC1ACF12D687AA9</string>
 			<key>remoteInfo</key>
 			<string>YJCocoa</string>
+		</dict>
+		<key>9E7011F59D9CFEE512EB9BFB78C4FDBD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>YJSystem.h</string>
+			<key>path</key>
+			<string>Cocoa/CoreOSLayer/System/YJSystem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9E73199BAEA3823D3D59F303125149E2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>YJLayoutDimension.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutDimension.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A14E2444F162A20E3776820E0ADFFB52</key>
 		<dict>
@@ -1087,53 +1040,71 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A52F2FB149852CEA8EB7F8A50C07FDEE</key>
+		<key>A3878310F2B3F3AB58E987A6F8E4D31A</key>
 		<dict>
-			<key>fileRef</key>
-			<string>1BD538C669A8D80E727D69224333A2C4</string>
+			<key>children</key>
+			<array>
+				<string>9E7011F59D9CFEE512EB9BFB78C4FDBD</string>
+				<string>B30A7A8804091CB1E7DB25E1FDB35CEB</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>System</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A75FF04B93EDBB13A1C5B1ADFD949E48</key>
+		<key>A83E3E59397EB390D8D2777535780E47</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>YJLayoutXAxisAnchor.h</string>
+			<string>YJLayoutSupport.m</string>
 			<key>path</key>
-			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutXAxisAnchor.h</string>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutSupport.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A95A4B31ADC8E72D7ACE569D6DC4C3DE</key>
+		<key>A9ABD1F18492A6F2DE80DC84B572F721</key>
 		<dict>
 			<key>fileRef</key>
-			<string>711045EEE42B4C59D1F46AF0DF7AC157</string>
+			<string>748D34C95BC1B44FAE7EF87A27513FB7</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>ADB11D2CF363150137A1E2AD0DF5CE63</key>
+		<key>AA511853E4DB400EBF0ABBB9DFF4FA40</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>52D8C38C179A88746350FEC67EC908DD</string>
-				<string>6F9EB5CF6189A3FBE0C7DC1A5C403174</string>
+				<string>E40822380536E82BCA022A8710E2283E</string>
+				<string>050703607EDF4494009FC0F8544BE10D</string>
+				<string>E1DA2B7D9C0E74DF6AE98B48079496CB</string>
+				<string>5AF57C552172479C0230BDE1E480F5C0</string>
+				<string>6C3BB17A0E7E5B320DD1865C9C2CC79F</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>UIView</string>
+			<string>AutoLayout</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B30A7A8804091CB1E7DB25E1FDB35CEB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>YJSystem.m</string>
+			<key>path</key>
+			<string>Cocoa/CoreOSLayer/System/YJSystem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1158,6 +1129,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>B7ED43DFD72344601498AF470F1A13CF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>YJLayoutDimension.h</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutDimension.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1175,12 +1161,33 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
-		<key>BADE318CF4F9B55A86053FFCCE7C742E</key>
+		<key>BA7826265066E722C1ED00DC16F92807</key>
 		<dict>
-			<key>fileRef</key>
-			<string>90EDB13A6F30059CAA37B073C2F6F2ED</string>
+			<key>children</key>
+			<array>
+				<string>AA511853E4DB400EBF0ABBB9DFF4FA40</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UIKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBE7AAA69679510B331EA794CAE9E0FA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSLayoutConstraint+YJExtend.h</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/NSLayoutConstraint+YJExtend.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C091D6834C8B8D4A7A4CB667BE0ECA94</key>
 		<dict>
@@ -1188,37 +1195,6 @@
 			<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>C14B7ABD21646E68B255846E6CFFA9D7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86C0B4642B1ED532E235E47792A0E107</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C3503572A158C849028CB060B0446170</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>736496E8BD71BAF0FBFFE9133CA4F847</string>
-				<string>3A38FC3B83821D370E4519F0C4AAD8C6</string>
-				<string>F4478B58ACF506026748ED2CF03F3328</string>
-				<string>ADB11D2CF363150137A1E2AD0DF5CE63</string>
-				<string>42089F424018767D96329BADF945F4FF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>AutoLayout</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</key>
 		<dict>
@@ -1246,6 +1222,26 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>C6B749BA491A7D2E9846AD916C251BD7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A3878310F2B3F3AB58E987A6F8E4D31A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>CoreOSLayer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C7A5B358C182083949756E4E348990E6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2FA68FB3534A6459DBA177EE3CBCF2DC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>CDE28EA3C226A5C0B45A9D1959987045</key>
 		<dict>
 			<key>fileRef</key>
@@ -1253,18 +1249,27 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>D1930558C3BB5E98891130DA79598AA5</key>
+		<key>D2D4D92A513E94DB78FDF07082EF9056</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>19E3A7E874736675639AC6CAB00CF5F7</string>
+				<string>63C464F475D7467BBB56D76F85C7FED1</string>
+				<string>F9D062B9B05BCCFEDEE16D3D3C213448</string>
+				<string>1428547445808F3BBFC8113FE18C1C19</string>
+				<string>E7D672FF60D8BD17E64108521B8BB178</string>
+				<string>DB607F2BFD0CCBD43A889D7CF101134C</string>
+				<string>E52A2848FFC94CFCA17737B9F29D180C</string>
+				<string>6BD5787D8BC2785BDB9BA2CFCDCBF97C</string>
+				<string>3F76907E23DBEBE59EF07379C378BF9B</string>
+				<string>5C5ECB042200505F12701A3E2B0DA600</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>YJCocoa-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
@@ -1305,23 +1310,23 @@
 				<string>15B352BFE49123417BC1ACF12D687AA9</string>
 			</array>
 		</dict>
-		<key>D6D2F136CC32C2197739BE0851D4F35D</key>
+		<key>D46E731C8888F3CEF6DEAF46DE8B6BD1</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>1B8EF16BEAD22C0DDA49D2F7134192E9</string>
+				<string>5FED21696AC0E7F75EC2D7FE79B9F745</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>CocoaTouchLayer</string>
+			<string>Pods</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E4A8CBC91AF5A25360744A7F08CDDDE6</key>
+		<key>DB607F2BFD0CCBD43A889D7CF101134C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>97345AF7E85180CACABBEAA35FBFEAAE</string>
+			<string>B7ED43DFD72344601498AF470F1A13CF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1331,6 +1336,87 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>E1DA2B7D9C0E74DF6AE98B48079496CB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1A9C7353FD18BDC70F8C0F4DDFC4E68D</string>
+				<string>E5E72B5D1A6E8F896954D4DFCCF109FF</string>
+				<string>B7ED43DFD72344601498AF470F1A13CF</string>
+				<string>9E73199BAEA3823D3D59F303125149E2</string>
+				<string>477A3119477B419D191CA4FCBA8153D7</string>
+				<string>A83E3E59397EB390D8D2777535780E47</string>
+				<string>83339C57D41D7848BB758CF769F92624</string>
+				<string>001DFE828CD9B5AC595417F13915E043</string>
+				<string>60EFA309193AF5A0ADE0F72218A4F6BA</string>
+				<string>748D34C95BC1B44FAE7EF87A27513FB7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>LayoutAnchor</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E3890A6CDCA7B41CAF9A6FD998650F56</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UIViewController+YJLayoutSupport.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/UIViewController+YJLayoutSupport.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E40822380536E82BCA022A8710E2283E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>YJAutoLayout.h</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/YJAutoLayout.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E52A2848FFC94CFCA17737B9F29D180C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>477A3119477B419D191CA4FCBA8153D7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E5E72B5D1A6E8F896954D4DFCCF109FF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>YJLayoutAnchor.m</string>
+			<key>path</key>
+			<string>Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/YJLayoutAnchor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E693E14CA089F44A38851420CC1EAE29</key>
 		<dict>
@@ -1345,23 +1431,46 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>EC3C916D52CA1F1BFD0371491B077A4E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>88A83D4D16AB1830DEA72EFD7C96AE28</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ED422990831E643B2746A0F1756AD121</key>
+		<key>E7D672FF60D8BD17E64108521B8BB178</key>
 		<dict>
 			<key>fileRef</key>
-			<string>559C56CB16607597E26B2E2B6E5FAFE5</string>
+			<string>1A9C7353FD18BDC70F8C0F4DDFC4E68D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>EA86F11ACCE60E8E9BCB9657C9F10DBC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1BBB2D04A07C6EC96D7237238AC13E7A</string>
+				<string>3D3C111A92CCD9E92DA6D6EE6376ACAC</string>
+				<string>6D4FD59CA363D6BF0877067C08555425</string>
+				<string>C7A5B358C182083949756E4E348990E6</string>
+				<string>64D4C9CF5A80B2CF572E33D6A7EA0CDA</string>
+				<string>51CF5B259CC245C11DCEA1C60E8A1F6E</string>
+				<string>9907239684CDAFBE36A3D68445722355</string>
+				<string>2D342E34B7747D0F1559B15764050595</string>
+				<string>A9ABD1F18492A6F2DE80DC84B572F721</string>
+				<string>EC1996F94A9AB3CC3771ED1E6106905B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>EC1996F94A9AB3CC3771ED1E6106905B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B30A7A8804091CB1E7DB25E1FDB35CEB</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -1397,47 +1506,19 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>F3EBCE5E90AB14B35C399DB9C37045A9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>YJCocoa-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F4478B58ACF506026748ED2CF03F3328</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>42A10B503D930067B4BCA032D4ABC4DE</string>
-				<string>559C56CB16607597E26B2E2B6E5FAFE5</string>
-				<string>97345AF7E85180CACABBEAA35FBFEAAE</string>
-				<string>53EE2D39AA333BE2FC55E5E1346871AF</string>
-				<string>6B5D40984252BE384D99AB6D348187CD</string>
-				<string>7DC3CEE2C487A2581A4C578A3A6B3A3A</string>
-				<string>A75FF04B93EDBB13A1C5B1ADFD949E48</string>
-				<string>4DA60D689F4DBD381FB0B1445C93FCBE</string>
-				<string>1BD538C669A8D80E727D69224333A2C4</string>
-				<string>7BDBE8D138C4BE939BC5C3CC349007C4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>LayoutAnchor</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FF3585EE346062285B7AE911AF1B9D66</key>
+		<key>F9D062B9B05BCCFEDEE16D3D3C213448</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D1930558C3BB5E98891130DA79598AA5</string>
+			<string>491D61EB8455494D858F70573458CFD3</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 	</dict>
 	<key>rootObject</key>

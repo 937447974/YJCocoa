@@ -17,5 +17,6 @@
 #import "YJAutoLayout.h"
 // 主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 #import "YJPageView.h"
+#import "YJImagePageViewController.h"
 
 #endif /* YJUIKit_h */

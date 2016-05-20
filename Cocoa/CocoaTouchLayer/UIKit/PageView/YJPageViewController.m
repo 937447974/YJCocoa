@@ -27,20 +27,21 @@
 #pragma mark - super
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.pageView) {
-        self.pageView.pageViewAppear(self, YJPageViewAppearWill);
-    }
+    self.pageView.pageViewAppear(self, YJPageViewAppearWill);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.pageView) {
-        self.pageView.pageViewAppear(self, YJPageViewAppearDid);
-    }
+    self.pageView.pageViewAppear(self, YJPageViewAppearDid);
 }
 
 #pragma mark - 刷新界面
-- (void)reloadPageWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+- (void)reloadPageSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+    self.pageViewObject = pageViewObject;
+    self.pageView = pageView;
+}
+
+- (void)reloadPageAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     self.pageViewObject = pageViewObject;
     self.pageView = pageView;
 }

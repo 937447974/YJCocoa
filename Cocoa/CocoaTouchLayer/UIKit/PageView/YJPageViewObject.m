@@ -14,13 +14,11 @@
 @implementation YJPageViewObject
 
 - (instancetype)initWithPageClass:(Class)pageClass {
-    
     self = [super init];
     if (self) {
         _pageClass = pageClass;
     }
-    return self;
-    
+    return self;    
 }
 
 @end

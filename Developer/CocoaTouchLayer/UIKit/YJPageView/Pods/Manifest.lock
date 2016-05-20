@@ -11,9 +11,11 @@ PODS:
     - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
   - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (1.4.1):
     - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
+  - YJCocoa/CoreOSLayer/System (1.4.1)
 
 DEPENDENCIES:
   - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+  - YJCocoa/CoreOSLayer/System
 
 SPEC CHECKSUMS:
   YJCocoa: 3e31dad6b1cf205cfca599bac3aac860fc6b383c

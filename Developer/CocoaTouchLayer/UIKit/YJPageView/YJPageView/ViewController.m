@@ -22,16 +22,13 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    
+- (void)viewDidLoad {    
     [super viewDidLoad];
     [self test];
 //    [self testPressure];
-    
 }
 
 - (void)test {
-    
     // 初始化
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
@@ -49,7 +46,7 @@
     pageView.isLoop = YES;
 //    pageView.isDisableBounces = YES;
     pageView.timeInterval = 0.5;
-    pageView.isTimeLoopAnimatedStop = YES;
+//    pageView.isTimeLoopAnimatedStop = YES;
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
         switch (appear) {
@@ -75,12 +72,10 @@
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
-    
 }
 
 #pragma mark 压力测试
 - (void)testPressure {
-    
     // 初始化
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
@@ -96,7 +91,6 @@
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
-    
 }
 
 @end

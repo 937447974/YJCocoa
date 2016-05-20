@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJPageViewController : UIViewController
 
 @property (nonatomic, weak) YJPageViewObject *pageViewObject; ///< 封装的模型
-@property (nonatomic, weak) YJPageView *pageView; ///< YJPageView
+@property (nonatomic, weak) YJPageView *pageView;             ///< YJPageView
 
 /**
  *  获取YJPageViewObject
@@ -29,14 +29,24 @@ NS_ASSUME_NONNULL_BEGIN
 + (YJPageViewObject *)pageViewObject;
 
 /**
- *  根据模型刷新page
+ *  根据模型刷新page(同步)
  *
  *  @param pageViewObject page封装的对象
  *  @param pageView       YJPageView
  *
  *  @return void
  */
-- (void)reloadPageWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
+- (void)reloadPageSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
+
+/**
+ *  根据模型刷新page(异步)
+ *
+ *  @param pageViewObject page封装的对象
+ *  @param pageView       YJPageView
+ *
+ *  @return void
+ */
+- (void)reloadPageAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
 
 @end
 

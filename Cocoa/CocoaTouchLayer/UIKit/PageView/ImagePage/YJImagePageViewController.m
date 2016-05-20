@@ -17,21 +17,17 @@
 
 @implementation YJImagePageViewController
 
-
 #pragma mark - IBAction 点击图片
 - (IBAction)onClickImageView:(id)sender {
     self.pageView.pageViewDidSelect(self);
 }
 
 #pragma mark - YJPageView
-
-- (void)reloadPageWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
-    
-    [super reloadPageWithPageViewObject:pageViewObject pageView:pageView];
+- (void)reloadPageAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+    [super reloadPageAsyncWithPageViewObject:pageViewObject pageView:pageView];
     YJImagePageModel *model = pageViewObject.pageModel;
     self.imageView.image = [UIImage imageNamed:model.imageNamed];
     self.imageView.userInteractionEnabled = model.isOnClick;
-    
 }
 
 @end
