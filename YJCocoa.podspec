@@ -70,13 +70,15 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
             end
             # PageView
             uik.subspec 'PageView' do |pv|
-                pv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/*.{h,m}'
-                pv.dependency 'YJCocoa/CoreOSLayer/System'
-                pv.dependency 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout'
+                pv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/*.{h,m}'
+                    core.dependency 'YJCocoa/CoreOSLayer/System'
+                    core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
+                end
                 pv.subspec 'ImagePage' do |ip|
                     ip.resources = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.xib'
                     ip.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.{h,m}'
-                    ip.dependency 'YJPageView/Core'
+                    ip.dependency 'YJCocoa/CocoaTouchLayer/UIKit/PageView/Core'
                 end
             end
         end
