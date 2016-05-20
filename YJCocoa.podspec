@@ -14,13 +14,13 @@
 Pod::Spec.new do |s|
 
     # ――― Root specification
-    s.name     = "YJCocoa"
-    s.version  = "1.4.1"
+    s.name     = "YJ系列开源库"
+    s.version  = "1.5.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
