@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ Cocoa"
 
 
@@ -79,6 +79,18 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     ip.resources = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.xib'
                     ip.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.{h,m}'
                     ip.dependency 'YJCocoa/CocoaTouchLayer/UIKit/PageView/Core'
+                end
+            end
+            # UITableView
+            uik.subspec 'TableView' do |tv|
+                tv.source_files  = "Cocoa/CocoaTouchLayer/UIKit/TableView/*.{h,m}"
+                tv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Suspension/*.{h,m}'
+                    core.dependency 'YJCocoa/CoreOSLayer/System'
+                end
+                tv.subspec 'TableCellObject' do |tco|
+                    tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
+                    tco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
                 end
             end
         end
