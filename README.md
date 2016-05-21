@@ -29,6 +29,10 @@ UITableView封装
 8. 支持多种点击cell的监听方式，可使用protocol或block。
 9. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
 
+## YJCocoa/CocoaTouchLayer/UIKit/CollectionView
+
+相关支持和TableView一样。
+
 ---
 
 ## YJCocoa/CoreServicesLayer/Foundation/Log
@@ -65,6 +69,7 @@ YJ技术支持群：557445088
 | 2016-05-20 | 1.4.1 YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
 | 2016-05-20 | 1.5.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
 | 2016-05-21 | 1.6.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
+| 2016-05-21 | 1.7.0 YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
 
 ##Copyright
 
