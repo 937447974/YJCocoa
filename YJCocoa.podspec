@@ -86,11 +86,12 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                 tv.source_files  = "Cocoa/CocoaTouchLayer/UIKit/TableView/*.{h,m}"
                 tv.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Suspension/*.{h,m}'
-                    core.dependency 'YJCocoa/CoreOSLayer/System'
+                    core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject'
                 end
                 tv.subspec 'TableCellObject' do |tco|
                     tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
                     tco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                    tco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
             end
         end
