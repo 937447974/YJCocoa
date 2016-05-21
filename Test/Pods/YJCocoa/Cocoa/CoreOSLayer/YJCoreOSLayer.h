@@ -9,9 +9,4 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#ifndef YJCoreOSLayer_h
-#define YJCoreOSLayer_h
-
 #import "YJSystem.h"
-
-#endif /* YJCoreOSLayer_h */

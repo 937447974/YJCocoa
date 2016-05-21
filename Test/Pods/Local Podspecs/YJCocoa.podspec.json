@@ -1,6 +1,6 @@
 {
   "name": "YJCocoa",
-  "version": "1.4.1",
+  "version": "1.6.0",
   "authors": {
     "阳君": "937447974@qq.com"
   },
@@ -13,7 +13,8 @@
     "git": "https://github.com/937447974/YJCocoa.git",
     "branch": "developer"
   },
-  "summary": "YJ Cocoa",
+  "summary": "YJ系列开源库",
+  "description": "姓名：阳君\nQQ：937447974\nYJ技术支持群：557445088",
   "platforms": {
     "ios": "6.0"
   },
@@ -107,6 +108,38 @@
                   "source_files": "Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.{h,m}",
                   "dependencies": {
                     "YJCocoa/CocoaTouchLayer/UIKit/PageView/Core": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TableView",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/TableView/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": [
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/DataSource/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/Delegate/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/TableCell/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/Suspension/*.{h,m}"
+                  ],
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "TableCellObject",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CoreServicesLayer/Foundation": [
+
+                    ],
+                    "YJCocoa/CoreOSLayer/System": [
 
                     ]
                   }

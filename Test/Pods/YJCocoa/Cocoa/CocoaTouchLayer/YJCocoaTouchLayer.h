@@ -9,9 +9,4 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#ifndef YJCocoaTouchLayer_h
-#define YJCocoaTouchLayer_h
-
 #import "YJUIKit.h"
-
-#endif /* YJCocoaTouchLayer_h */
