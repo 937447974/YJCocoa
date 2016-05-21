@@ -14,14 +14,19 @@
 Pod::Spec.new do |s|
 
     # ――― Root specification
-    s.name     = "YJ系列开源库"
-    s.version  = "1.5.0"
+    s.name     = "YJCocoa"
+    s.version  = "1.6.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
 s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
 #s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
-    s.summary  = "YJ Cocoa"
+    s.summary  = "YJ系列开源库"
+    s.description = <<-DESC
+                      姓名：阳君
+                      QQ：937447974
+                      YJ技术支持群：557445088
+                    DESC
 
 
     # ――― Platform
@@ -33,9 +38,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
     s.frameworks = "UIKit", "Foundation"
     s.requires_arc = true
 
+    # ——— File patterns
+    s.source_files = 'Cocoa/*.{h,m}'
+
 
     # ——— Subspecs
-    s.source_files = 'Cocoa/*.{h,m}'
     s.default_subspec = 'CocoaTouchLayer', 'CoreServicesLayer', 'CoreOSLayer'
 
     # 1 Cocoa Touch Layer
