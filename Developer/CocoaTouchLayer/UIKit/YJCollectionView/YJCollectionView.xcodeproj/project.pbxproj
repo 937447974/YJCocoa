@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840A57D01CF05DBF006779C0 /* YJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57CF1CF05DBF006779C0 /* YJCollectionViewCell.m */; };
+		840A57D31CF05DDF006779C0 /* YJCollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57D21CF05DDF006779C0 /* YJCollectionCellObject.m */; };
+		840A57D91CF05E29006779C0 /* YJCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57D81CF05E29006779C0 /* YJCollectionViewDelegate.m */; };
+		840A57DC1CF05E61006779C0 /* YJCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57DB1CF05E61006779C0 /* YJCollectionViewDataSource.m */; };
 		8473AC451CE9A527000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC441CE9A527000E3580 /* main.m */; };
 		8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC471CE9A527000E3580 /* AppDelegate.m */; };
 		8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC4A1CE9A527000E3580 /* ViewController.m */; };
@@ -19,6 +23,14 @@
 /* Begin PBXFileReference section */
 		5709E04D18548DB1042E4406 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4317E224F8C7AC2D39E6EF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		840A57CE1CF05DBF006779C0 /* YJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewCell.h; sourceTree = "<group>"; };
+		840A57CF1CF05DBF006779C0 /* YJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewCell.m; sourceTree = "<group>"; };
+		840A57D11CF05DDF006779C0 /* YJCollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionCellObject.h; sourceTree = "<group>"; };
+		840A57D21CF05DDF006779C0 /* YJCollectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionCellObject.m; sourceTree = "<group>"; };
+		840A57D71CF05E29006779C0 /* YJCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewDelegate.h; sourceTree = "<group>"; };
+		840A57D81CF05E29006779C0 /* YJCollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewDelegate.m; sourceTree = "<group>"; };
+		840A57DA1CF05E61006779C0 /* YJCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewDataSource.h; sourceTree = "<group>"; };
+		840A57DB1CF05E61006779C0 /* YJCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewDataSource.m; sourceTree = "<group>"; };
 		8473AC401CE9A527000E3580 /* YJCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AC441CE9A527000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AC461CE9A527000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +57,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840A57CA1CF05D9A006779C0 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				840A57CE1CF05DBF006779C0 /* YJCollectionViewCell.h */,
+				840A57CF1CF05DBF006779C0 /* YJCollectionViewCell.m */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		840A57CB1CF05D9A006779C0 /* CollectionCellObject */ = {
+			isa = PBXGroup;
+			children = (
+				840A57D11CF05DDF006779C0 /* YJCollectionCellObject.h */,
+				840A57D21CF05DDF006779C0 /* YJCollectionCellObject.m */,
+			);
+			path = CollectionCellObject;
+			sourceTree = "<group>";
+		};
+		840A57CC1CF05D9A006779C0 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				840A57DA1CF05E61006779C0 /* YJCollectionViewDataSource.h */,
+				840A57DB1CF05E61006779C0 /* YJCollectionViewDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		840A57CD1CF05D9A006779C0 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				840A57D71CF05E29006779C0 /* YJCollectionViewDelegate.h */,
+				840A57D81CF05E29006779C0 /* YJCollectionViewDelegate.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		8473AC371CE9A527000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +147,10 @@
 		8473AC5C1CE9A575000E3580 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				840A57CA1CF05D9A006779C0 /* CollectionCell */,
+				840A57CB1CF05D9A006779C0 /* CollectionCellObject */,
+				840A57CC1CF05D9A006779C0 /* DataSource */,
+				840A57CD1CF05D9A006779C0 /* Delegate */,
 				8473AC5E1CE9A58D000E3580 /* YJCollectionView.h */,
 			);
 			name = CollectionView;
@@ -245,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
+				840A57DC1CF05E61006779C0 /* YJCollectionViewDataSource.m in Sources */,
 				8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,
+				840A57D01CF05DBF006779C0 /* YJCollectionViewCell.m in Sources */,
+				840A57D91CF05E29006779C0 /* YJCollectionViewDelegate.m in Sources */,
+				840A57D31CF05DDF006779C0 /* YJCollectionCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

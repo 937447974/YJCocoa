@@ -6,7 +6,4 @@ platform :ios, '6.0'
 pod 'YJCocoa/CoreServicesLayer/Foundation'
 pod 'YJCocoa/CoreOSLayer/System'
 
-target 'YJCollectionView' do
-
-end
 
