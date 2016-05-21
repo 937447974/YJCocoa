@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "developer" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                       姓名：阳君
@@ -69,12 +69,6 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     ale.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
-            # CollectionView
-            uik.subspec 'CollectionView' do |cv|
-                cv.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}'
-                cv.dependency 'YJCocoa/CoreServicesLayer/Foundation'
-                cv.dependency 'YJCocoa/CoreOSLayer/System'
-            end
             # PageView
             uik.subspec 'PageView' do |pv|
                 pv.subspec 'Core' do |core|
@@ -99,6 +93,19 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
                     tco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
                     tco.dependency 'YJCocoa/CoreOSLayer/System'
+                end
+            end
+            # CollectionView
+            uik.subspec 'CollectionView' do |cv|
+                cv.source_files  = "Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}"
+                cv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/DataSource/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/Delegate/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCell/*.{h,m}'
+                    core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject'
+                end
+                cv.subspec 'CollectionCellObject' do |cco|
+                    cco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
+                    cco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                    cco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
             end
         end

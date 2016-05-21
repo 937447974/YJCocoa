@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840A57F01CF08D37006779C0 /* YJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57E61CF08D37006779C0 /* YJCollectionViewCell.m */; };
+		840A57F11CF08D37006779C0 /* YJCollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57E91CF08D37006779C0 /* YJCollectionCellObject.m */; };
+		840A57F21CF08D37006779C0 /* YJCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57EC1CF08D37006779C0 /* YJCollectionViewDataSource.m */; };
+		840A57F31CF08D37006779C0 /* YJCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57EF1CF08D37006779C0 /* YJCollectionViewDelegate.m */; };
 		841F54031CEE9F370082227A /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F54021CEE9F370082227A /* YJLog.m */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -39,6 +43,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840A57E51CF08D37006779C0 /* YJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewCell.h; sourceTree = "<group>"; };
+		840A57E61CF08D37006779C0 /* YJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewCell.m; sourceTree = "<group>"; };
+		840A57E81CF08D37006779C0 /* YJCollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionCellObject.h; sourceTree = "<group>"; };
+		840A57E91CF08D37006779C0 /* YJCollectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionCellObject.m; sourceTree = "<group>"; };
+		840A57EB1CF08D37006779C0 /* YJCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewDataSource.h; sourceTree = "<group>"; };
+		840A57EC1CF08D37006779C0 /* YJCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewDataSource.m; sourceTree = "<group>"; };
+		840A57EE1CF08D37006779C0 /* YJCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewDelegate.h; sourceTree = "<group>"; };
+		840A57EF1CF08D37006779C0 /* YJCollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewDelegate.m; sourceTree = "<group>"; };
 		841F54011CEE9F370082227A /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
 		841F54021CEE9F370082227A /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +126,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840A57E41CF08D37006779C0 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				840A57E51CF08D37006779C0 /* YJCollectionViewCell.h */,
+				840A57E61CF08D37006779C0 /* YJCollectionViewCell.m */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		840A57E71CF08D37006779C0 /* CollectionCellObject */ = {
+			isa = PBXGroup;
+			children = (
+				840A57E81CF08D37006779C0 /* YJCollectionCellObject.h */,
+				840A57E91CF08D37006779C0 /* YJCollectionCellObject.m */,
+			);
+			path = CollectionCellObject;
+			sourceTree = "<group>";
+		};
+		840A57EA1CF08D37006779C0 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				840A57EB1CF08D37006779C0 /* YJCollectionViewDataSource.h */,
+				840A57EC1CF08D37006779C0 /* YJCollectionViewDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		840A57ED1CF08D37006779C0 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				840A57EE1CF08D37006779C0 /* YJCollectionViewDelegate.h */,
+				840A57EF1CF08D37006779C0 /* YJCollectionViewDelegate.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		841F54001CEE9F370082227A /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +350,10 @@
 		8482175A1CF0424100410723 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				840A57E41CF08D37006779C0 /* CollectionCell */,
+				840A57E71CF08D37006779C0 /* CollectionCellObject */,
+				840A57EA1CF08D37006779C0 /* DataSource */,
+				840A57ED1CF08D37006779C0 /* Delegate */,
 				8482175B1CF0424100410723 /* YJCollectionView.h */,
 			);
 			path = CollectionView;
@@ -465,6 +517,7 @@
 			files = (
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				8473AC121CE96C94000E3580 /* YJSystem.m in Sources */,
+				840A57F31CF08D37006779C0 /* YJCollectionViewDelegate.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				848217891CF0424100410723 /* YJTableViewDataSource.m in Sources */,
 				841F54031CEE9F370082227A /* YJLog.m in Sources */,
@@ -474,12 +527,14 @@
 				8482178D1CF0424100410723 /* YJTableCellObject.m in Sources */,
 				848217831CF0424100410723 /* YJImagePageModel.m in Sources */,
 				8482178C1CF0424100410723 /* YJTableViewCell.m in Sources */,
+				840A57F21CF08D37006779C0 /* YJCollectionViewDataSource.m in Sources */,
 				8482177B1CF0424100410723 /* NSLayoutConstraint+YJExtend.m in Sources */,
 				8482178A1CF0424100410723 /* YJTableViewDelegate.m in Sources */,
 				848217841CF0424100410723 /* YJImagePageViewController.m in Sources */,
 				8482178B1CF0424100410723 /* YJSuspensionCellView.m in Sources */,
 				848217801CF0424100410723 /* YJLayoutYAxisAnchor.m in Sources */,
 				8482177F1CF0424100410723 /* YJLayoutXAxisAnchor.m in Sources */,
+				840A57F11CF08D37006779C0 /* YJCollectionCellObject.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				8482177D1CF0424100410723 /* YJLayoutDimension.m in Sources */,
 				848217861CF0424100410723 /* YJPageView.m in Sources */,
@@ -487,6 +542,7 @@
 				8473AC131CE96C94000E3580 /* YJFoundation.m in Sources */,
 				848217881CF0424100410723 /* YJPageViewObject.m in Sources */,
 				8482177C1CF0424100410723 /* YJLayoutAnchor.m in Sources */,
+				840A57F01CF08D37006779C0 /* YJCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
