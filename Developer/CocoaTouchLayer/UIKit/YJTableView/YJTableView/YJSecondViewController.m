@@ -7,7 +7,7 @@
 //
 
 #import "YJSecondViewController.h"
-#import "YJTableViewCell.h"
+#import "YJTestTableViewCell.h"
 
 @interface YJSecondViewController () <UITableViewDelegate>
 
@@ -31,10 +31,10 @@
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
         for (int j=0; j<20; j++) {
             // 封装模型
-            YJTableViewCellModel *cellModel = [[YJTableViewCellModel alloc] init];
+            YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
             // 封装CellObject
-            YJTableViewCellObject *cellObject = [[YJTableViewCellObject alloc] init];
+            YJTestTableCellObject *cellObject = [[YJTestTableCellObject alloc] init];
             cellObject.cellModel = cellModel;
             // 填充数据源
             [array addObject:cellObject];
@@ -46,9 +46,7 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [self.dataSourceGrouped.tableViewDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
-    
+    return [self.dataSourceGrouped.tableViewDelegate tableView:tableView heightForRowAtIndexPath:indexPath];    
 }
 
 @end

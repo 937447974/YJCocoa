@@ -6,14 +6,22 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJTableViewCell.m"
+#import "YJTableView.h"
 
-@interface YJTableViewCellModel : NSObject <YJTableCellModelProtocol>
+@interface YJTestTableCellModel : NSObject <YJTableCellModelProtocol>
 
 @property (nonatomic, copy) NSString *userName; ///< 用户名
 
 @end
 
+
+@interface YJTestTableCellObject : YJTableCellObject
+
+@end
+
+
 @interface YJTestTableViewCell : YJTableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

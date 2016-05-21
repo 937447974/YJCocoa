@@ -8,13 +8,19 @@
 
 #import "YJTestTableViewCell.h"
 
+@implementation YJTestTableCellModel
+
+@end
+
+@implementation YJTestTableCellObject
+
+@end
+
 @implementation YJTestTableViewCell
 
 - (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
-    
-    YJTableViewCellModel *celModel = cellObject.cellModel;
-    self.label.text = celModel.userName;
-    
+    YJTestTableCellModel *celModel = cellObject.cellModel;
+    self.label.text = celModel.userName;    
 }
 
 @end

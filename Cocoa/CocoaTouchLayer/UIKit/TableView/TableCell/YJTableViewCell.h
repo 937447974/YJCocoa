@@ -45,14 +45,27 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTableCellObject *)cellObject;
 
 /**
- *  根据模型刷新Cell
+ *  刷新UITableViewCell（同步）
  *
- *  @param cellObject        cell封装的对象
+ *  @param cellObject        YJTableCellObject
  *  @param tableViewDelegate YJTableViewDelegate
  *
  *  @return void
  */
-- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate;
+- (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate;
+
+/**
+ *  刷新UITableViewCell（异步）
+ *
+ *  @param cellObject        YJTableCellObject
+ *  @param tableViewDelegate YJTableViewDelegate
+ *
+ *  @return void
+ */
+- (void)reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate;
+
+
+- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate __deprecated_msg("方法废弃，请使用reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate替换") __attribute__((visibility("方法废弃")));
 
 @end
 
@@ -60,8 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** UITableViewCell基类*/
 @interface YJTableViewCell : UITableViewCell
 
-@property (nonatomic, weak, readonly) YJTableCellObject *cellObject;          ///< cell对象
-@property (nonatomic, weak, readonly) YJTableViewDelegate *tableViewDelegate; ///< UITableViewDelegate抽象接口
+@property (nonatomic, weak, readonly) YJTableCellObject *cellObject;          ///< YJTableCellObject
+@property (nonatomic, weak, readonly) YJTableViewDelegate *tableViewDelegate; ///< YJTableViewDelegate
 
 @end
 

@@ -120,8 +120,10 @@
                 break;
         }
     }
+    [cell reloadDataSyncWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
     __weak YJTableViewDataSource *weakSelf = self;
     dispatch_async_UI(^{// UI加速
+        [cell reloadDataAsyncWithCellObject:cellObject tableViewDelegate:weakSelf.tableViewDelegate];
         [cell reloadCellWithCellObject:cellObject tableViewDelegate:weakSelf.tableViewDelegate];
     });
     return cell;

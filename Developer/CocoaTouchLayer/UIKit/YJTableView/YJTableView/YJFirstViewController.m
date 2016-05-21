@@ -7,8 +7,7 @@
 //
 
 #import "YJFirstViewController.h"
-#import "YJTableViewDataSource.h"
-#import "YJTableViewCell.h"
+#import "YJTestTableViewCell.h"
 
 @interface YJFirstViewController () <YJTableViewCellProtocol>
 
@@ -25,8 +24,7 @@
     [super viewDidLoad];
     
     self.dataSourcePlain = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
-    
-    //    [self test1];
+//        [self test1];
     //    [self test2];
     //    [self test3];
     //    [self test4];
@@ -39,10 +37,10 @@
     // 测试数据
     for (int i=0; i<10; i++) {
         // 封装模型
-        YJTableViewCellModel *cellModel = [[YJTableViewCellModel alloc] init];
+        YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
         // 封装CellObject
-        YJTableCellObject *cellObject = [YJTableViewCell cellObjectWithCellModel:cellModel];
+        YJTableCellObject *cellObject = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
         // 填充数据源
         [self.dataSourcePlain.dataSource addObject:cellObject];
     }
@@ -59,10 +57,10 @@
     // 测试数据
     for (int i=0; i<20; i++) {
         // 封装模型
-        YJTableViewCellModel *cellModel = [[YJTableViewCellModel alloc] init];
+        YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
         // 封装CellObject
-        YJTableViewCellObject *cellObject = [[YJTableViewCellObject alloc] init];
+        YJTestTableCellObject *cellObject = [[YJTestTableCellObject alloc] init];
         cellObject.cellModel = cellModel;
         // 填充数据源
         [self.dataSourcePlain.dataSource addObject:cellObject];
@@ -93,10 +91,10 @@
     // 测试数据
     for (int i=0; i<150; i++) {
         // 封装模型
-        YJTableViewCellModel *cellModel = [[YJTableViewCellModel alloc] init];
+        YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
         // 封装CellObject
-        YJTableCellObject *cellObject = [YJTableViewCell cellObjectWithCellModel:cellModel];
+        YJTableCellObject *cellObject = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
         cellObject.suspensionThroughout = i%20 == 0;
         cellObject.suspension = i%10 == 0;
         // 填充数据源
