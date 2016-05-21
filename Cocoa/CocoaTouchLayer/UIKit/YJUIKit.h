@@ -17,8 +17,8 @@
 // 轮播图
 #import "YJImagePageViewController.h"
 
-// UICollectionView封装
-#import "YJCollectionView.h"
-
 // UITableView封装
 #import "YJTableView.h"
+
+// UICollectionView封装
+#import "YJCollectionView.h"
