@@ -11,7 +11,6 @@
 
 #import "YJTableViewDataSource.h"
 #import "YJTableViewDelegate.h"
-#import "YJSystem.h"
 
 @interface YJTableViewDataSource () {
     NSMutableArray<YJTableCellObject *> *_dataSource;
@@ -120,12 +119,8 @@
                 break;
         }
     }
-    [cell reloadDataSyncWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
-    __weak YJTableViewDataSource *weakSelf = self;
-    dispatch_async_UI(^{// UI加速
-        [cell reloadDataAsyncWithCellObject:cellObject tableViewDelegate:weakSelf.tableViewDelegate];
-        [cell reloadCellWithCellObject:cellObject tableViewDelegate:weakSelf.tableViewDelegate];
-    });
+    // 刷新数据
+    [cell reloadDataWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
     return cell;
 }
 

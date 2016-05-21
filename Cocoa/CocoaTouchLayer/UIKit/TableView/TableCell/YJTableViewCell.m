@@ -12,10 +12,12 @@
 #import "YJTableViewCell.h"
 #import "YJTableViewDelegate.h"
 #import "YJFoundation.h"
+#import "YJSystem.h"
 
 #pragma mark - UITableViewCell (YJTableView)
 @implementation UITableViewCell (YJTableView)
 
+#pragma mark - (+)
 + (id)cellObject {
     return [[YJTableCellObject alloc] initWithTableViewCellClass:self.class];
 }
@@ -39,6 +41,16 @@
     // xib创建cell
     NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:YJStringFromClass(self.class) owner:nil options:nil];
     return CGRectGetHeight(array.firstObject.frame);
+}
+
+#pragma mark - (-)
+- (void)reloadDataWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+    [self reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+    __weak UITableViewCell *weakSelf = self;
+    dispatch_async_UI(^{// UI加速
+        [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+        [weakSelf reloadCellWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+    });
 }
 
 - (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
