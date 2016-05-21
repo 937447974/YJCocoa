@@ -7,7 +7,17 @@
 //
 
 #import "YJCollectionCellObject.h"
+#import "YJFoundation.h"
 
 @implementation YJCollectionCellObject
+
+- (instancetype)initWithCollectionViewCellClass:(Class)cellClass {
+    self = [super init];
+    if (self) {
+        _cellClass = cellClass;
+        _cellName = YJStringFromClass(_cellClass);
+    }
+    return self;
+}
 
 @end

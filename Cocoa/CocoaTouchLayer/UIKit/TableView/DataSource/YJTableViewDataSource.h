@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, YJTableViewCacheCell) {
  *
  *  @return UITableViewCell
  */
-- (__kindof YJTableViewCell *)dequeueReusableCellWithCellObject:(YJTableCellObject *)cellObject;
+- (__kindof UITableViewCell *)dequeueReusableCellWithCellObject:(YJTableCellObject *)cellObject;
 
 @end
 

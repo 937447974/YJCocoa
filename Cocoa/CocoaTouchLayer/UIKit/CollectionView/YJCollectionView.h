@@ -9,3 +9,7 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
+#import "YJCollectionViewCell.h"
+#import "YJCollectionCellObject.h"
+#import "YJCollectionViewDataSource.h"
+#import "YJCollectionViewDelegate.h"
