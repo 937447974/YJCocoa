@@ -12,6 +12,7 @@
 #import "YJPageViewController.h"
 #import "YJPageViewObject.h"
 #import "YJPageView.h"
+#import "YJSystem.h"
 
 @interface YJPageViewController ()
 
@@ -36,14 +37,21 @@
 }
 
 #pragma mark - 刷新界面
+- (void)reloadDataWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+    [self reloadDataSyncWithPageViewObject:pageViewObject pageView:pageView];
+    __weak YJPageViewController *weakSelf = self;
+    dispatch_async_UI(^{
+        [weakSelf reloadDataAsyncWithPageViewObject:weakSelf.pageViewObject pageView:weakSelf.pageView];
+    });
+}
+
 - (void)reloadDataSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     _pageViewObject = pageViewObject;
     _pageView = pageView;
 }
 
 - (void)reloadDataAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
-    _pageViewObject = pageViewObject;
-    _pageView = pageView;
+   
 }
 
 @end

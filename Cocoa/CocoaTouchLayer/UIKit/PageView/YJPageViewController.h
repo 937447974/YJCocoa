@@ -29,7 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (YJPageViewObject *)pageViewObject;
 
 /**
- *  根据模型刷新page(同步)
+ *  刷新page（同步&异步，子类请勿重写）
+ *
+ *  @param pageViewObject page封装的对象
+ *  @param pageView       YJPageView
+ *
+ *  @return void
+ */
+- (void)reloadDataWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
+
+/**
+ *  刷新page(同步)
  *
  *  @param pageViewObject page封装的对象
  *  @param pageView       YJPageView
@@ -39,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadDataSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
 
 /**
- *  根据模型刷新page(异步)
+ *  刷新page(异步)
  *
  *  @param pageViewObject page封装的对象
  *  @param pageView       YJPageView

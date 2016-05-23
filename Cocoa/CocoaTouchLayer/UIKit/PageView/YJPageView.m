@@ -11,7 +11,6 @@
 
 #import "YJPageView.h"
 #import "YJAutoLayout.h"
-#import "YJSystem.h"
 
 @interface YJPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
@@ -106,10 +105,8 @@
     if (!pageVC.view.backgroundColor) {
         pageVC.view.backgroundColor = [UIColor whiteColor];
     }
-    [pageVC reloadDataSyncWithPageViewObject:pageVO pageView:self];
-    dispatch_async_UI(^{
-        [pageVC reloadDataAsyncWithPageViewObject:pageVC.pageViewObject pageView:pageVC.pageView];
-    });
+    // 刷新page
+    [pageVC reloadDataWithPageViewObject:pageVO pageView:self];
     return pageVC;
 }
 
