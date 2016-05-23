@@ -9,9 +9,10 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+//NSLog打印优化，Unicode自动转化为中文输出。
 #import "YJLog.h"
+// 单例管理器
+#import "YJSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

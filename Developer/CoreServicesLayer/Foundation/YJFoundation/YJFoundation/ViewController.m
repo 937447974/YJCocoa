@@ -23,6 +23,13 @@
     array = [NSArray arrayWithObjects:@"阳君", dict, set, nil];
     dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
     NSLog(@"%@", dict);
+    // 串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行。
+    for (int i = 0; i<10; i++) {
+        //异步执行队列任务
+        dispatch_sync(dispatch_queue_create("yangj", DISPATCH_QUEUE_SERIAL), ^{
+            NSLog(@"dispatch_queue_create:%d", i);
+        });
+    }
 }
 
 - (void)didReceiveMemoryWarning {

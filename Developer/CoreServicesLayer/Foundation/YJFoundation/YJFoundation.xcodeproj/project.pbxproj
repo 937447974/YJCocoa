@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841F53FF1CEE9E590082227A /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53FE1CEE9E590082227A /* YJLog.m */; };
+		846336161CF3188C0065E08F /* YJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 846336151CF3188C0065E08F /* YJSingleton.m */; };
 		8473ABC31CE96B57000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC21CE96B57000E3580 /* main.m */; };
 		8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC51CE96B57000E3580 /* AppDelegate.m */; };
 		8473ABC91CE96B57000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC81CE96B57000E3580 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		841F53FD1CEE9E590082227A /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
 		841F53FE1CEE9E590082227A /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
+		846336141CF3188C0065E08F /* YJSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingleton.h; sourceTree = "<group>"; };
+		846336151CF3188C0065E08F /* YJSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingleton.m; sourceTree = "<group>"; };
 		8473ABBE1CE96B57000E3580 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473ABC21CE96B57000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473ABC41CE96B57000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +55,15 @@
 				841F53FE1CEE9E590082227A /* YJLog.m */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		846336131CF318700065E08F /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				846336141CF3188C0065E08F /* YJSingleton.h */,
+				846336151CF3188C0065E08F /* YJSingleton.m */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		8473ABB51CE96B57000E3580 = {
@@ -106,6 +118,7 @@
 		8473ABFC1CE96BEF000E3580 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				846336131CF318700065E08F /* Singleton */,
 				841F53FC1CEE9E210082227A /* Log */,
 				8473ABFD1CE96BEF000E3580 /* YJFoundation.h */,
 				8473ABFE1CE96BEF000E3580 /* YJFoundation.m */,
@@ -186,6 +199,7 @@
 			files = (
 				8473ABC91CE96B57000E3580 /* ViewController.m in Sources */,
 				8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */,
+				846336161CF3188C0065E08F /* YJSingleton.m in Sources */,
 				8473ABC31CE96B57000E3580 /* main.m in Sources */,
 				8473ABFF1CE96BEF000E3580 /* YJFoundation.m in Sources */,
 				841F53FF1CEE9E590082227A /* YJLog.m in Sources */,
