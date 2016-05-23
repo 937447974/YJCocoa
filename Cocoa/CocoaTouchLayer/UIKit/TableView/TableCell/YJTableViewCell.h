@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTableCellObject *)cellObject;
 
 /**
- *  刷新UITableViewCell（同步&异步）
+ *  刷新UITableViewCell（同步&异步，子类请勿重写）
  *
  *  @param cellObject        YJTableCellObject
  *  @param tableViewDelegate YJTableViewDelegate

@@ -88,15 +88,6 @@
 
 #pragma mark - YJTableView
 - (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
-    [super reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
-}
-
-- (void)reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
-    _cellObject = cellObject;
-    _tableViewDelegate = tableViewDelegate;
-}
-
-- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
     _cellObject = cellObject;
     _tableViewDelegate = tableViewDelegate;
 }

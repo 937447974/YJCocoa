@@ -55,16 +55,7 @@
 #pragma mark - YJCollectionViewCell
 @implementation YJCollectionViewCell
 
-- (void)reloadDataWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
-    [super reloadDataWithCellObject:cellObject delegate:delegate];
-}
-
 - (void)reloadDataSyncWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
-    _cellObject = cellObject;
-    _delegate = delegate;
-}
-
-- (void)reloadDataAsyncWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
     _cellObject = cellObject;
     _delegate = delegate;
 }

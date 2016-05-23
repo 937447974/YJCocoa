@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGSize)collectionViewDelegate:(YJCollectionViewDelegate *)delegate sizeForCellObject:(YJCollectionCellObject *)cellObject;
 
 /**
- *  刷新UITableViewCell（同步&异步）
+ *  刷新UITableViewCell（同步&异步，子类请勿重写）
  *
  *  @param cellObject YJCollectionCellObject
  *  @param delegate   YJCollectionViewDelegate

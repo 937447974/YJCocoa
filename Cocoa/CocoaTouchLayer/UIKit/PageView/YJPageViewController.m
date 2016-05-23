@@ -37,13 +37,13 @@
 
 #pragma mark - 刷新界面
 - (void)reloadDataSyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
-    self.pageViewObject = pageViewObject;
-    self.pageView = pageView;
+    _pageViewObject = pageViewObject;
+    _pageView = pageView;
 }
 
 - (void)reloadDataAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
-    self.pageViewObject = pageViewObject;
-    self.pageView = pageView;
+    _pageViewObject = pageViewObject;
+    _pageView = pageView;
 }
 
 @end

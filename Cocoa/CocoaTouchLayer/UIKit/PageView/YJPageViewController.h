@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** PageView的item基类*/
 @interface YJPageViewController : UIViewController
 
-@property (nonatomic, weak) YJPageViewObject *pageViewObject; ///< 封装的模型
-@property (nonatomic, weak) YJPageView *pageView;             ///< YJPageView
+@property (nonatomic, weak, readonly) YJPageViewObject *pageViewObject; ///< 封装的模型
+@property (nonatomic, weak, readonly) YJPageView *pageView;             ///< YJPageView
 
 /**
  *  获取YJPageViewObject
