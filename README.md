@@ -5,6 +5,10 @@ YJ系列开源库
 1. 支持iOS6.0和Swift开发。
 2. 支持按需加载，可根据自己的需求加载不同的开源库。
 
+整体架构图和苹果类似,每一层都有各自的开源库。
+
+![](http://www.linuxidc.com/upload/2014_02/140221184152111.jpg)
+
 ---
 
 ## YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
