@@ -18,9 +18,9 @@
 
 @implementation YJTestTableViewCell
 
-- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+- (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
     YJTestTableCellModel *celModel = cellObject.cellModel;
-    self.label.text = celModel.userName;    
+    self.label.text = celModel.userName;
 }
 
 @end

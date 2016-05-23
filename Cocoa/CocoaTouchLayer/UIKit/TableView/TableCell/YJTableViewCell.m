@@ -62,7 +62,7 @@
 }
 
 - (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
-    NSLog(@"UITableViewCell子类%@请实现方法：%@", YJStringFromClass(self.class), NSStringFromSelector(_cmd));
+    NSLog(@"UITableViewCell %@方法已废弃", NSStringFromSelector(_cmd));
 }
 
 @end
