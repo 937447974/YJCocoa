@@ -23,7 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    for (UIView *view in self.view.subviews) {
+        view.hidden = YES;
+    }
     /*
      NSLayoutConstraint(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
      遵循的原则，在UI上，
@@ -58,14 +60,13 @@
 //    [self testNSLayoutConstraint]; // IOS7测试通过
 //    [self testNSLayoutConstraintExtend];
 //    [self testNSLayoutAnchor];
-//    [self testYJAutoLayout]; // IOS7测试通过
+    [self testYJAutoLayout]; // IOS7测试通过
 //    [self testSpaceToSuper];
-    [self testCombinativeLayout];
+//    [self testCombinativeLayout];
 }
 
 #pragma mark - NSLayoutConstraint Test
 - (void)testNSLayoutConstraint {
-    
     // 2 开启AutoLayout
     _yellowView.translatesAutoresizingMaskIntoConstraints  = NO;
     _greenView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -87,12 +88,10 @@
     for (NSLayoutConstraint *constraint in self.view.constraints ) {
         NSLog(@"%@", constraint);
     }
-    
 }
 
 #pragma mark NSLayoutConstraint (YJExtend) Test
 - (void)testNSLayoutConstraintExtend {
-    
     // 设置约束
     // 1 yellow约束
     [NSLayoutConstraint constraintWithItem:_yellowView attribute:NSLayoutAttributeLeading equalToItem:self.view attribute:NSLayoutAttributeLeadingMargin]; // yLeading
@@ -105,12 +104,10 @@
     // 3 green和yellow的共有约束
     [NSLayoutConstraint constraintWithItem:_greenView attribute:NSLayoutAttributeLeading equalToItem:_yellowView attribute:NSLayoutAttributeTrailing].constants(30); // 间距
     [NSLayoutConstraint constraintWithItem:_greenView attribute:NSLayoutAttributeWidth equalToItem:_yellowView attribute:NSLayoutAttributeWidth]; // 等宽
-    
 }
 
 #pragma mark NSLayoutAnchor Test
 - (void)testNSLayoutAnchor {
-    
     // 2 开启AutoLayout
     _yellowView.translatesAutoresizingMaskIntoConstraints = NO;
     _greenView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -126,12 +123,10 @@
     // 3.3 green和yellow的共有约束
     [_greenView.leadingAnchor constraintEqualToAnchor:_yellowView.trailingAnchor constant:30].active = YES; // 间距
     [_greenView.widthAnchor constraintEqualToAnchor:_yellowView.widthAnchor].active = YES; // 等宽
-    
 }
 
 #pragma mark - YJAutoLayout Test
 - (void)testYJAutoLayout {
-    
     // 1 yellow约束
     _yellowView.leadingLayout.equalTo(self.view.leadingLayout).constants(20);
     _yellowView.topLayout.equalTo(self.topLayoutSupport.bottomLayout).constants(20);
@@ -143,11 +138,9 @@
     // 3 green和yellow的共有约束
     _greenView.leadingLayout.equalTo(_yellowView.trailingLayout).constants(30);
     _greenView.widthLayout.equalTo(_yellowView.widthLayout);
-    
 }
 
 - (void)testSpaceToSuper {
-    
     // 1 yellow约束
     _yellowView.topSpaceToSuper(20).bottomSpaceToSuper(20).leadingSpaceToSuper(20);
     // 2 green约束
@@ -155,7 +148,6 @@
     // 3 green和yellow的共有约束
     _greenView.leadingLayout.equalTo(_yellowView.trailingLayout).constants(30);
     _greenView.widthLayout.equalTo(_yellowView.widthLayout);
-    
 }
 
 - (void)testCombinativeLayout {
