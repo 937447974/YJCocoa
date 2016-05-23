@@ -70,6 +70,7 @@ YJ技术支持群：557445088
 | 2016-05-20 | 1.5.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
 | 2016-05-21 | 1.6.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
 | 2016-05-21 | 1.7.0 YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
+| 2016-05-23 | 1.7.1 部分方法调整 |
 
 ##Copyright
 
