@@ -13,8 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#ifdef __BLOCKS__
-
 /** 主线程运行*/
 void dispatch_async_main(dispatch_block_t block);
 
@@ -27,8 +25,11 @@ void dispatch_async_UI(dispatch_block_t block);
 /** 主线程延时执行*/
 void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block);
 
-#endif
+/** 串行队列执行(同步)*/
+void dispatch_sync_serial(const char *label, dispatch_block_t block);
 
+/** 并发队列执行*/
+void dispatch_async_concurrent(dispatch_block_t block);
 
 /** System Framework*/
 @interface YJSystem : NSObject
