@@ -9,7 +9,7 @@
 #import "YJCollectionViewCell.h"
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
-#import "YJFoundation.h"
+#import "YJFoundationOther.h"
 #import "YJSystem.h"
 
 #pragma mark - UICollectionViewCell (YJCollectionView)

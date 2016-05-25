@@ -38,9 +38,9 @@
 		847A1E661CF5598C00636975 /* YJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E3A1CF5598C00636975 /* YJTableViewCell.m */; };
 		847A1E671CF5598C00636975 /* YJTableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E3D1CF5598C00636975 /* YJTableCellObject.m */; };
 		847A1E681CF5598C00636975 /* YJSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E441CF5598C00636975 /* YJSystem.m */; };
-		847A1E691CF5598C00636975 /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E4A1CF5598C00636975 /* YJLog.m */; };
-		847A1E6A1CF5598C00636975 /* YJSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E4D1CF5598C00636975 /* YJSingleton.m */; };
-		847A1E6B1CF5598C00636975 /* YJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E4F1CF5598C00636975 /* YJFoundation.m */; };
+		847A1E7E1CF5843900636975 /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E761CF5843900636975 /* YJLog.m */; };
+		847A1E7F1CF5843900636975 /* YJFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E791CF5843900636975 /* YJFoundationOther.m */; };
+		847A1E801CF5843900636975 /* YJSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E7C1CF5843900636975 /* YJSingletonMCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,13 +109,14 @@
 		847A1E431CF5598C00636975 /* YJSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSystem.h; sourceTree = "<group>"; };
 		847A1E441CF5598C00636975 /* YJSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSystem.m; sourceTree = "<group>"; };
 		847A1E451CF5598C00636975 /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
-		847A1E491CF5598C00636975 /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
-		847A1E4A1CF5598C00636975 /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
-		847A1E4C1CF5598C00636975 /* YJSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingleton.h; sourceTree = "<group>"; };
-		847A1E4D1CF5598C00636975 /* YJSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingleton.m; sourceTree = "<group>"; };
-		847A1E4E1CF5598C00636975 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
-		847A1E4F1CF5598C00636975 /* YJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundation.m; sourceTree = "<group>"; };
 		847A1E501CF5598C00636975 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
+		847A1E751CF5843900636975 /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
+		847A1E761CF5843900636975 /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
+		847A1E781CF5843900636975 /* YJFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundationOther.h; sourceTree = "<group>"; };
+		847A1E791CF5843900636975 /* YJFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationOther.m; sourceTree = "<group>"; };
+		847A1E7B1CF5843900636975 /* YJSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingletonMCenter.h; sourceTree = "<group>"; };
+		847A1E7C1CF5843900636975 /* YJSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingletonMCenter.m; sourceTree = "<group>"; };
+		847A1E7D1CF5843900636975 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,37 +422,46 @@
 		847A1E461CF5598C00636975 /* CoreServicesLayer */ = {
 			isa = PBXGroup;
 			children = (
-				847A1E471CF5598C00636975 /* Foundation */,
+				847A1E731CF5843900636975 /* Foundation */,
 				847A1E501CF5598C00636975 /* YJCoreServicesLayer.h */,
 			);
 			path = CoreServicesLayer;
 			sourceTree = "<group>";
 		};
-		847A1E471CF5598C00636975 /* Foundation */ = {
+		847A1E731CF5843900636975 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				847A1E481CF5598C00636975 /* Log */,
-				847A1E4B1CF5598C00636975 /* Singleton */,
-				847A1E4E1CF5598C00636975 /* YJFoundation.h */,
-				847A1E4F1CF5598C00636975 /* YJFoundation.m */,
+				847A1E741CF5843900636975 /* Log */,
+				847A1E771CF5843900636975 /* Other */,
+				847A1E7A1CF5843900636975 /* Singleton */,
+				847A1E7D1CF5843900636975 /* YJFoundation.h */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		847A1E481CF5598C00636975 /* Log */ = {
+		847A1E741CF5843900636975 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				847A1E491CF5598C00636975 /* YJLog.h */,
-				847A1E4A1CF5598C00636975 /* YJLog.m */,
+				847A1E751CF5843900636975 /* YJLog.h */,
+				847A1E761CF5843900636975 /* YJLog.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
 		};
-		847A1E4B1CF5598C00636975 /* Singleton */ = {
+		847A1E771CF5843900636975 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				847A1E4C1CF5598C00636975 /* YJSingleton.h */,
-				847A1E4D1CF5598C00636975 /* YJSingleton.m */,
+				847A1E781CF5843900636975 /* YJFoundationOther.h */,
+				847A1E791CF5843900636975 /* YJFoundationOther.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		847A1E7A1CF5843900636975 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				847A1E7B1CF5843900636975 /* YJSingletonMCenter.h */,
+				847A1E7C1CF5843900636975 /* YJSingletonMCenter.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -535,9 +545,11 @@
 				847A1E5D1CF5598C00636975 /* YJImagePageModel.m in Sources */,
 				847A1E621CF5598C00636975 /* YJPageViewObject.m in Sources */,
 				847A1E561CF5598C00636975 /* YJLayoutYAxisAnchor.m in Sources */,
+				847A1E801CF5843900636975 /* YJSingletonMCenter.m in Sources */,
 				847A1E541CF5598C00636975 /* YJLayoutSupport.m in Sources */,
 				847A1E651CF5598C00636975 /* YJSuspensionCellView.m in Sources */,
 				847A1E591CF5598C00636975 /* YJCollectionViewCell.m in Sources */,
+				847A1E7F1CF5843900636975 /* YJFoundationOther.m in Sources */,
 				847A1E5A1CF5598C00636975 /* YJCollectionCellObject.m in Sources */,
 				847A1E551CF5598C00636975 /* YJLayoutXAxisAnchor.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
@@ -552,10 +564,8 @@
 				847A1E5E1CF5598C00636975 /* YJImagePageViewController.m in Sources */,
 				847A1E521CF5598C00636975 /* YJLayoutAnchor.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
-				847A1E691CF5598C00636975 /* YJLog.m in Sources */,
+				847A1E7E1CF5843900636975 /* YJLog.m in Sources */,
 				847A1E631CF5598C00636975 /* YJTableViewDataSource.m in Sources */,
-				847A1E6A1CF5598C00636975 /* YJSingleton.m in Sources */,
-				847A1E6B1CF5598C00636975 /* YJFoundation.m in Sources */,
 				847A1E671CF5598C00636975 /* YJTableCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

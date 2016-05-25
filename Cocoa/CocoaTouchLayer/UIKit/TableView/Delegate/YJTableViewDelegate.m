@@ -13,7 +13,7 @@
 #import "YJTableViewDataSource.h"
 #import "YJTableCellObject.h"
 #import "YJTableViewCell.h"
-#import "YJFoundation.h"
+#import "YJFoundationOther.h"
 
 @interface YJTableViewDelegate () {
     NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高

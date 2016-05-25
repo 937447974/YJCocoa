@@ -8,7 +8,7 @@
 
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
-#import "YJFoundation.h"
+#import "YJFoundationOther.h"
 
 @interface YJCollectionViewDelegate () {
     UICollectionViewFlowLayout *_flowLayout;

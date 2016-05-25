@@ -11,7 +11,7 @@
 
 #import "YJTableCellObject.h"
 #import <objc/runtime.h>
-#import "YJFoundation.h"
+#import "YJFoundationOther.h"
 
 @implementation YJTableCellObject
 
