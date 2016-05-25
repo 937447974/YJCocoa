@@ -7,7 +7,6 @@
 //
 
 #import "YJSingletonMCenter.h"
-#import "YJSystem.h"
 #import "YJFoundationOther.h"
 #import <UIKit/UIKit.h>
 
