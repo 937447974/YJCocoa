@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "1.7.2"
+    s.version  = "1.8.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -91,7 +91,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 tv.subspec 'TableCellObject' do |tco|
                     tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
-                    tco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                    tco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     tco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
             end
@@ -104,7 +104,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 cv.subspec 'CollectionCellObject' do |cco|
                     cco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
-                    cco.dependency 'YJCocoa/CoreServicesLayer/Foundation'
+                    cco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     cco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
             end
@@ -121,6 +121,9 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}'
+            end
+            foundation.subspec 'Other' do |other|
+                other.source_files = 'Cocoa/CoreServicesLayer/Foundation/Other/*.{h,m}'
             end
         end
     end
