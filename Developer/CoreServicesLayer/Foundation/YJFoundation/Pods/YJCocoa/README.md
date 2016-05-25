@@ -114,6 +114,7 @@ YJ技术支持群：557445088
 | 2016-05-21 | 1.6.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
 | 2016-05-21 | 1.7.0 YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
 | 2016-05-23 | 1.7.1 部分方法调整，说明文档更新 |
+| 2016-05-25 | 1.7.2 system中gcd封装升级，支持串行和并行 |
 
 ##Copyright
 
