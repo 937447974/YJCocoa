@@ -1,0 +1,1 @@
+../../../YJCocoa/Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/YJImagePageModel.h

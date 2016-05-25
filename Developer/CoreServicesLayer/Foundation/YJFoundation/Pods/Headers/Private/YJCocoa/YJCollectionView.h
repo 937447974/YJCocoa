@@ -1,0 +1,1 @@
+../../../YJCocoa/Cocoa/CocoaTouchLayer/UIKit/CollectionView/YJCollectionView.h
