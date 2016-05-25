@@ -13,5 +13,8 @@
 #import "YJLog.h"
 // 单例管理中心
 #import "YJSingletonMCenter.h"
+/** http链接解析，快速获取参数*/
+#import "YJHttpAnalysis.h"
+
 // 其他不可归类封装
 #import "YJFoundationOther.h"

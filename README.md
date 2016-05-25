@@ -80,6 +80,10 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
+## YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis
+
+http链接解析，快速获取其中参数
+
 ---
 
 ## YJCocoa/CoreOSLayer/System
@@ -120,6 +124,7 @@ YJ技术支持群：557445088
 | 2016-05-23 | 1.7.1 部分方法调整，说明文档更新 |
 | 2016-05-25 | 1.7.2 system中gcd封装升级，支持串行和并行 |
 | 2016-05-26 | 1.8.0 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
+| 2016-05-26 | 1.9.0 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
 
 ##Copyright
 

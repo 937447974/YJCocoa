@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
 		8473AB831CE969DB000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB821CE969DB000E3580 /* ViewController.m */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		846C27B81CF5ABB0002DACDA /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
+		846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AB7E1CE969DB000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846C27B71CF5ABB0002DACDA /* HttpAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				846C27B81CF5ABB0002DACDA /* YJHttpAnalysis.h */,
+				846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */,
+			);
+			path = HttpAnalysis;
+			sourceTree = "<group>";
+		};
 		8473AB6F1CE969DB000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +443,7 @@
 		847A1E731CF5843900636975 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				846C27B71CF5ABB0002DACDA /* HttpAnalysis */,
 				847A1E741CF5843900636975 /* Log */,
 				847A1E771CF5843900636975 /* Other */,
 				847A1E7A1CF5843900636975 /* Singleton */,
@@ -556,6 +569,7 @@
 				847A1E581CF5598C00636975 /* UIViewController+YJLayoutSupport.m in Sources */,
 				847A1E611CF5598C00636975 /* YJPageViewController.m in Sources */,
 				847A1E5B1CF5598C00636975 /* YJCollectionViewDataSource.m in Sources */,
+				846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				847A1E681CF5598C00636975 /* YJSystem.m in Sources */,
 				847A1E5C1CF5598C00636975 /* YJCollectionViewDelegate.m in Sources */,
