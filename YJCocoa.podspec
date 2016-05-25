@@ -7,7 +7,7 @@
 #
 
 # 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='china beijing'
-# 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 1.0 -o ./Documentation ./Classes
+# 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 2.0.0 -o ./Documentation ./Cocoa
 # 验证podspec命令：pod spec lint YJCocoa.podspec --allow-warnings --verbose
 # pod发包：pod trunk push YJCocoa.podspec --allow-warnings
 
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "1.9.0"
+    s.version  = "2.0.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -32,6 +32,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "6.0"
+
+
+    # ——— Documentation And API Reference
+    s.preserve_paths = 'Documentation/*.*'
+    s.prepare_command = 'sh Documentation/docset-installed.sh'
 
 
     # ――― Build settings

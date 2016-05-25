@@ -125,6 +125,7 @@ YJ技术支持群：557445088
 | 2016-05-25 | 1.7.2 system中gcd封装升级，支持串行和并行 |
 | 2016-05-26 | 1.8.0 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
 | 2016-05-26 | 1.9.0 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
+| 2016-05-26 | 2.0.0 YJCocoa开发文档首次发包 |
 
 ##Copyright
 

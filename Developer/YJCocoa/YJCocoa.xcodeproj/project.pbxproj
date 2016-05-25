@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */; };
+		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
 		8473AB831CE969DB000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB821CE969DB000E3580 /* ViewController.m */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		846C27B81CF5ABB0002DACDA /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
 		846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
+		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AB7E1CE969DB000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,7 +163,6 @@
 		8473AB7A1CE969DB000E3580 /* YJCocoa */ = {
 			isa = PBXGroup;
 			children = (
-				8473AC171CE96DEC000E3580 /* YJCocoa.podspec */,
 				8473AB7E1CE969DB000E3580 /* AppDelegate.h */,
 				8473AB7F1CE969DB000E3580 /* AppDelegate.m */,
 				8473AB811CE969DB000E3580 /* ViewController.h */,
@@ -176,8 +177,10 @@
 		8473AB7B1CE969DB000E3580 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				846C27BB1CF5BB66002DACDA /* docset-installed.sh */,
 				8473AB8C1CE969DB000E3580 /* Info.plist */,
 				8473AB7C1CE969DB000E3580 /* main.m */,
+				8473AC171CE96DEC000E3580 /* YJCocoa.podspec */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847A1E5F1CF5598C00636975 /* YJImagePageViewController.xib in Resources */,
+				846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */,
 				8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */,
 				8473AB861CE969DB000E3580 /* Main.storyboard in Resources */,
