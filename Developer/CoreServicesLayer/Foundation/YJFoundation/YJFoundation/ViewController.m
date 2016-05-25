@@ -10,6 +10,8 @@
 #import "YJFoundation.h"
 #import "YJSystem.h"
 
+#define ViewControllerS (ViewController *)[YJSingletonMC registerStrongSingleton:[ViewController class]]
+
 @interface ViewController ()
 
 @end
@@ -33,11 +35,10 @@
 }
 
 - (void)testSingleton {
-    // 串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行。
     for (int i = 0; i<100; i++) {
         //异步执行队列任务
         dispatch_async_concurrent(^{
-            NSLog(@"%@", [YJSingletonMC registerStrongSingleton:self.class]);
+            NSLog(@"%@", ViewControllerS);
         });
         dispatch_async_concurrent(^{
             NSLog(@"%@", [YJSingletonMC registerStrongSingleton:[YJSingletonMCenter class]]);
