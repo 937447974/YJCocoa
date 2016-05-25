@@ -49,7 +49,6 @@
     __weak UITableViewCell *weakSelf = self;
     dispatch_async_UI(^{// UI加速
         [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
-        [weakSelf reloadCellWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     });
 }
 
@@ -59,10 +58,6 @@
 
 - (void)reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
     NSLog(@"UITableViewCell子类%@请实现方法：%@", YJStringFromClass(self.class), NSStringFromSelector(_cmd));
-}
-
-- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
-    NSLog(@"UITableViewCell %@方法已废弃", NSStringFromSelector(_cmd));
 }
 
 @end

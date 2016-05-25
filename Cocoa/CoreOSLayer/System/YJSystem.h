@@ -26,7 +26,7 @@ void dispatch_async_UI(dispatch_block_t block);
 void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block);
 
 /** 串行队列执行(同步)*/
-void dispatch_sync_serial(const char *label, dispatch_block_t block);
+// void dispatch_sync_serial(const char *label, dispatch_block_t block);
 
 /** 并发队列执行*/
 void dispatch_async_concurrent(dispatch_block_t block);

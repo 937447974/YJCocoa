@@ -74,9 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate;
 
-
-- (void)reloadCellWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate __deprecated_msg("方法废弃，请使用reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate替换") __attribute__((visibility("1.8.0版本方法废弃，请各位注意更新")));
-
 @end
 
 

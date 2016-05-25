@@ -9,19 +9,9 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-//NSLog打印优化，Unicode自动转化为中文输出。
+// NSLog打印优化，Unicode自动转化为中文输出。
 #import "YJLog.h"
-// 单例管理器
-#import "YJSingleton.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-/** 获取类名，兼容OC和Swift*/
-NSString *YJStringFromClass(Class aClass);
-
-/** Foundation Framework*/
-@interface YJFoundation : NSObject
-
-@end
-
-NS_ASSUME_NONNULL_END
+// 单例管理中心
+#import "YJSingletonMCenter.h"
+// 其他不可归类封装
+#import "YJFoundationOther.h"
