@@ -88,22 +88,30 @@
 
 #pragma mark 获取指定位置的YJPageViewController
 - (YJPageViewController *)pageViewControllerAtIndex:(NSInteger)pageIndex {
+    // 数据校验
     if (self.dataSource.count == 0) {
         return nil;
     }
     if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮循过滤
         return nil;
     }
+    // 循环显示
     if (pageIndex < 0) {
         pageIndex = self.dataSource.count - 1;
     } else if (pageIndex == self.dataSource.count){
         pageIndex = 0;
     }
-    __weak YJPageViewObject *pageVO = self.dataSource[pageIndex];
+    YJPageViewObject *pageVO = self.dataSource[pageIndex];
     pageVO.pageIndex = pageIndex;
-    YJPageViewController *pageVC = [[pageVO.pageClass alloc] init];
-    if (!pageVC.view.backgroundColor) {
-        pageVC.view.backgroundColor = [UIColor whiteColor];
+    // 页面缓存
+    NSNumber *cacheKey = [NSNumber numberWithInteger:pageIndex];
+    YJPageViewController *pageVC = [self.pageCache objectForKey:cacheKey];
+    if (!pageVC) { // 未缓存，则初始化
+        pageVC = [[pageVO.pageClass alloc] init];
+        [self.pageCache setObject:pageVC forKey:cacheKey];
+        if (!pageVC.view.backgroundColor) {
+            pageVC.view.backgroundColor = [UIColor whiteColor];
+        }
     }
     // 刷新page
     [pageVC reloadDataWithPageViewObject:pageVO pageView:self];
@@ -201,6 +209,13 @@
         _dataSource = [NSMutableArray array];
     }
     return _dataSource;
+}
+
+- (NSMutableDictionary<NSNumber *,YJPageViewController *> *)pageCache {
+    if (!_pageCache) {
+        _pageCache = [NSMutableDictionary dictionary];
+    }
+    return _pageCache;
 }
 
 - (YJPageViewAppearBlock)pageViewAppear {

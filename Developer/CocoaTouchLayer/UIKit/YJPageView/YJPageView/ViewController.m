@@ -24,8 +24,8 @@
 
 - (void)viewDidLoad {    
     [super viewDidLoad];
-    [self test];
-//    [self testPressure];
+//    [self test];
+    [self testPressure];
 }
 
 - (void)test {
