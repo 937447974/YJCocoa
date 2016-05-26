@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "2.0.0"
+    s.version  = "2.0.1"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -112,6 +112,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     cco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     cco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
+            end
+            # UITextField和UITextView可输入长度控制
+            uik.subspec 'InputLength' do |il|
+                il.source_files  = "Cocoa/CocoaTouchLayer/UIKit/InputLength/*.{h,m}"
             end
         end
     end

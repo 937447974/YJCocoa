@@ -43,6 +43,8 @@
 		847A1E7E1CF5843900636975 /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E761CF5843900636975 /* YJLog.m */; };
 		847A1E7F1CF5843900636975 /* YJFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E791CF5843900636975 /* YJFoundationOther.m */; };
 		847A1E801CF5843900636975 /* YJSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E7C1CF5843900636975 /* YJSingletonMCenter.m */; };
+		847D07B81CF6A06100639791 /* UITextField+InputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07B41CF6A06100639791 /* UITextField+InputLength.m */; };
+		847D07B91CF6A06100639791 /* UITextView+InputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07B61CF6A06100639791 /* UITextView+InputLength.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,11 @@
 		847A1E7B1CF5843900636975 /* YJSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingletonMCenter.h; sourceTree = "<group>"; };
 		847A1E7C1CF5843900636975 /* YJSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingletonMCenter.m; sourceTree = "<group>"; };
 		847A1E7D1CF5843900636975 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		847D07B31CF6A06100639791 /* UITextField+InputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+InputLength.h"; sourceTree = "<group>"; };
+		847D07B41CF6A06100639791 /* UITextField+InputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+InputLength.m"; sourceTree = "<group>"; };
+		847D07B51CF6A06100639791 /* UITextView+InputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+InputLength.h"; sourceTree = "<group>"; };
+		847D07B61CF6A06100639791 /* UITextView+InputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+InputLength.m"; sourceTree = "<group>"; };
+		847D07B71CF6A06100639791 /* YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJInputLength.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +228,7 @@
 			children = (
 				847A1DFD1CF5598C00636975 /* AutoLayout */,
 				847A1E131CF5598C00636975 /* CollectionView */,
+				847D07B21CF6A06100639791 /* InputLength */,
 				847A1E211CF5598C00636975 /* PageView */,
 				847A1E2E1CF5598C00636975 /* TableView */,
 				847A1E3F1CF5598C00636975 /* YJUIKit.h */,
@@ -482,6 +490,18 @@
 			path = Singleton;
 			sourceTree = "<group>";
 		};
+		847D07B21CF6A06100639791 /* InputLength */ = {
+			isa = PBXGroup;
+			children = (
+				847D07B31CF6A06100639791 /* UITextField+InputLength.h */,
+				847D07B41CF6A06100639791 /* UITextField+InputLength.m */,
+				847D07B51CF6A06100639791 /* UITextView+InputLength.h */,
+				847D07B61CF6A06100639791 /* UITextView+InputLength.m */,
+				847D07B71CF6A06100639791 /* YJInputLength.h */,
+			);
+			path = InputLength;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -569,9 +589,11 @@
 				847A1E7F1CF5843900636975 /* YJFoundationOther.m in Sources */,
 				847A1E5A1CF5598C00636975 /* YJCollectionCellObject.m in Sources */,
 				847A1E551CF5598C00636975 /* YJLayoutXAxisAnchor.m in Sources */,
+				847D07B91CF6A06100639791 /* UITextView+InputLength.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				847A1E581CF5598C00636975 /* UIViewController+YJLayoutSupport.m in Sources */,
 				847A1E611CF5598C00636975 /* YJPageViewController.m in Sources */,
+				847D07B81CF6A06100639791 /* UITextField+InputLength.m in Sources */,
 				847A1E5B1CF5598C00636975 /* YJCollectionViewDataSource.m in Sources */,
 				846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,

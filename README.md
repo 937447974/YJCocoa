@@ -70,6 +70,10 @@ UICollectionView封装
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
+## YJCocoa/CocoaTouchLayer/UIKit/InputLength
+
+UITextField和UITextView可输入长度控制。
+
 ---
 
 ## YJCocoa/CoreServicesLayer/Foundation/Log
@@ -126,6 +130,7 @@ YJ技术支持群：557445088
 | 2016-05-26 | 1.8.0 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
 | 2016-05-26 | 1.9.0 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
 | 2016-05-26 | 2.0.0 YJCocoa开发文档首次发包 |
+| 2016-05-27 | 2.0.1 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
 
 ##Copyright
 

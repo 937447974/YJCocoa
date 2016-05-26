@@ -24,4 +24,5 @@ if [[ $? != 0 ]] ; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2.0.0 | 2016-05-26 | YJCocoa开发文档首次发包" with title "YJCocoa"'
+#osascript -e 'display notification "2.0.0 | 2016-05-26 | YJCocoa开发文档首次发包" with title "YJCocoa"'
+osascript -e 'display notification "2.0.1 | 2016-05-27 | 新库.../UIKit/InputLength上线，UITextField和UITextView增加可输入长度控制" with title "YJCocoa"'
