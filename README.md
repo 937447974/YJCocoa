@@ -26,7 +26,7 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 
 1. 支持iOS6.0和Swift开发。
 2. 多种配置模式适应任何多页面需求。
-3. 0.02秒切换VC时，内存释放稳定。
+3. 任何间隔切换VC，内存释放稳定。
 
 ## YJCocoa/CocoaTouchLayer/UIKit/TableView
 
@@ -130,7 +130,8 @@ YJ技术支持群：557445088
 | 2016-05-26 | 1.8.0 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
 | 2016-05-26 | 1.9.0 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
 | 2016-05-26 | 2.0.0 YJCocoa开发文档首次发包 |
-| 2016-05-27 | 2.0.1 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
+| 2016-05-26 | 2.0.1 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
+| 2016-05-26 | 2.0.2 ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
 
 ##Copyright
 
