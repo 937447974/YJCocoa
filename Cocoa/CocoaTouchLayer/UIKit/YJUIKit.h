@@ -24,4 +24,4 @@
 #import "YJCollectionView.h"
 
 // UITextField和UITextView可输入长度控制
-#import "InputLength.h"
+#import "YJInputLength.h"
