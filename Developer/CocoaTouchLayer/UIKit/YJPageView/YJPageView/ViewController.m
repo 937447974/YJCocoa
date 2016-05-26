@@ -81,7 +81,19 @@
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
     pageView.isLoop = YES;
-    pageView.timeInterval = 0.02; // 峰值，内存释放稳定
+    pageView.timeInterval = 0.01; // 峰值，内存释放稳定
+    // 监听
+    pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
+        switch (appear) {
+            case YJPageViewAppearWill: {
+                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
+                break;
+            }
+            case YJPageViewAppearDid:
+                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
+                break;
+        }
+    };
     // 填充数据源100个
     for (int i=0; i<100; i++) {
         YJPageViewObject *obj = [YJImagePageViewController pageViewObject];

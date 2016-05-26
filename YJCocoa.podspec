@@ -80,6 +80,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/PageView/*.{h,m}'
                     core.dependency 'YJCocoa/CoreOSLayer/System'
                     core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
+                    core.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                 end
                 pv.subspec 'ImagePage' do |ip|
                     ip.resources = 'Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.xib'
