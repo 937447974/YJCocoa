@@ -11,6 +11,7 @@
 
 #import "YJPageView.h"
 #import "YJAutoLayout.h"
+#import "YJFoundationOther.h"
 
 @interface YJPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
@@ -103,8 +104,9 @@
     }
     YJPageViewObject *pageVO = self.dataSource[pageIndex];
     pageVO.pageIndex = pageIndex;
+    // 获取缓存key
+    NSString *cacheKey = [self getCacheKey:pageVO];
     // 页面缓存
-    NSNumber *cacheKey = [NSNumber numberWithInteger:pageIndex];
     YJPageViewController *pageVC = [self.pageCache objectForKey:cacheKey];
     if (!pageVC) { // 未缓存，则初始化
         pageVC = [[pageVO.pageClass alloc] init];
@@ -116,6 +118,23 @@
     // 刷新page
     [pageVC reloadDataWithPageViewObject:pageVO pageView:self];
     return pageVC;
+}
+
+#pragma mark 获取缓存key
+- (NSString *)getCacheKey:(YJPageViewObject *)pageVO {
+    NSString *cacheKey;
+    switch (self.cacheStrategy) {
+        case YJPageViewCacheDefault: ///< 根据相同的类缓存page
+            cacheKey = YJStringFromClass(pageVO.class);
+            break;
+        case YJPageViewCacheIndex: ///< 根据对应的位置缓存page
+            cacheKey = [NSString stringWithFormat:@"%ld", (long)pageVO.pageIndex];
+            break;
+        case YJPageViewCacheClassAndIndex: ///< 根据类名和位置双重绑定缓存page
+            cacheKey = [NSString stringWithFormat:@"%@-%ld", YJStringFromClass(pageVO.class), (long)pageVO.pageIndex];
+            break;
+    }
+    return cacheKey;
 }
 
 #pragma mark 点击UIPageControl
@@ -211,7 +230,7 @@
     return _dataSource;
 }
 
-- (NSMutableDictionary<NSNumber *,YJPageViewController *> *)pageCache {
+- (NSMutableDictionary<NSString *,YJPageViewController *> *)pageCache {
     if (!_pageCache) {
         _pageCache = [NSMutableDictionary dictionary];
     }

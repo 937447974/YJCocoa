@@ -21,6 +21,13 @@ typedef NS_ENUM(NSInteger, YJPageViewAppear) {
     YJPageViewAppearDid   ///< viewDidAppear
 };
 
+/** 缓存高的策略*/
+typedef NS_ENUM(NSInteger, YJPageViewCache) {
+    YJPageViewCacheDefault,      ///< 根据相同的类缓存page
+    YJPageViewCacheIndex,        ///< 根据对应的位置缓存page
+    YJPageViewCacheClassAndIndex ///< 根据类名和位置双重绑定缓存page
+};
+
 
 /** YJPageViewController显示通知*/
 typedef void (^ YJPageViewAppearBlock)(YJPageViewController *pageVC, YJPageViewAppear appear);
@@ -41,7 +48,8 @@ typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 @property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
 @property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
 @property (nonatomic, strong, readonly) UIPageControl *pageControl;   ///< 。。。提示
-@property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJPageViewController*> *pageCache; ///< 页面缓存
+@property (nonatomic) YJPageViewCache cacheStrategy;                                             ///< 缓存策略
+@property (nonatomic, strong) NSMutableDictionary<NSString *, YJPageViewController*> *pageCache; ///< 页面缓存
 
 /**
  *  修改pageVC时可使用此方法

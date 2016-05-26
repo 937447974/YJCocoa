@@ -12,14 +12,7 @@
 #import "UIView+YJViewLayoutConstraintCreation.h"
 #import "UIViewController+YJLayoutSupport.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface YJAutoLayout : NSObject
-
-@end
-
-NS_ASSUME_NONNULL_END
-
+// NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 // 使用说明
 //
 // NSLayoutConstraint(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)

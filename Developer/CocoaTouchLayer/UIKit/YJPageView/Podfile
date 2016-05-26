@@ -5,3 +5,4 @@ platform :ios, '6.0'
 
 pod 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
 pod 'YJCocoa/CoreOSLayer/System'
+pod 'YJCocoa/CoreServicesLayer/Foundation/Other'
