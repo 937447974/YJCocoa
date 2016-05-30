@@ -60,9 +60,10 @@
 //    [self testNSLayoutConstraint]; // IOS7测试通过
 //    [self testNSLayoutConstraintExtend];
 //    [self testNSLayoutAnchor];
-    [self testYJAutoLayout]; // IOS7测试通过
+//    [self testYJAutoLayout]; // IOS7测试通过
 //    [self testSpaceToSuper];
 //    [self testCombinativeLayout];
+    [self testAnimate];
 }
 
 #pragma mark - NSLayoutConstraint Test
@@ -157,6 +158,13 @@
 //    self.yellowView.centerLayoutTo(self.view);
      // 等价
     self.yellowView.boundsLayoutTo(self.view);    
+}
+
+
+- (void)testAnimate {
+    self.yellowView.topSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0);
+    // 动画修改约束
+    [self.bottomLayoutSupport.topLayout.equalTo(self.yellowView.bottomLayout) animateWithDuration:1 constant:400];
 }
 
 @end

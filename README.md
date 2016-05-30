@@ -133,6 +133,7 @@ YJ技术支持群：557445088
 | 2016-05-26 | 2.0.1 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
 | 2016-05-26 | 2.0.2 ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
 | 2016-05-30 | 2.0.2 TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
+| 2016-05-30 | 2.0.2 ‘AutoLayout’升级，增加动画修改约束的方法。 |
 
 ##Copyright
 

@@ -10,6 +10,7 @@
 //
 
 #import "NSLayoutConstraint+YJExtend.h"
+#import "YJLayoutConstraintAnimate.h"
 
 @implementation NSLayoutConstraint (YJExtend)
 
@@ -209,6 +210,25 @@
     };
     return multipliers;
     
+}
+
+#pragma mark - 动画修改约束值
+- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant {
+    YJLayoutConstraintAnimate *lca = [[YJLayoutConstraintAnimate alloc] init];
+    lca.toConstant = constant;
+    lca.intervalDelay = duration/50; // 执行50次
+    lca.intervalDelay = lca.intervalDelay > 0.02 ? lca.intervalDelay : 0.02; // 不能低于0.02的间隔
+    lca.intervalConstant = (constant - self.constant) / (duration / lca.intervalDelay);
+    [self animateConstantWithDuration:lca];
+}
+
+- (void)animateConstantWithDuration:(YJLayoutConstraintAnimate *)lca {
+    self.constant += lca.intervalConstant;
+    if (self.constant >= lca.toConstant) {
+        self.constant = lca.toConstant;
+    } else {
+        [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
+    }    
 }
 
 @end

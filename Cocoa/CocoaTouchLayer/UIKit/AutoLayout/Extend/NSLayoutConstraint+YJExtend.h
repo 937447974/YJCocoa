@@ -22,6 +22,16 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 @property (nonatomic, readonly) Constant constants;     ///< 修改constant的值
 @property (nonatomic, readonly) Multiplier multipliers; ///< 修改multiplier的值
 
+/**
+ *  动画修改约束值
+ *
+ *  @param duration 时间(秒)
+ *  @param constant 修改后的值
+ *
+ *  @return void
+ */
+- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant;
+
 #pragma mark - (+)
 /**
  *  搜索NSLayoutConstraint
