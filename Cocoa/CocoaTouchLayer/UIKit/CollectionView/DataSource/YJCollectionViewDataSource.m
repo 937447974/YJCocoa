@@ -20,7 +20,7 @@
 
 @implementation YJCollectionViewDataSource
 
-#pragma mark - init
+#pragma mark - main
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView {
     self = [super init];
     if (self) {
@@ -32,6 +32,15 @@
         self.collectionView.delegate = self.delegate;
     }
     return self;
+}
+
+#pragma mark 快速刷新已加载cell
+- (void)reloadItemsAtCellObjects:(NSArray<YJCollectionCellObject *> *)cellObjects; {
+    UICollectionViewCell *cell;
+    for (YJCollectionCellObject *cellObject in cellObjects) {
+        cell = [self.collectionView cellForItemAtIndexPath:cellObject.indexPath];
+        [cell reloadDataWithCellObject:cellObject delegate:self.delegate];
+    }
 }
 
 #pragma mark - getter and setter

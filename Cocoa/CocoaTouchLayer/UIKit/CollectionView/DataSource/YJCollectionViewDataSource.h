@@ -54,6 +54,15 @@ typedef NS_ENUM(NSInteger, YJCollectionViewCacheCell) {
  */
 - (__kindof UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJCollectionCellObject *)cellObject;
 
+/**
+ *  快速刷新已加载cell
+ *
+ *  @param cellObjects NSArray<YJCollectionCellObject *>
+ *
+ *  @return void
+ */
+- (void)reloadItemsAtCellObjects:(NSArray<YJCollectionCellObject *> *)cellObjects;
+
 @end
 
 NS_ASSUME_NONNULL_END

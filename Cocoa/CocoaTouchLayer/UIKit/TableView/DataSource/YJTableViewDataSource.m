@@ -21,7 +21,7 @@
 
 @implementation YJTableViewDataSource
 
-#pragma mark - init
+#pragma mark - main
 - (instancetype)initWithTableView:(UITableView *)tableView {
     
     self = [super init];
@@ -33,6 +33,15 @@
         self.tableView.delegate = self.tableViewDelegate;
     }
     return self;
+}
+
+#pragma mark 快速刷新已加载cell
+- (void)reloadRowsAtIndexPaths:(NSArray<YJTableCellObject *> *)cellObjects; {
+    UITableViewCell *cell;
+    for (YJTableCellObject *cellObject in cellObjects) {
+        cell = [self.tableView cellForRowAtIndexPath:cellObject.indexPath];
+        [cell reloadDataWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
+    }
 }
 
 #pragma mark - getter and setter
