@@ -72,6 +72,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 al.subspec 'Extend' do |ale|
                     ale.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}'
+                    ale.dependency 'YJCocoa/CoreOSLayer/System'
                 end
             end
             # PageView

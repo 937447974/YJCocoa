@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) CGFloat toConstant;           ///< 目标值
 @property (nonatomic) CGFloat intervalConstant;     ///< 每一次变化值
-@property (nonatomic) NSTimeInterval intervalDelay; ///< 变化直接
+@property (nonatomic) NSTimeInterval intervalDelay; ///< 变化时间间隔
 
 @end
 
