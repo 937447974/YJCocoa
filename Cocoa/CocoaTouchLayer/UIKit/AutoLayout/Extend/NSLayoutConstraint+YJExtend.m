@@ -10,6 +10,25 @@
 //
 
 #import "NSLayoutConstraint+YJExtend.h"
+#import <objc/runtime.h>
+
+@interface NSLayoutConstraint (private)
+
+@property (nonatomic, strong) YJLayoutConstraintAnimate *constraintAnimate; ///< 约束动画
+
+@end
+
+@implementation NSLayoutConstraint (private)
+
+- (YJLayoutConstraintAnimate *)constraintAnimate {
+    return objc_getAssociatedObject(self, "constraintAnimate");
+}
+
+- (void)setConstraintAnimate:(YJLayoutConstraintAnimate *)constraintAnimate {
+    objc_setAssociatedObject(self, "constraintAnimate", constraintAnimate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 @implementation NSLayoutConstraint (YJExtend)
 
@@ -184,11 +203,13 @@
     lca.intervalDelay = lca.intervalDelay > 0.02 ? lca.intervalDelay : 0.02; // 不能低于0.02的间隔
     lca.intervalDelay = lca.intervalDelay < 0.1 ? lca.intervalDelay : 0.1; // 不能高于0.1的间隔
     lca.intervalConstant = (constant - self.constant) / (duration / lca.intervalDelay);
-    [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
+    self.constraintAnimate = lca;
+    [self performSelector:@selector(animateConstant) withObject:nil afterDelay:lca.intervalDelay];
 }
 
 #pragma mark 动画循环执行
-- (void)animateConstantWithDuration:(YJLayoutConstraintAnimate *)lca {
+- (void)animateConstant {
+    YJLayoutConstraintAnimate *lca = self.constraintAnimate;
     self.constant += lca.intervalConstant;
     if ((lca.intervalConstant > 0 && self.constant >= lca.toConstant) || (lca.intervalConstant < 0 && self.constant <= lca.toConstant)) {
         self.constant = lca.toConstant;
@@ -196,8 +217,13 @@
             lca.completion();
         }
     } else {
-        [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
+        [self performSelector:@selector(animateConstant) withObject:lca afterDelay:lca.intervalDelay];
     }
+}
+
+#pragma mark 取消动画
+- (void)animateCancel:(YJConstraintAnimateCompletion)completion {
+    self.constraintAnimate.toConstant = self.constant; // 通过修改目标值取消动画
 }
 
 @end

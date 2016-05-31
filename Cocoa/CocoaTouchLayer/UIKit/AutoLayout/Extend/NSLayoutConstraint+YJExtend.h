@@ -28,10 +28,18 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
  *
  *  @param duration 时间(秒)
  *  @param constant 修改后的值
+ *  @param completion 完成回调
  *
  *  @return void
  */
 - (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(nullable YJConstraintAnimateCompletion)completion;
+
+/**
+ *  取消动画修改约束值
+ *
+ *  @return void
+ */
+- (void)animateCancel;
 
 #pragma mark - (+)
 /**
