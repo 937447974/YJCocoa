@@ -222,7 +222,7 @@
 }
 
 #pragma mark 取消动画
-- (void)animateCancel:(YJConstraintAnimateCompletion)completion {
+- (void)animateCancel {
     self.constraintAnimate.toConstant = self.constant; // 通过修改目标值取消动画
 }
 
