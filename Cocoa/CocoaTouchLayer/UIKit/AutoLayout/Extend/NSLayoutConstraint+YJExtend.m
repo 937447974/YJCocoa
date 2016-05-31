@@ -17,60 +17,42 @@
 #pragma mark - (+)
 #pragma mark 搜索NSLayoutConstraint
 + (nullable instancetype)findConstraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 {
-    
     UIView *superView = [self findRootView:view1 toItem:view2];
     return [self findConstraintWithView:superView Item:view1 attribute:attr1 toItem:view2 attribute:attr2];
-    
 }
 
 #pragma mark NSLayoutRelationEqual
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToConstant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 equalToItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:c];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToItem:(id)view2 attribute:(NSLayoutAttribute)attr2 {
-    
     return [self constraintWithItem:view1 attribute:attr1 equalToItem:view2 attribute:attr2 multiplier:1 constant:0];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 equalToItem:view2 attribute:attr2 multiplier:1 constant:c];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 relationBy:NSLayoutRelationEqual toItem:view2 attribute:attr2 multiplier:multiplier constant:c];
-    
 }
 
 #pragma mark NSLayoutRelationLessThanOrEqual
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToConstant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 lessThanOrEqualToItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:c];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 {
-    
     return [self constraintWithItem:view1 attribute:attr1 lessThanOrEqualToItem:view2 attribute:attr2 multiplier:1 constant:0];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 lessThanOrEqualToItem:view2 attribute:attr2 multiplier:1 constant:c];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 relationBy:NSLayoutRelationLessThanOrEqual toItem:view2 attribute:attr2 multiplier:multiplier constant:c];
-    
 }
 
 #pragma mark NSLayoutRelationGreaterThanOrEqual

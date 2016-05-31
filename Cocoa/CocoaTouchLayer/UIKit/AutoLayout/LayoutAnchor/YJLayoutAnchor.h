@@ -23,6 +23,8 @@ typedef NSLayoutConstraint * _Nonnull (^ LessThanOrEqualTo)(YJLayoutAnchor *anch
 typedef NSLayoutConstraint * _Nonnull (^ EqualTo)(YJLayoutAnchor *anchor);
 /** NSLayoutConstraint.relation = NSLayoutRelationGreaterThanOrEqual*/
 typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualTo)(YJLayoutAnchor *anchor);
+/** 快速查询约束*/
+typedef NSLayoutConstraint * __nullable (^ ConstraintTo)(YJLayoutAnchor *anchor);
 
 
 /** YJLayoutAnchor对应的协议*/
@@ -34,6 +36,8 @@ typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualTo)(YJLayoutAnchor *a
 @property (nonatomic, copy, readonly) EqualTo equalTo;
 /** use .greaterThanOrEqualTo(YJLayoutAnchor)*/
 @property (nonatomic, copy, readonly) GreaterThanOrEqualTo greaterThanOrEqualTo;
+/** use .costraintTo(YJLayoutAnchor)*/
+@property (nonatomic, copy, readonly) ConstraintTo costraintTo;
 
 @end
 

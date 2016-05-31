@@ -36,8 +36,6 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 /**
  *  搜索NSLayoutConstraint
  *
- *  relatedBy = NSLayoutRelationEqual;view2 = nil; multiplier = 1;
- *
  *  @return NSLayoutConstraint
  */
 + (nullable instancetype)findConstraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2;

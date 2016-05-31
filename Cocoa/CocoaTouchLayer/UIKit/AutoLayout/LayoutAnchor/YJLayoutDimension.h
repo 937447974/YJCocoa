@@ -20,7 +20,8 @@ typedef NSLayoutConstraint * _Nonnull (^ LessThanOrEqualToConstant)(CGFloat cons
 typedef NSLayoutConstraint * _Nonnull (^ EqualToConstant)(CGFloat constant);
 /** NSLayoutConstraint.relation = NSLayoutRelationGreaterThanOrEqual and .constant = constant*/
 typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualToConstant)(CGFloat constant);
-
+/** 快速查询约束*/
+typedef NSLayoutConstraint * __nullable (^ Constraint)();
 
 /** YJLayoutDimension对应的协议*/
 @protocol YJLayoutDimensionProtocol <YJLayoutAnchorProtocol>
@@ -32,8 +33,11 @@ typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualToConstant)(CGFloat c
 @property (nonatomic, copy, readonly) EqualToConstant equalToConstant;
 /** use .greaterThanOrEqualToConstant(CGFloat)*/
 @property (nonatomic, copy, readonly) GreaterThanOrEqualToConstant greaterThanOrEqualToConstant;
+/** use .constraint()*/
+@property (nonatomic, copy, readonly) Constraint constraint;
 
 @end
+
 
 /** 仿NSLayoutDimension*/
 @interface YJLayoutDimension : YJLayoutAnchor <YJLayoutDimensionProtocol>

@@ -27,7 +27,6 @@
 
 #pragma mark - getter
 - (LessThanOrEqualTo)lessThanOrEqualTo {
-    
     __weak YJLayoutAnchor *wSelf = self;
     LessThanOrEqualTo lessThanOrEqualTo = ^ (YJLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute lessThanOrEqualToItem:anchor.item attribute:anchor.attribute];
@@ -36,23 +35,27 @@
 }
 
 - (EqualTo)equalTo {
-    
     __weak YJLayoutAnchor *wSelf = self;
     EqualTo equalTo = ^ (YJLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute equalToItem:anchor.item attribute:anchor.attribute];
     };
     return equalTo;
-    
 }
 
 - (GreaterThanOrEqualTo)greaterThanOrEqualTo {
-    
     __weak YJLayoutAnchor *wSelf = self;
     GreaterThanOrEqualTo greaterThanOrEqualTo = ^ (YJLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute greaterThanOrEqualToItem:anchor.item attribute:anchor.attribute];
     };
     return greaterThanOrEqualTo;
-    
+}
+
+- (ConstraintTo)costraintTo {
+    __weak YJLayoutAnchor *wSelf = self;
+    ConstraintTo block = ^ (YJLayoutAnchor *anchor) {
+        return [NSLayoutConstraint findConstraintWithItem:wSelf.item attribute:wSelf.attribute toItem:anchor.item attribute:anchor.attribute];
+    };
+    return block;
 }
 
 @end
