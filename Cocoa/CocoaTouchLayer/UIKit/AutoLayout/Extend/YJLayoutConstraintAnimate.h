@@ -13,12 +13,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^ YJConstraintAnimateCompletion)();
+
 /** 约束动画携带的参数*/
 @interface YJLayoutConstraintAnimate : NSObject
 
 @property (nonatomic) CGFloat toConstant;           ///< 目标值
 @property (nonatomic) CGFloat intervalConstant;     ///< 每一次变化值
 @property (nonatomic) NSTimeInterval intervalDelay; ///< 动画执行时间间隔
+@property (nonatomic, copy, nullable) YJConstraintAnimateCompletion completion; ///< 约束动画结束后的回调
 
 @end
 

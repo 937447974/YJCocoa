@@ -10,6 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YJLayoutConstraintAnimate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,7 +31,7 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
  *
  *  @return void
  */
-- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant;
+- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(nullable YJConstraintAnimateCompletion)completion;
 
 #pragma mark - (+)
 /**

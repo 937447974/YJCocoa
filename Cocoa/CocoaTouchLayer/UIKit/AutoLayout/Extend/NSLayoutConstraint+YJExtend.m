@@ -10,7 +10,6 @@
 //
 
 #import "NSLayoutConstraint+YJExtend.h"
-#import "YJLayoutConstraintAnimate.h"
 
 @implementation NSLayoutConstraint (YJExtend)
 
@@ -177,9 +176,10 @@
 }
 
 #pragma mark - 动画修改约束值
-- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant {
+- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(YJConstraintAnimateCompletion)completion {
     YJLayoutConstraintAnimate *lca = [[YJLayoutConstraintAnimate alloc] init];
     lca.toConstant = constant;
+    lca.completion = completion;
     lca.intervalDelay = duration/50; // 执行50次
     lca.intervalDelay = lca.intervalDelay > 0.02 ? lca.intervalDelay : 0.02; // 不能低于0.02的间隔
     lca.intervalDelay = lca.intervalDelay < 0.1 ? lca.intervalDelay : 0.1; // 不能高于0.1的间隔
@@ -190,10 +190,11 @@
 #pragma mark 动画循环执行
 - (void)animateConstantWithDuration:(YJLayoutConstraintAnimate *)lca {
     self.constant += lca.intervalConstant;
-    if (lca.intervalConstant > 0 && self.constant >= lca.toConstant) {
+    if ((lca.intervalConstant > 0 && self.constant >= lca.toConstant) || (lca.intervalConstant < 0 && self.constant <= lca.toConstant)) {
         self.constant = lca.toConstant;
-    } else if (lca.intervalConstant < 0 && self.constant <= lca.toConstant) {
-        self.constant = lca.toConstant;
+        if (lca.completion) {
+            lca.completion();
+        }
     } else {
         [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
     }

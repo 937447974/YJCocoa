@@ -173,7 +173,9 @@
 - (void)testAnimate {
     self.yellowView.topSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0).bottomSpaceToSuper(0);
     // 动画修改约束
-    [self.yellowView.topConstraintToSuper() animateWithDuration:1 constant:500];
+    [self.yellowView.topConstraintToSuper() animateWithDuration:1 constant:500 completion:^{
+        NSLog(@"动画结束");
+    }];
 }
 
 @end
