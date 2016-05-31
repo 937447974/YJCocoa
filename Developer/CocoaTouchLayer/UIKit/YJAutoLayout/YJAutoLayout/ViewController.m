@@ -63,6 +63,7 @@
 //    [self testYJAutoLayout]; // IOS7测试通过
 //    [self testSpaceToSuper];
 //    [self testCombinativeLayout];
+//    [self testFindConstraint];
     [self testAnimate];
 }
 
@@ -160,11 +161,19 @@
     self.yellowView.boundsLayoutTo(self.view);    
 }
 
+- (void)testFindConstraint {
+    self.yellowView.topSpaceToSuper(0).bottomSpaceToSuper(10).leadingSpaceToSuper(20).trailingSpaceToSuper(30);
+    NSLog(@"%@", self.view.constraints);
+    NSLog(@"%@", self.yellowView.topConstraintToSuper());
+    NSLog(@"%@", self.yellowView.bottomConstraintToSuper());
+    NSLog(@"%@", self.yellowView.leadingConstraintToSuper());
+    NSLog(@"%@", self.yellowView.trailingConstraintToSuper());
+}
 
 - (void)testAnimate {
-    self.yellowView.topSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0);
+    self.yellowView.topSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0).bottomSpaceToSuper(0);
     // 动画修改约束
-    [self.bottomLayoutSupport.topLayout.equalTo(self.yellowView.bottomLayout) animateWithDuration:1 constant:400];
+    [self.yellowView.topConstraintToSuper() animateWithDuration:1 constant:500];
 }
 
 @end
