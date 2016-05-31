@@ -11,7 +11,6 @@
 
 #import "NSLayoutConstraint+YJExtend.h"
 #import "YJLayoutConstraintAnimate.h"
-#import "YJSystem.h"
 
 @implementation NSLayoutConstraint (YJExtend)
 
@@ -76,33 +75,24 @@
 
 #pragma mark NSLayoutRelationGreaterThanOrEqual
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToConstant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 greaterThanOrEqualToItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:c];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 {
-    
     return [self constraintWithItem:view1 attribute:attr1 greaterThanOrEqualToItem:view2 attribute:attr2 multiplier:1 constant:0];
-    
 }
 
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c {
-    
     return [self constraintWithItem:view1 attribute:attr1 greaterThanOrEqualToItem:view2 attribute:attr2 multiplier:1 constant:c];
-    
 }
 
-+ (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c{
-    
++ (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c {
     return [self constraintWithItem:view1 attribute:attr1 relationBy:NSLayoutRelationGreaterThanOrEqual toItem:view2 attribute:attr2 multiplier:multiplier constant:c];
-    
 }
 
 #pragma mark base
 // 生产NSLayoutConstraint
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 relationBy:(NSLayoutRelation)relation toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c {
-    
     UIView *viewTemp1 = (UIView *)view1;
     UIView *viewTemp2 = (UIView *)view2;
     UIView *superView = [self findRootView:viewTemp1 toItem:viewTemp2];
@@ -122,12 +112,10 @@
         }
     }
     return lc;
-    
 }
 
 // 从view中搜索NSLayoutConstraint
 + (nullable instancetype)findConstraintWithView:(UIView *)view Item:(id)view1 attribute:(NSLayoutAttribute)attr1 toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 {
-    
     if (view2) {
         for (NSLayoutConstraint *c in view.constraints) {
             if (c.firstAttribute == attr1 && c.secondAttribute == attr2 && [c.firstItem isEqual:view1] && [c.secondItem isEqual:view2]) {
@@ -142,12 +130,10 @@
         }
     }
     return nil;
-    
 }
 
 // 寻找两个view的共同父节点
 + (UIView *)findRootView:(UIView *)view1 toItem:(nullable UIView *)view2 {
-    
     // 算法运行时间O(n)
     if (view2 == nil) {
         return view1;
@@ -178,23 +164,19 @@
         }
     }
     return view1;
-    
 }
 
 #pragma mark - getter
 - (Constant)constants {
-    
     __weak NSLayoutConstraint *lcWeak = self;
     Constant constants = ^(CGFloat constant) {
         lcWeak.constant = constant;
         return lcWeak;
     };
     return constants;
-    
 }
 
 - (Multiplier)multipliers {
-    
     __block __weak NSLayoutConstraint *lcWeak = self;
     Multiplier multipliers = ^(CGFloat multiplier) {
         UIView *viewTemp1 = (UIView *)lcWeak.firstItem;
@@ -219,13 +201,11 @@
     lca.intervalDelay = duration/50; // 执行50次
     lca.intervalDelay = lca.intervalDelay > 0.02 ? lca.intervalDelay : 0.02; // 不能低于0.02的间隔
     lca.intervalDelay = lca.intervalDelay < 0.1 ? lca.intervalDelay : 0.1; // 不能高于0.1的间隔
-    lca.intervalConstant = (constant - self.constant) / (duration / 0.02);
-    __weak NSLayoutConstraint *weakSelf = self;
-    dispatch_async_UI(^{
-        [weakSelf animateConstantWithDuration:lca];
-    });
+    lca.intervalConstant = (constant - self.constant) / (duration / lca.intervalDelay);
+    [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
 }
 
+#pragma mark 动画循环执行
 - (void)animateConstantWithDuration:(YJLayoutConstraintAnimate *)lca {
     self.constant += lca.intervalConstant;
     if (lca.intervalConstant > 0 && self.constant >= lca.toConstant) {
@@ -233,7 +213,7 @@
     } else if (lca.intervalConstant < 0 && self.constant <= lca.toConstant) {
         self.constant = lca.toConstant;
     } else {
-        [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:0.02]; /// 0.02秒执行一次动画
+        [self performSelector:@selector(animateConstantWithDuration:) withObject:lca afterDelay:lca.intervalDelay];
     }
 }
 
