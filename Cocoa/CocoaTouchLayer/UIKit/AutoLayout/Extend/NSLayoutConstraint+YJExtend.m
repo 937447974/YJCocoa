@@ -196,6 +196,7 @@
 
 #pragma mark - 动画修改约束值
 - (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(YJConstraintAnimateCompletion)completion {
+    if (duration <= 0) return; // 时间校验
     YJLayoutConstraintAnimate *lca = [[YJLayoutConstraintAnimate alloc] init];
     lca.toConstant = constant;
     lca.completion = completion;
@@ -211,7 +212,7 @@
 - (void)animateConstant {
     YJLayoutConstraintAnimate *lca = self.constraintAnimate;
     self.constant += lca.intervalConstant;
-    if ((lca.intervalConstant > 0 && self.constant >= lca.toConstant) || (lca.intervalConstant < 0 && self.constant <= lca.toConstant)) {
+    if ((lca.intervalConstant >= 0 && self.constant >= lca.toConstant) || (lca.intervalConstant < 0 && self.constant <= lca.toConstant)) {
         self.constant = lca.toConstant;
         if (lca.completion) {
             lca.completion();
