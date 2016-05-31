@@ -11,6 +11,14 @@ YJ系列开源库
 
 ---
 
+## YJCocoa/CocoaTouchLayer/UIKit/InputLength
+
+UITextField和UITextView可输入长度控制。
+
+## YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
+
+UIView(UIViewGeometry)相关扩展，可快速设置frame。
+
 ## YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
@@ -69,10 +77,6 @@ UICollectionView封装
 	1. 根据相同的UITableViewCell类缓存高度；
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
-
-## YJCocoa/CocoaTouchLayer/UIKit/InputLength
-
-UITextField和UITextView可输入长度控制。
 
 ---
 
@@ -134,6 +138,7 @@ YJ技术支持群：557445088
 | 2016-05-26 | 2.0.2 ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
 | 2016-05-30 | 2.0.2 ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
 | 2016-05-31 | 2.0.2 ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
+| 2016-05-31 | 2.0.2 ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
 
 ##Copyright
 

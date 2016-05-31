@@ -55,6 +55,14 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
         ctl.source_files = 'Cocoa/CocoaTouchLayer/*.{h,m}'
         ctl.subspec 'UIKit' do |uik|
             uik.source_files = 'Cocoa/CocoaTouchLayer/UIKit/*.{h,m}'
+            # UITextField和UITextView可输入长度控制
+            uik.subspec 'InputLength' do |il|
+                il.source_files  = "Cocoa/CocoaTouchLayer/UIKit/InputLength/*.{h,m}"
+            end
+            # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
+            uik.subspec 'ViewGeometry' do |vg|
+                vg.source_files  = "Cocoa/CocoaTouchLayer/UIKit/ViewGeometry/*.{h,m}"
+            end
             # AutoLayout
             uik.subspec 'AutoLayout' do |al|
                 al.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/*.{h,m}'
@@ -113,10 +121,6 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
                     cco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     cco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
-            end
-            # UITextField和UITextView可输入长度控制
-            uik.subspec 'InputLength' do |il|
-                il.source_files  = "Cocoa/CocoaTouchLayer/UIKit/InputLength/*.{h,m}"
             end
         end
     end
