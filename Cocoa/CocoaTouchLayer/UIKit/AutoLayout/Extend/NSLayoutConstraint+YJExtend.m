@@ -196,14 +196,14 @@
 
 #pragma mark - 动画修改约束值
 - (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(YJConstraintAnimateCompletion)completion {
-    if (duration <= 0) return; // 时间校验
+    duration = duration >= 0 ? duration : 0; // 时间校验
     YJLayoutConstraintAnimate *lca = [[YJLayoutConstraintAnimate alloc] init];
     lca.toConstant = constant;
     lca.completion = completion;
     lca.intervalDelay = duration/50; // 执行50次
     lca.intervalDelay = lca.intervalDelay > 0.02 ? lca.intervalDelay : 0.02; // 不能低于0.02的间隔
     lca.intervalDelay = lca.intervalDelay < 0.1 ? lca.intervalDelay : 0.1; // 不能高于0.1的间隔
-    lca.intervalConstant = (constant - self.constant) / (duration / lca.intervalDelay);
+    lca.intervalConstant = duration ? (constant-self.constant)/(duration/lca.intervalDelay) : (constant-self.constant);
     self.constraintAnimate = lca;
     [self performSelector:@selector(animateConstant) withObject:nil afterDelay:lca.intervalDelay];
 }

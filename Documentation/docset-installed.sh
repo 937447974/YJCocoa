@@ -29,4 +29,4 @@ fi
 osascript -e 'display notification "2.0.2 | 2016-05-26 | ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。" with title "YJCocoa"'
 osascript -e 'display notification "2.0.2 | 2016-05-30 | ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。" with title "YJCocoa"'
 osascript -e 'display notification "2.0.2 | 2016-05-31 | ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。" with title "YJCocoa"'
-osascript -e 'display notification "2.0.2 | 2016-05-31 | ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame" with title "YJCocoa"'
+osascript -e 'display notification "2.1.0 | 2016-06-01 | ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame" with title "YJCocoa"'
