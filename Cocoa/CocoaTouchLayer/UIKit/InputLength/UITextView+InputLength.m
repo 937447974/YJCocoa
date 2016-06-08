@@ -20,10 +20,6 @@
 
 @implementation UITextView (InputLength)
 
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark - getter and setter
 - (void)setOldInput:(NSString *)oldInput {
     objc_setAssociatedObject(self, "oldInput", oldInput, OBJC_ASSOCIATION_COPY_NONATOMIC);

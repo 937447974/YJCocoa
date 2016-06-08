@@ -139,6 +139,7 @@ YJ技术支持群：557445088
 | 2016-05-30 | 2.0.2 ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
 | 2016-05-31 | 2.0.2 ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
 | 2016-06-01 | 2.1.0 ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
+| 2016-06-08 | 2.1.1 修复'InputLength'引起UITextView崩溃问题 |
 
 ##Copyright
 
