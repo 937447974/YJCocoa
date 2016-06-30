@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		841F53FF1CEE9E590082227A /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53FE1CEE9E590082227A /* YJLog.m */; };
-		846C27B61CF5A42D002DACDA /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C27B51CF5A42D002DACDA /* YJHttpAnalysis.m */; };
+		844DBAB71D24F98600415993 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAB61D24F98600415993 /* YJHttpAnalysis.m */; };
+		844DBABA1D24F9E800415993 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAB91D24F9E800415993 /* YJHttpAssembly.m */; };
 		8473ABC31CE96B57000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC21CE96B57000E3580 /* main.m */; };
 		8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC51CE96B57000E3580 /* AppDelegate.m */; };
 		8473ABC91CE96B57000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC81CE96B57000E3580 /* ViewController.m */; };
@@ -24,8 +25,11 @@
 		0532681BB3006CDA62A10BC1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		841F53FD1CEE9E590082227A /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
 		841F53FE1CEE9E590082227A /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
-		846C27B41CF5A42D002DACDA /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
-		846C27B51CF5A42D002DACDA /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
+		844DBAB51D24F98600415993 /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
+		844DBAB61D24F98600415993 /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
+		844DBAB81D24F9E800415993 /* YJHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAssembly.h; sourceTree = "<group>"; };
+		844DBAB91D24F9E800415993 /* YJHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAssembly.m; sourceTree = "<group>"; };
+		844DBABB1D24FA7700415993 /* YJHttp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJHttp.h; sourceTree = "<group>"; };
 		8473ABBE1CE96B57000E3580 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473ABC21CE96B57000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473ABC41CE96B57000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,6 +78,18 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
+		844DBAB41D24F98600415993 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				844DBABB1D24FA7700415993 /* YJHttp.h */,
+				844DBAB51D24F98600415993 /* YJHttpAnalysis.h */,
+				844DBAB61D24F98600415993 /* YJHttpAnalysis.m */,
+				844DBAB81D24F9E800415993 /* YJHttpAssembly.h */,
+				844DBAB91D24F9E800415993 /* YJHttpAssembly.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		846336131CF318700065E08F /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +97,6 @@
 				847A1E6D1CF56B0C00636975 /* YJSingletonMCenter.m */,
 			);
 			path = Singleton;
-			sourceTree = "<group>";
-		};
-		846C27B31CF5A420002DACDA /* HttpAnalysis */ = {
-			isa = PBXGroup;
-			children = (
-				846C27B41CF5A42D002DACDA /* YJHttpAnalysis.h */,
-				846C27B51CF5A42D002DACDA /* YJHttpAnalysis.m */,
-			);
-			path = HttpAnalysis;
 			sourceTree = "<group>";
 		};
 		8473ABB51CE96B57000E3580 = {
@@ -146,7 +153,7 @@
 		8473ABFC1CE96BEF000E3580 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				846C27B31CF5A420002DACDA /* HttpAnalysis */,
+				844DBAB41D24F98600415993 /* Http */,
 				847A1E6F1CF5747800636975 /* Other */,
 				846336131CF318700065E08F /* Singleton */,
 				841F53FC1CEE9E210082227A /* Log */,
@@ -302,7 +309,8 @@
 				847A1E721CF5748400636975 /* YJFoundationOther.m in Sources */,
 				841F53FF1CEE9E590082227A /* YJLog.m in Sources */,
 				847A1E6E1CF56B0C00636975 /* YJSingletonMCenter.m in Sources */,
-				846C27B61CF5A42D002DACDA /* YJHttpAnalysis.m in Sources */,
+				844DBABA1D24F9E800415993 /* YJHttpAssembly.m in Sources */,
+				844DBAB71D24F98600415993 /* YJHttpAnalysis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

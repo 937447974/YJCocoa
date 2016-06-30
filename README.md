@@ -88,9 +88,10 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-## YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis
+## YJCocoa/CoreServicesLayer/Foundation/Http
 
-http链接解析，快速获取其中参数
+1. http链接解析，快速获取其中参数;
+2. http链接组装，快速组装相关参数。
 
 ---
 
@@ -140,6 +141,7 @@ YJ技术支持群：557445088
 | 2016-05-31 | 2.0.2 ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
 | 2016-06-01 | 2.1.0 ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
 | 2016-06-08 | 2.1.1 修复'InputLength'引起UITextView崩溃问题 |
+| 2016-06-30 | 2.1.2 HttpAnalysis库更名为Http,增加组装http相关参数的方法。 |
 
 ##Copyright
 

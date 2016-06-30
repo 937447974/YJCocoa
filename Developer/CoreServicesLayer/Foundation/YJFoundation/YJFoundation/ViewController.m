@@ -23,7 +23,7 @@
     [super viewDidLoad];
 //    [self testLog];
 //    [self testSingleton];
-    [self testHttpAnalysis];
+    [self testHttp];
 }
 
 #pragma mark - test
@@ -51,11 +51,12 @@
     NSLog(@"dispatch_queue_create");
 }
 
-#pragma mark http解析获取参数
-- (void)testHttpAnalysis {
-    NSString *http = @"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=ios&oq=&rsv_pq=b3c5f2be0002d056&rsv_t=&rqlang=cn&rsv_enter=1&inputT=982&rsv_sug3=12&rsv_sug1=10&rsv_sug7=101&rsv_sug2=0&rsv_sug4=1638&name=阳君";
+#pragma mark http相关
+- (void)testHttp {
+    NSString *http = [YJHttpAssembly assemblyHttp:@"https://www.baidu.com/s" params:@{@"name":@"阳君", @"qq":@"937447974"}];
+    NSLog(@"%@", http);
     NSLog(@"%@", [YJHttpAnalysis analysisParams:http]);
-     NSLog(@"%@", [YJHttpAnalysis analysisParams:http forKey:@"name"]);
+    NSLog(@"%@", [YJHttpAnalysis analysisParams:http forKey:@"name"]);
 }
 
 @end

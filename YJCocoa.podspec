@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "2.1.1"
+    s.version  = "2.1.2"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -130,8 +130,8 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         csl.source_files = 'Cocoa/CoreServicesLayer/*.{h,m}'
         csl.subspec 'Foundation' do |foundation|
             foundation.source_files = 'Cocoa/CoreServicesLayer/Foundation/*.{h,m}'
-            foundation.subspec 'HttpAnalysis' do |ha|
-                ha.source_files = 'Cocoa/CoreServicesLayer/Foundation/HttpAnalysis/*.{h,m}'
+            foundation.subspec 'Http' do |http|
+                http.source_files = 'Cocoa/CoreServicesLayer/Foundation/Http/*.{h,m}'
             end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}'

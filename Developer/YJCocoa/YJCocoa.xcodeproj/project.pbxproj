@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */; };
+		844DBAC21D24FEA100415993 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBABF1D24FEA100415993 /* YJHttpAnalysis.m */; };
+		844DBAC31D24FEA100415993 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAC11D24FEA100415993 /* YJHttpAssembly.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -50,8 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		846C27B81CF5ABB0002DACDA /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
-		846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
+		844DBABD1D24FEA100415993 /* YJHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttp.h; sourceTree = "<group>"; };
+		844DBABE1D24FEA100415993 /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
+		844DBABF1D24FEA100415993 /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
+		844DBAC01D24FEA100415993 /* YJHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAssembly.h; sourceTree = "<group>"; };
+		844DBAC11D24FEA100415993 /* YJHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAssembly.m; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,13 +152,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		846C27B71CF5ABB0002DACDA /* HttpAnalysis */ = {
+		844DBABC1D24FEA100415993 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				846C27B81CF5ABB0002DACDA /* YJHttpAnalysis.h */,
-				846C27B91CF5ABB0002DACDA /* YJHttpAnalysis.m */,
+				844DBABD1D24FEA100415993 /* YJHttp.h */,
+				844DBABE1D24FEA100415993 /* YJHttpAnalysis.h */,
+				844DBABF1D24FEA100415993 /* YJHttpAnalysis.m */,
+				844DBAC01D24FEA100415993 /* YJHttpAssembly.h */,
+				844DBAC11D24FEA100415993 /* YJHttpAssembly.m */,
 			);
-			path = HttpAnalysis;
+			path = Http;
 			sourceTree = "<group>";
 		};
 		8473AB6F1CE969DB000E3580 = {
@@ -259,7 +266,7 @@
 		847A1E731CF5843900636975 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				846C27B71CF5ABB0002DACDA /* HttpAnalysis */,
+				844DBABC1D24FEA100415993 /* Http */,
 				847A1E741CF5843900636975 /* Log */,
 				847A1E771CF5843900636975 /* Other */,
 				847A1E7A1CF5843900636975 /* Singleton */,
@@ -607,13 +614,13 @@
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				84B252D91CFD44E0000931F2 /* YJTableViewDataSource.m in Sources */,
 				84B252D11CFD44E0000931F2 /* UITextField+InputLength.m in Sources */,
-				846C27BA1CF5ABB0002DACDA /* YJHttpAnalysis.m in Sources */,
 				84B252D41CFD44E0000931F2 /* YJImagePageViewController.m in Sources */,
 				84B252D31CFD44E0000931F2 /* YJImagePageModel.m in Sources */,
 				84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
+				844DBAC31D24FEA100415993 /* YJHttpAssembly.m in Sources */,
 				84B252DB1CFD44E0000931F2 /* YJSuspensionCellView.m in Sources */,
 				847A1E681CF5598C00636975 /* YJSystem.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
@@ -624,6 +631,7 @@
 				84B252D01CFD44E0000931F2 /* YJCollectionViewDelegate.m in Sources */,
 				84B252D71CFD44E0000931F2 /* YJPageViewController.m in Sources */,
 				84B252CF1CFD44E0000931F2 /* YJCollectionViewDataSource.m in Sources */,
+				844DBAC21D24FEA100415993 /* YJHttpAnalysis.m in Sources */,
 				847A1E7E1CF5843900636975 /* YJLog.m in Sources */,
 				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,

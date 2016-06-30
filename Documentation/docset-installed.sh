@@ -32,4 +32,6 @@ fi
 #osascript -e 'display notification "2.0.2 | 2016-05-31 | ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。" with title "YJCocoa"'
 #osascript -e 'display notification "2.1.0 | 2016-06-01 | ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame" with title "YJCocoa"'
 
-osascript -e 'display notification "2.1.1 | 2016-06-08 | 修复‘InputLength’引起UITextView崩溃问题" with title "YJCocoa"'
+#osascript -e 'display notification "2.1.1 | 2016-06-08 | 修复‘InputLength’引起UITextView崩溃问题" with title "YJCocoa"'
+
+osascript -e 'display notification "2.1.2 | 2016-06-30 | HttpAnalysis库更名为Http,增加组装http相关参数的方法。'
