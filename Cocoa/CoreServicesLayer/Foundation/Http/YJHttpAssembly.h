@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** http参数组装*/
+/** http链接组装参数*/
 @interface YJHttpAssembly : NSObject
 
 /**

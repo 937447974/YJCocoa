@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** http链接解析，快速获取参数*/
+/** http链接解析参数*/
 @interface YJHttpAnalysis : NSObject
 
 /**
