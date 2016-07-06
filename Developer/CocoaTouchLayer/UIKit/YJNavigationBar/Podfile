@@ -4,4 +4,4 @@ platform :ios, '6.0'
 # use_frameworks!
 
 pod 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
-
+pod 'YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry'

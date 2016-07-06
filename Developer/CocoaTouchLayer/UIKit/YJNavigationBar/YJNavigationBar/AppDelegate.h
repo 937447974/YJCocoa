@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  YJNavigationBar
 //
-//  Created by admin on 16/7/6.
+//  Created by 阳君 on 16/7/6.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
