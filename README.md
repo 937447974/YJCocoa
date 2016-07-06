@@ -27,6 +27,9 @@ AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我�
 3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
 4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
+## YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
+
+NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
 ## YJCocoa/CocoaTouchLayer/UIKit/PageView
 
@@ -142,6 +145,7 @@ YJ技术支持群：557445088
 | 2016-06-01 | 2.1.0 ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
 | 2016-06-08 | 2.1.1 修复'InputLength'引起UITextView崩溃问题 |
 | 2016-06-30 | 2.1.2 HttpAnalysis库更名为Http,增加组装http相关参数的方法。 |
+| 2016-07-06 | 2.1.2 NavigationBar库上线,可自定义配置UINavigationBar。|
 
 ##Copyright
 
