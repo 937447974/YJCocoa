@@ -70,7 +70,7 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *lastIndexPath = self.dataSource.dataSourceGrouped.lastObject.lastObject.indexPath;
-    if (indexPath.section == lastIndexPath.section && indexPath.item == lastIndexPath.item  && [self.cellDelegate respondsToSelector:@selector(collectionViewLoadingPageData:willDisplayCell:)]) { // 加载数据
+    if (indexPath && indexPath.section == lastIndexPath.section && indexPath.item == lastIndexPath.item  && [self.cellDelegate respondsToSelector:@selector(collectionViewLoadingPageData:willDisplayCell:)]) { // 加载数据
         YJCollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
         [self.cellDelegate collectionViewLoadingPageData:cellObject willDisplayCell:cell];
     }    

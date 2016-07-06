@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "YJCollectionView.h"
 #import "YJTestCollectionViewCell.h"
+#import "YJSystem.h"
 
 @interface ViewController () <YJCollectionViewCellProtocol>
 
@@ -40,6 +41,7 @@
 #pragma mark - YJCollectionViewCellProtocol
 - (void)collectionViewDidSelectCellWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(nullable UICollectionViewCell *)cell {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self.collectionView reloadData];
 }
 
 - (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell {
@@ -49,7 +51,11 @@
         cellModel.index = [NSString stringWithFormat:@"%d", i];
         [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
     }
-    [self.collectionView reloadData];
+    dispatch_async_main(^{
+        [self.collectionView reloadData];
+    });
+    
+
 }
 
 

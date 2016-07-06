@@ -26,7 +26,7 @@ void dispatch_async_background(dispatch_block_t block) {
 void dispatch_async_UI(dispatch_block_t block) {
     dispatch_async_background(^{
         dispatch_async_main(block);
-    });
+//    });
 }
 
 // 主线程延时执行

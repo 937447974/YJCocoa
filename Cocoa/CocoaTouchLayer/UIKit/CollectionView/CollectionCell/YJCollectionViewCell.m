@@ -37,7 +37,7 @@
 - (void)reloadDataWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
     [self reloadDataSyncWithCellObject:cellObject delegate:delegate];
     __weak UICollectionViewCell *weakSelf = self;
-    dispatch_async_UI(^{// UI加速
+    dispatch_async_main(^{// UI加速
         [weakSelf reloadDataAsyncWithCellObject:cellObject delegate:delegate];
     });
 }
