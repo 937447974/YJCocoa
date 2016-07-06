@@ -18,6 +18,9 @@
 // NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 #import "YJAutoLayout.h"
 
+// UINavigationBar封装，可自定义配置bar
+#import "YJNavigationBar.h"
+
 // UITableView封装
 #import "YJTableView.h"
 

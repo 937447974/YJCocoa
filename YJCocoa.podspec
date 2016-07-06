@@ -82,6 +82,14 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
                     ale.source_files = 'Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
+            # NavigationBar
+            uik.subspec 'NavigationBar' do |nb|
+                nb.source_files = 'Cocoa/CocoaTouchLayer/UIKit/NavigationBar/*.{h,m}'
+                nb.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/NavigationBar/Core/*.{h,m}'
+                    core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry'
+                end
+            end
             # PageView
             uik.subspec 'PageView' do |pv|
                 pv.subspec 'Core' do |core|

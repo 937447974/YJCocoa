@@ -10,7 +10,6 @@
 //
 
 #import "YJBarButtonView.h"
-#import "YJSingletonMCenter.h"
 #import "UIView+YJViewGeometry.h"
 
 @implementation YJBarButtonView

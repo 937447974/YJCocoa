@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		844DBAC21D24FEA100415993 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBABF1D24FEA100415993 /* YJHttpAnalysis.m */; };
 		844DBAC31D24FEA100415993 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAC11D24FEA100415993 /* YJHttpAssembly.m */; };
+		845375E61D2CF48D00F27D82 /* YJBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375E11D2CF48D00F27D82 /* YJBarButtonItem.m */; };
+		845375E71D2CF48D00F27D82 /* YJBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375E31D2CF48D00F27D82 /* YJBarButtonView.m */; };
+		845375E81D2CF48D00F27D82 /* YJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375E51D2CF48D00F27D82 /* YJNavigationBar.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -56,6 +59,12 @@
 		844DBABF1D24FEA100415993 /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
 		844DBAC01D24FEA100415993 /* YJHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAssembly.h; sourceTree = "<group>"; };
 		844DBAC11D24FEA100415993 /* YJHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAssembly.m; sourceTree = "<group>"; };
+		845375E01D2CF48D00F27D82 /* YJBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBarButtonItem.h; sourceTree = "<group>"; };
+		845375E11D2CF48D00F27D82 /* YJBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBarButtonItem.m; sourceTree = "<group>"; };
+		845375E21D2CF48D00F27D82 /* YJBarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBarButtonView.h; sourceTree = "<group>"; };
+		845375E31D2CF48D00F27D82 /* YJBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBarButtonView.m; sourceTree = "<group>"; };
+		845375E41D2CF48D00F27D82 /* YJNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNavigationBar.h; sourceTree = "<group>"; };
+		845375E51D2CF48D00F27D82 /* YJNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNavigationBar.m; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,6 +171,27 @@
 				844DBAC11D24FEA100415993 /* YJHttpAssembly.m */,
 			);
 			path = Http;
+			sourceTree = "<group>";
+		};
+		845375DE1D2CF48D00F27D82 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				845375DF1D2CF48D00F27D82 /* Core */,
+				845375E41D2CF48D00F27D82 /* YJNavigationBar.h */,
+				845375E51D2CF48D00F27D82 /* YJNavigationBar.m */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		845375DF1D2CF48D00F27D82 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				845375E01D2CF48D00F27D82 /* YJBarButtonItem.h */,
+				845375E11D2CF48D00F27D82 /* YJBarButtonItem.m */,
+				845375E21D2CF48D00F27D82 /* YJBarButtonView.h */,
+				845375E31D2CF48D00F27D82 /* YJBarButtonView.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8473AB6F1CE969DB000E3580 = {
@@ -308,6 +338,7 @@
 				84B252761CFD44E0000931F2 /* AutoLayout */,
 				84B2528E1CFD44E0000931F2 /* CollectionView */,
 				84B2529C1CFD44E0000931F2 /* InputLength */,
+				845375DE1D2CF48D00F27D82 /* NavigationBar */,
 				84B252A21CFD44E0000931F2 /* PageView */,
 				84B252AF1CFD44E0000931F2 /* TableView */,
 				84B252C01CFD44E0000931F2 /* ViewGeometry */,
@@ -600,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845375E81D2CF48D00F27D82 /* YJNavigationBar.m in Sources */,
 				84B252D21CFD44E0000931F2 /* UITextView+InputLength.m in Sources */,
 				84B252DA1CFD44E0000931F2 /* YJTableViewDelegate.m in Sources */,
 				84B252DD1CFD44E0000931F2 /* YJTableCellObject.m in Sources */,
@@ -619,6 +651,7 @@
 				84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
+				845375E61D2CF48D00F27D82 /* YJBarButtonItem.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
 				844DBAC31D24FEA100415993 /* YJHttpAssembly.m in Sources */,
 				84B252DB1CFD44E0000931F2 /* YJSuspensionCellView.m in Sources */,
@@ -634,6 +667,7 @@
 				844DBAC21D24FEA100415993 /* YJHttpAnalysis.m in Sources */,
 				847A1E7E1CF5843900636975 /* YJLog.m in Sources */,
 				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
+				845375E71D2CF48D00F27D82 /* YJBarButtonView.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
