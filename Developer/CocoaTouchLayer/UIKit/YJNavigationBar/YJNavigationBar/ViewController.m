@@ -1,13 +1,12 @@
 //
 //  ViewController.m
-//  YJCocoa
+//  YJNavigationBar
 //
-//  Created by 阳君 on 16/5/16.
+//  Created by admin on 16/7/6.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "YJCocoa.h"
 
 @interface ViewController ()
 
@@ -18,9 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UITextView *c;
-    c.inputLength = 10;
-    self.navigationController.navigationBar
 }
 
 - (void)didReceiveMemoryWarning {
