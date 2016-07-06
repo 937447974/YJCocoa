@@ -40,7 +40,7 @@
 - (void)reloadDataWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     [self reloadDataSyncWithPageViewObject:pageViewObject pageView:pageView];
     __weak YJPageViewController *weakSelf = self;
-    dispatch_async_UI(^{
+    dispatch_async_main(^{
         [weakSelf reloadDataAsyncWithPageViewObject:weakSelf.pageViewObject pageView:weakSelf.pageView];
     });
 }

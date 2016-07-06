@@ -20,7 +20,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     UITextView *c;
     c.inputLength = 10;
-    self.navigationController.navigationBar
 }
 
 - (void)didReceiveMemoryWarning {

@@ -47,7 +47,7 @@
 - (void)reloadDataWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
     [self reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     __weak UITableViewCell *weakSelf = self;
-    dispatch_async_UI(^{// UI加速
+    dispatch_async_main(^{// UI加速
         [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     });
 }
