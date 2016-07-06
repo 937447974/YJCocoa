@@ -18,12 +18,42 @@ NS_ASSUME_NONNULL_BEGIN
 /** 点击cell的block*/
 typedef void (^ YJCollectionViewCellBlock)(YJCollectionCellObject *cellObject, UICollectionViewCell  * __nullable cell);
 
+
 /** 缓存Size的策略*/
 typedef NS_ENUM(NSInteger, YJCollectionViewCacheSize) {
     YJCollectionViewCacheSizeDefault,          ///< 根据相同的UITableViewCell类缓存高度
     YJCollectionViewCacheSizeIndexPath,        ///< 根据NSIndexPath对应的位置缓存高度
     YJCollectionViewCacheSizeClassAndIndexPath ///< 根据类名和NSIndexPath双重绑定缓存高度
 };
+
+
+/** cell的协议*/
+@protocol YJCollectionViewCellProtocol <NSObject>
+
+@optional
+
+/**
+ *  用户点击Cell
+ *
+ *  @param cellObject    用户点击的cell数据
+ *  @param tableViewCell 用户点击的Cell
+ *
+ *  @return void
+ */
+- (void)collectionViewDidSelectCellWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(nullable UICollectionViewCell *)cell;
+
+/**
+ *  分页加载数据
+ *
+ *  @param cellObject 将要显示的Cell数据
+ *  @param cell       将要显示的Cell
+ *
+ *  @return void
+ */
+- (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell;
+
+@end
+
 
 /** UICollectionViewDelegate抽象接口*/
 @interface YJCollectionViewDelegate : NSObject <UICollectionViewDelegateFlowLayout>
@@ -33,8 +63,11 @@ typedef NS_ENUM(NSInteger, YJCollectionViewCacheSize) {
 @property (nonatomic) BOOL itemHeightLayout; ///< item的高度是否根据宽度自适应（lineItems>0）
 @property (nonatomic) YJCollectionViewCacheSize cacheSizeStrategy; ///< 缓存高的策略。无须赋值，YJCollectionViewDataSource抽象接口会根据cacheCellStrategy自动赋值
 
-@property (nonatomic, copy, nullable) YJCollectionViewCellBlock cellBlock;    ///< 点击cell的block
+@property (nonatomic, weak, nullable) id <YJCollectionViewCellProtocol> cellDelegate; ///< cell的代理
+@property (nonatomic, copy, nullable) YJCollectionViewCellBlock cellBlock;            ///< 点击cell的block
+
 @property (nonatomic, weak, readonly) YJCollectionViewDataSource *dataSource; ///< YJCollectionViewDataSource
+
 @property (nonatomic, weak, readonly) UICollectionViewFlowLayout *flowLayout; ///< 布局Layout
 
 /**

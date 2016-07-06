@@ -45,6 +45,8 @@
 - (void)sendVCWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(UICollectionViewCell *)cell {
     if (self.cellBlock) { // block回调
         self.cellBlock(cellObject, cell);
+    } else if ([self.cellDelegate respondsToSelector:@selector(collectionViewDidSelectCellWithCellObject:collectionViewCell:)]){
+        [self.cellDelegate collectionViewDidSelectCellWithCellObject:cellObject collectionViewCell:cell];
     }
 }
 
@@ -67,7 +69,11 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSIndexPath *lastIndexPath = self.dataSource.dataSourceGrouped.lastObject.lastObject.indexPath;
+    if (indexPath.section == lastIndexPath.section && indexPath.item == lastIndexPath.item  && [self.cellDelegate respondsToSelector:@selector(collectionViewLoadingPageData:willDisplayCell:)]) { // 加载数据
+        YJCollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
+        [self.cellDelegate collectionViewLoadingPageData:cellObject willDisplayCell:cell];
+    }    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

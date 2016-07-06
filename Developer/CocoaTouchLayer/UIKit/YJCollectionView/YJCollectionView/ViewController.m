@@ -10,7 +10,7 @@
 #import "YJCollectionView.h"
 #import "YJTestCollectionViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () <YJCollectionViewCellProtocol>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) YJCollectionViewDataSource *dataSoutce; ///< 数据源管理
@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.dataSoutce = [[YJCollectionViewDataSource alloc] initWithCollectionView:self.collectionView];
     // 测试数据
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i<20; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
         [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
@@ -34,6 +34,23 @@
     self.dataSoutce.flowLayout.minimumInteritemSpacing = 5;
     self.dataSoutce.delegate.lineItems = 3;          // 一行显示个数
     self.dataSoutce.delegate.itemHeightLayout = YES; // 是否自动适配高
+    self.dataSoutce.delegate.cellDelegate = self;
 }
+
+#pragma mark - YJCollectionViewCellProtocol
+- (void)collectionViewDidSelectCellWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(nullable UICollectionViewCell *)cell {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    for (int i = 0; i<10; i++) {
+        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
+        cellModel.index = [NSString stringWithFormat:@"%d", i];
+        [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
+    }
+    [self.collectionView reloadData];
+}
+
 
 @end

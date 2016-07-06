@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, YJTableViewCacheHeight) {
 /** 点击cell的block*/
 typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableViewCell  * __nullable tableViewCell);
 
-/** 点击cell的协议*/
+/** cell的协议*/
 @protocol YJTableViewCellProtocol <NSObject>
 
 @optional
