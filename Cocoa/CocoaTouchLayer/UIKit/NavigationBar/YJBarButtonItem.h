@@ -1,0 +1,49 @@
+//
+//  YJBarButtonItem.h
+//  YJNavigationBar
+//
+//  Created by admin on 16/7/6.
+//  Copyright © 2016年 YJ. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+// 按钮大小高度为30，宽度自适应最小30
+// 标题图片可同时使用
+
+/** 模仿UIBarButtonItem*/
+@interface YJBarButtonItem : NSObject
+
+@property (nullable, nonatomic, copy)   NSString *title; ///< 使用标题
+@property (nullable, nonatomic, strong) UIImage *image;  ///< 使用图片
+@property (nullable, nonatomic, weak)   id target;       ///< 回调目标
+@property (nullable, nonatomic)         SEL action;      ///< 回调方法
+
+/**
+ *  通过文字初始化
+ *
+ *  @param title 标题
+ *  @param target 回调目标
+ *  @param action 回调方法
+ *
+ *  @return YJBarButtonItem
+ */
+- (instancetype)initWithTitle:(nullable NSString *)title target:(nullable id)target action:(nullable SEL)action;
+
+/**
+ *  通过图片初始化
+ *
+ *  @param image 图片
+ *  @param target 回调目标
+ *  @param action 回调方法
+ *
+ *  @return YJBarButtonItem
+ */
+- (instancetype)initWithImage:(nullable UIImage *)image target:(nullable id)target action:(nullable SEL)action;
+
+@end
+
+NS_ASSUME_NONNULL_END
