@@ -1,14 +1,12 @@
 PODS:
-  - YJCocoa/CoreOSLayer/System (1.6.0)
-  - YJCocoa/CoreServicesLayer/Foundation (1.6.0):
-    - YJCocoa/CoreServicesLayer/Foundation/Log (= 1.6.0)
-  - YJCocoa/CoreServicesLayer/Foundation/Log (1.6.0)
+  - YJCocoa/CoreOSLayer/System (2.1.1)
+  - YJCocoa/CoreServicesLayer/Foundation/Other (2.1.1)
 
 DEPENDENCIES:
   - YJCocoa/CoreOSLayer/System
-  - YJCocoa/CoreServicesLayer/Foundation
+  - YJCocoa/CoreServicesLayer/Foundation/Other
 
 SPEC CHECKSUMS:
-  YJCocoa: 1929e9bcc4024c293e0c0594f6c932ab5bff2c42
+  YJCocoa: b6a62ccf8732e6d45720e94d8b75acaacaa49340
 
 COCOAPODS: 0.39.0
