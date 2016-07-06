@@ -2,7 +2,10 @@
 //  YJBarButtonItem.h
 //  YJNavigationBar
 //
-//  Created by admin on 16/7/6.
+//  HomePage:https://github.com/937447974/YJCocoa
+//  YJ技术支持群:557445088
+//
+//  Created by 阳君 on 16/7/6.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
@@ -17,10 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** 模仿UIBarButtonItem*/
 @interface YJBarButtonItem : NSObject
 
+@property (nonatomic) CGFloat tag; ///< 标记
+
 @property (nullable, nonatomic, copy)   NSString *title; ///< 使用标题
 @property (nullable, nonatomic, strong) UIImage *image;  ///< 使用图片
-@property (nullable, nonatomic, weak)   id target;       ///< 回调目标
-@property (nullable, nonatomic)         SEL action;      ///< 回调方法
+
+@property (nullable, nonatomic, weak) id target;  ///< 回调目标
+@property (nullable, nonatomic)       SEL action; ///< 回调方法
 
 /**
  *  通过文字初始化
