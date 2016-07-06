@@ -122,30 +122,32 @@ YJ技术支持群：557445088
 
 ##Revision History
 
-| 时间 | 描述 |
-| ---- | ---- |
-| 2016-05-11 | 1.0 项目上线 |
-| 2016-05-12 | 1.1.0 GCD封装 |
-| 2016-05-16 | 1.2.0 YJCocoa拆分，可根据自己的需求选择相关库 |
-| 2016-05-20 | 1.3.0 YJCocoa引入‘YJCocoa/CoreServicesLayer/Foundation/Log’。NSLog打印优化，Unicode自动转化为中文输出。|
-| 2016-05-20 | 1.4.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'。YJAutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。 |
-| 2016-05-20 | 1.4.1 YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
-| 2016-05-20 | 1.5.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
-| 2016-05-21 | 1.6.0 YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
-| 2016-05-21 | 1.7.0 YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
-| 2016-05-23 | 1.7.1 部分方法调整，说明文档更新 |
-| 2016-05-25 | 1.7.2 system中gcd封装升级，支持串行和并行 |
-| 2016-05-26 | 1.8.0 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
-| 2016-05-26 | 1.9.0 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
-| 2016-05-26 | 2.0.0 YJCocoa开发文档首次发包 |
-| 2016-05-26 | 2.0.1 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
-| 2016-05-26 | 2.0.2 ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
-| 2016-05-30 | 2.0.2 ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
-| 2016-05-31 | 2.0.2 ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
-| 2016-06-01 | 2.1.0 ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
-| 2016-06-08 | 2.1.1 修复'InputLength'引起UITextView崩溃问题 |
-| 2016-06-30 | 2.2.0 HttpAnalysis库更名为Http,增加组装http相关参数的方法。 |
-| 2016-07-06 | 2.2.0 NavigationBar库上线,可自定义配置UINavigationBar。|
+| 时间 | 版本 | 描述 |
+| ---- | ---- | ---- |
+| 2016-05-11 | 1.0 | 项目上线 |
+| 2016-05-12 | 1.1.0 | GCD封装 |
+| 2016-05-16 | 1.2.0 | YJCocoa拆分，可根据自己的需求选择相关库 |
+| 2016-05-20 | 1.3.0 | YJCocoa引入‘YJCocoa/CoreServicesLayer/Foundation/Log’。NSLog打印优化，Unicode自动转化为中文输出。|
+| 2016-05-20 | 1.4.0 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'。YJAutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。 |
+| 2016-05-20 | 1.4.1 | YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
+| 2016-05-20 | 1.5.0 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
+| 2016-05-21 | 1.6.0 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
+| 2016-05-21 | 1.7.0 | YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
+| 2016-05-23 | 1.7.1 | 部分方法调整，说明文档更新 |
+| 2016-05-25 | 1.7.2 | system中gcd封装升级，支持串行和并行 |
+| 2016-05-26 | 1.8.0 | 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
+| 2016-05-26 | 1.9.0 | 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
+| 2016-05-26 | 2.0.0 | YJCocoa开发文档首次发包 |
+| 2016-05-26 | 2.0.1 | 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
+| 2016-05-26 | 2.0.2 | ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
+| 2016-05-30 | 2.0.2 | ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
+| 2016-05-31 | 2.0.2 | ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
+| 2016-06-01 | 2.1.0 | ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
+| 2016-06-08 | 2.1.1 | 修复'InputLength'引起UITextView崩溃问题 |
+| 2016-06-30 | 2.2.0 | HttpAnalysis库更名为Http,增加组装http相关参数的方法。 |
+| 2016-07-06 | 2.2.0 | NavigationBar库上线,可自定义配置UINavigationBar。|
+| 2016-07-06 | 2.2.0 | TableView支持分页请求数据 |
+| 2016-07-06 | 2.2.0 | CollectionView支持分页请求数据 |
 
 ##Copyright
 

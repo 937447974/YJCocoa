@@ -26,14 +26,13 @@
     self.dataSourcePlain = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
 //        [self test1];
     //    [self test2];
-    //    [self test3];
+        [self test3];
     //    [self test4];
-    [self test5];
+//    [self test5];
 }
 
 #pragma mark - 测试数据
 - (void)initTestData {
-    
     // 测试数据
     for (int i=0; i<10; i++) {
         // 封装模型
@@ -44,7 +43,7 @@
         // 填充数据源
         [self.dataSourcePlain.dataSource addObject:cellObject];
     }
-    
+    [self.tableView reloadData];
 }
 
 #pragma mark - 使用默认的YJTableCellObject
@@ -76,6 +75,11 @@
 #pragma mark YJTableViewDelegateProtocol
 - (void)tableViewDidSelectCellWithCellObject:(YJTableCellObject *)cellObject tableViewCell:(UITableViewCell *)cell {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)tableViewLoadingPageData:(YJTableCellObject *)cellObject willDisplayCell:(UITableViewCell *)cell {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self initTestData];
 }
 
 #pragma mark - 通过block监听点击dell

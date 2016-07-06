@@ -28,9 +28,10 @@ typedef NS_ENUM(NSInteger, YJTableViewCacheHeight) {
 /** 点击cell的block*/
 typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableViewCell  * __nullable tableViewCell);
 
-
 /** 点击cell的协议*/
 @protocol YJTableViewCellProtocol <NSObject>
+
+@optional
 
 /**
  *  用户点击Cell
@@ -42,6 +43,16 @@ typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableView
  */
 - (void)tableViewDidSelectCellWithCellObject:(YJTableCellObject *)cellObject tableViewCell:(nullable UITableViewCell *)cell;
 
+/**
+ *  分页加载数据
+ *
+ *  @param cellObject 将要显示的Cell数据
+ *  @param cell       将要显示的Cell
+ *
+ *  @return void
+ */
+- (void)tableViewLoadingPageData:(YJTableCellObject *)cellObject willDisplayCell:(UITableViewCell *)cell;
+
 @end
 
 
@@ -51,8 +62,9 @@ typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableView
 @property (nonatomic) BOOL isCacheHeight;                         ///< 是否缓存高，默认YES缓存，NO不缓存
 @property (nonatomic) YJTableViewCacheHeight cacheHeightStrategy; ///< 缓存高的策略。无须赋值，YJTableViewDataSource抽象接口会根据cacheCellStrategy自动赋值
 
-@property (nonatomic, weak, nullable) id <YJTableViewCellProtocol> cellDelegate; ///< 点击cell的代理
+@property (nonatomic, weak, nullable) id <YJTableViewCellProtocol> cellDelegate; ///< cell的代理
 @property (nonatomic, copy, nullable) YJTableViewCellBlock cellBlock;            ///< 点击cell的block
+
 @property (nonatomic, weak, readonly) YJTableViewDataSource *dataSource; ///< YJTableViewDataSource
 
 @property (nonatomic, strong) YJSuspensionCellView *suspensionCellView; ///< 悬浮的cell层
