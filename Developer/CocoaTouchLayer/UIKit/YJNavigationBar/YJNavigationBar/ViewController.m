@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YJNavigationBar.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [UINavigationBar appearance];
+    YJNavigationBar *nb = [[YJNavigationBar alloc] initWithFrame:CGRectZero];
+    nb.title = @"YJNavigationBar";
+    nb.leftBarButtonView.barButtonItem = [[YJBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
+    self.navigationItem.titleView = nb;
+    
     self.button.titleLabel.font = [UIFont systemFontOfSize:100];
     [self.button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.button setTitleColor:[[UIColor redColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
@@ -31,7 +36,11 @@
 //    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height) blendMode:kCGBlendModeNormal alpha:0.5];
     [self.button setImage:image forState:UIControlStateNormal];
     [self.button setImage:[self imageByApplyingAlpha:0.5 image:image] forState:UIControlStateHighlighted];
-    
+    [UINavigationBar appearance];
+}
+
+- (void)onClickButton:(id)sender {
+    NSLog(@"%@", sender);
 }
 
 - (UIImage *)imageByApplyingAlpha:(CGFloat)alpha image:(UIImage*)image {

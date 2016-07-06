@@ -27,13 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void(^ reloadDataBlock)(BOOL animation); ///< UI刷新的回调，框架使用
 
-/**
- * To customize the appearance of all instances of a class, send the relevant appearance modification messages to the appearance proxy for the class.
- *
- *  @return instancetype
- */
-+ (instancetype)appearance;
-
 @end
  
 NS_ASSUME_NONNULL_END

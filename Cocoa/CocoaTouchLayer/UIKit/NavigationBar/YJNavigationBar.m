@@ -10,7 +10,6 @@
 //
 
 #import "YJNavigationBar.h"
-#import "YJSingletonMCenter.h"
 #import "UIView+YJViewGeometry.h"
 
 @interface YJNavigationBar ()
@@ -22,7 +21,7 @@
 @implementation YJNavigationBar
 
 + (instancetype)appearance {
-    YJNavigationBar *nb = [YJSingletonMC registerStrongSingleton:[YJNavigationBar class]];
+    YJNavigationBar *nb = [super appearance];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         nb.titleColor = [UIColor blackColor];

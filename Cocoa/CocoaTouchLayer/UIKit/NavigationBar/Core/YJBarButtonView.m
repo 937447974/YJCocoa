@@ -16,7 +16,7 @@
 @implementation YJBarButtonView
 
 + (instancetype)appearance {
-    YJBarButtonView *bbView = [YJSingletonMC registerStrongSingleton:[YJBarButtonView class]];
+    YJBarButtonView *bbView = [super appearance];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         bbView.titleColor = [UIColor blackColor];

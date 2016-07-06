@@ -31,13 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, strong) YJBarButtonView *leftBarButtonView;  ///< 左按钮View
 @property (nullable, nonatomic, strong) YJBarButtonView *rightBarButtonView; ///< 右按钮View
 
-/**
- * To customize the appearance of all instances of a class, send the relevant appearance modification messages to the appearance proxy for the class.
- *
- *  @return instancetype
- */
-+ (instancetype)appearance;
-
 @end
 
 NS_ASSUME_NONNULL_END

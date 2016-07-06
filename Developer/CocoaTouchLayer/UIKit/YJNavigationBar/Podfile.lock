@@ -1,12 +1,8 @@
 PODS:
   - YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry (2.1.1)
-  - YJCocoa/CoreServicesLayer/Foundation/Other (2.1.1)
-  - YJCocoa/CoreServicesLayer/Foundation/Singleton (2.1.1):
-    - YJCocoa/CoreServicesLayer/Foundation/Other
 
 DEPENDENCIES:
   - YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry
-  - YJCocoa/CoreServicesLayer/Foundation/Singleton
 
 SPEC CHECKSUMS:
   YJCocoa: b6a62ccf8732e6d45720e94d8b75acaacaa49340
