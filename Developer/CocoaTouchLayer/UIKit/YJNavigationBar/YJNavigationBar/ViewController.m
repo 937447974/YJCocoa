@@ -19,12 +19,14 @@
     [super viewDidLoad];
     
     // 修改默认配置
-    [YJNavigationBar appearance].titleColor = [UIColor colorWithRed:153.0/255 green:153.0/255 blue:153.0/255 alpha:1.0];
+    [YJNavigationBar appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
+    [YJBarButtonView appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
     
     // 显示
     YJNavigationBar *nb = [[YJNavigationBar alloc] initWithFrame:CGRectZero];
     nb.title = @"YJNavigationBar";
     nb.leftBarButtonView.barButtonItem = [[YJBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
+    nb.rightBarButtonView.barButtonItem = [[YJBarButtonItem alloc] initWithTitle:@"完成" target:self action:@selector(onClickButton:)];
     self.navigationItem.titleView = nb;
     
 }

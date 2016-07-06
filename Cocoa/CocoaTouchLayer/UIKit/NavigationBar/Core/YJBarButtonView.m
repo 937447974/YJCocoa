@@ -62,7 +62,7 @@
         [self addSubview:button];
         button.tag = item.tag;
         // 标题
-        button.titleLabel.font = [UIFont systemFontOfSize:100];
+        button.titleLabel.font = self.titleFont;
         [button setTitle:item.title forState:UIControlStateNormal];
         [button setTitleColor:self.titleColor forState:UIControlStateNormal];
         [button setTitleColor:[self.titleColor colorWithAlphaComponent:self.highlightedAlpha] forState:UIControlStateHighlighted];
