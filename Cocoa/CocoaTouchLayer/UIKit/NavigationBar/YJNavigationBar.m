@@ -26,7 +26,8 @@
     dispatch_once(&onceToken, ^{
         nb.titleColor = [UIColor blackColor];
         nb.titleFont = [UIFont systemFontOfSize:14];
-        nb.spacing = 10;
+        nb.leftSpacing = 10;
+        nb.rightSpacing = 10;
         nb.middle = YES;
     });
     return nb;
@@ -39,7 +40,8 @@
         YJNavigationBar *nb = [YJNavigationBar appearance];
         _titleColor = nb.titleColor;
         _titleFont = nb.titleFont;
-        _spacing = nb.spacing;
+        _leftSpacing = nb.leftSpacing;
+        _rightSpacing = nb.rightSpacing;
         _middle = nb.middle;
         self.leftBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
         self.rightBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
@@ -58,13 +60,13 @@
     self.rightBarButtonView.leadingFrame = self.widthFrame - self.rightBarButtonView.widthFrame;
     if (self.middle) {
         middleView.centerXFrame = self.widthFrame / 2;
-        CGFloat leftSpacing = middleView.centerXFrame - self.leftBarButtonView.trailingFrame;
-        CGFloat rightSpecing = self.rightBarButtonView.leadingFrame - middleView.centerXFrame;
+        CGFloat leftSpacing = middleView.centerXFrame - self.leftBarButtonView.trailingFrame - self.leftSpacing;
+        CGFloat rightSpecing = self.rightBarButtonView.leadingFrame - middleView.centerXFrame - self.rightSpacing;
         middleView.widthFrame = leftSpacing < rightSpecing ? 2*leftSpacing : 2*rightSpecing;
         middleView.leadingFrame = (self.widthFrame - middleView.widthFrame) / 2;
     } else {
-        middleView.leadingFrame = self.leftBarButtonView.trailingFrame + self.spacing;
-        middleView.widthFrame = self.rightBarButtonView.leadingFrame - middleView.leadingFrame - self.spacing;
+        middleView.leadingFrame = self.leftBarButtonView.trailingFrame + self.leftSpacing;
+        middleView.widthFrame = self.rightBarButtonView.leadingFrame - middleView.leadingFrame - self.rightSpacing;
     }
 }
 
