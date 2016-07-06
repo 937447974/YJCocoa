@@ -16,29 +16,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fS-dk-LHh">
-                                <rect key="frame" x="285" y="286" width="30" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="1">
-                                    <color key="titleColor" red="0.18745511770248413" green="0.87912070751190186" blue="0.9271814227104187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2fS-dk-LHh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ijL-xB-eRJ"/>
-                            <constraint firstItem="2fS-dk-LHh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vXt-tu-66I"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ecN-YZ-MwI">
-                        <barButtonItem key="rightBarButtonItem" image="nav_back" id="gtN-ty-AQo">
-                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="button" destination="2fS-dk-LHh" id="DZF-Qi-res"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="ecN-YZ-MwI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +41,4 @@
             <point key="canvasLocation" x="-585" y="666"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="nav_back" width="30" height="30"/>
-    </resources>
 </document>

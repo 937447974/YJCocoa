@@ -27,6 +27,7 @@
         nb.titleColor = [UIColor blackColor];
         nb.titleFont = [UIFont systemFontOfSize:14];
         nb.spacing = 10;
+        nb.middle = YES;
     });
     return nb;
 }
@@ -39,6 +40,7 @@
         _titleColor = nb.titleColor;
         _titleFont = nb.titleFont;
         _spacing = nb.spacing;
+        _middle = nb.middle;
         self.leftBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
         self.rightBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
     }
@@ -47,15 +49,23 @@
 
 - (void)layoutSubviews {
     CGFloat centerYFrame = self.heightFrame / 2;
-    // 水平
-    self.rightBarButtonView.leadingFrame = self.widthFrame - self.rightBarButtonView.widthFrame;
     UIView *middleView = self.titleView ? self.titleView : self.titleLabel;
-    middleView.leadingFrame = self.leftBarButtonView.trailingFrame + self.spacing;
-    middleView.widthFrame = self.rightBarButtonView.leadingFrame - middleView.leadingFrame - self.spacing;
     // 竖直
     self.leftBarButtonView.centerYFrame = centerYFrame;
     middleView.centerYFrame = centerYFrame;
     self.rightBarButtonView.centerYFrame = centerYFrame;
+    // 水平
+    self.rightBarButtonView.leadingFrame = self.widthFrame - self.rightBarButtonView.widthFrame;
+    if (self.middle) {
+        middleView.centerXFrame = self.widthFrame / 2;
+        CGFloat leftSpacing = middleView.centerXFrame - self.leftBarButtonView.trailingFrame;
+        CGFloat rightSpecing = self.rightBarButtonView.leadingFrame - middleView.centerXFrame;
+        middleView.widthFrame = leftSpacing < rightSpecing ? 2*leftSpacing : 2*rightSpecing;
+        middleView.leadingFrame = (self.widthFrame - middleView.widthFrame) / 2;
+    } else {
+        middleView.leadingFrame = self.leftBarButtonView.trailingFrame + self.spacing;
+        middleView.widthFrame = self.rightBarButtonView.leadingFrame - middleView.leadingFrame - self.spacing;
+    }
 }
 
 #pragma mark - getter and setter

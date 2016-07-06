@@ -11,50 +11,26 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *button;
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 修改默认配置
+    [YJNavigationBar appearance].titleColor = [UIColor colorWithRed:153.0/255 green:153.0/255 blue:153.0/255 alpha:1.0];
+    
+    // 显示
     YJNavigationBar *nb = [[YJNavigationBar alloc] initWithFrame:CGRectZero];
     nb.title = @"YJNavigationBar";
     nb.leftBarButtonView.barButtonItem = [[YJBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
     self.navigationItem.titleView = nb;
     
-    self.button.titleLabel.font = [UIFont systemFontOfSize:100];
-    [self.button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [self.button setTitleColor:[[UIColor redColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
-    UIImage *image = [UIImage imageNamed:@"nav_back"];
-//     imageWithRenderingMode:(UIImageRenderingMode)
-//    [self.button setImage:image forState:UIControlStateNormal];
-//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
-//    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height) blendMode:kCGBlendModeNormal alpha:0.5];
-    [self.button setImage:image forState:UIControlStateNormal];
-    [self.button setImage:[self imageByApplyingAlpha:0.5 image:image] forState:UIControlStateHighlighted];
-    [UINavigationBar appearance];
 }
 
 - (void)onClickButton:(id)sender {
     NSLog(@"%@", sender);
-}
-
-- (UIImage *)imageByApplyingAlpha:(CGFloat)alpha image:(UIImage*)image {
-    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGRect area = CGRectMake(0, 0, image.size.width, image.size.height);
-    CGContextScaleCTM(ctx, 1, -1);
-    CGContextTranslateCTM(ctx, 0, -area.size.height);
-    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
-    CGContextSetAlpha(ctx, alpha);
-    CGContextDrawImage(ctx, area, image.CGImage);
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
 }
 
 - (void)didReceiveMemoryWarning {
