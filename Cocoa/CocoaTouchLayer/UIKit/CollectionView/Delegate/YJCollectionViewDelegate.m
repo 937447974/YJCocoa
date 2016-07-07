@@ -12,6 +12,7 @@
 
 @interface YJCollectionViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
+    CGFloat _contentOffsetYBegin; ///< 开始的点
     UICollectionViewFlowLayout *_flowLayout;
     NSMutableDictionary<NSString *, NSString*> *_cacheSizeDict; ///< 缓存Size
 }
@@ -29,6 +30,9 @@
         _dataSource = dataSource;
         _cacheSizeDict = [[NSMutableDictionary alloc] init];
         _isCacheSize = YES;
+         _contentOffsetYBegin = CGFLOAT_MAX;
+        self.scrollSpacingWill = 15;
+        self.scrollSpacingDid = 30;
         if ([dataSource.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
             _flowLayout = (UICollectionViewFlowLayout *)dataSource.collectionView.collectionViewLayout;
         }
@@ -81,24 +85,25 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _contentOffsetY = scrollView.contentOffset.y;
+    if (_contentOffsetYBegin == CGFLOAT_MAX) {
+        _contentOffsetYBegin = _contentOffsetY;
+    }
     self.scroll = YJCollectionViewScrollNone;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([self.cellDelegate respondsToSelector:@selector(collectionView:scroll:)]) {
-        CGFloat contentOffsetY = scrollView.contentOffset.y;
-        CGFloat spacing = contentOffsetY - _contentOffsetY;
-        if (contentOffsetY <= 0) {
-            self.scroll = YJCollectionViewScrollEndTop;
-        } else if (spacing >= 10 ) {
-            self.scroll = YJCollectionViewScrollDidTop;
-        } else if (spacing >= 5 && self.scroll != YJCollectionViewScrollDidTop) {
-            self.scroll = YJCollectionViewScrollWillTop;
-        } else if (spacing <= -10 ) {
-            self.scroll = YJCollectionViewScrollDidBottom;
-        } else if (spacing <= -5 && self.scroll != YJCollectionViewScrollDidBottom) {
-            self.scroll = YJCollectionViewScrollWillBottom;
-        }
+    CGFloat contentOffsetY = scrollView.contentOffset.y;
+    CGFloat spacing = contentOffsetY - _contentOffsetY;
+    if (contentOffsetY <= _contentOffsetYBegin) {
+        self.scroll = YJCollectionViewScrollEndTop;
+    } else if (spacing >= self.scrollSpacingDid ) {
+        self.scroll = YJCollectionViewScrollDidTop;
+    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidTop) {
+        self.scroll = YJCollectionViewScrollWillTop;
+    } else if (spacing <= -self.scrollSpacingDid ) {
+        self.scroll = YJCollectionViewScrollDidBottom;
+    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidBottom) {
+        self.scroll = YJCollectionViewScrollWillBottom;
     }
 }
 

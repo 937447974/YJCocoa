@@ -78,6 +78,9 @@ typedef NS_OPTIONS(NSUInteger, YJCollectionViewScroll) {
 /** UICollectionViewDelegate抽象接口*/
 @interface YJCollectionViewDelegate : NSObject <UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic) CGFloat scrollSpacingWill; ///< 将要滚动间隔，默认15
+@property (nonatomic) CGFloat scrollSpacingDid;  ///< 已经滚动间隔，默认30
+
 @property (nonatomic) BOOL isCacheSize;      ///< 是否缓存高，默认YES缓存，NO不缓存
 @property (nonatomic) CGFloat lineItems;     ///< 一行显示多少个item
 @property (nonatomic) BOOL itemHeightLayout; ///< item的高度是否根据宽度自适应（lineItems>0）

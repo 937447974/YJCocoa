@@ -16,9 +16,14 @@
 #import "YJFoundationOther.h"
 
 @interface YJTableViewDelegate () {
+    CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
+    CGFloat _contentOffsetYBegin; ///< 开始的点
     NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高
     YJSuspensionCellView *_suspensionCellView;
 }
+
+@property (nonatomic) YJTableViewScroll scroll; ///< 滚动
+
 @end
 
 @implementation YJTableViewDelegate
@@ -30,6 +35,9 @@
         _cacheHeightDict = [[NSMutableDictionary alloc] init];
         _isCacheHeight = YES;
         _dataSource = dataSource;
+        _contentOffsetYBegin = CGFLOAT_MAX;
+        self.scrollSpacingWill = 15;
+        self.scrollSpacingDid = 30;
     }
     return self;
 }
@@ -48,11 +56,18 @@
     _suspensionCellView.tableViewDelegate = self;
 }
 
+- (void)setScroll:(YJTableViewScroll)scroll {
+    if (scroll != _scroll && [self.cellDelegate respondsToSelector:@selector(tableView:scroll:)]) {
+        _scroll = scroll;
+        [self.cellDelegate tableView:self.dataSource.tableView scroll:scroll];
+    }
+}
+
 #pragma mark - UITableViewCell向VC发送数据
 - (void)sendVCWithCellObject:(YJTableCellObject *)cellObject tableViewCell:(UITableViewCell *)cell {
     if (self.cellBlock) { // block回调
         self.cellBlock(cellObject, cell);
-    } else if (self.cellDelegate) { // 协议回调
+    } else if ([self.cellDelegate respondsToSelector:@selector(tableViewDidSelectCellWithCellObject:tableViewCell:)]) { // 协议回调
         [self.cellDelegate tableViewDidSelectCellWithCellObject:cellObject tableViewCell:cell];
     }
 }
@@ -146,8 +161,35 @@
     }
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _contentOffsetY = scrollView.contentOffset.y;
+    if (_contentOffsetYBegin == CGFLOAT_MAX) {
+        _contentOffsetYBegin = _contentOffsetY;
+    }
+    self.scroll = YJTableViewScrollNone;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat contentOffsetY = scrollView.contentOffset.y;
+    CGFloat spacing = contentOffsetY - _contentOffsetY;
+    if (contentOffsetY <= _contentOffsetYBegin) {
+        self.scroll = YJTableViewScrollEndTop;
+    } else if (spacing >= self.scrollSpacingDid ) {
+        self.scroll = YJTableViewScrollDidTop;
+        _contentOffsetY = contentOffsetY;
+    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJTableViewScrollDidTop) {
+        self.scroll = YJTableViewScrollWillTop;
+    } else if (spacing <= -self.scrollSpacingDid ) {
+        self.scroll = YJTableViewScrollDidBottom;
+        _contentOffsetY = contentOffsetY;
+    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJTableViewScrollDidBottom) {
+        self.scroll = YJTableViewScrollWillBottom;        
+    }
+}
+
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {    
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath equal:self.dataSource.dataSourceGrouped.lastObject.lastObject.indexPath] && [self.cellDelegate respondsToSelector:@selector(tableViewLoadingPageData:willDisplayCell:)]) { // 加载数据
         YJTableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
         [self.cellDelegate tableViewLoadingPageData:cellObject willDisplayCell:cell];

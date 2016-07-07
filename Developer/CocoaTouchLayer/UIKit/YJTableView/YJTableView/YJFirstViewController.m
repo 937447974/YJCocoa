@@ -82,6 +82,10 @@
     [self initTestData];
 }
 
+- (void)tableView:(UITableView *)tableView scroll:(YJTableViewScroll)scroll {
+    NSLog(@"%lu", scroll);
+}
+
 #pragma mark - 通过block监听点击dell
 - (void)test4 {
     self.dataSourcePlain.tableViewDelegate.cellBlock = ^(YJTableCellObject *cellObject, UITableViewCell *tableViewCell) {
