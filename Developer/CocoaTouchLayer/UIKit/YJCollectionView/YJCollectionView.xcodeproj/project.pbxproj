@@ -139,9 +139,9 @@
 		8473AC421CE9A527000E3580 /* YJCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				840A57DD1CF08567006779C0 /* Main */,
 				8473AC461CE9A527000E3580 /* AppDelegate.h */,
 				8473AC471CE9A527000E3580 /* AppDelegate.m */,
+				840A57DD1CF08567006779C0 /* Main */,
 				8473AC5C1CE9A575000E3580 /* CollectionView */,
 				8473AC5B1CE9A547000E3580 /* Resources */,
 				8473AC431CE9A527000E3580 /* Supporting Files */,

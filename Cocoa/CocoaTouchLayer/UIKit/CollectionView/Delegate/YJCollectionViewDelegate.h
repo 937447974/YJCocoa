@@ -26,6 +26,16 @@ typedef NS_ENUM(NSInteger, YJCollectionViewCacheSize) {
     YJCollectionViewCacheSizeClassAndIndexPath ///< 根据类名和NSIndexPath双重绑定缓存高度
 };
 
+/** UICollectionView滚动*/
+typedef NS_OPTIONS(NSUInteger, YJCollectionViewScroll) {
+    YJCollectionViewScrollEndTop,     ///< 滚动到顶部
+    YJCollectionViewScrollDidTop,     ///< 向上滚动
+    YJCollectionViewScrollWillTop,    ///< 将要向上滚动
+    YJCollectionViewScrollNone,       ///< 用户触摸，将要滚动
+    YJCollectionViewScrollWillBottom, ///< 将要向下滚动
+    YJCollectionViewScrollDidBottom   ///< 向下滚动
+};
+
 
 /** cell的协议*/
 @protocol YJCollectionViewCellProtocol <NSObject>
@@ -51,6 +61,16 @@ typedef NS_ENUM(NSInteger, YJCollectionViewCacheSize) {
  *  @return void
  */
 - (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell;
+
+/**
+ *  用户滚动UICollectionView
+ *
+ *  @param collectionView UICollectionView
+ *  @param scroll YJCollectionViewScroll
+ *
+ *  @return void
+ */
+- (void)collectionView:(UICollectionView *)collectionView scroll:(YJCollectionViewScroll)scroll;
 
 @end
 

@@ -11,9 +11,13 @@
 #import "YJFoundationOther.h"
 
 @interface YJCollectionViewDelegate () {
+    CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
     UICollectionViewFlowLayout *_flowLayout;
     NSMutableDictionary<NSString *, NSString*> *_cacheSizeDict; ///< 缓存Size
 }
+
+@property (nonatomic) YJCollectionViewScroll scroll; ///< 滚动
+
 @end
 
 @implementation YJCollectionViewDelegate
@@ -41,6 +45,13 @@
     return _flowLayout;
 }
 
+- (void)setScroll:(YJCollectionViewScroll)scroll {
+    if (scroll != _scroll && [self.cellDelegate respondsToSelector:@selector(collectionView:scroll:)]) {
+        _scroll = scroll;
+        [self.cellDelegate collectionView:self.dataSource.collectionView scroll:scroll];
+    }
+}
+
 #pragma mark - UICollectionViewCell向VC发送数据
 - (void)sendVCWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(UICollectionViewCell *)cell {
     if (self.cellBlock) { // block回调
@@ -64,6 +75,30 @@
             return [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
         case YJCollectionViewCacheSizeClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存高度
             return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _contentOffsetY = scrollView.contentOffset.y;
+    self.scroll = YJCollectionViewScrollNone;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.cellDelegate respondsToSelector:@selector(collectionView:scroll:)]) {
+        CGFloat contentOffsetY = scrollView.contentOffset.y;
+        CGFloat spacing = contentOffsetY - _contentOffsetY;
+        if (contentOffsetY <= 0) {
+            self.scroll = YJCollectionViewScrollEndTop;
+        } else if (spacing >= 10 ) {
+            self.scroll = YJCollectionViewScrollDidTop;
+        } else if (spacing >= 5 && self.scroll != YJCollectionViewScrollDidTop) {
+            self.scroll = YJCollectionViewScrollWillTop;
+        } else if (spacing <= -10 ) {
+            self.scroll = YJCollectionViewScrollDidBottom;
+        } else if (spacing <= -5 && self.scroll != YJCollectionViewScrollDidBottom) {
+            self.scroll = YJCollectionViewScrollWillBottom;
+        }
     }
 }
 

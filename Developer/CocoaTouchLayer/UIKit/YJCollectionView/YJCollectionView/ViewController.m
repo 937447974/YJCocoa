@@ -54,8 +54,10 @@
     dispatch_async_main(^{
         [self.collectionView reloadData];
     });
-    
+}
 
+- (void)collectionView:(UICollectionView *)collectionView scroll:(YJCollectionViewScroll)scroll {
+    NSLog(@"%lu", scroll);
 }
 
 
