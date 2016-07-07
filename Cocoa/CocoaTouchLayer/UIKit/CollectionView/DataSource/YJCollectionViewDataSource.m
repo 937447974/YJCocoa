@@ -75,7 +75,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     YJCollectionCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
-    return  [self dequeueReusableCellWithCellObject:cellObject];
+    UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
+    NSInteger section = self.dataSourceGrouped.count - 1;
+    NSInteger item = self.dataSourceGrouped[section].count - 1;
+    if (indexPath.section == section && indexPath.item == item  && [self.delegate.cellDelegate respondsToSelector:@selector(collectionViewLoadingPageData:willDisplayCell:)]) { // 加载数据
+        [self.delegate.cellDelegate collectionViewLoadingPageData:cellObject willDisplayCell:cell];
+    }
+    return  cell;
 }
 
 - (UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJCollectionCellObject *)cellObject {

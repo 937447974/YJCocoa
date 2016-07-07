@@ -13,16 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSIndexPath (YJSuspensionCellView)
-
-/** 较小*/
-- (BOOL)lessThan:(NSIndexPath *)indexPath;
-
-/** 相等*/
-- (BOOL)equal:(NSIndexPath *)indexPath;
-
-@end
-
 @class YJTableViewDelegate;
 
 /** ///< 悬浮的cell层*/

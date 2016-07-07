@@ -190,7 +190,12 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([indexPath equal:self.dataSource.dataSourceGrouped.lastObject.lastObject.indexPath] && [self.cellDelegate respondsToSelector:@selector(tableViewLoadingPageData:willDisplayCell:)]) { // 加载数据
+    if (self.dataSource.dataSourceGrouped.count == 0) {
+        return;
+    }
+    NSInteger section = self.dataSource.dataSourceGrouped.count - 1;
+    NSInteger row = self.dataSource.dataSourceGrouped[section].count - 1;    
+    if (indexPath.section == section && indexPath.row == row && [self.cellDelegate respondsToSelector:@selector(tableViewLoadingPageData:willDisplayCell:)]) { // 加载数据
         YJTableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
         [self.cellDelegate tableViewLoadingPageData:cellObject willDisplayCell:cell];
     }
