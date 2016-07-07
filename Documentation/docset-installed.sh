@@ -38,4 +38,4 @@ osascript -e 'display notification "2.2.0 | 2016-06-30 | HttpAnalysis库更名�
 osascript -e 'display notification "2.2.0 | 2016-07-06 | NavigationBar库上线,可自定义配置UINavigationBar" with title "YJCocoa"'
 osascript -e 'display notification "2.2.0 | 2016-07-06 | TableView支持分页请求数据" with title "YJCocoa"'
 osascript -e 'display notification "2.2.0 | 2016-07-06 | CollectionView支持分页请求数据" with title "YJCocoa"'
-dispatch_async_UI
+osascript -e 'display notification "2.2.0 | 2016-07-07 | System库删除dispatch_async_UI block" with title "YJCocoa"'

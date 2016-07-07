@@ -148,6 +148,7 @@ YJ技术支持群：557445088
 | 2016-07-06 | 2.2.0 | NavigationBar库上线,可自定义配置UINavigationBar。|
 | 2016-07-06 | 2.2.0 | TableView支持分页请求数据 |
 | 2016-07-06 | 2.2.0 | CollectionView支持分页请求数据 |
+| 2016-07-07 | 2.2.0 | System库删除dispatch_async_UI block |
 
 ##Copyright
 
