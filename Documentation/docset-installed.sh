@@ -34,9 +34,25 @@ fi
 
 #osascript -e 'display notification "2.1.1 | 2016-06-08 | 修复‘InputLength’引起UITextView崩溃问题" with title "YJCocoa"'
 
-osascript -e 'display notification "2.2.0 | 2016-06-30 | HttpAnalysis库更名为Http,增加组装http相关参数的方法。" with title "YJCocoa"'
-osascript -e 'display notification "2.2.0 | 2016-07-06 | NavigationBar库上线,可自定义配置UINavigationBar" with title "YJCocoa"'
-osascript -e 'display notification "2.2.0 | 2016-07-06 | TableView和CollectionView支持分页请求数据。" with title "YJCocoa"'
-osascript -e 'display notification "2.2.0 | 2016-07-06 | CollectionView支持分页请求数据" with title "YJCocoa"'
-osascript -e 'display notification "2.2.0 | 2016-07-07 | System库删除dispatch_async_UI block" with title "YJCocoa"'
-osascript -e 'display notification "2.2.0 | 2016-07-07 | TableView和CollectionView支持用户滑动监听" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-06-30 | HttpAnalysis库更名为Http,增加组装http相关参数的方法。" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-07-06 | NavigationBar库上线,可自定义配置UINavigationBar" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-07-06 | TableView和CollectionView支持分页请求数据。" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-07-06 | CollectionView支持分页请求数据" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-07-07 | System库删除dispatch_async_UI block" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.0 | 2016-07-07 | TableView和CollectionView支持用户滑动监听" with title "YJCocoa"'
+
+osascript -e 'display notification "2.2.1 | 2016-07-08 | CollectionView支持SectionHeaderView和SectionFooterView显示" with title "YJCocoa"'
+
+
+
+
+
+
+
+
+
+
+
+
+
+

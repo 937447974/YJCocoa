@@ -147,6 +147,7 @@ YJ技术支持群：557445088
 | 2016-06-30 | 2.2.0 | HttpAnalysis库更名为Http,增加组装http相关参数的方法。 |
 | 2016-07-06 | 2.2.0 | NavigationBar库上线,可自定义配置UINavigationBar；TableView和CollectionView支持分页请求数据。|
 | 2016-07-07 | 2.2.0 | System库删除dispatch_async_UI block；TableView和CollectionView支持用户滚动监听 |
+| 2016-07-08 | 2.2.1 | CollectionView支持SectionHeaderView和SectionFooterView显示 |
 
 ##Copyright
 
