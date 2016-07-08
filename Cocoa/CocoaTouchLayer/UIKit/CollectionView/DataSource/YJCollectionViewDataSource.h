@@ -35,6 +35,10 @@ typedef NS_ENUM(NSInteger, YJCollectionViewCacheCell) {
 @property (nonatomic, weak, readonly) UICollectionViewFlowLayout *flowLayout; ///< 布局Layout
 @property (nonatomic, strong, readonly) YJCollectionViewDelegate *delegate;   ///< YJCollectionViewDelegate
 
+@property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionHeaderView; ///< 头部View
+@property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionFooterView; ///< 尾部View
+@property (nonatomic, strong) NSMutableArray<YJCollectionCellObject *> *headerDataSource; ///< UICollectionElementKindSectionHeader数据源
+@property (nonatomic, strong) NSMutableArray<YJCollectionCellObject *> *footerDataSource; ///< UICollectionElementKindSectionFooter数据源
 
 /**
  *  抽象的初始化接口,会自动填充设置collectionView.dataSource = self;collectionView.delegate = self.tableViewDelegate;

@@ -13,6 +13,9 @@
 		840A57DC1CF05E61006779C0 /* YJCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57DB1CF05E61006779C0 /* YJCollectionViewDataSource.m */; };
 		840A57E01CF08590006779C0 /* YJTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A57DF1CF08590006779C0 /* YJTestCollectionViewCell.m */; };
 		840A57E21CF085A5006779C0 /* YJTestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840A57E11CF085A5006779C0 /* YJTestCollectionViewCell.xib */; };
+		846A341E1D2F760500AEA37C /* YJCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A341D1D2F760500AEA37C /* YJCollectionReusableView.m */; };
+		846A34241D2F782400AEA37C /* YJTestCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A34231D2F782400AEA37C /* YJTestCollectionReusableView.m */; };
+		846A34261D2F783B00AEA37C /* YJTestCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A34251D2F783B00AEA37C /* YJTestCollectionReusableView.xib */; };
 		8473AC451CE9A527000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC441CE9A527000E3580 /* main.m */; };
 		8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC471CE9A527000E3580 /* AppDelegate.m */; };
 		8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC4A1CE9A527000E3580 /* ViewController.m */; };
@@ -36,6 +39,11 @@
 		840A57DE1CF08590006779C0 /* YJTestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionViewCell.h; sourceTree = "<group>"; };
 		840A57DF1CF08590006779C0 /* YJTestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionViewCell.m; sourceTree = "<group>"; };
 		840A57E11CF085A5006779C0 /* YJTestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestCollectionViewCell.xib; sourceTree = "<group>"; };
+		846A341C1D2F760500AEA37C /* YJCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionReusableView.h; sourceTree = "<group>"; };
+		846A341D1D2F760500AEA37C /* YJCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionReusableView.m; sourceTree = "<group>"; };
+		846A34221D2F782400AEA37C /* YJTestCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionReusableView.h; sourceTree = "<group>"; };
+		846A34231D2F782400AEA37C /* YJTestCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionReusableView.m; sourceTree = "<group>"; };
+		846A34251D2F783B00AEA37C /* YJTestCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestCollectionReusableView.xib; sourceTree = "<group>"; };
 		8473AC401CE9A527000E3580 /* YJCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AC441CE9A527000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473AC461CE9A527000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +73,8 @@
 		840A57CA1CF05D9A006779C0 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
+				846A341C1D2F760500AEA37C /* YJCollectionReusableView.h */,
+				846A341D1D2F760500AEA37C /* YJCollectionReusableView.m */,
 				840A57CE1CF05DBF006779C0 /* YJCollectionViewCell.h */,
 				840A57CF1CF05DBF006779C0 /* YJCollectionViewCell.m */,
 			);
@@ -111,6 +121,9 @@
 		840A57E31CF085D4006779C0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				846A34221D2F782400AEA37C /* YJTestCollectionReusableView.h */,
+				846A34231D2F782400AEA37C /* YJTestCollectionReusableView.m */,
+				846A34251D2F783B00AEA37C /* YJTestCollectionReusableView.xib */,
 				840A57DE1CF08590006779C0 /* YJTestCollectionViewCell.h */,
 				840A57DF1CF08590006779C0 /* YJTestCollectionViewCell.m */,
 				840A57E11CF085A5006779C0 /* YJTestCollectionViewCell.xib */,
@@ -261,6 +274,7 @@
 			files = (
 				8473AC531CE9A527000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AC501CE9A527000E3580 /* Assets.xcassets in Resources */,
+				846A34261D2F783B00AEA37C /* YJTestCollectionReusableView.xib in Resources */,
 				8473AC4E1CE9A527000E3580 /* Main.storyboard in Resources */,
 				840A57E21CF085A5006779C0 /* YJTestCollectionViewCell.xib in Resources */,
 			);
@@ -321,7 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846A341E1D2F760500AEA37C /* YJCollectionReusableView.m in Sources */,
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
+				846A34241D2F782400AEA37C /* YJTestCollectionReusableView.m in Sources */,
 				840A57DC1CF05E61006779C0 /* YJCollectionViewDataSource.m in Sources */,
 				8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,

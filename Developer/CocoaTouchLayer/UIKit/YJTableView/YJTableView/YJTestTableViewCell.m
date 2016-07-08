@@ -23,4 +23,11 @@
     self.label.text = celModel.userName;
 }
 
+- (IBAction)onClick:(id)sender {
+
+    self.tag = 1;
+    [self.tableViewDelegate sendVCWithCellObject:self.cellObject tableViewCell:self];
+    
+}
+
 @end

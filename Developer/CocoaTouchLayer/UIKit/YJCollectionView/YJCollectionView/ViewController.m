@@ -10,6 +10,7 @@
 #import "YJCollectionView.h"
 #import "YJTestCollectionViewCell.h"
 #import "YJSystem.h"
+#import "YJTestCollectionReusableView.h"
 
 @interface ViewController () <YJCollectionViewCellProtocol>
 
@@ -23,12 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSoutce = [[YJCollectionViewDataSource alloc] initWithCollectionView:self.collectionView];
-    // 测试数据
-    for (int i = 0; i<20; i++) {
-        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
-        cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
-    }
     // 设置相关属性
     self.dataSoutce.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     self.dataSoutce.flowLayout.minimumLineSpacing = 5;
@@ -36,6 +31,19 @@
     self.dataSoutce.delegate.lineItems = 3;          // 一行显示个数
     self.dataSoutce.delegate.itemHeightLayout = YES; // 是否自动适配高
     self.dataSoutce.delegate.cellDelegate = self;
+    // 测试数据
+    for (int i = 0; i<20; i++) {
+        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
+        cellModel.index = [NSString stringWithFormat:@"%d", i];
+        [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
+    }
+    // 头部、尾部
+    YJTestCollectionReusableViewModel *hvm = [[YJTestCollectionReusableViewModel alloc] init];
+    hvm.backgroundColor = [UIColor greenColor];
+    [self.dataSoutce.headerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
+    YJTestCollectionReusableViewModel *fvm = [[YJTestCollectionReusableViewModel alloc] init];
+    fvm.backgroundColor = [UIColor redColor];
+    [self.dataSoutce.footerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:fvm]];
 }
 
 #pragma mark - YJCollectionViewCellProtocol

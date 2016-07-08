@@ -24,9 +24,15 @@
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView {
     self = [super init];
     if (self) {
+        self.identifierSet = [NSMutableSet set];
+        self.headerDataSource = [NSMutableArray array];
+        self.footerDataSource = [NSMutableArray array];
+        _dataSourceGrouped = [NSMutableArray array];
+        _dataSource = [NSMutableArray array];
+        [self.dataSourceGrouped addObject:_dataSource];
+        //
         _collectionView = collectionView;
         _delegate = [[YJCollectionViewDelegate alloc] initWithDataSource:self];
-        self.identifierSet = [NSMutableSet set];
         // 默认设置代理
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self.delegate;
@@ -44,23 +50,18 @@
 }
 
 #pragma mark - getter and setter
-- (NSMutableArray<YJCollectionCellObject *> *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        [self.dataSourceGrouped addObject:_dataSource];
-    }
-    return _dataSource;
-}
-
-- (NSMutableArray<NSMutableArray<YJCollectionCellObject *> *> *)dataSourceGrouped {
-    if (!_dataSourceGrouped) {
-        _dataSourceGrouped = [NSMutableArray array];
-    }
-    return _dataSourceGrouped;
-}
-
 - (UICollectionViewFlowLayout *)flowLayout {
     return self.delegate.flowLayout;
+}
+
+- (void)setCollectionHeaderView:(UICollectionReusableView *)collectionHeaderView {
+    _collectionHeaderView = collectionHeaderView;
+    self.flowLayout.headerReferenceSize = collectionHeaderView.frame.size;
+}
+
+- (void)setCollectionFooterView:(UICollectionReusableView *)collectionFooterView {
+    _collectionFooterView = collectionFooterView;
+    self.flowLayout.footerReferenceSize = collectionFooterView.frame.size;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -100,7 +101,6 @@
     // 判断是否缓存
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
-                // 即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
             case YJCollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
                 [self.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellWithReuseIdentifier:identifier];
                 break;
@@ -108,7 +108,7 @@
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 identifier = cellObject.cellName;
                 break;
-            case YJCollectionCellCreateClass: // 使用Class创建cell
+            case YJCollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
                 [self.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:identifier];
                 break;
         }
@@ -119,6 +119,14 @@
     // 刷新数据
     [cell reloadDataWithCellObject:cellObject delegate:self.delegate];
     return cell;
+}
+
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        return self.collectionHeaderView;
+    }
+    return self.collectionFooterView;
 }
 
 @end
