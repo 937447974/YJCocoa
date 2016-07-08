@@ -43,7 +43,9 @@
     [self.dataSoutce.headerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
     YJTestCollectionReusableViewModel *fvm = [[YJTestCollectionReusableViewModel alloc] init];
     fvm.backgroundColor = [UIColor redColor];
-    [self.dataSoutce.footerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:fvm]];
+    YJCollectionCellObject *co = [YJTestCollectionReusableView cellObjectWithCellModel:fvm];
+    co.createCell = YJCollectionCellCreateClass;
+    [self.dataSoutce.footerDataSource addObject:co];
 }
 
 #pragma mark - YJCollectionViewCellProtocol
@@ -54,6 +56,9 @@
 
 - (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%@", self.dataSoutce.collectionHeaderView);
+    NSLog(@"%@", self.dataSoutce.collectionFooterView);
+    return;
     for (int i = 0; i<10; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];

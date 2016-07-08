@@ -30,7 +30,7 @@
         _dataSource = dataSource;
         _cacheSizeDict = [[NSMutableDictionary alloc] init];
         _isCacheSize = YES;
-         _contentOffsetYBegin = CGFLOAT_MAX;
+        _contentOffsetYBegin = CGFLOAT_MAX;
         self.scrollSpacingWill = 15;
         self.scrollSpacingDid = 30;
         if ([dataSource.collectionView.collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
@@ -118,7 +118,7 @@
     // 获取YJTableCellObject
     YJCollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
-    // 存放缓存高的key
+    // 存放缓存size的key
     NSString *key = [self getKeyFromCellObject:cellObject];
     CGSize size = self.flowLayout.itemSize;
     NSString *string;
@@ -148,11 +148,46 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return self.flowLayout.headerReferenceSize;
+    return [self collectionView:collectionView viewForSupplementaryElementOfKind:UICollectionElementKindSectionHeader referenceSizeForFooterInSection:section];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return self.flowLayout.footerReferenceSize;
+    return [self collectionView:collectionView viewForSupplementaryElementOfKind:UICollectionElementKindSectionFooter referenceSizeForFooterInSection:section];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForFooterInSection:(NSInteger)section {
+    YJCollectionCellObject *cellObject;
+    NSMutableArray<YJCollectionCellObject *> *dataSource;
+    if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
+        dataSource = self.dataSource.headerDataSource;
+    } else {
+        dataSource = self.dataSource.footerDataSource;
+    }
+    CGSize size = CGSizeZero;
+    if (dataSource.count == 0) {
+        return size;
+    }
+    cellObject = dataSource[section];
+    cellObject.indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
+    // 存放缓存size的key
+    NSString *key = [NSString stringWithFormat:@"%@-%@", kind, [self getKeyFromCellObject:cellObject]];
+    NSString *string;
+    if (self.isCacheSize) {
+        string = [_cacheSizeDict objectForKey:key];
+    }
+    if (!string) { //无缓存
+        // 获取Size
+        if ([cellObject.cellClass respondsToSelector:@selector(collectionViewDelegate:viewForSupplementaryElementOfKind:referenceSizeForCellObject:)]) {
+            size = [cellObject.cellClass collectionViewDelegate:self viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
+        }
+    } else {
+        size = CGSizeFromString(string);
+    }
+    // 添加缓存
+    if (self.isCacheSize) {
+        [_cacheSizeDict setObject:NSStringFromCGSize(size) forKey:key];
+    }
+    return size;
 }
 
 @end

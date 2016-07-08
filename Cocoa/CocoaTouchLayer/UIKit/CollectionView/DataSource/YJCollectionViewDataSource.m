@@ -49,6 +49,21 @@
     }
 }
 
+#pragma mark 获取cellObject对应的缓存key
+- (NSString *)getKeyFromCellObject:(YJCollectionCellObject *)cellObject {
+    switch (self.cacheCellStrategy) {
+        case YJCollectionViewCacheCellDefault: // 根据相同的UITableViewCell类名缓存Cell
+            return cellObject.cellName;
+            break;
+        case YJCollectionViewCacheCellIndexPath: // 根据NSIndexPath对应的位置缓存Cell
+            return [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
+            break;
+        case YJCollectionViewCacheCellClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存Cell
+            return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
+            break;
+    }
+}
+
 #pragma mark - getter and setter
 - (UICollectionViewFlowLayout *)flowLayout {
     return self.delegate.flowLayout;
@@ -86,18 +101,7 @@
 }
 
 - (UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJCollectionCellObject *)cellObject {
-    NSString *identifier = @"identifier";
-    switch (self.cacheCellStrategy) {
-        case YJCollectionViewCacheCellDefault: // 根据相同的UITableViewCell类名缓存Cell
-            identifier = cellObject.cellName;
-            break;
-        case YJCollectionViewCacheCellIndexPath: // 根据NSIndexPath对应的位置缓存Cell
-            identifier = [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
-            break;
-        case YJCollectionViewCacheCellClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存Cell
-            identifier = [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
-            break;
-    }
+    NSString *identifier = [self getKeyFromCellObject:cellObject];
     // 判断是否缓存
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
@@ -121,12 +125,42 @@
     return cell;
 }
 
-
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return self.collectionHeaderView;
+    YJCollectionCellObject *cellObject;
+    if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
+         cellObject = self.headerDataSource[indexPath.section];
+    } else {
+        cellObject = self.footerDataSource[indexPath.section];
     }
-    return self.collectionFooterView;
+    cellObject.indexPath = indexPath;
+    // 判断是否缓存
+    NSString *identifier = [NSString stringWithFormat:@"%@-%@", kind, [self getKeyFromCellObject:cellObject]];
+    if (![self.identifierSet containsObject:identifier]) {
+        switch (cellObject.createCell) {
+            case YJCollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
+                [self.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil]  forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+                break;
+            case YJCollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
+                // Soryboard中设置UICollectionViewCell类名作为Identifier
+                identifier = cellObject.cellName;
+                break;
+            case YJCollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionReusableView alloc] initWithFrame:CGRectZero]创建cell
+                [self.collectionView registerClass:cellObject.cellClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+                break;
+        }
+        [self.identifierSet addObject:identifier];
+    }
+    // 读取缓存
+    UICollectionReusableView *rv = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
+    // 刷新数据
+    [rv reloadDataWithCellObject:cellObject delegate:self.delegate];
+    // 指向
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        _collectionHeaderView = rv;
+    } else {
+        _collectionFooterView = rv;
+    }
+    return rv;
 }
 
 @end

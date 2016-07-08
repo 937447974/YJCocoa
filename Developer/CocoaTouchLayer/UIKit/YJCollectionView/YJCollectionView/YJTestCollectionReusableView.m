@@ -14,6 +14,13 @@
 
 @implementation YJTestCollectionReusableView
 
++ (CGSize)collectionViewDelegate:(YJCollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJCollectionCellObject *)cellObject {
+    if (cellObject.createCell == YJCollectionCellCreateClass) {
+        return CGSizeMake(10, 100);
+    }
+    return [super collectionViewDelegate:delegate viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
+}
+
 - (void)reloadDataAsyncWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
     YJTestCollectionReusableViewModel *cm = cellObject.cellModel;
     self.backgroundColor = cm.backgroundColor;

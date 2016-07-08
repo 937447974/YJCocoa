@@ -37,6 +37,16 @@
  */
 + (id)cellObjectWithCellModel:(id<YJCollectionCellModel>)cellModel;
 
+/**
+ *  获取cell的显示Size。子类不实现时，会根据xib自动计算Size
+ *
+ *  @param delegate   YJCollectionViewDelegate
+ *  @param kind       UICollectionElementKindSectionHeader | UICollectionElementKindSectionFooter
+ *  @param cellObject cell封装的对象
+ *
+ *  @return CGFloat
+ */
++ (CGSize)collectionViewDelegate:(YJCollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJCollectionCellObject *)cellObject;
 
 /**
  *  刷新UICollectionReusableView（同步&异步，子类请勿重写）
