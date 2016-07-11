@@ -41,7 +41,9 @@ fi
 #osascript -e 'display notification "2.2.0 | 2016-07-07 | System库删除dispatch_async_UI block" with title "YJCocoa"'
 #osascript -e 'display notification "2.2.0 | 2016-07-07 | TableView和CollectionView支持用户滑动监听" with title "YJCocoa"'
 
-osascript -e 'display notification "2.2.1 | 2016-07-08 | CollectionView支持SectionHeaderView和SectionFooterView显示" with title "YJCocoa"'
+#osascript -e 'display notification "2.2.1 | 2016-07-08 | CollectionView支持SectionHeaderView和SectionFooterView显示" with title "YJCocoa"'
+
+osascript -e 'display notification "2.2.2 | 2016-07-11 | System支持弱引用__weakSelf和强引用__strongSelf" with title "YJCocoa"'
 
 
 

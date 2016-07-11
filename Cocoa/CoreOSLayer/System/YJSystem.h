@@ -11,7 +11,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
+
+/** 弱引用*/
+#define __weakSelf   __weak __typeof__(self) weakSelf = self;
+/** 强引用*/
+#define __strongSelf __strong __typeof(self) strongSelf = weakSelf;
 
 /** 主线程运行,异步UI执行*/
 FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);

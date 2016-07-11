@@ -20,23 +20,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    for (int i = 0; i<1000; i++) {
-//        dispatch_async_concurrent(^{
-//            NSLog(@"dispatc:%d", i);
-//            
+//    for (int i = 0; i<1000; i++) {
+////        dispatch_async_concurrent(^{
+////            NSLog(@"dispatc:%d", i);
+////            
+////        });
+//        dispatch_sync_serial("1", ^{
+//            NSLog(@"dispatch_get_global_queue:%d", i);
+////            [NSThread sleepForTimeInterval:0.002];
 //        });
-        dispatch_sync_serial("1", ^{
-            NSLog(@"dispatch_get_global_queue:%d", i);
-//            [NSThread sleepForTimeInterval:0.002];
-        });
-//        dispatch_async_concurrent(^{
-//            NSLog(@"----:%d", i);
-//        });
-    }
-    dispatch_sync_serial("1", ^{
-        NSLog(@"dispatch_get_global_queue");
-//        [NSThread sleepForTimeInterval:0.002];
+////        dispatch_async_concurrent(^{
+////            NSLog(@"----:%d", i);
+////        });
+//    }
+    
+    __weakSelf
+    dispatch_async_main(^{
+        __strongSelf
+        [strongSelf test];
     });
+}
+
+- (void)test {
+     NSLog(@"strong");
 }
 
 - (void)didReceiveMemoryWarning {
