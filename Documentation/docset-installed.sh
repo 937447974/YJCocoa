@@ -44,6 +44,7 @@ fi
 #osascript -e 'display notification "2.2.1 | 2016-07-08 | CollectionView支持SectionHeaderView和SectionFooterView显示" with title "YJCocoa"'
 
 osascript -e 'display notification "2.2.2 | 2016-07-11 | System支持弱引用__weakSelf和强引用__strongSelf" with title "YJCocoa"'
+osascript -e 'display notification "2.2.2 | 2016-07-12 | TableView和CollectionView支持用户滑动到底部监听" with title "YJCocoa"'
 
 
 

@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                       姓名：阳君
@@ -113,6 +113,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 tv.subspec 'TableCellObject' do |tco|
                     tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
+                    tco.dependency 'YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry'
                     tco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     tco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
@@ -126,6 +127,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 cv.subspec 'CollectionCellObject' do |cco|
                     cco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
+                    cco.dependency 'YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry'
                     cco.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
                     cco.dependency 'YJCocoa/CoreOSLayer/System'
                 end
