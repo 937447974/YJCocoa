@@ -96,6 +96,8 @@
     CGFloat spacing = contentOffsetY - _contentOffsetY;
     if (contentOffsetY <= _contentOffsetYBegin) {
         self.scroll = YJCollectionViewScrollEndTop;
+    } else if (scrollView.contentSize.height - contentOffsetY <= scrollView.h ) {
+        self.scroll = YJCollectionViewScrollEndBottom;
     } else if (spacing >= self.scrollSpacingDid ) {
         self.scroll = YJCollectionViewScrollDidTop;
     } else if (spacing >= self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidTop) {
@@ -105,6 +107,7 @@
     } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidBottom) {
         self.scroll = YJCollectionViewScrollWillBottom;
     }
+    
 }
 
 #pragma mark - UICollectionViewDelegate

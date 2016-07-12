@@ -33,7 +33,8 @@ typedef NS_OPTIONS(NSUInteger, YJCollectionViewScroll) {
     YJCollectionViewScrollWillTop,    ///< 将要向上滚动
     YJCollectionViewScrollNone,       ///< 用户触摸，将要滚动
     YJCollectionViewScrollWillBottom, ///< 将要向下滚动
-    YJCollectionViewScrollDidBottom   ///< 向下滚动
+    YJCollectionViewScrollDidBottom,  ///< 向下滚动
+    YJCollectionViewScrollEndBottom   ///< 滚动到底部
 };
 
 
