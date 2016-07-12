@@ -31,7 +31,8 @@ typedef NS_OPTIONS(NSUInteger, YJTableViewScroll) {
     YJTableViewScrollWillTop,    ///< 将要向上滚动
     YJTableViewScrollNone,       ///< 用户触摸，将要滚动
     YJTableViewScrollWillBottom, ///< 将要向下滚动
-    YJTableViewScrollDidBottom   ///< 向下滚动
+    YJTableViewScrollDidBottom,  ///< 向下滚动
+    YJTableViewScrollEndBottom   ///< 滚动到底部
 };
 
 

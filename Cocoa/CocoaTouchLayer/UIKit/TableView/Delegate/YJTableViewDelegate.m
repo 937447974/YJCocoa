@@ -14,6 +14,7 @@
 #import "YJTableCellObject.h"
 #import "YJTableViewCell.h"
 #import "YJFoundationOther.h"
+#import "UIView+YJViewGeometry.h"
 
 @interface YJTableViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
@@ -175,12 +176,14 @@
     CGFloat spacing = contentOffsetY - _contentOffsetY;
     if (contentOffsetY <= _contentOffsetYBegin) {
         self.scroll = YJTableViewScrollEndTop;
-    } else if (spacing >= self.scrollSpacingDid ) {
+    } else if (contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height) {
+        self.scroll = YJTableViewScrollEndBottom;
+    } else if (spacing >= self.scrollSpacingDid) {
         self.scroll = YJTableViewScrollDidTop;
         _contentOffsetY = contentOffsetY;
     } else if (spacing >= self.scrollSpacingWill && self.scroll != YJTableViewScrollDidTop) {
         self.scroll = YJTableViewScrollWillTop;
-    } else if (spacing <= -self.scrollSpacingDid ) {
+    } else if (spacing <= -self.scrollSpacingDid) {
         self.scroll = YJTableViewScrollDidBottom;
         _contentOffsetY = contentOffsetY;
     } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJTableViewScrollDidBottom) {

@@ -9,6 +9,7 @@
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
 #import "YJFoundationOther.h"
+#import "UIView+YJViewGeometry.h"
 
 @interface YJCollectionViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
@@ -96,18 +97,19 @@
     CGFloat spacing = contentOffsetY - _contentOffsetY;
     if (contentOffsetY <= _contentOffsetYBegin) {
         self.scroll = YJCollectionViewScrollEndTop;
-    } else if (scrollView.contentSize.height - contentOffsetY <= scrollView.h ) {
+    } else if (contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height) {
         self.scroll = YJCollectionViewScrollEndBottom;
     } else if (spacing >= self.scrollSpacingDid ) {
         self.scroll = YJCollectionViewScrollDidTop;
+        _contentOffsetY = contentOffsetY;
     } else if (spacing >= self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidTop) {
         self.scroll = YJCollectionViewScrollWillTop;
     } else if (spacing <= -self.scrollSpacingDid ) {
         self.scroll = YJCollectionViewScrollDidBottom;
+        _contentOffsetY = contentOffsetY;
     } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJCollectionViewScrollDidBottom) {
         self.scroll = YJCollectionViewScrollWillBottom;
-    }
-    
+    }    
 }
 
 #pragma mark - UICollectionViewDelegate

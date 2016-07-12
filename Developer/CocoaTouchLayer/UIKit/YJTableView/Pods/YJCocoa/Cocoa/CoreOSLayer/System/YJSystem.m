@@ -22,13 +22,6 @@ void dispatch_async_background(dispatch_block_t block) {
     dispatch_async(queue, block);
 }
 
-// 异步UI执行
-void dispatch_async_UI(dispatch_block_t block) {
-    dispatch_async_background(^{
-        dispatch_async_main(block);
-    });
-}
-
 // 主线程延时执行
 void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
