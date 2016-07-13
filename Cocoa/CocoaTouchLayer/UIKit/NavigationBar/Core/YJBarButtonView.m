@@ -14,18 +14,27 @@
 
 @implementation YJBarButtonView
 
+#pragma mark - 共享
 + (instancetype)appearance {
-    YJBarButtonView *bbView = [super appearance];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        bbView.titleColor = [UIColor blackColor];
-        bbView.titleFont = [UIFont systemFontOfSize:14];
-        bbView.highlightedAlpha = 0.5;
-        bbView.spacing = 5;
-    });
+    static YJBarButtonView *bbView;
+    if (!bbView) {
+        bbView = [[YJBarButtonView alloc] initWithAppearance];
+    }
     return bbView;
 }
 
+- (instancetype)initWithAppearance {
+    self = [super initWithFrame:CGRectZero];
+    if (self) { // 默认共享
+        self.titleColor = [UIColor blackColor];
+        self.titleFont = [UIFont systemFontOfSize:14];
+        self.highlightedAlpha = 0.5;
+        self.spacing = 5;
+    }
+    return self;
+}
+
+#pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -38,6 +47,7 @@
     return self;
 }
 
+#pragma mark setter & getter
 - (void)setBarButtonItem:(YJBarButtonItem *)barButtonItem {
     _barButtonItem = barButtonItem;
     self.barButtonItems = @[barButtonItem];
@@ -48,7 +58,7 @@
     [self reloadData];
 }
 
-#pragma mark -
+#pragma mark - 刷新UI
 - (void)reloadData {
     // 界面渲染
     for (UIView *view in self.subviews) {
@@ -62,13 +72,17 @@
         [self addSubview:button];
         button.tag = item.tag;
         // 标题
-        button.titleLabel.font = self.titleFont;
-        [button setTitle:item.title forState:UIControlStateNormal];
-        [button setTitleColor:self.titleColor forState:UIControlStateNormal];
-        [button setTitleColor:[self.titleColor colorWithAlphaComponent:self.highlightedAlpha] forState:UIControlStateHighlighted];
+        if (item.title) {
+            button.titleLabel.font = self.titleFont;
+            [button setTitle:item.title forState:UIControlStateNormal];
+            [button setTitleColor:self.titleColor forState:UIControlStateNormal];
+            [button setTitleColor:[self.titleColor colorWithAlphaComponent:self.highlightedAlpha] forState:UIControlStateHighlighted];
+        }        
         // 图片
-        [button setImage:item.image forState:UIControlStateNormal];
-        [button setImage:[self imageWithAlpha:self.highlightedAlpha image:item.image] forState:UIControlStateHighlighted];
+        if (item.image) {
+            [button setImage:item.image forState:UIControlStateNormal];
+            [button setImage:[self imageWithAlpha:self.highlightedAlpha image:item.image] forState:UIControlStateHighlighted];
+        }
         // 事件
         [button addTarget:item.target action:item.action forControlEvents:UIControlEventTouchUpInside];
         // 位置

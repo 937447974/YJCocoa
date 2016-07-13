@@ -20,19 +20,28 @@
 
 @implementation YJNavigationBar
 
+#pragma mark - 共享
 + (instancetype)appearance {
-    YJNavigationBar *nb = [super appearance];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        nb.titleColor = [UIColor blackColor];
-        nb.titleFont = [UIFont systemFontOfSize:14];
-        nb.leftSpacing = 10;
-        nb.rightSpacing = 10;
-        nb.middle = YES;
-    });
+    static YJNavigationBar *nb;
+    if (!nb) {
+        nb = [[YJNavigationBar alloc] initWithAppearance];
+    }
     return nb;
 }
 
+- (instancetype)initWithAppearance {
+    self = [super initWithFrame:CGRectZero];
+    if (self) { // 默认共享
+        self.titleColor = [UIColor blackColor];
+        self.titleFont = [UIFont systemFontOfSize:14];
+        self.leftSpacing = 10;
+        self.rightSpacing = 10;
+        self.middle = YES;
+    }
+    return self;
+}
+
+#pragma mark - self
 - (instancetype)initWithFrame:(CGRect)frame {
     frame = CGRectMake(0, 0, 9999, 44);
     self = [super initWithFrame:frame];

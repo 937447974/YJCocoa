@@ -150,6 +150,7 @@ YJ技术支持群：557445088
 | 2016-07-08 | 2.2.1 | CollectionView支持SectionHeaderView和SectionFooterView显示 |
 | 2016-07-11 | 2.2.2 | System支持弱引用__weakSelf和强引用__strongSelf |
 | 2016-07-12 | 2.2.2 | TableView和CollectionView支持用户滑动到底部监听 |
+| 2016-07-13 | 2.2.3 | 修复NavigationBar在IOS7崩溃 |
 
 ##Copyright
 
