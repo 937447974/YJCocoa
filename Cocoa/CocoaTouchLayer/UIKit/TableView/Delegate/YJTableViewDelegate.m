@@ -75,79 +75,20 @@
 
 #pragma mark - 清除缓存
 - (void)clearAllCacheHeight {
-    if ([self validateCacheHeight]) {
-       [_cacheHeightDict removeAllObjects];
-    }
+    [_cacheHeightDict removeAllObjects];
 }
 
-- (void)clearCacheHeightWithCellClass:(Class)cellClass {
-    if (![self validateCacheHeight]) {
+- (void)clearCacheHeightWithCellObject:(YJTableCellObject *)cellObject {
+    if (!cellObject.indexPath) {
         return;
     }
-    if (self.cacheHeightStrategy != YJTableViewCacheHeightDefault) {
-        NSLog(@"请设置YJTableViewCacheHeightDefault缓存高策略");
-        return;
-    }
-    [_cacheHeightDict removeObjectForKey:YJStringFromClass(cellClass)];
+    [_cacheHeightDict removeObjectForKey:[self getKeyFromCellObject:cellObject]];    
 }
 
-- (void)clearCacheHeightWithIndexPath:(NSIndexPath *)indexPath {
-    if ([self validateCacheHeightWithIndexPath]) {
-        [_cacheHeightDict removeObjectForKey:[self getKeyFromIndexPath:indexPath]];
+- (void)clearCacheHeightWithCellObjects:(NSArray<YJTableCellObject *> *)cellObjects {
+    for (YJTableCellObject *cellObject in cellObjects) {
+        [self clearCacheHeightWithCellObject:cellObject];
     }
-}
-
-- (void)clearCacheHeightWithIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
-    if ([self validateCacheHeightWithIndexPath]) {
-        for (NSIndexPath *indexPath in indexPaths) {
-            [_cacheHeightDict removeObjectForKey:[self getKeyFromIndexPath:indexPath]];
-        }
-    }
-}
-
-- (void)clearCacheHeightWithFromIndexPath:(NSIndexPath *)startIndexPath toIndexPath:(NSIndexPath *)endIndexPath {
-    if (startIndexPath.section > endIndexPath.section) {
-        return;
-    }
-    // 清理缓存
-    NSArray *rows;
-    NSIndexPath *indexPath;
-    if ([self validateCacheHeightWithIndexPath]) {
-        for (NSInteger section = startIndexPath.section; section <= endIndexPath.section; section++) {
-            rows = self.dataSource.dataSourceGrouped[section];
-            NSInteger startRow = section == startIndexPath.section ? startIndexPath.row : 0;
-            NSInteger endRow = section == endIndexPath.section ? endIndexPath.row : rows.count-1;
-            for (NSInteger row = startRow; row <= endRow; row++) {
-                indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-                [_cacheHeightDict removeObjectForKey:[self getKeyFromIndexPath:indexPath]];
-            }
-        }
-    }
-}
-
-#pragma mark - 校验是否开启缓存高
-- (BOOL)validateCacheHeight {
-    if (!self.isCacheHeight) {
-        NSLog(@"请开启缓存高");
-    }
-    return self.isCacheHeight;
-}
-
-#pragma mark 校验是否使用YJTableViewCacheHeightIndexPath缓存高策略
-- (BOOL)validateCacheHeightWithIndexPath {
-    if (![self validateCacheHeight]) {
-        return NO;
-    }
-    if (self.cacheHeightStrategy != YJTableViewCacheHeightIndexPath) {
-        NSLog(@"请设置YJTableViewCacheHeightIndexPath缓存高策略");
-        return NO;
-    }
-    return YES;
-}
-
-#pragma mark - 获取NSIndexPath对应的缓存key
-- (NSString *)getKeyFromIndexPath:(NSIndexPath *)indexPath {
-    return [NSString stringWithFormat:@"%@-%@", @(indexPath.section), @(indexPath.row)];
 }
 
 #pragma mark 获取cellObject对应的缓存key

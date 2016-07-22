@@ -18,12 +18,18 @@
 @implementation UITableViewCell (YJTableView)
 
 #pragma mark - (+)
++ (YJTableViewCellCreate)cellCreate {
+    return YJTableViewCellCreateDefault;
+}
+
 + (id)cellObject {
-    return [[YJTableCellObject alloc] initWithTableViewCellClass:self.class];
+    YJTableCellObject *cellObject = [[YJTableCellObject alloc] initWithTableViewCellClass:self.class];
+    cellObject.createCell = [self cellCreate];
+    return cellObject;
 }
 
 + (id)cellObjectWithCellModel:(id<YJTableCellModelProtocol>)cellModel {
-    YJTableCellObject *cellObject = [[YJTableCellObject alloc] initWithTableViewCellClass:self.class];
+    YJTableCellObject *cellObject = [self cellObject];
     cellObject.cellModel = cellModel;
     return cellObject;
 }
@@ -46,7 +52,7 @@
 #pragma mark - (-)
 - (void)reloadDataWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
     [self reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
-    __weak UITableViewCell *weakSelf = self;
+    __weakSelf
     dispatch_async_main(^{// UI加速
         [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     });

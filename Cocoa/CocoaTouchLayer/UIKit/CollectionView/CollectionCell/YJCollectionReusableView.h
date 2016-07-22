@@ -22,7 +22,14 @@
 @interface UICollectionReusableView (YJCollectionView)
 
 /**
- *  获取YJCollectionCellObject,子类重写可获取YJCollectionCellObject子类。
+ *  获取初始化cell的方式
+ *
+ *  @return YJCollectionCellCreate
+ */
++ (YJCollectionCellCreate)cellCreate;
+
+/**
+ *  获取YJCollectionCellObject
  *
  *  @return YJCollectionCellObject
  */

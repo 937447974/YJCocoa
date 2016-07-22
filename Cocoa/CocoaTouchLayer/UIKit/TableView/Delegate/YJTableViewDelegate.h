@@ -120,40 +120,22 @@ typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableView
 - (void)clearAllCacheHeight;
 
 /**
- *  根据cell的类清楚缓存高，cacheHeightStrategy = YJTableViewCacheHeightDefault
+ *  根据cellObject清楚缓存高
  *
- *  @param cellClass UITableViewCell类
+ *  @param cellObject YJTableCellObject
  *
  *  @return void
  */
-- (void)clearCacheHeightWithCellClass:(Class)cellClass;
+- (void)clearCacheHeightWithCellObject:(YJTableCellObject *)cellObject;
 
 /**
- *  根据NSIndexPath位置清除缓存高，cacheHeightStrategy = YJTableViewCacheHeightIndexPath
+ *  根据多个cellObject清楚缓存高
  *
- *  @param indexPath NSIndexPath
- *
- *  @return void
- */
-- (void)clearCacheHeightWithIndexPath:(NSIndexPath *)indexPath;
-
-/**
- *  根据NSIndexPath集合清除对应的缓存高，cacheHeightStrategy = YJTableViewCacheHeightIndexPath
- *
- *  @param indexPaths NSIndexPath集合
+ *  @param cellObject YJTableCellObject
  *
  *  @return void
  */
-- (void)clearCacheHeightWithIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-
-/**
- *  清除[startIndexPath,endIndexPath]的缓存高，cacheHeightStrategy = YJTableViewCacheHeightIndexPath
- *
- *  @param cellClass UITableViewCell类
- *
- *  @return void
- */
-- (void)clearCacheHeightWithFromIndexPath:(NSIndexPath *)startIndexPath toIndexPath:(NSIndexPath *)endIndexPath;
+- (void)clearCacheHeightWithCellObjects:(NSArray<YJTableCellObject *> *)cellObjects;
 
 @end
 

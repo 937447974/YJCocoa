@@ -15,12 +15,18 @@
 @implementation UICollectionReusableView (YJCollectionView)
 
 #pragma mark (+)
++ (YJCollectionCellCreate)cellCreate {
+    return YJCollectionCellCreateDefault;
+}
+
 + (id)cellObject {
+    YJCollectionCellObject *cellObject = [[YJCollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
+    cellObject.createCell = [self cellCreate];
     return [[YJCollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
 }
 
 + (id)cellObjectWithCellModel:(id<YJCollectionCellModel>)cellModel {
-    YJCollectionCellObject *cellObject = [[YJCollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
+    YJCollectionCellObject *cellObject = [self cellObject];
     cellObject.cellModel = cellModel;
     return cellObject;
 }
@@ -40,7 +46,7 @@
 #pragma mark (-)
 - (void)reloadDataWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
     [self reloadDataSyncWithCellObject:cellObject delegate:delegate];
-    __weak UICollectionReusableView *weakSelf = self;
+    __weakSelf
     dispatch_async_main(^{// UI加速
         [weakSelf reloadDataAsyncWithCellObject:cellObject delegate:delegate];
     });

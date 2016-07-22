@@ -20,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UITableViewCell (YJTableView)
 
 /**
+ *  获取初始化cell的方式
+ *
+ *  @return YJTableViewCellCreate
+ */
++ (YJTableViewCellCreate)cellCreate;
+
+/**
  *  获取YJTableCellObject,子类重写可获取YJTableCellObject子类。
  *
  *  @return YJTableCellObject
@@ -77,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-/** UITableViewCell基类*/
+/** UITableViewCell基类（*/
 @interface YJTableViewCell : UITableViewCell
 
 @property (nonatomic, weak, readonly) YJTableCellObject *cellObject;          ///< YJTableCellObject
