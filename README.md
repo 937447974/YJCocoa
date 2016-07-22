@@ -151,6 +151,7 @@ YJ技术支持群：557445088
 | 2016-07-11 | 2.2.2 | System支持弱引用__weakSelf和强引用__strongSelf |
 | 2016-07-12 | 2.2.2 | TableView和CollectionView支持用户滑动到底部监听 |
 | 2016-07-13 | 2.2.3 | 修复NavigationBar在IOS7崩溃 |
+| 2016-07-22 | 2.2.4 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)；TableView中YJTableViewDelegate升级清楚缓存高的方法。 |
 
 ##Copyright
 
