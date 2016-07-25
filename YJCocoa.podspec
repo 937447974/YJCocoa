@@ -143,6 +143,9 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
             foundation.subspec 'Http' do |http|
                 http.source_files = 'Cocoa/CoreServicesLayer/Foundation/Http/*.{h,m}'
             end
+            foundation.subspec 'PerformSelector' do |performSelector|
+                performSelector.source_files = 'Cocoa/CoreServicesLayer/Foundation/PerformSelector/*.{h,m}'
+            end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}'
                 singleton.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
