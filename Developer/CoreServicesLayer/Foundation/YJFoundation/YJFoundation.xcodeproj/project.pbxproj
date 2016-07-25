@@ -18,6 +18,8 @@
 		8473ABD11CE96B57000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473ABCF1CE96B57000E3580 /* LaunchScreen.storyboard */; };
 		847A1E6E1CF56B0C00636975 /* YJSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E6D1CF56B0C00636975 /* YJSingletonMCenter.m */; };
 		847A1E721CF5748400636975 /* YJFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E711CF5748400636975 /* YJFoundationOther.m */; };
+		847AF4411D460CE500664743 /* NSObject+YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4401D460CE500664743 /* NSObject+YJPerformSelector.m */; };
+		847AF4441D460F0100664743 /* YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4431D460F0100664743 /* YJPerformSelector.m */; };
 		E6AB443FC80A8834079F0229 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0532681BB3006CDA62A10BC1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,10 @@
 		847A1E6D1CF56B0C00636975 /* YJSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingletonMCenter.m; sourceTree = "<group>"; };
 		847A1E701CF5748400636975 /* YJFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundationOther.h; sourceTree = "<group>"; };
 		847A1E711CF5748400636975 /* YJFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationOther.m; sourceTree = "<group>"; };
+		847AF43F1D460CE500664743 /* NSObject+YJPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJPerformSelector.h"; sourceTree = "<group>"; };
+		847AF4401D460CE500664743 /* NSObject+YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJPerformSelector.m"; sourceTree = "<group>"; };
+		847AF4421D460F0100664743 /* YJPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPerformSelector.h; sourceTree = "<group>"; };
+		847AF4431D460F0100664743 /* YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPerformSelector.m; sourceTree = "<group>"; };
 		B65CFA6C04A8BA7844535A7F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D4F6DB95A20C92A8AE09D603 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +182,10 @@
 		847AF43E1D460C0D00664743 /* PerformSelector */ = {
 			isa = PBXGroup;
 			children = (
+				847AF43F1D460CE500664743 /* NSObject+YJPerformSelector.h */,
+				847AF4401D460CE500664743 /* NSObject+YJPerformSelector.m */,
+				847AF4421D460F0100664743 /* YJPerformSelector.h */,
+				847AF4431D460F0100664743 /* YJPerformSelector.m */,
 			);
 			path = PerformSelector;
 			sourceTree = "<group>";
@@ -318,7 +328,9 @@
 				841F53FF1CEE9E590082227A /* YJLog.m in Sources */,
 				847A1E6E1CF56B0C00636975 /* YJSingletonMCenter.m in Sources */,
 				844DBABA1D24F9E800415993 /* YJHttpAssembly.m in Sources */,
+				847AF4411D460CE500664743 /* NSObject+YJPerformSelector.m in Sources */,
 				844DBAB71D24F98600415993 /* YJHttpAnalysis.m in Sources */,
+				847AF4441D460F0100664743 /* YJPerformSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

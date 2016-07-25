@@ -2,7 +2,7 @@
 //  ViewController.m
 //  YJFoundation
 //
-//  Created by admin on 16/5/16.
+//  Created by 阳君 on 16/5/16.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
@@ -23,7 +23,8 @@
     [super viewDidLoad];
 //    [self testLog];
 //    [self testSingleton];
-    [self testHttp];
+//    [self testHttp];
+    [self testPerformSelector];
 }
 
 #pragma mark - test
@@ -57,6 +58,27 @@
     NSLog(@"%@", http);
     NSLog(@"%@", [YJHttpAnalysis analysisParams:http]);
     NSLog(@"%@", [YJHttpAnalysis analysisParams:http forKey:@"name"]);
+}
+
+#pragma mark 安全执行Selector
+- (void)testPerformSelector {
+    [self performSelector:@selector(testPerformSelector1) withObjects:nil];
+    [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
+    YJPerformSelector *result = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
+    NSLog(@"%@", result.result);
+}
+
+- (void)testPerformSelector1 {
+    NSLog(NSStringFromSelector(_cmd), nil);
+}
+
+- (void)testPerformSelector2:(id)object0 withObject:(id)object1 withObject:(id)object2 {
+    NSLog(@"0:%@; 1:%@; 2:%@", object0, object1, object2);
+}
+
+- (NSString *)testPerformSelector3:(id)object1 withObject:(id)object2 {
+    NSLog(@"0:%@; 1:%@; ", object1, object2);
+    return @"阳君";
 }
 
 @end

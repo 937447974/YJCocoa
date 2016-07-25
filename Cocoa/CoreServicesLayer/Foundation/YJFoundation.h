@@ -15,6 +15,7 @@
 #import "YJSingletonMCenter.h"
 /** http链接相关*/
 #import "YJHttp.h"
-
+/** 线程安全执行Selector*/
+#import "NSObject+YJPerformSelector.h"
 // 其他不可归类封装
 #import "YJFoundationOther.h"
