@@ -11,15 +11,17 @@ YJ系列开源库
 
 ---
 
-## YJCocoa/CocoaTouchLayer/UIKit/InputLength
+##YJCocoa/CocoaTouchLayer
+
+### YJCocoa/CocoaTouchLayer/UIKit/InputLength
 
 UITextField和UITextView可输入长度控制。
 
-## YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
+### YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame。
 
-## YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+### YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
  
@@ -27,11 +29,11 @@ AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我�
 3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
 4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
-## YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
+### YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
 
 NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-## YJCocoa/CocoaTouchLayer/UIKit/PageView
+### YJCocoa/CocoaTouchLayer/UIKit/PageView
 
 PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
@@ -39,7 +41,7 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-## YJCocoa/CocoaTouchLayer/UIKit/TableView
+### YJCocoa/CocoaTouchLayer/UIKit/TableView
 
 UITableView封装
 
@@ -60,7 +62,7 @@ UITableView封装
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
 
-## YJCocoa/CocoaTouchLayer/UIKit/CollectionView
+### YJCocoa/CocoaTouchLayer/UIKit/CollectionView
 
 UICollectionView封装
 
@@ -83,22 +85,30 @@ UICollectionView封装
 
 ---
 
-## YJCocoa/CoreServicesLayer/Foundation/Log
+## YJCocoa/CoreServicesLayer
+
+### YJCocoa/CoreServicesLayer/Foundation/Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-## YJCocoa/CoreServicesLayer/Foundation/Singleton
+### YJCocoa/CoreServicesLayer/Foundation/Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-## YJCocoa/CoreServicesLayer/Foundation/Http
+### YJCocoa/CoreServicesLayer/Foundation/Http
 
 1. http链接解析，快速获取其中参数;
 2. http链接组装，快速组装相关参数。
 
+### YJCocoa/CoreServicesLayer/Foundation/PerformSelector
+
+合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
+
 ---
 
-## YJCocoa/CoreOSLayer/System
+##YJCocoa/CoreOSLayer
+
+### YJCocoa/CoreOSLayer/System
 
 GCD相关封装
 
@@ -151,7 +161,8 @@ YJ技术支持群：557445088
 | 2016-07-11 | 2.2.2 | System支持弱引用__weakSelf和强引用__strongSelf |
 | 2016-07-12 | 2.2.2 | TableView和CollectionView支持用户滑动到底部监听 |
 | 2016-07-13 | 2.2.3 | 修复NavigationBar在IOS7崩溃 |
-| 2016-07-22 | 2.2.4 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)；TableView中YJTableViewDelegate升级清楚缓存高的方法。 |
+| 2016-07-22 | 2.3.0 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)；TableView中YJTableViewDelegate升级清楚缓存高的方法。 |
+| 2016-07-25 | 2.3.0 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。| 
 
 ##Copyright
 

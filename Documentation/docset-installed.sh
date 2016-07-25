@@ -48,9 +48,9 @@ fi
 
 #osascript -e 'display notification "2.2.3 | 2016-07-13 | 修复NavigationBar在IOS7崩溃" with title "YJCocoa"'
 
-osascript -e 'display notification "2.2.4 | 2016-07-22 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)" with title "YJCocoa"'
-osascript -e 'display notification "2.2.4 | 2016-07-22 | TableView中YJTableViewDelegate升级清楚缓存高的方法" with title "YJCocoa"'
-
+osascript -e 'display notification "2.3.0 | 2016-07-22 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)" with title "YJCocoa"'
+osascript -e 'display notification "2.3.0 | 2016-07-22 | TableView中YJTableViewDelegate升级清楚缓存高的方法" with title "YJCocoa"'
+osascript -e 'display notification "2.3.0 | 2016-07-25 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。" with title "YJCocoa"'
 
 
 
