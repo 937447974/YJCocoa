@@ -11,25 +11,28 @@
 
 #import <Foundation/Foundation.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
-/** 主线程运行*/
-void dispatch_async_main(dispatch_block_t block);
+/** 弱引用*/
+#define __weakSelf   __weak __typeof__(self) weakSelf = self;
+/** 强引用*/
+#define __strongSelf __strong __typeof(self) strongSelf = weakSelf;
+
+/** 主线程运行,异步UI执行*/
+FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
 
 /** 后台运行*/
-void dispatch_async_background(dispatch_block_t block);
-
-/** 异步UI执行*/
-void dispatch_async_UI(dispatch_block_t block);
+FOUNDATION_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 /** 主线程延时执行*/
-void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block);
+FOUNDATION_EXPORT void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block);
 
 /** 串行队列执行(同步)*/
-void dispatch_sync_serial(const char *label, dispatch_block_t block);
+// void dispatch_sync_serial(const char *label, dispatch_block_t block);
 
 /** 并发队列执行*/
-void dispatch_async_concurrent(dispatch_block_t block);
+FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
 
 /** System Framework*/
 @interface YJSystem : NSObject
