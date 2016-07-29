@@ -1,5 +1,3 @@
-# YJCocoa
-
 YJ系列开源库
 
 1. 支持iOS6.0和Swift开发。
@@ -9,19 +7,19 @@ YJ系列开源库
 
 ![](http://www.linuxidc.com/upload/2014_02/140221184152111.jpg)
 
----
+#1 YJCocoa/CocoaTouchLayer
 
-##YJCocoa/CocoaTouchLayer
+##1.1 YJCocoa/CocoaTouchLayer/UIKit
 
-### YJCocoa/CocoaTouchLayer/UIKit/InputLength
+###1.1.1 YJCocoa/CocoaTouchLayer/UIKit/InputLength
 
 UITextField和UITextView可输入长度控制。
 
-### YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
+###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame。
 
-### YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+###1.1.3 YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
  
@@ -29,11 +27,11 @@ AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我�
 3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
 4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
-### YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
+###1.1.4 YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
 
 NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-### YJCocoa/CocoaTouchLayer/UIKit/PageView
+###1.1.5 YJCocoa/CocoaTouchLayer/UIKit/PageView
 
 PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
@@ -41,7 +39,7 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-### YJCocoa/CocoaTouchLayer/UIKit/TableView
+###1.1.6 YJCocoa/CocoaTouchLayer/UIKit/TableView
 
 UITableView封装
 
@@ -62,7 +60,7 @@ UITableView封装
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
 
-### YJCocoa/CocoaTouchLayer/UIKit/CollectionView
+###1.1.7 YJCocoa/CocoaTouchLayer/UIKit/CollectionView
 
 UICollectionView封装
 
@@ -83,34 +81,38 @@ UICollectionView封装
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
----
+#2 YJCocoa/CoreServicesLayer
 
-## YJCocoa/CoreServicesLayer
+##2.1 YJCocoa/CoreServicesLayer/Foundation
 
-### YJCocoa/CoreServicesLayer/Foundation/Log
+###2.1.1 YJCocoa/CoreServicesLayer/Foundation/Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-### YJCocoa/CoreServicesLayer/Foundation/Singleton
+###2.1.2 YJCocoa/CoreServicesLayer/Foundation/Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-### YJCocoa/CoreServicesLayer/Foundation/Http
+###2.1.3 YJCocoa/CoreServicesLayer/Foundation/Http
 
 1. http链接解析，快速获取其中参数;
 2. http链接组装，快速组装相关参数。
 
-### YJCocoa/CoreServicesLayer/Foundation/PerformSelector
+###2.1.4 YJCocoa/CoreServicesLayer/Foundation/PerformSelector
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
----
+#3 YJCocoa/CoreOSLayer
 
-##YJCocoa/CoreOSLayer
-
-### YJCocoa/CoreOSLayer/System
+##3.1 YJCocoa/CoreOSLayer/System
 
 GCD相关封装
+
+##3.2 YJCocoa/CoreOSLayer/Security
+
+###3.2.1 YJCocoa/CoreOSLayer/Security/Randomization
+
+快速生成指定位数的随机密码。
 
 ----------
 
@@ -163,6 +165,7 @@ YJ技术支持群：557445088
 | 2016-07-13 | 2.2.3 | 修复NavigationBar在IOS7崩溃 |
 | 2016-07-22 | 2.3.0 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)；TableView中YJTableViewDelegate升级清楚缓存高的方法。 |
 | 2016-07-25 | 2.3.0 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。| 
+| 2016-07-29 | | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
 
 ##Copyright
 
