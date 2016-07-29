@@ -11,3 +11,5 @@
 
 // 钥匙串管理
 #import "YJKeychain.h"
+// 生成指定位数的随机密码
+#import "YJRandomization.h"

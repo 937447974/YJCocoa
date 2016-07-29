@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		4BC89E3F44BF8A885909D515 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3DAD37F0302157F04BFDEC /* libPods.a */; };
+		844FB3021D4B5FAE00F178D8 /* YJRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FB3011D4B5FAE00F178D8 /* YJRandomization.m */; };
+		844FB3061D4B732D00F178D8 /* YJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FB3051D4B732D00F178D8 /* YJKeychain.m */; };
 		84519C111D49BC6800B9A715 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84519C101D49BC6800B9A715 /* main.m */; };
 		84519C141D49BC6800B9A715 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84519C131D49BC6800B9A715 /* AppDelegate.m */; };
 		84519C171D49BC6800B9A715 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84519C161D49BC6800B9A715 /* ViewController.m */; };
 		84519C1A1D49BC6800B9A715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84519C181D49BC6800B9A715 /* Main.storyboard */; };
 		84519C1C1D49BC6800B9A715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84519C1B1D49BC6800B9A715 /* Assets.xcassets */; };
 		84519C1F1D49BC6800B9A715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84519C1D1D49BC6800B9A715 /* LaunchScreen.storyboard */; };
-		849C612E1D49D78A002A1026 /* YJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C612D1D49D78A002A1026 /* YJKeychain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		186972C20697EC5A3EB1FDF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1F3DAD37F0302157F04BFDEC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		844FB3001D4B5FAE00F178D8 /* YJRandomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRandomization.h; sourceTree = "<group>"; };
+		844FB3011D4B5FAE00F178D8 /* YJRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJRandomization.m; sourceTree = "<group>"; };
+		844FB3041D4B732D00F178D8 /* YJKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychain.h; sourceTree = "<group>"; };
+		844FB3051D4B732D00F178D8 /* YJKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychain.m; sourceTree = "<group>"; };
 		84519C0C1D49BC6800B9A715 /* YJSecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJSecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84519C101D49BC6800B9A715 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84519C121D49BC6800B9A715 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,8 +36,6 @@
 		84519C1E1D49BC6800B9A715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84519C201D49BC6800B9A715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84519C281D49C7F900B9A715 /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
-		849C612C1D49D78A002A1026 /* YJKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychain.h; sourceTree = "<group>"; };
-		849C612D1D49D78A002A1026 /* YJKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychain.m; sourceTree = "<group>"; };
 		D5D1301EEDF536CD7CD675E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +57,24 @@
 				1F3DAD37F0302157F04BFDEC /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		844FB2FF1D4B5FA100F178D8 /* Randomization */ = {
+			isa = PBXGroup;
+			children = (
+				844FB3001D4B5FAE00F178D8 /* YJRandomization.h */,
+				844FB3011D4B5FAE00F178D8 /* YJRandomization.m */,
+			);
+			path = Randomization;
+			sourceTree = "<group>";
+		};
+		844FB3031D4B732D00F178D8 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				844FB3041D4B732D00F178D8 /* YJKeychain.h */,
+				844FB3051D4B732D00F178D8 /* YJKeychain.m */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		84519C031D49BC6800B9A715 = {
@@ -110,9 +131,9 @@
 		84519C271D49C7D500B9A715 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				844FB3031D4B732D00F178D8 /* Keychain */,
+				844FB2FF1D4B5FA100F178D8 /* Randomization */,
 				84519C281D49C7F900B9A715 /* YJSecurity.h */,
-				849C612C1D49D78A002A1026 /* YJKeychain.h */,
-				849C612D1D49D78A002A1026 /* YJKeychain.m */,
 			);
 			name = Security;
 			path = ../../../../../Cocoa/CoreOSLayer/Security;
@@ -250,8 +271,9 @@
 			files = (
 				84519C171D49BC6800B9A715 /* ViewController.m in Sources */,
 				84519C141D49BC6800B9A715 /* AppDelegate.m in Sources */,
-				849C612E1D49D78A002A1026 /* YJKeychain.m in Sources */,
+				844FB3021D4B5FAE00F178D8 /* YJRandomization.m in Sources */,
 				84519C111D49BC6800B9A715 /* main.m in Sources */,
+				844FB3061D4B732D00F178D8 /* YJKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

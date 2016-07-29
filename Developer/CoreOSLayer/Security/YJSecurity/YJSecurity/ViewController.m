@@ -10,6 +10,7 @@
 //
 
 #import "ViewController.h"
+#import "YJSecurity.h"
 
 @interface ViewController ()
 
@@ -19,12 +20,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self testRadom];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)testRadom {
+    NSString *result = randomizationUppercase(32);
+    NSLog(result, nil);
+    result = randomizationLowercase(32);
+    NSLog(result, nil);
+    result = randomization(32);
+    NSLog(result, nil);
+    NSLog(@"%lu", result.length);
 }
 
 @end
