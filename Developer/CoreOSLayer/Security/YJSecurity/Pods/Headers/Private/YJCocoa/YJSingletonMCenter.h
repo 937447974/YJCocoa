@@ -1,1 +1,0 @@
-../../../YJCocoa/Cocoa/CoreServicesLayer/Foundation/Singleton/YJSingletonMCenter.h

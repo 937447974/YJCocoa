@@ -20,14 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self testRadom];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//    [self testRadom];
+    [self testKeyChain];
 }
 
 - (void)testRadom {
@@ -38,6 +32,26 @@
     result = randomization(32);
     NSLog(result, nil);
     NSLog(@"%lu", result.length);
+}
+
+- (void)testKeyChain {
+    // Build Settings -> Code SigningEntitlements - ${SRCROOT}/$(PRODUCT_NAME)/Keychain.plist
+    NSMutableDictionary *genericPasswordQuery = [[NSMutableDictionary alloc] init];
+    [genericPasswordQuery setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+//    [genericPasswordQuery setObject:identifier forKey:(id)kSecAttrGeneric];
+//    [genericPasswordQuery setObject:@"*" forKey:(id)kSecAttrAccessGroup];
+    // Use the proper search constants, return only the attributes of the first match.
+//    [genericPasswordQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+    [genericPasswordQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+    
+    NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:genericPasswordQuery];
+    
+    CFDictionaryRef result;
+    OSStatus r = SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&result);
+    NSDictionary *outDictionary = (__bridge NSDictionary *)(result);
+    NSLog(@"%@", outDictionary);
+//    errSecItemNotFound
+    
 }
 
 @end
