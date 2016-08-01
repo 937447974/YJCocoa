@@ -7,7 +7,7 @@
 //
 //
 //  Created by 阳君 on 16/5/25.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJFoundationOther.h"
