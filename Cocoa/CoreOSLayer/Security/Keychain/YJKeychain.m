@@ -13,47 +13,13 @@
 
 // 查询首个匹配的KeychainItem
 OSStatus KeychainItemSelect(YJKeychainItem *item) {
-    [item.saveDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    [item.saveDict setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-    
-    [item.saveDict removeObjectForKey:(id)kSecAttrModificationDate];
-    [item.saveDict removeObjectForKey:(id)kSecAttrCreationDate];
-    [item.saveDict removeObjectForKey:(id)kSecAttrService];
-    [item.saveDict removeObjectForKey:(id)kSecAttrGeneric];
-    
-     [item.saveDict removeObjectForKey:(id)kSecAttrDescription];
-     [item.saveDict removeObjectForKey:(id)kSecAttrComment];
-     [item.saveDict removeObjectForKey:(id)kSecAttrCreator];
-     [item.saveDict removeObjectForKey:(id)kSecAttrType];
-     [item.saveDict removeObjectForKey:(id)kSecAttrGeneric];
-    
-//    kSecAttrAccessible
-//    kSecAttrAccessControl
-//    kSecAttrAccessGroup
-//    kSecAttrCreationDate
-//    kSecAttrModificationDate
-//    kSecAttrDescription
-//    kSecAttrComment
-//    kSecAttrCreator
-//    kSecAttrType
-//    kSecAttrLabel
-//    kSecAttrIsInvisible
-//    kSecAttrIsNegative
-//    kSecAttrAccount
-//    kSecAttrService
-//    kSecAttrGeneric
-//    kSecAttrSynchronizable
-    
-    
-    
-    
+    [item.selectDict setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+    [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     CFDictionaryRef result = NULL;
-    OSStatus status = SecItemCopyMatching((CFDictionaryRef)item.saveDict, (CFTypeRef *)&result);
+    OSStatus status = SecItemCopyMatching((CFDictionaryRef)item.selectDict, (CFTypeRef *)&result);
     if (status == errSecSuccess) {
-        item.matchingDict = (__bridge NSDictionary *)(result);
-    } else {
-        [item.saveDict removeObjectForKey:(id)kSecReturnAttributes];
-        [item.saveDict removeObjectForKey:(id)kSecMatchLimit];
+        NSDictionary *dict = (__bridge NSDictionary *)(result);
+        item.strongDict = [NSMutableDictionary dictionaryWithDictionary:dict];
     }
     if (result) {
         CFRelease(result);
@@ -63,10 +29,10 @@ OSStatus KeychainItemSelect(YJKeychainItem *item) {
 
 // 查询所有匹配的YJKeychainItem
 NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus * _Nullable status) {
-    [item.saveDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    [item.saveDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
+    [item.selectDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
+    [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     CFArrayRef result = NULL;
-    OSStatus cm = SecItemCopyMatching((CFDictionaryRef)item.saveDict, (CFTypeRef *)&result);
+    OSStatus cm = SecItemCopyMatching((CFDictionaryRef)item.selectDict, (CFTypeRef *)&result);
     if (status) {
         status = &cm;
     }
@@ -75,7 +41,7 @@ NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus
         NSArray *rArray = (__bridge NSArray *)(result);
         for (NSDictionary *dict in rArray) {
             YJKeychainItem *rItem = [item.class new];
-            rItem.matchingDict = dict;
+            rItem.strongDict = [NSMutableDictionary dictionaryWithDictionary:dict];
             [array addObject:rItem];
         }
     }
@@ -86,30 +52,34 @@ NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus
 }
 
 // 保存YJKeychainItem
-OSStatus KeychainItemSave(YJKeychainItem *item) {
+OSStatus KeychainItemSave(YJKeychainItem *item) {    
+    // pull
     YJKeychainItem *mcItem = [item mutableCopy];
     OSStatus status = KeychainItemSelect(mcItem);
+    // push
+    [item.selectDict removeObjectForKey:(id)kSecMatchLimit];
+    [item.selectDict removeObjectForKey:(id)kSecReturnAttributes];
     if (status == errSecSuccess) {
-        for (id key in item.matchingDict.allKeys) {
-            if ([[item.matchingDict objectForKey:key] isEqual:[item.saveDict objectForKey:key]]) {
-                [item.saveDict removeObjectForKey:key];
-            }
+        [item.weakDict removeObjectsForKeys:item.selectDict.allKeys];
+        if (item.weakDict.count) {
+            status = SecItemUpdate((CFDictionaryRef)item.selectDict, (CFDictionaryRef)item.weakDict);
         }
-        if (item.saveDict.count) {            
-            status = SecItemUpdate((CFDictionaryRef)item.matchingDict, (CFDictionaryRef)item.saveDict);
-        }
-    } else {
-        status = SecItemAdd((CFDictionaryRef)item.saveDict, NULL);
+    } else if (status == errSecItemNotFound) {
+        [item.weakDict addEntriesFromDictionary:item.selectDict];
+        status = SecItemAdd((CFDictionaryRef)item.weakDict, NULL);
+    }
+    // pull
+    if (status == errSecSuccess && item.weakDict.count) {
+        status = KeychainItemSelect(item);
     }
     return status;
 }
 
 // 删除YJKeychainItem
 OSStatus KeychainItemDelete(YJKeychainItem *item) {
-    OSStatus status = KeychainItemSelect(item);
-    if (status == errSecSuccess) {
-        status = SecItemDelete((CFDictionaryRef)item.matchingDict);
-    }
+    [item.selectDict removeObjectForKey:(id)kSecMatchLimit];
+    [item.selectDict removeObjectForKey:(id)kSecReturnAttributes];
+    OSStatus status = SecItemDelete((CFDictionaryRef)item.selectDict);
     return status;
 }
 

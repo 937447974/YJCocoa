@@ -17,23 +17,39 @@
 
 @implementation YJKeychainItem
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _selectDict = [NSMutableDictionary dictionary];
+        [_selectDict setObject:self.kClass forKey:(id)kSecClass];
+        _weakDict = [NSMutableDictionary dictionary];
+        _strongDict = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
+
 - (id)mutableCopy {
     YJKeychainItem *mCopy = [[self.class alloc] init];
     mCopy.selectDict = [self.selectDict mutableCopy];
-    mCopy.saveDict = [self.saveDict mutableCopy];
+    mCopy.weakDict = [self.weakDict mutableCopy];
+    mCopy.strongDict = [self.strongDict mutableCopy];   
     return mCopy;
 }
 
 #pragma mark - 框架接口
-- (NSMutableDictionary *)selectDict {
-    if (!_selectDict) {
-        _selectDict = [NSMutableDictionary dictionaryWithObject:self.kClass forKey:(id)kSecClass];
-    }
-    return _selectDict;
+- (void)setStrongDict:(NSMutableDictionary *)strongDict {
+    _strongDict = strongDict;
+    [self saveToSelectDict:(id)kSecClass];
+    [self saveToSelectDict:(id)kSecAttrAccessGroup];
+    [self saveToSelectDict:(id)kSecAttrAccount];
+    [self.weakDict removeAllObjects];
 }
 
-- (void)setSaveDict:(NSMutableDictionary *)saveDict {
-    _saveDict = saveDict;
+- (void)saveToSelectDict:(id)key {
+    id obj = [self.strongDict objectForKey:key];
+    if (obj) {
+        [self.selectDict setObject:obj forKey:key];
+    }
 }
 
 #pragma mark - YJKItemAttribute
@@ -42,123 +58,135 @@
     return (NSString *)kSecClassGenericPassword; // 默认
 }
 
-#pragma mark kSecAttrAccessible
-- (NSString *)accessible {
-    return [self.saveDict objectForKey:(id)kSecAttrAccessible];
-}
-
-- (void)setAccessible:(NSString *)accessible {
-    [self.saveDict setObject:accessible forKey:(id)kSecAttrAccessible];
-}
-
 #pragma mark kSecAttrAccessGroup
 - (NSString *)accessGroup {
-    return [self.saveDict objectForKey:(id)kSecAttrAccessGroup];
+    return [self.strongDict objectForKey:(id)kSecAttrAccessGroup];
 }
 
 - (void)setAccessGroup:(NSString *)accessGroup {
-    [self.saveDict setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+    [self.selectDict setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+    [self.strongDict setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+}
+
+#pragma mark kSecAttrAccessible
+- (NSString *)accessible {
+    return [self.strongDict objectForKey:(id)kSecAttrAccessible];
+}
+
+- (void)setAccessible:(NSString *)accessible {
+    [self.weakDict setObject:accessible forKey:(id)kSecAttrAccessible];
+    [self.strongDict setObject:accessible forKey:(id)kSecAttrAccessible];
 }
 
 #pragma mark kSecAttrLabel
 - (NSString *)label {
-    return [self.saveDict objectForKey:(id)kSecAttrLabel];
+    return [self.strongDict objectForKey:(id)kSecAttrLabel];
 }
 
 - (void)setLabel:(NSString *)label {
-    [self.saveDict setObject:label forKey:(id)kSecAttrLabel];
+    [self.weakDict setObject:label forKey:(id)kSecAttrLabel];
+    [self.strongDict setObject:label forKey:(id)kSecAttrLabel];
 }
 
 #pragma mark - YJKItemGenericPasswordAttribute
+#pragma mark kSecAttrAccount
+- (NSString *)account {
+    return [self.strongDict objectForKey:(id)kSecAttrAccount];
+}
+
+- (void)setAccount:(NSString *)account {
+    [self.selectDict setObject:account forKey:(id)kSecAttrAccount];
+    [self.strongDict setObject:account forKey:(id)kSecAttrAccount];
+}
+
 #pragma mark kSecAttrCreationDate
 - (NSDate *)createDate {
-    return [self.saveDict objectForKey:(id)kSecAttrCreationDate];
+    return [self.strongDict objectForKey:(id)kSecAttrCreationDate];
 }
 
 #pragma mark kSecAttrModificationDate
 - (NSDate *)modifyDate {
-    return [self.saveDict objectForKey:(id)kSecAttrModificationDate];
+    return [self.strongDict objectForKey:(id)kSecAttrModificationDate];
 }
 
 #pragma mark kSecAttrDescription
 - (NSString *)desc {
-    return [self.saveDict objectForKey:(id)kSecAttrDescription];
+    return [self.strongDict objectForKey:(id)kSecAttrDescription];
 }
 
 - (void)setDesc:(NSString *)desc {
-    [self.saveDict setObject:desc forKey:(id)kSecAttrDescription];
+    [self.weakDict setObject:desc forKey:(id)kSecAttrDescription];
+    [self.strongDict setObject:desc forKey:(id)kSecAttrDescription];
 }
 
 #pragma mark kSecAttrComment
 - (NSString *)comment {
-    return [self.saveDict objectForKey:(id)kSecAttrComment];
+    return [self.strongDict objectForKey:(id)kSecAttrComment];
 }
 
 - (void)setComment:(NSString *)comment {
-    [self.saveDict setObject:comment forKey:(id)kSecAttrComment];
+    [self.weakDict setObject:comment forKey:(id)kSecAttrComment];
+    [self.strongDict setObject:comment forKey:(id)kSecAttrComment];
 }
 
 #pragma mark kSecAttrCreator
 - (NSNumber *)creator {
-    return [self.saveDict objectForKey:(id)kSecAttrCreator];
+    return [self.strongDict objectForKey:(id)kSecAttrCreator];
 }
 
 - (void)setCreator:(NSNumber *)creator {
-    [self.saveDict setObject:creator forKey:(id)kSecAttrCreator];
+    [self.weakDict setObject:creator forKey:(id)kSecAttrCreator];
+    [self.strongDict setObject:creator forKey:(id)kSecAttrCreator];
 }
 
 #pragma mark kSecAttrType
 - (NSNumber *)type {
-    return [self.saveDict objectForKey:(id)kSecAttrType];
+    return [self.strongDict objectForKey:(id)kSecAttrType];
 }
 
 - (void)setType:(NSNumber *)type {
-    [self.saveDict setObject:type forKey:(id)kSecAttrType];
+    [self.weakDict setObject:type forKey:(id)kSecAttrType];
+    [self.strongDict setObject:type forKey:(id)kSecAttrType];
 }
 
 #pragma mark kSecAttrIsInvisible
 - (Boolean)isInvisible {
-    return ((NSNumber *)[self.saveDict objectForKey:(id)kSecAttrIsInvisible]).boolValue;
+    return ((NSNumber *)[self.strongDict objectForKey:(id)kSecAttrIsInvisible]).boolValue;
 }
 
 - (void)setIsInvisible:(Boolean)isInvisible {
-    [self.saveDict setObject:@(isInvisible) forKey:(id)kSecAttrIsInvisible];
+    [self.weakDict setObject:@(isInvisible) forKey:(id)kSecAttrIsInvisible];
+    [self.strongDict setObject:@(isInvisible) forKey:(id)kSecAttrIsInvisible];
 }
 
 #pragma mark kSecAttrIsNegative
 - (Boolean)isNegative {
-    return ((NSNumber *)[self.saveDict objectForKey:(id)kSecAttrIsNegative]).boolValue;
+    return ((NSNumber *)[self.strongDict objectForKey:(id)kSecAttrIsNegative]).boolValue;
 }
 
 - (void)setIsNegative:(Boolean)isNegative {
-    [self.saveDict setObject:@(isNegative) forKey:(id)kSecAttrIsNegative];
-}
-
-#pragma mark kSecAttrAccount
-- (NSString *)account {
-    return [self.saveDict objectForKey:(id)kSecAttrAccount];
-}
-
-- (void)setAccount:(NSString *)account {
-    [self.saveDict setObject:account forKey:(id)kSecAttrAccount];
+    [self.weakDict setObject:@(isNegative) forKey:(id)kSecAttrIsNegative];
+    [self.strongDict setObject:@(isNegative) forKey:(id)kSecAttrIsNegative];
 }
 
 #pragma mark kSecAttrService
 - (NSString *)service {
-    return [self.saveDict objectForKey:(id)kSecAttrService];
+    return [self.strongDict objectForKey:(id)kSecAttrService];
 }
 
 - (void)setService:(NSString *)service {
-    [self.saveDict setObject:service forKey:(id)kSecAttrService];
+    [self.weakDict setObject:service forKey:(id)kSecAttrService];
+    [self.strongDict setObject:service forKey:(id)kSecAttrService];
 }
 
 #pragma mark kSecAttrGeneric
 -(NSData *)generic {
-    return [self.saveDict objectForKey:(id)kSecAttrGeneric];
+    return [self.strongDict objectForKey:(id)kSecAttrGeneric];
 }
 
 - (void)setGeneric:(NSData *)generic {
-    [self.saveDict setObject:generic forKey:(id)kSecAttrGeneric];
+    [self.weakDict setObject:generic forKey:(id)kSecAttrGeneric];
+    [self.strongDict setObject:generic forKey:(id)kSecAttrGeneric];
 }
 
 @end

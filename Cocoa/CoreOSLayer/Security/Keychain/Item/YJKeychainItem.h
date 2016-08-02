@@ -19,10 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-@property (nonatomic, readonly) NSString *kClass;      ///< 存储类型，支持搜索
-@property (nonatomic)           NSString *accessible;  ///< 可访问性，支持搜索
 @property (nonatomic)           NSString *accessGroup; ///< 访问组，支持搜索
-@property (nonatomic, nullable) NSString *label;       ///< 标签，支持搜索
+@property (nonatomic, readonly) NSString *kClass;      ///< 存储类型，支持搜索
+@property (nonatomic)           NSString *accessible;  ///< 可访问性
+@property (nonatomic, nullable) NSString *label;       ///< 标签
 
 @end
 
@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+@property (nonatomic)           NSString *account;   ///< 账号，支持搜索
 @property (nonatomic, readonly) NSDate *createDate;  ///< 创建日期
 @property (nonatomic, readonly) NSDate *modifyDate;  ///< 最后一次修改日期
 @property (nonatomic, nullable) NSString *desc;      ///< 描述
@@ -40,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) NSNumber *type;      ///< 类型
 @property (nonatomic)           Boolean isInvisible; ///< 是否隐藏
 @property (nonatomic)           Boolean isNegative;  ///< 是否具有密码
-@property (nonatomic, nullable) NSString *account;   ///< 账号，支持搜索
 @property (nonatomic, nullable) NSString *service;   ///< 所具有服务
 @property (nonatomic, nullable) NSData *generic;     ///< 用户自定义内容
 
@@ -52,7 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 框架使用,外部不建议使用
 @property (nonatomic, strong) NSMutableDictionary *selectDict; ///< 查询字典
-@property (nonatomic, strong) NSMutableDictionary *saveDict;   ///< 持久化字典
+@property (nonatomic, strong) NSMutableDictionary *weakDict;   ///< 缓存字典
+@property (nonatomic, strong) NSMutableDictionary *strongDict; ///< 持久化字典
 
 @end
 
