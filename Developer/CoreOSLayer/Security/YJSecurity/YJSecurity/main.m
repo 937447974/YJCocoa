@@ -2,7 +2,7 @@
 //  main.m
 //  YJSecurity
 //
-//  Created by admin on 16/8/1.
+//  Created by 阳君 on 16/8/1.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 

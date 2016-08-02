@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self testRadom];
+    //    [self testRadom];
     [self testKeyChain];
 }
 
@@ -31,56 +31,82 @@
     NSLog(result, nil);
     result = randomization(32);
     NSLog(result, nil);
-    NSLog(@"%lu", result.length);
+    NSLog(@"%lu", (unsigned long)result.length);
 }
 
 - (void)testKeyChain {
-    // Build Settings -> Code SigningEntitlements - ${SRCROOT}/$(PRODUCT_NAME)/Keychain.plist
-    // 存入
-    NSMutableDictionary *baseDict = [[NSMutableDictionary alloc] init];
-    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
+    YJKeychainGPItem *item = [[YJKeychainGPItem alloc] init];
+    OSStatus status;
+    // 查询所有
+    NSArray *allArray = KeychainItemSelectAll(item, nil);
+    NSLog(@"%@", allArray);
+    // 查询首个
+    item.account = @"阳君";
+    status = KeychainItemSelect(item);
+    status = KeychainItemSelect(item);
+    // 保存
+    status = KeychainItemSave(item);
+    status = KeychainItemSelect(item);
+    // 修改
+    item.desc = @"姓名";
+    status = KeychainItemSave(item);
+    status = KeychainItemSelect(item);
+    // 再次保存
+    YJKeychainGPItem *item2 = [[YJKeychainGPItem alloc] init];
+    item2.account = @"937447974";
+    item2.desc = @"qq";
+    status = KeychainItemSave(item2);
+    allArray = KeychainItemSelectAll(item, nil);
+    NSLog(@"%@", allArray);
+    // 删除item2
+    status = KeychainItemDelete(item2);
+    allArray = KeychainItemSelectAll(item, nil);
+    NSLog(@"%@", allArray);
+    // 重置
+//    status = KeychainItemDelete([[YJKeychainGPItem alloc] init]);
     
-    CFDictionaryRef result;
-    [baseDict setObject:@"研究" forKey:(id)kSecAttrAccount];
-    OSStatus status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
-    [baseDict setObject:@"数目" forKey:(id)kSecAttrAccount];
-    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
-    [baseDict setObject:@"数目1" forKey:(id)kSecAttrAccount];
-    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
-    
-    NSMutableDictionary *updateDict = [NSMutableDictionary dictionary];
-    [updateDict setObject:@"1" forKey:(id)kSecAttrDescription];
-    status = SecItemUpdate((CFDictionaryRef)baseDict, (CFDictionaryRef)updateDict);
-    
-//    SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
-//    [genericPasswordQuery setObject:@"2" forKey:(id)kSecAttrLabel];
-//    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
-//    [genericPasswordQuery setObject:@"3" forKey:(id)kSecAttrLabel];
-//    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
-    
-//    [genericPasswordQuery removeObjectForKey:(NSString *)kSecAttrGeneric];
-    
-    
-    baseDict = [[NSMutableDictionary alloc] init];
-    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
-    [baseDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
-    [baseDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    
-    status = SecItemCopyMatching((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
-    NSDictionary *outDictionary = (__bridge NSDictionary *)(result);
-    NSLog(@"%@", outDictionary);
-    
-    baseDict = [[NSMutableDictionary alloc] init];
-    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-    status = SecItemDelete((CFDictionaryRef)baseDict);
-
-    if (result) {
-        CFRelease(result);
-    }
-    
-    
+    //    NSMutableDictionary *baseDict = [[NSMutableDictionary alloc] init];
+    //    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    //    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
+    //
+    //    CFDictionaryRef result;
+    //    [baseDict setObject:@"研究" forKey:(id)kSecAttrAccount];
+    //    OSStatus status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    //    [baseDict setObject:@"数目" forKey:(id)kSecAttrAccount];
+    //    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    //    [baseDict setObject:@"数目1" forKey:(id)kSecAttrAccount];
+    //    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    //
+    //    NSMutableDictionary *updateDict = [NSMutableDictionary dictionary];
+    //    [updateDict setObject:@"1" forKey:(id)kSecAttrDescription];
+    //    status = SecItemUpdate((CFDictionaryRef)baseDict, (CFDictionaryRef)updateDict);
+    //
+    ////    SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+    ////    [genericPasswordQuery setObject:@"2" forKey:(id)kSecAttrLabel];
+    ////    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+    ////    [genericPasswordQuery setObject:@"3" forKey:(id)kSecAttrLabel];
+    ////    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+    //
+    ////    [genericPasswordQuery removeObjectForKey:(NSString *)kSecAttrGeneric];
+    //
+    //
+    //    baseDict = [[NSMutableDictionary alloc] init];
+    //    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    //    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
+    //    [baseDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
+    //    [baseDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+    //
+    //    status = SecItemCopyMatching((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    //    NSDictionary *outDictionary = (__bridge NSDictionary *)(result);
+    //    NSLog(@"%@", outDictionary);
+    //
+    //    baseDict = [[NSMutableDictionary alloc] init];
+    //    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    //    status = SecItemDelete((CFDictionaryRef)baseDict);
+    //
+    //    if (result) {
+    //        CFRelease(result);
+    //    }
 }
 
 

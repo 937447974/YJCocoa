@@ -17,20 +17,31 @@
 
 @implementation YJKeychainItem
 
-#pragma mark - 框架接口
-- (void)setMatchingDict:(NSDictionary *)matchingDict {
-    _matchingDict = matchingDict;
-    _saveDict = [NSMutableDictionary dictionaryWithDictionary:matchingDict];
+- (id)mutableCopy {
+    YJKeychainItem *mCopy = [[self.class alloc] init];
+    mCopy.selectDict = [self.selectDict mutableCopy];
+    mCopy.saveDict = [self.saveDict mutableCopy];
+    return mCopy;
 }
 
-- (NSMutableDictionary *)saveDict {
-    if (!_saveDict) {
-        _saveDict = [NSMutableDictionary dictionary];
+#pragma mark - 框架接口
+- (NSMutableDictionary *)selectDict {
+    if (!_selectDict) {
+        _selectDict = [NSMutableDictionary dictionaryWithObject:self.kClass forKey:(id)kSecClass];
     }
-    return _saveDict;
+    return _selectDict;
+}
+
+- (void)setSaveDict:(NSMutableDictionary *)saveDict {
+    _saveDict = saveDict;
 }
 
 #pragma mark - YJKItemAttribute
+#pragma mark kSecClass
+- (NSString *)kClass {
+    return (NSString *)kSecClassGenericPassword; // 默认
+}
+
 #pragma mark kSecAttrAccessible
 - (NSString *)accessible {
     return [self.saveDict objectForKey:(id)kSecAttrAccessible];

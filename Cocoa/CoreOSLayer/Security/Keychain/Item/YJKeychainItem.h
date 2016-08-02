@@ -19,9 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-@property (nonatomic)           NSString *accessible;  ///< 可访问性
-@property (nonatomic)           NSString *accessGroup; ///< 访问组
-@property (nonatomic, nullable) NSString *label;       ///< 标签
+@property (nonatomic, readonly) NSString *kClass;      ///< 存储类型，支持搜索
+@property (nonatomic)           NSString *accessible;  ///< 可访问性，支持搜索
+@property (nonatomic)           NSString *accessGroup; ///< 访问组，支持搜索
+@property (nonatomic, nullable) NSString *label;       ///< 标签，支持搜索
 
 @end
 
@@ -39,19 +40,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) NSNumber *type;      ///< 类型
 @property (nonatomic)           Boolean isInvisible; ///< 是否隐藏
 @property (nonatomic)           Boolean isNegative;  ///< 是否具有密码
-@property (nonatomic, nullable) NSString *account;   ///< 账号
+@property (nonatomic, nullable) NSString *account;   ///< 账号，支持搜索
 @property (nonatomic, nullable) NSString *service;   ///< 所具有服务
 @property (nonatomic, nullable) NSData *generic;     ///< 用户自定义内容
 
 @end
 
 
-/** Keychain存放的item基类*/
+/** Keychain存放item的抽象基类*/
 @interface YJKeychainItem : NSObject
 
 // 框架使用,外部不建议使用
-@property (nonatomic, strong) NSDictionary *matchingDict;    ///< 查询字典
-@property (nonatomic, strong) NSMutableDictionary *saveDict; ///< 持久化字典
+@property (nonatomic, strong) NSMutableDictionary *selectDict; ///< 查询字典
+@property (nonatomic, strong) NSMutableDictionary *saveDict;   ///< 持久化字典
 
 @end
 
