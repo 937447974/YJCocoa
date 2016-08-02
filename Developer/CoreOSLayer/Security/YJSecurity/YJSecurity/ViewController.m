@@ -36,22 +36,107 @@
 
 - (void)testKeyChain {
     // Build Settings -> Code SigningEntitlements - ${SRCROOT}/$(PRODUCT_NAME)/Keychain.plist
-    NSMutableDictionary *genericPasswordQuery = [[NSMutableDictionary alloc] init];
-    [genericPasswordQuery setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-//    [genericPasswordQuery setObject:identifier forKey:(id)kSecAttrGeneric];
-//    [genericPasswordQuery setObject:@"*" forKey:(id)kSecAttrAccessGroup];
-    // Use the proper search constants, return only the attributes of the first match.
-//    [genericPasswordQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-    [genericPasswordQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    
-    NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:genericPasswordQuery];
+    // 存入
+    NSMutableDictionary *baseDict = [[NSMutableDictionary alloc] init];
+    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
     
     CFDictionaryRef result;
-    OSStatus r = SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&result);
+    [baseDict setObject:@"研究" forKey:(id)kSecAttrAccount];
+    OSStatus status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    [baseDict setObject:@"数目" forKey:(id)kSecAttrAccount];
+    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    [baseDict setObject:@"数目1" forKey:(id)kSecAttrAccount];
+    status = SecItemAdd((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
+    
+    NSMutableDictionary *updateDict = [NSMutableDictionary dictionary];
+    [updateDict setObject:@"1" forKey:(id)kSecAttrDescription];
+    status = SecItemUpdate((CFDictionaryRef)baseDict, (CFDictionaryRef)updateDict);
+    
+//    SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+//    [genericPasswordQuery setObject:@"2" forKey:(id)kSecAttrLabel];
+//    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+//    [genericPasswordQuery setObject:@"3" forKey:(id)kSecAttrLabel];
+//    status = SecItemAdd((CFDictionaryRef)genericPasswordQuery, NULL);
+    
+//    [genericPasswordQuery removeObjectForKey:(NSString *)kSecAttrGeneric];
+    
+    
+    baseDict = [[NSMutableDictionary alloc] init];
+    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    [baseDict setObject:@"1" forKey:(id)kSecAttrGeneric];
+    [baseDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
+    [baseDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+    
+    status = SecItemCopyMatching((CFDictionaryRef)baseDict, (CFTypeRef *)&result);
     NSDictionary *outDictionary = (__bridge NSDictionary *)(result);
     NSLog(@"%@", outDictionary);
-//    errSecItemNotFound
+    
+    baseDict = [[NSMutableDictionary alloc] init];
+    [baseDict setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    status = SecItemDelete((CFDictionaryRef)baseDict);
+
+    if (result) {
+        CFRelease(result);
+    }
+    
     
 }
+
+
+
++ (NSMutableDictionary *)getKeychainQuery:(NSString *)service {
+    return [NSMutableDictionary dictionaryWithObjectsAndKeys:
+            (__bridge_transfer id)kSecClassGenericPassword,(__bridge_transfer id)kSecClass,
+            service, (__bridge_transfer id)kSecAttrService,
+            service, (__bridge_transfer id)kSecAttrAccount,
+            (__bridge_transfer id)kSecAttrAccessibleAfterFirstUnlock,(__bridge_transfer id)kSecAttrAccessible,
+            nil];
+}
+
++ (void)save:(NSString *)service data:(id)data {
+    //Get search dictionary
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    
+    CFDictionaryRef cf_keychainQuery = (__bridge_retained CFDictionaryRef)keychainQuery;
+    
+    //Delete old item before add new item
+    SecItemDelete(cf_keychainQuery);
+    //Add new object to search dictionary(Attention:the data format)
+    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data] forKey:(__bridge_transfer id)kSecValueData];
+    //Add item to keychain with the search dictionary
+    SecItemAdd(cf_keychainQuery, NULL);
+    CFRelease(cf_keychainQuery);
+}
+
++ (id)load:(NSString *)service {
+    id ret = nil;
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    //Configure the search setting
+    [keychainQuery setObject:(id)kCFBooleanTrue forKey:(__bridge_transfer id)kSecReturnData];
+    [keychainQuery setObject:(__bridge_transfer id)kSecMatchLimitOne forKey:(__bridge_transfer id)kSecMatchLimit];
+    CFDataRef keyData = NULL;
+    CFDictionaryRef cf_keychainQuery = (__bridge_retained CFDictionaryRef)keychainQuery;
+    if (SecItemCopyMatching(cf_keychainQuery, (CFTypeRef *)&keyData) == noErr) {
+        @try {
+            ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge_transfer NSData *)keyData];
+        } @catch (NSException *e) {
+            NSLog(@"Unarchive of %@ failed: %@", service, e);
+        } @finally {
+        }
+    }
+    if (cf_keychainQuery) {
+        CFRelease(cf_keychainQuery);
+    }
+    return ret;
+}
+
++ (void)delete:(NSString *)service {
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    CFDictionaryRef cf_keychainQuery = (__bridge_retained CFDictionaryRef)keychainQuery;
+    SecItemDelete(cf_keychainQuery);
+    CFRelease(cf_keychainQuery);
+}
+
 
 @end

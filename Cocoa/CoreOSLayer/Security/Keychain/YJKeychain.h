@@ -11,13 +11,13 @@
 
 #import <Foundation/Foundation.h>
 
-#define YJKeychainM
+NS_ASSUME_NONNULL_BEGIN
 
-@protocol YJKeychainProtocol <NSObject>
-
-@end
+FOUNDATION_EXPORT 
 
 /** 钥匙串管理*/
 @interface YJKeychain : NSObject
 
 @end
+
+NS_ASSUME_NONNULL_END

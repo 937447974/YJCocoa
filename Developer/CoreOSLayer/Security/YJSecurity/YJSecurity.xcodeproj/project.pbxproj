@@ -16,6 +16,8 @@
 		841AFE051D4F29A40048FA2A /* YJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AFE001D4F29A40048FA2A /* YJKeychain.m */; };
 		841AFE061D4F29A40048FA2A /* YJRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AFE031D4F29A40048FA2A /* YJRandomization.m */; };
 		841AFE0A1D4F29E00048FA2A /* Keychain.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841AFE091D4F29E00048FA2A /* Keychain.plist */; };
+		8450AB261D502A7600B577A0 /* YJKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8450AB251D502A7600B577A0 /* YJKeychainGPItem.m */; };
+		8462AA551D4F3E8600DDFADF /* YJKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462AA541D4F3E8600DDFADF /* YJKeychainItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,10 @@
 		841AFE031D4F29A40048FA2A /* YJRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJRandomization.m; sourceTree = "<group>"; };
 		841AFE041D4F29A40048FA2A /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
 		841AFE091D4F29E00048FA2A /* Keychain.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keychain.plist; sourceTree = "<group>"; };
-		8462AA501D4F2B1700DDFADF /* YJKeychainProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychainProtocol.h; sourceTree = "<group>"; };
+		8450AB241D502A7600B577A0 /* YJKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychainGPItem.h; sourceTree = "<group>"; };
+		8450AB251D502A7600B577A0 /* YJKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychainGPItem.m; sourceTree = "<group>"; };
+		8462AA531D4F3E8600DDFADF /* YJKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychainItem.h; sourceTree = "<group>"; };
+		8462AA541D4F3E8600DDFADF /* YJKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychainItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +118,9 @@
 		841AFDFE1D4F29A40048FA2A /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
+				8462AA511D4F3E2600DDFADF /* Item */,
 				841AFDFF1D4F29A40048FA2A /* YJKeychain.h */,
 				841AFE001D4F29A40048FA2A /* YJKeychain.m */,
-				8462AA501D4F2B1700DDFADF /* YJKeychainProtocol.h */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -127,6 +132,17 @@
 				841AFE031D4F29A40048FA2A /* YJRandomization.m */,
 			);
 			path = Randomization;
+			sourceTree = "<group>";
+		};
+		8462AA511D4F3E2600DDFADF /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				8462AA531D4F3E8600DDFADF /* YJKeychainItem.h */,
+				8462AA541D4F3E8600DDFADF /* YJKeychainItem.m */,
+				8450AB241D502A7600B577A0 /* YJKeychainGPItem.h */,
+				8450AB251D502A7600B577A0 /* YJKeychainGPItem.m */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +171,7 @@
 		841AFDDA1D4F29310048FA2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = YJCocoa;
 				TargetAttributes = {
@@ -201,8 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				841AFDED1D4F29310048FA2A /* ViewController.m in Sources */,
+				8462AA551D4F3E8600DDFADF /* YJKeychainItem.m in Sources */,
 				841AFDEA1D4F29310048FA2A /* AppDelegate.m in Sources */,
 				841AFE061D4F29A40048FA2A /* YJRandomization.m in Sources */,
+				8450AB261D502A7600B577A0 /* YJKeychainGPItem.m in Sources */,
 				841AFE051D4F29A40048FA2A /* YJKeychain.m in Sources */,
 				841AFDE71D4F29310048FA2A /* main.m in Sources */,
 			);
