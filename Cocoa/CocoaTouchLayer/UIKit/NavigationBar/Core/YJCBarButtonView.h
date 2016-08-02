@@ -10,15 +10,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJBarButtonItem.h"
+#import "YJCBarButtonItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 按钮View*/
-@interface YJBarButtonView : UIView
+@interface YJCBarButtonView : UIView
 
-@property (nullable, nonatomic, strong) YJBarButtonItem *barButtonItem; ///< 按钮
-@property (nullable, nonatomic, strong) NSArray<YJBarButtonItem *> *barButtonItems; ///< 按钮集合
+@property (nullable, nonatomic, strong) YJCBarButtonItem *barButtonItem; ///< 按钮
+@property (nullable, nonatomic, strong) NSArray<YJCBarButtonItem *> *barButtonItems; ///< 按钮集合
 
 @property (nonatomic, strong) UIColor *titleColor; ///< 字体颜色，默认黑色
 @property (nonatomic, strong) UIFont *titleFont;   ///< 字体大小，默认14

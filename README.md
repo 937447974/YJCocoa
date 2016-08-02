@@ -114,6 +114,10 @@ GCD相关封装
 
 快速生成指定位数的随机密码。
 
+###3.2.2 YJCocoa/CoreOSLayer/Security/Keychain
+
+面向对象管理Keychain，支持自定义存储数据。
+
 ----------
 
 #<a id="Appendix">Appendix
@@ -164,8 +168,10 @@ YJ技术支持群：557445088
 | 2016-07-12 | 2.2.2 | TableView和CollectionView支持用户滑动到底部监听 |
 | 2016-07-13 | 2.2.3 | 修复NavigationBar在IOS7崩溃 |
 | 2016-07-22 | 2.3.0 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)；TableView中YJTableViewDelegate升级清楚缓存高的方法。 |
-| 2016-07-25 | 2.3.0 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。| 
-| 2016-07-29 | | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
+| 2016-07-25 | 2.3.0 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。 | 
+| 2016-07-29 | 2.3.0 | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
+| 2016-08-02 | 2.3.0 | ‘CoreOSLayer/Security/Keychain’库上线，面向对象管理Keychain，支持自定义存储数据。 |
+| 2016-08-02 | 2.3.0 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
 
 ##Copyright
 

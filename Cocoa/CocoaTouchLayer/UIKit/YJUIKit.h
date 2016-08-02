@@ -19,7 +19,7 @@
 #import "YJAutoLayout.h"
 
 // UINavigationBar封装，可自定义配置bar
-#import "YJNavigationBar.h"
+#import "YJCNavigationBar.h"
 
 // UITableView封装
 #import "YJTableView.h"

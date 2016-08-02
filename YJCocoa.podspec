@@ -15,12 +15,12 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "2.2.4"
+    s.version  = "2.3.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                       姓名：阳君
@@ -162,6 +162,18 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
     # 3 Core OS Layer
     s.subspec 'CoreOSLayer' do |col|
         col.source_files = 'Cocoa/CoreOSLayer/*.{h,m}'
+        col.subspec 'Security' do |security|
+            security.source_files = 'Cocoa/CoreOSLayer/Security/*.{h,m}'
+            security.subspec 'Keychain' do |keychain|
+                keychain.source_files = 'Cocoa/CoreOSLayer/Security/Keychain/*.{h,m}'
+                keychain.subspec 'Item' do |item|
+                    item.source_files = 'Cocoa/CoreOSLayer/Security/Keychain/Item/*.{h,m}'
+                end
+            end
+            security.subspec 'Randomization' do |randomization|
+                randomization.source_files = 'Cocoa/CoreOSLayer/Security/Randomization/*.{h,m}'
+            end
+        end
         col.subspec 'System' do |system|
             system.source_files = 'Cocoa/CoreOSLayer/System/*.{h,m}'
         end

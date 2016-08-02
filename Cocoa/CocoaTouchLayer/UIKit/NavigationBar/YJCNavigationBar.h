@@ -10,7 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJBarButtonView.h"
+#import "YJCBarButtonView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 /** 替换UINavigationItem.titleView*/
-@interface YJNavigationBar : UIView
+@interface YJCNavigationBar : UIView
 
 @property (nonatomic) CGFloat leftSpacing;  ///< 左按钮View和标题的间隔,默认10
 @property (nonatomic) CGFloat rightSpacing; ///< 右按钮View和标题的间隔,默认10
@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy)   NSString *title;   ///< 标题
 @property (nullable, nonatomic, strong) UIView *titleView; ///< 自定义titleView
 
-@property (nullable, nonatomic, strong) YJBarButtonView *leftBarButtonView;  ///< 左按钮View
-@property (nullable, nonatomic, strong) YJBarButtonView *rightBarButtonView; ///< 右按钮View
+@property (nullable, nonatomic, strong) YJCBarButtonView *leftBarButtonView;  ///< 左按钮View
+@property (nullable, nonatomic, strong) YJCBarButtonView *rightBarButtonView; ///< 右按钮View
 
 @end
 

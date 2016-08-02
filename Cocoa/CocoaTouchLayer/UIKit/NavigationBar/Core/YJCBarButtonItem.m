@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJBarButtonItem.h"
+#import "YJCBarButtonItem.h"
 
-@implementation YJBarButtonItem
+@implementation YJCBarButtonItem
 
 - (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action {
     self = [super init];

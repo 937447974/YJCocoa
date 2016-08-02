@@ -51,9 +51,9 @@ fi
 osascript -e 'display notification "2.3.0 | 2016-07-22 | TableView和CollectionView支持动态配置创建cell的方式(XIB、class和SB)" with title "YJCocoa"'
 osascript -e 'display notification "2.3.0 | 2016-07-22 | TableView中YJTableViewDelegate升级清楚缓存高的方法" with title "YJCocoa"'
 osascript -e 'display notification "2.3.0 | 2016-07-25 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。" with title "YJCocoa"'
-
-
-
+osascript -e 'display notification "2.3.0 | 2016-07-25 | Randomization库上线，可快速生成指定位数的随机密码。" with title "YJCocoa"'
+osascript -e 'display notification "2.3.0 | 2016-08-02 | Keychain库上线，面向对象管理Keychain，支持自定义存储数据。" with title "YJCocoa"'
+osascript -e 'display notification "2.3.0 | 2016-08-02 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。" with title "YJCocoa"'
 
 
 

@@ -9,4 +9,5 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+#import "YJSecurity.h"
 #import "YJSystem.h"

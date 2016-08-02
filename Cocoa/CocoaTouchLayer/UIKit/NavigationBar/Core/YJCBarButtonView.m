@@ -9,16 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJBarButtonView.h"
+#import "YJCBarButtonView.h"
 #import "UIView+YJViewGeometry.h"
 
-@implementation YJBarButtonView
+@implementation YJCBarButtonView
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJBarButtonView *bbView;
+    static YJCBarButtonView *bbView;
     if (!bbView) {
-        bbView = [[YJBarButtonView alloc] initWithAppearance];
+        bbView = [[YJCBarButtonView alloc] initWithAppearance];
     }
     return bbView;
 }
@@ -38,7 +38,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        YJBarButtonView *bbView = [YJBarButtonView appearance];
+        YJCBarButtonView *bbView = [YJCBarButtonView appearance];
         _titleColor = bbView.titleColor;
         _titleFont = bbView.titleFont;
         _highlightedAlpha = bbView.highlightedAlpha;
@@ -48,12 +48,12 @@
 }
 
 #pragma mark setter & getter
-- (void)setBarButtonItem:(YJBarButtonItem *)barButtonItem {
+- (void)setBarButtonItem:(YJCBarButtonItem *)barButtonItem {
     _barButtonItem = barButtonItem;
     self.barButtonItems = @[barButtonItem];
 }
 
-- (void)setBarButtonItems:(NSArray<YJBarButtonItem *> *)barButtonItems {
+- (void)setBarButtonItems:(NSArray<YJCBarButtonItem *> *)barButtonItems {
     _barButtonItems = barButtonItems;
     [self reloadData];
 }
@@ -66,7 +66,7 @@
     }
     CGFloat y = (self.heightFrame - 30) / 2;
     CGFloat x = -self.spacing;
-    for (YJBarButtonItem *item in self.barButtonItems) {
+    for (YJCBarButtonItem *item in self.barButtonItems) {
         x += self.spacing;
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, 30, 30)];
         [self addSubview:button];

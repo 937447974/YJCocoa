@@ -9,22 +9,22 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJNavigationBar.h"
+#import "YJCNavigationBar.h"
 #import "UIView+YJViewGeometry.h"
 
-@interface YJNavigationBar ()
+@interface YJCNavigationBar ()
 
 @property (nonatomic, strong) UILabel *titleLabel; ///< 标题label
 
 @end
 
-@implementation YJNavigationBar
+@implementation YJCNavigationBar
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJNavigationBar *nb;
+    static YJCNavigationBar *nb;
     if (!nb) {
-        nb = [[YJNavigationBar alloc] initWithAppearance];
+        nb = [[YJCNavigationBar alloc] initWithAppearance];
     }
     return nb;
 }
@@ -46,14 +46,14 @@
     frame = CGRectMake(0, 0, 9999, 44);
     self = [super initWithFrame:frame];
     if (self) {
-        YJNavigationBar *nb = [YJNavigationBar appearance];
+        YJCNavigationBar *nb = [YJCNavigationBar appearance];
         _titleColor = nb.titleColor;
         _titleFont = nb.titleFont;
         _leftSpacing = nb.leftSpacing;
         _rightSpacing = nb.rightSpacing;
         _middle = nb.middle;
-        self.leftBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
-        self.rightBarButtonView = [[YJBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
+        self.leftBarButtonView = [[YJCBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
+        self.rightBarButtonView = [[YJCBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
     }
     return self;
 }
@@ -80,22 +80,22 @@
 }
 
 #pragma mark - getter and setter
-- (void)setLeftBarButtonView:(YJBarButtonView *)leftBarButtonView {
+- (void)setLeftBarButtonView:(YJCBarButtonView *)leftBarButtonView {
     _leftBarButtonView = leftBarButtonView;
     [self setBarButtonView:_leftBarButtonView];
 }
 
-- (void)setRightBarButtonView:(YJBarButtonView *)rightBarButtonView {
+- (void)setRightBarButtonView:(YJCBarButtonView *)rightBarButtonView {
     _rightBarButtonView = rightBarButtonView;
     [self setBarButtonView:_rightBarButtonView];
 }
 
-- (void)setBarButtonView:(YJBarButtonView *)barButtonView {
+- (void)setBarButtonView:(YJCBarButtonView *)barButtonView {
     if (barButtonView.superview) {
         [barButtonView removeFromSuperview];
     }
     [self addSubview:barButtonView];
-    __weak YJNavigationBar *weakSelf = self;
+    __weak YJCNavigationBar *weakSelf = self;
     barButtonView.reloadDataBlock = ^(BOOL animation) {
         [weakSelf layoutSubviews];
     };

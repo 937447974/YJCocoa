@@ -13,9 +13,9 @@
 		845375B71D2C9A0200F27D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845375B51D2C9A0200F27D82 /* Main.storyboard */; };
 		845375B91D2C9A0200F27D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845375B81D2C9A0200F27D82 /* Assets.xcassets */; };
 		845375BC1D2C9A0200F27D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845375BA1D2C9A0200F27D82 /* LaunchScreen.storyboard */; };
-		845375C71D2C9A7D00F27D82 /* YJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375C61D2C9A7D00F27D82 /* YJNavigationBar.m */; };
-		845375DB1D2CECB800F27D82 /* YJBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375D61D2CECB800F27D82 /* YJBarButtonItem.m */; };
-		845375DC1D2CECB800F27D82 /* YJBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845375D81D2CECB800F27D82 /* YJBarButtonView.m */; };
+		845998661D50A42D00BD60BC /* YJCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998611D50A42D00BD60BC /* YJCBarButtonItem.m */; };
+		845998671D50A42D00BD60BC /* YJCBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998631D50A42D00BD60BC /* YJCBarButtonView.m */; };
+		845998681D50A42D00BD60BC /* YJCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998651D50A42D00BD60BC /* YJCNavigationBar.m */; };
 		C1140E278D885BD129B17647 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA55AF9B69BB9805EA08D6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -32,12 +32,12 @@
 		845375B81D2C9A0200F27D82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845375BB1D2C9A0200F27D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845375BD1D2C9A0200F27D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		845375C51D2C9A7D00F27D82 /* YJNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNavigationBar.h; sourceTree = "<group>"; };
-		845375C61D2C9A7D00F27D82 /* YJNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNavigationBar.m; sourceTree = "<group>"; };
-		845375D51D2CECB800F27D82 /* YJBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBarButtonItem.h; sourceTree = "<group>"; };
-		845375D61D2CECB800F27D82 /* YJBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBarButtonItem.m; sourceTree = "<group>"; };
-		845375D71D2CECB800F27D82 /* YJBarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBarButtonView.h; sourceTree = "<group>"; };
-		845375D81D2CECB800F27D82 /* YJBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBarButtonView.m; sourceTree = "<group>"; };
+		845998601D50A42D00BD60BC /* YJCBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCBarButtonItem.h; sourceTree = "<group>"; };
+		845998611D50A42D00BD60BC /* YJCBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCBarButtonItem.m; sourceTree = "<group>"; };
+		845998621D50A42D00BD60BC /* YJCBarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCBarButtonView.h; sourceTree = "<group>"; };
+		845998631D50A42D00BD60BC /* YJCBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCBarButtonView.m; sourceTree = "<group>"; };
+		845998641D50A42D00BD60BC /* YJCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCNavigationBar.h; sourceTree = "<group>"; };
+		845998651D50A42D00BD60BC /* YJCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCNavigationBar.m; sourceTree = "<group>"; };
 		D3EA55AF9B69BB9805EA08D6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,21 +116,21 @@
 		845375C41D2C9A6F00F27D82 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				845375D41D2CECB800F27D82 /* Core */,
-				845375C51D2C9A7D00F27D82 /* YJNavigationBar.h */,
-				845375C61D2C9A7D00F27D82 /* YJNavigationBar.m */,
+				8459985F1D50A42D00BD60BC /* Core */,
+				845998641D50A42D00BD60BC /* YJCNavigationBar.h */,
+				845998651D50A42D00BD60BC /* YJCNavigationBar.m */,
 			);
 			name = NavigationBar;
 			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/NavigationBar;
 			sourceTree = "<group>";
 		};
-		845375D41D2CECB800F27D82 /* Core */ = {
+		8459985F1D50A42D00BD60BC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				845375D51D2CECB800F27D82 /* YJBarButtonItem.h */,
-				845375D61D2CECB800F27D82 /* YJBarButtonItem.m */,
-				845375D71D2CECB800F27D82 /* YJBarButtonView.h */,
-				845375D81D2CECB800F27D82 /* YJBarButtonView.m */,
+				845998601D50A42D00BD60BC /* YJCBarButtonItem.h */,
+				845998611D50A42D00BD60BC /* YJCBarButtonItem.m */,
+				845998621D50A42D00BD60BC /* YJCBarButtonView.h */,
+				845998631D50A42D00BD60BC /* YJCBarButtonView.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -265,12 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845375C71D2C9A7D00F27D82 /* YJNavigationBar.m in Sources */,
-				845375DC1D2CECB800F27D82 /* YJBarButtonView.m in Sources */,
 				845375B41D2C9A0200F27D82 /* ViewController.m in Sources */,
+				845998671D50A42D00BD60BC /* YJCBarButtonView.m in Sources */,
+				845998681D50A42D00BD60BC /* YJCNavigationBar.m in Sources */,
 				845375B11D2C9A0200F27D82 /* AppDelegate.m in Sources */,
-				845375DB1D2CECB800F27D82 /* YJBarButtonItem.m in Sources */,
 				845375AE1D2C9A0200F27D82 /* main.m in Sources */,
+				845998661D50A42D00BD60BC /* YJCBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJNavigationBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJNavigationBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
