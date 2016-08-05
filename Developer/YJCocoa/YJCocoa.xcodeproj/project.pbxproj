@@ -14,6 +14,7 @@
 		845998771D50A5BF00BD60BC /* YJKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459986F1D50A5BF00BD60BC /* YJKeychainItem.m */; };
 		845998781D50A5BF00BD60BC /* YJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998711D50A5BF00BD60BC /* YJKeychain.m */; };
 		845998791D50A5BF00BD60BC /* YJRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998741D50A5BF00BD60BC /* YJRandomization.m */; };
+		8465325B1D5483C5002B26C6 /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465325A1D5483C5002B26C6 /* YJSTimer.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -75,6 +76,8 @@
 		845998731D50A5BF00BD60BC /* YJRandomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRandomization.h; sourceTree = "<group>"; };
 		845998741D50A5BF00BD60BC /* YJRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJRandomization.m; sourceTree = "<group>"; };
 		845998751D50A5BF00BD60BC /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
+		846532591D5483C5002B26C6 /* YJSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSTimer.h; sourceTree = "<group>"; };
+		8465325A1D5483C5002B26C6 /* YJSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSTimer.m; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -241,6 +244,15 @@
 			path = Randomization;
 			sourceTree = "<group>";
 		};
+		846532581D5483C5002B26C6 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				846532591D5483C5002B26C6 /* YJSTimer.h */,
+				8465325A1D5483C5002B26C6 /* YJSTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		8473AB6F1CE969DB000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +361,7 @@
 				847AF4561D46200F00664743 /* Other */,
 				847AF4591D46200F00664743 /* PerformSelector */,
 				847AF45E1D46200F00664743 /* Singleton */,
+				846532581D5483C5002B26C6 /* Timer */,
 				847AF4611D46200F00664743 /* YJFoundation.h */,
 			);
 			path = Foundation;
@@ -727,6 +740,7 @@
 				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
 				847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */,
+				8465325B1D5483C5002B26C6 /* YJSTimer.m in Sources */,
 				847AF4631D46200F00664743 /* YJHttpAssembly.m in Sources */,
 				8459985D1D50A32000BD60BC /* YJCBarButtonView.m in Sources */,
 				84B252DB1CFD44E0000931F2 /* YJSuspensionCellView.m in Sources */,

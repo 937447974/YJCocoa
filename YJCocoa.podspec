@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
+#s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.version}" }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                       姓名：阳君
@@ -149,6 +149,13 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}'
                 singleton.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
+            end
+            foundation.subspec 'Timer' do |timer|
+                timer.source_files = 'Cocoa/CoreServicesLayer/Foundation/Timer/*.{h,m}'
+                timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/PerformSelector'
+                timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
+                timer.dependency 'YJCocoa/CoreOSLayer/Security/Randomization'
+                timer.dependency 'YJCocoa/CoreOSLayer/System'
             end
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}'

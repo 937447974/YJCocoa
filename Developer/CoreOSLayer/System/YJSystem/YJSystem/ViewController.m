@@ -37,12 +37,15 @@
     __weakSelf
     dispatch_async_main(^{
         __strongSelf
-        [strongSelf test];
+        [strongSelf test:@"async"];
+    });
+    dispatch_sync_main(^{
+        [weakSelf test:@"sync"];
     });
 }
 
-- (void)test {
-     NSLog(@"strong");
+- (void)test:(NSString *)str {
+     NSLog(str, nil);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -184,7 +184,7 @@ YJ技术支持群：557445088
 | 2016-08-02 | 2.3.0 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
 | 2016-08-05 | 2.4.0 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。 |
 | 2016-08-05 | 2.4.0 | Timer上线，替换NSTimer实现相关计时器功能。|
-
+| 2016-08-05 | 2.4.0 | System升级，新增同步主线程方法dispatch_sync_main。|
 
 ##Copyright
 

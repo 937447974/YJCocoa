@@ -10,10 +10,10 @@
 //
 
 #import "YJSTimer.h"
-#import "YJRandomization.h"
-#import "YJSingletonMCenter.h"
-#import "YJSystem.h"
 #import "NSObject+YJPerformSelector.h"
+#import "YJSingletonMCenter.h"
+#import "YJRandomization.h"
+#import "YJSystem.h"
 
 /** 时间缓存池*/
 #define timerDict [YJSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]

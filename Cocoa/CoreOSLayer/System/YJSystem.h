@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 强引用*/
 #define __strongSelf __strong __typeof(self) strongSelf = weakSelf;
 
+/** 主线程运行,同步执行*/
+FOUNDATION_EXPORT void dispatch_sync_main(dispatch_block_t block);
 /** 主线程运行,异步UI执行*/
 FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
 
