@@ -110,7 +110,9 @@
         [timerDict removeObjectForKey:self.identifier];
         return;
     }
-    if (time<=0 || time>=86400) {
+    if (time < 0 && self.countdown) {
+        return;
+    } else if (time > 86400 && !self.countdown) {
         return;
     }
     NSInteger timeC = time;
