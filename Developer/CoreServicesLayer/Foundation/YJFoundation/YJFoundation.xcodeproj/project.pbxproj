@@ -10,6 +10,7 @@
 		841F53FF1CEE9E590082227A /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53FE1CEE9E590082227A /* YJLog.m */; };
 		844DBAB71D24F98600415993 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAB61D24F98600415993 /* YJHttpAnalysis.m */; };
 		844DBABA1D24F9E800415993 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DBAB91D24F9E800415993 /* YJHttpAssembly.m */; };
+		846532571D54602A002B26C6 /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846532561D54602A002B26C6 /* YJSTimer.m */; };
 		8473ABC31CE96B57000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC21CE96B57000E3580 /* main.m */; };
 		8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC51CE96B57000E3580 /* AppDelegate.m */; };
 		8473ABC91CE96B57000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC81CE96B57000E3580 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 		844DBAB81D24F9E800415993 /* YJHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAssembly.h; sourceTree = "<group>"; };
 		844DBAB91D24F9E800415993 /* YJHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAssembly.m; sourceTree = "<group>"; };
 		844DBABB1D24FA7700415993 /* YJHttp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJHttp.h; sourceTree = "<group>"; };
+		846532551D54602A002B26C6 /* YJSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSTimer.h; sourceTree = "<group>"; };
+		846532561D54602A002B26C6 /* YJSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSTimer.m; sourceTree = "<group>"; };
 		8473ABBE1CE96B57000E3580 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473ABC21CE96B57000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473ABC41CE96B57000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +108,15 @@
 			path = Singleton;
 			sourceTree = "<group>";
 		};
+		846532541D546016002B26C6 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				846532551D54602A002B26C6 /* YJSTimer.h */,
+				846532561D54602A002B26C6 /* YJSTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		8473ABB51CE96B57000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -159,11 +171,12 @@
 		8473ABFC1CE96BEF000E3580 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				847AF43E1D460C0D00664743 /* PerformSelector */,
 				844DBAB41D24F98600415993 /* Http */,
-				847A1E6F1CF5747800636975 /* Other */,
-				846336131CF318700065E08F /* Singleton */,
 				841F53FC1CEE9E210082227A /* Log */,
+				847A1E6F1CF5747800636975 /* Other */,
+				847AF43E1D460C0D00664743 /* PerformSelector */,
+				846336131CF318700065E08F /* Singleton */,
+				846532541D546016002B26C6 /* Timer */,
 				8473ABFD1CE96BEF000E3580 /* YJFoundation.h */,
 			);
 			name = Foundation;
@@ -321,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846532571D54602A002B26C6 /* YJSTimer.m in Sources */,
 				8473ABC91CE96B57000E3580 /* ViewController.m in Sources */,
 				8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */,
 				8473ABC31CE96B57000E3580 /* main.m in Sources */,
@@ -446,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJ.YJFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -459,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJ.YJFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";

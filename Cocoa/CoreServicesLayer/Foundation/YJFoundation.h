@@ -11,11 +11,19 @@
 
 // NSLog打印优化，Unicode自动转化为中文输出。
 #import "YJLog.h"
+
 // 单例管理中心
 #import "YJSingletonMCenter.h"
-/** http链接相关*/
+
+// http链接相关
 #import "YJHttp.h"
-/** 线程安全执行Selector*/
+
+// 计时器
+#import "YJSTimer.h"
+
+// 线程安全执行Selector
 #import "NSObject+YJPerformSelector.h"
+
 // 其他不可归类封装
 #import "YJFoundationOther.h"
+

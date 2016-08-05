@@ -24,11 +24,11 @@
 //    [self testLog];
 //    [self testSingleton];
 //    [self testHttp];
-    [self testPerformSelector];
+//    [self testPerformSelector];
+    [self testTimer];
 }
 
-#pragma mark - test
-#pragma mark log
+#pragma mark - log
 - (void)testLog {
     NSArray *array = [NSArray arrayWithObjects:@"阳君", nil];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
@@ -38,7 +38,7 @@
     NSLog(@"%@", dict);
 }
 
-#pragma mark 单例
+#pragma mark - 单例
 - (void)testSingleton {
     for (int i = 0; i<100; i++) {
         //异步执行队列任务
@@ -52,7 +52,7 @@
     NSLog(@"dispatch_queue_create");
 }
 
-#pragma mark http相关
+#pragma mark - http相关
 - (void)testHttp {
     NSString *http = [YJHttpAssembly assemblyHttp:@"https://www.baidu.com/s" params:@{@"name":@"阳君", @"qq":@"937447974"}];
     NSLog(@"%@", http);
@@ -60,7 +60,7 @@
     NSLog(@"%@", [YJHttpAnalysis analysisParams:http forKey:@"name"]);
 }
 
-#pragma mark 安全执行Selector
+#pragma mark - 安全执行Selector
 - (void)testPerformSelector {
     [self performSelector:@selector(testPerformSelector1) withObjects:nil];
     [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
@@ -79,6 +79,14 @@
 - (NSString *)testPerformSelector3:(id)object1 withObject:(id)object2 {
     NSLog(@"0:%@; 1:%@; ", object1, object2);
     return @"阳君";
+}
+
+#pragma mark - 
+- (void)testTimer {
+    UITableView;
+    UIButton *c;
+    c addTarget:<#(nullable id)#> action:<#(nonnull SEL)#> forControlEvents:<#(UIControlEvents)#>
+    
 }
 
 @end

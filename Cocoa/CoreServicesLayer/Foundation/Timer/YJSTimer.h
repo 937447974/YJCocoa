@@ -1,0 +1,92 @@
+//
+//  YJSTimer.h
+//  YJFoundation
+//
+//  HomePage:https://github.com/937447974/YJCocoa
+//  YJ技术支持群:557445088
+//
+//  Created by 阳君 on 16/8/5.
+//  Copyright © 2016年 YJ. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+// 使用YJSTimer时，除特殊情况外，外部弱引用YJSTimer。
+
+/** 计时器NSTimer*/
+@interface YJSTimer : NSObject
+
+@property (nonatomic, copy, readonly) NSString *identifier; ///< 标识符
+
+@property (nonatomic, strong, nullable) id userInfo; ///< 携带的数据
+@property (nonatomic) NSTimeInterval timeInterval;   ///< 时间间隔,默认1
+@property (nonatomic) NSTimeInterval time;           ///< 当前执行时间
+@property (nonatomic) BOOL countdown;                ///< 是否倒计时运行，默认NO（倒计时time=0时停止，正计时time=60*60*24时停止）
+
+@property (nonatomic, readonly) NSInteger day;    ///< 天
+@property (nonatomic, readonly) NSInteger hour;   ///< 小时
+@property (nonatomic, readonly) NSInteger minute; ///< 分
+@property (nonatomic, readonly) NSInteger second; ///< 秒
+
+/**
+ *  初始化
+ *
+ *  @note 随应用的生命周期存在。注销时，需执行invalidate方法。
+ *
+ *  @param identifier 标识符
+ *
+ *  @return YJSTimer
+ */
++ (instancetype)timerStrongWithIdentifier:(nullable NSString *)identifier;
+
+/**
+ *  初始化
+ *
+ *  @note 随当前调用类的生命周期存在。当前VC回收时，YJSTimer自动回收。
+ *
+ *  @param identifier 标识符
+ *
+ *  @return YJSTimer
+ */
++ (instancetype)timerWeakWithIdentifier:(nullable NSString *)identifier;
+
+/**
+ *  添加回调监听
+ *
+ *  @note action实现方式如：-(void)action:(YJSTimer *)time;
+ *
+ *  @param target 目标类
+ *  @param action 目标方法
+ *
+ *  @return void
+ */
+- (void)addTarget:(id)target action:(SEL)action;
+
+/**
+ *  运行
+ *
+ *  @return void
+ */
+- (void)run;
+
+/**
+ *  暂停
+ *
+ *  @return void
+ */
+- (void)pause;
+
+/**
+ *  失效，手动回收YJSTimer
+ *
+ *  @note 当前类自动回收
+ *
+ *  @return void
+ */
+- (void)invalidate;
+
+@end
+
+NS_ASSUME_NONNULL_END

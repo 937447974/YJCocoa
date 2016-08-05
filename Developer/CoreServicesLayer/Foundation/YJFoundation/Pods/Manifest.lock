@@ -1,10 +1,18 @@
 PODS:
-  - YJCocoa/CoreOSLayer/System (2.2.3)
+  - YJCocoa/CoreOSLayer/Security (2.3.0):
+    - YJCocoa/CoreOSLayer/Security/Keychain (= 2.3.0)
+    - YJCocoa/CoreOSLayer/Security/Randomization (= 2.3.0)
+  - YJCocoa/CoreOSLayer/Security/Keychain (2.3.0):
+    - YJCocoa/CoreOSLayer/Security/Keychain/Item (= 2.3.0)
+  - YJCocoa/CoreOSLayer/Security/Keychain/Item (2.3.0)
+  - YJCocoa/CoreOSLayer/Security/Randomization (2.3.0)
+  - YJCocoa/CoreOSLayer/System (2.3.0)
 
 DEPENDENCIES:
+  - YJCocoa/CoreOSLayer/Security
   - YJCocoa/CoreOSLayer/System
 
 SPEC CHECKSUMS:
-  YJCocoa: 2f95200cfcf3e53e024a24bcfff3c9a51788669d
+  YJCocoa: 29e6b34983ea38139cc5dba31e0aed9ead4bdb51
 
 COCOAPODS: 0.39.0

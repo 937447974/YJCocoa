@@ -4,3 +4,4 @@
 # use_frameworks!
 
 pod 'YJCocoa/CoreOSLayer/System'
+pod 'YJCocoa/CoreOSLayer/Security'
