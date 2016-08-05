@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/8/5.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -25,10 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSTimeInterval time;           ///< 当前执行时间
 @property (nonatomic) BOOL countdown;                ///< 是否倒计时运行，默认NO（倒计时time=0时停止，正计时time=60*60*24时停止）
 
-@property (nonatomic, readonly) NSInteger day;    ///< 天
-@property (nonatomic, readonly) NSInteger hour;   ///< 小时
-@property (nonatomic, readonly) NSInteger minute; ///< 分
-@property (nonatomic, readonly) NSInteger second; ///< 秒
+@property (nonatomic, readonly) NSInteger day;         ///< 天
+@property (nonatomic, readonly) NSInteger hour;        ///< 小时
+@property (nonatomic, readonly) NSInteger minute;      ///< 分
+@property (nonatomic, readonly) NSTimeInterval second; ///< 秒
 
 /**
  *  初始化
@@ -56,6 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  添加回调监听
  *
  *  @note action实现方式如：-(void)action:(YJSTimer *)time;
+ *        strong初始化会强引用target，weak初始化弱引用tag
  *
  *  @param target 目标类
  *  @param action 目标方法

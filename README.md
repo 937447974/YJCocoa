@@ -102,6 +102,16 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
+###2.1.5 YJCocoa/CoreServicesLayer/Foundation/Timer
+
+替换NSTimer实现相关计时器功能。
+
+多种生命周期：
+
+1. 随着应用的回收而回收。
+2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
+
+
 #3 YJCocoa/CoreOSLayer
 
 ##3.1 YJCocoa/CoreOSLayer/System
@@ -172,6 +182,9 @@ YJ技术支持群：557445088
 | 2016-07-29 | 2.3.0 | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
 | 2016-08-02 | 2.3.0 | ‘CoreOSLayer/Security/Keychain’库上线，面向对象管理Keychain，支持自定义存储数据。 |
 | 2016-08-02 | 2.3.0 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
+| 2016-08-05 | 2.4.0 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。 |
+| 2016-08-05 | 2.4.0 | Timer上线，替换NSTimer实现相关计时器功能。|
+
 
 ##Copyright
 

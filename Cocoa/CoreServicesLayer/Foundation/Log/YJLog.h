@@ -13,6 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 快速打印对象*/
+FOUNDATION_EXPORT void NSLogS(id obj);
+
+
 //样式：[NSArray]、{NSDictionary}、{(NSSet)}
 
 /** 数组NSLog打印扩展*/

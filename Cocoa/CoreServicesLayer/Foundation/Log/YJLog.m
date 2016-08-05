@@ -25,6 +25,10 @@ id logExtension(id obj) {
     return tempObj;
 }
 
+void NSLogS(id obj) {
+    NSLog(@"%@", obj);
+}
+
 
 #pragma mark - 数组NSLog打印扩展
 @implementation NSArray (YJLog)

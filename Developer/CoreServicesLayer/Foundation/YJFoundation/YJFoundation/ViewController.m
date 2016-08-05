@@ -10,6 +10,7 @@
 #import "YJFoundation.h"
 #import "YJSystem.h"
 #import "YJHttpAnalysis.h"
+#import "YJLog.h"
 
 #define ViewControllerS (ViewController *)[YJSingletonMC registerStrongSingleton:[ViewController class]]
 
@@ -83,10 +84,19 @@
 
 #pragma mark - 
 - (void)testTimer {
-    UITableView;
-    UIButton *c;
-    c addTarget:<#(nullable id)#> action:<#(nonnull SEL)#> forControlEvents:<#(UIControlEvents)#>
-    
+    YJSTimer *timer = [YJSTimer timerWeakWithIdentifier:nil];
+    [timer addTarget:self action:@selector(testTimerLog:)];
+    timer.time = 3000;
+    timer.countdown = YES;
+    [timer run];
+}
+
+- (void)testTimerLog:(YJSTimer *)timer {
+    NSLogS(timer.identifier);
+    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%f;", (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
+    // 模拟释放当前VC
+//    [timer addTarget:nil action:@selector(testTimerLog:)];
+    [timer invalidate];
 }
 
 @end
