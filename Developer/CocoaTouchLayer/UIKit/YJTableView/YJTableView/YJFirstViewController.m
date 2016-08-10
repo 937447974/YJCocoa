@@ -3,7 +3,7 @@
 //  YJTableViewFactory
 //
 //  Created by 阳君 on 16/3/26.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJFirstViewController.h"
@@ -21,14 +21,13 @@
 @implementation YJFirstViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
     self.dataSourcePlain = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
-//        [self test1];
-    //    [self test2];
-        [self test3];
-    //    [self test4];
-//    [self test5];
+//    [self test1];
+//    [self test2];
+//    [self test3];
+//    [self test4];
+    [self test5];
 }
 
 #pragma mark - 测试数据
@@ -103,7 +102,6 @@
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
         // 封装CellObject
         YJTableCellObject *cellObject = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
-        cellObject.suspensionThroughout = i%20 == 0;
         cellObject.suspension = i%10 == 0;
         // 填充数据源
         [self.dataSourcePlain.dataSource addObject:cellObject];

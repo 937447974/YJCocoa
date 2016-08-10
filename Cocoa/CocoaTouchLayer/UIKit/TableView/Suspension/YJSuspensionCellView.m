@@ -6,31 +6,13 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/11.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJSuspensionCellView.h"
 #import "YJTableViewDelegate.h"
 #import "YJTableViewDataSource.h"
-
-@implementation NSIndexPath (YJSuspensionCellView)
-
-#pragma mark 较小
-- (BOOL)lessThan:(NSIndexPath *)indexPath {
-    if (self.section < indexPath.section) {
-        return YES;
-    } else if (self.row < indexPath.row) {
-        return YES;
-    }
-    return NO;
-}
-
-#pragma mark 相等
-- (BOOL)equal:(NSIndexPath *)indexPath {
-    return indexPath && self.section == indexPath.section && self.row == indexPath.row;
-}
-
-@end
+#import "UIView+YJViewGeometry.h"
 
 #pragma mark - YJSuspensionCellView
 @interface YJSuspensionCellView () {
@@ -38,8 +20,8 @@
 }
 
 @property (nonatomic, weak) UITableView *tableView; ///< UITableView
-@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *indexPaths; ///< 悬浮的Cell位置
-@property (nonatomic, strong) NSMutableArray<UIView *> *suspensionCells;  ///< 悬浮的Cell队列
+@property (nonatomic, strong) NSMutableArray<YJTableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
+@property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
 
 @end
 
@@ -54,19 +36,21 @@
     return self;
 }
 
-#pragma mark - 添加indexPath
-- (void)addIndexPath:(NSIndexPath *)indexPath {
-    
-    for (NSInteger i = 0; i < self.indexPaths.count; i++) {
-        NSIndexPath *index = [self.indexPaths objectAtIndex:i];
-        if ([indexPath lessThan:index]) {
-            [self.indexPaths insertObject:indexPath atIndex:i];
-            return;
-        } else if ([index equal:indexPath]) {
-            return;
-        }
+#pragma mark - 刷新
+- (void)reloadData {
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
     }
-    [self.indexPaths addObject:indexPath];
+    [self.indexPaths removeAllObjects];
+    [self.suspensionCells removeAllObjects];
+    self.heightFrame = 0;
+    for (NSArray<YJTableCellObject *> *array in self.tableViewDelegate.dataSource.dataSourceGrouped) {
+        for (YJTableCellObject *co in array) {
+            if (co.suspension) {
+                [self.indexPaths addObject:co];
+            }
+        }
+    }    
 }
 
 #pragma mark - setter and getter
@@ -74,14 +58,14 @@
     return self.tableViewDelegate.dataSource.tableView;
 }
 
-- (NSMutableArray<NSIndexPath *> *)indexPaths {
+- (NSMutableArray<YJTableCellObject *> *)indexPaths {
     if (!_indexPaths) {
         _indexPaths = [NSMutableArray array];
     }
     return _indexPaths;
 }
 
-- (NSMutableArray<UIView *> *)suspensionCells {
+- (NSMutableArray<UITableViewCell *> *)suspensionCells {
     if (!_suspensionCells) {
         _suspensionCells = [NSMutableArray array];
     }
@@ -91,6 +75,8 @@
 - (void)setContentOffsetY:(CGFloat)contentOffsetY {
     _baseY = _baseY == -1 ? contentOffsetY : _baseY;
     _contentOffsetY = contentOffsetY;
+    self.widthFrame = self.tableViewDelegate.dataSource.tableView.widthFrame;
+    
 //    NSLog(@"%f", _contentOffsetY);
 //    NSLog(@"%f", _baseY);
     /*

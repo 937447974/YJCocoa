@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/13.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -33,8 +33,7 @@ typedef NS_ENUM(NSInteger, YJTableViewCellCreate) {
 @property (nonatomic) YJTableViewCellCreate createCell;  ///< 创建cell的方式
 @property (nonatomic, strong, nullable) id userInfo;     ///< 携带的自定义数据
 
-@property (nonatomic) BOOL suspension;           ///< 是否悬浮
-@property (nonatomic) BOOL suspensionThroughout; ///< 是否始终悬浮
+@property (nonatomic) BOOL suspension; ///< 是否悬浮
 
 @property (nonatomic, strong, nullable) NSIndexPath *indexPath; ///< cell所处位置，无须添加，自动填充
 

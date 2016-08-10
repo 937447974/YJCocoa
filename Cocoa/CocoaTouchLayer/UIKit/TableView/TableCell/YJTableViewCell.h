@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/21.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

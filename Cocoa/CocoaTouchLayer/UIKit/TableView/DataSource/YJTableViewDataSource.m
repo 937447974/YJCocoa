@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/3/26.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJTableViewDataSource.h"
@@ -22,8 +22,7 @@
 @implementation YJTableViewDataSource
 
 #pragma mark - main
-- (instancetype)initWithTableView:(UITableView *)tableView {
-    
+- (instancetype)initWithTableView:(UITableView *)tableView {    
     self = [super init];
     if (self) {
         self.tableView = tableView;
@@ -77,6 +76,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    [self.tableViewDelegate.suspensionCellView reloadData];
     return self.dataSourceGrouped.count;
 }
 
@@ -87,12 +87,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YJTableCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
-    /*
-    __weak YJTableViewDataSource *weakSelf = self;
-    dispatch_async_background(^{// 添加到悬浮cell层
-        [weakSelf.tableViewDelegate.suspensionCellView addIndexPath:indexPath];
-    });
-     */
     return [self dequeueReusableCellWithCellObject:cellObject];
 }
 

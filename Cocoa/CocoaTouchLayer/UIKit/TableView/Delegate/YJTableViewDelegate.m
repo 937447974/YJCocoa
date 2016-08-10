@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/3/26.
-//  Copyright © 2016年 YJFactory. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJTableViewDelegate.h"
@@ -130,6 +130,8 @@
     } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJTableViewScrollDidBottom) {
         self.scroll = YJTableViewScrollWillBottom;        
     }
+    // 悬浮cel
+    self.suspensionCellView.contentOffsetY = self.dataSource.tableView.contentOffset.y;
 }
 
 #pragma mark - UITableViewDelegate
@@ -174,10 +176,5 @@
     YJTableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
     [self sendVCWithCellObject:cellObject tableViewCell:nil];
 }
-
-#pragma mark - UIScrollViewDelegate
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    self.suspensionCellView.contentOffsetY = self.dataSource.tableView.contentOffset.y;
-//}
 
 @end
