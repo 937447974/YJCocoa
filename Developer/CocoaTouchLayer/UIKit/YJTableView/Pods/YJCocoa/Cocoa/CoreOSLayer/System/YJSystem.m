@@ -6,12 +6,21 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/11.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "YJSystem.h"
 
-// 主线程运行
+// 主线程运行,同步
+void dispatch_sync_main(dispatch_block_t block) {
+    if ([[NSThread currentThread] isMainThread]) {
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
+// 主线程运行,异步
 void dispatch_async_main(dispatch_block_t block) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
