@@ -97,7 +97,12 @@
     UIView *viewTemp2 = (UIView *)view2;
     UIView *superView = [self findRootView:viewTemp1 toItem:viewTemp2];
     NSLayoutConstraint *lc = [self findConstraintWithView:superView Item:view1 attribute:attr1 toItem:view2 attribute:attr2];
-    if (!lc) { // 首次创建
+    if (lc) { // 已存在
+        lc.constants(c);
+        if (lc.multiplier != multiplier) {
+            lc.multipliers(multiplier);
+        }        
+    } else { // 首次创建
         if (![viewTemp1.nextResponder isKindOfClass:[UIViewController class]]) {
             viewTemp1.translatesAutoresizingMaskIntoConstraints = NO;
         }

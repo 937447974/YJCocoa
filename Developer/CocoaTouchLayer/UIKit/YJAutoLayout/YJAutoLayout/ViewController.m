@@ -63,8 +63,8 @@
 //    [self testYJAutoLayout]; // IOS7测试通过
 //    [self testSpaceToSuper];
 //    [self testCombinativeLayout];
-//    [self testFindConstraint];
-    [self testAnimate];
+    [self testFindConstraint];
+//    [self testAnimate];
 }
 
 #pragma mark - NSLayoutConstraint Test
@@ -163,11 +163,16 @@
 
 - (void)testFindConstraint {
     self.yellowView.topSpaceToSuper(0).bottomSpaceToSuper(10).leadingSpaceToSuper(20).trailingSpaceToSuper(30);
+    self.yellowView.topSpaceToSuper(0);
     NSLog(@"%@", self.view.constraints);
     NSLog(@"%@", self.yellowView.topConstraintToSuper());
     NSLog(@"%@", self.yellowView.bottomConstraintToSuper());
     NSLog(@"%@", self.yellowView.leadingConstraintToSuper());
     NSLog(@"%@", self.yellowView.trailingConstraintToSuper());
+    self.greenView.topSpaceToSuper(0).leadingSpaceToSuper(20).trailingSpaceToSuper(30).heightLayout.equalToConstant(10);
+    NSLog(@"%@", self.greenView.constraints);
+    self.greenView.heightLayout.equalToConstant(30);
+    NSLog(@"%@", self.greenView.constraints);
 }
 
 - (void)testAnimate {
