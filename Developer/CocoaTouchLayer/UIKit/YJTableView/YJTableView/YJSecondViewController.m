@@ -33,11 +33,8 @@
             // 封装模型
             YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
-            // 封装CellObject
-            YJTestTableCellObject *cellObject = [[YJTestTableCellObject alloc] init];
-            cellObject.cellModel = cellModel;
             // 填充数据源
-            [array addObject:cellObject];
+            [array addObject:[YJTestTableViewCell cellObjectWithCellModel:cellModel]];
         }
         [self.dataSourceGrouped.dataSourceGrouped addObject:array];
     }

@@ -91,8 +91,7 @@
 }
 
 #pragma mark 根据YJTableCellObject生成UITableViewCell
-- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJTableCellObject *)cellObject {
-    
+- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJTableCellObject *)cellObject {    
     NSString *identifier = @"identifier";
     switch (self.cacheCellStrategy) {
         case YJTableViewCacheCellDefault:

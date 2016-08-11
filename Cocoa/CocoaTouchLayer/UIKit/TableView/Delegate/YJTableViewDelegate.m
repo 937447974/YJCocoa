@@ -48,6 +48,11 @@
     if (!_suspensionCellView) {
         self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:CGRectMake(0, 0, self.dataSource.tableView.frame.size.width, 0)];
         [self.dataSource.tableView.superview addSubview:_suspensionCellView];
+        if (!self.dataSource.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
+            BOOL tam = self.dataSource.tableView.superview.translatesAutoresizingMaskIntoConstraints;
+            _suspensionCellView.
+            self.dataSource.tableView.superview.translatesAutoresizingMaskIntoConstraints = tam;
+        }
     }
     return _suspensionCellView;
 }

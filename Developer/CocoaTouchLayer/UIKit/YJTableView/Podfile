@@ -4,6 +4,7 @@ platform :ios, '6.0'
 # use_frameworks!
 
 pod 'YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry'
+pod 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
 pod 'YJCocoa/CoreServicesLayer/Foundation/Other'
 pod 'YJCocoa/CoreOSLayer/System'
 

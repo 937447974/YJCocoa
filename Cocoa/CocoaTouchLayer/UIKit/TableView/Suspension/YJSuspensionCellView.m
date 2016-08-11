@@ -16,10 +16,11 @@
 
 #pragma mark - YJSuspensionCellView
 @interface YJSuspensionCellView () {
-    CGFloat _baseY; ///< 基点,-1未初始化
+    CGFloat _baseY;       ///< 基点,-1未初始化
+    CGFloat _suspensionY; ///< 悬浮点
 }
 
-@property (nonatomic, weak) UITableView *tableView; ///< UITableView
+@property (nonatomic, weak, readonly) UITableView *tableView; ///< UITableView
 @property (nonatomic, strong) NSMutableArray<YJTableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
 
@@ -73,47 +74,81 @@
 }
 
 - (void)setContentOffsetY:(CGFloat)contentOffsetY {
-    _baseY = _baseY == -1 ? contentOffsetY : _baseY;
     _contentOffsetY = contentOffsetY;
-    self.widthFrame = self.tableViewDelegate.dataSource.tableView.widthFrame;
+    _baseY = _baseY == -1 ? contentOffsetY : _baseY;
+    CGFloat spaceY = _contentOffsetY - _baseY;
+    self.widthFrame = self.tableView.widthFrame;
+    self.topFrame = -_baseY;
+    NSLog(@"%d", self.tableView.translatesAutoresizingMaskIntoConstraints);
+    if (!self.indexPaths.count) {
+        return;
+    }
     
-//    NSLog(@"%f", _contentOffsetY);
-//    NSLog(@"%f", _baseY);
-    /*
+    NSInteger index = self.subviews.count ?  self.subviews.count-1 : 0;
     
-    static NSString *c ;
-    if (!c) {
-        c = @"11";
-        self.dataSource.tableView
+    YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:index];
+    if (!cellObj.indexPath) {
+        return;
     }
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:1 inSection:0];
-    static UITableViewCell *cell;
-    CGRect rect = [self.dataSource.tableView rectForRowAtIndexPath:ip];
-    if (cell == nil) {
-        cell = [self.dataSource tableView:self.dataSource.tableView cellForRowAtIndexPath:ip];
-        [self.dataSource.tableView.superview addSubview:cell];
-        [cell setNeedsUpdateConstraints];
+    
+    if (self.suspensionCells.count < self.subviews.count || !self.suspensionCells.count) {
+        UITableViewCell *cell = [self.tableViewDelegate.dataSource tableView:self.tableView cellForRowAtIndexPath:cellObj.indexPath];
+        [self.suspensionCells addObject:cell];
     }
-    CGRect cr = cell.frame;
-    cr.size = rect.size;
-    CGPoint contentOffset = scrollView.contentOffset;
-    NSLog(@"%@", NSStringFromCGPoint(contentOffset));
-    NSLog(@"%@", NSStringFromCGRect([self.dataSource.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]));
-    if (contentOffset.y > rect.origin.y + rect.size.height) {
-        cr.origin.y = self.dataSource.tableView.frame.origin.y;
-        cell.frame = cr;
-        NSLog(@"持续显示");
-    } else if (contentOffset.y > rect.origin.y) {
-        NSLog(@"显示动画中");
-        cr.origin.y = rect.origin.y - contentOffset.y+self.dataSource.tableView.frame.origin.y;
-        cell.frame = cr;
-    } else {
-        [cell removeFromSuperview];
-        cell = nil;
+    if (!self.suspensionCells.count) {
+        return;
     }
-    //    NSLog(@"%@",NSStringFromCGRect(rect));
-    //    NSLog(@"%@",[self.dataSource tableView:self.dataSource.tableView cellForRowAtIndexPath:ip]);
-    */
+    
+    CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];    
+    UITableViewCell *cell = [self.suspensionCells objectAtIndex:index];
+    cell.topFrame = self.heightFrame;
+    cell.sizeFrame = rect.size;
+    if (self.subviews.count) { // 已有
+        if (spaceY > rect.origin.y) { // 显示
+            NSLog(@"持续显示");
+        } else if (self.subviews.count) { // 隐藏
+            NSLog(@"隐藏中");
+            [self.subviews.lastObject removeFromSuperview];
+            self.heightFrame = 0;
+            [self.tableView reloadRowsAtIndexPaths:@[cellObj.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    } else { // 未有
+        if (spaceY > rect.origin.y) { // 显示
+            NSLog(@"持续显示");
+            if (self.subviews.count) {
+                return;
+            }
+            [self addSubview:cell];
+            self.heightFrame = cell.heightFrame;
+        }
+    }
+    
+    
+    
+//    NSLog(@"移动距离：%f", _contentOffsetY-_baseY);
+//    NSLog(@"_baseY：%f", _baseY);
+//    NSIndexPath *ip = [NSIndexPath indexPathForRow:1 inSection:0];
+////    static UITableViewCell *cell;
+//    CGRect rect = [self.tableView rectForRowAtIndexPath:ip];
+//    NSLog(@"%@", NSStringFromCGRect(rect));
+////    if (cell == nil) {
+////        cell = [self.tableViewDelegate.dataSource tableView:self.tableView cellForRowAtIndexPath:ip];
+////        [self addSubview:cell];
+////        cell.translatesAutoresizingMaskIntoConstraints = YES;
+////        cell.sizeFrame = rect.size;
+////        self.heightFrame = cell.heightFrame;
+////    }
+////    CGRect cr = cell.frame;
+//    if (spaceY > rect.origin.y + rect.size.height) {
+//        NSLog(@"持续显示");
+//    } else if (spaceY > rect.origin.y) {
+//        NSLog(@"显示动画中");
+//    } else {
+//        NSLog(@"隐藏中");
+////        [cell removeFromSuperview];
+////        [self.tableView reloadRowsAtIndexPaths:@[ip] withRowAnimation:UITableViewRowAnimationNone];
+////        cell = nil;
+//    }
 }
 
 @end
