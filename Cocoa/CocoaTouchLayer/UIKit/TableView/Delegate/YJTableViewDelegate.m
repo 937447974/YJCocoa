@@ -15,6 +15,7 @@
 #import "YJTableViewCell.h"
 #import "YJFoundationOther.h"
 #import "UIView+YJViewGeometry.h"
+#import "YJAutoLayout.h"
 
 @interface YJTableViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
@@ -47,11 +48,13 @@
 - (YJSuspensionCellView *)suspensionCellView {
     if (!_suspensionCellView) {
         self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:CGRectMake(0, 0, self.dataSource.tableView.frame.size.width, 0)];
+//        _suspensionCellView.clipsToBounds = YES;
         [self.dataSource.tableView.superview addSubview:_suspensionCellView];
         if (!self.dataSource.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
-            BOOL tam = self.dataSource.tableView.superview.translatesAutoresizingMaskIntoConstraints;
-            _suspensionCellView.
-            self.dataSource.tableView.superview.translatesAutoresizingMaskIntoConstraints = tam;
+            _suspensionCellView.topLayout.equalTo(self.dataSource.tableView.topLayout);
+            _suspensionCellView.leadingLayout.equalTo(self.dataSource.tableView.leadingLayout);
+            _suspensionCellView.trailingLayout.equalTo(self.dataSource.tableView.trailingLayout);
+            _suspensionCellView.heightLayout.equalToConstant(0);
         }
     }
     return _suspensionCellView;

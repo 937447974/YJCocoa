@@ -21,7 +21,11 @@
 @implementation YJFirstViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+     self.automaticallyAdjustsScrollViewInsets=NO;
+    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+    tableHeaderView.backgroundColor = [UIColor redColor];
+    self.tableView.tableHeaderView = tableHeaderView;
     self.dataSourcePlain = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
 //    [self test1];
 //    [self test2];
