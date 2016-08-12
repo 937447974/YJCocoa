@@ -48,7 +48,7 @@
 - (YJSuspensionCellView *)suspensionCellView {
     if (!_suspensionCellView) {
         self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:CGRectMake(0, 0, self.dataSource.tableView.frame.size.width, 0)];
-//        _suspensionCellView.clipsToBounds = YES;
+        _suspensionCellView.clipsToBounds = YES;
         [self.dataSource.tableView.superview addSubview:_suspensionCellView];
         if (!self.dataSource.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
             _suspensionCellView.topLayout.equalTo(self.dataSource.tableView.topLayout);
