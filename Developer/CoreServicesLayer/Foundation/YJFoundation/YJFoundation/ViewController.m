@@ -84,19 +84,21 @@
 
 #pragma mark - 
 - (void)testTimer {
-    YJSTimer *timer = [YJSTimer timerWeakWithIdentifier:nil];
-    [timer addTarget:self action:@selector(testTimerLog:)];
-    timer.timeInterval = 0.001;
-    timer.time = 10;
-    timer.countdown = YES;
-    [timer run];
+    for (int i=0; i<3; i++) {
+        YJSTimer *timer = [YJSTimer timerWeakWithIdentifier:nil];
+        [timer addTarget:self action:@selector(testTimerLog:)];
+        timer.timeInterval = 3;
+        timer.time = 10;
+        timer.countdown = YES;
+        [timer run];
+    }
 }
 
 - (void)testTimerLog:(YJSTimer *)timer {
     NSLogS(timer.identifier);
     NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
     // 模拟释放当前VC
-    if (timer.time==0) {
+    if (timer.time<=0) {
         [timer invalidate];
     }
 }
