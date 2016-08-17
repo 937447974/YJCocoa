@@ -18,6 +18,7 @@
 #pragma mark - YJSuspensionCellView
 @interface YJSuspensionCellView () {
     CGFloat _suspensionY; ///< 悬浮点
+    CGFloat _showHeight;  ///< 当前显示高
 }
 
 @property (nonatomic) CGFloat index; ///< 当前显示下标
@@ -74,26 +75,26 @@
     return cell;
 }
 
-#pragma mark - 滑动显示
-#pragma mark 上滑
-- (void)scrollTop {
+#pragma mark - tableView滑动显示
+#pragma mark tableView上滑
+- (void)scrollToTop {
     if (!self.suspensionCells.count) {
         return;
     }
     if (self.translatesAutoresizingMaskIntoConstraints) {
-        [self scrollTopFrame];
+        [self scrollToTopFrame];
     } else {
-        [self scrollTopAutolayout];
+        [self scrollToTopAutolayout];
     }
 }
 
-#pragma mark 上滑frame布局
-- (void)scrollTopFrame {
+#pragma mark tableView上滑frame布局
+- (void)scrollToTopFrame {
     
 }
 
-#pragma mark 上滑自动布局
-- (void)scrollTopAutolayout {
+#pragma mark tableView上滑自动布局
+- (void)scrollToTopAutolayout {
     if (self.index < 0 || self.index >= self.subviews.count) {
         return;
     }
@@ -105,28 +106,27 @@
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     if (self.index == 1) {
         if (_contentOffsetY < rect.origin.y) {
-            heightConstraint.constants(0);
             [self.tableView reloadRowsAtIndexPaths:@[cellObj.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            heightConstraint.constants(0);
+            _showHeight = 0;
             self.index = 0;
         }
     } else {
-        if (_contentOffsetY + heightConstraint.constant > rect.origin.y + rect.size.height) {
+        if (_contentOffsetY + heightConstraint.constant < rect.origin.y + rect.size.height) {
             self.heightLayout.equalToConstant(rect.size.height);
             [self.tableView reloadRowsAtIndexPaths:@[cellObj.indexPath] withRowAnimation:UITableViewRowAnimationNone];
             self.index --;
         } else if (_contentOffsetY + heightConstraint.constant < rect.origin.y) {
-            
             CGFloat newConstant = _contentOffsetY + heightConstraint.constant - rect.origin.y + rect.size.height;
             NSLayoutConstraint *topItemConstraint = self.subviews.firstObject.topLayout.costraintTo(self.topLayout);
             topItemConstraint.constants(topItemConstraint.constant + newConstant - heightConstraint.constant);
             heightConstraint.constants(newConstant);
         }
-        
     }
 }
 
-#pragma mark 下滑
-- (void)scrollBottom {
+#pragma mark tableView下滑
+- (void)scrollToBottom {
     if (self.indexPaths.count != self.subviews.count) {
         // 是否已显示
         YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count];
@@ -140,19 +140,19 @@
         return;
     }
     if (self.translatesAutoresizingMaskIntoConstraints) {
-        [self scrollBottomFrame];
+        [self scrollToBottomFrame];
     } else {
-        [self scrollBottomAutolayout];
+        [self scrollToBottomAutolayout];
     }
 }
 
-#pragma mark 下滑frame布局
-- (void)scrollBottomFrame {
+#pragma mark tableView下滑frame布局
+- (void)scrollToBottomFrame {
     
 }
 
-#pragma mark 下滑自动布局
-- (void)scrollBottomAutolayout {
+#pragma mark tableView下滑自动布局
+- (void)scrollToBottomAutolayout {
     // 添加
     if (self.suspensionCells.count != self.subviews.count) {
         UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
@@ -179,19 +179,25 @@
     YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     if (self.index) {
-        if (_contentOffsetY + heightConstraint.constant > rect.origin.y + rect.size.height) {
+        if (_contentOffsetY + _showHeight > rect.origin.y + rect.size.height) {
             self.heightLayout.equalToConstant(rect.size.height);
+            _showHeight = rect.size.height;
             self.index ++;
-        } else if (_contentOffsetY + heightConstraint.constant > rect.origin.y) {
-            CGFloat newConstant = _contentOffsetY + heightConstraint.constant - rect.origin.y + rect.size.height;
+        } else if (_contentOffsetY + _showHeight > rect.origin.y) {
+            CGFloat newConstant = rect.origin.y + rect.size.height - _contentOffsetY;
             NSLayoutConstraint *topItemConstraint = self.subviews.firstObject.topLayout.costraintTo(self.topLayout);
-            topItemConstraint.constants(topItemConstraint.constant + newConstant - heightConstraint.constant);
+            if (heightConstraint.constant < newConstant) {
+                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant+rect.size.height-newConstant));
+            } else {
+                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
+            }
             heightConstraint.constants(newConstant);
         }
     } else {
         self.subviews.firstObject.topSpaceToSuper(0);
         if (_contentOffsetY > rect.origin.y) {
             heightConstraint.constants(rect.size.height);
+            _showHeight = rect.size.height;
             self.index ++;
         }
     }
@@ -222,7 +228,7 @@
     }
     BOOL goBottom = contentOffsetY > _contentOffsetY;
     _contentOffsetY = contentOffsetY;
-    goBottom ? [self scrollBottom] : [self scrollTop];
+    goBottom ? [self scrollToBottom] : [self scrollToTop];
 }
 
 @end

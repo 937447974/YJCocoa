@@ -86,17 +86,19 @@
 - (void)testTimer {
     YJSTimer *timer = [YJSTimer timerWeakWithIdentifier:nil];
     [timer addTarget:self action:@selector(testTimerLog:)];
-    timer.time = 3000;
+    timer.timeInterval = 0.001;
+    timer.time = 10;
     timer.countdown = YES;
     [timer run];
 }
 
 - (void)testTimerLog:(YJSTimer *)timer {
     NSLogS(timer.identifier);
-    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%f;", (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
+    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
     // 模拟释放当前VC
-//    [timer addTarget:nil action:@selector(testTimerLog:)];
-    [timer invalidate];
+    if (timer.time==0) {
+        [timer invalidate];
+    }
 }
 
 @end

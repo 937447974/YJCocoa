@@ -13,7 +13,6 @@
 #import "NSObject+YJPerformSelector.h"
 #import "YJSingletonMCenter.h"
 #import "YJRandomization.h"
-#import "YJSystem.h"
 
 /** 时间缓存池*/
 #define timerDict [YJSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]
@@ -22,12 +21,13 @@
 
 @property (nonatomic, copy) NSString *identifier; ///< 标识符
 
-@property (nonatomic) BOOL bPause; ///< 是否暂停
 @property (nonatomic) BOOL weakT; ///< 是否弱引用
 
 @property (nonatomic, strong, nullable) id strongTarget; ///< 强引用目标
 @property (nonatomic, weak, nullable) id weakTarget;     ///< 弱引用目标
 @property (nonatomic, nullable) SEL action;              ///< 目标方法
+
+@property (nonatomic, strong) NSTimer *timer; /// 计时器
 
 @end
 
@@ -63,7 +63,6 @@
         timer = [[YJSTimer alloc] init];
         timer.identifier = identifier;
         timer.timeInterval = 1;
-        timer.bPause = YES;
     }
     [tDict setObject:timer forKey:timer.identifier];
     return timer;
@@ -80,16 +79,37 @@
 }
 
 - (void)run {
-    self.bPause = NO;
-    self.time = self.time;
+    NSAssert(self.timeInterval > 0, @"YJSTimer.timeInterval小于等于0");
+    if (!self.timer || self.timer.timeInterval != self.timeInterval) {
+        self.timer = [NSTimer timerWithTimeInterval:self.timeInterval target:self selector:@selector(autoUpdateTime) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    } else {
+        self.timer.fireDate = [NSDate date];
+    }
+}
+
+- (void)autoUpdateTime {
+    if (self.weakT && !self.weakTarget) {
+        [self invalidate];
+        return;
+    }
+    if (self.time < 0 && self.countdown) {
+        [self pause];
+        return;
+    } else if (self.time > 86400 && !self.countdown) {
+        [self pause];
+        return;
+    }
+    self.time = self.countdown ? self.time-self.timeInterval : self.time+self.timeInterval;
 }
 
 - (void)pause {
-    self.bPause = YES;
+    self.timer.fireDate = [NSDate distantFuture];
 }
 
 - (void)invalidate {
-    self.bPause = YES;
+    [self.timer invalidate];
+    self.timer = nil;
     [timerDict removeObjectForKey:self.identifier];
 }
 
@@ -103,18 +123,6 @@
 
 - (void)setTime:(NSTimeInterval)time {
     _time = time;
-    if (self.bPause) {
-        return;
-    }
-    if (self.weakT && !self.weakTarget) {
-        [timerDict removeObjectForKey:self.identifier];
-        return;
-    }
-    if (time < 0 && self.countdown) {
-        return;
-    } else if (time > 86400 && !self.countdown) {
-        return;
-    }
     NSInteger timeC = time;
     _day = timeC / 86400;
     timeC -= _day * 86400;
@@ -127,10 +135,6 @@
     } else {
         [self.strongTarget performSelector:self.action withObjects:@[self]];
     }
-    __weakSelf
-    dispatch_after_main(self.timeInterval, ^{
-        weakSelf.time = weakSelf.countdown ? weakSelf.time-weakSelf.timeInterval : weakSelf.time+weakSelf.timeInterval;
-    });
 }
 
 @end
