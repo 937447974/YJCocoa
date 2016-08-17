@@ -55,10 +55,12 @@ fi
 #osascript -e 'display notification "2.3.0 | 2016-08-02 | Keychain库上线，面向对象管理Keychain，支持自定义存储数据。" with title "YJCocoa"'
 #osascript -e 'display notification "2.3.0 | 2016-08-02 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。" with title "YJCocoa"'
 
-osascript -e 'display notification "2.4.0 | 2016-08-05 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。" with title "YJCocoa"'
-osascript -e 'display notification "2.4.0 | 2016-08-05 | Timer上线，替换NSTimer实现相关计时器功能。" with title "YJCocoa"'
-osascript -e 'display notification "2.4.0 | 2016-08-05 | System升级，新增同步主线程方法dispatch_sync_main。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.0 | 2016-08-05 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.0 | 2016-08-05 | Timer上线，替换NSTimer实现相关计时器功能。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.0 | 2016-08-05 | System升级，新增同步主线程方法dispatch_sync_main。" with title "YJCocoa"'
 
+osascript -e 'display notification "2.4.1 | 2016-08-10 | AutoLayout修复bug：二次执行相同代码无法修改约束。" with title "YJCocoa"'
+osascript -e 'display notification "2.4.1 | 2016-08-17 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。" with title "YJCocoa"'
 
 
 

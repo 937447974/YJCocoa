@@ -139,7 +139,7 @@
         self.scroll = YJTableViewScrollWillBottom;        
     }
     // 悬浮cel
-    self.suspensionCellView.contentOffsetY = self.dataSource.tableView.contentOffset.y;
+//    self.suspensionCellView.contentOffsetY = self.dataSource.tableView.contentOffset.y;
 }
 
 #pragma mark - UITableViewDelegate
