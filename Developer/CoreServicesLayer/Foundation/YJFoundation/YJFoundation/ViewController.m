@@ -95,8 +95,7 @@
 }
 
 - (void)testTimerLog:(YJSTimer *)timer {
-    NSLogS(timer.identifier);
-    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
+    NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
     // 模拟释放当前VC
     if (timer.time<=0) {
         [timer invalidate];
