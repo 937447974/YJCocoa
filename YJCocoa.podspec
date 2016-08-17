@@ -110,6 +110,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 tv.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/CocoaTouchLayer/UIKit/TableView/Suspension/*.{h,m}'
                     core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject'
+                    core.dependency 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
                 end
                 tv.subspec 'TableCellObject' do |tco|
                     tco.source_files = 'Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}'
