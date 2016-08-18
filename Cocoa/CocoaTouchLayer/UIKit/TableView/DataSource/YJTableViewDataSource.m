@@ -18,7 +18,6 @@
 }
 @end
 
-
 @implementation YJTableViewDataSource
 
 #pragma mark - main
@@ -76,7 +75,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    [self.tableViewDelegate.suspensionCellView reloadData];
+    [self.tableViewDelegate.suspensionCellView reloadData];
     return self.dataSourceGrouped.count;
 }
 

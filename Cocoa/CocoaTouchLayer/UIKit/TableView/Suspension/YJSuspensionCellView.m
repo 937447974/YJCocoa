@@ -36,9 +36,8 @@
         self.heightFrame = 0;
     } else {
         [self removeConstraints:self.constraints];
-        //        [self scrollTopAutolayout];
+        self.heightLayout.equalToConstant(0);
     }
-    
     for (UIView *view in self.subviews) {
         [view removeFromSuperview];
     }
