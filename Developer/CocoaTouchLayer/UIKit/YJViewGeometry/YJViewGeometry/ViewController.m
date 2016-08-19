@@ -17,21 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 20, 100, 100)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 20, 100, 100)];
+    view.backgroundColor = [UIColor redColor];
     [self.view addSubview:view];
     NSLog(@"%@", NSStringFromCGPoint(view.originFrameInWindow));
-    view.centerXFrame = 10;
+    view.centerXFrame = 100;
     NSLog(@"%@", NSStringFromCGRect(view.frame));
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.view.topBounds = -130;
 }
 
 @end

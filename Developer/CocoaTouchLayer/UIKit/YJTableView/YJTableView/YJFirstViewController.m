@@ -110,7 +110,7 @@
         // 填充数据源
         [self.dataSourcePlain.dataSource addObject:cellObject];
     }
-    [self.dataSourcePlain.tableViewDelegate.suspensionCellView reloadData];
+    [self.dataSourcePlain.tableViewDelegate.suspensionCellView reloadData]; // 悬浮cell开始工作
 }
 
 @end

@@ -164,7 +164,57 @@
 
 #pragma mark tableView下滑frame布局
 - (void)scrollToBottomFrame {
-    
+    // 添加
+    if (self.suspensionCells.count != self.subviews.count) {
+        UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
+        [self addSubview:cell];
+        YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
+        cell.frame = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
+        if (self.subviews.count >= 2) {
+            cell.topFrame = self.subviews[self.subviews.count-2].bottomFrame;
+        } else {
+            cell.topFrame = 0;
+        }
+    }
+    // 显示
+    if (self.index < 0 || self.index >= self.subviews.count) {
+        return;
+    }
+    YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
+    CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
+    self.scrollAnimate = NO;
+    if (self.index) {
+        if (_contentOffsetY + _showCellHeight > rect.origin.y + rect.size.height) {
+            self.heightLayout.equalToConstant(rect.size.height);
+            _showCellHeight = rect.size.height;
+            CGFloat topItemY = 0;
+            for (int i = 0; i < self.index; i++) {
+                topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
+            }
+            self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout).constant = -topItemY;
+            self.index ++;
+        } else if (_contentOffsetY + _showCellHeight > rect.origin.y) {
+            self.scrollAnimate = YES;
+            CGFloat newConstant = rect.origin.y + rect.size.height - _contentOffsetY;
+            NSLayoutConstraint *topItemConstraint = self.subviews.firstObject.topLayout.costraintTo(self.topLayout);
+            if (heightConstraint.constant < newConstant) {
+                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant+rect.size.height-newConstant));
+            } else {
+                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
+            }
+            heightConstraint.constants(newConstant);
+        }
+    } else {
+        self.bounds.origin.y = 0;
+        self.subviews.firstObject.topSpaceToSuper(0);
+        if (_contentOffsetY > rect.origin.y) {
+            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+            heightConstraint.constants(rect.size.height);
+            _showCellHeight = rect.size.height;
+            self.index ++;
+        }
+    }
 }
 
 #pragma mark tableView下滑自动布局
