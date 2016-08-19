@@ -22,10 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.automaticallyAdjustsScrollViewInsets=NO;
-    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    tableHeaderView.backgroundColor = [UIColor redColor];
-    self.tableView.tableHeaderView = tableHeaderView;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataSourcePlain = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
 //    [self test1];
 //    [self test2];
@@ -99,6 +96,9 @@
 
 #pragma mark - 悬浮测试
 - (void)test5 {
+    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+    tableHeaderView.backgroundColor = [UIColor blueColor];
+    self.tableView.tableHeaderView = tableHeaderView;
     // 测试数据
     for (int i=0; i<150; i++) {
         // 封装模型
