@@ -78,7 +78,7 @@
 }
 
 #pragma mark - tableView滑动显示
-#pragma mark tableView上滑
+#pragma mark tableView滑到顶
 - (void)scrollToTop {
     if (!self.suspensionCells.count) {
         return;
@@ -90,14 +90,51 @@
     }
 }
 
-#pragma mark tableView上滑frame布局
+#pragma mark tableView滑到顶frame布局
 - (void)scrollToTopFrame {
-    
+    if (self.index <= 0 || self.index >= self.subviews.count) {
+        return;
+    }
+    NSInteger showIndex = self.scrollAnimate ? self.index : self.index-1;
+    YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
+    CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
+    if (_contentOffsetY > rect.origin.y) {
+        return;
+    }
+    if (showIndex) {
+        YJTableCellObject *topCellObj = [self.indexPaths objectAtIndex:showIndex-1];
+        CGFloat topRectHeight = [self.tableView rectForRowAtIndexPath:topCellObj.indexPath].size.height;
+        if (self.scrollAnimate && self.heightFrame >= topRectHeight + _showCellHeight) {
+            self.scrollAnimate = NO;
+            [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+            self.heightFrame = topRectHeight;
+            CGFloat topItemY = 0;
+            for (int i = 0; i < self.index-1; i++) {
+                topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
+            }
+            self.topBounds = topItemY;
+        } else {
+            CGFloat newHeight = rect.origin.y + rect.size.height - self.contentOffsetY;
+            self.topBounds -= newHeight - self.heightFrame;
+            self.heightFrame = newHeight;
+            if (!self.scrollAnimate) {
+                self.index --;
+                _showCellHeight = [self.suspensionCells objectAtIndex:self.index-1].heightFrame;
+            }
+            self.scrollAnimate = YES;
+        }
+    } else {
+        self.scrollAnimate = NO;
+        [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+        _showCellHeight = 0;
+        self.heightFrame = 0;        
+        self.index = 0;
+    }
 }
 
-#pragma mark tableView上滑自动布局
+#pragma mark tableView滑到顶自动布局
 - (void)scrollToTopAutolayout {
-    if (self.index <= 0 && self.index >= self.subviews.count) {
+    if (self.index <= 0 || self.index >= self.subviews.count) {
         return;
     }
     NSLayoutConstraint *heightConstraint = self.heightLayout.constraint();
@@ -142,7 +179,7 @@
     }
 }
 
-#pragma mark tableView下滑
+#pragma mark tableView滑到底
 - (void)scrollToBottom {
     if (self.indexPaths.count != self.subviews.count) { // 是否已初始化
         YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count];
@@ -162,7 +199,7 @@
     }
 }
 
-#pragma mark tableView下滑frame布局
+#pragma mark tableView滑到底frame布局
 - (void)scrollToBottomFrame {
     // 添加
     if (self.suspensionCells.count != self.subviews.count) {
@@ -185,39 +222,37 @@
     self.scrollAnimate = NO;
     if (self.index) {
         if (_contentOffsetY + _showCellHeight > rect.origin.y + rect.size.height) {
-            self.heightLayout.equalToConstant(rect.size.height);
             _showCellHeight = rect.size.height;
+            self.heightFrame = _showCellHeight;
             CGFloat topItemY = 0;
             for (int i = 0; i < self.index; i++) {
                 topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
             }
-            self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout).constant = -topItemY;
+            self.topBounds = topItemY;
             self.index ++;
         } else if (_contentOffsetY + _showCellHeight > rect.origin.y) {
             self.scrollAnimate = YES;
-            CGFloat newConstant = rect.origin.y + rect.size.height - _contentOffsetY;
-            NSLayoutConstraint *topItemConstraint = self.subviews.firstObject.topLayout.costraintTo(self.topLayout);
-            if (heightConstraint.constant < newConstant) {
+            CGFloat newHeight = rect.origin.y + rect.size.height - _contentOffsetY;
+            if (self.heightFrame < newHeight) {
                 [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
-                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant+rect.size.height-newConstant));
+                self.topBounds += self.heightFrame + rect.size.height - newHeight;
             } else {
-                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
+                self.topBounds += self.heightFrame - newHeight;
             }
-            heightConstraint.constants(newConstant);
+            self.heightFrame = newHeight;
         }
     } else {
-        self.bounds.origin.y = 0;
-        self.subviews.firstObject.topSpaceToSuper(0);
+        self.topBounds = 0;
         if (_contentOffsetY > rect.origin.y) {
             [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
-            heightConstraint.constants(rect.size.height);
             _showCellHeight = rect.size.height;
+            self.heightFrame = _showCellHeight;
             self.index ++;
         }
     }
 }
 
-#pragma mark tableView下滑自动布局
+#pragma mark tableView滑到底自动布局
 - (void)scrollToBottomAutolayout {
     // 添加
     if (self.suspensionCells.count != self.subviews.count) {

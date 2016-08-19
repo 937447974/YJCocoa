@@ -47,7 +47,8 @@
 #pragma mark - getter and setter
 - (YJSuspensionCellView *)suspensionCellView {
     if (!_suspensionCellView) {
-        self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:CGRectMake(0, 0, self.dataSource.tableView.frame.size.width, 0)];
+        self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:self.dataSource.tableView.frame];
+        self.suspensionCellView.heightFrame = 0;
         _suspensionCellView.clipsToBounds = YES;
         [self.dataSource.tableView.superview addSubview:_suspensionCellView];
         if (!self.dataSource.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
