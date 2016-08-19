@@ -75,7 +75,6 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    [self.tableViewDelegate.suspensionCellView reloadData];
     return self.dataSourceGrouped.count;
 }
 

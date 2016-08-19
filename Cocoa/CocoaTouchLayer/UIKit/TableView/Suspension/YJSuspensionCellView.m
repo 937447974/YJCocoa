@@ -17,12 +17,11 @@
 
 #pragma mark - YJSuspensionCellView
 @interface YJSuspensionCellView () {
-    CGFloat _suspensionY; ///< 悬浮点
     CGFloat _showCellHeight;  ///< 当前显示Cell高
 }
 
 @property (nonatomic) BOOL scrollAnimate; ///< 悬浮cell动画滑动中
-@property (nonatomic) CGFloat index;         ///< 当前显示下标
+@property (nonatomic) CGFloat index;      ///< 当前显示下标
 @property (nonatomic, weak, readonly) UITableView *tableView; ///< UITableView
 @property (nonatomic, strong) NSMutableArray<YJTableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
@@ -33,6 +32,9 @@
 
 #pragma mark - 刷新数据
 - (void)reloadData {
+    _showCellHeight = 0;
+    self.index = 0;
+    self.scrollAnimate = NO;
     if (self.translatesAutoresizingMaskIntoConstraints) {
         self.heightFrame = 0;
     } else {
@@ -95,46 +97,53 @@
 
 #pragma mark tableView上滑自动布局
 - (void)scrollToTopAutolayout {
-    CGFloat showIndex = self.scrollAnimate ? self.index : self.index-1;
-    showIndex = showIndex > 0 ? showIndex : 0;
-    if (self.index >= self.subviews.count) {
+    if (self.index <= 0 && self.index >= self.subviews.count) {
         return;
     }
     NSLayoutConstraint *heightConstraint = self.heightLayout.constraint();
     if (!heightConstraint.constant || !self.index) {
         return;
     }
-    YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
+    YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index-1];
     CGFloat rectY = [self.tableView rectForRowAtIndexPath:cellObj.indexPath].origin.y;
     if (_contentOffsetY > rectY) {
         return;
     }
-    if (showIndex) {
-        YJTableCellObject *topCellObj = [self.indexPaths objectAtIndex:showIndex-1];
-        CGFloat topRectHeight = [self.tableView rectForRowAtIndexPath:topCellObj.indexPath].size.height;
-        if (self.scrollAnimate && heightConstraint.constant >= topRectHeight + _showCellHeight) {
-            self.scrollAnimate = NO;
-            [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
-            heightConstraint.constant = topRectHeight;
-            self.index --;
-            CGFloat topItemY = 0;
-            for (int i = 0; i<self.index; i++) {
-                topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
-            }
-            self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout).constant = -topItemY;
-        } else {
-            self.scrollAnimate = YES;
-            CGFloat newConstant = rectY +_showCellHeight - self.contentOffsetY;
-            NSLayoutConstraint *topItemConstraint = self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout);
-            topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
-            heightConstraint.constant = newConstant;
-        }
-    } else {
+    if (self.index == 1) {
         self.scrollAnimate = NO;
         [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
         heightConstraint.constants(0);
         _showCellHeight = 0;
         self.index = 0;
+    } else {
+        if (self.scrollAnimate) {
+            YJTableCellObject *topCellObj = [self.indexPaths objectAtIndex:self.index];
+            CGFloat topRectHeight = [self.tableView rectForRowAtIndexPath:topCellObj.indexPath].size.height;
+            if (self.scrollAnimate && heightConstraint.constant >= topRectHeight + _showCellHeight) {
+                self.scrollAnimate = NO;
+                [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+                heightConstraint.constant = topRectHeight;
+                self.index --;
+                CGFloat topItemY = 0;
+                for (int i = 0; i<self.index; i++) {
+                    topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
+                }
+                self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout).constant = -topItemY;
+            } else {
+                self.scrollAnimate = YES;
+                CGFloat newConstant = rectY +_showCellHeight - self.contentOffsetY;
+                NSLayoutConstraint *topItemConstraint = self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout);
+                topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
+                heightConstraint.constant = newConstant;
+            }
+        } else {
+            CGFloat newConstant = rectY +_showCellHeight - self.contentOffsetY;
+            NSLayoutConstraint *topItemConstraint = self.suspensionCells.firstObject.topLayout.costraintTo(self.topLayout);
+            topItemConstraint.constants(topItemConstraint.constant - (heightConstraint.constant-newConstant));
+            heightConstraint.constant = newConstant;
+            self.scrollAnimate = YES;
+            self.index --;
+        }
     }
 }
 
