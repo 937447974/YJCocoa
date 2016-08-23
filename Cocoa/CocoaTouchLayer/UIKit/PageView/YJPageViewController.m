@@ -12,7 +12,7 @@
 #import "YJPageViewController.h"
 #import "YJPageViewObject.h"
 #import "YJPageView.h"
-#import "YJSystem.h"
+#import "YJCSystem.h"
 
 @interface YJPageViewController ()
 

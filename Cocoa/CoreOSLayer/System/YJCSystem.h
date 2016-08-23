@@ -1,5 +1,5 @@
 //
-//  YJSystem.h
+//  YJCSystem.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,7 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,10 +34,5 @@ FOUNDATION_EXPORT void dispatch_after_main(int64_t delayInSeconds, dispatch_bloc
 
 /** 并发队列执行*/
 FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
-
-/** System Framework*/
-@interface YJSystem : NSObject
-
-@end
 
 NS_ASSUME_NONNULL_END

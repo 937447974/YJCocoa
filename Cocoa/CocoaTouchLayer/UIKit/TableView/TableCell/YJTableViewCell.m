@@ -12,7 +12,7 @@
 #import "YJTableViewCell.h"
 #import "YJTableViewDelegate.h"
 #import "YJFoundationOther.h"
-#import "YJSystem.h"
+#import "YJCSystem.h"
 
 #pragma mark - UITableViewCell (YJTableView)
 @implementation UITableViewCell (YJTableView)

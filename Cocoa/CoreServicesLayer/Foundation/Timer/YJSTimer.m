@@ -12,7 +12,7 @@
 #import "YJSTimer.h"
 #import "NSObject+YJPerformSelector.h"
 #import "YJSingletonMCenter.h"
-#import "YJRandomization.h"
+#import "YJCRandomization.h"
 
 /** 时间缓存池*/
 #define timerDict [YJSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]

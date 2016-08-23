@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "YJSystem.h"
+#import "YJCSystem.h"
 
 @interface ViewController () {
     dispatch_queue_t _queue;

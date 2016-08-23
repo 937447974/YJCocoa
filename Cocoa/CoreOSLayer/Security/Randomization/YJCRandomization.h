@@ -1,6 +1,6 @@
 //
-//  YJRandomization.h
-//  YJSecurity
+//  YJCRandomization.h
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088

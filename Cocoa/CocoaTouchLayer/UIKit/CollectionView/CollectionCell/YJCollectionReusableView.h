@@ -14,7 +14,7 @@
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
 #import "YJFoundationOther.h"
-#import "YJSystem.h"
+#import "YJCSystem.h"
 
 @class YJCollectionViewDelegate;
 

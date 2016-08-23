@@ -10,10 +10,6 @@
 		8459985C1D50A32000BD60BC /* YJCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998571D50A32000BD60BC /* YJCBarButtonItem.m */; };
 		8459985D1D50A32000BD60BC /* YJCBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998591D50A32000BD60BC /* YJCBarButtonView.m */; };
 		8459985E1D50A32000BD60BC /* YJCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459985B1D50A32000BD60BC /* YJCNavigationBar.m */; };
-		845998761D50A5BF00BD60BC /* YJKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459986D1D50A5BF00BD60BC /* YJKeychainGPItem.m */; };
-		845998771D50A5BF00BD60BC /* YJKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459986F1D50A5BF00BD60BC /* YJKeychainItem.m */; };
-		845998781D50A5BF00BD60BC /* YJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998711D50A5BF00BD60BC /* YJKeychain.m */; };
-		845998791D50A5BF00BD60BC /* YJRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 845998741D50A5BF00BD60BC /* YJRandomization.m */; };
 		8465325B1D5483C5002B26C6 /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465325A1D5483C5002B26C6 /* YJSTimer.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
@@ -23,7 +19,6 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
-		847A1E681CF5598C00636975 /* YJSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A1E441CF5598C00636975 /* YJSystem.m */; };
 		847AF4621D46200F00664743 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4501D46200F00664743 /* YJHttpAnalysis.m */; };
 		847AF4631D46200F00664743 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4521D46200F00664743 /* YJHttpAssembly.m */; };
 		847AF4641D46200F00664743 /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4551D46200F00664743 /* YJLog.m */; };
@@ -31,6 +26,12 @@
 		847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */; };
 		847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45D1D46200F00664743 /* YJPerformSelector.m */; };
 		847AF4681D46200F00664743 /* YJSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4601D46200F00664743 /* YJSingletonMCenter.m */; };
+		8493A2771D6C5E630037F2BD /* YJCKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */; };
+		8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26C1D6C5E630037F2BD /* YJCKeychainItem.m */; };
+		8493A2791D6C5E630037F2BD /* YJCKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26E1D6C5E630037F2BD /* YJCKeychain.m */; };
+		8493A27A1D6C5E630037F2BD /* YJCRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A2711D6C5E630037F2BD /* YJCRandomization.m */; };
+		8493A27B1D6C5E630037F2BD /* YJCSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A2751D6C5E630037F2BD /* YJCSystem.m */; };
+		8493A27E1D6C5E8C0037F2BD /* YJTSuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A27D1D6C5E8C0037F2BD /* YJTSuspensionCellView.m */; };
 		84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m */; };
 		84B252C51CFD44E0000931F2 /* YJLayoutConstraintAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527B1CFD44E0000931F2 /* YJLayoutConstraintAnimate.m */; };
 		84B252C61CFD44E0000931F2 /* YJLayoutAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527E1CFD44E0000931F2 /* YJLayoutAnchor.m */; };
@@ -54,7 +55,6 @@
 		84B252D81CFD44E0000931F2 /* YJPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252AE1CFD44E0000931F2 /* YJPageViewObject.m */; };
 		84B252D91CFD44E0000931F2 /* YJTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252B21CFD44E0000931F2 /* YJTableViewDataSource.m */; };
 		84B252DA1CFD44E0000931F2 /* YJTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252B51CFD44E0000931F2 /* YJTableViewDelegate.m */; };
-		84B252DB1CFD44E0000931F2 /* YJSuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252B81CFD44E0000931F2 /* YJSuspensionCellView.m */; };
 		84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252BB1CFD44E0000931F2 /* YJTableViewCell.m */; };
 		84B252DD1CFD44E0000931F2 /* YJTableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252BE1CFD44E0000931F2 /* YJTableCellObject.m */; };
 		84B252DE1CFD44E0000931F2 /* UIView+YJViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252C21CFD44E0000931F2 /* UIView+YJViewGeometry.m */; };
@@ -67,15 +67,6 @@
 		845998591D50A32000BD60BC /* YJCBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCBarButtonView.m; sourceTree = "<group>"; };
 		8459985A1D50A32000BD60BC /* YJCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCNavigationBar.h; sourceTree = "<group>"; };
 		8459985B1D50A32000BD60BC /* YJCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCNavigationBar.m; sourceTree = "<group>"; };
-		8459986C1D50A5BF00BD60BC /* YJKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychainGPItem.h; sourceTree = "<group>"; };
-		8459986D1D50A5BF00BD60BC /* YJKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychainGPItem.m; sourceTree = "<group>"; };
-		8459986E1D50A5BF00BD60BC /* YJKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychainItem.h; sourceTree = "<group>"; };
-		8459986F1D50A5BF00BD60BC /* YJKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychainItem.m; sourceTree = "<group>"; };
-		845998701D50A5BF00BD60BC /* YJKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJKeychain.h; sourceTree = "<group>"; };
-		845998711D50A5BF00BD60BC /* YJKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJKeychain.m; sourceTree = "<group>"; };
-		845998731D50A5BF00BD60BC /* YJRandomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRandomization.h; sourceTree = "<group>"; };
-		845998741D50A5BF00BD60BC /* YJRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJRandomization.m; sourceTree = "<group>"; };
-		845998751D50A5BF00BD60BC /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
 		846532591D5483C5002B26C6 /* YJSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSTimer.h; sourceTree = "<group>"; };
 		8465325A1D5483C5002B26C6 /* YJSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSTimer.m; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
@@ -92,9 +83,6 @@
 		8473AC111CE96C94000E3580 /* YJCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoa.h; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
 		847A1E401CF5598C00636975 /* YJCocoaTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoaTouchLayer.h; sourceTree = "<group>"; };
-		847A1E431CF5598C00636975 /* YJSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSystem.h; sourceTree = "<group>"; };
-		847A1E441CF5598C00636975 /* YJSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSystem.m; sourceTree = "<group>"; };
-		847A1E451CF5598C00636975 /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
 		847A1E501CF5598C00636975 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
 		847AF44E1D46200F00664743 /* YJHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttp.h; sourceTree = "<group>"; };
 		847AF44F1D46200F00664743 /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
@@ -112,6 +100,20 @@
 		847AF45F1D46200F00664743 /* YJSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingletonMCenter.h; sourceTree = "<group>"; };
 		847AF4601D46200F00664743 /* YJSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingletonMCenter.m; sourceTree = "<group>"; };
 		847AF4611D46200F00664743 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		8493A2691D6C5E630037F2BD /* YJCKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainGPItem.h; sourceTree = "<group>"; };
+		8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychainGPItem.m; sourceTree = "<group>"; };
+		8493A26B1D6C5E630037F2BD /* YJCKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainItem.h; sourceTree = "<group>"; };
+		8493A26C1D6C5E630037F2BD /* YJCKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychainItem.m; sourceTree = "<group>"; };
+		8493A26D1D6C5E630037F2BD /* YJCKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychain.h; sourceTree = "<group>"; };
+		8493A26E1D6C5E630037F2BD /* YJCKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychain.m; sourceTree = "<group>"; };
+		8493A2701D6C5E630037F2BD /* YJCRandomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCRandomization.h; sourceTree = "<group>"; };
+		8493A2711D6C5E630037F2BD /* YJCRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCRandomization.m; sourceTree = "<group>"; };
+		8493A2721D6C5E630037F2BD /* YJCSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCSecurity.h; sourceTree = "<group>"; };
+		8493A2741D6C5E630037F2BD /* YJCSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCSystem.h; sourceTree = "<group>"; };
+		8493A2751D6C5E630037F2BD /* YJCSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCSystem.m; sourceTree = "<group>"; };
+		8493A2761D6C5E630037F2BD /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
+		8493A27C1D6C5E8C0037F2BD /* YJTSuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTSuspensionCellView.h; sourceTree = "<group>"; };
+		8493A27D1D6C5E8C0037F2BD /* YJTSuspensionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTSuspensionCellView.m; sourceTree = "<group>"; };
 		84B252781CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+YJExtend.h"; sourceTree = "<group>"; };
 		84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+YJExtend.m"; sourceTree = "<group>"; };
 		84B2527A1CFD44E0000931F2 /* YJLayoutConstraintAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutConstraintAnimate.h; sourceTree = "<group>"; };
@@ -160,8 +162,6 @@
 		84B252B21CFD44E0000931F2 /* YJTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTableViewDataSource.m; sourceTree = "<group>"; };
 		84B252B41CFD44E0000931F2 /* YJTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTableViewDelegate.h; sourceTree = "<group>"; };
 		84B252B51CFD44E0000931F2 /* YJTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTableViewDelegate.m; sourceTree = "<group>"; };
-		84B252B71CFD44E0000931F2 /* YJSuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSuspensionCellView.h; sourceTree = "<group>"; };
-		84B252B81CFD44E0000931F2 /* YJSuspensionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSuspensionCellView.m; sourceTree = "<group>"; };
 		84B252BA1CFD44E0000931F2 /* YJTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTableViewCell.h; sourceTree = "<group>"; };
 		84B252BB1CFD44E0000931F2 /* YJTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTableViewCell.m; sourceTree = "<group>"; };
 		84B252BD1CFD44E0000931F2 /* YJTableCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTableCellObject.h; sourceTree = "<group>"; };
@@ -202,46 +202,6 @@
 				845998591D50A32000BD60BC /* YJCBarButtonView.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		845998691D50A5BF00BD60BC /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				8459986A1D50A5BF00BD60BC /* Keychain */,
-				845998721D50A5BF00BD60BC /* Randomization */,
-				845998751D50A5BF00BD60BC /* YJSecurity.h */,
-			);
-			path = Security;
-			sourceTree = "<group>";
-		};
-		8459986A1D50A5BF00BD60BC /* Keychain */ = {
-			isa = PBXGroup;
-			children = (
-				8459986B1D50A5BF00BD60BC /* Item */,
-				845998701D50A5BF00BD60BC /* YJKeychain.h */,
-				845998711D50A5BF00BD60BC /* YJKeychain.m */,
-			);
-			path = Keychain;
-			sourceTree = "<group>";
-		};
-		8459986B1D50A5BF00BD60BC /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				8459986C1D50A5BF00BD60BC /* YJKeychainGPItem.h */,
-				8459986D1D50A5BF00BD60BC /* YJKeychainGPItem.m */,
-				8459986E1D50A5BF00BD60BC /* YJKeychainItem.h */,
-				8459986F1D50A5BF00BD60BC /* YJKeychainItem.m */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
-		845998721D50A5BF00BD60BC /* Randomization */ = {
-			isa = PBXGroup;
-			children = (
-				845998731D50A5BF00BD60BC /* YJRandomization.h */,
-				845998741D50A5BF00BD60BC /* YJRandomization.m */,
-			);
-			path = Randomization;
 			sourceTree = "<group>";
 		};
 		846532581D5483C5002B26C6 /* Timer */ = {
@@ -328,20 +288,11 @@
 		847A1E411CF5598C00636975 /* CoreOSLayer */ = {
 			isa = PBXGroup;
 			children = (
-				845998691D50A5BF00BD60BC /* Security */,
-				847A1E421CF5598C00636975 /* System */,
-				847A1E451CF5598C00636975 /* YJCoreOSLayer.h */,
+				8493A2661D6C5E630037F2BD /* Security */,
+				8493A2731D6C5E630037F2BD /* System */,
+				8493A2761D6C5E630037F2BD /* YJCoreOSLayer.h */,
 			);
 			path = CoreOSLayer;
-			sourceTree = "<group>";
-		};
-		847A1E421CF5598C00636975 /* System */ = {
-			isa = PBXGroup;
-			children = (
-				847A1E431CF5598C00636975 /* YJSystem.h */,
-				847A1E441CF5598C00636975 /* YJSystem.m */,
-			);
-			path = System;
 			sourceTree = "<group>";
 		};
 		847A1E461CF5598C00636975 /* CoreServicesLayer */ = {
@@ -415,6 +366,55 @@
 				847AF4601D46200F00664743 /* YJSingletonMCenter.m */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		8493A2661D6C5E630037F2BD /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				8493A2671D6C5E630037F2BD /* Keychain */,
+				8493A26F1D6C5E630037F2BD /* Randomization */,
+				8493A2721D6C5E630037F2BD /* YJCSecurity.h */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		8493A2671D6C5E630037F2BD /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				8493A2681D6C5E630037F2BD /* Item */,
+				8493A26D1D6C5E630037F2BD /* YJCKeychain.h */,
+				8493A26E1D6C5E630037F2BD /* YJCKeychain.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		8493A2681D6C5E630037F2BD /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				8493A2691D6C5E630037F2BD /* YJCKeychainGPItem.h */,
+				8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */,
+				8493A26B1D6C5E630037F2BD /* YJCKeychainItem.h */,
+				8493A26C1D6C5E630037F2BD /* YJCKeychainItem.m */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		8493A26F1D6C5E630037F2BD /* Randomization */ = {
+			isa = PBXGroup;
+			children = (
+				8493A2701D6C5E630037F2BD /* YJCRandomization.h */,
+				8493A2711D6C5E630037F2BD /* YJCRandomization.m */,
+			);
+			path = Randomization;
+			sourceTree = "<group>";
+		};
+		8493A2731D6C5E630037F2BD /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8493A2741D6C5E630037F2BD /* YJCSystem.h */,
+				8493A2751D6C5E630037F2BD /* YJCSystem.m */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		84B252751CFD44E0000931F2 /* UIKit */ = {
@@ -610,8 +610,8 @@
 		84B252B61CFD44E0000931F2 /* Suspension */ = {
 			isa = PBXGroup;
 			children = (
-				84B252B71CFD44E0000931F2 /* YJSuspensionCellView.h */,
-				84B252B81CFD44E0000931F2 /* YJSuspensionCellView.m */,
+				8493A27C1D6C5E8C0037F2BD /* YJTSuspensionCellView.h */,
+				8493A27D1D6C5E8C0037F2BD /* YJTSuspensionCellView.m */,
 			);
 			path = Suspension;
 			sourceTree = "<group>";
@@ -718,48 +718,48 @@
 			files = (
 				84B252D21CFD44E0000931F2 /* UITextView+InputLength.m in Sources */,
 				84B252DA1CFD44E0000931F2 /* YJTableViewDelegate.m in Sources */,
+				8493A27A1D6C5E630037F2BD /* YJCRandomization.m in Sources */,
 				84B252DD1CFD44E0000931F2 /* YJTableCellObject.m in Sources */,
 				84B252C91CFD44E0000931F2 /* YJLayoutXAxisAnchor.m in Sources */,
+				8493A27B1D6C5E630037F2BD /* YJCSystem.m in Sources */,
+				8493A2771D6C5E630037F2BD /* YJCKeychainGPItem.m in Sources */,
 				84B252D81CFD44E0000931F2 /* YJPageViewObject.m in Sources */,
 				84B252DE1CFD44E0000931F2 /* UIView+YJViewGeometry.m in Sources */,
 				84B252C61CFD44E0000931F2 /* YJLayoutAnchor.m in Sources */,
-				845998771D50A5BF00BD60BC /* YJKeychainItem.m in Sources */,
 				8459985C1D50A32000BD60BC /* YJCBarButtonItem.m in Sources */,
 				84B252CD1CFD44E0000931F2 /* YJCollectionViewCell.m in Sources */,
 				84B252D61CFD44E0000931F2 /* YJPageView.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				84B252D91CFD44E0000931F2 /* YJTableViewDataSource.m in Sources */,
-				845998761D50A5BF00BD60BC /* YJKeychainGPItem.m in Sources */,
 				84B252D11CFD44E0000931F2 /* UITextField+InputLength.m in Sources */,
 				84B252D41CFD44E0000931F2 /* YJImagePageViewController.m in Sources */,
 				84B252D31CFD44E0000931F2 /* YJImagePageModel.m in Sources */,
 				847AF4641D46200F00664743 /* YJLog.m in Sources */,
 				84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
-				845998781D50A5BF00BD60BC /* YJKeychain.m in Sources */,
 				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
 				847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */,
+				8493A2791D6C5E630037F2BD /* YJCKeychain.m in Sources */,
 				8465325B1D5483C5002B26C6 /* YJSTimer.m in Sources */,
 				847AF4631D46200F00664743 /* YJHttpAssembly.m in Sources */,
 				8459985D1D50A32000BD60BC /* YJCBarButtonView.m in Sources */,
-				84B252DB1CFD44E0000931F2 /* YJSuspensionCellView.m in Sources */,
-				847A1E681CF5598C00636975 /* YJSystem.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				847AF4651D46200F00664743 /* YJFoundationOther.m in Sources */,
 				84B252C51CFD44E0000931F2 /* YJLayoutConstraintAnimate.m in Sources */,
+				8493A27E1D6C5E8C0037F2BD /* YJTSuspensionCellView.m in Sources */,
 				84B252C71CFD44E0000931F2 /* YJLayoutDimension.m in Sources */,
 				84B252CB1CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m in Sources */,
 				84B252C81CFD44E0000931F2 /* YJLayoutSupport.m in Sources */,
 				84B252D01CFD44E0000931F2 /* YJCollectionViewDelegate.m in Sources */,
 				8459985E1D50A32000BD60BC /* YJCNavigationBar.m in Sources */,
 				84B252D71CFD44E0000931F2 /* YJPageViewController.m in Sources */,
+				8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */,
 				84B252CF1CFD44E0000931F2 /* YJCollectionViewDataSource.m in Sources */,
 				847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */,
 				847AF4681D46200F00664743 /* YJSingletonMCenter.m in Sources */,
 				847AF4621D46200F00664743 /* YJHttpAnalysis.m in Sources */,
 				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
-				845998791D50A5BF00BD60BC /* YJRandomization.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
