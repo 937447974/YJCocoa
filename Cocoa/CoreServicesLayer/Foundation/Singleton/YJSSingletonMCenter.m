@@ -9,11 +9,11 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSingletonMCenter.h"
+#import "YJSSingletonMCenter.h"
 #import "YJFoundationOther.h"
 #import <UIKit/UIKit.h>
 
-@interface YJSingletonMCenter() {
+@interface YJSSingletonMCenter() {
     dispatch_queue_t _queue; // 串行队列
 }
 /** 随应用一直存在的单例*/
@@ -23,15 +23,15 @@
 
 @end
 
-@implementation YJSingletonMCenter
+@implementation YJSSingletonMCenter
 
 #pragma mark - (+)
-+ (YJSingletonMCenter *)defaultCenter {
-    static YJSingletonMCenter *singletonMC;
++ (YJSSingletonMCenter *)defaultCenter {
+    static YJSSingletonMCenter *singletonMC;
     if (!singletonMC) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            singletonMC = [[YJSingletonMCenter alloc] init];
+            singletonMC = [[YJSSingletonMCenter alloc] init];
         });
     }
     return singletonMC;

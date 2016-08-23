@@ -9,4 +9,4 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJFoundation.h"
+#import "YJSFoundation.h"

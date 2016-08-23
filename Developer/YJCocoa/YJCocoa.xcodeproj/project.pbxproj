@@ -25,7 +25,7 @@
 		847AF4651D46200F00664743 /* YJFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4581D46200F00664743 /* YJFoundationOther.m */; };
 		847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */; };
 		847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45D1D46200F00664743 /* YJPerformSelector.m */; };
-		847AF4681D46200F00664743 /* YJSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4601D46200F00664743 /* YJSingletonMCenter.m */; };
+		847AF4681D46200F00664743 /* YJSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4601D46200F00664743 /* YJSSingletonMCenter.m */; };
 		8493A2771D6C5E630037F2BD /* YJCKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */; };
 		8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26C1D6C5E630037F2BD /* YJCKeychainItem.m */; };
 		8493A2791D6C5E630037F2BD /* YJCKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26E1D6C5E630037F2BD /* YJCKeychain.m */; };
@@ -97,9 +97,9 @@
 		847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJPerformSelector.m"; sourceTree = "<group>"; };
 		847AF45C1D46200F00664743 /* YJPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPerformSelector.h; sourceTree = "<group>"; };
 		847AF45D1D46200F00664743 /* YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPerformSelector.m; sourceTree = "<group>"; };
-		847AF45F1D46200F00664743 /* YJSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSingletonMCenter.h; sourceTree = "<group>"; };
-		847AF4601D46200F00664743 /* YJSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSingletonMCenter.m; sourceTree = "<group>"; };
-		847AF4611D46200F00664743 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		847AF45F1D46200F00664743 /* YJSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSSingletonMCenter.h; sourceTree = "<group>"; };
+		847AF4601D46200F00664743 /* YJSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSSingletonMCenter.m; sourceTree = "<group>"; };
+		847AF4611D46200F00664743 /* YJSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSFoundation.h; sourceTree = "<group>"; };
 		8493A2691D6C5E630037F2BD /* YJCKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainGPItem.h; sourceTree = "<group>"; };
 		8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychainGPItem.m; sourceTree = "<group>"; };
 		8493A26B1D6C5E630037F2BD /* YJCKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainItem.h; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 				847AF4591D46200F00664743 /* PerformSelector */,
 				847AF45E1D46200F00664743 /* Singleton */,
 				846532581D5483C5002B26C6 /* Timer */,
-				847AF4611D46200F00664743 /* YJFoundation.h */,
+				847AF4611D46200F00664743 /* YJSFoundation.h */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -362,8 +362,8 @@
 		847AF45E1D46200F00664743 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
-				847AF45F1D46200F00664743 /* YJSingletonMCenter.h */,
-				847AF4601D46200F00664743 /* YJSingletonMCenter.m */,
+				847AF45F1D46200F00664743 /* YJSSingletonMCenter.h */,
+				847AF4601D46200F00664743 /* YJSSingletonMCenter.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -757,7 +757,7 @@
 				8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */,
 				84B252CF1CFD44E0000931F2 /* YJCollectionViewDataSource.m in Sources */,
 				847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */,
-				847AF4681D46200F00664743 /* YJSingletonMCenter.m in Sources */,
+				847AF4681D46200F00664743 /* YJSSingletonMCenter.m in Sources */,
 				847AF4621D46200F00664743 /* YJHttpAnalysis.m in Sources */,
 				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,

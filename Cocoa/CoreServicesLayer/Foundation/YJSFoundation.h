@@ -1,5 +1,5 @@
 //
-//  YJFoundation.h
+//  YJSFoundation.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,7 +13,7 @@
 #import "YJLog.h"
 
 // 单例管理中心
-#import "YJSingletonMCenter.h"
+#import "YJSSingletonMCenter.h"
 
 // http链接相关
 #import "YJHttp.h"
