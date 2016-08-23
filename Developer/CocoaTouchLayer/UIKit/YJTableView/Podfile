@@ -8,4 +8,6 @@ pod 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
 pod 'YJCocoa/CoreServicesLayer/Foundation/Other'
 pod 'YJCocoa/CoreOSLayer/System'
 
+#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git'
+
 
