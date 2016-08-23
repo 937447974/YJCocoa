@@ -59,8 +59,13 @@ fi
 #osascript -e 'display notification "2.4.0 | 2016-08-05 | Timer上线，替换NSTimer实现相关计时器功能。" with title "YJCocoa"'
 #osascript -e 'display notification "2.4.0 | 2016-08-05 | System升级，新增同步主线程方法dispatch_sync_main。" with title "YJCocoa"'
 
-osascript -e 'display notification "2.4.1 | 2016-08-10 | AutoLayout修复bug：二次执行相同代码无法修改约束。" with title "YJCocoa"'
-osascript -e 'display notification "2.4.1 | 2016-08-17 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.1 | 2016-08-10 | AutoLayout修复bug：二次执行相同代码无法修改约束。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.1 | 2016-08-17 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。" with title "YJCocoa"'
+
+osascript -e 'display notification "2.4.2 | 2016-08-19 | ViewGeometry升级，支持快速设置UIView.bounds。" with title "YJCocoa"'
+osascript -e 'display notification "2.4.2 | 2016-08-23 | TableView升级，支持快速实现悬浮cell。" with title "YJCocoa"'
+
+
 
 
 
