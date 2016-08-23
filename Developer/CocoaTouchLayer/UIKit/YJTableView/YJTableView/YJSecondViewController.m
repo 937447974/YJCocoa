@@ -8,6 +8,7 @@
 
 #import "YJSecondViewController.h"
 #import "YJTestTableViewCell.h"
+#import "UIView+YJViewGeometry.h"
 
 @interface YJSecondViewController () <UITableViewDelegate>
 
@@ -23,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.widthFrame, self.view.heightFrame-150) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.dataSourceGrouped = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
     self.dataSourceGrouped.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightIndexPath;
@@ -36,7 +37,7 @@
             YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
             YJTableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
-            co.suspension = i%10 == 0;
+            co.suspension = j%10 == 0;
             // 填充数据源
             [array addObject:co];
         }
@@ -47,6 +48,7 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"tableView:heightForRowAtIndexPath:");
     return [self.dataSourceGrouped.tableViewDelegate tableView:tableView heightForRowAtIndexPath:indexPath];    
 }
 

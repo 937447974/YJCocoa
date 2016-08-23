@@ -99,6 +99,7 @@
     UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
     tableHeaderView.backgroundColor = [UIColor blueColor];
     self.tableView.tableHeaderView = tableHeaderView;
+    self.dataSourcePlain.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightIndexPath;
     // 测试数据
     for (int i=0; i<150; i++) {
         // 封装模型

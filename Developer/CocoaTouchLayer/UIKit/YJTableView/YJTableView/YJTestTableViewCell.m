@@ -27,7 +27,17 @@
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;
     self.sSwitch.on = celModel.switchOn;
-    self.backgroundColor = cellObject.indexPath.row%2 ? [UIColor redColor] : [UIColor greenColor];
+    switch (cellObject.indexPath.row%3) {
+        case 0:
+            self.backgroundColor = [UIColor greenColor];
+            break;
+        case 1:
+            self.backgroundColor = [UIColor yellowColor];
+            break;
+        case 2:
+            self.backgroundColor = [UIColor redColor];
+            break;
+    }
 }
 
 - (void)awakeFromNib {

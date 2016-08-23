@@ -1,6 +1,6 @@
 {
   "name": "YJCocoa",
-  "version": "2.2.4",
+  "version": "2.4.1",
   "authors": {
     "阳君": "937447974@qq.com"
   },
@@ -145,6 +145,9 @@
                   "dependencies": {
                     "YJCocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject": [
 
+                    ],
+                    "YJCocoa/CocoaTouchLayer/UIKit/AutoLayout": [
+
                     ]
                   }
                 },
@@ -229,6 +232,21 @@
               }
             },
             {
+              "name": "Timer",
+              "source_files": "Cocoa/CoreServicesLayer/Foundation/Timer/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/CoreServicesLayer/Foundation/PerformSelector": [
+
+                ],
+                "YJCocoa/CoreServicesLayer/Foundation/Singleton": [
+
+                ],
+                "YJCocoa/CoreOSLayer/Security/Randomization": [
+
+                ]
+              }
+            },
+            {
               "name": "Log",
               "source_files": "Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}"
             },
@@ -244,6 +262,26 @@
       "name": "CoreOSLayer",
       "source_files": "Cocoa/CoreOSLayer/*.{h,m}",
       "subspecs": [
+        {
+          "name": "Security",
+          "source_files": "Cocoa/CoreOSLayer/Security/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Keychain",
+              "source_files": "Cocoa/CoreOSLayer/Security/Keychain/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Item",
+                  "source_files": "Cocoa/CoreOSLayer/Security/Keychain/Item/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Randomization",
+              "source_files": "Cocoa/CoreOSLayer/Security/Randomization/*.{h,m}"
+            }
+          ]
+        },
         {
           "name": "System",
           "source_files": "Cocoa/CoreOSLayer/System/*.{h,m}"
