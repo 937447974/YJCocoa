@@ -91,10 +91,10 @@
 
 #pragma mark tableView滑到顶frame布局
 - (void)scrollToTopFrame {
-    if (self.index <= 0 || self.index >= self.subviews.count) {
+    NSInteger showIndex = self.scrollAnimate ? self.index : self.index-1;
+    if (showIndex < 0 || showIndex >= self.subviews.count) {
         return;
     }
-    NSInteger showIndex = self.scrollAnimate ? self.index : self.index-1;
     YJTableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     if (_contentOffsetY > rect.origin.y) {
@@ -336,11 +336,6 @@
     BOOL goBottom = contentOffsetY > _contentOffsetY;
     _contentOffsetY = contentOffsetY;
     goBottom ? [self scrollToBottom] : [self scrollToTop];
-}
-
-- (void)setIndex:(NSInteger)index {
-    _index = index;
-    NSLog(@"%ld", (long)index);
 }
 
 @end
