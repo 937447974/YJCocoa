@@ -15,9 +15,9 @@ YJ系列开源库
 
 UITextField和UITextView可输入长度控制。
 
-###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
+###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry
 
-UIView(UIViewGeometry)相关扩展，可快速设置frame。
+UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
 ###1.1.3 YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
 
@@ -187,6 +187,8 @@ YJ技术支持群：557445088
 | 2016-08-05 | 2.4.0 | System升级，新增同步主线程方法dispatch_sync_main。|
 | 2016-08-10 | 2.4.1 | AutoLayout修复bug：二次执行相同代码无法修改约束。 |
 | 2016-08-17 | 2.4.1 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。 |
+| 2016-08-19 | 2.4.2 | ViewGeometry升级，支持快速设置UIView.bounds。|
+| 2016-08-23 | 2.4.2 | TableView升级，支持快速实现悬浮cell。|
 
 ##Copyright
 
