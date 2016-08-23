@@ -21,7 +21,7 @@
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
     CGFloat _contentOffsetYBegin; ///< 开始的点
     NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高
-    YJSuspensionCellView *_suspensionCellView;
+    YJTSuspensionCellView *_suspensionCellView;
 }
 
 @property (nonatomic) YJTableViewScroll scroll; ///< 滚动
@@ -45,9 +45,9 @@
 }
 
 #pragma mark - getter and setter
-- (YJSuspensionCellView *)suspensionCellView {
+- (YJTSuspensionCellView *)suspensionCellView {
     if (!_suspensionCellView) {
-        self.suspensionCellView = [[YJSuspensionCellView alloc] initWithFrame:self.dataSource.tableView.frame];
+        self.suspensionCellView = [[YJTSuspensionCellView alloc] initWithFrame:self.dataSource.tableView.frame];
         self.suspensionCellView.heightFrame = 0;
         _suspensionCellView.clipsToBounds = YES;
         [self.dataSource.tableView.superview addSubview:_suspensionCellView];
@@ -61,7 +61,7 @@
     return _suspensionCellView;
 }
 
-- (void)setSuspensionCellView:(YJSuspensionCellView *)suspensionCellView {
+- (void)setSuspensionCellView:(YJTSuspensionCellView *)suspensionCellView {
     _suspensionCellView = suspensionCellView;
     _suspensionCellView.tableViewDelegate = self;
 }

@@ -10,7 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJSuspensionCellView.h"
+#import "YJTSuspensionCellView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -91,7 +91,7 @@ typedef void (^ YJTableViewCellBlock)(YJTableCellObject *cellObject, UITableView
 
 @property (nonatomic, weak, readonly) YJTableViewDataSource *dataSource; ///< YJTableViewDataSource
 
-@property (nonatomic, strong) YJSuspensionCellView *suspensionCellView; ///< 悬浮的cell层
+@property (nonatomic, strong) YJTSuspensionCellView *suspensionCellView; ///< 悬浮的cell层
 
 /**
  *  初始化

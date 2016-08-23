@@ -1,22 +1,21 @@
 //
-//  YJSuspensionCellView.m
-//  YJTableViewFactory
+//  YJTSuspensionCellView.m
+//  YJTableView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
 //
-//  Created by 阳君 on 16/5/11.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Created by 阳君 on 16/8/23.
+//  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJSuspensionCellView.h"
+#import "YJTSuspensionCellView.h"
 #import "YJTableViewDelegate.h"
 #import "YJTableViewDataSource.h"
 #import "UIView+YJViewGeometry.h"
 #import "YJAutoLayout.h"
 
-#pragma mark - YJSuspensionCellView
-@interface YJSuspensionCellView () {
+@interface YJTSuspensionCellView () {
     CGFloat _showCellHeight;  ///< 当前显示Cell高
 }
 
@@ -28,7 +27,7 @@
 
 @end
 
-@implementation YJSuspensionCellView
+@implementation YJTSuspensionCellView
 
 #pragma mark - 刷新数据
 - (void)reloadData {
@@ -127,7 +126,7 @@
         self.scrollAnimate = NO;
         [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
         _showCellHeight = 0;
-        self.heightFrame = 0;        
+        self.heightFrame = 0;
         self.index = 0;
     }
 }
@@ -347,3 +346,4 @@
 }
 
 @end
+

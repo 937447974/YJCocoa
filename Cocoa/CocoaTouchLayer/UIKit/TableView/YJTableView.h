@@ -17,4 +17,4 @@
 #import "YJTableCellObject.h"
 #import "YJTableViewDelegate.h"
 #import "YJTableViewDataSource.h"
-#import "YJSuspensionCellView.h"
+#import "YJTSuspensionCellView.h"
