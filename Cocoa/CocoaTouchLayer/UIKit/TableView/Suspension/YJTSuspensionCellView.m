@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic) BOOL scrollAnimate; ///< 悬浮cell动画滑动中
-@property (nonatomic) NSInteger index;      ///< 当前显示下标, 1代表第一个cell固定显示
+@property (nonatomic) NSInteger index;    ///< 当前显示下标, 1代表第一个cell固定显示
 @property (nonatomic, weak, readonly) UITableView *tableView; ///< UITableView
 @property (nonatomic, strong) NSMutableArray<YJTableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
@@ -101,26 +101,24 @@
         return;
     }
     if (showIndex) {
-        YJTableCellObject *topCellObj = [self.indexPaths objectAtIndex:showIndex-1];
-        CGFloat topRectHeight = [self.tableView rectForRowAtIndexPath:topCellObj.indexPath].size.height;
-        if (self.scrollAnimate && self.heightFrame >= topRectHeight + _showCellHeight) {
+        if (self.scrollAnimate && self.heightFrame >= rect.size.height + _showCellHeight) {
             self.scrollAnimate = NO;
             [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
-            self.heightFrame = topRectHeight;
+            self.heightFrame = _showCellHeight;
             CGFloat topItemY = 0;
             for (int i = 0; i < self.index-1; i++) {
                 topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
             }
             self.topBounds = topItemY;
         } else {
-            CGFloat newHeight = rect.origin.y + rect.size.height - self.contentOffsetY;
-            self.topBounds -= newHeight - self.heightFrame;
-            self.heightFrame = newHeight;
             if (!self.scrollAnimate) {
                 self.index --;
                 _showCellHeight = [self.suspensionCells objectAtIndex:self.index-1].heightFrame;
             }
             self.scrollAnimate = YES;
+            CGFloat newHeight = rect.origin.y + rect.size.height - self.contentOffsetY;
+            self.topBounds -= newHeight - self.heightFrame;
+            self.heightFrame = newHeight;
         }
     } else {
         self.scrollAnimate = NO;
@@ -220,7 +218,7 @@
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     self.scrollAnimate = NO;
     if (self.index) {
-        if (_contentOffsetY + _showCellHeight > rect.origin.y + rect.size.height) {
+        if (_contentOffsetY > rect.origin.y) {
             _showCellHeight = rect.size.height;
             self.heightFrame = _showCellHeight;
             CGFloat topItemY = 0;
