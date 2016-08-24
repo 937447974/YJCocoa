@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 
 @interface ViewController ()
 

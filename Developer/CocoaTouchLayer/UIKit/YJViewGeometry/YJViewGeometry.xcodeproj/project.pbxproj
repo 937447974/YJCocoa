@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8474F58A1D6D93B800FF894E /* UIView+YJTViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */; };
 		84B2525A1CFD4395000931F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252591CFD4395000931F2 /* main.m */; };
 		84B2525D1CFD4395000931F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2525C1CFD4395000931F2 /* AppDelegate.m */; };
 		84B252601CFD4395000931F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2525F1CFD4395000931F2 /* ViewController.m */; };
 		84B252631CFD4395000931F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B252611CFD4395000931F2 /* Main.storyboard */; };
 		84B252651CFD4395000931F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B252641CFD4395000931F2 /* Assets.xcassets */; };
 		84B252681CFD4395000931F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B252661CFD4395000931F2 /* LaunchScreen.storyboard */; };
-		84B252741CFD43D9000931F2 /* UIView+YJViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252731CFD43D9000931F2 /* UIView+YJViewGeometry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8474F5881D6D93B800FF894E /* UIView+YJTViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJTViewGeometry.h"; sourceTree = "<group>"; };
+		8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJTViewGeometry.m"; sourceTree = "<group>"; };
 		84B252551CFD4395000931F2 /* YJViewGeometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJViewGeometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B252591CFD4395000931F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84B2525B1CFD4395000931F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,8 +29,6 @@
 		84B252641CFD4395000931F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B252671CFD4395000931F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B252691CFD4395000931F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84B252721CFD43D9000931F2 /* UIView+YJViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJViewGeometry.h"; sourceTree = "<group>"; };
-		84B252731CFD43D9000931F2 /* UIView+YJViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJViewGeometry.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +61,12 @@
 		84B252571CFD4395000931F2 /* YJViewGeometry */ = {
 			isa = PBXGroup;
 			children = (
-				84B252711CFD43C5000931F2 /* ViewGeometry */,
 				84B2525B1CFD4395000931F2 /* AppDelegate.h */,
 				84B2525C1CFD4395000931F2 /* AppDelegate.m */,
-				84B252701CFD43A5000931F2 /* Resources */,
 				84B2526F1CFD43A1000931F2 /* Main */,
+				84B252701CFD43A5000931F2 /* Resources */,
 				84B252581CFD4395000931F2 /* Supporting Files */,
+				84B252711CFD43C5000931F2 /* ViewGeometry */,
 			);
 			path = YJViewGeometry;
 			sourceTree = "<group>";
@@ -102,8 +102,8 @@
 		84B252711CFD43C5000931F2 /* ViewGeometry */ = {
 			isa = PBXGroup;
 			children = (
-				84B252721CFD43D9000931F2 /* UIView+YJViewGeometry.h */,
-				84B252731CFD43D9000931F2 /* UIView+YJViewGeometry.m */,
+				8474F5881D6D93B800FF894E /* UIView+YJTViewGeometry.h */,
+				8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */,
 			);
 			name = ViewGeometry;
 			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/ViewGeometry;
@@ -179,8 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B252741CFD43D9000931F2 /* UIView+YJViewGeometry.m in Sources */,
 				84B252601CFD4395000931F2 /* ViewController.m in Sources */,
+				8474F58A1D6D93B800FF894E /* UIView+YJTViewGeometry.m in Sources */,
 				84B2525D1CFD4395000931F2 /* AppDelegate.m in Sources */,
 				84B2525A1CFD4395000931F2 /* main.m in Sources */,
 			);
@@ -333,6 +333,7 @@
 				84B2526E1CFD4395000931F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
