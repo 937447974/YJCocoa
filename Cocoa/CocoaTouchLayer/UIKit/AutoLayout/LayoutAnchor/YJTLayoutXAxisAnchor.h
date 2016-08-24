@@ -1,5 +1,5 @@
 //
-//  YJLayoutXAxisAnchor.h
+//  YJTLayoutXAxisAnchor.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,12 +9,12 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJLayoutAnchor.h"
+#import "YJTLayoutAnchor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 仿NSLayoutXAxisAnchor*/
-@interface YJLayoutXAxisAnchor : YJLayoutAnchor
+@interface YJTLayoutXAxisAnchor : YJTLayoutAnchor
 
 @end
 

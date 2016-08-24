@@ -15,7 +15,7 @@
 #import "YJTableViewCell.h"
 #import "YJSFoundationOther.h"
 #import "UIView+YJTViewGeometry.h"
-#import "YJAutoLayout.h"
+#import "YJTAutoLayout.h"
 
 @interface YJTableViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y

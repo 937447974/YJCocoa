@@ -9,28 +9,28 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "NSLayoutConstraint+YJExtend.h"
+#import "NSLayoutConstraint+YJTExtend.h"
 #import <objc/runtime.h>
 
 @interface NSLayoutConstraint (private)
 
-@property (nonatomic, strong) YJLayoutConstraintAnimate *constraintAnimate; ///< 约束动画
+@property (nonatomic, strong) YJTLayoutConstraintAnimate *constraintAnimate; ///< 约束动画
 
 @end
 
 @implementation NSLayoutConstraint (private)
 
-- (YJLayoutConstraintAnimate *)constraintAnimate {
+- (YJTLayoutConstraintAnimate *)constraintAnimate {
     return objc_getAssociatedObject(self, "constraintAnimate");
 }
 
-- (void)setConstraintAnimate:(YJLayoutConstraintAnimate *)constraintAnimate {
+- (void)setConstraintAnimate:(YJTLayoutConstraintAnimate *)constraintAnimate {
     objc_setAssociatedObject(self, "constraintAnimate", constraintAnimate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
 
-@implementation NSLayoutConstraint (YJExtend)
+@implementation NSLayoutConstraint (YJTExtend)
 
 #pragma mark - (+)
 #pragma mark 搜索NSLayoutConstraint
@@ -204,7 +204,7 @@
 #pragma mark - 动画修改约束值
 - (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(YJConstraintAnimateCompletion)completion {
     duration = duration >= 0 ? duration : 0; // 时间校验
-    YJLayoutConstraintAnimate *lca = [[YJLayoutConstraintAnimate alloc] init];
+    YJTLayoutConstraintAnimate *lca = [[YJTLayoutConstraintAnimate alloc] init];
     lca.toConstant = constant;
     lca.completion = completion;
     lca.intervalDelay = duration/50; // 执行50次
@@ -217,7 +217,7 @@
 
 #pragma mark 动画循环执行
 - (void)animateConstant {
-    YJLayoutConstraintAnimate *lca = self.constraintAnimate;
+    YJTLayoutConstraintAnimate *lca = self.constraintAnimate;
     self.constant += lca.intervalConstant;
     if ((lca.intervalConstant >= 0 && self.constant >= lca.toConstant) || (lca.intervalConstant < 0 && self.constant <= lca.toConstant)) {
         self.constant = lca.toConstant;

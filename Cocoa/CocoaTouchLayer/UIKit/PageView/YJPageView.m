@@ -10,7 +10,7 @@
 //
 
 #import "YJPageView.h"
-#import "YJAutoLayout.h"
+#import "YJTAutoLayout.h"
 #import "YJSFoundationOther.h"
 
 @interface YJPageView () <UIPageViewControllerDataSource> {

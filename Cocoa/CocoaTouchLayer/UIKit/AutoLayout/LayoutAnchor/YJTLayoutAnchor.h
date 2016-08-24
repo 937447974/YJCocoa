@@ -1,5 +1,5 @@
 //
-//  YJLayoutAnchor.h
+//  YJTLayoutAnchor.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,40 +10,40 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSLayoutConstraint+YJExtend.h"
+#import "NSLayoutConstraint+YJTExtend.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class YJLayoutAnchor;
+@class YJTLayoutAnchor;
 
 // 相关block，链式执行
 /** NSLayoutConstraint.relation = NSLayoutRelationLessThanOrEqual*/
-typedef NSLayoutConstraint * _Nonnull (^ LessThanOrEqualTo)(YJLayoutAnchor *anchor);
+typedef NSLayoutConstraint * _Nonnull (^ LessThanOrEqualTo)(YJTLayoutAnchor *anchor);
 /** NSLayoutConstraint.relation = NSLayoutRelationEqual*/
-typedef NSLayoutConstraint * _Nonnull (^ EqualTo)(YJLayoutAnchor *anchor);
+typedef NSLayoutConstraint * _Nonnull (^ EqualTo)(YJTLayoutAnchor *anchor);
 /** NSLayoutConstraint.relation = NSLayoutRelationGreaterThanOrEqual*/
-typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualTo)(YJLayoutAnchor *anchor);
+typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualTo)(YJTLayoutAnchor *anchor);
 /** 快速查询约束*/
-typedef NSLayoutConstraint * __nullable (^ ConstraintTo)(YJLayoutAnchor *anchor);
+typedef NSLayoutConstraint * __nullable (^ ConstraintTo)(YJTLayoutAnchor *anchor);
 
 
-/** YJLayoutAnchor对应的协议*/
-@protocol YJLayoutAnchorProtocol <NSObject>
+/** YJTLayoutAnchor对应的协议*/
+@protocol YJTLayoutAnchorProtocol <NSObject>
 
-/** use .lessThanOrEqualTo(YJLayoutAnchor)*/
+/** use .lessThanOrEqualTo(YJTLayoutAnchor)*/
 @property (nonatomic, copy, readonly) LessThanOrEqualTo lessThanOrEqualTo;
-/** use .equalTo(YJLayoutAnchor)*/
+/** use .equalTo(YJTLayoutAnchor)*/
 @property (nonatomic, copy, readonly) EqualTo equalTo;
-/** use .greaterThanOrEqualTo(YJLayoutAnchor)*/
+/** use .greaterThanOrEqualTo(YJTLayoutAnchor)*/
 @property (nonatomic, copy, readonly) GreaterThanOrEqualTo greaterThanOrEqualTo;
-/** use .costraintTo(YJLayoutAnchor)*/
+/** use .costraintTo(YJTLayoutAnchor)*/
 @property (nonatomic, copy, readonly) ConstraintTo costraintTo;
 
 @end
 
 
 /** 仿NSLayoutAnchor*/
-@interface YJLayoutAnchor : NSObject <YJLayoutAnchorProtocol>
+@interface YJTLayoutAnchor : NSObject <YJTLayoutAnchorProtocol>
 
 @property (nonatomic, weak, readonly, nullable) id item;
 @property (nonatomic, readonly) NSLayoutAttribute attribute;

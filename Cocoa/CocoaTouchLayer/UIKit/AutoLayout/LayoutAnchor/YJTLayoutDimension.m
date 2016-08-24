@@ -1,5 +1,5 @@
 //
-//  YJLayoutDimension.m
+//  YJTLayoutDimension.m
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,13 +9,13 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJLayoutDimension.h"
+#import "YJTLayoutDimension.h"
 
-@implementation YJLayoutDimension
+@implementation YJTLayoutDimension
 
 #pragma mark - getter
 - (LessThanOrEqualToConstant)lessThanOrEqualToConstant {    
-    __weak YJLayoutAnchor *wSelf = self;
+    __weak YJTLayoutAnchor *wSelf = self;
     LessThanOrEqualToConstant lessThanOrEqualToConstant = ^ (CGFloat constant) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute lessThanOrEqualToConstant:constant];
     };
@@ -23,7 +23,7 @@
 }
 
 - (EqualToConstant)equalToConstant {
-    __weak YJLayoutAnchor *wSelf = self;
+    __weak YJTLayoutAnchor *wSelf = self;
     EqualToConstant equalToConstant = ^ (CGFloat constant) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute equalToConstant:constant];
     };
@@ -31,7 +31,7 @@
 }
 
 - (GreaterThanOrEqualToConstant)greaterThanOrEqualToConstant {
-    __weak YJLayoutAnchor *wSelf = self;
+    __weak YJTLayoutAnchor *wSelf = self;
     GreaterThanOrEqualToConstant greaterThanOrEqualToConstant = ^ (CGFloat constant) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute greaterThanOrEqualToConstant:constant];
     };
@@ -39,7 +39,7 @@
 }
 
 - (Constraint)constraint {
-    __weak YJLayoutAnchor *wSelf = self;
+    __weak YJTLayoutAnchor *wSelf = self;
     Constraint block = ^ () {
         return [NSLayoutConstraint findConstraintWithItem:wSelf.item attribute:wSelf.attribute toItem:nil attribute:NSLayoutAttributeNotAnAttribute];
     };

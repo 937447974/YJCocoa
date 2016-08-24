@@ -1,5 +1,5 @@
 //
-//  YJLayoutSupport.m
+//  YJTLayoutSupport.m
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,17 +9,17 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJLayoutSupport.h"
+#import "YJTLayoutSupport.h"
 
-@implementation YJLayoutSupport
+@implementation YJTLayoutSupport
 
 #pragma mark - super
 - (instancetype)initWithItem:(id<UILayoutSupport>)layoutGuide {
     
     self = [super init];
     if (self) {
-        _topLayout = [[YJLayoutYAxisAnchor alloc] initWithItem:layoutGuide attribute:NSLayoutAttributeTop];
-        _bottomLayout = [[YJLayoutYAxisAnchor alloc] initWithItem:layoutGuide attribute:NSLayoutAttributeBottom];
+        _topLayout = [[YJTLayoutYAxisAnchor alloc] initWithItem:layoutGuide attribute:NSLayoutAttributeTop];
+        _bottomLayout = [[YJTLayoutYAxisAnchor alloc] initWithItem:layoutGuide attribute:NSLayoutAttributeBottom];
     }
     return self;
     

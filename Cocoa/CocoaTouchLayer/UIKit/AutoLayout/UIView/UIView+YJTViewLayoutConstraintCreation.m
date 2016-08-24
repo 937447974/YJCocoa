@@ -1,5 +1,5 @@
 //
-//  UIView+YJViewLayoutConstraintCreation.m
+//  UIView+YJTViewLayoutConstraintCreation.m
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,49 +9,49 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UIView+YJViewLayoutConstraintCreation.h"
+#import "UIView+YJTViewLayoutConstraintCreation.h"
 
-@implementation UIView (YJViewLayoutConstraintCreation)
+@implementation UIView (YJTViewLayoutConstraintCreation)
 
 #pragma mark - base
-- (YJLayoutXAxisAnchor *)leftLayout {
-    return [[YJLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeLeft];    
+- (YJTLayoutXAxisAnchor *)leftLayout {
+    return [[YJTLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeLeft];    
 }
 
-- (YJLayoutXAxisAnchor *)rightLayout {
-    return [[YJLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeRight];
+- (YJTLayoutXAxisAnchor *)rightLayout {
+    return [[YJTLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeRight];
 }
 
-- (YJLayoutYAxisAnchor *)topLayout {
-    return [[YJLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeTop];
+- (YJTLayoutYAxisAnchor *)topLayout {
+    return [[YJTLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeTop];
 }
 
-- (YJLayoutYAxisAnchor *)bottomLayout {
-    return [[YJLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeBottom];
+- (YJTLayoutYAxisAnchor *)bottomLayout {
+    return [[YJTLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeBottom];
 }
 
-- (YJLayoutXAxisAnchor *)leadingLayout {
-    return [[YJLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeLeading];
+- (YJTLayoutXAxisAnchor *)leadingLayout {
+    return [[YJTLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeLeading];
 }
 
-- (YJLayoutXAxisAnchor *)trailingLayout {
-    return [[YJLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeTrailing];
+- (YJTLayoutXAxisAnchor *)trailingLayout {
+    return [[YJTLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeTrailing];
 }
 
-- (YJLayoutDimension *)widthLayout {
-    return [[YJLayoutDimension alloc] initWithItem:self attribute:NSLayoutAttributeWidth];
+- (YJTLayoutDimension *)widthLayout {
+    return [[YJTLayoutDimension alloc] initWithItem:self attribute:NSLayoutAttributeWidth];
 }
 
-- (YJLayoutDimension *)heightLayout {
-    return [[YJLayoutDimension alloc] initWithItem:self attribute:NSLayoutAttributeHeight];
+- (YJTLayoutDimension *)heightLayout {
+    return [[YJTLayoutDimension alloc] initWithItem:self attribute:NSLayoutAttributeHeight];
 }
 
-- (YJLayoutXAxisAnchor *)centerXLayout {
-    return [[YJLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeCenterX];
+- (YJTLayoutXAxisAnchor *)centerXLayout {
+    return [[YJTLayoutXAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeCenterX];
 }
 
-- (YJLayoutYAxisAnchor *)centerYLayout {
-    return [[YJLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeCenterY];
+- (YJTLayoutYAxisAnchor *)centerYLayout {
+    return [[YJTLayoutYAxisAnchor alloc] initWithItem:self attribute:NSLayoutAttributeCenterY];
 }
 
 #pragma mark - ToSuper

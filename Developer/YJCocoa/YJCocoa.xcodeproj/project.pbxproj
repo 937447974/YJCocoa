@@ -32,15 +32,15 @@
 		8493A27A1D6C5E630037F2BD /* YJCRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A2711D6C5E630037F2BD /* YJCRandomization.m */; };
 		8493A27B1D6C5E630037F2BD /* YJCSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A2751D6C5E630037F2BD /* YJCSystem.m */; };
 		8493A27E1D6C5E8C0037F2BD /* YJTSuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A27D1D6C5E8C0037F2BD /* YJTSuspensionCellView.m */; };
-		84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m */; };
-		84B252C51CFD44E0000931F2 /* YJLayoutConstraintAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527B1CFD44E0000931F2 /* YJLayoutConstraintAnimate.m */; };
-		84B252C61CFD44E0000931F2 /* YJLayoutAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527E1CFD44E0000931F2 /* YJLayoutAnchor.m */; };
-		84B252C71CFD44E0000931F2 /* YJLayoutDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252801CFD44E0000931F2 /* YJLayoutDimension.m */; };
-		84B252C81CFD44E0000931F2 /* YJLayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252821CFD44E0000931F2 /* YJLayoutSupport.m */; };
-		84B252C91CFD44E0000931F2 /* YJLayoutXAxisAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252841CFD44E0000931F2 /* YJLayoutXAxisAnchor.m */; };
-		84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252861CFD44E0000931F2 /* YJLayoutYAxisAnchor.m */; };
-		84B252CB1CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252891CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m */; };
-		84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2528C1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m */; };
+		84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.m */; };
+		84B252C51CFD44E0000931F2 /* YJTLayoutConstraintAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527B1CFD44E0000931F2 /* YJTLayoutConstraintAnimate.m */; };
+		84B252C61CFD44E0000931F2 /* YJTLayoutAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2527E1CFD44E0000931F2 /* YJTLayoutAnchor.m */; };
+		84B252C71CFD44E0000931F2 /* YJTLayoutDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252801CFD44E0000931F2 /* YJTLayoutDimension.m */; };
+		84B252C81CFD44E0000931F2 /* YJTLayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252821CFD44E0000931F2 /* YJTLayoutSupport.m */; };
+		84B252C91CFD44E0000931F2 /* YJTLayoutXAxisAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252841CFD44E0000931F2 /* YJTLayoutXAxisAnchor.m */; };
+		84B252CA1CFD44E0000931F2 /* YJTLayoutYAxisAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252861CFD44E0000931F2 /* YJTLayoutYAxisAnchor.m */; };
+		84B252CB1CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252891CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.m */; };
+		84B252CC1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2528C1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.m */; };
 		84B252CD1CFD44E0000931F2 /* YJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252911CFD44E0000931F2 /* YJCollectionViewCell.m */; };
 		84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252941CFD44E0000931F2 /* YJCollectionCellObject.m */; };
 		84B252CF1CFD44E0000931F2 /* YJCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252971CFD44E0000931F2 /* YJCollectionViewDataSource.m */; };
@@ -114,25 +114,25 @@
 		8493A2761D6C5E630037F2BD /* YJCoreOSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreOSLayer.h; sourceTree = "<group>"; };
 		8493A27C1D6C5E8C0037F2BD /* YJTSuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTSuspensionCellView.h; sourceTree = "<group>"; };
 		8493A27D1D6C5E8C0037F2BD /* YJTSuspensionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTSuspensionCellView.m; sourceTree = "<group>"; };
-		84B252781CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+YJExtend.h"; sourceTree = "<group>"; };
-		84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+YJExtend.m"; sourceTree = "<group>"; };
-		84B2527A1CFD44E0000931F2 /* YJLayoutConstraintAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutConstraintAnimate.h; sourceTree = "<group>"; };
-		84B2527B1CFD44E0000931F2 /* YJLayoutConstraintAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutConstraintAnimate.m; sourceTree = "<group>"; };
-		84B2527D1CFD44E0000931F2 /* YJLayoutAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutAnchor.h; sourceTree = "<group>"; };
-		84B2527E1CFD44E0000931F2 /* YJLayoutAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutAnchor.m; sourceTree = "<group>"; };
-		84B2527F1CFD44E0000931F2 /* YJLayoutDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDimension.h; sourceTree = "<group>"; };
-		84B252801CFD44E0000931F2 /* YJLayoutDimension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutDimension.m; sourceTree = "<group>"; };
-		84B252811CFD44E0000931F2 /* YJLayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutSupport.h; sourceTree = "<group>"; };
-		84B252821CFD44E0000931F2 /* YJLayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutSupport.m; sourceTree = "<group>"; };
-		84B252831CFD44E0000931F2 /* YJLayoutXAxisAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutXAxisAnchor.h; sourceTree = "<group>"; };
-		84B252841CFD44E0000931F2 /* YJLayoutXAxisAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutXAxisAnchor.m; sourceTree = "<group>"; };
-		84B252851CFD44E0000931F2 /* YJLayoutYAxisAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutYAxisAnchor.h; sourceTree = "<group>"; };
-		84B252861CFD44E0000931F2 /* YJLayoutYAxisAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutYAxisAnchor.m; sourceTree = "<group>"; };
-		84B252881CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJViewLayoutConstraintCreation.h"; sourceTree = "<group>"; };
-		84B252891CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJViewLayoutConstraintCreation.m"; sourceTree = "<group>"; };
-		84B2528B1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJLayoutSupport.h"; sourceTree = "<group>"; };
-		84B2528C1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJLayoutSupport.m"; sourceTree = "<group>"; };
-		84B2528D1CFD44E0000931F2 /* YJAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAutoLayout.h; sourceTree = "<group>"; };
+		84B252781CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+YJTExtend.h"; sourceTree = "<group>"; };
+		84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+YJTExtend.m"; sourceTree = "<group>"; };
+		84B2527A1CFD44E0000931F2 /* YJTLayoutConstraintAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutConstraintAnimate.h; sourceTree = "<group>"; };
+		84B2527B1CFD44E0000931F2 /* YJTLayoutConstraintAnimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutConstraintAnimate.m; sourceTree = "<group>"; };
+		84B2527D1CFD44E0000931F2 /* YJTLayoutAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutAnchor.h; sourceTree = "<group>"; };
+		84B2527E1CFD44E0000931F2 /* YJTLayoutAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutAnchor.m; sourceTree = "<group>"; };
+		84B2527F1CFD44E0000931F2 /* YJTLayoutDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutDimension.h; sourceTree = "<group>"; };
+		84B252801CFD44E0000931F2 /* YJTLayoutDimension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutDimension.m; sourceTree = "<group>"; };
+		84B252811CFD44E0000931F2 /* YJTLayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutSupport.h; sourceTree = "<group>"; };
+		84B252821CFD44E0000931F2 /* YJTLayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutSupport.m; sourceTree = "<group>"; };
+		84B252831CFD44E0000931F2 /* YJTLayoutXAxisAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutXAxisAnchor.h; sourceTree = "<group>"; };
+		84B252841CFD44E0000931F2 /* YJTLayoutXAxisAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutXAxisAnchor.m; sourceTree = "<group>"; };
+		84B252851CFD44E0000931F2 /* YJTLayoutYAxisAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTLayoutYAxisAnchor.h; sourceTree = "<group>"; };
+		84B252861CFD44E0000931F2 /* YJTLayoutYAxisAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTLayoutYAxisAnchor.m; sourceTree = "<group>"; };
+		84B252881CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJTViewLayoutConstraintCreation.h"; sourceTree = "<group>"; };
+		84B252891CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJTViewLayoutConstraintCreation.m"; sourceTree = "<group>"; };
+		84B2528B1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJTLayoutSupport.h"; sourceTree = "<group>"; };
+		84B2528C1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJTLayoutSupport.m"; sourceTree = "<group>"; };
+		84B2528D1CFD44E0000931F2 /* YJTAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTAutoLayout.h; sourceTree = "<group>"; };
 		84B252901CFD44E0000931F2 /* YJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionViewCell.h; sourceTree = "<group>"; };
 		84B252911CFD44E0000931F2 /* YJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCollectionViewCell.m; sourceTree = "<group>"; };
 		84B252931CFD44E0000931F2 /* YJCollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCollectionCellObject.h; sourceTree = "<group>"; };
@@ -439,7 +439,7 @@
 				84B2527C1CFD44E0000931F2 /* LayoutAnchor */,
 				84B252871CFD44E0000931F2 /* UIView */,
 				84B2528A1CFD44E0000931F2 /* UIViewController */,
-				84B2528D1CFD44E0000931F2 /* YJAutoLayout.h */,
+				84B2528D1CFD44E0000931F2 /* YJTAutoLayout.h */,
 			);
 			path = AutoLayout;
 			sourceTree = "<group>";
@@ -447,10 +447,10 @@
 		84B252771CFD44E0000931F2 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
-				84B252781CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.h */,
-				84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m */,
-				84B2527A1CFD44E0000931F2 /* YJLayoutConstraintAnimate.h */,
-				84B2527B1CFD44E0000931F2 /* YJLayoutConstraintAnimate.m */,
+				84B252781CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.h */,
+				84B252791CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.m */,
+				84B2527A1CFD44E0000931F2 /* YJTLayoutConstraintAnimate.h */,
+				84B2527B1CFD44E0000931F2 /* YJTLayoutConstraintAnimate.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -458,16 +458,16 @@
 		84B2527C1CFD44E0000931F2 /* LayoutAnchor */ = {
 			isa = PBXGroup;
 			children = (
-				84B2527D1CFD44E0000931F2 /* YJLayoutAnchor.h */,
-				84B2527E1CFD44E0000931F2 /* YJLayoutAnchor.m */,
-				84B2527F1CFD44E0000931F2 /* YJLayoutDimension.h */,
-				84B252801CFD44E0000931F2 /* YJLayoutDimension.m */,
-				84B252811CFD44E0000931F2 /* YJLayoutSupport.h */,
-				84B252821CFD44E0000931F2 /* YJLayoutSupport.m */,
-				84B252831CFD44E0000931F2 /* YJLayoutXAxisAnchor.h */,
-				84B252841CFD44E0000931F2 /* YJLayoutXAxisAnchor.m */,
-				84B252851CFD44E0000931F2 /* YJLayoutYAxisAnchor.h */,
-				84B252861CFD44E0000931F2 /* YJLayoutYAxisAnchor.m */,
+				84B2527D1CFD44E0000931F2 /* YJTLayoutAnchor.h */,
+				84B2527E1CFD44E0000931F2 /* YJTLayoutAnchor.m */,
+				84B2527F1CFD44E0000931F2 /* YJTLayoutDimension.h */,
+				84B252801CFD44E0000931F2 /* YJTLayoutDimension.m */,
+				84B252811CFD44E0000931F2 /* YJTLayoutSupport.h */,
+				84B252821CFD44E0000931F2 /* YJTLayoutSupport.m */,
+				84B252831CFD44E0000931F2 /* YJTLayoutXAxisAnchor.h */,
+				84B252841CFD44E0000931F2 /* YJTLayoutXAxisAnchor.m */,
+				84B252851CFD44E0000931F2 /* YJTLayoutYAxisAnchor.h */,
+				84B252861CFD44E0000931F2 /* YJTLayoutYAxisAnchor.m */,
 			);
 			path = LayoutAnchor;
 			sourceTree = "<group>";
@@ -475,8 +475,8 @@
 		84B252871CFD44E0000931F2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				84B252881CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.h */,
-				84B252891CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m */,
+				84B252881CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.h */,
+				84B252891CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -484,8 +484,8 @@
 		84B2528A1CFD44E0000931F2 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84B2528B1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.h */,
-				84B2528C1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m */,
+				84B2528B1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.h */,
+				84B2528C1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -720,12 +720,12 @@
 				84B252DA1CFD44E0000931F2 /* YJTableViewDelegate.m in Sources */,
 				8493A27A1D6C5E630037F2BD /* YJCRandomization.m in Sources */,
 				84B252DD1CFD44E0000931F2 /* YJTableCellObject.m in Sources */,
-				84B252C91CFD44E0000931F2 /* YJLayoutXAxisAnchor.m in Sources */,
+				84B252C91CFD44E0000931F2 /* YJTLayoutXAxisAnchor.m in Sources */,
 				8493A27B1D6C5E630037F2BD /* YJCSystem.m in Sources */,
 				8493A2771D6C5E630037F2BD /* YJCKeychainGPItem.m in Sources */,
 				84B252D81CFD44E0000931F2 /* YJPageViewObject.m in Sources */,
 				84B252DE1CFD44E0000931F2 /* UIView+YJTViewGeometry.m in Sources */,
-				84B252C61CFD44E0000931F2 /* YJLayoutAnchor.m in Sources */,
+				84B252C61CFD44E0000931F2 /* YJTLayoutAnchor.m in Sources */,
 				8459985C1D50A32000BD60BC /* YJTBarButtonItem.m in Sources */,
 				84B252CD1CFD44E0000931F2 /* YJCollectionViewCell.m in Sources */,
 				84B252D61CFD44E0000931F2 /* YJPageView.m in Sources */,
@@ -735,9 +735,9 @@
 				84B252D41CFD44E0000931F2 /* YJImagePageViewController.m in Sources */,
 				84B252D31CFD44E0000931F2 /* YJImagePageModel.m in Sources */,
 				847AF4641D46200F00664743 /* YJSLog.m in Sources */,
-				84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */,
+				84B252CA1CFD44E0000931F2 /* YJTLayoutYAxisAnchor.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
-				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
+				84B252CC1CFD44E0000931F2 /* UIViewController+YJTLayoutSupport.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
 				847AF4671D46200F00664743 /* YJSPerformSelector.m in Sources */,
 				8493A2791D6C5E630037F2BD /* YJCKeychain.m in Sources */,
@@ -746,11 +746,11 @@
 				8459985D1D50A32000BD60BC /* YJTBarButtonView.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				847AF4651D46200F00664743 /* YJSFoundationOther.m in Sources */,
-				84B252C51CFD44E0000931F2 /* YJLayoutConstraintAnimate.m in Sources */,
+				84B252C51CFD44E0000931F2 /* YJTLayoutConstraintAnimate.m in Sources */,
 				8493A27E1D6C5E8C0037F2BD /* YJTSuspensionCellView.m in Sources */,
-				84B252C71CFD44E0000931F2 /* YJLayoutDimension.m in Sources */,
-				84B252CB1CFD44E0000931F2 /* UIView+YJViewLayoutConstraintCreation.m in Sources */,
-				84B252C81CFD44E0000931F2 /* YJLayoutSupport.m in Sources */,
+				84B252C71CFD44E0000931F2 /* YJTLayoutDimension.m in Sources */,
+				84B252CB1CFD44E0000931F2 /* UIView+YJTViewLayoutConstraintCreation.m in Sources */,
+				84B252C81CFD44E0000931F2 /* YJTLayoutSupport.m in Sources */,
 				84B252D01CFD44E0000931F2 /* YJCollectionViewDelegate.m in Sources */,
 				8459985E1D50A32000BD60BC /* YJTNavigationBar.m in Sources */,
 				84B252D71CFD44E0000931F2 /* YJPageViewController.m in Sources */,
@@ -759,7 +759,7 @@
 				847AF4661D46200F00664743 /* NSObject+YJSPerformSelector.m in Sources */,
 				847AF4681D46200F00664743 /* YJSSingletonMCenter.m in Sources */,
 				847AF4621D46200F00664743 /* YJSHttpAnalysis.m in Sources */,
-				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
+				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJTExtend.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

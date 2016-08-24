@@ -13,7 +13,7 @@
 #import "YJTableViewDelegate.h"
 #import "YJTableViewDataSource.h"
 #import "UIView+YJTViewGeometry.h"
-#import "YJAutoLayout.h"
+#import "YJTAutoLayout.h"
 
 @interface YJTSuspensionCellView () {
     CGFloat _showCellHeight;  ///< 当前显示Cell高
