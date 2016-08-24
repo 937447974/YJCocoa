@@ -69,8 +69,10 @@ fi
 #osascript -e 'display notification "2.4.1 | 2016-08-10 | AutoLayout修复bug：二次执行相同代码无法修改约束。" with title "YJCocoa"'
 #osascript -e 'display notification "2.4.1 | 2016-08-17 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。" with title "YJCocoa"'
 
-osascript -e 'display notification "2.4.2 | 2016-08-19 | ViewGeometry升级，支持快速设置UIView.bounds。" with title "YJCocoa"'
-osascript -e 'display notification "2.4.2 | 2016-08-23 | TableView升级，支持快速实现悬浮cell。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.2 | 2016-08-19 | ViewGeometry升级，支持快速设置UIView.bounds。" with title "YJCocoa"'
+#osascript -e 'display notification "2.4.2 | 2016-08-23 | TableView升级，支持快速实现悬浮cell。" with title "YJCocoa"'
+
+osascript -e 'display notification "3.0.0 | 2016-08-24 | YJCocoa架构升级,每一层都有特定的类前缀。" with title "YJCocoa"'
 
 
 
