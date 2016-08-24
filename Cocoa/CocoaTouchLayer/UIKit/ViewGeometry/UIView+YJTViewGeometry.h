@@ -1,5 +1,5 @@
 //
-//  UIView+YJViewGeometry.h
+//  UIView+YJTViewGeometry.h
 //  YJViewGeometry
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** UIView(UIViewGeometry)扩展*/
-@interface UIView (YJViewGeometry)
+@interface UIView (YJTViewGeometry)
 
 #pragma mark frame 
 

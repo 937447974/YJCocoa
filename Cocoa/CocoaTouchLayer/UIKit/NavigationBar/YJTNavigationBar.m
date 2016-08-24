@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJCNavigationBar.h"
-#import "UIView+YJViewGeometry.h"
+#import "YJTNavigationBar.h"
+#import "UIView+YJTViewGeometry.h"
 
 @interface YJCNavigationBar ()
 
@@ -52,8 +52,8 @@
         _leftSpacing = nb.leftSpacing;
         _rightSpacing = nb.rightSpacing;
         _middle = nb.middle;
-        self.leftBarButtonView = [[YJCBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
-        self.rightBarButtonView = [[YJCBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
+        self.leftBarButtonView = [[YJTBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
+        self.rightBarButtonView = [[YJTBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
     }
     return self;
 }
@@ -80,17 +80,17 @@
 }
 
 #pragma mark - getter and setter
-- (void)setLeftBarButtonView:(YJCBarButtonView *)leftBarButtonView {
+- (void)setLeftBarButtonView:(YJTBarButtonView *)leftBarButtonView {
     _leftBarButtonView = leftBarButtonView;
     [self setBarButtonView:_leftBarButtonView];
 }
 
-- (void)setRightBarButtonView:(YJCBarButtonView *)rightBarButtonView {
+- (void)setRightBarButtonView:(YJTBarButtonView *)rightBarButtonView {
     _rightBarButtonView = rightBarButtonView;
     [self setBarButtonView:_rightBarButtonView];
 }
 
-- (void)setBarButtonView:(YJCBarButtonView *)barButtonView {
+- (void)setBarButtonView:(YJTBarButtonView *)barButtonView {
     if (barButtonView.superview) {
         [barButtonView removeFromSuperview];
     }

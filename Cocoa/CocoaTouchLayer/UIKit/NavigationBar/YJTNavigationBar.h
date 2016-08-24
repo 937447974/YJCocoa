@@ -10,7 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJCBarButtonView.h"
+#import "YJTBarButtonView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy)   NSString *title;   ///< 标题
 @property (nullable, nonatomic, strong) UIView *titleView; ///< 自定义titleView
 
-@property (nullable, nonatomic, strong) YJCBarButtonView *leftBarButtonView;  ///< 左按钮View
-@property (nullable, nonatomic, strong) YJCBarButtonView *rightBarButtonView; ///< 右按钮View
+@property (nullable, nonatomic, strong) YJTBarButtonView *leftBarButtonView;  ///< 左按钮View
+@property (nullable, nonatomic, strong) YJTBarButtonView *rightBarButtonView; ///< 右按钮View
 
 @end
 

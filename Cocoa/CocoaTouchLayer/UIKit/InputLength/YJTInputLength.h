@@ -1,5 +1,5 @@
 //
-//  YJInputLength.h
+//  YJTInputLength.h
 //  YJInputLength
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,7 +10,7 @@
 //
 
 // UITextField输入长度控制
-#import "UITextField+InputLength.h"
+#import "UITextField+YJTInputLength.h"
 // UITextView输入长度控制
-#import "UITextView+InputLength.h"
+#import "UITextView+YJTInputLength.h"
 

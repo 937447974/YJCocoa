@@ -1,24 +1,24 @@
 //
-//  YJBarButtonView.m
+//  YJTBarButtonView.m
 //  YJNavigationBar
 //
-//  HomePage:https://github.com/937447974/YJCocoa
+//  HomePage:https://github.com/937447974/YJTocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/7/6.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Copyright © 2016年 YJTocoa. All rights reserved.
 //
 
-#import "YJCBarButtonView.h"
-#import "UIView+YJViewGeometry.h"
+#import "YJTBarButtonView.h"
+#import "UIView+YJTViewGeometry.h"
 
-@implementation YJCBarButtonView
+@implementation YJTBarButtonView
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJCBarButtonView *bbView;
+    static YJTBarButtonView *bbView;
     if (!bbView) {
-        bbView = [[YJCBarButtonView alloc] initWithAppearance];
+        bbView = [[YJTBarButtonView alloc] initWithAppearance];
     }
     return bbView;
 }
@@ -38,7 +38,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        YJCBarButtonView *bbView = [YJCBarButtonView appearance];
+        YJTBarButtonView *bbView = [YJTBarButtonView appearance];
         _titleColor = bbView.titleColor;
         _titleFont = bbView.titleFont;
         _highlightedAlpha = bbView.highlightedAlpha;
@@ -48,12 +48,12 @@
 }
 
 #pragma mark setter & getter
-- (void)setBarButtonItem:(YJCBarButtonItem *)barButtonItem {
+- (void)setBarButtonItem:(YJTBarButtonItem *)barButtonItem {
     _barButtonItem = barButtonItem;
     self.barButtonItems = @[barButtonItem];
 }
 
-- (void)setBarButtonItems:(NSArray<YJCBarButtonItem *> *)barButtonItems {
+- (void)setBarButtonItems:(NSArray<YJTBarButtonItem *> *)barButtonItems {
     _barButtonItems = barButtonItems;
     [self reloadData];
 }
@@ -66,7 +66,7 @@
     }
     CGFloat y = (self.heightFrame - 30) / 2;
     CGFloat x = -self.spacing;
-    for (YJCBarButtonItem *item in self.barButtonItems) {
+    for (YJTBarButtonItem *item in self.barButtonItems) {
         x += self.spacing;
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, 30, 30)];
         [self addSubview:button];

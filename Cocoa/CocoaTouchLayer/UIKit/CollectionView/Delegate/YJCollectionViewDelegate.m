@@ -12,7 +12,7 @@
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
 #import "YJSFoundationOther.h"
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 
 @interface YJCollectionViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y

@@ -14,7 +14,7 @@
 #import "YJTableCellObject.h"
 #import "YJTableViewCell.h"
 #import "YJSFoundationOther.h"
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 #import "YJAutoLayout.h"
 
 @interface YJTableViewDelegate () {

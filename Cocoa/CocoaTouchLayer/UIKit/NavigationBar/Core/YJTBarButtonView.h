@@ -1,5 +1,5 @@
 //
-//  YJBarButtonView.h
+//  YJTBarButtonView.h
 //  YJNavigationBar
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,15 +10,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJCBarButtonItem.h"
+#import "YJTBarButtonItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 按钮View*/
-@interface YJCBarButtonView : UIView
+@interface YJTBarButtonView : UIView
 
-@property (nullable, nonatomic, strong) YJCBarButtonItem *barButtonItem; ///< 按钮
-@property (nullable, nonatomic, strong) NSArray<YJCBarButtonItem *> *barButtonItems; ///< 按钮集合
+@property (nullable, nonatomic, strong) YJTBarButtonItem *barButtonItem; ///< 按钮
+@property (nullable, nonatomic, strong) NSArray<YJTBarButtonItem *> *barButtonItems; ///< 按钮集合
 
 @property (nonatomic, strong) UIColor *titleColor; ///< 字体颜色，默认黑色
 @property (nonatomic, strong) UIFont *titleFont;   ///< 字体大小，默认14

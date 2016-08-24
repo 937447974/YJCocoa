@@ -1,5 +1,5 @@
 //
-//  UITextField+InputLength.h
+//  UITextView+YJTInputLength.h
 //  YJInputLength
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,11 +13,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** UITextField输入长度控制*/
-@interface UITextField (InputLength)
+/** UITextView输入长度控制*/
+@interface UITextView (YJTInputLength)
 
 @property (nonatomic)  NSInteger inputLength; ///< 用户可输入长度
 
 @end
+
 
 NS_ASSUME_NONNULL_END

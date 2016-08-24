@@ -12,7 +12,7 @@
 #import "YJTSuspensionCellView.h"
 #import "YJTableViewDelegate.h"
 #import "YJTableViewDataSource.h"
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 #import "YJAutoLayout.h"
 
 @interface YJTSuspensionCellView () {

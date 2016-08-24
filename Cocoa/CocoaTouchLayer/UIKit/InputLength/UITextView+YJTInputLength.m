@@ -1,5 +1,5 @@
 //
-//  UITextField+InputLength.m
+//  UITextView+YJTInputLength.m
 //  YJInputLength
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,16 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UITextField+InputLength.h"
+#import "UITextView+YJTInputLength.h"
 #import <objc/runtime.h>
 
-@interface UITextField (Private)
+@interface UITextView (YJTPrivate)
 
 @property (nonatomic, weak) NSString *oldInput; ///< 用户上一次输入
 
 @end
 
-@implementation UITextField (InputLength)
+@implementation UITextView (YJTInputLength)
 
 #pragma mark - getter and setter
 - (void)setOldInput:(NSString *)oldInput {
@@ -32,7 +32,7 @@
 - (void)setInputLength:(NSInteger)inputLength {
     objc_setAssociatedObject(self, "inputLength", [NSNumber numberWithInteger:inputLength], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.oldInput = @"";
-    [self addTarget:self action:@selector(textEditingChanged) forControlEvents:UIControlEventEditingChanged];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textEditingChanged:) name:UITextViewTextDidChangeNotification object:nil]; // 通过通知监听输入变化
 }
 
 - (NSInteger)inputLength {
@@ -41,7 +41,8 @@
 }
 
 #pragma mark - 输入变化监听
-- (void)textEditingChanged {
+- (void)textEditingChanged:(NSNotification *)notification {
+    if (![self isEqual:notification.object]) return;
     if (self.text.length > self.inputLength) {
         self.text = self.oldInput;
     } else {
