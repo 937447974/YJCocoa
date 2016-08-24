@@ -10,7 +10,7 @@
 //
 
 #import "YJSSingletonMCenter.h"
-#import "YJFoundationOther.h"
+#import "YJSFoundationOther.h"
 #import <UIKit/UIKit.h>
 
 @interface YJSSingletonMCenter() {

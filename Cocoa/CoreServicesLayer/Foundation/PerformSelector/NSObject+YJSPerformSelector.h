@@ -1,5 +1,5 @@
 //
-//  NSObject+YJPerformSelector.h
+//  NSObject+YJSPerformSelector.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,12 +10,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJPerformSelector.h"
+#import "YJSPerformSelector.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** performSelector方法扩展*/
-@interface NSObject (YJPerformSelector)
+@interface NSObject (YJSPerformSelector)
 
 /**
  *  线程安全执行Selector
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (YJPerformSelector *)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
+- (YJSPerformSelector *)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
 
 @end
 

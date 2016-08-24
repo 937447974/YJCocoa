@@ -1,5 +1,5 @@
 //
-//  YJLog.m
+//  YJSLog.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJLog.h"
+#import "YJSLog.h"
 
 #pragma mark -  NSLog打印辅助方法
 id logExtension(id obj) {
@@ -31,7 +31,7 @@ void NSLogS(id obj) {
 
 
 #pragma mark - 数组NSLog打印扩展
-@implementation NSArray (YJLog)
+@implementation NSArray (YJSLog)
 
 #pragma mark 数组打印
 - (NSString *)descriptionWithLocale:(id)locale {
@@ -48,7 +48,7 @@ void NSLogS(id obj) {
 
 
 #pragma mark - 字典NSLog打印扩展
-@implementation NSDictionary (YJLog)
+@implementation NSDictionary (YJSLog)
 
 #pragma mark 字典打印
 - (NSString *)descriptionWithLocale:(id)locale {
@@ -71,7 +71,7 @@ void NSLogS(id obj) {
 
 
 #pragma mark - NSSet NSLog打印扩展
-@implementation NSSet (YJLog)
+@implementation NSSet (YJSLog)
 
 #pragma mark NSSet打印
 - (NSString *)descriptionWithLocale:(id)locale {

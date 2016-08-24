@@ -10,7 +10,7 @@
 //
 
 #import "YJSTimer.h"
-#import "NSObject+YJPerformSelector.h"
+#import "NSObject+YJSPerformSelector.h"
 #import "YJSSingletonMCenter.h"
 #import "YJCRandomization.h"
 

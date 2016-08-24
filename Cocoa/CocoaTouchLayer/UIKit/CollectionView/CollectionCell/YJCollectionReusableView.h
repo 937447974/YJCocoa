@@ -13,7 +13,7 @@
 #import "YJCollectionCellObject.h"
 #import "YJCollectionViewDelegate.h"
 #import "YJCollectionViewDataSource.h"
-#import "YJFoundationOther.h"
+#import "YJSFoundationOther.h"
 #import "YJCSystem.h"
 
 @class YJCollectionViewDelegate;

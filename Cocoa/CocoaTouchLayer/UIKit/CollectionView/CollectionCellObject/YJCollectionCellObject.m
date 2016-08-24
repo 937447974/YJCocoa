@@ -10,7 +10,7 @@
 //
 
 #import "YJCollectionCellObject.h"
-#import "YJFoundationOther.h"
+#import "YJSFoundationOther.h"
 
 @implementation YJCollectionCellObject
 

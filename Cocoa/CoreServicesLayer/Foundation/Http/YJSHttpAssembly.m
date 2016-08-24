@@ -1,5 +1,5 @@
 //
-//  YJHttpAssembly.m
+//  YJSHttpAssembly.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJHttpAssembly.h"
+#import "YJSHttpAssembly.h"
 
-@implementation YJHttpAssembly
+@implementation YJSHttpAssembly
 
 + (NSString *)assemblyHttp:(NSDictionary *)params {
     if (!params) return @"";

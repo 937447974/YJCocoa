@@ -13,7 +13,7 @@
 #import "YJTableViewDataSource.h"
 #import "YJTableCellObject.h"
 #import "YJTableViewCell.h"
-#import "YJFoundationOther.h"
+#import "YJSFoundationOther.h"
 #import "UIView+YJViewGeometry.h"
 #import "YJAutoLayout.h"
 

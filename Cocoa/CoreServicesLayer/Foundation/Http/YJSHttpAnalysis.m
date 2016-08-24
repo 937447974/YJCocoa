@@ -1,5 +1,5 @@
 //
-//  YJHttpAnalysis.m
+//  YJSHttpAnalysis.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJHttpAnalysis.h"
+#import "YJSHttpAnalysis.h"
 
-@implementation YJHttpAnalysis
+@implementation YJSHttpAnalysis
 
 + (NSDictionary<NSString *,NSString *> *)analysisParams:(NSString *)http {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

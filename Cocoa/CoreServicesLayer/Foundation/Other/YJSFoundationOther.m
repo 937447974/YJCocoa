@@ -1,5 +1,5 @@
 //
-//  YJFoundationOther.m
+//  YJSFoundationOther.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,7 +10,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJFoundationOther.h"
+#import "YJSFoundationOther.h"
 
 #pragma mark 获取类名
 NSString *YJStringFromClass(Class aClass) {
@@ -19,6 +19,6 @@ NSString *YJStringFromClass(Class aClass) {
     return array.lastObject;
 }
 
-@implementation YJFoundationOther
+@implementation YJSFoundationOther
 
 @end

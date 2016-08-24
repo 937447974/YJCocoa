@@ -19,12 +19,12 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
-		847AF4621D46200F00664743 /* YJHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4501D46200F00664743 /* YJHttpAnalysis.m */; };
-		847AF4631D46200F00664743 /* YJHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4521D46200F00664743 /* YJHttpAssembly.m */; };
-		847AF4641D46200F00664743 /* YJLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4551D46200F00664743 /* YJLog.m */; };
-		847AF4651D46200F00664743 /* YJFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4581D46200F00664743 /* YJFoundationOther.m */; };
-		847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */; };
-		847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45D1D46200F00664743 /* YJPerformSelector.m */; };
+		847AF4621D46200F00664743 /* YJSHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4501D46200F00664743 /* YJSHttpAnalysis.m */; };
+		847AF4631D46200F00664743 /* YJSHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4521D46200F00664743 /* YJSHttpAssembly.m */; };
+		847AF4641D46200F00664743 /* YJSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4551D46200F00664743 /* YJSLog.m */; };
+		847AF4651D46200F00664743 /* YJSFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4581D46200F00664743 /* YJSFoundationOther.m */; };
+		847AF4661D46200F00664743 /* NSObject+YJSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45B1D46200F00664743 /* NSObject+YJSPerformSelector.m */; };
+		847AF4671D46200F00664743 /* YJSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF45D1D46200F00664743 /* YJSPerformSelector.m */; };
 		847AF4681D46200F00664743 /* YJSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AF4601D46200F00664743 /* YJSSingletonMCenter.m */; };
 		8493A2771D6C5E630037F2BD /* YJCKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26A1D6C5E630037F2BD /* YJCKeychainGPItem.m */; };
 		8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493A26C1D6C5E630037F2BD /* YJCKeychainItem.m */; };
@@ -84,19 +84,19 @@
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
 		847A1E401CF5598C00636975 /* YJCocoaTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoaTouchLayer.h; sourceTree = "<group>"; };
 		847A1E501CF5598C00636975 /* YJCoreServicesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreServicesLayer.h; sourceTree = "<group>"; };
-		847AF44E1D46200F00664743 /* YJHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttp.h; sourceTree = "<group>"; };
-		847AF44F1D46200F00664743 /* YJHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAnalysis.h; sourceTree = "<group>"; };
-		847AF4501D46200F00664743 /* YJHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAnalysis.m; sourceTree = "<group>"; };
-		847AF4511D46200F00664743 /* YJHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHttpAssembly.h; sourceTree = "<group>"; };
-		847AF4521D46200F00664743 /* YJHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHttpAssembly.m; sourceTree = "<group>"; };
-		847AF4541D46200F00664743 /* YJLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLog.h; sourceTree = "<group>"; };
-		847AF4551D46200F00664743 /* YJLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLog.m; sourceTree = "<group>"; };
-		847AF4571D46200F00664743 /* YJFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundationOther.h; sourceTree = "<group>"; };
-		847AF4581D46200F00664743 /* YJFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationOther.m; sourceTree = "<group>"; };
-		847AF45A1D46200F00664743 /* NSObject+YJPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJPerformSelector.h"; sourceTree = "<group>"; };
-		847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJPerformSelector.m"; sourceTree = "<group>"; };
-		847AF45C1D46200F00664743 /* YJPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPerformSelector.h; sourceTree = "<group>"; };
-		847AF45D1D46200F00664743 /* YJPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPerformSelector.m; sourceTree = "<group>"; };
+		847AF44E1D46200F00664743 /* YJSHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSHttp.h; sourceTree = "<group>"; };
+		847AF44F1D46200F00664743 /* YJSHttpAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSHttpAnalysis.h; sourceTree = "<group>"; };
+		847AF4501D46200F00664743 /* YJSHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSHttpAnalysis.m; sourceTree = "<group>"; };
+		847AF4511D46200F00664743 /* YJSHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSHttpAssembly.h; sourceTree = "<group>"; };
+		847AF4521D46200F00664743 /* YJSHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSHttpAssembly.m; sourceTree = "<group>"; };
+		847AF4541D46200F00664743 /* YJSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSLog.h; sourceTree = "<group>"; };
+		847AF4551D46200F00664743 /* YJSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSLog.m; sourceTree = "<group>"; };
+		847AF4571D46200F00664743 /* YJSFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSFoundationOther.h; sourceTree = "<group>"; };
+		847AF4581D46200F00664743 /* YJSFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSFoundationOther.m; sourceTree = "<group>"; };
+		847AF45A1D46200F00664743 /* NSObject+YJSPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJSPerformSelector.h"; sourceTree = "<group>"; };
+		847AF45B1D46200F00664743 /* NSObject+YJSPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJSPerformSelector.m"; sourceTree = "<group>"; };
+		847AF45C1D46200F00664743 /* YJSPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSPerformSelector.h; sourceTree = "<group>"; };
+		847AF45D1D46200F00664743 /* YJSPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSPerformSelector.m; sourceTree = "<group>"; };
 		847AF45F1D46200F00664743 /* YJSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSSingletonMCenter.h; sourceTree = "<group>"; };
 		847AF4601D46200F00664743 /* YJSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSSingletonMCenter.m; sourceTree = "<group>"; };
 		847AF4611D46200F00664743 /* YJSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSFoundation.h; sourceTree = "<group>"; };
@@ -321,11 +321,11 @@
 		847AF44D1D46200F00664743 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				847AF44E1D46200F00664743 /* YJHttp.h */,
-				847AF44F1D46200F00664743 /* YJHttpAnalysis.h */,
-				847AF4501D46200F00664743 /* YJHttpAnalysis.m */,
-				847AF4511D46200F00664743 /* YJHttpAssembly.h */,
-				847AF4521D46200F00664743 /* YJHttpAssembly.m */,
+				847AF44E1D46200F00664743 /* YJSHttp.h */,
+				847AF44F1D46200F00664743 /* YJSHttpAnalysis.h */,
+				847AF4501D46200F00664743 /* YJSHttpAnalysis.m */,
+				847AF4511D46200F00664743 /* YJSHttpAssembly.h */,
+				847AF4521D46200F00664743 /* YJSHttpAssembly.m */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -333,8 +333,8 @@
 		847AF4531D46200F00664743 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				847AF4541D46200F00664743 /* YJLog.h */,
-				847AF4551D46200F00664743 /* YJLog.m */,
+				847AF4541D46200F00664743 /* YJSLog.h */,
+				847AF4551D46200F00664743 /* YJSLog.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -342,8 +342,8 @@
 		847AF4561D46200F00664743 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				847AF4571D46200F00664743 /* YJFoundationOther.h */,
-				847AF4581D46200F00664743 /* YJFoundationOther.m */,
+				847AF4571D46200F00664743 /* YJSFoundationOther.h */,
+				847AF4581D46200F00664743 /* YJSFoundationOther.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -351,10 +351,10 @@
 		847AF4591D46200F00664743 /* PerformSelector */ = {
 			isa = PBXGroup;
 			children = (
-				847AF45A1D46200F00664743 /* NSObject+YJPerformSelector.h */,
-				847AF45B1D46200F00664743 /* NSObject+YJPerformSelector.m */,
-				847AF45C1D46200F00664743 /* YJPerformSelector.h */,
-				847AF45D1D46200F00664743 /* YJPerformSelector.m */,
+				847AF45A1D46200F00664743 /* NSObject+YJSPerformSelector.h */,
+				847AF45B1D46200F00664743 /* NSObject+YJSPerformSelector.m */,
+				847AF45C1D46200F00664743 /* YJSPerformSelector.h */,
+				847AF45D1D46200F00664743 /* YJSPerformSelector.m */,
 			);
 			path = PerformSelector;
 			sourceTree = "<group>";
@@ -734,18 +734,18 @@
 				84B252D11CFD44E0000931F2 /* UITextField+InputLength.m in Sources */,
 				84B252D41CFD44E0000931F2 /* YJImagePageViewController.m in Sources */,
 				84B252D31CFD44E0000931F2 /* YJImagePageModel.m in Sources */,
-				847AF4641D46200F00664743 /* YJLog.m in Sources */,
+				847AF4641D46200F00664743 /* YJSLog.m in Sources */,
 				84B252CA1CFD44E0000931F2 /* YJLayoutYAxisAnchor.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				84B252CC1CFD44E0000931F2 /* UIViewController+YJLayoutSupport.m in Sources */,
 				84B252DC1CFD44E0000931F2 /* YJTableViewCell.m in Sources */,
-				847AF4671D46200F00664743 /* YJPerformSelector.m in Sources */,
+				847AF4671D46200F00664743 /* YJSPerformSelector.m in Sources */,
 				8493A2791D6C5E630037F2BD /* YJCKeychain.m in Sources */,
 				8465325B1D5483C5002B26C6 /* YJSTimer.m in Sources */,
-				847AF4631D46200F00664743 /* YJHttpAssembly.m in Sources */,
+				847AF4631D46200F00664743 /* YJSHttpAssembly.m in Sources */,
 				8459985D1D50A32000BD60BC /* YJCBarButtonView.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
-				847AF4651D46200F00664743 /* YJFoundationOther.m in Sources */,
+				847AF4651D46200F00664743 /* YJSFoundationOther.m in Sources */,
 				84B252C51CFD44E0000931F2 /* YJLayoutConstraintAnimate.m in Sources */,
 				8493A27E1D6C5E8C0037F2BD /* YJTSuspensionCellView.m in Sources */,
 				84B252C71CFD44E0000931F2 /* YJLayoutDimension.m in Sources */,
@@ -756,9 +756,9 @@
 				84B252D71CFD44E0000931F2 /* YJPageViewController.m in Sources */,
 				8493A2781D6C5E630037F2BD /* YJCKeychainItem.m in Sources */,
 				84B252CF1CFD44E0000931F2 /* YJCollectionViewDataSource.m in Sources */,
-				847AF4661D46200F00664743 /* NSObject+YJPerformSelector.m in Sources */,
+				847AF4661D46200F00664743 /* NSObject+YJSPerformSelector.m in Sources */,
 				847AF4681D46200F00664743 /* YJSSingletonMCenter.m in Sources */,
-				847AF4621D46200F00664743 /* YJHttpAnalysis.m in Sources */,
+				847AF4621D46200F00664743 /* YJSHttpAnalysis.m in Sources */,
 				84B252C41CFD44E0000931F2 /* NSLayoutConstraint+YJExtend.m in Sources */,
 				84B252CE1CFD44E0000931F2 /* YJCollectionCellObject.m in Sources */,
 			);

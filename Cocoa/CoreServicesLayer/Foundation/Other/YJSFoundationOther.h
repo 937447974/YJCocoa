@@ -1,5 +1,5 @@
 //
-//  YJFoundationOther.h
+//  YJSFoundationOther.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 NSString *YJStringFromClass(Class aClass);
 
 /** Foundation 其他 Framework*/
-@interface YJFoundationOther : NSObject
+@interface YJSFoundationOther : NSObject
 
 @end
 

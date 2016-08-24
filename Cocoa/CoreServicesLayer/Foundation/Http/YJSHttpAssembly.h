@@ -1,5 +1,5 @@
 //
-//  YJHttpAssembly.h
+//  YJSHttpAssembly.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** http链接组装参数*/
-@interface YJHttpAssembly : NSObject
+@interface YJSHttpAssembly : NSObject
 
 /**
  *  http组装（只有参数）
