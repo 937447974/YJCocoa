@@ -2,29 +2,29 @@
 //  YJNavigationBar.m
 //  YJNavigationBar
 //
-//  HomePage:https://github.com/937447974/YJCocoa
+//  HomePage:https://github.com/937447974/YJTocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/7/6.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Copyright © 2016年 YJTocoa. All rights reserved.
 //
 
 #import "YJTNavigationBar.h"
 #import "UIView+YJTViewGeometry.h"
 
-@interface YJCNavigationBar ()
+@interface YJTNavigationBar ()
 
 @property (nonatomic, strong) UILabel *titleLabel; ///< 标题label
 
 @end
 
-@implementation YJCNavigationBar
+@implementation YJTNavigationBar
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJCNavigationBar *nb;
+    static YJTNavigationBar *nb;
     if (!nb) {
-        nb = [[YJCNavigationBar alloc] initWithAppearance];
+        nb = [[YJTNavigationBar alloc] initWithAppearance];
     }
     return nb;
 }
@@ -46,7 +46,7 @@
     frame = CGRectMake(0, 0, 9999, 44);
     self = [super initWithFrame:frame];
     if (self) {
-        YJCNavigationBar *nb = [YJCNavigationBar appearance];
+        YJTNavigationBar *nb = [YJTNavigationBar appearance];
         _titleColor = nb.titleColor;
         _titleFont = nb.titleFont;
         _leftSpacing = nb.leftSpacing;
@@ -95,7 +95,7 @@
         [barButtonView removeFromSuperview];
     }
     [self addSubview:barButtonView];
-    __weak YJCNavigationBar *weakSelf = self;
+    __weak YJTNavigationBar *weakSelf = self;
     barButtonView.reloadDataBlock = ^(BOOL animation) {
         [weakSelf layoutSubviews];
     };

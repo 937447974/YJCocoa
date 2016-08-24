@@ -1,12 +1,12 @@
 //
-//  YJNavigationBar.h
+//  YJTNavigationBar.h
 //  YJNavigationBar
 //
-//  HomePage:https://github.com/937447974/YJCocoa
+//  HomePage:https://github.com/937447974/YJTocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/7/6.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Copyright © 2016年 YJTocoa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 /** 替换UINavigationItem.titleView*/
-@interface YJCNavigationBar : UIView
+@interface YJTNavigationBar : UIView
 
 @property (nonatomic) CGFloat leftSpacing;  ///< 左按钮View和标题的间隔,默认10
 @property (nonatomic) CGFloat rightSpacing; ///< 右按钮View和标题的间隔,默认10
