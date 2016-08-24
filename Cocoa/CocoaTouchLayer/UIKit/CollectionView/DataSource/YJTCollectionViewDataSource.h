@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, YJTCollectionViewCacheCell) {
 
 @property (nonatomic, weak, readonly) UICollectionView *collectionView;       ///< UICollectionView
 @property (nonatomic, weak, readonly) UICollectionViewFlowLayout *flowLayout; ///< 布局Layout
-@property (nonatomic, strong, readonly) YJTCollectionViewDelegate *delegate;   ///< YJTCollectionViewDelegate
+@property (nonatomic, strong, readonly) YJTCollectionViewDelegate *delegate;  ///< YJTCollectionViewDelegate
 
 @property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionHeaderView; ///< 头部View
 @property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionFooterView; ///< 尾部View

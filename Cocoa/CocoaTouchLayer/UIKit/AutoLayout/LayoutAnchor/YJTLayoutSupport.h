@@ -17,7 +17,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 
 /* Constraint creation conveniences. See YJTLayoutAnchor.h for details.
  */
-@property (nonatomic, strong, readonly) YJTLayoutYAxisAnchor *topLayout; ///< 替换topAnchor
+@property (nonatomic, strong, readonly) YJTLayoutYAxisAnchor *topLayout;    ///< 替换topAnchor
 @property (nonatomic, strong, readonly) YJTLayoutYAxisAnchor *bottomLayout; ///< 替换bottomAnchor
 
 /**

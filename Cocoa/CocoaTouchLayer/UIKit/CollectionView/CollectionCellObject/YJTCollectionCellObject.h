@@ -29,8 +29,8 @@ typedef NS_ENUM(NSInteger, YJTCollectionCellCreate) {
 @interface YJTCollectionCellObject : NSObject
 
 @property (nonatomic) id<YJTCollectionCellModel> cellModel; ///< cell对应的VM
-@property (nonatomic) YJTCollectionCellCreate createCell;  ///< 创建cell的方式
-@property (nonatomic, strong, nullable) id userInfo;     ///< 携带的数据
+@property (nonatomic) YJTCollectionCellCreate createCell;   ///< 创建cell的方式
+@property (nonatomic, strong, nullable) id userInfo;        ///< 携带的数据
 
 @property (nonatomic, strong, nullable) NSIndexPath *indexPath; ///< cell所处位置，无须添加，自动填充
 

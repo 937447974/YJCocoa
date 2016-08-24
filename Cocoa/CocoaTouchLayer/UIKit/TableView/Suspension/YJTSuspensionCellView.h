@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJTSuspensionCellView : UIView
 
 @property (nonatomic, weak) YJTTableViewDelegate *tableViewDelegate; ///< YJTTableViewDelegate
-@property (nonatomic) CGFloat contentOffsetY;                       ///< 偏移Y
+
+@property (nonatomic) CGFloat contentOffsetY; ///< 偏移Y
 
 /**
  *  刷新数据

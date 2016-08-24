@@ -30,8 +30,8 @@ typedef NS_ENUM(NSInteger, YJTTableViewCellCreate) {
 @interface YJTTableCellObject : NSObject
 
 @property (nonatomic) id<YJTTableCellModelProtocol> cellModel; ///< cell对应的VM
-@property (nonatomic) YJTTableViewCellCreate createCell;  ///< 创建cell的方式
-@property (nonatomic, strong, nullable) id userInfo;     ///< 携带的自定义数据
+@property (nonatomic) YJTTableViewCellCreate createCell;       ///< 创建cell的方式
+@property (nonatomic, strong, nullable) id userInfo;           ///< 携带的自定义数据
 
 @property (nonatomic) BOOL suspension; ///< 是否悬浮
 
