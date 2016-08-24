@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "YJInputLength.h"
+#import "YJTInputLength.h"
 
 @interface ViewController ()
 
@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.textField.inputLength = 10;
     self.textView.inputLength = 50;
-    NSLog(@"%d", self.textField.inputLength);
+    NSLog(@"%ld", (long)self.textField.inputLength);
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectZero];
     textView.inputLength = 10;
     textView = nil;

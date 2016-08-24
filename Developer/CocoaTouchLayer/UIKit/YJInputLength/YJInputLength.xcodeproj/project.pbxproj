@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8474F5551D6D7ADB00FF894E /* UITextField+YJTInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */; };
+		8474F5561D6D7ADB00FF894E /* UITextView+YJTInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */; };
 		847D07941CF690B200639791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07931CF690B200639791 /* main.m */; };
 		847D07971CF690B200639791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07961CF690B200639791 /* AppDelegate.m */; };
 		847D079A1CF690B200639791 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07991CF690B200639791 /* ViewController.m */; };
 		847D079D1CF690B200639791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D079B1CF690B200639791 /* Main.storyboard */; };
 		847D079F1CF690B200639791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847D079E1CF690B200639791 /* Assets.xcassets */; };
 		847D07A21CF690B200639791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D07A01CF690B200639791 /* LaunchScreen.storyboard */; };
-		847D07AE1CF6927D00639791 /* UITextField+InputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07AD1CF6927D00639791 /* UITextField+InputLength.m */; };
-		847D07B11CF6929700639791 /* UITextView+InputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07B01CF6929700639791 /* UITextView+InputLength.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8474F5501D6D7ADB00FF894E /* UITextField+YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YJTInputLength.h"; sourceTree = "<group>"; };
+		8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YJTInputLength.m"; sourceTree = "<group>"; };
+		8474F5521D6D7ADB00FF894E /* UITextView+YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YJTInputLength.h"; sourceTree = "<group>"; };
+		8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YJTInputLength.m"; sourceTree = "<group>"; };
+		8474F5541D6D7ADB00FF894E /* YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTInputLength.h; sourceTree = "<group>"; };
 		847D078F1CF690B100639791 /* YJInputLength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJInputLength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847D07931CF690B200639791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847D07951CF690B200639791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,11 +33,6 @@
 		847D079E1CF690B200639791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847D07A11CF690B200639791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847D07A31CF690B200639791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		847D07AB1CF6924400639791 /* YJInputLength.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJInputLength.h; sourceTree = "<group>"; };
-		847D07AC1CF6927D00639791 /* UITextField+InputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+InputLength.h"; sourceTree = "<group>"; };
-		847D07AD1CF6927D00639791 /* UITextField+InputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+InputLength.m"; sourceTree = "<group>"; };
-		847D07AF1CF6929700639791 /* UITextView+InputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+InputLength.h"; sourceTree = "<group>"; };
-		847D07B01CF6929700639791 /* UITextView+InputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+InputLength.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +98,11 @@
 		847D07AA1CF6922600639791 /* InputLength */ = {
 			isa = PBXGroup;
 			children = (
-				847D07AB1CF6924400639791 /* YJInputLength.h */,
-				847D07AC1CF6927D00639791 /* UITextField+InputLength.h */,
-				847D07AD1CF6927D00639791 /* UITextField+InputLength.m */,
-				847D07AF1CF6929700639791 /* UITextView+InputLength.h */,
-				847D07B01CF6929700639791 /* UITextView+InputLength.m */,
+				8474F5501D6D7ADB00FF894E /* UITextField+YJTInputLength.h */,
+				8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */,
+				8474F5521D6D7ADB00FF894E /* UITextView+YJTInputLength.h */,
+				8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */,
+				8474F5541D6D7ADB00FF894E /* YJTInputLength.h */,
 			);
 			name = InputLength;
 			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/InputLength;
@@ -178,10 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847D07AE1CF6927D00639791 /* UITextField+InputLength.m in Sources */,
+				8474F5561D6D7ADB00FF894E /* UITextView+YJTInputLength.m in Sources */,
 				847D079A1CF690B200639791 /* ViewController.m in Sources */,
 				847D07971CF690B200639791 /* AppDelegate.m in Sources */,
-				847D07B11CF6929700639791 /* UITextView+InputLength.m in Sources */,
+				8474F5551D6D7ADB00FF894E /* UITextField+YJTInputLength.m in Sources */,
 				847D07941CF690B200639791 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +333,7 @@
 				847D07A81CF690B200639791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
