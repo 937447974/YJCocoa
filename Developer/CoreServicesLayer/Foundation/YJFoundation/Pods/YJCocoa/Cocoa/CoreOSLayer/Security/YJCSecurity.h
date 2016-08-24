@@ -1,6 +1,6 @@
 //
-//  YJSecurity.h
-//  YJSecurity
+//  YJCSecurity.h
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -10,7 +10,7 @@
 //
 
 // 钥匙串管理
-#import "YJKeychain.h"
+#import "YJCKeychain.h"
 
 // 生成指定位数的随机密码
-#import "YJRandomization.h"
+#import "YJCRandomization.h"

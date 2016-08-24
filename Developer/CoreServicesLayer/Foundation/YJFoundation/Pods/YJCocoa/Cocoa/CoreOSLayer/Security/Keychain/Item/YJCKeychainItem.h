@@ -1,6 +1,6 @@
 //
-//  YJKeychainItem.h
-//  YJSecurity
+//  YJCKeychainItem.h
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** YJKeychainItem的携带属性*/
-@protocol YJKItemAttribute <NSObject>
+@protocol YJCKItemAttribute <NSObject>
 
 @optional
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** kSecClassGenericPassword携带属性*/
-@protocol YJKItemGenericPasswordAttribute <YJKItemAttribute>
+@protocol YJCKItemGenericPasswordAttribute <YJCKItemAttribute>
 
 @optional
 
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** Keychain存放item的抽象基类*/
-@interface YJKeychainItem : NSObject
+@interface YJCKeychainItem : NSObject
 
 // 框架使用,外部不建议使用
 @property (nonatomic, strong) NSMutableDictionary *selectDict; ///< 查询字典

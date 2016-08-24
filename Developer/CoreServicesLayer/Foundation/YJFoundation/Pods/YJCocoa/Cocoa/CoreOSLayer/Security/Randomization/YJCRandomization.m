@@ -1,6 +1,6 @@
 //
-//  YJRandomization.m
-//  YJSecurity
+//  YJCRandomization.m
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJRandomization.h"
+#import "YJCRandomization.h"
 #import <Security/Security.h>
 
 NSString *randomizationUL(size_t count, NSString *format) {

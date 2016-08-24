@@ -1,6 +1,6 @@
 //
-//  YJKeychain.m
-//  YJSecurity
+//  YJCKeychain.m
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,10 +9,10 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJKeychain.h"
+#import "YJCKeychain.h"
 
 // 查询首个匹配的KeychainItem
-OSStatus KeychainItemSelect(YJKeychainItem *item) {
+OSStatus KeychainItemSelect(YJCKeychainItem *item) {
     [item.selectDict setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
     [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     CFDictionaryRef result = NULL;
@@ -28,7 +28,7 @@ OSStatus KeychainItemSelect(YJKeychainItem *item) {
 }
 
 // 查询所有匹配的YJKeychainItem
-NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus * _Nullable status) {
+NSArray<YJCKeychainItem *> * KeychainItemSelectAll(YJCKeychainItem *item, OSStatus * _Nullable status) {
     [item.selectDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
     [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     CFArrayRef result = NULL;
@@ -36,11 +36,11 @@ NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus
     if (status) {
         status = &cm;
     }
-    NSMutableArray<YJKeychainItem *> *array = [NSMutableArray array];
+    NSMutableArray<YJCKeychainItem *> *array = [NSMutableArray array];
     if (cm == errSecSuccess) {
         NSArray *rArray = (__bridge NSArray *)(result);
         for (NSDictionary *dict in rArray) {
-            YJKeychainItem *rItem = [item.class new];
+            YJCKeychainItem *rItem = [item.class new];
             rItem.strongDict = [NSMutableDictionary dictionaryWithDictionary:dict];
             [array addObject:rItem];
         }
@@ -52,9 +52,9 @@ NSArray<YJKeychainItem *> * KeychainItemSelectAll(YJKeychainItem *item, OSStatus
 }
 
 // 保存YJKeychainItem
-OSStatus KeychainItemSave(YJKeychainItem *item) {    
+OSStatus KeychainItemSave(YJCKeychainItem *item) {
     // pull
-    YJKeychainItem *mcItem = [item mutableCopy];
+    YJCKeychainItem *mcItem = [item mutableCopy];
     OSStatus status = KeychainItemSelect(mcItem);
     // push
     [item.selectDict removeObjectForKey:(id)kSecMatchLimit];
@@ -76,7 +76,7 @@ OSStatus KeychainItemSave(YJKeychainItem *item) {
 }
 
 // 删除YJKeychainItem
-OSStatus KeychainItemDelete(YJKeychainItem *item) {
+OSStatus KeychainItemDelete(YJCKeychainItem *item) {
     [item.selectDict removeObjectForKey:(id)kSecMatchLimit];
     [item.selectDict removeObjectForKey:(id)kSecReturnAttributes];
     OSStatus status = SecItemDelete((CFDictionaryRef)item.selectDict);

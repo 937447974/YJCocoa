@@ -1,6 +1,6 @@
 //
-//  YJKeychainGPItem.m
-//  YJSecurity
+//  YJCKeychainGPItem.m
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJKeychainGPItem.h"
+#import "YJCKeychainGPItem.h"
 
-@implementation YJKeychainGPItem
+@implementation YJCKeychainGPItem
 
 @end

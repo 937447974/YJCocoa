@@ -1,5 +1,5 @@
 //
-//  YJSystem.m
+//  YJCSystem.m
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,18 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSystem.h"
+#import "YJCSystem.h"
 
-// 主线程运行
+// 主线程运行,同步
+void dispatch_sync_main(dispatch_block_t block) {
+    if ([[NSThread currentThread] isMainThread]) {
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
+// 主线程运行,异步
 void dispatch_async_main(dispatch_block_t block) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
@@ -38,8 +47,3 @@ void dispatch_async_concurrent(dispatch_block_t block) {
     // 并发队列：有多个线程，操作进来之后它会将这些队列安排在可用的处理器上，同时保证先进来的任务优先处理
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
-
-
-@implementation YJSystem
-
-@end

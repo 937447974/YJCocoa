@@ -2,6 +2,10 @@ YJ系列开源库
 
 1. 支持iOS6.0和Swift开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
+3. 每一层的类前缀都不同，使用不同类时即可知道其所在层。
+	1. Cocoa Touch Layer类前缀为YJT
+	2. Core Services Layer类前缀为YJS
+	3. Core OS Layer 类前缀为YJC
 
 整体架构和苹果类似,每一层都有各自的开源库。
 
@@ -15,9 +19,9 @@ YJ系列开源库
 
 UITextField和UITextView可输入长度控制。
 
-###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/UIViewGeometry
+###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry
 
-UIView(UIViewGeometry)相关扩展，可快速设置frame。
+UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
 ###1.1.3 YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
 
@@ -102,6 +106,16 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
+###2.1.5 YJCocoa/CoreServicesLayer/Foundation/Timer
+
+替换NSTimer实现相关计时器功能。
+
+多种生命周期：
+
+1. 随着应用的回收而回收。
+2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
+
+
 #3 YJCocoa/CoreOSLayer
 
 ##3.1 YJCocoa/CoreOSLayer/System
@@ -172,6 +186,14 @@ YJ技术支持群：557445088
 | 2016-07-29 | 2.3.0 | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
 | 2016-08-02 | 2.3.0 | ‘CoreOSLayer/Security/Keychain’库上线，面向对象管理Keychain，支持自定义存储数据。 |
 | 2016-08-02 | 2.3.0 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
+| 2016-08-05 | 2.4.0 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。 |
+| 2016-08-05 | 2.4.0 | Timer上线，替换NSTimer实现相关计时器功能。|
+| 2016-08-05 | 2.4.0 | System升级，新增同步主线程方法dispatch_sync_main。|
+| 2016-08-10 | 2.4.1 | AutoLayout修复bug：二次执行相同代码无法修改约束。 |
+| 2016-08-17 | 2.4.1 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。 |
+| 2016-08-19 | 2.4.2 | ViewGeometry升级，支持快速设置UIView.bounds。|
+| 2016-08-23 | 2.4.2 | TableView升级，支持快速实现悬浮cell。|
+| 2016-08-24 | 3.0.0 | YJCocoa架构升级,每一层都有特定的类前缀。 |
 
 ##Copyright
 

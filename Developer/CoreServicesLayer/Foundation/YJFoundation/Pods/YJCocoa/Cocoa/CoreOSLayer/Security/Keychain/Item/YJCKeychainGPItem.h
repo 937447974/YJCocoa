@@ -1,6 +1,6 @@
 //
-//  YJKeychainGPItem.h
-//  YJSecurity
+//  YJCKeychainGPItem.h
+//  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,12 +9,12 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJKeychainItem.h"
+#import "YJCKeychainItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 存储kSecClassGenericPassword(一般密码)数据*/
-@interface YJKeychainGPItem : YJKeychainItem <YJKItemGenericPasswordAttribute>
+@interface YJCKeychainGPItem : YJCKeychainItem <YJCKItemGenericPasswordAttribute>
 
 @end
 

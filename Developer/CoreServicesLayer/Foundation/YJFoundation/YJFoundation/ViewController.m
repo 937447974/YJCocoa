@@ -7,12 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "YJFoundation.h"
-#import "YJSystem.h"
-#import "YJHttpAnalysis.h"
-#import "YJLog.h"
+#import "YJSFoundation.h"
+#import "YJCSystem.h"
 
-#define ViewControllerS (ViewController *)[YJSingletonMC registerStrongSingleton:[ViewController class]]
+#define ViewControllerS (ViewController *)[YJSSingletonMC registerStrongSingleton:[ViewController class]]
 
 @interface ViewController ()
 
@@ -22,10 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self testLog];
-//    [self testSingleton];
-//    [self testHttp];
-//    [self testPerformSelector];
+    [self testLog];
+    [self testSingleton];
+    [self testHttp];
+    [self testPerformSelector];
     [self testTimer];
 }
 
@@ -47,7 +45,7 @@
             NSLog(@"%@", ViewControllerS);
         });
         dispatch_async_concurrent(^{
-            NSLog(@"%@", [YJSingletonMC registerStrongSingleton:[YJSingletonMCenter class]]);
+            NSLog(@"%@", [YJSSingletonMC registerStrongSingleton:[YJSSingletonMCenter class]]);
         });
     }
     NSLog(@"dispatch_queue_create");
@@ -55,17 +53,17 @@
 
 #pragma mark - http相关
 - (void)testHttp {
-    NSString *http = [YJHttpAssembly assemblyHttp:@"https://www.baidu.com/s" params:@{@"name":@"阳君", @"qq":@"937447974"}];
+    NSString *http = [YJSHttpAssembly assemblyHttp:@"https://www.baidu.com/s" params:@{@"name":@"阳君", @"qq":@"937447974"}];
     NSLog(@"%@", http);
-    NSLog(@"%@", [YJHttpAnalysis analysisParams:http]);
-    NSLog(@"%@", [YJHttpAnalysis analysisParams:http forKey:@"name"]);
+    NSLog(@"%@", [YJSHttpAnalysis analysisParams:http]);
+    NSLog(@"%@", [YJSHttpAnalysis analysisParams:http forKey:@"name"]);
 }
 
 #pragma mark - 安全执行Selector
 - (void)testPerformSelector {
     [self performSelector:@selector(testPerformSelector1) withObjects:nil];
     [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
-    YJPerformSelector *result = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
+    YJSPerformSelector *result = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
     NSLog(@"%@", result.result);
 }
 
