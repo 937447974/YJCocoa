@@ -10,7 +10,7 @@
 //
 
 #import "ViewController.h"
-#import "YJAutoLayout.h"
+#import "YJTAutoLayout.h"
 
 @interface ViewController ()
 
