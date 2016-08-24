@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    [self testRadom];
-    [self testKeyChain];
+    [self testRadom];
+//    [self testKeyChain];
 }
 
 - (void)testRadom {
