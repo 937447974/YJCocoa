@@ -15,7 +15,7 @@
 
 @implementation YJTestCollectionViewCell
 
-- (void)reloadDataAsyncWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
+- (void)reloadDataAsyncWithCellObject:(YJTCollectionCellObject *)cellObject delegate:(YJTCollectionViewDelegate *)delegate {
     [super reloadDataAsyncWithCellObject:cellObject delegate:delegate];
     YJTestCollectionCellModel *cellModel = cellObject.cellModel;
     self.label.text = cellModel.index;

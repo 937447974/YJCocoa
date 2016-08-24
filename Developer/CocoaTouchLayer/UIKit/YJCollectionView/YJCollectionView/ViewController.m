@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "YJCollectionView.h"
+#import "YJTCollectionView.h"
 #import "YJTestCollectionViewCell.h"
-#import "YJSystem.h"
+#import "YJCSystem.h"
 #import "YJTestCollectionReusableView.h"
 
-@interface ViewController () <YJCollectionViewCellProtocol>
+@interface ViewController () <YJTCollectionViewCellProtocol>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) YJCollectionViewDataSource *dataSoutce; ///< 数据源管理
+@property (nonatomic, strong) YJTCollectionViewDataSource *dataSoutce; ///< 数据源管理
 
 @end
 
@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSoutce = [[YJCollectionViewDataSource alloc] initWithCollectionView:self.collectionView];
+    self.dataSoutce = [[YJTCollectionViewDataSource alloc] initWithCollectionView:self.collectionView];
     // 设置相关属性
     self.dataSoutce.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     self.dataSoutce.flowLayout.minimumLineSpacing = 5;
@@ -43,18 +43,18 @@
     [self.dataSoutce.headerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
     YJTestCollectionReusableViewModel *fvm = [[YJTestCollectionReusableViewModel alloc] init];
     fvm.backgroundColor = [UIColor redColor];
-    YJCollectionCellObject *co = [YJTestCollectionReusableView cellObjectWithCellModel:fvm];
-    co.createCell = YJCollectionCellCreateClass;
+    YJTCollectionCellObject *co = [YJTestCollectionReusableView cellObjectWithCellModel:fvm];
+    co.createCell = YJTCollectionCellCreateClass;
     [self.dataSoutce.footerDataSource addObject:co];
 }
 
 #pragma mark - YJCollectionViewCellProtocol
-- (void)collectionViewDidSelectCellWithCellObject:(YJCollectionCellObject *)cellObject collectionViewCell:(nullable UICollectionViewCell *)cell {
+- (void)collectionViewDidSelectCellWithCellObject:(YJTCollectionCellObject *)cellObject collectionViewCell:(nullable UICollectionViewCell *)cell {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self.collectionView reloadData];
 }
 
-- (void)collectionViewLoadingPageData:(YJCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell {
+- (void)collectionViewLoadingPageData:(YJTCollectionCellObject *)cellObject willDisplayCell:(UICollectionViewCell *)cell {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     NSLog(@"%@", self.dataSoutce.collectionHeaderView);
     NSLog(@"%@", self.dataSoutce.collectionFooterView);
@@ -69,7 +69,7 @@
     });
 }
 
-- (void)collectionView:(UICollectionView *)collectionView scroll:(YJCollectionViewScroll)scroll {
+- (void)collectionView:(UICollectionView *)collectionView scroll:(YJTCollectionViewScroll)scroll {
     NSLog(@"%lu", scroll);
 }
 

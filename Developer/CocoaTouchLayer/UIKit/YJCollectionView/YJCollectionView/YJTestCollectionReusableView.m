@@ -14,14 +14,14 @@
 
 @implementation YJTestCollectionReusableView
 
-+ (CGSize)collectionViewDelegate:(YJCollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJCollectionCellObject *)cellObject {
-    if (cellObject.createCell == YJCollectionCellCreateClass) {
++ (CGSize)collectionViewDelegate:(YJTCollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJTCollectionCellObject *)cellObject {
+    if (cellObject.createCell == YJTCollectionCellCreateClass) {
         return CGSizeMake(10, 100);
     }
     return [super collectionViewDelegate:delegate viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
 }
 
-- (void)reloadDataAsyncWithCellObject:(YJCollectionCellObject *)cellObject delegate:(YJCollectionViewDelegate *)delegate {
+- (void)reloadDataAsyncWithCellObject:(YJTCollectionCellObject *)cellObject delegate:(YJTCollectionViewDelegate *)delegate {
     YJTestCollectionReusableViewModel *cm = cellObject.cellModel;
     self.backgroundColor = cm.backgroundColor;
 }

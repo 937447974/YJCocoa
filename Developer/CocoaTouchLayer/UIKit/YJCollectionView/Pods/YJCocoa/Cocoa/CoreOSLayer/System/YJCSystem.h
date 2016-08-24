@@ -1,16 +1,15 @@
 //
-//  YJSystem.h
+//  YJCSystem.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/11.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 强引用*/
 #define __strongSelf __strong __typeof(self) strongSelf = weakSelf;
 
+/** 主线程运行,同步执行*/
+FOUNDATION_EXPORT void dispatch_sync_main(dispatch_block_t block);
 /** 主线程运行,异步UI执行*/
 FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
 
@@ -33,10 +34,5 @@ FOUNDATION_EXPORT void dispatch_after_main(int64_t delayInSeconds, dispatch_bloc
 
 /** 并发队列执行*/
 FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
-
-/** System Framework*/
-@interface YJSystem : NSObject
-
-@end
 
 NS_ASSUME_NONNULL_END

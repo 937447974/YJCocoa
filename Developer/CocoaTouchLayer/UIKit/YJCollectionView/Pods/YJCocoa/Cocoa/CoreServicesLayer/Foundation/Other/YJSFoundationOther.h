@@ -1,5 +1,5 @@
 //
-//  YJFoundationOther.h
+//  YJSFoundationOther.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -7,7 +7,7 @@
 //
 //
 //  Created by 阳君 on 16/5/25.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 NSString *YJStringFromClass(Class aClass);
 
 /** Foundation 其他 Framework*/
-@interface YJFoundationOther : NSObject
+@interface YJSFoundationOther : NSObject
 
 @end
 

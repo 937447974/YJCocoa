@@ -1,17 +1,17 @@
 //
-//  UIView+YJViewGeometry.m
+//  UIView+YJTViewGeometry.m
 //  YJViewGeometry
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/5/31.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 
-@implementation UIView (YJViewGeometry)
+@implementation UIView (YJTViewGeometry)
 
 
 #pragma mark .frame.origin.y
@@ -76,28 +76,6 @@
     self.frame = frame;
 }
 
-#pragma mark -
-- (CGFloat)centerXFrame {
-    return self.center.x;
-}
-
-- (void)setCenterXFrame:(CGFloat)centerXFrame {
-    CGPoint center = self.center;
-    center.x = centerXFrame;
-    self.center = center;
-}
-
-#pragma mark .center.y
-- (CGFloat)centerYFrame {
-    return self.center.y;
-}
-
-- (void)setCenterYFrame:(CGFloat)centerYFrame {
-    CGPoint center = self.center;
-    center.y = centerYFrame;
-    self.center = center;
-}
-
 #pragma mark - .frame.origin
 - (CGPoint)originFrame {
     return self.frame.origin;
@@ -132,6 +110,74 @@
         superview = superview.superview;
     }
     return origin;
+}
+
+#pragma mark - bounds
+#pragma mark .bounds.origin.y
+- (CGFloat)topBounds {
+    return self.bounds.origin.y;
+}
+
+- (void)setTopBounds:(CGFloat)topBounds {
+    CGRect bounds = self.bounds;
+    bounds.origin.y = topBounds;
+    self.bounds = bounds;
+}
+
+#pragma mark .bounds.origin.x
+- (CGFloat)leadingBounds {
+    return self.bounds.origin.x;
+}
+
+- (void)setLeadingBounds:(CGFloat)leadingBounds {
+    CGRect bounds = self.bounds;
+    bounds.origin.x = leadingBounds;
+    self.bounds = bounds;
+}
+
+#pragma mark .bounds.size.width
+- (CGFloat)widthBounds {
+    return self.bounds.size.width;
+}
+
+- (void)setWidthBounds:(CGFloat)widthBounds {
+    CGRect bounds = self.bounds;
+    bounds.size.width = widthBounds;
+    self.bounds = bounds;
+}
+
+#pragma mark bounds.size.height
+- (CGFloat)heightBounds {
+    return self.bounds.size.height;
+}
+
+- (void)setHeightBounds:(CGFloat)heightBounds {
+    CGRect bounds = self.bounds;
+    bounds.size.height = heightBounds;
+    self.bounds = bounds;
+}
+
+#pragma mark - center
+#pragma mark .center.x
+- (CGFloat)centerXFrame {
+    return self.center.x;
+}
+
+- (void)setCenterXFrame:(CGFloat)centerXFrame {
+    CGPoint center = self.center;
+    center.x = centerXFrame;
+    self.center = center;
+}
+
+#pragma mark .center.y
+- (CGFloat)centerYFrame {
+    return self.center.y;
+}
+
+- (void)setCenterYFrame:(CGFloat)centerYFrame {
+    CGPoint center = self.center;
+    center.y = centerYFrame;
+    self.center = center;
 }
 
 @end
