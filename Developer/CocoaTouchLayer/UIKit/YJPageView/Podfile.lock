@@ -1,18 +1,18 @@
 PODS:
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout (2.0.1):
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (= 2.0.1)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (= 2.0.1)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (= 2.0.1)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (= 2.0.1)
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (2.0.1)
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (2.0.1):
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout (3.0.0):
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (= 3.0.0)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (= 3.0.0)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (= 3.0.0)
+    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (= 3.0.0)
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (3.0.0)
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (3.0.0):
     - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (2.0.1):
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (3.0.0):
     - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (2.0.1):
+  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (3.0.0):
     - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
-  - YJCocoa/CoreOSLayer/System (2.0.1)
-  - YJCocoa/CoreServicesLayer/Foundation/Other (2.0.1)
+  - YJCocoa/CoreOSLayer/System (3.0.0)
+  - YJCocoa/CoreServicesLayer/Foundation/Other (3.0.0)
 
 DEPENDENCIES:
   - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
@@ -20,6 +20,6 @@ DEPENDENCIES:
   - YJCocoa/CoreServicesLayer/Foundation/Other
 
 SPEC CHECKSUMS:
-  YJCocoa: 2c0579be37422e726de6f0df354530065ecf5daf
+  YJCocoa: ec4f19e1f73dddd4f8257b6816531bc2aa697e98
 
 COCOAPODS: 0.39.0
