@@ -1,6 +1,6 @@
 //
-//  YJCollectionCellObject.m
-//  YJCollectionView
+//  YJTCollectionCellObject.m
+//  YJTCollectionView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,10 +9,10 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJCollectionCellObject.h"
+#import "YJTCollectionCellObject.h"
 #import "YJSFoundationOther.h"
 
-@implementation YJCollectionCellObject
+@implementation YJTCollectionCellObject
 
 - (instancetype)initWithCollectionViewCellClass:(Class)cellClass {
     self = [super init];

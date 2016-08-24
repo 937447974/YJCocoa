@@ -1,5 +1,5 @@
 //
-//  YJCollectionView.h
+//  YJTCollectionView.h
 //  YJCollectionView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJCollectionViewCell.h"
-#import "YJCollectionCellObject.h"
-#import "YJCollectionViewDataSource.h"
-#import "YJCollectionViewDelegate.h"
+#import "YJTCollectionViewCell.h"
+#import "YJTCollectionCellObject.h"
+#import "YJTCollectionViewDataSource.h"
+#import "YJTCollectionViewDelegate.h"
