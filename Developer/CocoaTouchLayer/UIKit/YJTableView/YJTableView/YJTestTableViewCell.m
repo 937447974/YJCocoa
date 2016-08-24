@@ -1,6 +1,6 @@
 //
 //  YJTestTableViewCell.m
-//  YJTableView
+//  YJTTableView
 //
 //  Created by admin on 16/5/21.
 //  Copyright © 2016年 YJ. All rights reserved.
@@ -18,11 +18,11 @@
 
 @implementation YJTestTableViewCell
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTableCellObject *)cellObject {
++ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTTableCellObject *)cellObject {
     return 2*cellObject.indexPath.row+40;
 }
 
-- (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+- (void)reloadDataSyncWithCellObject:(YJTTableCellObject *)cellObject tableViewDelegate:(YJTTableViewDelegate *)tableViewDelegate {
     [super reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;

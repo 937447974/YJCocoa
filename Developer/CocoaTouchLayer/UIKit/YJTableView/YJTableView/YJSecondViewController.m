@@ -1,6 +1,6 @@
 //
 //  YJSecondViewController.m
-//  YJTableViewFactory
+//  YJTTableViewFactory
 //
 //  Created by 阳君 on 16/3/26.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
@@ -8,14 +8,14 @@
 
 #import "YJSecondViewController.h"
 #import "YJTestTableViewCell.h"
-#import "UIView+YJViewGeometry.h"
+#import "UIView+YJTViewGeometry.h"
 
 @interface YJSecondViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 // 需要强引用
-@property (nonatomic, strong) YJTableViewDataSource *dataSourceGrouped;
+@property (nonatomic, strong) YJTTableViewDataSource *dataSourceGrouped;
 
 @end
 
@@ -26,8 +26,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.widthFrame, self.view.heightFrame-150) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
-    self.dataSourceGrouped = [[YJTableViewDataSource alloc] initWithTableView:self.tableView];
-    self.dataSourceGrouped.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightIndexPath;
+    self.dataSourceGrouped = [[YJTTableViewDataSource alloc] initWithTableView:self.tableView];
+    self.dataSourceGrouped.tableViewDelegate.cacheHeightStrategy = YJTTableViewCacheHeightIndexPath;
 //    self.tableView.delegate = self;
     // 测试数据
     for (int i=0; i<3; i++) {
@@ -36,7 +36,7 @@
             // 封装模型
             YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
-            YJTableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
+            YJTTableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
             co.suspension = j%10 == 0;
             // 填充数据源
             [array addObject:co];
