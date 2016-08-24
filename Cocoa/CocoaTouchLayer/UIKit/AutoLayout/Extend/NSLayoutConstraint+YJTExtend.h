@@ -32,7 +32,7 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
  *
  *  @return void
  */
-- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(nullable YJConstraintAnimateCompletion)completion;
+- (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(nullable YJTConstraintAnimateCompletion)completion;
 
 /**
  *  取消动画修改约束值
