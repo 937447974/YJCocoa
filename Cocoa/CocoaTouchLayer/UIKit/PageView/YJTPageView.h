@@ -1,6 +1,6 @@
 //
-//  YJPageView.h
-//  YJPageView
+//  YJTPageView.h
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -10,37 +10,37 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJPageViewObject.h"
-#import "YJPageViewController.h"
+#import "YJTPageViewObject.h"
+#import "YJTPageViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 界面显示情况*/
-typedef NS_ENUM(NSInteger, YJPageViewAppear) {
-    YJPageViewAppearWill, ///< viewWillAppear
-    YJPageViewAppearDid   ///< viewDidAppear
+typedef NS_ENUM(NSInteger, YJTPageViewAppear) {
+    YJTPageViewAppearWill, ///< viewWillAppear
+    YJTPageViewAppearDid   ///< viewDidAppear
 };
 
-/** YJPageViewController显示通知*/
-typedef void (^ YJPageViewAppearBlock)(YJPageViewController *pageVC, YJPageViewAppear appear);
-/** YJPageViewController点击通知*/
-typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
+/** YJTPageViewController显示通知*/
+typedef void (^ YJTPageViewAppearBlock)(YJTPageViewController *pageVC, YJTPageViewAppear appear);
+/** YJTPageViewController点击通知*/
+typedef void (^ YJTPageViewDidSelectBlock)(YJTPageViewController *pageVC);
 
 
 /** page view*/
-@interface YJPageView : UIView
+@interface YJTPageView : UIView
 
 @property (nonatomic) BOOL isLoop;           ///< 是否循环展示、默认NO不循环
 @property (nonatomic) BOOL isDisableScrool;  ///< 是否取消用户手势滚动
 @property (nonatomic) BOOL isDisableBounces; ///< 是否取消阻力效果（YES时，isLoop自动设为NO）
 @property (nonatomic) NSTimeInterval timeInterval; ///< 轮播转动时间间隔（0停止；>0时开启，自动设置isLoop=YES,isDisableBounces=NO）
 @property (nonatomic) BOOL isTimeLoopAnimatedStop; ///< 轮播时，是否动画切换（默认NO，开启动画切换）
-@property (nonatomic, copy) YJPageViewAppearBlock pageViewAppear;       ///< YJPageViewController显示通知
-@property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect; ///< YJPageViewController点击通知
-@property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
+@property (nonatomic, copy) YJTPageViewAppearBlock pageViewAppear;       ///< YJTPageViewController显示通知
+@property (nonatomic, copy) YJTPageViewDidSelectBlock pageViewDidSelect; ///< YJTPageViewController点击通知
+@property (nonatomic, strong) NSMutableArray<YJTPageViewObject *> *dataSource; ///< 数据源
 @property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
 @property (nonatomic, strong, readonly) UIPageControl *pageControl;   ///< 。。。提示
-@property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJPageViewController*> *pageCache; ///< 页面缓存
+@property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJTPageViewController*> *pageCache; ///< 页面缓存
 
 /**
  *  修改pageVC时可使用此方法

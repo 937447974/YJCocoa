@@ -1,6 +1,6 @@
 //
-//  YJPageViewObject.h
-//  YJPageView
+//  YJTPageViewObject.h
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -14,25 +14,25 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** PageView模型协议*/
-@protocol YJPageViewModelProtocol <NSObject>
+@protocol YJTPageViewModelProtocol <NSObject>
 
 @end
 
 /** pageView对应的模型封装*/
-@interface YJPageViewObject : NSObject
+@interface YJTPageViewObject : NSObject
 
-@property (nonatomic) id<YJPageViewModelProtocol> pageModel; ///< PageView对应的VM
+@property (nonatomic) id<YJTPageViewModelProtocol> pageModel; ///< PageView对应的VM
 @property (nonatomic, strong, nullable) id userInfo;         ///< 携带的数据
 
 @property (nonatomic) NSInteger pageIndex;       ///< 当前页码，无须添加，自动填充
 @property (nonatomic, readonly) Class pageClass; ///< PageView对应的类
 
 /**
- *  初始化YJPageViewObject
+ *  初始化YJTPageViewObject
  *
- *  @param pageClass YJPageViewController对应的类
+ *  @param pageClass YJTPageViewController对应的类
  *
- *  @return YJPageViewObject
+ *  @return YJTPageViewObject
  */
 - (instancetype)initWithPageClass:(Class)pageClass;
 

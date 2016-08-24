@@ -1,6 +1,6 @@
 //
-//  YJImagePageViewController.h
-//  YJPageView
+//  YJTImagePageViewController.h
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,10 +9,10 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJImagePageModel.h"
+#import "YJTImagePageModel.h"
 
 /** UIImageView样式*/
-@interface YJImagePageViewController : YJPageViewController
+@interface YJTImagePageViewController : YJTPageViewController
 
 // 可通过imageView.topSpaceToSuper(0).bottomSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0)修改位置
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

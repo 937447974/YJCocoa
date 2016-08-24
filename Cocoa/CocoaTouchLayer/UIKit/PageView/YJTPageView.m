@@ -1,6 +1,6 @@
 //
-//  YJPageView.m
-//  YJPageView
+//  YJTPageView.m
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,11 +9,11 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJPageView.h"
+#import "YJTPageView.h"
 #import "YJTAutoLayout.h"
 #import "YJSFoundationOther.h"
 
-@interface YJPageView () <UIPageViewControllerDataSource> {
+@interface YJTPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
     UIPageControl *_pageControl;   ///< pageControl的备份
     NSInteger _appearWillIndex;    ///< 页面将要显示
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation YJPageView
+@implementation YJTPageView
 
 #pragma mark - 设置UIPageViewController
 - (void)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<NSString *,id> *)options {
@@ -49,8 +49,8 @@
 
 #pragma mark 前往指定界面
 - (void)gotoPageWithIndex:(NSInteger)pageIndex animated:(BOOL)animated completion:(void (^)(BOOL))completion {
-    NSMutableArray<YJPageViewController *> *array = [NSMutableArray array];
-    YJPageViewController *pvc = [self pageViewControllerAtIndex:pageIndex];
+    NSMutableArray<YJTPageViewController *> *array = [NSMutableArray array];
+    YJTPageViewController *pvc = [self pageViewControllerAtIndex:pageIndex];
     if (!pvc) {
         return;
     }
@@ -87,8 +87,8 @@
     [self gotoPageWithIndex:_appearDidIndex+1 animated:!self.isTimeLoopAnimatedStop completion:nil];
 }
 
-#pragma mark 获取指定位置的YJPageViewController
-- (YJPageViewController *)pageViewControllerAtIndex:(NSInteger)pageIndex {
+#pragma mark 获取指定位置的YJTPageViewController
+- (YJTPageViewController *)pageViewControllerAtIndex:(NSInteger)pageIndex {
     // 数据校验
     if (self.dataSource.count == 0) {
         return nil;
@@ -102,11 +102,11 @@
     } else if (pageIndex == self.dataSource.count){
         pageIndex = 0;
     }
-    YJPageViewObject *pageVO = self.dataSource[pageIndex];
+    YJTPageViewObject *pageVO = self.dataSource[pageIndex];
     pageVO.pageIndex = pageIndex;    
     // 页面缓存
     NSNumber *cacheKey = [NSNumber numberWithInteger:pageIndex];
-    YJPageViewController *pageVC = [self.pageCache objectForKey:cacheKey];
+    YJTPageViewController *pageVC = [self.pageCache objectForKey:cacheKey];
     if (!pageVC) { // 未缓存，则初始化
         pageVC = [[pageVO.pageClass alloc] init];
         [self.pageCache setObject:pageVC forKey:cacheKey];
@@ -167,12 +167,12 @@
 
 #pragma mark - UIPageViewControllerDataSource
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    YJPageViewController *pageVC = (YJPageViewController *)viewController;
+    YJTPageViewController *pageVC = (YJTPageViewController *)viewController;
     return [self pageViewControllerAtIndex:pageVC.pageViewObject.pageIndex - 1];
 }
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    YJPageViewController *pageVC = (YJPageViewController *)viewController;
+    YJTPageViewController *pageVC = (YJTPageViewController *)viewController;
     return [self pageViewControllerAtIndex:pageVC.pageViewObject.pageIndex + 1];
 }
 
@@ -205,29 +205,29 @@
     return _scrollView;
 }
 
-- (NSMutableArray<YJPageViewObject *> *)dataSource {
+- (NSMutableArray<YJTPageViewObject *> *)dataSource {
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
     }
     return _dataSource;
 }
 
-- (NSMutableDictionary<NSNumber *,YJPageViewController *> *)pageCache {
+- (NSMutableDictionary<NSNumber *,YJTPageViewController *> *)pageCache {
     if (!_pageCache) {
         _pageCache = [NSMutableDictionary dictionary];
     }
     return _pageCache;
 }
 
-- (YJPageViewAppearBlock)pageViewAppear {
-    __weak YJPageViewAppearBlock weakBlock = _pageViewAppear;
-    YJPageViewAppearBlock pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appeear) {
+- (YJTPageViewAppearBlock)pageViewAppear {
+    __weak YJTPageViewAppearBlock weakBlock = _pageViewAppear;
+    YJTPageViewAppearBlock pageViewAppear = ^(YJTPageViewController *pageVC, YJTPageViewAppear appeear) {
         switch (appeear) {
-            case YJPageViewAppearWill:
+            case YJTPageViewAppearWill:
                 _appearWillIndex = pageVC.pageViewObject.pageIndex;
                 _pageControl.currentPage = _appearWillIndex;
                 break;
-            case YJPageViewAppearDid:
+            case YJTPageViewAppearDid:
                 _appearDidIndex = pageVC.pageViewObject.pageIndex;
                 _pageControl.currentPage = _appearDidIndex;
                 break;
@@ -239,9 +239,9 @@
     return pageViewAppear;
 }
 
-- (YJPageViewDidSelectBlock)pageViewDidSelect {
+- (YJTPageViewDidSelectBlock)pageViewDidSelect {
     if (!_pageViewDidSelect) {
-        _pageViewDidSelect = ^(YJPageViewController *pageVC) {
+        _pageViewDidSelect = ^(YJTPageViewController *pageVC) {
             NSLog(@"当前UIViewController未设置pageView.pageViewDidSelect属性");
         };
     }

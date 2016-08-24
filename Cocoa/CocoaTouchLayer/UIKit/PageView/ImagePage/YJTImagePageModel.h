@@ -1,6 +1,6 @@
 //
-//  YJImagePageModel.h
-//  YJPageView
+//  YJTImagePageModel.h
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,10 +9,10 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJPageView.h"
+#import "YJTPageView.h"
 
-/** YJImagePageViewController对应的model*/
-@interface YJImagePageModel : NSObject <YJPageViewModelProtocol>
+/** YJTImagePageViewController对应的model*/
+@interface YJTImagePageModel : NSObject <YJTPageViewModelProtocol>
 
 @property (nonatomic) BOOL isOnClick;             ///< 能否点击
 @property (nonatomic, copy) NSString *imageNamed; ///< 图片名

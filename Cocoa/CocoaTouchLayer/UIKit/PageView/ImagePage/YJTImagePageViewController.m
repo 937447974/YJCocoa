@@ -1,6 +1,6 @@
 //
-//  YJImagePageViewController.m
-//  YJPageView
+//  YJTImagePageViewController.m
+//  YJTPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,23 +9,23 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJImagePageViewController.h"
+#import "YJTImagePageViewController.h"
 
-@interface YJImagePageViewController ()
+@interface YJTImagePageViewController ()
 
 @end
 
-@implementation YJImagePageViewController
+@implementation YJTImagePageViewController
 
 #pragma mark - IBAction 点击图片
 - (IBAction)onClickImageView:(id)sender {
     self.pageView.pageViewDidSelect(self);
 }
 
-#pragma mark - YJPageView
-- (void)reloadDataAsyncWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
+#pragma mark - YJTPageView
+- (void)reloadDataAsyncWithPageViewObject:(YJTPageViewObject *)pageViewObject pageView:(YJTPageView *)pageView {
     [super reloadDataAsyncWithPageViewObject:pageViewObject pageView:pageView];
-    YJImagePageModel *model = pageViewObject.pageModel;
+    YJTImagePageModel *model = pageViewObject.pageModel;
     self.imageView.image = [UIImage imageNamed:model.imageNamed];
     self.imageView.userInteractionEnabled = model.isOnClick;
 }
