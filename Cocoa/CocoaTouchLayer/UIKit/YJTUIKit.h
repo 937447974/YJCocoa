@@ -22,7 +22,7 @@
 #import "YJTNavigationBar.h"
 
 // UITableView封装
-#import "YJTableView.h"
+#import "YJTTableView.h"
 
 // UICollectionView封装
 #import "YJTCollectionView.h"

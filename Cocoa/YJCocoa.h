@@ -10,7 +10,7 @@
 //
 
 
-#import "YJCocoaTouchLayer.h"
-#import "YJCoreServicesLayer.h"
-#import "YJCoreOSLayer.h"
+#import "YJCocoaTouchLayer.h"   // 此层代码类前缀为YJT
+#import "YJCoreServicesLayer.h" // 此层代码类前缀为YJS
+#import "YJCoreOSLayer.h"       // 此层代码类前缀为YJC
 

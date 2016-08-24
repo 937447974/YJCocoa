@@ -1,6 +1,6 @@
 //
-//  YJTableCellObject.h
-//  YJTableViewFactory
+//  YJTTableCellObject.h
+//  YJTTableViewFactory
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -14,23 +14,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** cell模型协议*/
-@protocol YJTableCellModelProtocol <NSObject>
+@protocol YJTTableCellModelProtocol <NSObject>
 
 @end
 
 
 /** 创建cell的方式*/
-typedef NS_ENUM(NSInteger, YJTableViewCellCreate) {
-    YJTableViewCellCreateDefault,   ///< 默认使用xib创建cell，推荐此方式
-    YJTableViewCellCreateSoryboard, ///< 使用soryboard创建cell时，请使用类名作为标识符
-    YJTableViewCellCreateClass      ///< 使用Class创建cell,即使用[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className]创建cell    
+typedef NS_ENUM(NSInteger, YJTTableViewCellCreate) {
+    YJTTableViewCellCreateDefault,   ///< 默认使用xib创建cell，推荐此方式
+    YJTTableViewCellCreateSoryboard, ///< 使用soryboard创建cell时，请使用类名作为标识符
+    YJTTableViewCellCreateClass      ///< 使用Class创建cell,即使用[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className]创建cell    
 };
 
 /** TableCell对象*/
-@interface YJTableCellObject : NSObject
+@interface YJTTableCellObject : NSObject
 
-@property (nonatomic) id<YJTableCellModelProtocol> cellModel; ///< cell对应的VM
-@property (nonatomic) YJTableViewCellCreate createCell;  ///< 创建cell的方式
+@property (nonatomic) id<YJTTableCellModelProtocol> cellModel; ///< cell对应的VM
+@property (nonatomic) YJTTableViewCellCreate createCell;  ///< 创建cell的方式
 @property (nonatomic, strong, nullable) id userInfo;     ///< 携带的自定义数据
 
 @property (nonatomic) BOOL suspension; ///< 是否悬浮
@@ -41,9 +41,9 @@ typedef NS_ENUM(NSInteger, YJTableViewCellCreate) {
 @property (nonatomic, copy, readonly) NSString *cellName;   ///< UITableViewCell对应的类名
 
 /**
- *  初始化YJTableCellObject，当不想创建子类时，可使用此方法创建对象
+ *  初始化YJTTableCellObject，当不想创建子类时，可使用此方法创建对象
  *
- *  @param cellClass YJTableViewCell对应的类
+ *  @param cellClass YJTTableViewCell对应的类
  *
  *  @return void
  */

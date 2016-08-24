@@ -1,6 +1,6 @@
 //
-//  YJTableViewCell.m
-//  YJTableViewFactory
+//  YJTTableViewCell.m
+//  YJTTableViewFactory
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,33 +9,33 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTableViewCell.h"
-#import "YJTableViewDelegate.h"
+#import "YJTTableViewCell.h"
+#import "YJTTableViewDelegate.h"
 #import "YJSFoundationOther.h"
 #import "YJCSystem.h"
 
-#pragma mark - UITableViewCell (YJTableView)
-@implementation UITableViewCell (YJTableView)
+#pragma mark - UITableViewCell (YJTTableView)
+@implementation UITableViewCell (YJTTableView)
 
 #pragma mark - (+)
-+ (YJTableViewCellCreate)cellCreate {
-    return YJTableViewCellCreateDefault;
++ (YJTTableViewCellCreate)cellCreate {
+    return YJTTableViewCellCreateDefault;
 }
 
 + (id)cellObject {
-    YJTableCellObject *cellObject = [[YJTableCellObject alloc] initWithTableViewCellClass:self.class];
+    YJTTableCellObject *cellObject = [[YJTTableCellObject alloc] initWithTableViewCellClass:self.class];
     cellObject.createCell = [self cellCreate];
     return cellObject;
 }
 
-+ (id)cellObjectWithCellModel:(id<YJTableCellModelProtocol>)cellModel {
-    YJTableCellObject *cellObject = [self cellObject];
++ (id)cellObjectWithCellModel:(id<YJTTableCellModelProtocol>)cellModel {
+    YJTTableCellObject *cellObject = [self cellObject];
     cellObject.cellModel = cellModel;
     return cellObject;
 }
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTableCellObject *)cellObject {
-    if (cellObject.createCell == YJTableViewCellCreateClass) {
++ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJTTableCellObject *)cellObject {
+    if (cellObject.createCell == YJTTableViewCellCreateClass) {
         NSLog(@"自动获取高度时，UITableViewCell子类%@请实现方法：%@", YJStringFromClass(self.class), NSStringFromSelector(_cmd));
         return tableView.rowHeight; // 默认高
     }
@@ -50,7 +50,7 @@
 }
 
 #pragma mark - (-)
-- (void)reloadDataWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+- (void)reloadDataWithCellObject:(YJTTableCellObject *)cellObject tableViewDelegate:(YJTTableViewDelegate *)tableViewDelegate {
     [self reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
     __weakSelf
     dispatch_async_main(^{// UI加速
@@ -58,18 +58,18 @@
     });
 }
 
-- (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+- (void)reloadDataSyncWithCellObject:(YJTTableCellObject *)cellObject tableViewDelegate:(YJTTableViewDelegate *)tableViewDelegate {
     NSLog(@"UITableViewCell子类%@请实现方法：%@", YJStringFromClass(self.class), NSStringFromSelector(_cmd));
 }
 
-- (void)reloadDataAsyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+- (void)reloadDataAsyncWithCellObject:(YJTTableCellObject *)cellObject tableViewDelegate:(YJTTableViewDelegate *)tableViewDelegate {
 }
 
 @end
 
 
-#pragma mark - YJTableViewCell
-@implementation YJTableViewCell
+#pragma mark - YJTTableViewCell
+@implementation YJTTableViewCell
 
 #pragma mark - init
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -86,8 +86,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-#pragma mark - YJTableView
-- (void)reloadDataSyncWithCellObject:(YJTableCellObject *)cellObject tableViewDelegate:(YJTableViewDelegate *)tableViewDelegate {
+#pragma mark - YJTTableView
+- (void)reloadDataSyncWithCellObject:(YJTTableCellObject *)cellObject tableViewDelegate:(YJTTableViewDelegate *)tableViewDelegate {
     _cellObject = cellObject;
     _tableViewDelegate = tableViewDelegate;
 }

@@ -1,6 +1,6 @@
 //
 //  YJTSuspensionCellView.h
-//  YJTableView
+//  YJTTableView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -10,16 +10,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJTableCellObject.h"
+#import "YJTTableCellObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class YJTableViewDelegate;
+@class YJTTableViewDelegate;
 
 /** 悬浮的cell层*/
 @interface YJTSuspensionCellView : UIView
 
-@property (nonatomic, weak) YJTableViewDelegate *tableViewDelegate; ///< YJTableViewDelegate
+@property (nonatomic, weak) YJTTableViewDelegate *tableViewDelegate; ///< YJTTableViewDelegate
 @property (nonatomic) CGFloat contentOffsetY;                       ///< 偏移Y
 
 /**

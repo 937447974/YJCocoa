@@ -1,6 +1,6 @@
 //
-//  YJTableViewDataSource.m
-//  YJTableViewFactory
+//  YJTTableViewDataSource.m
+//  YJTTableViewFactory
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,23 +9,23 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTableViewDataSource.h"
-#import "YJTableViewDelegate.h"
+#import "YJTTableViewDataSource.h"
+#import "YJTTableViewDelegate.h"
 
-@interface YJTableViewDataSource () {
-    NSMutableArray<YJTableCellObject *> *_dataSource;
-    NSMutableArray<NSMutableArray<YJTableCellObject *> *> *_dataSourceGrouped;
+@interface YJTTableViewDataSource () {
+    NSMutableArray<YJTTableCellObject *> *_dataSource;
+    NSMutableArray<NSMutableArray<YJTTableCellObject *> *> *_dataSourceGrouped;
 }
 @end
 
-@implementation YJTableViewDataSource
+@implementation YJTTableViewDataSource
 
 #pragma mark - main
 - (instancetype)initWithTableView:(UITableView *)tableView {    
     self = [super init];
     if (self) {
         self.tableView = tableView;
-        _tableViewDelegate = [[YJTableViewDelegate alloc] initWithDataSource:self];
+        _tableViewDelegate = [[YJTTableViewDelegate alloc] initWithDataSource:self];
         // 默认设置代理
         self.tableView.dataSource = self;
         self.tableView.delegate = self.tableViewDelegate;
@@ -34,16 +34,16 @@
 }
 
 #pragma mark 快速刷新已加载cell
-- (void)reloadRowsAtIndexPaths:(NSArray<YJTableCellObject *> *)cellObjects; {
+- (void)reloadRowsAtIndexPaths:(NSArray<YJTTableCellObject *> *)cellObjects; {
     UITableViewCell *cell;
-    for (YJTableCellObject *cellObject in cellObjects) {
+    for (YJTTableCellObject *cellObject in cellObjects) {
         cell = [self.tableView cellForRowAtIndexPath:cellObject.indexPath];
         [cell reloadDataWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
     }
 }
 
 #pragma mark - getter and setter
-- (NSMutableArray<YJTableCellObject *> *)dataSource {
+- (NSMutableArray<YJTTableCellObject *> *)dataSource {
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
         [self.dataSourceGrouped addObject:_dataSource];
@@ -51,24 +51,24 @@
     return _dataSource;
 }
 
-- (NSMutableArray<NSMutableArray<YJTableCellObject *> *> *)dataSourceGrouped {
+- (NSMutableArray<NSMutableArray<YJTTableCellObject *> *> *)dataSourceGrouped {
     if (!_dataSourceGrouped) {
         _dataSourceGrouped = [NSMutableArray array];
     }
     return _dataSourceGrouped;
 }
 
-- (void)setCacheCellStrategy:(YJTableViewCacheCell)cacheCellStrategy {
+- (void)setCacheCellStrategy:(YJTTableViewCacheCell)cacheCellStrategy {
     _cacheCellStrategy = cacheCellStrategy;
     switch (cacheCellStrategy) {
-        case YJTableViewCacheCellDefault:  ///< 根据相同的UITableViewCell类名缓存Cell
-            self.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightDefault;
+        case YJTTableViewCacheCellDefault:  ///< 根据相同的UITableViewCell类名缓存Cell
+            self.tableViewDelegate.cacheHeightStrategy = YJTTableViewCacheHeightDefault;
             break;
-        case YJTableViewCacheCellIndexPath: ///< 根据NSIndexPath对应的位置缓存Cell
-            self.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightIndexPath;
+        case YJTTableViewCacheCellIndexPath: ///< 根据NSIndexPath对应的位置缓存Cell
+            self.tableViewDelegate.cacheHeightStrategy = YJTTableViewCacheHeightIndexPath;
             break;
-        case YJTableViewCacheCellClassAndIndexPath:
-            self.tableViewDelegate.cacheHeightStrategy = YJTableViewCacheHeightClassAndIndexPath;
+        case YJTTableViewCacheCellClassAndIndexPath:
+            self.tableViewDelegate.cacheHeightStrategy = YJTTableViewCacheHeightClassAndIndexPath;
             break;
     }
 }
@@ -83,22 +83,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YJTableCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.row];
+    YJTTableCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
     return [self dequeueReusableCellWithCellObject:cellObject];
 }
 
-#pragma mark 根据YJTableCellObject生成UITableViewCell
-- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJTableCellObject *)cellObject {    
+#pragma mark 根据YJTTableCellObject生成UITableViewCell
+- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJTTableCellObject *)cellObject {    
     NSString *identifier = @"identifier";
     switch (self.cacheCellStrategy) {
-        case YJTableViewCacheCellDefault:
+        case YJTTableViewCacheCellDefault:
             identifier = cellObject.cellName;
             break;
-        case YJTableViewCacheCellIndexPath:
+        case YJTTableViewCacheCellIndexPath:
             identifier = [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.row];
             break;
-        case YJTableViewCacheCellClassAndIndexPath:
+        case YJTTableViewCacheCellClassAndIndexPath:
             identifier = [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.row];
             break;
     }
@@ -107,14 +107,14 @@
     // 未找到时，重新注入，再寻找
     if (cell == nil) {
         switch (cellObject.createCell) {
-            case YJTableViewCellCreateDefault:
+            case YJTTableViewCellCreateDefault:
                 [self.tableView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellReuseIdentifier:identifier];
                 cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
                 break;
-            case YJTableViewCellCreateSoryboard:
+            case YJTTableViewCellCreateSoryboard:
                 NSLog(@"Soryboard中请使用%@设置cell的Identifier属性", cellObject.cellName);
                 break;
-            case YJTableViewCellCreateClass:
+            case YJTTableViewCellCreateClass:
                 cell = [[cellObject.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 break;
         }
