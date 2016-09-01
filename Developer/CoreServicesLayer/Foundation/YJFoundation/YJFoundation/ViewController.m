@@ -20,11 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testLog];
-    [self testSingleton];
+//    [self testLog];
+//    [self testSingleton];
     [self testHttp];
-    [self testPerformSelector];
-    [self testTimer];
+//    [self testPerformSelector];
+//    [self testTimer];
 }
 
 #pragma mark - log

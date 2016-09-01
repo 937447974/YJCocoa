@@ -26,7 +26,12 @@
 }
 
 + (NSString *)assemblyHttp:(NSString *)http params:(NSDictionary *)params {
-    return [NSString stringWithFormat:@"%@?%@", http, [self assemblyHttp:params]];
+    NSRange start = [http rangeOfString:@"?"];
+    if (start.location == NSNotFound) {
+        return [NSString stringWithFormat:@"%@?%@", http, [self assemblyHttp:params]];
+    } else {
+        return [NSString stringWithFormat:@"%@%@", http, [self assemblyHttp:params]];
+    }
 }
 
 @end

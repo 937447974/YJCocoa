@@ -18,16 +18,14 @@
     NSRange start = [http rangeOfString:@"?"];
     if (start.location != NSNotFound) {
         http = [http substringFromIndex:start.location+1];
-        NSArray *array = [http componentsSeparatedByString:@"&"]; // 获取单一参数
-        NSArray *keyValue;
-        NSString *param, *value;
-        for (param in array) {
-            keyValue = [param componentsSeparatedByString:@"="]; // 参数分离
-            value = keyValue.count == 2 ? keyValue.lastObject : @"";
-            [dict setObject:value forKey:keyValue.firstObject];
-        }
-    } else {
-        NSLog(@"%@无法解析获取参数", http);
+    }
+    NSArray *array = [http componentsSeparatedByString:@"&"]; // 获取单一参数
+    NSArray *keyValue;
+    NSString *param, *value;
+    for (param in array) {
+        keyValue = [param componentsSeparatedByString:@"="]; // 参数分离
+        value = keyValue.count == 2 ? keyValue.lastObject : @"";
+        [dict setObject:value forKey:keyValue.firstObject];
     }
     return [NSDictionary dictionaryWithDictionary:dict];
 }
