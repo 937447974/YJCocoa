@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, YJTTableViewCacheCell) {
 
 @property (nonatomic) YJTTableViewCacheCell cacheCellStrategy; ///< 缓存Cell的策略
 
-@property (nonatomic, strong, readonly) NSMutableArray<YJTTableCellObject *> *dataSource; ///< 数据源UITableViewStylePlain
+@property (nonatomic, strong) NSMutableArray<YJTTableCellObject *> *dataSource; ///< 数据源UITableViewStylePlain
 @property (nonatomic, strong, readonly) NSMutableArray<NSMutableArray<YJTTableCellObject *> *> *dataSourceGrouped; ///< 数据源UITableViewStyleGrouped
 
 @property (nonatomic, weak) UITableView *tableView;                              ///< tableView

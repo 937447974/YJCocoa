@@ -72,7 +72,10 @@ fi
 #osascript -e 'display notification "2.4.2 | 2016-08-19 | ViewGeometry升级，支持快速设置UIView.bounds。" with title "YJCocoa"'
 #osascript -e 'display notification "2.4.2 | 2016-08-23 | TableView升级，支持快速实现悬浮cell。" with title "YJCocoa"'
 
-osascript -e 'display notification "3.0.0 | 2016-08-24 | YJCocoa架构升级,每一层都有特定的类前缀。" with title "YJCocoa"'
+#osascript -e 'display notification "3.0.0 | 2016-08-24 | YJCocoa架构升级,每一层都有特定的类前缀。" with title "YJCocoa"'
+
+osascript -e 'display notification "3.0.1 | 2016-09-01 | http解析器和组装器升级" with title "YJCocoa"'
+osascript -e 'display notification "3.0.1 | 2016-09-08 | UIKit层代码优化" with title "YJCocoa"'
 
 
 

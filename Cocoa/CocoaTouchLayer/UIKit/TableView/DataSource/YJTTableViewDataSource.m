@@ -12,18 +12,14 @@
 #import "YJTTableViewDataSource.h"
 #import "YJTTableViewDelegate.h"
 
-@interface YJTTableViewDataSource () {
-    NSMutableArray<YJTTableCellObject *> *_dataSource;
-    NSMutableArray<NSMutableArray<YJTTableCellObject *> *> *_dataSourceGrouped;
-}
-@end
-
 @implementation YJTTableViewDataSource
 
 #pragma mark - main
 - (instancetype)initWithTableView:(UITableView *)tableView {    
     self = [super init];
     if (self) {
+        _dataSourceGrouped = [NSMutableArray array];
+        self.dataSource = [NSMutableArray array];
         self.tableView = tableView;
         _tableViewDelegate = [[YJTTableViewDelegate alloc] initWithDataSource:self];
         // 默认设置代理
@@ -43,19 +39,10 @@
 }
 
 #pragma mark - getter and setter
-- (NSMutableArray<YJTTableCellObject *> *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        [self.dataSourceGrouped addObject:_dataSource];
-    }
-    return _dataSource;
-}
-
-- (NSMutableArray<NSMutableArray<YJTTableCellObject *> *> *)dataSourceGrouped {
-    if (!_dataSourceGrouped) {
-        _dataSourceGrouped = [NSMutableArray array];
-    }
-    return _dataSourceGrouped;
+- (void)setDataSource:(NSMutableArray<YJTTableCellObject *> *)dataSource {
+    _dataSource = dataSource;
+    [self.dataSourceGrouped removeAllObjects];
+    [self.dataSourceGrouped addObject:_dataSource];
 }
 
 - (void)setCacheCellStrategy:(YJTTableViewCacheCell)cacheCellStrategy {

@@ -102,6 +102,7 @@
 }
 
 - (void)setTitle:(NSString *)title {
+    [self.titleView removeFromSuperview];
     _title = title;
     self.titleLabel.text = title;
     [self layoutSubviews];
@@ -123,7 +124,9 @@
         [_titleView removeFromSuperview];
     }
     _titleView = titleView;
-    [self addSubview:_titleView];
+    if (_titleView) {
+        [self addSubview:_titleView];
+    }
     [self layoutSubviews];
 }
 

@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, YJTCollectionViewCacheCell) {
 @interface YJTCollectionViewDataSource : NSObject <UICollectionViewDataSource>
 
 @property (nonatomic) YJTCollectionViewCacheCell cacheCellStrategy; ///< 缓存Cell的策略
-@property (nonatomic, strong, readonly) NSMutableArray<YJTCollectionCellObject *> *dataSource; ///< 数据源单一数组
+@property (nonatomic, strong) NSMutableArray<YJTCollectionCellObject *> *dataSource; ///< 数据源单一数组
 @property (nonatomic, strong, readonly) NSMutableArray<NSMutableArray<YJTCollectionCellObject *> *> *dataSourceGrouped; ///< 数据源多数组
 
 @property (nonatomic, weak, readonly) UICollectionView *collectionView;       ///< UICollectionView

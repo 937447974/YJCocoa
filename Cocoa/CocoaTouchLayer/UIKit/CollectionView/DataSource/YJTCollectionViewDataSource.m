@@ -12,10 +12,7 @@
 #import "YJTCollectionViewDataSource.h"
 #import "YJTCollectionViewDelegate.h"
 
-@interface YJTCollectionViewDataSource () {
-    NSMutableArray<YJTCollectionCellObject *> *_dataSource;
-    NSMutableArray<NSMutableArray<YJTCollectionCellObject *> *> *_dataSourceGrouped;
-}
+@interface YJTCollectionViewDataSource ()
 
 @property (nonatomic, strong) NSMutableSet<NSString *> *identifierSet; ///< 记录缓存过的identifier
 
@@ -80,6 +77,12 @@
 - (void)setCollectionFooterView:(UICollectionReusableView *)collectionFooterView {
     _collectionFooterView = collectionFooterView;
     self.flowLayout.footerReferenceSize = collectionFooterView.frame.size;
+}
+
+- (void)setDataSource:(NSMutableArray<YJTCollectionCellObject *> *)dataSource {
+    _dataSource = dataSource;
+    [self.dataSourceGrouped removeAllObjects];
+    [self.dataSourceGrouped addObject:dataSource];
 }
 
 #pragma mark - UICollectionViewDataSource
