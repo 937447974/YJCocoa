@@ -102,10 +102,9 @@
 }
 
 - (void)setTitle:(NSString *)title {
-    [self.titleView removeFromSuperview];
     _title = title;
     self.titleLabel.text = title;
-    [self layoutSubviews];
+    self.titleView = nil;
 }
 
 - (UILabel *)titleLabel {
