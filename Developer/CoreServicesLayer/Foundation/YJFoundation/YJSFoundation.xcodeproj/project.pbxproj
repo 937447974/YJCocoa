@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847372ED1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 847372EC1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m */; };
+		847372F61D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847372F51D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m */; };
 		8473ABC31CE96B57000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC21CE96B57000E3580 /* main.m */; };
 		8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC51CE96B57000E3580 /* AppDelegate.m */; };
 		8473ABC91CE96B57000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473ABC81CE96B57000E3580 /* ViewController.m */; };
@@ -26,7 +28,11 @@
 
 /* Begin PBXFileReference section */
 		0532681BB3006CDA62A10BC1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8473ABBE1CE96B57000E3580 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847372EB1D97CAFB002E67E3 /* YJSDictionaryModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSDictionaryModelProperty.h; sourceTree = "<group>"; };
+		847372EC1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModelProperty.m; sourceTree = "<group>"; };
+		847372F41D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJSDictionaryModel.h"; sourceTree = "<group>"; };
+		847372F51D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJSDictionaryModel.m"; sourceTree = "<group>"; };
+		8473ABBE1CE96B57000E3580 /* YJSFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJSFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473ABC21CE96B57000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8473ABC41CE96B57000E3580 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8473ABC51CE96B57000E3580 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +84,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		847372E71D97CA4A002E67E3 /* DictionaryModel */ = {
+			isa = PBXGroup;
+			children = (
+				847372F41D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.h */,
+				847372F51D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m */,
+				847372EB1D97CAFB002E67E3 /* YJSDictionaryModelProperty.h */,
+				847372EC1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m */,
+			);
+			path = DictionaryModel;
+			sourceTree = "<group>";
+		};
 		8473ABB51CE96B57000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +108,7 @@
 		8473ABBF1CE96B57000E3580 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8473ABBE1CE96B57000E3580 /* YJFoundation.app */,
+				8473ABBE1CE96B57000E3580 /* YJSFoundation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +149,7 @@
 		8473ABFC1CE96BEF000E3580 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				847372E71D97CA4A002E67E3 /* DictionaryModel */,
 				8474F4FC1D6D790500FF894E /* Http */,
 				8474F5021D6D790500FF894E /* Log */,
 				8474F5051D6D790500FF894E /* Other */,
@@ -215,9 +233,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8473ABBD1CE96B57000E3580 /* YJFoundation */ = {
+		8473ABBD1CE96B57000E3580 /* YJSFoundation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8473ABD51CE96B57000E3580 /* Build configuration list for PBXNativeTarget "YJFoundation" */;
+			buildConfigurationList = 8473ABD51CE96B57000E3580 /* Build configuration list for PBXNativeTarget "YJSFoundation" */;
 			buildPhases = (
 				B63F36C3E57B87EB44BC19EC /* Check Pods Manifest.lock */,
 				8473ABBA1CE96B57000E3580 /* Sources */,
@@ -230,9 +248,9 @@
 			);
 			dependencies = (
 			);
-			name = YJFoundation;
+			name = YJSFoundation;
 			productName = YJFoundation;
-			productReference = 8473ABBE1CE96B57000E3580 /* YJFoundation.app */;
+			productReference = 8473ABBE1CE96B57000E3580 /* YJSFoundation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,8 +259,8 @@
 		8473ABB61CE96B57000E3580 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = YJ;
-				LastUpgradeCheck = 0730;
+				CLASSPREFIX = YJS;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = YJCocoa;
 				TargetAttributes = {
 					8473ABBD1CE96B57000E3580 = {
@@ -250,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8473ABB91CE96B57000E3580 /* Build configuration list for PBXProject "YJFoundation" */;
+			buildConfigurationList = 8473ABB91CE96B57000E3580 /* Build configuration list for PBXProject "YJSFoundation" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -263,7 +281,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8473ABBD1CE96B57000E3580 /* YJFoundation */,
+				8473ABBD1CE96B57000E3580 /* YJSFoundation */,
 			);
 		};
 /* End PBXProject section */
@@ -337,6 +355,7 @@
 				8474F51B1D6D790500FF894E /* YJSTimer.m in Sources */,
 				8474F5151D6D790500FF894E /* YJSHttpAssembly.m in Sources */,
 				8474F5161D6D790500FF894E /* YJSLog.m in Sources */,
+				847372ED1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m in Sources */,
 				8473ABC91CE96B57000E3580 /* ViewController.m in Sources */,
 				8474F5171D6D790500FF894E /* YJSFoundationOther.m in Sources */,
 				8473ABC61CE96B57000E3580 /* AppDelegate.m in Sources */,
@@ -344,6 +363,7 @@
 				8474F5181D6D790500FF894E /* NSObject+YJSPerformSelector.m in Sources */,
 				8474F51A1D6D790500FF894E /* YJSSingletonMCenter.m in Sources */,
 				8474F5141D6D790500FF894E /* YJSHttpAnalysis.m in Sources */,
+				847372F61D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m in Sources */,
 				8473ABC31CE96B57000E3580 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,8 +404,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -407,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -429,8 +451,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -446,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,7 +507,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8473ABB91CE96B57000E3580 /* Build configuration list for PBXProject "YJFoundation" */ = {
+		8473ABB91CE96B57000E3580 /* Build configuration list for PBXProject "YJSFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8473ABD31CE96B57000E3580 /* Debug */,
@@ -492,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8473ABD51CE96B57000E3580 /* Build configuration list for PBXNativeTarget "YJFoundation" */ = {
+		8473ABD51CE96B57000E3580 /* Build configuration list for PBXNativeTarget "YJSFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8473ABD61CE96B57000E3580 /* Debug */,

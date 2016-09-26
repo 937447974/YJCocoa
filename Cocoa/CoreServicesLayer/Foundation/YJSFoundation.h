@@ -24,6 +24,9 @@
 // 线程安全执行Selector
 #import "NSObject+YJSPerformSelector.h"
 
+// Dictionary转Model
+#import "NSObject+YJSDictionaryModel.h"
+
 // 其他不可归类封装
 #import "YJSFoundationOther.h"
 
