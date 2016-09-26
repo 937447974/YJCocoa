@@ -23,8 +23,19 @@
 		8474F5191D6D790500FF894E /* YJSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F50C1D6D790500FF894E /* YJSPerformSelector.m */; };
 		8474F51A1D6D790500FF894E /* YJSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F50F1D6D790500FF894E /* YJSSingletonMCenter.m */; };
 		8474F51B1D6D790500FF894E /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5121D6D790500FF894E /* YJSTimer.m */; };
+		84D4DF7E1D98ED5D007882A8 /* YJSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF7D1D98ED5D007882A8 /* YJSDictionaryModel.m */; };
 		E6AB443FC80A8834079F0229 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0532681BB3006CDA62A10BC1 /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84D4DF781D98ECFC007882A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8473ABB61CE96B57000E3580 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8473ABBD1CE96B57000E3580;
+			remoteInfo = YJSFoundation;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0532681BB3006CDA62A10BC1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +71,9 @@
 		8474F5111D6D790500FF894E /* YJSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSTimer.h; sourceTree = "<group>"; };
 		8474F5121D6D790500FF894E /* YJSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSTimer.m; sourceTree = "<group>"; };
 		8474F5131D6D790500FF894E /* YJSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSFoundation.h; sourceTree = "<group>"; };
+		84D4DF731D98ECFC007882A8 /* YJSFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJSFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D4DF771D98ECFC007882A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D4DF7D1D98ED5D007882A8 /* YJSDictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModel.m; sourceTree = "<group>"; };
 		B65CFA6C04A8BA7844535A7F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D4F6DB95A20C92A8AE09D603 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +84,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6AB443FC80A8834079F0229 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84D4DF701D98ECFC007882A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				8473ABC01CE96B57000E3580 /* YJFoundation */,
+				84D4DF741D98ECFC007882A8 /* YJSFoundationTests */,
 				8473ABBF1CE96B57000E3580 /* Products */,
 				F39EEAE82779B47029D9DD9A /* Pods */,
 				0D413F8F3D991F4D65033393 /* Frameworks */,
@@ -109,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				8473ABBE1CE96B57000E3580 /* YJSFoundation.app */,
+				84D4DF731D98ECFC007882A8 /* YJSFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +244,15 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		84D4DF741D98ECFC007882A8 /* YJSFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				84D4DF7D1D98ED5D007882A8 /* YJSDictionaryModel.m */,
+				84D4DF771D98ECFC007882A8 /* Info.plist */,
+			);
+			path = YJSFoundationTests;
+			sourceTree = "<group>";
+		};
 		F39EEAE82779B47029D9DD9A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +285,24 @@
 			productReference = 8473ABBE1CE96B57000E3580 /* YJSFoundation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84D4DF721D98ECFC007882A8 /* YJSFoundationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84D4DF7C1D98ECFC007882A8 /* Build configuration list for PBXNativeTarget "YJSFoundationTests" */;
+			buildPhases = (
+				84D4DF6F1D98ECFC007882A8 /* Sources */,
+				84D4DF701D98ECFC007882A8 /* Frameworks */,
+				84D4DF711D98ECFC007882A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84D4DF791D98ECFC007882A8 /* PBXTargetDependency */,
+			);
+			name = YJSFoundationTests;
+			productName = YJSFoundationTests;
+			productReference = 84D4DF731D98ECFC007882A8 /* YJSFoundationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,6 +315,11 @@
 				TargetAttributes = {
 					8473ABBD1CE96B57000E3580 = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					84D4DF721D98ECFC007882A8 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8473ABBD1CE96B57000E3580;
 					};
 				};
 			};
@@ -282,6 +337,7 @@
 			projectRoot = "";
 			targets = (
 				8473ABBD1CE96B57000E3580 /* YJSFoundation */,
+				84D4DF721D98ECFC007882A8 /* YJSFoundationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +350,13 @@
 				8473ABD11CE96B57000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473ABCE1CE96B57000E3580 /* Assets.xcassets in Resources */,
 				8473ABCC1CE96B57000E3580 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84D4DF711D98ECFC007882A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +431,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84D4DF6F1D98ECFC007882A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D4DF7E1D98ED5D007882A8 /* YJSDictionaryModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84D4DF791D98ECFC007882A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8473ABBD1CE96B57000E3580 /* YJSFoundation */;
+			targetProxy = 84D4DF781D98ECFC007882A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8473ABCA1CE96B57000E3580 /* Main.storyboard */ = {
@@ -504,6 +583,36 @@
 			};
 			name = Release;
 		};
+		84D4DF7A1D98ECFC007882A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = YJSFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJSFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJSFoundation.app/YJSFoundation";
+			};
+			name = Debug;
+		};
+		84D4DF7B1D98ECFC007882A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = YJSFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJSFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJSFoundation.app/YJSFoundation";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -524,6 +633,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		84D4DF7C1D98ECFC007882A8 /* Build configuration list for PBXNativeTarget "YJSFoundationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84D4DF7A1D98ECFC007882A8 /* Debug */,
+				84D4DF7B1D98ECFC007882A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

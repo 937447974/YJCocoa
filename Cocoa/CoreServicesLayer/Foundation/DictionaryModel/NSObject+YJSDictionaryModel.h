@@ -13,7 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 模型和字典互相转换*/
 @interface NSObject (YJSDictionaryModel)
+
+@property (nonatomic, strong, readonly) NSDictionary *modelDictionary; ///< 模型字典
 
 /**
  *  @abstract 获取属性对应字典中的key
@@ -42,13 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSSet<NSString *> *)ignoredAttributes;
 
 /**
- *  @abstract 根据NSDictionary生成对象
+ *  @abstract 根据模型字典生成对象
  *
- *  @param dict 数据字典
+ *  @param modelDictionary 模型字典
  *
  *  @return instancetype
  */
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary;
 
 @end
 
