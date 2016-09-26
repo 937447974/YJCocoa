@@ -14,12 +14,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 支持的属性类型*/
-typedef NS_ENUM(NSInteger, YJSDMPAttributeClass) {
-    YJSDMPAttributeClassNumber,     ///< NSNumber
-    YJSDMPAttributeClassString,     ///< NSString
-    YJSDMPAttributeClassArray,      ///< NSArray
-    YJSDMPAttributeClassDictionary, ///< NSDictionary
-    YJSDMPAttributeClassModel       ///< Model
+typedef NS_ENUM(NSInteger, YJSDMPAttributeType) {
+    YJSDMPAttributeTypeNumber,     ///< NSNumber
+    YJSDMPAttributeTypeString,     ///< NSString
+    YJSDMPAttributeTypeArray,      ///< NSArray
+    YJSDMPAttributeTypeDictionary, ///< NSDictionary
+    YJSDMPAttributeTypeModel       ///< Model
 };
 
 /** 模型中的属性*/
@@ -28,11 +28,11 @@ typedef NS_ENUM(NSInteger, YJSDMPAttributeClass) {
 @property (nonatomic, copy) NSString *attributeName; ///< 属性名
 @property (nonatomic, copy) NSString *attributeKey;  ///< 属性对应字典中的Key
 
-@property (nonatomic) YJSDMPAttributeClass attributeClass; ///< 属性对应的class
-@property (nonatomic, nullable) NSString *attributeClassName;  ///< 属性对应的class名
+@property (nonatomic)           YJSDMPAttributeType attributeType; ///< 属性对应的class类型
+@property (nonatomic, nullable) Class attributeClass;              ///< 属性对应的class
 
-@property (nonatomic)           BOOL importArrayClassSystem; ///< YJSDMPAttributeClassArray模式下填充的Class是否系统基础类型
-@property (nonatomic, nullable) Class importArrayClassName;  ///< YJSDMPAttributeClassArray模式下填充的Class，即NSArray<importArrayClassName *> *attributeName;
+@property (nonatomic)           BOOL importArrayClassSystem; ///< importArrayClass是否为系统基础类型
+@property (nonatomic, nullable) Class importArrayClass;      ///< @property ... NSArray<importArrayClass *> *attributeName;
 
 @end
 

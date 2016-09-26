@@ -22,8 +22,8 @@
     return attributeName;
 }
 
-+ (NSString *)getImportArrayClassNameWithAttributeName:(NSString *)attributeName {
-    return NSStringFromClass([NSString class]);
++ (Class)getImportArrayClassWithAttributeName:(NSString *)attributeName {
+    return [NSString class];
 }
 
 + (NSSet<NSString *> *)ignoredAttributes {
@@ -45,28 +45,52 @@
         if (value == nil || [value isKindOfClass:[NSNull class]]) {
             continue;
         }
-        switch (p.attributeClass) {
-            case YJSDMPAttributeClassNumber:     // NSNumber
+        switch (p.attributeType) {
+            case YJSDMPAttributeTypeNumber:     // NSNumber
                 [self setValue:value forKey:p.attributeName];
                 break;
-            case YJSDMPAttributeClassString:     // NSString
+            case YJSDMPAttributeTypeString:     // NSString
                 [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
-            case YJSDMPAttributeClassArray:      // NSArray
+            case YJSDMPAttributeTypeArray:      // NSArray
+                if ([value isKindOfClass:[NSArray class]]) {
+                    if (!p.importArrayClassSystem) {
+                        value = [self getArrayValue:value forProperty:p];
+                    }
+                    [self setValue:value forKey:p.attributeName];
+                }
                 break;
-            case YJSDMPAttributeClassDictionary: // NSDictionary
+            case YJSDMPAttributeTypeDictionary: // NSDictionary
+                if ([value isKindOfClass:[NSDictionary class]]) {
+                    [self setValue:value forKey:p.attributeName];
+                }
                 break;
-            case YJSDMPAttributeClassModel:      // Model
-                [self setValue:[p.attributeClassName NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
+            case YJSDMPAttributeTypeModel:      // Model
+                if ([value isKindOfClass:[NSDictionary class]]) {
+                    value = [[p.attributeClass alloc] initWithDictionary:value];
+                    [self setValue:value forKey:p.attributeName];
+                }
                 break;
         }
-//        [self setValue: forKey:property.at
-        
     }
     return self;
 }
 
-#pragma mark private +
+#pragma mark private(-)
+- (NSMutableArray *)getArrayValue:(NSArray *)array forProperty:(YJSDictionaryModelProperty *)p {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
+    for (id value in array) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            [result addObject:[[p.attributeClass alloc] initWithDictionary:value]];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [result addObject:[self getArrayValue:value forProperty:p]];
+        } else {
+            [result addObject:value];
+        }
+    }
+    return result;
+}
+
 - (NSArray<YJSDictionaryModelProperty *> *)propertys {
     NSMutableDictionary *dict = [YJSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
     NSMutableArray<YJSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(self.class)];
@@ -110,29 +134,28 @@
     }
     // immutable classes: NSString, NSNumber, NSArray, NSDictionary
     if (attributeItems.count == 3) {
-        p.attributeClass = YJSDMPAttributeClassNumber;
+        p.attributeClass = YJSDMPAttributeTypeNumber;
     } else if (attributeItems.count == 4) {
         NSScanner *scanner = nil;
         if ([scanner scanString:@"T@\"" intoString:nil]) {
             NSString *attributeClassName;
             [scanner scanUpToString:@"\"," intoString:&attributeClassName];
-            p.attributeClassName = attributeClassName;
-            Class attributeClass = NSClassFromString(p.attributeClassName);
-            if (!attributeClass) {
-                NSLog(@"%@中属性%@对应的类%@不存在", NSStringFromClass(sourceClass), p.attributeName , p.attributeClassName);
+            p.attributeClass = NSClassFromString(attributeClassName);
+            if (!p.attributeClass) {
+                NSLog(@"%@中属性%@对应的类%@不存在", NSStringFromClass(sourceClass), p.attributeName , attributeClassName);
                 return nil;
             }
-            if ([systemBaseClass containsObject:attributeClass]) {
-                if ([attributeClass isSubclassOfClass:[NSString class]]) {
-                    p.attributeClass = YJSDMPAttributeClassString;
-                } else if ([attributeClass isSubclassOfClass:[NSDictionary class]]) {
-                    p.attributeClass = YJSDMPAttributeClassDictionary;
-                } else if ([attributeClass isSubclassOfClass:[NSArray class]]) {
-                    p.attributeClass = YJSDMPAttributeClassArray;
-                    p.attributeClassName = [sourceClass getImportArrayClassNameWithAttributeName:p.attributeName];
+            if ([systemBaseClass containsObject:p.attributeClass]) {
+                if ([p.attributeClass isSubclassOfClass:[NSString class]]) {
+                    p.attributeType = YJSDMPAttributeTypeString;
+                } else if ([p.attributeClass isSubclassOfClass:[NSDictionary class]]) {
+                    p.attributeType = YJSDMPAttributeTypeDictionary;
+                } else if ([p.attributeClass isSubclassOfClass:[NSArray class]]) {
+                    p.attributeType = YJSDMPAttributeTypeArray;
+                    p.attributeClass = [sourceClass getImportArrayClassWithAttributeName:p.attributeName];
                 }
             } else {
-                p.attributeClass = YJSDMPAttributeClassModel;
+                p.attributeType = YJSDMPAttributeTypeModel;
             }
         } else {
             NSLog(@"请通知阳君，QQ:937447974修复BUG");
@@ -144,6 +167,5 @@
     }
     return p;
 }
-
 
 @end

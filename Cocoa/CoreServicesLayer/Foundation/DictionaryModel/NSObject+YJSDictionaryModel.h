@@ -26,13 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getDictKeyWithAttributeName:(NSString *)attributeName;
 
 /**
- *  @abstract 当Model中的属性是YJSDMPAttributeClassArray其内部填充的
+ *  @abstract 获取Model中的属性是@property ... NSArray<importArrayClass *> *attributeName的importArrayClass
  *
  *  @param attributeName 属性名
  *
  *  @return NSString/Model
  */
-+ (NSString *)getImportArrayClassNameWithAttributeName:(NSString *)attributeName;
++ (Class)getImportArrayClassWithAttributeName:(NSString *)attributeName;
 
 /**
  *  @abstract 忽略的属性集合
