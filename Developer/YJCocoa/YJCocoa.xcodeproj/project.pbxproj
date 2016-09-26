@@ -59,6 +59,8 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
+		84D4DF841D990A92007882A8 /* NSObject+YJSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */; };
+		84D4DF851D990A92007882A8 /* YJSDictionaryModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +175,10 @@
 		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
+		84D4DF801D990A92007882A8 /* NSObject+YJSDictionaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJSDictionaryModel.h"; sourceTree = "<group>"; };
+		84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJSDictionaryModel.m"; sourceTree = "<group>"; };
+		84D4DF821D990A92007882A8 /* YJSDictionaryModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSDictionaryModelProperty.h; sourceTree = "<group>"; };
+		84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModelProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +533,7 @@
 		8444EB051D6D4A740088D112 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				84D4DF7F1D990A92007882A8 /* DictionaryModel */,
 				8444EB061D6D4A740088D112 /* Http */,
 				8444EB0C1D6D4A740088D112 /* Log */,
 				8444EB0F1D6D4A740088D112 /* Other */,
@@ -648,6 +655,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		84D4DF7F1D990A92007882A8 /* DictionaryModel */ = {
+			isa = PBXGroup;
+			children = (
+				84D4DF801D990A92007882A8 /* NSObject+YJSDictionaryModel.h */,
+				84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */,
+				84D4DF821D990A92007882A8 /* YJSDictionaryModelProperty.h */,
+				84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */,
+			);
+			path = DictionaryModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -745,6 +763,7 @@
 				8444EB361D6D4A740088D112 /* YJTPageView.m in Sources */,
 				8444EB271D6D4A740088D112 /* UIView+YJTViewLayoutConstraintCreation.m in Sources */,
 				8444EB3D1D6D4A740088D112 /* YJTTableCellObject.m in Sources */,
+				84D4DF841D990A92007882A8 /* NSObject+YJSDictionaryModel.m in Sources */,
 				8444EB3A1D6D4A740088D112 /* YJTTableViewDelegate.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				8444EB431D6D4A740088D112 /* YJCSystem.m in Sources */,
@@ -761,6 +780,7 @@
 				8444EB411D6D4A740088D112 /* YJCKeychain.m in Sources */,
 				8444EB2F1D6D4A740088D112 /* UITextView+YJTInputLength.m in Sources */,
 				8444EB351D6D4A740088D112 /* YJTImagePageViewController.m in Sources */,
+				84D4DF851D990A92007882A8 /* YJSDictionaryModelProperty.m in Sources */,
 				8444EB291D6D4A740088D112 /* YJTCollectionReusableView.m in Sources */,
 				8444EB471D6D4A740088D112 /* YJSFoundationOther.m in Sources */,
 				8444EB241D6D4A740088D112 /* YJTLayoutSupport.m in Sources */,

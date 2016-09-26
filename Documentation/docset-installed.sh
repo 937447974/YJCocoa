@@ -74,9 +74,10 @@ fi
 
 #osascript -e 'display notification "3.0.0 | 2016-08-24 | YJCocoa架构升级,每一层都有特定的类前缀。" with title "YJCocoa"'
 
-osascript -e 'display notification "3.0.1 | 2016-09-01 | http解析器和组装器升级" with title "YJCocoa"'
-osascript -e 'display notification "3.0.1 | 2016-09-08 | UIKit层代码优化" with title "YJCocoa"'
+#osascript -e 'display notification "3.0.1 | 2016-09-01 | http解析器和组装器升级" with title "YJCocoa"'
+#osascript -e 'display notification "3.0.1 | 2016-09-08 | UIKit层代码优化" with title "YJCocoa"'
 
+osascript -e 'display notification "3.1.0 | 2016-09-26 | DictionaryModel上线，支持快速高效的转换模型和Model。" with title "YJCocoa"'
 
 
 

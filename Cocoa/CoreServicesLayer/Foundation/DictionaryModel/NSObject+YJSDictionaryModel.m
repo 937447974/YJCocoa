@@ -143,7 +143,7 @@
     if (sourceClass == [NSObject class]) {
         return [NSMutableArray array];
     }
-    NSMutableDictionary *dict = [YJSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
+    NSMutableDictionary *dict = [YJSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
     NSMutableArray<YJSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
     if (!propertys) {
         propertys = [NSMutableArray array];

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "3.0.1"
+    s.version  = "3.1.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -157,6 +157,9 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/PerformSelector'
                 timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
                 timer.dependency 'YJCocoa/CoreOSLayer/Security/Randomization'
+            end
+            foundation.subspec 'DictionaryModel' do |dm|
+                dm.source_files = 'Cocoa/CoreServicesLayer/Foundation/DictionaryModel/*.{h,m}'
             end
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}'
