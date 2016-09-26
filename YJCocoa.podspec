@@ -160,6 +160,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/CoreServicesLayer/Foundation/DictionaryModel/*.{h,m}'
+                dm.dependency 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
             end
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}'
