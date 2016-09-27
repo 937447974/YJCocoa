@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  @abstract 根据模型字典生成对象
+ *  @discusstion readonly和weak属性会自动跳过
  *
  *  @param modelDictionary 模型字典
  *
