@@ -24,6 +24,7 @@
 		8474F51A1D6D790500FF894E /* YJSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F50F1D6D790500FF894E /* YJSSingletonMCenter.m */; };
 		8474F51B1D6D790500FF894E /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5121D6D790500FF894E /* YJSTimer.m */; };
 		84D4DF7E1D98ED5D007882A8 /* YJSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF7D1D98ED5D007882A8 /* YJSDictionaryModel.m */; };
+		84E31F351D9A4B1100A7DEA3 /* YJSDictionaryModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E31F341D9A4B1100A7DEA3 /* YJSDictionaryModelManager.m */; };
 		E6AB443FC80A8834079F0229 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0532681BB3006CDA62A10BC1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		84D4DF731D98ECFC007882A8 /* YJSFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJSFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D4DF771D98ECFC007882A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D4DF7D1D98ED5D007882A8 /* YJSDictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModel.m; sourceTree = "<group>"; };
+		84E31F331D9A4B1100A7DEA3 /* YJSDictionaryModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSDictionaryModelManager.h; sourceTree = "<group>"; };
+		84E31F341D9A4B1100A7DEA3 /* YJSDictionaryModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModelManager.m; sourceTree = "<group>"; };
 		B65CFA6C04A8BA7844535A7F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D4F6DB95A20C92A8AE09D603 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,8 @@
 			children = (
 				847372F41D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.h */,
 				847372F51D97CC9F002E67E3 /* NSObject+YJSDictionaryModel.m */,
+				84E31F331D9A4B1100A7DEA3 /* YJSDictionaryModelManager.h */,
+				84E31F341D9A4B1100A7DEA3 /* YJSDictionaryModelManager.m */,
 				847372EB1D97CAFB002E67E3 /* YJSDictionaryModelProperty.h */,
 				847372EC1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m */,
 			);
@@ -417,6 +422,7 @@
 			files = (
 				8474F51B1D6D790500FF894E /* YJSTimer.m in Sources */,
 				8474F5151D6D790500FF894E /* YJSHttpAssembly.m in Sources */,
+				84E31F351D9A4B1100A7DEA3 /* YJSDictionaryModelManager.m in Sources */,
 				8474F5161D6D790500FF894E /* YJSLog.m in Sources */,
 				847372ED1D97CAFB002E67E3 /* YJSDictionaryModelProperty.m in Sources */,
 				8473ABC91CE96B57000E3580 /* ViewController.m in Sources */,
@@ -641,6 +647,7 @@
 				84D4DF7B1D98ECFC007882A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

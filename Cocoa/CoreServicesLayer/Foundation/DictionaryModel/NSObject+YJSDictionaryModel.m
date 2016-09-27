@@ -18,16 +18,8 @@
 @implementation NSObject (YJSDictionaryModel)
 
 #pragma mark public(+)
-+ (NSString *)getDictKeyWithAttributeName:(NSString *)attributeName {
-    return attributeName;
-}
-
-+ (Class)getImportArrayClassWithAttributeName:(NSString *)attributeName {
-    return [NSString class];
-}
-
-+ (NSSet<NSString *> *)ignoredAttributes {
-    return [[NSSet alloc] init];
++ (YJSDictionaryModelManager *)dictionaryModelManager {
+    return [[YJSDictionaryModelManager alloc] init];
 }
 
 #pragma mark - init
@@ -53,7 +45,7 @@
                 break;
             case YJSDMPAttributeTypeArray:      // NSArray
                 value = [self valueForKey:p.attributeName];
-                if (!p.importArrayClassSystem) {
+                if (value && !p.importArrayClassSystem) {
                     value = [self getDictionaryArrayValue:value forProperty:p];
                 }
                 break;
@@ -148,13 +140,12 @@
     if (!propertys) {
         propertys = [NSMutableArray array];
         [dict setObject:propertys forKey:NSStringFromClass(self.class)];
-        NSSet<Class> *systemBaseClass = [NSSet setWithObjects:[NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class], [NSDictionary class], [NSNull class], [NSMutableString class], [NSMutableArray class], [NSMutableDictionary class], nil];
-        NSSet<NSString *> *ia = [NSSet setWithSet:[sourceClass ignoredAttributes]];
+        YJSDictionaryModelManager *dMManager = [sourceClass dictionaryModelManager];
         unsigned int propertyCount;
         objc_property_t *properties = class_copyPropertyList(sourceClass, &propertyCount);
         for (unsigned int i = 0; i < propertyCount; i++) {
             objc_property_t property = properties[i];
-            YJSDictionaryModelProperty *p = [self getModelPropertyWithClass:sourceClass property:property ignoredAttributes:ia systemBaseClass:systemBaseClass];
+            YJSDictionaryModelProperty *p = [self getModelProperty:property dictionaryModelManager:dMManager];
             if (p) {
                 [propertys addObject:p];
             }
@@ -165,15 +156,16 @@
     return propertys;
 }
 
-+ (YJSDictionaryModelProperty *)getModelPropertyWithClass:(Class)sourceClass property:(objc_property_t)property ignoredAttributes:(NSSet<NSString *> *)ignoredAttributes systemBaseClass:(NSSet<Class> *)systemBaseClass{
++ (YJSDictionaryModelProperty *)getModelProperty:(objc_property_t)property dictionaryModelManager:(YJSDictionaryModelManager *)dMManager {
     YJSDictionaryModelProperty *p = [[YJSDictionaryModelProperty alloc] init];
     // 属性名
     const char *propertyName = property_getName(property);
     p.attributeName = @(propertyName);
-    if ([ignoredAttributes containsObject:p.attributeName]) {
+    if ([dMManager.ignoredAttributes containsObject:p.attributeName]) {
         return nil;
     }
-    p.attributeKey = [self.class getDictKeyWithAttributeName:p.attributeName];
+    p.attributeKey = [dMManager.optionalAttributes objectForKey:p.attributeName];
+    p.attributeKey = p.attributeKey ? p.attributeKey : p.attributeName;
     // 属性参数
     const char *attrs = property_getAttributes(property);
     NSString *propertyAttributes = @(attrs);
@@ -192,18 +184,20 @@
             [scanner scanUpToString:@"\"," intoString:&attributeClassName];
             p.attributeClass = NSClassFromString(attributeClassName);
             if (!p.attributeClass) {
-                NSLog(@"%@中属性%@对应的类%@不存在", NSStringFromClass(sourceClass), p.attributeName , attributeClassName);
+                NSLog(@"属性%@对应的类%@不存在", p.attributeName , attributeClassName);
                 return nil;
             }
-            if ([systemBaseClass containsObject:p.attributeClass]) {
+            if ([dMManager.systemBaseClass containsObject:p.attributeClass]) {
                 if ([p.attributeClass isSubclassOfClass:[NSString class]]) {
                     p.attributeType = YJSDMPAttributeTypeString;
                 } else if ([p.attributeClass isSubclassOfClass:[NSDictionary class]]) {
                     p.attributeType = YJSDMPAttributeTypeDictionary;
                 } else if ([p.attributeClass isSubclassOfClass:[NSArray class]]) {
                     p.attributeType = YJSDMPAttributeTypeArray;
-                    p.importArrayClass = [sourceClass getImportArrayClassWithAttributeName:p.attributeName];
-                    p.importArrayClassSystem = [systemBaseClass containsObject:p.importArrayClass];
+                    p.importArrayClass = [dMManager.importArrayClasses objectForKey:p.attributeName];
+                    if (p.importArrayClass) {
+                        p.importArrayClassSystem = [dMManager.systemBaseClass containsObject:p.importArrayClass];
+                    }
                 }
             } else {
                 p.attributeType = YJSDMPAttributeTypeModel;

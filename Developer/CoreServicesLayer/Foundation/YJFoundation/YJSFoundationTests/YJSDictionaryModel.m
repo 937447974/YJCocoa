@@ -19,17 +19,12 @@
 
 @implementation MyModel1
 
-+ (NSString *)getDictKeyWithAttributeName:(NSString *)attributeName {
-    if ([@"userID" isEqualToString:attributeName]) {
-        return @"user_id"; // 服务器回传的用户id用user_id表示。当前模型用userID接收
-    }
-    return [super getDictKeyWithAttributeName:attributeName];
-}
-
-+ (NSSet<NSString *> *)ignoredAttributes {
-    NSMutableSet *set = [[NSMutableSet alloc] initWithSet:[super ignoredAttributes]];
-    [set addObject:@"b"]; // 忽略b属性
-    return set;
++ (YJSDictionaryModelManager *)dictionaryModelManager {
+    YJSDictionaryModelManager *dMManager = [[YJSDictionaryModelManager alloc] init];
+    // 服务器回传的用户id用user_id表示。当前模型用userID接收
+    dMManager.optionalAttributes = [NSDictionary dictionaryWithObject:@"user_id" forKey:@"userID"];
+    dMManager.ignoredAttributes = [NSSet setWithObject:@"b"];// 忽略b属性
+    return dMManager;
 }
 
 @end
@@ -48,11 +43,11 @@
 
 @implementation MyModel2
 
-+ (Class)getImportArrayClassWithAttributeName:(NSString *)attributeName {
-    if ([@"array2" isEqualToString:attributeName]) {
-        return [MyModel1 class]; // 返回array2中存放的模型class
-    }
-    return [super getImportArrayClassWithAttributeName:attributeName];
++ (YJSDictionaryModelManager *)dictionaryModelManager {
+    YJSDictionaryModelManager *dMManager = [[YJSDictionaryModelManager alloc] init];
+    // array2中存放的模型class
+    dMManager.importArrayClasses = [NSDictionary dictionaryWithObject:[MyModel1 class] forKey:@"array2"];
+    return dMManager;
 }
 
 @end
@@ -84,6 +79,7 @@
     MyModel2 *m2 = [[MyModel2 alloc] init];
     m2.name = @"阳君";
     m2.qq = 937447974;
+    m2.array1 = @[@"array11",@"array12"];
     m2.array2 = @[@[m1]].mutableCopy;
     
     NSLogS(m1.modelDictionary);

@@ -61,6 +61,7 @@
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
 		84D4DF841D990A92007882A8 /* NSObject+YJSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */; };
 		84D4DF851D990A92007882A8 /* YJSDictionaryModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */; };
+		84E31F381D9A511700A7DEA3 /* YJSDictionaryModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E31F371D9A511700A7DEA3 /* YJSDictionaryModelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,8 @@
 		84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJSDictionaryModel.m"; sourceTree = "<group>"; };
 		84D4DF821D990A92007882A8 /* YJSDictionaryModelProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSDictionaryModelProperty.h; sourceTree = "<group>"; };
 		84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModelProperty.m; sourceTree = "<group>"; };
+		84E31F361D9A511700A7DEA3 /* YJSDictionaryModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSDictionaryModelManager.h; sourceTree = "<group>"; };
+		84E31F371D9A511700A7DEA3 /* YJSDictionaryModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSDictionaryModelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +663,8 @@
 			children = (
 				84D4DF801D990A92007882A8 /* NSObject+YJSDictionaryModel.h */,
 				84D4DF811D990A92007882A8 /* NSObject+YJSDictionaryModel.m */,
+				84E31F361D9A511700A7DEA3 /* YJSDictionaryModelManager.h */,
+				84E31F371D9A511700A7DEA3 /* YJSDictionaryModelManager.m */,
 				84D4DF821D990A92007882A8 /* YJSDictionaryModelProperty.h */,
 				84D4DF831D990A92007882A8 /* YJSDictionaryModelProperty.m */,
 			);
@@ -783,6 +788,7 @@
 				84D4DF851D990A92007882A8 /* YJSDictionaryModelProperty.m in Sources */,
 				8444EB291D6D4A740088D112 /* YJTCollectionReusableView.m in Sources */,
 				8444EB471D6D4A740088D112 /* YJSFoundationOther.m in Sources */,
+				84E31F381D9A511700A7DEA3 /* YJSDictionaryModelManager.m in Sources */,
 				8444EB241D6D4A740088D112 /* YJTLayoutSupport.m in Sources */,
 				8444EB481D6D4A740088D112 /* NSObject+YJSPerformSelector.m in Sources */,
 				8444EB421D6D4A740088D112 /* YJCRandomization.m in Sources */,

@@ -13,4 +13,12 @@
 
 @implementation YJSDictionaryModelProperty
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.importArrayClassSystem = YES;
+    }
+    return self;
+}
+
 @end

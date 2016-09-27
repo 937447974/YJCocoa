@@ -10,6 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJSDictionaryModelManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,30 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSDictionary *modelDictionary; ///< 模型字典
 
 /**
- *  @abstract 获取属性对应字典中的key
- *  @discusstion 如属性名为userID,对应字典中的key为user_id,则需通过此方法修改
+ *  @abstract 获取DictionaryModel转换管理器
+ *  @discusstion 可通过此控制器配置转换相关设置
  *
- *  @param attributeName 属性名
- *
- *  @return NSString
+ *  @return YJSDictionaryModelManager
  */
-+ (NSString *)getDictKeyWithAttributeName:(NSString *)attributeName;
-
-/**
- *  @abstract 获取Model中的属性是@property ... NSArray<importArrayClass *> *attributeName的importArrayClass
- *
- *  @param attributeName 属性名
- *
- *  @return NSString/Model
- */
-+ (Class)getImportArrayClassWithAttributeName:(NSString *)attributeName;
-
-/**
- *  @abstract 忽略的属性集合
- *
- *  @return NSArray<NSString *> *
- */
-+ (NSSet<NSString *> *)ignoredAttributes;
++ (YJSDictionaryModelManager *)dictionaryModelManager;
 
 /**
  *  @abstract 根据模型字典生成对象
