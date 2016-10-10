@@ -84,6 +84,12 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
             end
         end
+        af.subspec 'UIKit' do |uik|
+            # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
+            uik.subspec 'ViewGeometry' do |vg|
+                vg.source_files  = "Cocoa/CocoaTouchLayer/UIKit/ViewGeometry/*.{h,m}"
+            end
+        end
     end
 
     # 2 System
