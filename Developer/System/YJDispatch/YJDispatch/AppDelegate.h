@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  YJSystem
+//  YJDispatch
 //
-//  Created by admin on 16/5/16.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Created by admin on 2016/10/10.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

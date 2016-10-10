@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  YJSystem
+//  YJDispatch
 //
-//  Created by admin on 16/5/16.
-//  Copyright © 2016年 YJ. All rights reserved.
+//  Created by admin on 2016/10/10.
+//  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -20,19 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    for (int i = 0; i<1000; i++) {
-////        dispatch_async_concurrent(^{
-////            NSLog(@"dispatc:%d", i);
-////            
-////        });
-//        dispatch_sync_serial("1", ^{
-//            NSLog(@"dispatch_get_global_queue:%d", i);
-////            [NSThread sleepForTimeInterval:0.002];
-//        });
-////        dispatch_async_concurrent(^{
-////            NSLog(@"----:%d", i);
-////        });
-//    }
+    //    for (int i = 0; i<1000; i++) {
+    ////        dispatch_async_concurrent(^{
+    ////            NSLog(@"dispatc:%d", i);
+    ////
+    ////        });
+    //        dispatch_sync_serial("1", ^{
+    //            NSLog(@"dispatch_get_global_queue:%d", i);
+    ////            [NSThread sleepForTimeInterval:0.002];
+    //        });
+    ////        dispatch_async_concurrent(^{
+    ////            NSLog(@"----:%d", i);
+    ////        });
+    //    }
     
     __weakSelf
     dispatch_async_main(^{
@@ -45,7 +45,7 @@
 }
 
 - (void)test:(NSString *)str {
-     NSLog(str, nil);
+    NSLog(str, nil);
 }
 
 - (void)didReceiveMemoryWarning {
