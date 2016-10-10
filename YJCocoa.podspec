@@ -78,7 +78,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                 timer.source_files = 'Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/PerformSelector'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                timer.dependency 'YJCocoa/System/Security/Randomization'
+                timer.dependency 'YJCocoa/System/Security/Random'
             end
             foundation.subspec 'Other' do |other|
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
