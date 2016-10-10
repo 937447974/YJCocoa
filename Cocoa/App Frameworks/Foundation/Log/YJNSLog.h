@@ -1,5 +1,5 @@
 //
-//  YJSLog.h
+//  YJNSLog.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -20,17 +20,17 @@ FOUNDATION_EXPORT void NSLogS(id obj);
 //样式：[NSArray]、{NSDictionary}、{(NSSet)}
 
 /** 数组NSLog打印扩展*/
-@interface NSArray (YJSLog)
+@interface NSArray (YJNSLog)
 
 @end
 
 /** 字典NSLog打印扩展*/
-@interface NSDictionary (YJSLog)
+@interface NSDictionary (YJNSLog)
 
 @end
 
 /** NSSet打印扩展*/
-@interface NSSet (YJSLog)
+@interface NSSet (YJNSLog)
 
 @end
 

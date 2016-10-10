@@ -10,10 +10,10 @@
 //
 
 // NSLog打印优化，Unicode自动转化为中文输出。
-#import "YJSLog.h"
+#import "YJNSLog.h"
 
 // 单例管理中心
-#import "YJSSingletonMCenter.h"
+#import "YJNSSingletonMCenter.h"
 
 // http链接相关
 #import "YJSHttp.h"
@@ -28,5 +28,5 @@
 #import "NSObject+YJSDictionaryModel.h"
 
 // 其他不可归类封装
-#import "YJSFoundationOther.h"
+#import "YJNSFoundationOther.h"
 

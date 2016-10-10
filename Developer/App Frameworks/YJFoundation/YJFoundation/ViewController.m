@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <YJCocoa/YJCocoa.h>
+#import "YJFoundation.h"
 
 @interface ViewController ()
 
@@ -16,13 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self testSingleton];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 单例
+- (void)testSingleton {
+    for (int i = 0; i<100; i++) {
+        //异步执行队列任务
+        dispatch_async_concurrent(^{
+            NSLog(@"%@", [YJNSSingletonMC registerStrongSingleton:[ViewController class]]);
+        });
+        dispatch_async_concurrent(^{
+            NSLog(@"%@", [YJNSSingletonMC registerStrongSingleton:[YJNSSingletonMCenter class]]);
+        });
+    }
+    NSLog(@"dispatch_queue_create");
 }
 
 

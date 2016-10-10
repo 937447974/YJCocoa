@@ -1,5 +1,5 @@
 //
-//  YJSSingletonMCenter.h
+//  YJNSSingletonMCenter.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,10 +14,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 快速获取单例管理中心*/
-#define YJSSingletonMC [YJSSingletonMCenter defaultCenter]
+#define YJNSSingletonMC [YJNSSingletonMCenter defaultCenter]
 
 /** 单例管理中心*/
-@interface YJSSingletonMCenter : NSObject
+@interface YJNSSingletonMCenter : NSObject
 
 #pragma mark 获取默认
 /**
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return YJSingletonCenter
  */
-+ (YJSSingletonMCenter *)defaultCenter;
++ (YJNSSingletonMCenter *)defaultCenter;
 
 #pragma mark 注册strong单例
 /**
@@ -73,16 +73,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param sClass 单例类
  *
- *  @return void
  */
 - (void)removeWeakSingleton:(Class)sClass;
 
 /**
  *  通过自定义标签移除weak单例
  *
- *  @param sClass 单例类
+ *  @param identifier 单例类
  *
- *  @return void
  */
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier;
 

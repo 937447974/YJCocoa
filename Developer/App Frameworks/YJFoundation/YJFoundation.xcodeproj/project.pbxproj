@@ -19,12 +19,13 @@
 		84D355CC1DAB60950097D526 /* YJSDictionaryModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355B11DAB60950097D526 /* YJSDictionaryModelProperty.m */; };
 		84D355CD1DAB60950097D526 /* YJSHttpAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355B51DAB60950097D526 /* YJSHttpAnalysis.m */; };
 		84D355CE1DAB60950097D526 /* YJSHttpAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355B71DAB60950097D526 /* YJSHttpAssembly.m */; };
-		84D355CF1DAB60950097D526 /* YJSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355BA1DAB60950097D526 /* YJSLog.m */; };
-		84D355D01DAB60950097D526 /* YJSFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355BD1DAB60950097D526 /* YJSFoundationOther.m */; };
+		84D355CF1DAB60950097D526 /* YJNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355BA1DAB60950097D526 /* YJNSLog.m */; };
+		84D355D01DAB60950097D526 /* YJNSFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355BD1DAB60950097D526 /* YJNSFoundationOther.m */; };
 		84D355D11DAB60950097D526 /* NSObject+YJSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355C01DAB60950097D526 /* NSObject+YJSPerformSelector.m */; };
 		84D355D21DAB60950097D526 /* YJSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355C21DAB60950097D526 /* YJSPerformSelector.m */; };
-		84D355D31DAB60950097D526 /* YJSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355C51DAB60950097D526 /* YJSSingletonMCenter.m */; };
+		84D355D31DAB60950097D526 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355C51DAB60950097D526 /* YJNSSingletonMCenter.m */; };
 		84D355D41DAB60950097D526 /* YJSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355C81DAB60950097D526 /* YJSTimer.m */; };
+		84D355D81DAB66900097D526 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D355D71DAB66900097D526 /* libPods.a */; };
 		ED35F38E57D551239CD5BE53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1179E5823AC561CE347572D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,19 +64,20 @@
 		84D355B51DAB60950097D526 /* YJSHttpAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSHttpAnalysis.m; sourceTree = "<group>"; };
 		84D355B61DAB60950097D526 /* YJSHttpAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSHttpAssembly.h; sourceTree = "<group>"; };
 		84D355B71DAB60950097D526 /* YJSHttpAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSHttpAssembly.m; sourceTree = "<group>"; };
-		84D355B91DAB60950097D526 /* YJSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSLog.h; sourceTree = "<group>"; };
-		84D355BA1DAB60950097D526 /* YJSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSLog.m; sourceTree = "<group>"; };
-		84D355BC1DAB60950097D526 /* YJSFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSFoundationOther.h; sourceTree = "<group>"; };
-		84D355BD1DAB60950097D526 /* YJSFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSFoundationOther.m; sourceTree = "<group>"; };
+		84D355B91DAB60950097D526 /* YJNSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSLog.h; sourceTree = "<group>"; };
+		84D355BA1DAB60950097D526 /* YJNSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSLog.m; sourceTree = "<group>"; };
+		84D355BC1DAB60950097D526 /* YJNSFoundationOther.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSFoundationOther.h; sourceTree = "<group>"; };
+		84D355BD1DAB60950097D526 /* YJNSFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSFoundationOther.m; sourceTree = "<group>"; };
 		84D355BF1DAB60950097D526 /* NSObject+YJSPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJSPerformSelector.h"; sourceTree = "<group>"; };
 		84D355C01DAB60950097D526 /* NSObject+YJSPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJSPerformSelector.m"; sourceTree = "<group>"; };
 		84D355C11DAB60950097D526 /* YJSPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSPerformSelector.h; sourceTree = "<group>"; };
 		84D355C21DAB60950097D526 /* YJSPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSPerformSelector.m; sourceTree = "<group>"; };
-		84D355C41DAB60950097D526 /* YJSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSSingletonMCenter.h; sourceTree = "<group>"; };
-		84D355C51DAB60950097D526 /* YJSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSSingletonMCenter.m; sourceTree = "<group>"; };
+		84D355C41DAB60950097D526 /* YJNSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingletonMCenter.h; sourceTree = "<group>"; };
+		84D355C51DAB60950097D526 /* YJNSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingletonMCenter.m; sourceTree = "<group>"; };
 		84D355C71DAB60950097D526 /* YJSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSTimer.h; sourceTree = "<group>"; };
 		84D355C81DAB60950097D526 /* YJSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSTimer.m; sourceTree = "<group>"; };
 		84D355C91DAB60950097D526 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
+		84D355D71DAB66900097D526 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/YJFoundation-adtinvwebbekxbghhymqqxlbzzpd/Build/Products/Debug-iphonesimulator/libPods.a"; sourceTree = "<group>"; };
 		93AC8A6B1253F33B501CE1E7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A16CE2E581632C57957D4806 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C1179E5823AC561CE347572D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D355D81DAB66900097D526 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +106,7 @@
 		7AC3B8E64C87D1A243423627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D355D71DAB66900097D526 /* libPods.a */,
 				C1179E5823AC561CE347572D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -214,8 +218,8 @@
 		84D355B81DAB60950097D526 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				84D355B91DAB60950097D526 /* YJSLog.h */,
-				84D355BA1DAB60950097D526 /* YJSLog.m */,
+				84D355B91DAB60950097D526 /* YJNSLog.h */,
+				84D355BA1DAB60950097D526 /* YJNSLog.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -223,8 +227,8 @@
 		84D355BB1DAB60950097D526 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				84D355BC1DAB60950097D526 /* YJSFoundationOther.h */,
-				84D355BD1DAB60950097D526 /* YJSFoundationOther.m */,
+				84D355BC1DAB60950097D526 /* YJNSFoundationOther.h */,
+				84D355BD1DAB60950097D526 /* YJNSFoundationOther.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -243,8 +247,8 @@
 		84D355C31DAB60950097D526 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
-				84D355C41DAB60950097D526 /* YJSSingletonMCenter.h */,
-				84D355C51DAB60950097D526 /* YJSSingletonMCenter.m */,
+				84D355C41DAB60950097D526 /* YJNSSingletonMCenter.h */,
+				84D355C51DAB60950097D526 /* YJNSSingletonMCenter.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -425,15 +429,15 @@
 				84D355881DAB5E700097D526 /* ViewController.m in Sources */,
 				84D355D11DAB60950097D526 /* NSObject+YJSPerformSelector.m in Sources */,
 				84D355CE1DAB60950097D526 /* YJSHttpAssembly.m in Sources */,
-				84D355D31DAB60950097D526 /* YJSSingletonMCenter.m in Sources */,
+				84D355D31DAB60950097D526 /* YJNSSingletonMCenter.m in Sources */,
 				84D355851DAB5E700097D526 /* AppDelegate.m in Sources */,
 				84D355D21DAB60950097D526 /* YJSPerformSelector.m in Sources */,
-				84D355CF1DAB60950097D526 /* YJSLog.m in Sources */,
+				84D355CF1DAB60950097D526 /* YJNSLog.m in Sources */,
 				84D355D41DAB60950097D526 /* YJSTimer.m in Sources */,
 				84D355821DAB5E700097D526 /* main.m in Sources */,
 				84D355CD1DAB60950097D526 /* YJSHttpAnalysis.m in Sources */,
 				84D355CB1DAB60950097D526 /* YJSDictionaryModelManager.m in Sources */,
-				84D355D01DAB60950097D526 /* YJSFoundationOther.m in Sources */,
+				84D355D01DAB60950097D526 /* YJNSFoundationOther.m in Sources */,
 				84D355CC1DAB60950097D526 /* YJSDictionaryModelProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +498,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -542,6 +547,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -642,6 +648,7 @@
 				84D355A41DAB601D0097D526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

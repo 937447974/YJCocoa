@@ -15,11 +15,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 获取类名，兼容OC和Swift*/
-NSString *YJStringFromClass(Class aClass);
-
-/** Foundation 其他 Framework*/
-@interface YJSFoundationOther : NSObject
-
-@end
+FOUNDATION_EXPORT NSString *YJNSStringFromClass(Class aClass);
 
 NS_ASSUME_NONNULL_END

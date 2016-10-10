@@ -9,11 +9,11 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSSingletonMCenter.h"
-#import "YJSFoundationOther.h"
+#import "YJNSSingletonMCenter.h"
+#import "YJNSFoundationOther.h"
 #import <UIKit/UIKit.h>
 
-@interface YJSSingletonMCenter() {
+@interface YJNSSingletonMCenter() {
     dispatch_queue_t _queue; // 串行队列
 }
 /** 随应用一直存在的单例*/
@@ -23,15 +23,15 @@
 
 @end
 
-@implementation YJSSingletonMCenter
+@implementation YJNSSingletonMCenter
 
 #pragma mark - (+)
-+ (YJSSingletonMCenter *)defaultCenter {
-    static YJSSingletonMCenter *singletonMC;
++ (YJNSSingletonMCenter *)defaultCenter {
+    static YJNSSingletonMCenter *singletonMC;
     if (!singletonMC) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            singletonMC = [[YJSSingletonMCenter alloc] init];
+            singletonMC = [[YJNSSingletonMCenter alloc] init];
         });
     }
     return singletonMC;
@@ -76,7 +76,7 @@
 
 #pragma mark - 注册strong单例
 - (id)registerStrongSingleton:(Class)sClass {
-    return [self registerStrongSingleton:sClass forIdentifier:YJStringFromClass(sClass)];
+    return [self registerStrongSingleton:sClass forIdentifier:YJNSStringFromClass(sClass)];
 }
 
 - (id)registerStrongSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
@@ -85,7 +85,7 @@
 
 #pragma mark - 注册weak单例
 - (id)registerWeakSingleton:(Class)sClass {
-    return [self registerWeakSingleton:sClass forIdentifier:YJStringFromClass(sClass)];
+    return [self registerWeakSingleton:sClass forIdentifier:YJNSStringFromClass(sClass)];
 }
 
 - (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
@@ -95,7 +95,7 @@
 #pragma mark - 移除weak单例
 - (void)removeWeakSingleton:(Class)sClass {
     dispatch_sync(_queue, ^{
-        [self.weakDict removeObjectForKey:YJStringFromClass(sClass)];
+        [self.weakDict removeObjectForKey:YJNSStringFromClass(sClass)];
     });
 }
 

@@ -11,11 +11,11 @@
 
 #import "YJSTimer.h"
 #import "NSObject+YJSPerformSelector.h"
-#import "YJSSingletonMCenter.h"
+#import "YJNSSingletonMCenter.h"
 #import "YJSecRandom.h"
 
 /** 时间缓存池*/
-#define timerDict [YJSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]
+#define timerDict [YJNSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]
 
 @interface YJSTimer ()
 

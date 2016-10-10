@@ -11,7 +11,7 @@
 
 #import "NSObject+YJSDictionaryModel.h"
 #import "YJSDictionaryModelProperty.h"
-#import "YJSSingletonMCenter.h"
+#import "YJNSSingletonMCenter.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
@@ -135,7 +135,7 @@
     if (sourceClass == [NSObject class]) {
         return [NSMutableArray array];
     }
-    NSMutableDictionary *dict = [YJSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
+    NSMutableDictionary *dict = [YJNSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
     NSMutableArray<YJSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
     if (!propertys) {
         propertys = [NSMutableArray array];

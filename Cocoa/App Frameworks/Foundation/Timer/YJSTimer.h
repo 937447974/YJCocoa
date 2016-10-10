@@ -61,21 +61,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param target 目标类
  *  @param action 目标方法
  *
- *  @return void
  */
 - (void)addTarget:(id)target action:(SEL)action;
 
 /**
  *  运行
  *
- *  @return void
  */
 - (void)run;
 
 /**
  *  暂停
  *
- *  @return void
  */
 - (void)pause;
 
@@ -84,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note 当前类自动回收
  *
- *  @return void
  */
 - (void)invalidate;
 
