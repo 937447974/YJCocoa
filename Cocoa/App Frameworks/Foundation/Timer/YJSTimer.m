@@ -12,7 +12,7 @@
 #import "YJSTimer.h"
 #import "NSObject+YJSPerformSelector.h"
 #import "YJSSingletonMCenter.h"
-#import "YJCRandomization.h"
+#import "YJSecRandom.h"
 
 /** 时间缓存池*/
 #define timerDict [YJSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]
@@ -116,7 +116,7 @@
 #pragma mark - getter & setter
 - (NSString *)identifier {
     if (!_identifier) {
-        _identifier = randomization(5);
+        _identifier = YJSecRandomUL(5);
     }
     return _identifier;
 }
