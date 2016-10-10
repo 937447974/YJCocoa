@@ -1,5 +1,5 @@
 //
-//  YJSPerformSelector.m
+//  YJNSPerformSelector.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSPerformSelector.h"
+#import "YJNSPerformSelector.h"
 
-@implementation YJSPerformSelector
+@implementation YJNSPerformSelector
 
 - (instancetype)initWithSuccess:(BOOL)success result:(id)result {
     self = [super init];

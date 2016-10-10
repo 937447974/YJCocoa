@@ -1,5 +1,5 @@
 //
-//  YJSPerformSelector.h
+//  YJNSPerformSelector.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 安全执行方法的回调*/
-@interface YJSPerformSelector : NSObject
+@interface YJNSPerformSelector : NSObject
 
 @property (nonatomic) BOOL success;        ///< 方法是否执行通过
 @property (nonatomic, nullable) id result; ///< 方法执行后的结果

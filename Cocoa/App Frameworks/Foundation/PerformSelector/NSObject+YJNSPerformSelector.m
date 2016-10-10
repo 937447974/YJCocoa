@@ -1,5 +1,5 @@
 //
-//  NSObject+YJSPerformSelector.m
+//  NSObject+YJNSPerformSelector.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,11 +9,11 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "NSObject+YJSPerformSelector.h"
+#import "NSObject+YJNSPerformSelector.h"
 
-@implementation NSObject (YJSPerformSelector)
+@implementation NSObject (YJNSPerformSelector)
 
-- (YJSPerformSelector *)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
+- (YJNSPerformSelector *)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
     NSMethodSignature *sig = [self methodSignatureForSelector:aSelector];
     if (sig) {
         NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
@@ -27,12 +27,12 @@
         if (sig.methodReturnLength) {
             id anObject;
             [invo getReturnValue:&anObject];
-            return [[YJSPerformSelector alloc] initWithSuccess:YES result:anObject];
+            return [[YJNSPerformSelector alloc] initWithSuccess:YES result:anObject];
         } else {
-            return [[YJSPerformSelector alloc] initWithSuccess:YES result:nil];
+            return [[YJNSPerformSelector alloc] initWithSuccess:YES result:nil];
         }
     }
-    return [[YJSPerformSelector alloc] initWithSuccess:NO result:nil];
+    return [[YJNSPerformSelector alloc] initWithSuccess:NO result:nil];
 }
 
 @end

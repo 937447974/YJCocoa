@@ -21,11 +21,11 @@
 // 计时器
 #import "YJSTimer.h"
 
-// 线程安全执行Selector
-#import "NSObject+YJSPerformSelector.h"
-
 // Dictionary转Model
 #import "NSObject+YJSDictionaryModel.h"
+
+// 线程安全执行Selector
+#import "NSObject+YJNSPerformSelector.h"
 
 // 其他不可归类封装
 #import "YJNSFoundationOther.h"
