@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/admin/Library/Developer/Shared/Documentation/DocSets/com.YJ.YJCocoa.docset
-Time: 2016-08-24 03:50:07 +0000
