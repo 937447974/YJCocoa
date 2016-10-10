@@ -1,31 +1,31 @@
 //
-//  YJTNavigationBar.h
+//  YJUINavigationBar.h
 //  YJNavigationBar
 //
-//  HomePage:https://github.com/937447974/YJTocoa
+//  HomePage:https://github.com/937447974/YJUIocoa
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 16/7/6.
-//  Copyright © 2016年 YJTocoa. All rights reserved.
+//  Copyright © 2016年 YJUIocoa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "YJTBarButtonView.h"
+#import "YJUIBarButtonView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /*使用方法
- YJNavigationBar *nb = [[YJNavigationBar alloc] initWithFrame:CGRectZero];
+ YJUINavigationBar *nb = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
  nb.title = @"YJNavigationBar";
- nb.leftBarButtonView.barButtonItem = [[YJBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
+ nb.leftBarButtonView.barButtonItem = [[YJUIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
  self.navigationItem.titleView = nb;
  
- 通过[YJNavigationBar appearance]和[YJBarButtonView appearance]可修改默认配置
+ 通过[YJUINavigationBar appearance]和[YJUIBarButtonView appearance]可修改默认配置
  
  */
 
 /** 替换UINavigationItem.titleView*/
-@interface YJTNavigationBar : UIView
+@interface YJUINavigationBar : UIView
 
 @property (nonatomic) CGFloat leftSpacing;  ///< 左按钮View和标题的间隔,默认10
 @property (nonatomic) CGFloat rightSpacing; ///< 右按钮View和标题的间隔,默认10
@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy)   NSString *title;   ///< 标题
 @property (nullable, nonatomic, strong) UIView *titleView; ///< 自定义titleView
 
-@property (nullable, nonatomic, strong) YJTBarButtonView *leftBarButtonView;  ///< 左按钮View
-@property (nullable, nonatomic, strong) YJTBarButtonView *rightBarButtonView; ///< 右按钮View
+@property (nullable, nonatomic, strong) YJUIBarButtonView *leftBarButtonView;  ///< 左按钮View
+@property (nullable, nonatomic, strong) YJUIBarButtonView *rightBarButtonView; ///< 右按钮View
 
 @end
 

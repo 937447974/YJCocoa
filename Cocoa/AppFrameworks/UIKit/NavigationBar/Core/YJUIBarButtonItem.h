@@ -1,5 +1,5 @@
 //
-//  YJTBarButtonItem.h
+//  YJUIBarButtonItem.h
 //  YJNavigationBar
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 标题图片可同时使用
 
 /** 模仿UIBarButtonItem*/
-@interface YJTBarButtonItem : NSObject
+@interface YJUIBarButtonItem : NSObject
 
 @property (nonatomic) CGFloat tag; ///< 标记
 

@@ -1,5 +1,5 @@
 //
-//  YJTBarButtonItem.m
+//  YJUIBarButtonItem.m
 //  YJNavigationBar
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTBarButtonItem.h"
+#import "YJUIBarButtonItem.h"
 
-@implementation YJTBarButtonItem
+@implementation YJUIBarButtonItem
 
 - (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action {
     self = [super init];
