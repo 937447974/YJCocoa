@@ -1,5 +1,5 @@
 //
-//  YJTLayoutConstraintAnimate.m
+//  YJNSLayoutConstraintAnimate.m
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTLayoutConstraintAnimate.h"
+#import "YJNSLayoutConstraintAnimate.h"
 
-@implementation YJTLayoutConstraintAnimate
+@implementation YJNSLayoutConstraintAnimate
 
 @end

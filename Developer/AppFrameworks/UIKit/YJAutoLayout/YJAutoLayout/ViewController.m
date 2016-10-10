@@ -10,7 +10,7 @@
 //
 
 #import "ViewController.h"
-#import "YJTAutoLayout.h"
+#import "YJAutoLayout.h"
 
 @interface ViewController ()
 
@@ -63,7 +63,7 @@
 //    [self testYJAutoLayout]; // IOS7测试通过
 //    [self testSpaceToSuper];
 //    [self testCombinativeLayout];
-    [self testFindConstraint];
+//    [self testFindConstraint];
 //    [self testAnimate];
 }
 

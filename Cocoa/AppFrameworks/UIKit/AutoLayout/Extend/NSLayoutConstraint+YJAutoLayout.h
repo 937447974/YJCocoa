@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraint+YJTExtend.h
+//  NSLayoutConstraint+YJAutoLayout.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,7 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJTLayoutConstraintAnimate.h"
+#import "YJNSLayoutConstraintAnimate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ typedef NSLayoutConstraint * _Nonnull (^ Constant)(CGFloat constant);
 typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 
 /** NSLayoutConstraint扩展*/
-@interface NSLayoutConstraint (YJTExtend)
+@interface NSLayoutConstraint (YJAutoLayout)
 
 @property (nonatomic, readonly) Constant constants;     ///< 修改constant的值
 @property (nonatomic, readonly) Multiplier multipliers; ///< 修改multiplier的值

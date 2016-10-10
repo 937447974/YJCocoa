@@ -1,5 +1,5 @@
 //
-//  YJTLayoutAnchor.m
+//  YJNSLayoutAnchor.m
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTLayoutAnchor.h"
+#import "YJNSLayoutAnchor.h"
 
-@implementation YJTLayoutAnchor
+@implementation YJNSLayoutAnchor
 
 #pragma mark super
 - (instancetype)initWithItem:(id)item attribute:(NSLayoutAttribute)attribute {
@@ -27,32 +27,32 @@
 
 #pragma mark - getter
 - (LessThanOrEqualTo)lessThanOrEqualTo {
-    __weak YJTLayoutAnchor *wSelf = self;
-    LessThanOrEqualTo lessThanOrEqualTo = ^ (YJTLayoutAnchor *anchor) {
+    __weak YJNSLayoutAnchor *wSelf = self;
+    LessThanOrEqualTo lessThanOrEqualTo = ^ (YJNSLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute lessThanOrEqualToItem:anchor.item attribute:anchor.attribute];
     };
     return lessThanOrEqualTo;
 }
 
 - (EqualTo)equalTo {
-    __weak YJTLayoutAnchor *wSelf = self;
-    EqualTo equalTo = ^ (YJTLayoutAnchor *anchor) {
+    __weak YJNSLayoutAnchor *wSelf = self;
+    EqualTo equalTo = ^ (YJNSLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute equalToItem:anchor.item attribute:anchor.attribute];
     };
     return equalTo;
 }
 
 - (GreaterThanOrEqualTo)greaterThanOrEqualTo {
-    __weak YJTLayoutAnchor *wSelf = self;
-    GreaterThanOrEqualTo greaterThanOrEqualTo = ^ (YJTLayoutAnchor *anchor) {
+    __weak YJNSLayoutAnchor *wSelf = self;
+    GreaterThanOrEqualTo greaterThanOrEqualTo = ^ (YJNSLayoutAnchor *anchor) {
         return [NSLayoutConstraint constraintWithItem:wSelf.item attribute:wSelf.attribute greaterThanOrEqualToItem:anchor.item attribute:anchor.attribute];
     };
     return greaterThanOrEqualTo;
 }
 
 - (ConstraintTo)costraintTo {
-    __weak YJTLayoutAnchor *wSelf = self;
-    ConstraintTo block = ^ (YJTLayoutAnchor *anchor) {
+    __weak YJNSLayoutAnchor *wSelf = self;
+    ConstraintTo block = ^ (YJNSLayoutAnchor *anchor) {
         return [NSLayoutConstraint findConstraintWithItem:wSelf.item attribute:wSelf.attribute toItem:anchor.item attribute:anchor.attribute];
     };
     return block;

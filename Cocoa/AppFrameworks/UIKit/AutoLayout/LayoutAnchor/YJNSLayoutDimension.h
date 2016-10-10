@@ -1,5 +1,5 @@
 //
-//  YJTLayoutDimension.h
+//  YJNSLayoutDimension.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTLayoutAnchor.h"
+#import "YJNSLayoutAnchor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,8 +23,8 @@ typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualToConstant)(CGFloat c
 /** 快速查询约束*/
 typedef NSLayoutConstraint * __nullable (^ Constraint)();
 
-/** YJTLayoutDimension对应的协议*/
-@protocol YJTLayoutDimensionProtocol <YJTLayoutAnchorProtocol>
+/** YJNSLayoutDimension对应的协议*/
+@protocol YJNSLayoutDimensionProtocol <YJNSLayoutAnchorProtocol>
 
 // These methods return an inactive constraint of the form thisVariable = constant.
 /** use .lessThanOrEqualToConstant(CGFloat)*/
@@ -40,7 +40,7 @@ typedef NSLayoutConstraint * __nullable (^ Constraint)();
 
 
 /** 仿NSLayoutDimension*/
-@interface YJTLayoutDimension : YJTLayoutAnchor <YJTLayoutDimensionProtocol>
+@interface YJNSLayoutDimension : YJNSLayoutAnchor <YJNSLayoutDimensionProtocol>
 
 @end
 

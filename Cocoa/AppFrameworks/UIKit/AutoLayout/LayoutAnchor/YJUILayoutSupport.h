@@ -1,5 +1,5 @@
 //
-//  YJTLayoutSupport.h
+//  YJUILayoutSupport.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,19 +9,19 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTLayoutYAxisAnchor.h"
+#import "YJNSLayoutYAxisAnchor.h"
 
 /** 仿UILayoutSupport*/
 NS_CLASS_AVAILABLE_IOS(7_0)
-@interface YJTLayoutSupport : NSObject
+@interface YJUILayoutSupport : NSObject
 
-/* Constraint creation conveniences. See YJTLayoutAnchor.h for details.
+/* Constraint creation conveniences. See UILayoutAnchor.h for details.
  */
-@property (nonatomic, strong, readonly) YJTLayoutYAxisAnchor *topLayout;    ///< 替换topAnchor
-@property (nonatomic, strong, readonly) YJTLayoutYAxisAnchor *bottomLayout; ///< 替换bottomAnchor
+@property (nonatomic, strong, readonly) YJNSLayoutYAxisAnchor *topLayout;    ///< 替换topAnchor
+@property (nonatomic, strong, readonly) YJNSLayoutYAxisAnchor *bottomLayout; ///< 替换bottomAnchor
 
 /**
- *  初始化YJTLayoutSupport
+ *  初始化YJUILayoutSupport
  *
  *  @param layoutGuide topLayoutGuide/bottomLayoutGuide
  *

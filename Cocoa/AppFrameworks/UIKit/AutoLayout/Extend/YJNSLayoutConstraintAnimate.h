@@ -1,5 +1,5 @@
 //
-//  YJTLayoutConstraintAnimate.h
+//  YJNSLayoutConstraintAnimate.h
 //  YJAutoLayout
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^ YJTConstraintAnimateCompletion)();
 
 /** 约束动画携带的参数*/
-@interface YJTLayoutConstraintAnimate : NSObject
+@interface YJNSLayoutConstraintAnimate : NSObject
 
 @property (nonatomic) CGFloat toConstant;           ///< 目标值
 @property (nonatomic) CGFloat intervalConstant;     ///< 每一次变化值

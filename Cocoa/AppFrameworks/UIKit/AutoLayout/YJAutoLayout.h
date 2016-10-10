@@ -9,8 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UIView+YJTViewLayoutConstraintCreation.h"
-#import "UIViewController+YJTLayoutSupport.h"
+#import "UIView+YJUIViewLayoutConstraintCreation.h"
+#import "UIViewController+YJUILayoutSupport.h"
+#import "NSLayoutConstraint+YJAutoLayout.h"
 
 // NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 // 使用说明
