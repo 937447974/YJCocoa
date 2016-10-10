@@ -94,6 +94,43 @@
           "name": "UIKit",
           "subspecs": [
             {
+              "name": "AutoLayout",
+              "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "UIView",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/UIView/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "UIViewController",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/UIViewController/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "LayoutAnchor",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Extend",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}"
+                }
+              ]
+            },
+            {
               "name": "ViewGeometry",
               "source_files": "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
             }

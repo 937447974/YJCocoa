@@ -26,7 +26,20 @@ PODS:
     - YJCocoa/AppFrameworks/Foundation/Singleton
     - YJCocoa/System/Security/Random
   - YJCocoa/AppFrameworks/UIKit (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout (= 3.1.0)
     - YJCocoa/AppFrameworks/UIKit/ViewGeometry (= 3.1.0)
+  - YJCocoa/AppFrameworks/UIKit/AutoLayout (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend (= 3.1.0)
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor (= 3.1.0)
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/UIView (= 3.1.0)
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/UIViewController (= 3.1.0)
+  - YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend (3.1.0)
+  - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend
+  - YJCocoa/AppFrameworks/UIKit/AutoLayout/UIView (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor
+  - YJCocoa/AppFrameworks/UIKit/AutoLayout/UIViewController (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor
   - YJCocoa/AppFrameworks/UIKit/ViewGeometry (3.1.0)
   - YJCocoa/System (3.1.0):
     - YJCocoa/System/Dispatch (= 3.1.0)
@@ -50,10 +63,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   YJCocoa:
-    :commit: 06fabe01035e6dddff0771b04a8aadecc5bbfa38
+    :commit: 2ea16dc5b239970696f9740e163e27f20839a485
     :git: https://github.com/937447974/YJCocoa.git
 
 SPEC CHECKSUMS:
-  YJCocoa: 543ef8757d5ff5cb4f4696591dc399481e9dd355
+  YJCocoa: 84eec4bb4e91d483444f5380b2f5297fd867620d
 
 COCOAPODS: 0.39.0
