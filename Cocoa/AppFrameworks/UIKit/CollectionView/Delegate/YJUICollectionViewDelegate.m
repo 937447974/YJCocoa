@@ -11,7 +11,7 @@
 
 #import "YJUICollectionViewDelegate.h"
 #import "YJUICollectionViewDataSource.h"
-#import "YJSFoundationOther.h"
+#import "YJNSFoundationOther.h"
 #import "UIView+YJUIViewGeometry.h"
 
 @interface YJUICollectionViewDelegate () {

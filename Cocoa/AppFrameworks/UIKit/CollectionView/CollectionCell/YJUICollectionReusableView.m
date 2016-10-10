@@ -33,7 +33,7 @@
 
 + (CGSize)collectionViewDelegate:(YJUICollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject {
     if (cellObject.createCell == YJUICollectionCellCreateDefault) { // 默认使用xib创建cell
-        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:YJStringFromClass(self.class) owner:nil options:nil];
+        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:YJNSStringFromClass(self.class) owner:nil options:nil];
         return array.firstObject.frame.size;
     }
     // 默认设置

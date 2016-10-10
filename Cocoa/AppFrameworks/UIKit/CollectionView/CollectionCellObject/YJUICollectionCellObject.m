@@ -10,7 +10,7 @@
 //
 
 #import "YJUICollectionCellObject.h"
-#import "YJSFoundationOther.h"
+#import "YJNSFoundationOther.h"
 
 @implementation YJUICollectionCellObject
 
@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         _cellClass = cellClass;
-        _cellName = YJStringFromClass(_cellClass);
+        _cellName = YJNSStringFromClass(_cellClass);
     }
     return self;
 }

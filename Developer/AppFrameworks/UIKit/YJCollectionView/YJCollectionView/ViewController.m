@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "YJUICollectionView.h"
-#import "YJUIestCollectionViewCell.h"
-#import "YJCSystem.h"
-#import "YJUIestCollectionReusableView.h"
+#import "YJTestCollectionViewCell.h"
+#import "YJDispatch.h"
+#import "YJTestCollectionReusableView.h"
 
 @interface ViewController () <YJUICollectionViewCellProtocol>
 
@@ -33,17 +33,17 @@
     self.dataSoutce.delegate.cellDelegate = self;
     // 测试数据
     for (int i = 0; i<20; i++) {
-        YJUIestCollectionCellModel *cellModel = [[YJUIestCollectionCellModel alloc] init];
+        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.dataSoutce.dataSource addObject:[YJUIestCollectionViewCell cellObjectWithCellModel:cellModel]];
+        [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
     }
     // 头部、尾部
-    YJUIestCollectionReusableViewModel *hvm = [[YJUIestCollectionReusableViewModel alloc] init];
+    YJTestCollectionReusableViewModel *hvm = [[YJTestCollectionReusableViewModel alloc] init];
     hvm.backgroundColor = [UIColor greenColor];
-    [self.dataSoutce.headerDataSource addObject:[YJUIestCollectionReusableView cellObjectWithCellModel:hvm]];
-    YJUIestCollectionReusableViewModel *fvm = [[YJUIestCollectionReusableViewModel alloc] init];
+    [self.dataSoutce.headerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
+    YJTestCollectionReusableViewModel *fvm = [[YJTestCollectionReusableViewModel alloc] init];
     fvm.backgroundColor = [UIColor redColor];
-    YJUICollectionCellObject *co = [YJUIestCollectionReusableView cellObjectWithCellModel:fvm];
+    YJUICollectionCellObject *co = [YJTestCollectionReusableView cellObjectWithCellModel:fvm];
     co.createCell = YJUICollectionCellCreateClass;
     [self.dataSoutce.footerDataSource addObject:co];
 }
@@ -60,9 +60,9 @@
     NSLog(@"%@", self.dataSoutce.collectionFooterView);
     return;
     for (int i = 0; i<10; i++) {
-        YJUIestCollectionCellModel *cellModel = [[YJUIestCollectionCellModel alloc] init];
+        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.dataSoutce.dataSource addObject:[YJUIestCollectionViewCell cellObjectWithCellModel:cellModel]];
+        [self.dataSoutce.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
     }
     dispatch_async_main(^{
         [self.collectionView reloadData];

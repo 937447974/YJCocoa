@@ -15,7 +15,7 @@
 
 + (CGSize)collectionViewDelegate:(YJUICollectionViewDelegate *)delegate sizeForCellObject:(YJUICollectionCellObject *)cellObject {
     if (cellObject.createCell == YJUICollectionCellCreateDefault) { // 默认使用xib创建cell
-        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:YJStringFromClass(self.class) owner:nil options:nil];
+        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:YJNSStringFromClass(self.class) owner:nil options:nil];
         return array.firstObject.frame.size;
     }
     return delegate.flowLayout.itemSize; // 默认设置

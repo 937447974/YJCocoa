@@ -6,18 +6,18 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJTCollectionViewCell.h"
+#import "YJUICollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YJTestCollectionCellModel : NSObject <YJTCollectionCellModel>
+@interface YJTestCollectionCellModel : NSObject <YJUICollectionCellModel>
 
 @property (nonatomic, copy) NSString *index; ///< 位置
 
 @end
 
 
-@interface YJTestCollectionViewCell : YJTCollectionViewCell
+@interface YJTestCollectionViewCell : YJUICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 

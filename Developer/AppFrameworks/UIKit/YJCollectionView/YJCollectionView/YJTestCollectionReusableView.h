@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YJUICollectionView.h"
 
-@interface YJTestCollectionReusableViewModel : NSObject <YJTCollectionCellModel>
+@interface YJTestCollectionReusableViewModel : NSObject <YJUICollectionCellModel>
 
 @property (nonatomic, strong) UIColor *backgroundColor; ///< 背景色
 
