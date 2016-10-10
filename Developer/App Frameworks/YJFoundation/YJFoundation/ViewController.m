@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testSingleton];
+//    [self testSingleton];
 }
 
 #pragma mark - 单例

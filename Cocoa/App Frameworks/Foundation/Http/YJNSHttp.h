@@ -1,5 +1,5 @@
 //
-//  YJSHttp.h
+//  YJNSHttp.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,6 +10,7 @@
 //
 
 /** http链接解析，快速获取参数*/
-#import "YJSHttpAnalysis.h"
+#import "YJNSHttpAnalysis.h"
+
 /** htt链接组装，快速组装参数*/
-#import "YJSHttpAssembly.h"
+#import "YJNSHttpAssembly.h"

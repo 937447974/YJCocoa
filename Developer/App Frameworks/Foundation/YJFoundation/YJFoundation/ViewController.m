@@ -35,10 +35,7 @@
 
 #pragma mark - http相关
 - (void)testHttp {
-    NSString *http = [YJSHttpAssembly assemblyHttp:@"https://www.baidu.com/s" params:@{@"name":@"阳君", @"qq":@"937447974"}];
-    NSLog(@"%@", http);
-    NSLog(@"%@", [YJSHttpAnalysis analysisParams:http]);
-    NSLog(@"%@", [YJSHttpAnalysis analysisParams:http forKey:@"name"]);
+
 }
 
 #pragma mark - 安全执行Selector

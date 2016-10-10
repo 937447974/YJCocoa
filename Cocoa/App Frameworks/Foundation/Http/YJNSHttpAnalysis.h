@@ -1,5 +1,5 @@
 //
-//  YJSHttpAnalysis.h
+//  YJNSHttpAnalysis.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** http链接解析参数*/
-@interface YJSHttpAnalysis : NSObject
+@interface YJNSHttpAnalysis : NSObject
 
 /**
  *  通过http链接获取对应的参数

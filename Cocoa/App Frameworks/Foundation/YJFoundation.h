@@ -16,7 +16,7 @@
 #import "YJNSSingletonMCenter.h"
 
 // http链接相关
-#import "YJSHttp.h"
+#import "YJNSHttp.h"
 
 // 计时器
 #import "YJSTimer.h"
