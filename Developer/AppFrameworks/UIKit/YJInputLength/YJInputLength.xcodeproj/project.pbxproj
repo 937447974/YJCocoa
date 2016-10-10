@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8474F5551D6D7ADB00FF894E /* UITextField+YJTInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */; };
-		8474F5561D6D7ADB00FF894E /* UITextView+YJTInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */; };
+		842B0FBC1DAB93BA00F71C79 /* UITextField+YJInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FB81DAB93BA00F71C79 /* UITextField+YJInputLength.m */; };
+		842B0FBD1DAB93BA00F71C79 /* UITextView+YJInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FBA1DAB93BA00F71C79 /* UITextView+YJInputLength.m */; };
 		847D07941CF690B200639791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07931CF690B200639791 /* main.m */; };
 		847D07971CF690B200639791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07961CF690B200639791 /* AppDelegate.m */; };
 		847D079A1CF690B200639791 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D07991CF690B200639791 /* ViewController.m */; };
@@ -18,11 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8474F5501D6D7ADB00FF894E /* UITextField+YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YJTInputLength.h"; sourceTree = "<group>"; };
-		8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YJTInputLength.m"; sourceTree = "<group>"; };
-		8474F5521D6D7ADB00FF894E /* UITextView+YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YJTInputLength.h"; sourceTree = "<group>"; };
-		8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YJTInputLength.m"; sourceTree = "<group>"; };
-		8474F5541D6D7ADB00FF894E /* YJTInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTInputLength.h; sourceTree = "<group>"; };
+		842B0FB71DAB93BA00F71C79 /* UITextField+YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YJInputLength.h"; sourceTree = "<group>"; };
+		842B0FB81DAB93BA00F71C79 /* UITextField+YJInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YJInputLength.m"; sourceTree = "<group>"; };
+		842B0FB91DAB93BA00F71C79 /* UITextView+YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YJInputLength.h"; sourceTree = "<group>"; };
+		842B0FBA1DAB93BA00F71C79 /* UITextView+YJInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YJInputLength.m"; sourceTree = "<group>"; };
+		842B0FBB1DAB93BA00F71C79 /* YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJInputLength.h; sourceTree = "<group>"; };
 		847D078F1CF690B100639791 /* YJInputLength.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJInputLength.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847D07931CF690B200639791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847D07951CF690B200639791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,6 +46,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842B0FB61DAB93BA00F71C79 /* InputLength */ = {
+			isa = PBXGroup;
+			children = (
+				842B0FB71DAB93BA00F71C79 /* UITextField+YJInputLength.h */,
+				842B0FB81DAB93BA00F71C79 /* UITextField+YJInputLength.m */,
+				842B0FB91DAB93BA00F71C79 /* UITextView+YJInputLength.h */,
+				842B0FBA1DAB93BA00F71C79 /* UITextView+YJInputLength.m */,
+				842B0FBB1DAB93BA00F71C79 /* YJInputLength.h */,
+			);
+			name = InputLength;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/InputLength;
+			sourceTree = "<group>";
+		};
 		847D07861CF690B100639791 = {
 			isa = PBXGroup;
 			children = (
@@ -69,7 +82,7 @@
 				847D07961CF690B200639791 /* AppDelegate.m */,
 				847D07981CF690B200639791 /* ViewController.h */,
 				847D07991CF690B200639791 /* ViewController.m */,
-				847D07AA1CF6922600639791 /* InputLength */,
+				842B0FB61DAB93BA00F71C79 /* InputLength */,
 				847D07A91CF690C100639791 /* Resources */,
 				847D07921CF690B200639791 /* Supporting Files */,
 			);
@@ -93,19 +106,6 @@
 				847D07A01CF690B200639791 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		847D07AA1CF6922600639791 /* InputLength */ = {
-			isa = PBXGroup;
-			children = (
-				8474F5501D6D7ADB00FF894E /* UITextField+YJTInputLength.h */,
-				8474F5511D6D7ADB00FF894E /* UITextField+YJTInputLength.m */,
-				8474F5521D6D7ADB00FF894E /* UITextView+YJTInputLength.h */,
-				8474F5531D6D7ADB00FF894E /* UITextView+YJTInputLength.m */,
-				8474F5541D6D7ADB00FF894E /* YJTInputLength.h */,
-			);
-			name = InputLength;
-			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/InputLength;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +134,7 @@
 		847D07871CF690B100639791 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					847D078E1CF690B100639791 = {
@@ -178,10 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8474F5561D6D7ADB00FF894E /* UITextView+YJTInputLength.m in Sources */,
+				842B0FBD1DAB93BA00F71C79 /* UITextView+YJInputLength.m in Sources */,
 				847D079A1CF690B200639791 /* ViewController.m in Sources */,
 				847D07971CF690B200639791 /* AppDelegate.m in Sources */,
-				8474F5551D6D7ADB00FF894E /* UITextField+YJTInputLength.m in Sources */,
+				842B0FBC1DAB93BA00F71C79 /* UITextField+YJInputLength.m in Sources */,
 				847D07941CF690B200639791 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,8 +222,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -267,8 +269,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

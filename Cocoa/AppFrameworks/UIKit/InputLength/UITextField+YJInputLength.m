@@ -1,5 +1,5 @@
 //
-//  UITextField+YJTInputLength.m
+//  UITextField+YJInputLength.m
 //  YJInputLength
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,16 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UITextField+YJTInputLength.h"
+#import "UITextField+YJInputLength.h"
 #import <objc/runtime.h>
 
-@interface UITextField (YJTPrivate)
+@interface UITextField (YJPrivate)
 
 @property (nonatomic, weak) NSString *oldInput; ///< 用户上一次输入
 
 @end
 
-@implementation UITextField (YJTInputLength)
+@implementation UITextField (YJInputLength)
 
 #pragma mark - getter and setter
 - (void)setOldInput:(NSString *)oldInput {
