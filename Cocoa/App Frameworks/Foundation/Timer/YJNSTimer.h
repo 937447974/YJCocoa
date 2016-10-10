@@ -1,5 +1,5 @@
 //
-//  YJSTimer.h
+//  YJNSTimer.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,10 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// 使用YJSTimer时，除特殊情况外，外部弱引用YJSTimer。
+// 使用YJNSTimer时，除特殊情况外，外部弱引用YJNSTimer。
 
 /** 计时器NSTimer*/
-@interface YJSTimer : NSObject
+@interface YJNSTimer : NSObject
 
 @property (nonatomic, copy, readonly) NSString *identifier; ///< 标识符
 
@@ -37,25 +37,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param identifier 标识符
  *
- *  @return YJSTimer
+ *  @return YJNSTimer
  */
 + (instancetype)timerStrongWithIdentifier:(nullable NSString *)identifier;
 
 /**
  *  初始化
  *
- *  @note 随当前调用类的生命周期存在。当前VC回收时，YJSTimer自动回收。
+ *  @note 随当前调用类的生命周期存在。当前VC回收时，YJNSTimer自动回收。
  *
  *  @param identifier 标识符
  *
- *  @return YJSTimer
+ *  @return YJNSTimer
  */
 + (instancetype)timerWeakWithIdentifier:(nullable NSString *)identifier;
 
 /**
  *  添加回调监听
  *
- *  @note action实现方式如：-(void)action:(YJSTimer *)time;
+ *  @note action实现方式如：-(void)action:(YJNSTimer *)time;
  *        strong初始化会强引用target，weak初始化弱引用tag
  *
  *  @param target 目标类
@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pause;
 
 /**
- *  失效，手动回收YJSTimer
+ *  失效，手动回收YJNSTimer
  *
  *  @note 当前类自动回收
  *

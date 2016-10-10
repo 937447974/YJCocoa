@@ -1,5 +1,5 @@
 //
-//  YJSTimer.m
+//  YJNSTimer.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,15 +9,15 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSTimer.h"
+#import "YJNSTimer.h"
 #import "NSObject+YJNSPerformSelector.h"
 #import "YJNSSingletonMCenter.h"
 #import "YJSecRandom.h"
 
 /** 时间缓存池*/
-#define timerDict [YJNSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJSTimer"]
+#define timerDict [YJNSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJNSTimer"]
 
-@interface YJSTimer ()
+@interface YJNSTimer ()
 
 @property (nonatomic, copy) NSString *identifier; ///< 标识符
 
@@ -31,36 +31,36 @@
 
 @end
 
-@implementation YJSTimer
+@implementation YJNSTimer
 
 #pragma mark - init
 + (instancetype)timerStrongWithIdentifier:(NSString *)identifier {
-    YJSTimer *timer = [self timerWithIdentifier:identifier];
+    YJNSTimer *timer = [self timerWithIdentifier:identifier];
     timer.weakT = NO;
     return timer;
 }
 
 + (instancetype)timerWeakWithIdentifier:(NSString *)identifier {
-    YJSTimer *timer = [self timerWithIdentifier:identifier];
+    YJNSTimer *timer = [self timerWithIdentifier:identifier];
     timer.weakT = YES;
     return timer;
 }
 
 + (instancetype)timerWithIdentifier:(NSString *)identifier {
-    NSMutableDictionary<NSString *, YJSTimer *> *tDict = timerDict;
+    NSMutableDictionary<NSString *, YJNSTimer *> *tDict = timerDict;
     if (tDict.count >= 5) {
-        for (YJSTimer *timer in tDict.allValues) {
+        for (YJNSTimer *timer in tDict.allValues) {
             if (timer.weakT && !timer.weakTarget) {
                 [tDict removeObjectForKey:timer.identifier];
             }
         }
     }
-    YJSTimer *timer;
+    YJNSTimer *timer;
     if (identifier) {
         timer = [timerDict objectForKey:identifier];
     }
     if (!timer) {
-        timer = [[YJSTimer alloc] init];
+        timer = [[YJNSTimer alloc] init];
         timer.identifier = identifier;
         timer.timeInterval = 1;
     }
@@ -79,7 +79,7 @@
 }
 
 - (void)run {
-    NSAssert(self.timeInterval > 0, @"YJSTimer.timeInterval小于等于0");
+    NSAssert(self.timeInterval > 0, @"YJNSTimer.timeInterval小于等于0");
     if (!self.timer || self.timer.timeInterval != self.timeInterval) {
         self.timer = [NSTimer timerWithTimeInterval:self.timeInterval target:self selector:@selector(autoUpdateTime) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];

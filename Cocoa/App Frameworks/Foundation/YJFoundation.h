@@ -9,23 +9,23 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-// NSLog打印优化，Unicode自动转化为中文输出。
-#import "YJNSLog.h"
-
-// 单例管理中心
-#import "YJNSSingletonMCenter.h"
+// Dictionary转Model
+#import "NSObject+YJSDictionaryModel.h"
 
 // http链接相关
 #import "YJNSHttp.h"
 
-// 计时器
-#import "YJSTimer.h"
-
-// Dictionary转Model
-#import "NSObject+YJSDictionaryModel.h"
+// NSLog打印优化，Unicode自动转化为中文输出。
+#import "YJNSLog.h"
 
 // 线程安全执行Selector
 #import "NSObject+YJNSPerformSelector.h"
+
+// 单例管理中心
+#import "YJNSSingletonMCenter.h"
+
+// 计时器
+#import "YJNSTimer.h"
 
 // 其他不可归类封装
 #import "YJNSFoundationOther.h"

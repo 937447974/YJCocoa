@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self testSingleton];
+    [self testTimer];
 }
 
 #pragma mark - 单例
@@ -35,5 +36,24 @@
     NSLog(@"dispatch_queue_create");
 }
 
+#pragma mark - 倒计时
+- (void)testTimer {
+    for (int i=0; i<3; i++) {
+        YJNSTimer *timer = [YJNSTimer timerWeakWithIdentifier:nil];
+        [timer addTarget:self action:@selector(testTimerLog:)];
+        timer.timeInterval = 3;
+        timer.time = 10;
+        timer.countdown = YES;
+        [timer run];
+    }
+}
+
+- (void)testTimerLog:(YJNSTimer *)timer {
+    NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
+    // 模拟释放当前VC
+    if (timer.time<=0) {
+        [timer invalidate];
+    }
+}
 
 @end
