@@ -1,6 +1,6 @@
 //
-//  YJSDictionaryModelManager.m
-//  YJSFoundation
+//  YJNSDictionaryModelManager.m
+//  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSDictionaryModelManager.h"
+#import "YJNSDictionaryModelManager.h"
 
-@implementation YJSDictionaryModelManager
+@implementation YJNSDictionaryModelManager
 
 - (instancetype)init {
     self = [super init];

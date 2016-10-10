@@ -1,6 +1,6 @@
 //
-//  NSObject+YJSDictionaryModel.m
-//  YJSFoundation
+//  NSObject+YJNSDictionaryModel.m
+//  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,17 +9,17 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "NSObject+YJSDictionaryModel.h"
-#import "YJSDictionaryModelProperty.h"
+#import "NSObject+YJNSDictionaryModel.h"
+#import "YJNSDictionaryModelProperty.h"
 #import "YJNSSingletonMCenter.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation NSObject (YJSDictionaryModel)
+@implementation NSObject (YJNSDictionaryModel)
 
 #pragma mark public(+)
-+ (YJSDictionaryModelManager *)dictionaryModelManager {
-    return [[YJSDictionaryModelManager alloc] init];
++ (YJNSDictionaryModelManager *)dictionaryModelManager {
+    return [[YJNSDictionaryModelManager alloc] init];
 }
 
 #pragma mark - init
@@ -35,21 +35,21 @@
 - (NSDictionary *)modelDictionary {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *propertys = [self.class propertys];
-    for (YJSDictionaryModelProperty *p in propertys) {
+    for (YJNSDictionaryModelProperty *p in propertys) {
         id value;
         switch (p.attributeType) {
-            case YJSDMPAttributeTypeNumber:     // NSNumber
-            case YJSDMPAttributeTypeString:     // NSString
-            case YJSDMPAttributeTypeDictionary: // NSDictionary
+            case YJNSDMPAttributeTypeNumber:     // NSNumber
+            case YJNSDMPAttributeTypeString:     // NSString
+            case YJNSDMPAttributeTypeDictionary: // NSDictionary
                 value = [self valueForKey:p.attributeName];
                 break;
-            case YJSDMPAttributeTypeArray:      // NSArray
+            case YJNSDMPAttributeTypeArray:      // NSArray
                 value = [self valueForKey:p.attributeName];
                 if (value && !p.importArrayClassSystem) {
                     value = [self getDictionaryArrayValue:value forProperty:p];
                 }
                 break;
-            case YJSDMPAttributeTypeModel:      // Model
+            case YJNSDMPAttributeTypeModel:      // Model
                 value = ((NSObject *)[self valueForKey:p.attributeName]).modelDictionary;
                 break;
         }
@@ -65,19 +65,19 @@
         return;
     }
     NSArray *propertys = [self.class propertys];
-    for (YJSDictionaryModelProperty *p in propertys) {
+    for (YJNSDictionaryModelProperty *p in propertys) {
         id value = [modelDictionary objectForKey:p.attributeKey];
         if (value == nil || [value isKindOfClass:[NSNull class]]) {
             continue;
         }
         switch (p.attributeType) {
-            case YJSDMPAttributeTypeNumber:     // NSNumber
+            case YJNSDMPAttributeTypeNumber:     // NSNumber
                 [self setValue:value forKey:p.attributeName];
                 break;
-            case YJSDMPAttributeTypeString:     // NSString
+            case YJNSDMPAttributeTypeString:     // NSString
                 [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
-            case YJSDMPAttributeTypeArray:      // NSArray
+            case YJNSDMPAttributeTypeArray:      // NSArray
                 if ([value isKindOfClass:[NSArray class]]) {
                     if (!p.importArrayClassSystem) {
                         value = [self getModelArrayValue:value forProperty:p];
@@ -85,12 +85,12 @@
                     [self setValue:value forKey:p.attributeName];
                 }
                 break;
-            case YJSDMPAttributeTypeDictionary: // NSDictionary
+            case YJNSDMPAttributeTypeDictionary: // NSDictionary
                 if ([value isKindOfClass:[NSDictionary class]]) {
                     [self setValue:value forKey:p.attributeName];
                 }
                 break;
-            case YJSDMPAttributeTypeModel:      // Model
+            case YJNSDMPAttributeTypeModel:      // Model
                 if ([value isKindOfClass:[NSDictionary class]]) {
                     value = [[p.attributeClass alloc] initWithModelDictionary:value];
                     [self setValue:value forKey:p.attributeName];
@@ -101,7 +101,7 @@
 }
 
 #pragma mark - private(-)
-- (NSMutableArray *)getDictionaryArrayValue:(NSArray *)array forProperty:(YJSDictionaryModelProperty *)p {
+- (NSMutableArray *)getDictionaryArrayValue:(NSArray *)array forProperty:(YJNSDictionaryModelProperty *)p {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
     for (id value in array) {
         if ([value isKindOfClass:[NSArray class]]) {
@@ -115,7 +115,7 @@
     return result;
 }
 
-- (NSMutableArray *)getModelArrayValue:(NSArray *)array forProperty:(YJSDictionaryModelProperty *)p {
+- (NSMutableArray *)getModelArrayValue:(NSArray *)array forProperty:(YJNSDictionaryModelProperty *)p {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
     for (id value in array) {
         if ([value isKindOfClass:[NSDictionary class]]) {
@@ -130,22 +130,22 @@
 }
 
 #pragma mark - private(+)
-+ (NSArray<YJSDictionaryModelProperty *> *)propertys {
++ (NSArray<YJNSDictionaryModelProperty *> *)propertys {
     Class sourceClass = self.class;
     if (sourceClass == [NSObject class]) {
         return [NSMutableArray array];
     }
-    NSMutableDictionary *dict = [YJNSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJSDictionaryModel)"];
-    NSMutableArray<YJSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
+    NSMutableDictionary *dict = [YJNSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJNSDictionaryModel)"];
+    NSMutableArray<YJNSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
     if (!propertys) {
         propertys = [NSMutableArray array];
         [dict setObject:propertys forKey:NSStringFromClass(self.class)];
-        YJSDictionaryModelManager *dMManager = [sourceClass dictionaryModelManager];
+        YJNSDictionaryModelManager *dMManager = [sourceClass dictionaryModelManager];
         unsigned int propertyCount;
         objc_property_t *properties = class_copyPropertyList(sourceClass, &propertyCount);
         for (unsigned int i = 0; i < propertyCount; i++) {
             objc_property_t property = properties[i];
-            YJSDictionaryModelProperty *p = [self getModelProperty:property dictionaryModelManager:dMManager];
+            YJNSDictionaryModelProperty *p = [self getModelProperty:property dictionaryModelManager:dMManager];
             if (p) {
                 [propertys addObject:p];
             }
@@ -156,8 +156,8 @@
     return propertys;
 }
 
-+ (YJSDictionaryModelProperty *)getModelProperty:(objc_property_t)property dictionaryModelManager:(YJSDictionaryModelManager *)dMManager {
-    YJSDictionaryModelProperty *p = [[YJSDictionaryModelProperty alloc] init];
++ (YJNSDictionaryModelProperty *)getModelProperty:(objc_property_t)property dictionaryModelManager:(YJNSDictionaryModelManager *)dMManager {
+    YJNSDictionaryModelProperty *p = [[YJNSDictionaryModelProperty alloc] init];
     // 属性名
     const char *propertyName = property_getName(property);
     p.attributeName = @(propertyName);
@@ -176,7 +176,7 @@
     }
     // immutable classes: NSString, NSNumber, NSArray, NSDictionary
     if (attributeItems.count == 3) {
-        p.attributeClass = YJSDMPAttributeTypeNumber;
+        p.attributeClass = YJNSDMPAttributeTypeNumber;
     } else if (attributeItems.count == 4) {
         NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
         if ([scanner scanString:@"T@\"" intoString:nil]) {
@@ -189,21 +189,20 @@
             }
             if ([dMManager.systemBaseClass containsObject:p.attributeClass]) {
                 if ([p.attributeClass isSubclassOfClass:[NSString class]]) {
-                    p.attributeType = YJSDMPAttributeTypeString;
+                    p.attributeType = YJNSDMPAttributeTypeString;
                 } else if ([p.attributeClass isSubclassOfClass:[NSDictionary class]]) {
-                    p.attributeType = YJSDMPAttributeTypeDictionary;
+                    p.attributeType = YJNSDMPAttributeTypeDictionary;
                 } else if ([p.attributeClass isSubclassOfClass:[NSArray class]]) {
-                    p.attributeType = YJSDMPAttributeTypeArray;
+                    p.attributeType = YJNSDMPAttributeTypeArray;
                     p.importArrayClass = [dMManager.importArrayClasses objectForKey:p.attributeName];
                     if (p.importArrayClass) {
                         p.importArrayClassSystem = [dMManager.systemBaseClass containsObject:p.importArrayClass];
                     }
                 }
             } else {
-                p.attributeType = YJSDMPAttributeTypeModel;
+                p.attributeType = YJNSDMPAttributeTypeModel;
             }
         } else {
-            NSLog(@"请通知阳君，QQ:937447974修复BUG");
             return nil;
         }
     } else {

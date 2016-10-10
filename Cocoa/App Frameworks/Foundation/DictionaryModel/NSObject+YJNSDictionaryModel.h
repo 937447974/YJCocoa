@@ -1,6 +1,6 @@
 //
-//  NSObject+YJSDictionaryModel.h
-//  YJSFoundation
+//  NSObject+YJNSDictionaryModel.h
+//  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -10,12 +10,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJSDictionaryModelManager.h"
+#import "YJNSDictionaryModelManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 模型和字典互相转换*/
-@interface NSObject (YJSDictionaryModel)
+@interface NSObject (YJNSDictionaryModel)
 
 @property (nonatomic, strong, readonly) NSDictionary *modelDictionary; ///< 模型字典
 
@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @abstract 获取DictionaryModel转换管理器
  *  @discusstion 可通过此控制器配置转换相关设置
  *
- *  @return YJSDictionaryModelManager
+ *  @return YJNSDictionaryModelManager
  */
-+ (YJSDictionaryModelManager *)dictionaryModelManager;
++ (YJNSDictionaryModelManager *)dictionaryModelManager;
 
 /**
  *  @abstract 根据模型字典生成对象

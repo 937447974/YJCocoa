@@ -10,7 +10,7 @@
 //
 
 // Dictionary转Model
-#import "NSObject+YJSDictionaryModel.h"
+#import "NSObject+YJNSDictionaryModel.h"
 
 // http链接相关
 #import "YJNSHttp.h"

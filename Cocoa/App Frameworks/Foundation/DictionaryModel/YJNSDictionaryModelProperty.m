@@ -1,5 +1,5 @@
 //
-//  YJSDictionaryModelProperty.m
+//  YJNSDictionaryModelProperty.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJSDictionaryModelProperty.h"
+#import "YJNSDictionaryModelProperty.h"
 
-@implementation YJSDictionaryModelProperty
+@implementation YJNSDictionaryModelProperty
 
 - (instancetype)init {
     self = [super init];

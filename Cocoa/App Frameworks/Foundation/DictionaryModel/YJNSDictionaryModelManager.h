@@ -1,6 +1,6 @@
 //
-//  YJSDictionaryModelManager.h
-//  YJSFoundation
+//  YJNSDictionaryModelManager.h
+//  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** DictionaryModel转换管理器*/
-@interface YJSDictionaryModelManager : NSObject
+@interface YJNSDictionaryModelManager : NSObject
 
 /**
  *  @abstract 配置属性对应字典中的key

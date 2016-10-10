@@ -1,5 +1,5 @@
 //
-//  YJSDictionaryModelProperty.h
+//  YJNSDictionaryModelProperty.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,21 +14,21 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 支持的属性类型*/
-typedef NS_ENUM(NSInteger, YJSDMPAttributeType) {
-    YJSDMPAttributeTypeNumber,     ///< NSNumber
-    YJSDMPAttributeTypeString,     ///< NSString
-    YJSDMPAttributeTypeArray,      ///< NSArray
-    YJSDMPAttributeTypeDictionary, ///< NSDictionary
-    YJSDMPAttributeTypeModel       ///< Model
+typedef NS_ENUM(NSInteger, YJNSDMPAttributeType) {
+    YJNSDMPAttributeTypeNumber,     ///< NSNumber
+    YJNSDMPAttributeTypeString,     ///< NSString
+    YJNSDMPAttributeTypeArray,      ///< NSArray
+    YJNSDMPAttributeTypeDictionary, ///< NSDictionary
+    YJNSDMPAttributeTypeModel       ///< Model
 };
 
 /** 模型中的属性*/
-@interface YJSDictionaryModelProperty : NSObject
+@interface YJNSDictionaryModelProperty : NSObject
 
 @property (nonatomic, copy) NSString *attributeName; ///< 属性名
 @property (nonatomic, copy) NSString *attributeKey;  ///< 属性对应字典中的Key
 
-@property (nonatomic)           YJSDMPAttributeType attributeType; ///< 属性对应的class类型
+@property (nonatomic)           YJNSDMPAttributeType attributeType; ///< 属性对应的class类型
 @property (nonatomic, nullable) Class attributeClass;              ///< 属性对应的class
 
 @property (nonatomic)           BOOL importArrayClassSystem; ///< importArrayClass是否为系统基础类型
