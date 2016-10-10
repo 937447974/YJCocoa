@@ -13,11 +13,11 @@
 		841AFDF01D4F29310048FA2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841AFDEE1D4F29310048FA2A /* Main.storyboard */; };
 		841AFDF21D4F29310048FA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841AFDF11D4F29310048FA2A /* Assets.xcassets */; };
 		841AFDF51D4F29310048FA2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841AFDF31D4F29310048FA2A /* LaunchScreen.storyboard */; };
-		841AFE051D4F29A40048FA2A /* YJCKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AFE001D4F29A40048FA2A /* YJCKeychain.m */; };
-		841AFE061D4F29A40048FA2A /* YJCRandomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AFE031D4F29A40048FA2A /* YJCRandomization.m */; };
 		841AFE0A1D4F29E00048FA2A /* Keychain.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841AFE091D4F29E00048FA2A /* Keychain.plist */; };
-		8450AB261D502A7600B577A0 /* YJCKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8450AB251D502A7600B577A0 /* YJCKeychainGPItem.m */; };
-		8462AA551D4F3E8600DDFADF /* YJCKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462AA541D4F3E8600DDFADF /* YJCKeychainItem.m */; };
+		84D355301DAB44850097D526 /* YJSecKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355271DAB44850097D526 /* YJSecKeychainGPItem.m */; };
+		84D355311DAB44850097D526 /* YJSecKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355291DAB44850097D526 /* YJSecKeychainItem.m */; };
+		84D355321DAB44850097D526 /* YJSecKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3552B1DAB44850097D526 /* YJSecKeychain.m */; };
+		84D355371DAB47830097D526 /* YJSecRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355361DAB47830097D526 /* YJSecRandom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,16 +31,16 @@
 		841AFDF11D4F29310048FA2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841AFDF41D4F29310048FA2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841AFDF61D4F29310048FA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		841AFDFF1D4F29A40048FA2A /* YJCKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychain.h; sourceTree = "<group>"; };
-		841AFE001D4F29A40048FA2A /* YJCKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychain.m; sourceTree = "<group>"; };
-		841AFE021D4F29A40048FA2A /* YJCRandomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCRandomization.h; sourceTree = "<group>"; };
-		841AFE031D4F29A40048FA2A /* YJCRandomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCRandomization.m; sourceTree = "<group>"; };
-		841AFE041D4F29A40048FA2A /* YJCSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCSecurity.h; sourceTree = "<group>"; };
 		841AFE091D4F29E00048FA2A /* Keychain.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keychain.plist; sourceTree = "<group>"; };
-		8450AB241D502A7600B577A0 /* YJCKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainGPItem.h; sourceTree = "<group>"; };
-		8450AB251D502A7600B577A0 /* YJCKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychainGPItem.m; sourceTree = "<group>"; };
-		8462AA531D4F3E8600DDFADF /* YJCKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCKeychainItem.h; sourceTree = "<group>"; };
-		8462AA541D4F3E8600DDFADF /* YJCKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCKeychainItem.m; sourceTree = "<group>"; };
+		84D355261DAB44850097D526 /* YJSecKeychainGPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecKeychainGPItem.h; sourceTree = "<group>"; };
+		84D355271DAB44850097D526 /* YJSecKeychainGPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecKeychainGPItem.m; sourceTree = "<group>"; };
+		84D355281DAB44850097D526 /* YJSecKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecKeychainItem.h; sourceTree = "<group>"; };
+		84D355291DAB44850097D526 /* YJSecKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecKeychainItem.m; sourceTree = "<group>"; };
+		84D3552A1DAB44850097D526 /* YJSecKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecKeychain.h; sourceTree = "<group>"; };
+		84D3552B1DAB44850097D526 /* YJSecKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecKeychain.m; sourceTree = "<group>"; };
+		84D3552F1DAB44850097D526 /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
+		84D355351DAB47830097D526 /* YJSecRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecRandom.h; sourceTree = "<group>"; };
+		84D355361DAB47830097D526 /* YJSecRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecRandom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 				841AFDE91D4F29310048FA2A /* AppDelegate.m */,
 				841AFDEB1D4F29310048FA2A /* ViewController.h */,
 				841AFDEC1D4F29310048FA2A /* ViewController.m */,
-				841AFDFD1D4F29A40048FA2A /* Security */,
+				84D355231DAB44850097D526 /* Security */,
 				841AFDFC1D4F29480048FA2A /* Resources */,
 				841AFDE51D4F29310048FA2A /* Supporting Files */,
 			);
@@ -104,45 +104,45 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		841AFDFD1D4F29A40048FA2A /* Security */ = {
+		84D355231DAB44850097D526 /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				841AFDFE1D4F29A40048FA2A /* Keychain */,
-				841AFE011D4F29A40048FA2A /* Randomization */,
-				841AFE041D4F29A40048FA2A /* YJCSecurity.h */,
+				84D355241DAB44850097D526 /* Keychain */,
+				84D355341DAB47830097D526 /* Random */,
+				84D3552F1DAB44850097D526 /* YJSecurity.h */,
 			);
 			name = Security;
-			path = ../../../../../Cocoa/CoreOSLayer/Security;
+			path = ../../../../Cocoa/System/Security;
 			sourceTree = "<group>";
 		};
-		841AFDFE1D4F29A40048FA2A /* Keychain */ = {
+		84D355241DAB44850097D526 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
-				8462AA511D4F3E2600DDFADF /* Item */,
-				841AFDFF1D4F29A40048FA2A /* YJCKeychain.h */,
-				841AFE001D4F29A40048FA2A /* YJCKeychain.m */,
+				84D355251DAB44850097D526 /* Item */,
+				84D3552A1DAB44850097D526 /* YJSecKeychain.h */,
+				84D3552B1DAB44850097D526 /* YJSecKeychain.m */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
 		};
-		841AFE011D4F29A40048FA2A /* Randomization */ = {
+		84D355251DAB44850097D526 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				841AFE021D4F29A40048FA2A /* YJCRandomization.h */,
-				841AFE031D4F29A40048FA2A /* YJCRandomization.m */,
-			);
-			path = Randomization;
-			sourceTree = "<group>";
-		};
-		8462AA511D4F3E2600DDFADF /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				8462AA531D4F3E8600DDFADF /* YJCKeychainItem.h */,
-				8462AA541D4F3E8600DDFADF /* YJCKeychainItem.m */,
-				8450AB241D502A7600B577A0 /* YJCKeychainGPItem.h */,
-				8450AB251D502A7600B577A0 /* YJCKeychainGPItem.m */,
+				84D355261DAB44850097D526 /* YJSecKeychainGPItem.h */,
+				84D355271DAB44850097D526 /* YJSecKeychainGPItem.m */,
+				84D355281DAB44850097D526 /* YJSecKeychainItem.h */,
+				84D355291DAB44850097D526 /* YJSecKeychainItem.m */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		84D355341DAB47830097D526 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				84D355351DAB47830097D526 /* YJSecRandom.h */,
+				84D355361DAB47830097D526 /* YJSecRandom.m */,
+			);
+			path = Random;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,13 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D355321DAB44850097D526 /* YJSecKeychain.m in Sources */,
 				841AFDED1D4F29310048FA2A /* ViewController.m in Sources */,
-				8462AA551D4F3E8600DDFADF /* YJCKeychainItem.m in Sources */,
 				841AFDEA1D4F29310048FA2A /* AppDelegate.m in Sources */,
-				841AFE061D4F29A40048FA2A /* YJCRandomization.m in Sources */,
-				8450AB261D502A7600B577A0 /* YJCKeychainGPItem.m in Sources */,
-				841AFE051D4F29A40048FA2A /* YJCKeychain.m in Sources */,
+				84D355301DAB44850097D526 /* YJSecKeychainGPItem.m in Sources */,
 				841AFDE71D4F29310048FA2A /* main.m in Sources */,
+				84D355371DAB47830097D526 /* YJSecRandom.m in Sources */,
+				84D355311DAB44850097D526 /* YJSecKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

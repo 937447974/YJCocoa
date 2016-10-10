@@ -1,5 +1,5 @@
 //
-//  YJCRandomization.h
+//  YJSecRandom.h
 //  YJCSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return NSString length=2*count
  */
-FOUNDATION_EXPORT NSString *randomizationUppercase(size_t count);
+FOUNDATION_EXPORT NSString *YJSecRandomU(size_t count);
 
 /**
  *  生成指定位数的随机密码（字母全小写）
@@ -29,7 +29,7 @@ FOUNDATION_EXPORT NSString *randomizationUppercase(size_t count);
  *
  *  @return NSString length=2*count
  */
-FOUNDATION_EXPORT NSString *randomizationLowercase(size_t count);
+FOUNDATION_EXPORT NSString *YJSecRandomL(size_t count);
 
 /**
  *  生成指定位数的随机密码（字母大写或小写，耗时)
@@ -38,7 +38,7 @@ FOUNDATION_EXPORT NSString *randomizationLowercase(size_t count);
  *
  *  @return NSString length=2*count
  */
-FOUNDATION_EXPORT NSString *randomization(size_t count);
+FOUNDATION_EXPORT NSString *YJSecRandomUL(size_t count);
 
 NS_ASSUME_NONNULL_END
 

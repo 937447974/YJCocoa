@@ -13,6 +13,7 @@
 		84D32D0F1DAB3D550068621F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D32D0D1DAB3D550068621F /* Main.storyboard */; };
 		84D32D111DAB3D550068621F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D32D101DAB3D550068621F /* Assets.xcassets */; };
 		84D32D141DAB3D550068621F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D32D121DAB3D550068621F /* LaunchScreen.storyboard */; };
+		84D32D1F1DAB3F280068621F /* YJDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D32D1E1DAB3F280068621F /* YJDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		84D32D101DAB3D550068621F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D32D131DAB3D550068621F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D32D151DAB3D550068621F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D32D1D1DAB3F280068621F /* YJDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDispatch.h; sourceTree = "<group>"; };
+		84D32D1E1DAB3F280068621F /* YJDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDispatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 				84D32D081DAB3D550068621F /* AppDelegate.m */,
 				84D32D0A1DAB3D550068621F /* ViewController.h */,
 				84D32D0B1DAB3D550068621F /* ViewController.m */,
+				84D32D1C1DAB3F020068621F /* Dispatch */,
 				84D32D1B1DAB3DA00068621F /* Resources */,
 				84D32D041DAB3D550068621F /* Supporting Files */,
 			);
@@ -85,6 +89,16 @@
 				84D32D121DAB3D550068621F /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		84D32D1C1DAB3F020068621F /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				84D32D1D1DAB3F280068621F /* YJDispatch.h */,
+				84D32D1E1DAB3F280068621F /* YJDispatch.m */,
+			);
+			name = Dispatch;
+			path = ../../../../Cocoa/System/Dispatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +174,7 @@
 			files = (
 				84D32D0C1DAB3D550068621F /* ViewController.m in Sources */,
 				84D32D091DAB3D550068621F /* AppDelegate.m in Sources */,
+				84D32D1F1DAB3F280068621F /* YJDispatch.m in Sources */,
 				84D32D061DAB3D550068621F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +332,7 @@
 				84D32D1A1DAB3D550068621F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

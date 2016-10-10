@@ -10,7 +10,7 @@
 //
 
 #import "ViewController.h"
-#import "YJCSecurity.h"
+#import "YJSecurity.h"
 
 @interface ViewController ()
 
@@ -21,15 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self testRadom];
-//    [self testKeyChain];
+    [self testKeyChain];
 }
 
 - (void)testRadom {
-    NSString *result = randomizationUppercase(32);
+    NSString *result = YJSecRandomU(32);
     NSLog(result, nil);
-    result = randomizationLowercase(32);
+    result = YJSecRandomL(32);
     NSLog(result, nil);
-    result = randomization(32);
+    result = YJSecRandomUL(32);
     NSLog(result, nil);
     NSLog(@"%lu", (unsigned long)result.length);
 }
@@ -37,34 +37,34 @@
 - (void)testKeyChain {
     OSStatus status;
     // 查询所有
-    NSArray *allArray = KeychainItemSelectAll([[YJCKeychainGPItem alloc] init], nil);
+    NSArray *allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
     NSLog(@"%@", allArray);
     // 查询首个
-    YJCKeychainGPItem *item = [[YJCKeychainGPItem alloc] init];
+    YJSecKeychainGPItem *item = [[YJSecKeychainGPItem alloc] init];
     item.account = @"阳君";
-    status = KeychainItemSelect(item);
-    status = KeychainItemSelect(item);
+    status = YJSecKeychainItemSelect(item);
+    status = YJSecKeychainItemSelect(item);
     // 保存
-    status = KeychainItemSave(item);
-    status = KeychainItemSelect(item);
+    status = YJSecKeychainItemSave(item);
+    status = YJSecKeychainItemSelect(item);
     // 修改
     item.desc = @"姓名";
-    status = KeychainItemSave(item);
-    status = KeychainItemSelect(item);
+    status = YJSecKeychainItemSave(item);
+    status = YJSecKeychainItemSelect(item);
     // 再次保存
-    YJCKeychainGPItem *item2 = [[YJCKeychainGPItem alloc] init];
+    YJSecKeychainGPItem *item2 = [[YJSecKeychainGPItem alloc] init];
     item2.account = @"937447974";
     item2.desc = @"qq";
-    status = KeychainItemSave(item2);
-    allArray = KeychainItemSelectAll([[YJCKeychainGPItem alloc] init], &status);
+    status = YJSecKeychainItemSave(item2);
+    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], &status);
     NSLog(@"%@", allArray);
     // 删除item2
-    status = KeychainItemDelete(item2);
-    allArray = KeychainItemSelectAll([[YJCKeychainGPItem alloc] init], nil);
+    status = YJSecKeychainItemDelete(item2);
+    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
     NSLog(@"%@", allArray);
     // 重置
-    status = KeychainItemDelete([[YJCKeychainGPItem alloc] init]);
-    allArray = KeychainItemSelectAll([[YJCKeychainGPItem alloc] init], nil);
+    status = YJSecKeychainItemDelete([[YJSecKeychainGPItem alloc] init]);
+    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
     NSLog(@"%@", allArray);
 }
 

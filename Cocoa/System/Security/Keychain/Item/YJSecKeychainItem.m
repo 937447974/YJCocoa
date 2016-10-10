@@ -1,6 +1,6 @@
 //
-//  YJCKeychainItem.m
-//  YJCSecurity
+//  YJSecKeychainItem.m
+//  YJSecSecurity
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,13 +9,13 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJCKeychainItem.h"
+#import "YJSecKeychainItem.h"
 
-@interface YJCKeychainItem () <YJCKItemAttribute, YJCKItemGenericPasswordAttribute>
+@interface YJSecKeychainItem () <YJSecKItemAttribute, YJSecKItemGenericPasswordAttribute>
 
 @end
 
-@implementation YJCKeychainItem
+@implementation YJSecKeychainItem
 
 - (instancetype)init {
     self = [super init];
@@ -29,7 +29,7 @@
 }
 
 - (id)mutableCopy {
-    YJCKeychainItem *mCopy = [[self.class alloc] init];
+    YJSecKeychainItem *mCopy = [[self.class alloc] init];
     mCopy.selectDict = [self.selectDict mutableCopy];
     mCopy.weakDict = [self.weakDict mutableCopy];
     mCopy.strongDict = [self.strongDict mutableCopy];   
