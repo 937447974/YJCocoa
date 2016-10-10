@@ -1,5 +1,5 @@
 //
-//  YJSFoundation.h
+//  YJFoundation.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa

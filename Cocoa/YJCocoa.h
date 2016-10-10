@@ -9,8 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+//#import "YJAppFrameworks.h"
 
-#import "YJCocoaTouchLayer.h"   // 此层代码类前缀为YJT
-#import "YJCoreServicesLayer.h" // 此层代码类前缀为YJS
-#import "YJCoreOSLayer.h"       // 此层代码类前缀为YJC
+#import "YJSystem.h"
 

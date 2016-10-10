@@ -1,5 +1,5 @@
 //
-//  YJSystem.h
+//  YJUIKit.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-// GCD封装
-#import "YJDispatch.h"
+#ifndef YJUIKit_h
+#define YJUIKit_h
 
-// 安全框架，定义了C接口保护数据的安全和软件的访问。如Keychain、随机数。
-#import "YJSecurity.h"
+
+#endif /* YJUIKit_h */
