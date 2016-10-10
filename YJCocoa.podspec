@@ -52,39 +52,39 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
     # ——— Subspecs
     s.default_subspec = 'System'
 
-# 1 App Frameworks
-s.subspec 'App Frameworks' do |csl|
-    csl.source_files = 'Cocoa/CoreServicesLayer/*.{h,m}'
-    csl.subspec 'Foundation' do |foundation|
-        foundation.source_files = 'Cocoa/CoreServicesLayer/Foundation/*.{h,m}'
-        foundation.subspec 'Http' do |http|
-            http.source_files = 'Cocoa/CoreServicesLayer/Foundation/Http/*.{h,m}'
-        end
-        foundation.subspec 'PerformSelector' do |performSelector|
-            performSelector.source_files = 'Cocoa/CoreServicesLayer/Foundation/PerformSelector/*.{h,m}'
-        end
-        foundation.subspec 'Singleton' do |singleton|
-            singleton.source_files = 'Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}'
-            singleton.dependency 'YJCocoa/CoreServicesLayer/Foundation/Other'
-        end
-        foundation.subspec 'Timer' do |timer|
-            timer.source_files = 'Cocoa/CoreServicesLayer/Foundation/Timer/*.{h,m}'
-            timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/PerformSelector'
-            timer.dependency 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
-            timer.dependency 'YJCocoa/CoreOSLayer/Security/Randomization'
-        end
-        foundation.subspec 'DictionaryModel' do |dm|
-            dm.source_files = 'Cocoa/CoreServicesLayer/Foundation/DictionaryModel/*.{h,m}'
-            dm.dependency 'YJCocoa/CoreServicesLayer/Foundation/Singleton'
-        end
-        foundation.subspec 'Log' do |log|
-            log.source_files = 'Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}'
-        end
-        foundation.subspec 'Other' do |other|
-            other.source_files = 'Cocoa/CoreServicesLayer/Foundation/Other/*.{h,m}'
+    # 1 App Frameworks
+    s.subspec 'AppFrameworks' do |af|
+        af.source_files = 'Cocoa/AppFrameworks/*.{h,m}'
+        af.subspec 'Foundation' do |foundation|
+            foundation.source_files = 'Cocoa/AppFrameworks/Foundation/*.{h,m}'
+            foundation.subspec 'DictionaryModel' do |dm|
+                dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
+                dm.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+            end
+            foundation.subspec 'Http' do |http|
+                http.source_files = 'Cocoa/AppFrameworks/Foundation/Http/*.{h,m}'
+            end
+            foundation.subspec 'Log' do |log|
+                log.source_files = 'Cocoa/AppFrameworks/Foundation/Log/*.{h,m}'
+            end
+            foundation.subspec 'PerformSelector' do |performSelector|
+                performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
+            end
+            foundation.subspec 'Singleton' do |singleton|
+                singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
+                singleton.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+            end
+            foundation.subspec 'Timer' do |timer|
+                timer.source_files = 'Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}'
+                timer.dependency 'YJCocoa/AppFrameworks/Foundation/PerformSelector'
+                timer.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                timer.dependency 'YJCocoa/System/Security/Randomization'
+            end
+            foundation.subspec 'Other' do |other|
+                other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
+            end
         end
     end
-end
 
     # 2 System
     s.subspec 'System' do |system|
