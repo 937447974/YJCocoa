@@ -7,22 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842B0FEF1DAB9DB500F71C79 /* YJUIImagePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FE51DAB9DB500F71C79 /* YJUIImagePageModel.m */; };
+		842B0FF01DAB9DB500F71C79 /* YJUIImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FE71DAB9DB500F71C79 /* YJUIImagePageViewController.m */; };
+		842B0FF11DAB9DB500F71C79 /* YJUIImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842B0FE81DAB9DB500F71C79 /* YJUIImagePageViewController.xib */; };
+		842B0FF21DAB9DB500F71C79 /* YJUIPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FEA1DAB9DB500F71C79 /* YJUIPageView.m */; };
+		842B0FF31DAB9DB500F71C79 /* YJUIPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FEC1DAB9DB500F71C79 /* YJUIPageViewController.m */; };
+		842B0FF41DAB9DB500F71C79 /* YJUIPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FEE1DAB9DB500F71C79 /* YJUIPageViewObject.m */; };
 		844981391CDADB6B002E25E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844981381CDADB6B002E25E2 /* main.m */; };
 		8449813C1CDADB6B002E25E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449813B1CDADB6B002E25E2 /* AppDelegate.m */; };
 		8449813F1CDADB6B002E25E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449813E1CDADB6B002E25E2 /* ViewController.m */; };
 		844981421CDADB6C002E25E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844981401CDADB6C002E25E2 /* Main.storyboard */; };
 		844981441CDADB6C002E25E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844981431CDADB6C002E25E2 /* Assets.xcassets */; };
 		844981471CDADB6C002E25E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844981451CDADB6C002E25E2 /* LaunchScreen.storyboard */; };
-		8474F56D1D6D7C1100FF894E /* YJTImagePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5631D6D7C1100FF894E /* YJTImagePageModel.m */; };
-		8474F56E1D6D7C1100FF894E /* YJTImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5651D6D7C1100FF894E /* YJTImagePageViewController.m */; };
-		8474F56F1D6D7C1100FF894E /* YJTImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8474F5661D6D7C1100FF894E /* YJTImagePageViewController.xib */; };
-		8474F5701D6D7C1100FF894E /* YJTPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5681D6D7C1100FF894E /* YJTPageView.m */; };
-		8474F5711D6D7C1100FF894E /* YJTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F56A1D6D7C1100FF894E /* YJTPageViewController.m */; };
-		8474F5721D6D7C1100FF894E /* YJTPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F56C1D6D7C1100FF894E /* YJTPageViewObject.m */; };
 		988FC5E981B50576D7AA0628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FF0916C3E5D68CD1B5C3AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842B0FE41DAB9DB500F71C79 /* YJUIImagePageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIImagePageModel.h; sourceTree = "<group>"; };
+		842B0FE51DAB9DB500F71C79 /* YJUIImagePageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIImagePageModel.m; sourceTree = "<group>"; };
+		842B0FE61DAB9DB500F71C79 /* YJUIImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIImagePageViewController.h; sourceTree = "<group>"; };
+		842B0FE71DAB9DB500F71C79 /* YJUIImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIImagePageViewController.m; sourceTree = "<group>"; };
+		842B0FE81DAB9DB500F71C79 /* YJUIImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJUIImagePageViewController.xib; sourceTree = "<group>"; };
+		842B0FE91DAB9DB500F71C79 /* YJUIPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageView.h; sourceTree = "<group>"; };
+		842B0FEA1DAB9DB500F71C79 /* YJUIPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageView.m; sourceTree = "<group>"; };
+		842B0FEB1DAB9DB500F71C79 /* YJUIPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewController.h; sourceTree = "<group>"; };
+		842B0FEC1DAB9DB500F71C79 /* YJUIPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewController.m; sourceTree = "<group>"; };
+		842B0FED1DAB9DB500F71C79 /* YJUIPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewObject.h; sourceTree = "<group>"; };
+		842B0FEE1DAB9DB500F71C79 /* YJUIPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewObject.m; sourceTree = "<group>"; };
 		844981341CDADB6B002E25E2 /* YJPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844981381CDADB6B002E25E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8449813A1CDADB6B002E25E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,17 +44,6 @@
 		844981431CDADB6C002E25E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844981461CDADB6C002E25E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844981481CDADB6C002E25E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8474F5621D6D7C1100FF894E /* YJTImagePageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTImagePageModel.h; sourceTree = "<group>"; };
-		8474F5631D6D7C1100FF894E /* YJTImagePageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTImagePageModel.m; sourceTree = "<group>"; };
-		8474F5641D6D7C1100FF894E /* YJTImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTImagePageViewController.h; sourceTree = "<group>"; };
-		8474F5651D6D7C1100FF894E /* YJTImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTImagePageViewController.m; sourceTree = "<group>"; };
-		8474F5661D6D7C1100FF894E /* YJTImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTImagePageViewController.xib; sourceTree = "<group>"; };
-		8474F5671D6D7C1100FF894E /* YJTPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTPageView.h; sourceTree = "<group>"; };
-		8474F5681D6D7C1100FF894E /* YJTPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTPageView.m; sourceTree = "<group>"; };
-		8474F5691D6D7C1100FF894E /* YJTPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTPageViewController.h; sourceTree = "<group>"; };
-		8474F56A1D6D7C1100FF894E /* YJTPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTPageViewController.m; sourceTree = "<group>"; };
-		8474F56B1D6D7C1100FF894E /* YJTPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTPageViewObject.h; sourceTree = "<group>"; };
-		8474F56C1D6D7C1100FF894E /* YJTPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTPageViewObject.m; sourceTree = "<group>"; };
 		CC0CEDEDFCD1B2404A7C5C4E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E0FF0916C3E5D68CD1B5C3AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F851056AE2FFF47D86DD7A59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,19 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		841F54401CEED7080082227A /* PageView */ = {
+		842B0FE21DAB9DB500F71C79 /* PageView */ = {
 			isa = PBXGroup;
 			children = (
-				8474F5611D6D7C1100FF894E /* ImagePage */,
-				8474F5671D6D7C1100FF894E /* YJTPageView.h */,
-				8474F5681D6D7C1100FF894E /* YJTPageView.m */,
-				8474F5691D6D7C1100FF894E /* YJTPageViewController.h */,
-				8474F56A1D6D7C1100FF894E /* YJTPageViewController.m */,
-				8474F56B1D6D7C1100FF894E /* YJTPageViewObject.h */,
-				8474F56C1D6D7C1100FF894E /* YJTPageViewObject.m */,
+				842B0FE31DAB9DB500F71C79 /* ImagePage */,
+				842B0FE91DAB9DB500F71C79 /* YJUIPageView.h */,
+				842B0FEA1DAB9DB500F71C79 /* YJUIPageView.m */,
+				842B0FEB1DAB9DB500F71C79 /* YJUIPageViewController.h */,
+				842B0FEC1DAB9DB500F71C79 /* YJUIPageViewController.m */,
+				842B0FED1DAB9DB500F71C79 /* YJUIPageViewObject.h */,
+				842B0FEE1DAB9DB500F71C79 /* YJUIPageViewObject.m */,
 			);
 			name = PageView;
-			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/PageView;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/PageView;
+			sourceTree = "<group>";
+		};
+		842B0FE31DAB9DB500F71C79 /* ImagePage */ = {
+			isa = PBXGroup;
+			children = (
+				842B0FE41DAB9DB500F71C79 /* YJUIImagePageModel.h */,
+				842B0FE51DAB9DB500F71C79 /* YJUIImagePageModel.m */,
+				842B0FE61DAB9DB500F71C79 /* YJUIImagePageViewController.h */,
+				842B0FE71DAB9DB500F71C79 /* YJUIImagePageViewController.m */,
+				842B0FE81DAB9DB500F71C79 /* YJUIImagePageViewController.xib */,
+			);
+			path = ImagePage;
 			sourceTree = "<group>";
 		};
 		8449812B1CDADB6B002E25E2 = {
@@ -101,7 +113,7 @@
 				8449813B1CDADB6B002E25E2 /* AppDelegate.m */,
 				8449813D1CDADB6B002E25E2 /* ViewController.h */,
 				8449813E1CDADB6B002E25E2 /* ViewController.m */,
-				841F54401CEED7080082227A /* PageView */,
+				842B0FE21DAB9DB500F71C79 /* PageView */,
 				8449814E1CDADF4F002E25E2 /* Resources */,
 				844981371CDADB6B002E25E2 /* Supporting Files */,
 			);
@@ -125,18 +137,6 @@
 				844981451CDADB6C002E25E2 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		8474F5611D6D7C1100FF894E /* ImagePage */ = {
-			isa = PBXGroup;
-			children = (
-				8474F5621D6D7C1100FF894E /* YJTImagePageModel.h */,
-				8474F5631D6D7C1100FF894E /* YJTImagePageModel.m */,
-				8474F5641D6D7C1100FF894E /* YJTImagePageViewController.h */,
-				8474F5651D6D7C1100FF894E /* YJTImagePageViewController.m */,
-				8474F5661D6D7C1100FF894E /* YJTImagePageViewController.xib */,
-			);
-			path = ImagePage;
 			sourceTree = "<group>";
 		};
 		B19174B79B59B3EB8E4D6EC4 /* Frameworks */ = {
@@ -217,7 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844981471CDADB6C002E25E2 /* LaunchScreen.storyboard in Resources */,
-				8474F56F1D6D7C1100FF894E /* YJTImagePageViewController.xib in Resources */,
+				842B0FF11DAB9DB500F71C79 /* YJUIImagePageViewController.xib in Resources */,
 				844981441CDADB6C002E25E2 /* Assets.xcassets in Resources */,
 				844981421CDADB6C002E25E2 /* Main.storyboard in Resources */,
 			);
@@ -280,12 +280,12 @@
 			files = (
 				8449813F1CDADB6B002E25E2 /* ViewController.m in Sources */,
 				8449813C1CDADB6B002E25E2 /* AppDelegate.m in Sources */,
-				8474F56D1D6D7C1100FF894E /* YJTImagePageModel.m in Sources */,
-				8474F5711D6D7C1100FF894E /* YJTPageViewController.m in Sources */,
-				8474F5721D6D7C1100FF894E /* YJTPageViewObject.m in Sources */,
-				8474F5701D6D7C1100FF894E /* YJTPageView.m in Sources */,
+				842B0FEF1DAB9DB500F71C79 /* YJUIImagePageModel.m in Sources */,
+				842B0FF31DAB9DB500F71C79 /* YJUIPageViewController.m in Sources */,
+				842B0FF41DAB9DB500F71C79 /* YJUIPageViewObject.m in Sources */,
+				842B0FF21DAB9DB500F71C79 /* YJUIPageView.m in Sources */,
 				844981391CDADB6B002E25E2 /* main.m in Sources */,
-				8474F56E1D6D7C1100FF894E /* YJTImagePageViewController.m in Sources */,
+				842B0FF01DAB9DB500F71C79 /* YJUIImagePageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

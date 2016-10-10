@@ -1,25 +1,59 @@
 PODS:
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout (3.0.0):
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (= 3.0.0)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (= 3.0.0)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (= 3.0.0)
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (= 3.0.0)
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend (3.0.0)
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor (3.0.0):
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView (3.0.0):
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController (3.0.0):
-    - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor
-  - YJCocoa/CoreOSLayer/System (3.0.0)
-  - YJCocoa/CoreServicesLayer/Foundation/Other (3.0.0)
+  - YJCocoa (3.1.0):
+    - YJCocoa/AppFrameworks (= 3.1.0)
+    - YJCocoa/System (= 3.1.0)
+  - YJCocoa/AppFrameworks (3.1.0):
+    - YJCocoa/AppFrameworks/Foundation (= 3.1.0)
+    - YJCocoa/AppFrameworks/UIKit (= 3.1.0)
+  - YJCocoa/AppFrameworks/Foundation (3.1.0):
+    - YJCocoa/AppFrameworks/Foundation/DictionaryModel (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/Http (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/Log (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/Other (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/PerformSelector (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/Singleton (= 3.1.0)
+    - YJCocoa/AppFrameworks/Foundation/Timer (= 3.1.0)
+  - YJCocoa/AppFrameworks/Foundation/DictionaryModel (3.1.0):
+    - YJCocoa/AppFrameworks/Foundation/Singleton
+  - YJCocoa/AppFrameworks/Foundation/Http (3.1.0)
+  - YJCocoa/AppFrameworks/Foundation/Log (3.1.0)
+  - YJCocoa/AppFrameworks/Foundation/Other (3.1.0)
+  - YJCocoa/AppFrameworks/Foundation/PerformSelector (3.1.0)
+  - YJCocoa/AppFrameworks/Foundation/Singleton (3.1.0):
+    - YJCocoa/AppFrameworks/Foundation/Other
+  - YJCocoa/AppFrameworks/Foundation/Timer (3.1.0):
+    - YJCocoa/AppFrameworks/Foundation/PerformSelector
+    - YJCocoa/AppFrameworks/Foundation/Singleton
+    - YJCocoa/System/Security/Random
+  - YJCocoa/AppFrameworks/UIKit (3.1.0):
+    - YJCocoa/AppFrameworks/UIKit/ViewGeometry (= 3.1.0)
+  - YJCocoa/AppFrameworks/UIKit/ViewGeometry (3.1.0)
+  - YJCocoa/System (3.1.0):
+    - YJCocoa/System/Dispatch (= 3.1.0)
+    - YJCocoa/System/Security (= 3.1.0)
+  - YJCocoa/System/Dispatch (3.1.0)
+  - YJCocoa/System/Security (3.1.0):
+    - YJCocoa/System/Security/Keychain (= 3.1.0)
+    - YJCocoa/System/Security/Random (= 3.1.0)
+  - YJCocoa/System/Security/Keychain (3.1.0):
+    - YJCocoa/System/Security/Keychain/Item (= 3.1.0)
+  - YJCocoa/System/Security/Keychain/Item (3.1.0)
+  - YJCocoa/System/Security/Random (3.1.0)
 
 DEPENDENCIES:
-  - YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
-  - YJCocoa/CoreOSLayer/System
-  - YJCocoa/CoreServicesLayer/Foundation/Other
+  - YJCocoa (from `https://github.com/937447974/YJCocoa.git`, branch `developer`)
+
+EXTERNAL SOURCES:
+  YJCocoa:
+    :branch: developer
+    :git: https://github.com/937447974/YJCocoa.git
+
+CHECKOUT OPTIONS:
+  YJCocoa:
+    :commit: 06fabe01035e6dddff0771b04a8aadecc5bbfa38
+    :git: https://github.com/937447974/YJCocoa.git
 
 SPEC CHECKSUMS:
-  YJCocoa: ec4f19e1f73dddd4f8257b6816531bc2aa697e98
+  YJCocoa: 543ef8757d5ff5cb4f4696591dc399481e9dd355
 
 COCOAPODS: 0.39.0

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "YJTNavigationBar.h"
+#import "YJUINavigationBar.h"
 
 @interface ViewController ()
 
@@ -19,14 +19,14 @@
     [super viewDidLoad];
     
     // 修改默认配置
-    [YJTNavigationBar appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
-    [YJTBarButtonView appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
+    [YJUINavigationBar appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
+    [YJUIBarButtonView appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
     
     // 显示
-    YJTNavigationBar *nb = [[YJTNavigationBar alloc] initWithFrame:CGRectZero];
+    YJUINavigationBar *nb = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
     nb.title = @"YJNavigationBar";
-    nb.leftBarButtonView.barButtonItem = [[YJTBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
-    nb.rightBarButtonView.barButtonItem = [[YJTBarButtonItem alloc] initWithTitle:@"完成" target:self action:@selector(onClickButton:)];
+    nb.leftBarButtonView.barButtonItem = [[YJUIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
+    nb.rightBarButtonView.barButtonItem = [[YJUIBarButtonItem alloc] initWithTitle:@"完成" target:self action:@selector(onClickButton:)];
     self.navigationItem.titleView = nb;
     
 }

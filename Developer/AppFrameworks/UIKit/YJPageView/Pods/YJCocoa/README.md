@@ -115,6 +115,9 @@ NSLog打印优化，Unicode自动转化为中文输出。
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
+###2.1.6 YJCocoa/CoreServicesLayer/Foundation/DictionaryModel
+
+快速高效的转换模型和Model。
 
 #3 YJCocoa/CoreOSLayer
 
@@ -194,6 +197,9 @@ YJ技术支持群：557445088
 | 2016-08-19 | 2.4.2 | ViewGeometry升级，支持快速设置UIView.bounds。|
 | 2016-08-23 | 2.4.2 | TableView升级，支持快速实现悬浮cell。|
 | 2016-08-24 | 3.0.0 | YJCocoa架构升级,每一层都有特定的类前缀。 |
+| 2016-09-01 | 3.0.1 | http解析器和组装器升级 |
+| 2016-09-08 | 3.0.1 | UIKit层代码优化 |
+| 2016-09-26 | 3.1.0 | DictionaryModel上线，支持快速高效的转换模型和Model。|
 
 ##Copyright
 

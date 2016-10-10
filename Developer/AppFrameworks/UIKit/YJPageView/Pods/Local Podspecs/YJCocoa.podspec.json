@@ -1,0 +1,135 @@
+{
+  "name": "YJCocoa",
+  "version": "3.1.0",
+  "authors": {
+    "阳君": "937447974@qq.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/937447974/YJCocoa",
+  "source": {
+    "git": "https://github.com/937447974/YJCocoa.git",
+    "branch": "developer"
+  },
+  "summary": "YJ系列开源库",
+  "description": "姓名：阳君\nQQ：937447974\nYJ技术支持群：557445088",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "preserve_paths": "Documentation/*.*",
+  "prepare_command": "sh Documentation/docset-installed.sh",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "source_files": "Cocoa/*.{h,m}",
+  "default_subspecs": [
+    "AppFrameworks",
+    "System"
+  ],
+  "subspecs": [
+    {
+      "name": "AppFrameworks",
+      "source_files": "Cocoa/AppFrameworks/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "Cocoa/AppFrameworks/Foundation/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "DictionaryModel",
+              "source_files": "Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ]
+              }
+            },
+            {
+              "name": "Http",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Http/*.{h,m}"
+            },
+            {
+              "name": "Log",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Log/*.{h,m}"
+            },
+            {
+              "name": "PerformSelector",
+              "source_files": "Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}"
+            },
+            {
+              "name": "Singleton",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Other": [
+
+                ]
+              }
+            },
+            {
+              "name": "Timer",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/PerformSelector": [
+
+                ],
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ],
+                "YJCocoa/System/Security/Random": [
+
+                ]
+              }
+            },
+            {
+              "name": "Other",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Other/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "UIKit",
+          "subspecs": [
+            {
+              "name": "ViewGeometry",
+              "source_files": "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "source_files": "Cocoa/System/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Dispatch",
+          "source_files": "Cocoa/System/Dispatch/*.{h,m}"
+        },
+        {
+          "name": "Security",
+          "source_files": "Cocoa/System/Security/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Keychain",
+              "source_files": "Cocoa/System/Security/Keychain/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Item",
+                  "source_files": "Cocoa/System/Security/Keychain/Item/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Random",
+              "source_files": "Cocoa/System/Security/Random/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

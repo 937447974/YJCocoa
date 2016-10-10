@@ -85,6 +85,25 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
             end
         end
         af.subspec 'UIKit' do |uik|
+            # AutoLayout
+            uik.subspec 'AutoLayout' do |al|
+                al.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/*.{h,m}'
+                al.subspec 'UIView' do |v|
+                    v.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/UIView/*.{h,m}'
+                    v.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor'
+                end
+                al.subspec 'UIViewController' do |vc|
+                    vc.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/UIViewController/*.{h,m}'
+                    vc.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor'
+                end
+                al.subspec 'LayoutAnchor' do |la|
+                    la.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor/*.{h,m}'
+                    la.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend'
+                end
+                al.subspec 'Extend' do |ale|
+                    ale.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}'
+                end
+            end
             # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
             uik.subspec 'ViewGeometry' do |vg|
                 vg.source_files  = "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
