@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8474F58A1D6D93B800FF894E /* UIView+YJTViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */; };
+		842B0FC11DAB953000F71C79 /* UIView+YJUIViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 842B0FC01DAB953000F71C79 /* UIView+YJUIViewGeometry.m */; };
 		84B2525A1CFD4395000931F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B252591CFD4395000931F2 /* main.m */; };
 		84B2525D1CFD4395000931F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2525C1CFD4395000931F2 /* AppDelegate.m */; };
 		84B252601CFD4395000931F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2525F1CFD4395000931F2 /* ViewController.m */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8474F5881D6D93B800FF894E /* UIView+YJTViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJTViewGeometry.h"; sourceTree = "<group>"; };
-		8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJTViewGeometry.m"; sourceTree = "<group>"; };
+		842B0FBF1DAB953000F71C79 /* UIView+YJUIViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJUIViewGeometry.h"; sourceTree = "<group>"; };
+		842B0FC01DAB953000F71C79 /* UIView+YJUIViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJUIViewGeometry.m"; sourceTree = "<group>"; };
 		84B252551CFD4395000931F2 /* YJViewGeometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJViewGeometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B252591CFD4395000931F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84B2525B1CFD4395000931F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +42,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842B0FBE1DAB953000F71C79 /* ViewGeometry */ = {
+			isa = PBXGroup;
+			children = (
+				842B0FBF1DAB953000F71C79 /* UIView+YJUIViewGeometry.h */,
+				842B0FC01DAB953000F71C79 /* UIView+YJUIViewGeometry.m */,
+			);
+			name = ViewGeometry;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/ViewGeometry;
+			sourceTree = "<group>";
+		};
 		84B2524C1CFD4395000931F2 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +74,9 @@
 				84B2525B1CFD4395000931F2 /* AppDelegate.h */,
 				84B2525C1CFD4395000931F2 /* AppDelegate.m */,
 				84B2526F1CFD43A1000931F2 /* Main */,
+				842B0FBE1DAB953000F71C79 /* ViewGeometry */,
 				84B252701CFD43A5000931F2 /* Resources */,
 				84B252581CFD4395000931F2 /* Supporting Files */,
-				84B252711CFD43C5000931F2 /* ViewGeometry */,
 			);
 			path = YJViewGeometry;
 			sourceTree = "<group>";
@@ -99,16 +109,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		84B252711CFD43C5000931F2 /* ViewGeometry */ = {
-			isa = PBXGroup;
-			children = (
-				8474F5881D6D93B800FF894E /* UIView+YJTViewGeometry.h */,
-				8474F5891D6D93B800FF894E /* UIView+YJTViewGeometry.m */,
-			);
-			name = ViewGeometry;
-			path = ../../../../../Cocoa/CocoaTouchLayer/UIKit/ViewGeometry;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,7 +135,7 @@
 		84B2524D1CFD4395000931F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					84B252541CFD4395000931F2 = {
@@ -180,7 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B252601CFD4395000931F2 /* ViewController.m in Sources */,
-				8474F58A1D6D93B800FF894E /* UIView+YJTViewGeometry.m in Sources */,
+				842B0FC11DAB953000F71C79 /* UIView+YJUIViewGeometry.m in Sources */,
 				84B2525D1CFD4395000931F2 /* AppDelegate.m in Sources */,
 				84B2525A1CFD4395000931F2 /* main.m in Sources */,
 			);
@@ -222,8 +222,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -267,8 +269,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -1,5 +1,5 @@
 //
-//  UIView+YJTViewGeometry.m
+//  UIView+YJUIViewGeometry.m
 //  YJViewGeometry
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "UIView+YJTViewGeometry.h"
+#import "UIView+YJUIViewGeometry.h"
 
-@implementation UIView (YJTViewGeometry)
+@implementation UIView (YJUIViewGeometry)
 
 
 #pragma mark .frame.origin.y
