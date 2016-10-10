@@ -1,6 +1,6 @@
 //
-//  YJTCollectionViewDelegate.m
-//  YJTCollectionView
+//  YJUICollectionViewDelegate.m
+//  YJUICollectionView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,26 +9,26 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTCollectionViewDelegate.h"
-#import "YJTCollectionViewDataSource.h"
+#import "YJUICollectionViewDelegate.h"
+#import "YJUICollectionViewDataSource.h"
 #import "YJSFoundationOther.h"
-#import "UIView+YJTViewGeometry.h"
+#import "UIView+YJUIViewGeometry.h"
 
-@interface YJTCollectionViewDelegate () {
+@interface YJUICollectionViewDelegate () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
     CGFloat _contentOffsetYBegin; ///< 开始的点
     UICollectionViewFlowLayout *_flowLayout;
     NSMutableDictionary<NSString *, NSString*> *_cacheSizeDict; ///< 缓存Size
 }
 
-@property (nonatomic) YJTCollectionViewScroll scroll; ///< 滚动
+@property (nonatomic) YJUICollectionViewScroll scroll; ///< 滚动
 
 @end
 
-@implementation YJTCollectionViewDelegate
+@implementation YJUICollectionViewDelegate
 
 #pragma mark - init
-- (instancetype)initWithDataSource:(YJTCollectionViewDataSource *)dataSource {
+- (instancetype)initWithDataSource:(YJUICollectionViewDataSource *)dataSource {
     self = [super init];
     if (self) {
         _dataSource = dataSource;
@@ -53,7 +53,7 @@
     return _flowLayout;
 }
 
-- (void)setScroll:(YJTCollectionViewScroll)scroll {
+- (void)setScroll:(YJUICollectionViewScroll)scroll {
     if (scroll != _scroll && [self.cellDelegate respondsToSelector:@selector(collectionView:scroll:)]) {
         _scroll = scroll;
         [self.cellDelegate collectionView:self.dataSource.collectionView scroll:scroll];
@@ -61,7 +61,7 @@
 }
 
 #pragma mark - UICollectionViewCell向VC发送数据
-- (void)sendVCWithCellObject:(YJTCollectionCellObject *)cellObject collectionViewCell:(UICollectionViewCell *)cell {
+- (void)sendVCWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewCell:(UICollectionViewCell *)cell {
     if (self.cellBlock) { // block回调
         self.cellBlock(cellObject, cell);
     } else if ([self.cellDelegate respondsToSelector:@selector(collectionViewDidSelectCellWithCellObject:collectionViewCell:)]){
@@ -75,13 +75,13 @@
 }
 
 #pragma mark 获取cellObject对应的缓存key
-- (NSString *)getKeyFromCellObject:(YJTCollectionCellObject *)cellObject {
+- (NSString *)getKeyFromCellObject:(YJUICollectionCellObject *)cellObject {
     switch (self.cacheSizeStrategy) {
-        case YJTCollectionViewCacheSizeDefault: // 根据相同的UITableViewCell类缓存高度
+        case YJUICollectionViewCacheSizeDefault: // 根据相同的UITableViewCell类缓存高度
             return cellObject.cellName;
-        case YJTCollectionViewCacheSizeIndexPath: // 根据NSIndexPath对应的位置缓存高度
+        case YJUICollectionViewCacheSizeIndexPath: // 根据NSIndexPath对应的位置缓存高度
             return [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
-        case YJTCollectionViewCacheSizeClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存高度
+        case YJUICollectionViewCacheSizeClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存高度
             return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
     }
 }
@@ -92,39 +92,39 @@
     if (_contentOffsetYBegin == CGFLOAT_MAX) {
         _contentOffsetYBegin = _contentOffsetY;
     }
-    self.scroll = YJTCollectionViewScrollNone;
+    self.scroll = YJUICollectionViewScrollNone;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat contentOffsetY = scrollView.contentOffset.y;
     CGFloat spacing = contentOffsetY - _contentOffsetY;
     if (contentOffsetY <= _contentOffsetYBegin) {
-        self.scroll = YJTCollectionViewScrollEndTop;
+        self.scroll = YJUICollectionViewScrollEndTop;
     } else if (contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height) {
-        self.scroll = YJTCollectionViewScrollEndBottom;
+        self.scroll = YJUICollectionViewScrollEndBottom;
     } else if (spacing >= self.scrollSpacingDid ) {
-        self.scroll = YJTCollectionViewScrollDidTop;
+        self.scroll = YJUICollectionViewScrollDidTop;
         _contentOffsetY = contentOffsetY;
-    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJTCollectionViewScrollDidTop) {
-        self.scroll = YJTCollectionViewScrollWillTop;
+    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJUICollectionViewScrollDidTop) {
+        self.scroll = YJUICollectionViewScrollWillTop;
     } else if (spacing <= -self.scrollSpacingDid ) {
-        self.scroll = YJTCollectionViewScrollDidBottom;
+        self.scroll = YJUICollectionViewScrollDidBottom;
         _contentOffsetY = contentOffsetY;
-    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJTCollectionViewScrollDidBottom) {
-        self.scroll = YJTCollectionViewScrollWillBottom;
+    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJUICollectionViewScrollDidBottom) {
+        self.scroll = YJUICollectionViewScrollWillBottom;
     }    
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    YJTCollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
+    YJUICollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
     [self sendVCWithCellObject:cellObject collectionViewCell:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    // 获取YJTableCellObject
-    YJTCollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
+    // 获取YJUIableCellObject
+    YJUICollectionCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
     // 存放缓存size的key
     NSString *key = [self getKeyFromCellObject:cellObject];
@@ -164,8 +164,8 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForFooterInSection:(NSInteger)section {
-    YJTCollectionCellObject *cellObject;
-    NSMutableArray<YJTCollectionCellObject *> *dataSource;
+    YJUICollectionCellObject *cellObject;
+    NSMutableArray<YJUICollectionCellObject *> *dataSource;
     if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
         dataSource = self.dataSource.headerDataSource;
     } else {

@@ -1,6 +1,6 @@
 //
-//  YJTCollectionCellObject.h
-//  YJTCollectionView
+//  YJUICollectionCellObject.h
+//  YJUICollectionView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -14,22 +14,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** cell模型协议*/
-@protocol YJTCollectionCellModel <NSObject>
+@protocol YJUICollectionCellModel <NSObject>
 
 @end
 
 /** 创建cell的方式*/
-typedef NS_ENUM(NSInteger, YJTCollectionCellCreate) {
-    YJTCollectionCellCreateDefault,   ///< 默认使用xib创建cell，推荐此方式
-    YJTCollectionCellCreateSoryboard, ///< 使用soryboard创建cell时，请使用类名作为标识符
-    YJTCollectionCellCreateClass      ///< 使用Class创建cell,即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
+typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
+    YJUICollectionCellCreateDefault,   ///< 默认使用xib创建cell，推荐此方式
+    YJUICollectionCellCreateSoryboard, ///< 使用soryboard创建cell时，请使用类名作为标识符
+    YJUICollectionCellCreateClass      ///< 使用Class创建cell,即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
 };
 
 /** UICollectionViewCell封装对象*/
-@interface YJTCollectionCellObject : NSObject
+@interface YJUICollectionCellObject : NSObject
 
-@property (nonatomic) id<YJTCollectionCellModel> cellModel; ///< cell对应的VM
-@property (nonatomic) YJTCollectionCellCreate createCell;   ///< 创建cell的方式
+@property (nonatomic) id<YJUICollectionCellModel> cellModel; ///< cell对应的VM
+@property (nonatomic) YJUICollectionCellCreate createCell;   ///< 创建cell的方式
 @property (nonatomic, strong, nullable) id userInfo;        ///< 携带的数据
 
 @property (nonatomic, strong, nullable) NSIndexPath *indexPath; ///< cell所处位置，无须添加，自动填充
@@ -38,9 +38,9 @@ typedef NS_ENUM(NSInteger, YJTCollectionCellCreate) {
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UICollectionViewCell对应的类名
 
 /**
- *  初始化YJTCollectionCellObject
+ *  初始化YJUICollectionCellObject
  *
- *  @param cellClass YJTableViewCell对应的类
+ *  @param cellClass YJUIableViewCell对应的类
  *
  *  @return void
  */

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJTCollectionView.h"
+#import "YJUICollectionView.h"
 
 @interface YJTestCollectionReusableViewModel : NSObject <YJTCollectionCellModel>
 

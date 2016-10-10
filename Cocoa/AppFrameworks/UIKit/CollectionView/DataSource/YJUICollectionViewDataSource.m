@@ -1,6 +1,6 @@
 //
-//  YJTCollectionViewDataSource.m
-//  YJTCollectionView
+//  YJUICollectionViewDataSource.m
+//  YJUICollectionView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,16 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTCollectionViewDataSource.h"
-#import "YJTCollectionViewDelegate.h"
+#import "YJUICollectionViewDataSource.h"
+#import "YJUICollectionViewDelegate.h"
 
-@interface YJTCollectionViewDataSource ()
+@interface YJUICollectionViewDataSource ()
 
 @property (nonatomic, strong) NSMutableSet<NSString *> *identifierSet; ///< 记录缓存过的identifier
 
 @end
 
-@implementation YJTCollectionViewDataSource
+@implementation YJUICollectionViewDataSource
 
 #pragma mark - main
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView {
@@ -32,7 +32,7 @@
         [self.dataSourceGrouped addObject:_dataSource];
         //
         _collectionView = collectionView;
-        _delegate = [[YJTCollectionViewDelegate alloc] initWithDataSource:self];
+        _delegate = [[YJUICollectionViewDelegate alloc] initWithDataSource:self];
         // 默认设置代理
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self.delegate;
@@ -41,24 +41,24 @@
 }
 
 #pragma mark 快速刷新已加载cell
-- (void)reloadItemsAtCellObjects:(NSArray<YJTCollectionCellObject *> *)cellObjects; {
+- (void)reloadItemsAtCellObjects:(NSArray<YJUICollectionCellObject *> *)cellObjects; {
     UICollectionViewCell *cell;
-    for (YJTCollectionCellObject *cellObject in cellObjects) {
+    for (YJUICollectionCellObject *cellObject in cellObjects) {
         cell = [self.collectionView cellForItemAtIndexPath:cellObject.indexPath];
         [cell reloadDataWithCellObject:cellObject delegate:self.delegate];
     }
 }
 
 #pragma mark 获取cellObject对应的缓存key
-- (NSString *)getKeyFromCellObject:(YJTCollectionCellObject *)cellObject {
+- (NSString *)getKeyFromCellObject:(YJUICollectionCellObject *)cellObject {
     switch (self.cacheCellStrategy) {
-        case YJTCollectionViewCacheCellDefault: // 根据相同的UITableViewCell类名缓存Cell
+        case YJUICollectionViewCacheCellDefault: // 根据相同的UITableViewCell类名缓存Cell
             return cellObject.cellName;
             break;
-        case YJTCollectionViewCacheCellIndexPath: // 根据NSIndexPath对应的位置缓存Cell
+        case YJUICollectionViewCacheCellIndexPath: // 根据NSIndexPath对应的位置缓存Cell
             return [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
             break;
-        case YJTCollectionViewCacheCellClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存Cell
+        case YJUICollectionViewCacheCellClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存Cell
             return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
             break;
     }
@@ -79,7 +79,7 @@
     self.flowLayout.footerReferenceSize = collectionFooterView.frame.size;
 }
 
-- (void)setDataSource:(NSMutableArray<YJTCollectionCellObject *> *)dataSource {
+- (void)setDataSource:(NSMutableArray<YJUICollectionCellObject *> *)dataSource {
     _dataSource = dataSource;
     [self.dataSourceGrouped removeAllObjects];
     [self.dataSourceGrouped addObject:dataSource];
@@ -95,7 +95,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    YJTCollectionCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.item];
+    YJUICollectionCellObject *cellObject = self.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
     UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
     NSInteger section = self.dataSourceGrouped.count - 1;
@@ -106,19 +106,19 @@
     return  cell;
 }
 
-- (UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJTCollectionCellObject *)cellObject {
+- (UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJUICollectionCellObject *)cellObject {
     NSString *identifier = [self getKeyFromCellObject:cellObject];
     // 判断是否缓存
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
-            case YJTCollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
+            case YJUICollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
                 [self.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellWithReuseIdentifier:identifier];
                 break;
-            case YJTCollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
+            case YJUICollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 identifier = cellObject.cellName;
                 break;
-            case YJTCollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
+            case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
                 [self.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:identifier];
                 break;
         }
@@ -132,7 +132,7 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    YJTCollectionCellObject *cellObject;
+    YJUICollectionCellObject *cellObject;
     if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
          cellObject = self.headerDataSource[indexPath.section];
     } else {
@@ -143,14 +143,14 @@
     NSString *identifier = [NSString stringWithFormat:@"%@-%@", kind, [self getKeyFromCellObject:cellObject]];
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
-            case YJTCollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
+            case YJUICollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
                 [self.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil]  forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
                 break;
-            case YJTCollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
+            case YJUICollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 identifier = cellObject.cellName;
                 break;
-            case YJTCollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionReusableView alloc] initWithFrame:CGRectZero]创建cell
+            case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionReusableView alloc] initWithFrame:CGRectZero]创建cell
                 [self.collectionView registerClass:cellObject.cellClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
                 break;
         }
