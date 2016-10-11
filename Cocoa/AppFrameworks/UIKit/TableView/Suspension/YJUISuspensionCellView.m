@@ -1,6 +1,6 @@
 //
-//  YJTSuspensionCellView.m
-//  YJTTableView
+//  YJUISuspensionCellView.m
+//  YJUITableView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,25 +9,25 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJTSuspensionCellView.h"
-#import "YJTTableViewDelegate.h"
-#import "YJTTableViewDataSource.h"
-#import "UIView+YJTViewGeometry.h"
-#import "YJTAutoLayout.h"
+#import "YJUISuspensionCellView.h"
+#import "YJUITableViewDelegate.h"
+#import "YJUITableViewDataSource.h"
+#import "UIView+YJUIViewGeometry.h"
+#import "YJAutoLayout.h"
 
-@interface YJTSuspensionCellView () {
+@interface YJUISuspensionCellView () {
     CGFloat _showCellHeight;  ///< 当前显示Cell高
 }
 
 @property (nonatomic) BOOL scrollAnimate; ///< 悬浮cell动画滑动中
 @property (nonatomic) NSInteger index;    ///< 当前显示下标, 1代表第一个cell固定显示
 @property (nonatomic, weak, readonly) UITableView *tableView; ///< UITableView
-@property (nonatomic, strong) NSMutableArray<YJTTableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
+@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
 
 @end
 
-@implementation YJTSuspensionCellView
+@implementation YJUISuspensionCellView
 
 #pragma mark - 刷新数据
 - (void)reloadData {
@@ -45,8 +45,8 @@
     }
     [self.indexPaths removeAllObjects];
     [self.suspensionCells removeAllObjects];
-    for (NSArray<YJTTableCellObject *> *array in self.tableViewDelegate.dataSource.dataSourceGrouped) {
-        for (YJTTableCellObject *co in array) {
+    for (NSArray<YJUITableCellObject *> *array in self.tableViewDelegate.dataSource.dataSourceGrouped) {
+        for (YJUITableCellObject *co in array) {
             if (co.suspension) {
                 [self.indexPaths addObject:co];
             }
@@ -54,19 +54,19 @@
     }
 }
 
-#pragma mark - 根据YJTTableCellObject生成UITableViewCell
-- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJTTableCellObject *)cellObject {
+#pragma mark - 根据YJUITableCellObject生成UITableViewCell
+- (UITableViewCell *)dequeueReusableCellWithCellObject:(YJUITableCellObject *)cellObject {
     // 生成cell
     UITableViewCell *cell;
     if (cell == nil) {
         switch (cellObject.createCell) {
-            case YJTTableViewCellCreateDefault:
+            case YJUITableViewCellCreateDefault:
                 cell = [[UINib nibWithNibName:cellObject.cellName bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
                 break;
-            case YJTTableViewCellCreateSoryboard:
-                NSAssert(NO, @"悬浮cel不支持YJTTableViewCellCreateSoryboard创建cell");
+            case YJUITableViewCellCreateSoryboard:
+                NSAssert(NO, @"悬浮cel不支持YJUITableViewCellCreateSoryboard创建cell");
                 break;
-            case YJTTableViewCellCreateClass:
+            case YJUITableViewCellCreateClass:
                 cell = [[cellObject.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
                 break;
         }
@@ -95,7 +95,7 @@
     if (showIndex < 0 || showIndex >= self.subviews.count) {
         return;
     }
-    YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
+    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     if (_contentOffsetY > rect.origin.y) {
         return;
@@ -139,7 +139,7 @@
     if (!heightConstraint.constant) {
         return;
     }
-    YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
+    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     if (_contentOffsetY > rect.origin.y) {
         return;
@@ -176,7 +176,7 @@
 #pragma mark tableView滑到底
 - (void)scrollToBottom {
     if (self.indexPaths.count != self.subviews.count) { // 是否已初始化
-        YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count];
+        YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count];
         if (cellObj.indexPath) {
             if (self.suspensionCells.count <= self.subviews.count) {
                 [self.suspensionCells addObject:[self dequeueReusableCellWithCellObject:cellObj]];
@@ -199,7 +199,7 @@
     if (self.suspensionCells.count != self.subviews.count) {
         UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
         [self addSubview:cell];
-        YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
+        YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
         cell.frame = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
         if (self.subviews.count >= 2) {
             cell.topFrame = self.subviews[self.subviews.count-2].bottomFrame;
@@ -211,7 +211,7 @@
     if (self.index < 0 || self.index >= self.subviews.count) {
         return;
     }
-    YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
+    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     self.scrollAnimate = NO;
     if (self.index) {
@@ -252,7 +252,7 @@
     if (self.suspensionCells.count != self.subviews.count) {
         UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
         [self addSubview:cell];
-        YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
+        YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
         CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
         cell.leadingSpaceToSuper(0);
         cell.heightLayout.equalToConstant(rect.size.height);
@@ -271,7 +271,7 @@
     if (!heightConstraint) {
         heightConstraint = self.heightLayout.equalToConstant(0);
     }
-    YJTTableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
+    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
     CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
     self.scrollAnimate = NO;
     if (self.index) {
@@ -311,7 +311,7 @@
     return self.tableViewDelegate.dataSource.tableView;
 }
 
-- (NSMutableArray<YJTTableCellObject *> *)indexPaths {
+- (NSMutableArray<YJUITableCellObject *> *)indexPaths {
     if (!_indexPaths) {
         _indexPaths = [NSMutableArray array];
     }

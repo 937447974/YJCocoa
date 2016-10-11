@@ -1,6 +1,6 @@
 //
-//  YJTTableCellObject.m
-//  YJTTableViewFactory
+//  YJUITableCellObject.m
+//  YJUITableViewFactory
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
@@ -9,23 +9,23 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJTTableCellObject.h"
+#import "YJUITableCellObject.h"
 #import <objc/runtime.h>
-#import "YJSFoundationOther.h"
+#import "YJNSFoundationOther.h"
 
-@implementation YJTTableCellObject
+@implementation YJUITableCellObject
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _cellName = YJStringFromClass([self class]);
+        _cellName = YJNSStringFromClass([self class]);
         NSRange range = [_cellName rangeOfString:@"Cell"];
-        if (range.length && ![_cellName isEqualToString:YJStringFromClass([YJTTableCellObject class])]) {
+        if (range.length && ![_cellName isEqualToString:YJNSStringFromClass([YJUITableCellObject class])]) {
             _cellName = [_cellName substringWithRange:NSMakeRange(0, range.length + range.location)];// 获取类名
             const char *name = [_cellName cStringUsingEncoding:NSUTF8StringEncoding];
             _cellClass = objc_getClass(name);// 自动填充TableViewCell
         } else {
-            NSLog(@"Cell非法命名。如使用YJCell，请以YJTTableCellObject命名");
+            NSLog(@"Cell非法命名。如使用YJCell，请以YJUITableCellObject命名");
         }
     }
     return self;
@@ -35,7 +35,7 @@
     self = [super init];
     if (self) {
         _cellClass = cellClass;
-        _cellName = YJStringFromClass(_cellClass);
+        _cellName = YJNSStringFromClass(_cellClass);
     }
     return self;
 }

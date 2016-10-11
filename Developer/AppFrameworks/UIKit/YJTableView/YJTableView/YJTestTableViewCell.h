@@ -6,9 +6,9 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJTTableView.h"
+#import "YJUITableView.h"
 
-@interface YJTestTableCellModel : NSObject <YJTTableCellModelProtocol>
+@interface YJTestTableCellModel : NSObject <YJUITableCellModelProtocol>
 
 @property (nonatomic, copy) NSString *userName; ///< 用户名
 @property (nonatomic)       BOOL switchOn;      ///< 是否选中
@@ -16,12 +16,12 @@
 @end
 
 
-@interface YJTestTableCellObject : YJTTableCellObject
+@interface YJTestTableCellObject : YJUITableCellObject
 
 @end
 
 
-@interface YJTestTableViewCell : YJTTableViewCell
+@interface YJTestTableViewCell : YJUITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UISwitch *sSwitch;
