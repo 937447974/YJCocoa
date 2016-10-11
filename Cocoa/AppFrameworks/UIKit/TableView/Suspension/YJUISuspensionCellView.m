@@ -37,6 +37,7 @@
     if (self.translatesAutoresizingMaskIntoConstraints) {
         self.heightFrame = 0;
     } else {
+        NSLog(@"不支持IOS10以上的系统，请使用frame布局");
         [self removeConstraints:self.constraints];
         self.heightLayout.equalToConstant(0);
     }
