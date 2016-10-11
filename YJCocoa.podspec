@@ -55,6 +55,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
         af.source_files = 'Cocoa/AppFrameworks/*.{h,m}'
+        # 1.1 Foundation
         af.subspec 'Foundation' do |foundation|
             foundation.source_files = 'Cocoa/AppFrameworks/Foundation/*.{h,m}'
             foundation.subspec 'DictionaryModel' do |dm|
@@ -84,7 +85,9 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
             end
         end
+        # 1.2 UIKit
         af.subspec 'UIKit' do |uik|
+            uik.source_files = 'Cocoa/AppFrameworks/UIKit/*.{h,m}'
             # AutoLayout
             uik.subspec 'AutoLayout' do |al|
                 al.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/*.{h,m}'
@@ -102,6 +105,65 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                 end
                 al.subspec 'Extend' do |ale|
                     ale.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}'
+                end
+            end
+            # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
+            uik.subspec 'ViewGeometry' do |vg|
+                vg.source_files  = "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
+            end
+            # CollectionView
+            uik.subspec 'CollectionView' do |cv|
+                cv.source_files  = "Cocoa/AppFrameworks/UIKit/CollectionView/*.{h,m}"
+                cv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCell/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject'
+                end
+                cv.subspec 'CollectionCellObject' do |cco|
+                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
+                    cco.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                    cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                    cco.dependency 'YJCocoa/System/Dispatch'
+                end
+            end
+            # UITextField和UITextView可输入长度控制
+            uik.subspec 'InputLength' do |il|
+                il.source_files  = "Cocoa/AppFrameworks/UIKit/InputLength/*.{h,m}"
+            end
+            # NavigationBar
+            uik.subspec 'NavigationBar' do |nb|
+                nb.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationBar/*.{h,m}'
+                nb.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationBar/Core/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                end
+            end
+            # PageView
+            uik.subspec 'PageView' do |pv|
+                pv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
+                    core.dependency 'YJCocoa/System/Dispatch'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                end
+                pv.subspec 'ImagePage' do |ip|
+                    ip.resources = 'Cocoa/AppFrameworks/UIKit/PageView/ImagePage/*.xib'
+                    ip.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/ImagePage/*.{h,m}'
+                    ip.dependency 'YJCocoa/AppFrameworks/UIKit/PageView/Core'
+                end
+            end
+            # UITableView
+            uik.subspec 'TableView' do |tv|
+                tv.source_files  = "Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}"
+                tv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Suspension/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                    core.dependency 'YJCocoa/System/Dispatch'
+                end
+                tv.subspec 'TableCellObject' do |tco|
+                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/TableCellObject/*.{h,m}'
+                    tco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end
             # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
