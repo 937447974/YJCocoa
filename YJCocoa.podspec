@@ -107,10 +107,6 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "dev
                     ale.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
-            # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
-            uik.subspec 'ViewGeometry' do |vg|
-                vg.source_files  = "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
-            end
             # CollectionView
             uik.subspec 'CollectionView' do |cv|
                 cv.source_files  = "Cocoa/AppFrameworks/UIKit/CollectionView/*.{h,m}"
