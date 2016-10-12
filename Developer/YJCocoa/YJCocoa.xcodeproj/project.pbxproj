@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840BE1AC1DAE43F600ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1AB1DAE43F600ADE647 /* YJNSDirectory.m */; };
 		841725D71DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725821DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m */; };
 		841725D81DACBC1C006022A9 /* YJNSLayoutConstraintAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725841DACBC1C006022A9 /* YJNSLayoutConstraintAnimate.m */; };
 		841725D91DACBC1C006022A9 /* YJNSLayoutAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725871DACBC1C006022A9 /* YJNSLayoutAnchor.m */; };
@@ -65,6 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840BE1AA1DAE43F600ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
+		840BE1AB1DAE43F600ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		841725811DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+YJAutoLayout.h"; sourceTree = "<group>"; };
 		841725821DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+YJAutoLayout.m"; sourceTree = "<group>"; };
 		841725831DACBC1C006022A9 /* YJNSLayoutConstraintAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSLayoutConstraintAnimate.h; sourceTree = "<group>"; };
@@ -194,6 +197,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840BE1A91DAE43F600ADE647 /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				840BE1AA1DAE43F600ADE647 /* YJNSDirectory.h */,
+				840BE1AB1DAE43F600ADE647 /* YJNSDirectory.m */,
+			);
+			path = Directory;
+			sourceTree = "<group>";
+		};
 		8417257E1DACBC1C006022A9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				84D3560C1DAB722B0097D526 /* DictionaryModel */,
+				840BE1A91DAE43F600ADE647 /* Directory */,
 				84D356131DAB722B0097D526 /* Http */,
 				84D356191DAB722B0097D526 /* Log */,
 				84D3561C1DAB722B0097D526 /* Other */,
@@ -783,6 +796,7 @@
 				84D3562F1DAB722B0097D526 /* YJNSDictionaryModelManager.m in Sources */,
 				841725ED1DACBC1C006022A9 /* YJUIPageView.m in Sources */,
 				841725DC1DACBC1C006022A9 /* YJNSLayoutYAxisAnchor.m in Sources */,
+				840BE1AC1DAE43F600ADE647 /* YJNSDirectory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
