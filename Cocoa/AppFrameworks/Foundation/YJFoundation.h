@@ -12,6 +12,9 @@
 // Dictionary转Model
 #import "NSObject+YJNSDictionaryModel.h"
 
+// 获取应用内目录
+#import "YJNSDirectory.h"
+
 // http链接相关
 #import "YJNSHttp.h"
 
