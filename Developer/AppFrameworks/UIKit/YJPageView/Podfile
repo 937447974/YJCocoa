@@ -3,8 +3,8 @@ platform :ios, '6.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-#pod 'YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'
-#pod 'YJCocoa/CoreOSLayer/System'
-#pod 'YJCocoa/CoreServicesLayer/Foundation/Other'
+pod 'YJCocoa/System/Dispatch'
+pod 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
+pod 'YJCocoa/AppFrameworks/Foundation/Other'
 
-pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git', :branch =>'developer' #开发环境
+#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git', :branch =>'developer' #开发环境

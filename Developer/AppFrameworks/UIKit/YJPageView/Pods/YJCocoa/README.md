@@ -2,28 +2,47 @@ YJ系列开源库
 
 1. 支持iOS6.0和Swift开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
-3. 每一层的类前缀都不同，使用不同类时即可知道其所在层。
-	1. Cocoa Touch Layer类前缀为YJT
-	2. Core Services Layer类前缀为YJS
-	3. Core OS Layer 类前缀为YJC
 
 整体架构和苹果类似,每一层都有各自的开源库。
 
-![](http://www.linuxidc.com/upload/2014_02/140221184152111.jpg)
+#1 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101001.png)AppFrameworks
 
-#1 YJCocoa/CocoaTouchLayer
+##1.1 Foundation
 
-##1.1 YJCocoa/CocoaTouchLayer/UIKit
+###1.1.1 DictionaryModel
 
-###1.1.1 YJCocoa/CocoaTouchLayer/UIKit/InputLength
+快速高效的转换模型和Model。
 
-UITextField和UITextView可输入长度控制。
+###1.1.2 Http
 
-###1.1.2 YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry
+1. http链接解析，快速获取其中参数;
+2. http链接组装，快速组装相关参数。
 
-UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
+###1.1.3 Log
 
-###1.1.3 YJCocoa/CocoaTouchLayer/UIKit/AutoLayout
+NSLog打印优化，Unicode自动转化为中文输出。
+
+###1.1.4 PerformSelector
+
+合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
+
+###1.1.5 Singleton
+
+单例管理中心，一行代码即可让当前类转换为单例。
+
+###1.1.6 Timer
+
+替换NSTimer实现相关计时器功能。
+
+多种生命周期：
+
+1. 随着应用的回收而回收。
+2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
+
+
+##1.2 UIKit
+
+###1.2.1 AutoLayout
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
  
@@ -31,40 +50,7 @@ AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我�
 3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
 4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
-###1.1.4 YJCocoa/CocoaTouchLayer/UIKit/NavigationBar
-
-NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
-
-###1.1.5 YJCocoa/CocoaTouchLayer/UIKit/PageView
-
-PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
-
-1. 支持iOS6.0和Swift开发。
-2. 多种配置模式适应任何多页面需求。
-3. 任何间隔切换VC，内存释放稳定。
-
-###1.1.6 YJCocoa/CocoaTouchLayer/UIKit/TableView
-
-UITableView封装
-
-1. 支持市面上百分之百的架构，无须修改原有框架结构。你可以把它作为插件，也可以把它作为TableView的控制中心使用。
-2. 减压UIViewController，使其代码尽可能的精简，可阅读性更高。UIViewController不在关心UITableViewCell的相关显示，缓存。UIViewController与UITableViewCell完全隔离。
-3. 自带存储数据源，支持UITableViewStylePlain和UITableViewStyleGrouped显示的数据源。
-4. 自动将数据从UIViewController传输到UITableViewCell，支持任意数据类型的传输，如项目中常用的CellModel、Dictionary字典。
-5. 自动优化UITableView滑动卡顿，支持同步和异步刷新UITableViewCell。
-6. 支持多种点击cell的监听方式，可使用protocol或block。
-7. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
-8. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。多种缓存策略：
-	1. 根据相同的UITableViewCell类名缓存Cell；
-	2. 根据NSIndexPath对应的位置缓存Cell；
-	3. 据类名和NSIndexPath双重绑定缓存Cell。
-9. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
-	1. 根据相同的UITableViewCell类缓存高度；
-	2. 根据NSIndexPath对应的位置缓存高度；
-	3. 根据类名和NSIndexPath双重绑定缓存高度。
-
-
-###1.1.7 YJCocoa/CocoaTouchLayer/UIKit/CollectionView
+###1.2.2 CollectionView
 
 UICollectionView封装
 
@@ -85,55 +71,62 @@ UICollectionView封装
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-#2 YJCocoa/CoreServicesLayer
+###1.2.3 InputLength
 
-##2.1 YJCocoa/CoreServicesLayer/Foundation
+UITextField和UITextView可输入长度控制。
 
-###2.1.1 YJCocoa/CoreServicesLayer/Foundation/Log
+###1.2.4 NavigationBar
 
-NSLog打印优化，Unicode自动转化为中文输出。
+NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-###2.1.2 YJCocoa/CoreServicesLayer/Foundation/Singleton
+###1.2.5 PageView
 
-单例管理中心，一行代码即可让当前类转换为单例。
+PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
-###2.1.3 YJCocoa/CoreServicesLayer/Foundation/Http
+1. 支持iOS6.0和Swift开发。
+2. 多种配置模式适应任何多页面需求。
+3. 任何间隔切换VC，内存释放稳定。
 
-1. http链接解析，快速获取其中参数;
-2. http链接组装，快速组装相关参数。
+###1.2.6 TableView
 
-###2.1.4 YJCocoa/CoreServicesLayer/Foundation/PerformSelector
+UITableView封装
 
-合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
+1. 支持市面上百分之百的架构，无须修改原有框架结构。你可以把它作为插件，也可以把它作为TableView的控制中心使用。
+2. 减压UIViewController，使其代码尽可能的精简，可阅读性更高。UIViewController不在关心UITableViewCell的相关显示，缓存。UIViewController与UITableViewCell完全隔离。
+3. 自带存储数据源，支持UITableViewStylePlain和UITableViewStyleGrouped显示的数据源。
+4. 自动将数据从UIViewController传输到UITableViewCell，支持任意数据类型的传输，如项目中常用的CellModel、Dictionary字典。
+5. 自动优化UITableView滑动卡顿，支持同步和异步刷新UITableViewCell。
+6. 支持多种点击cell的监听方式，可使用protocol或block。
+7. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
+8. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。多种缓存策略：
+	1. 根据相同的UITableViewCell类名缓存Cell；
+	2. 根据NSIndexPath对应的位置缓存Cell；
+	3. 据类名和NSIndexPath双重绑定缓存Cell。
+9. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
+	1. 根据相同的UITableViewCell类缓存高度；
+	2. 根据NSIndexPath对应的位置缓存高度；
+	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###2.1.5 YJCocoa/CoreServicesLayer/Foundation/Timer
+###1.2.7 ViewGeometry
 
-替换NSTimer实现相关计时器功能。
+UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
-多种生命周期：
 
-1. 随着应用的回收而回收。
-2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
+#2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
 
-###2.1.6 YJCocoa/CoreServicesLayer/Foundation/DictionaryModel
-
-快速高效的转换模型和Model。
-
-#3 YJCocoa/CoreOSLayer
-
-##3.1 YJCocoa/CoreOSLayer/System
+##2.1 Dispatch
 
 GCD相关封装
 
-##3.2 YJCocoa/CoreOSLayer/Security
+##2.2 Security
 
-###3.2.1 YJCocoa/CoreOSLayer/Security/Randomization
-
-快速生成指定位数的随机密码。
-
-###3.2.2 YJCocoa/CoreOSLayer/Security/Keychain
+###2.2.1 Keychain
 
 面向对象管理Keychain，支持自定义存储数据。
+
+###2.2.2 Random
+
+快速生成指定位数的随机密码。
 
 ----------
 
@@ -200,6 +193,7 @@ YJ技术支持群：557445088
 | 2016-09-01 | 3.0.1 | http解析器和组装器升级 |
 | 2016-09-08 | 3.0.1 | UIKit层代码优化 |
 | 2016-09-26 | 3.1.0 | DictionaryModel上线，支持快速高效的转换模型和Model。|
+| 2016-10-11 | 4.1.0 | 依据苹果新的框架结构，YJCocoa架构重组。|
 
 ##Copyright
 

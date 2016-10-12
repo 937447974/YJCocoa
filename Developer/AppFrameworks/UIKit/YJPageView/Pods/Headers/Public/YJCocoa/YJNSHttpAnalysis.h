@@ -1,1 +1,0 @@
-../../../YJCocoa/Cocoa/AppFrameworks/Foundation/Http/YJNSHttpAnalysis.h
