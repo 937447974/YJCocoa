@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <YJCocoa/YJCocoa.h>
+#import "YJDispatch.h"
 #import "YJFoundation.h"
 
 @interface ViewController ()
