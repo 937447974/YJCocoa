@@ -9,6 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+/** 面向切面编程*/
+#import "YJNSAspectOrientProgramming.h"
+
 // Dictionary转Model
 #import "NSObject+YJNSDictionaryModel.h"
 

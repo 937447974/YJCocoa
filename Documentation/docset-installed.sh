@@ -31,7 +31,8 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "4.1.0 | 2016-10-12 | Directory上线，可快速获取应用内目录。" with title "YJCocoa"'
+osascript -e 'display notification "2016-10-12 | Directory上线，可快速获取应用内目录。" with title "YJCocoa 4.1.0"'
+osascript -e 'display notification "2016-10-14 | AOP上线，支持将一对一的通信转换为一对多的通信。" with title "YJCocoa 4.1.0"'
 
 
 

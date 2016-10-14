@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
+		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
+		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
 		84D355821DAB5E700097D526 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355811DAB5E700097D526 /* main.m */; };
 		84D355851DAB5E700097D526 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355841DAB5E700097D526 /* AppDelegate.m */; };
 		84D355881DAB5E700097D526 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355871DAB5E700097D526 /* ViewController.m */; };
@@ -48,6 +50,9 @@
 		840BE1A41DAE3B8F00ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
 		840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
+		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
+		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
+		84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAOPTest.m; sourceTree = "<group>"; };
 		84D3557D1DAB5E700097D526 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D355811DAB5E700097D526 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84D355831DAB5E700097D526 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,6 +137,15 @@
 			path = Directory;
 			sourceTree = "<group>";
 		};
+		84C59DCE1DB0D43C00B93218 /* AOP */ = {
+			isa = PBXGroup;
+			children = (
+				84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */,
+				84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */,
+			);
+			path = AOP;
+			sourceTree = "<group>";
+		};
 		84D355741DAB5E700097D526 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +208,7 @@
 				84D355A81DAB60750097D526 /* YJLogTest.m */,
 				84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */,
 				840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */,
+				84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -201,6 +216,7 @@
 		84D356391DAB73F10097D526 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				84C59DCE1DB0D43C00B93218 /* AOP */,
 				84D3563A1DAB73F10097D526 /* DictionaryModel */,
 				840BE1A31DAE3B7800ADE647 /* Directory */,
 				84D356411DAB73F10097D526 /* Http */,
@@ -450,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */,
 				84D355881DAB5E700097D526 /* ViewController.m in Sources */,
 				84D3565D1DAB73F10097D526 /* YJNSHttpAssembly.m in Sources */,
 				84D355851DAB5E700097D526 /* AppDelegate.m in Sources */,
@@ -473,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
+				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
 				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
 				84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */,
 				84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */,

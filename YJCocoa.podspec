@@ -58,6 +58,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         # 1.1 Foundation
         af.subspec 'Foundation' do |foundation|
             foundation.source_files = 'Cocoa/AppFrameworks/Foundation/*.{h,m}'
+            # AOP
+            foundation.subspec 'DictionaryModel' do |dm|
+                dm.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
+            end
+            # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
                 dm.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'

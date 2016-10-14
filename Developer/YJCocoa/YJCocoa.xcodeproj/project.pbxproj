@@ -47,6 +47,7 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
+		84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */; };
 		84D355201DAB432F0097D526 /* YJDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3551E1DAB432F0097D526 /* YJDispatch.m */; };
 		84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3553B1DAB59390097D526 /* YJSecKeychainGPItem.m */; };
 		84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3553D1DAB59390097D526 /* YJSecKeychainItem.m */; };
@@ -147,6 +148,8 @@
 		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
+		84C59DD61DB0EAA700B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
+		84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84D3551D1DAB432F0097D526 /* YJDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDispatch.h; sourceTree = "<group>"; };
 		84D3551E1DAB432F0097D526 /* YJDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDispatch.m; sourceTree = "<group>"; };
 		84D355211DAB43470097D526 /* YJSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJSystem.h; sourceTree = "<group>"; };
@@ -517,6 +520,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		84C59DD51DB0EAA700B93218 /* AOP */ = {
+			isa = PBXGroup;
+			children = (
+				84C59DD61DB0EAA700B93218 /* YJNSAspectOrientProgramming.h */,
+				84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */,
+			);
+			path = AOP;
+			sourceTree = "<group>";
+		};
 		84D3551B1DAB432F0097D526 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +601,7 @@
 		84D3560B1DAB722B0097D526 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				84C59DD51DB0EAA700B93218 /* AOP */,
 				84D3560C1DAB722B0097D526 /* DictionaryModel */,
 				840BE1A91DAE43F600ADE647 /* Directory */,
 				84D356131DAB722B0097D526 /* Http */,
@@ -770,6 +783,7 @@
 				841725F31DACBC1C006022A9 /* YJUITableViewCell.m in Sources */,
 				84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
+				84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */,
 				841725EF1DACBC1C006022A9 /* YJUIPageViewObject.m in Sources */,
 				841725DB1DACBC1C006022A9 /* YJNSLayoutXAxisAnchor.m in Sources */,
 				841725E61DACBC1C006022A9 /* UITextView+YJInputLength.m in Sources */,

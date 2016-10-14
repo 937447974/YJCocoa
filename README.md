@@ -9,28 +9,32 @@ YJ系列开源库
 
 ##1.1 Foundation
 
-###1.1.1 DictionaryModel
+###1.1.1 AOP
+
+AOP切面编程，将一对一的通信转换为一对多的通信。
+
+###1.1.2 DictionaryModel
 
 快速高效的转换模型和Model。
 
-###1.1.2 Http
+###1.1.3 Http
 
 1. http链接解析，快速获取其中参数;
 2. http链接组装，快速组装相关参数。
 
-###1.1.3 Log
+###1.1.4 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-###1.1.4 PerformSelector
+###1.1.5 PerformSelector
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
-###1.1.5 Singleton
+###1.1.6 Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-###1.1.6 Timer
+###1.1.7 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -195,6 +199,7 @@ YJ技术支持群：557445088
 | 3.1.0 | 2016-09-26 | DictionaryModel上线，支持快速高效的转换模型和Model。|
 | 4.0.0 | 2016-10-11 | 依据苹果新的框架结构，YJCocoa架构重组。|
 | 4.1.0 | 2016-10-12 | Directory上线，可快速获取应用内目录。 |
+| |2016-10-14 | AOP上线，支持将一对一的通信转换为一对多的通信。
 
 ##Copyright
 
