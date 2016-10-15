@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "YJUICollectionCellObject.h"
 #import "YJUICollectionViewCell.h"
+#import "YJNSAspectOrientProgramming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,6 +40,12 @@ typedef NS_ENUM(NSInteger, YJUICollectionViewCacheCell) {
 @property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionFooterView; ///< 尾部View
 @property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *headerDataSource; ///< UICollectionElementKindSectionHeader数据源
 @property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *footerDataSource; ///< UICollectionElementKindSectionFooter数据源
+
+/**
+ *  @abstract UICollectionView的AOP代理
+ *  @discusstion VC想实现UICollectionViewDataSource和UICollectionViewDelegate时，可通过此属性的addTarget:添加
+ */
+@property (nonatomic, strong, readonly) YJNSAspectOrientProgramming *collectionViewAOPDelegate;
 
 /**
  *  抽象的初始化接口,会自动填充设置collectionView.dataSource = self;collectionView.delegate = self.tableViewDelegate;

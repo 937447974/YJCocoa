@@ -12,6 +12,12 @@
 #import "YJUITableViewDataSource.h"
 #import "YJUITableViewDelegate.h"
 
+@interface YJUITableViewDataSource () {
+    YJNSAspectOrientProgramming *_tableViewAOPDelegate; ///< 切面代理
+}
+
+@end
+
 @implementation YJUITableViewDataSource
 
 #pragma mark - main
@@ -58,6 +64,18 @@
             self.tableViewDelegate.cacheHeightStrategy = YJUITableViewCacheHeightClassAndIndexPath;
             break;
     }
+}
+
+- (YJNSAspectOrientProgramming *)tableViewAOPDelegate {
+    if (!_tableViewAOPDelegate) {
+        _tableViewAOPDelegate = [[YJNSAspectOrientProgramming alloc] init];
+        [_tableViewAOPDelegate addTarget:self];
+        [_tableViewAOPDelegate addTarget:self.tableViewDelegate];
+        // 默认设置代理
+        self.tableView.dataSource = (id<UITableViewDataSource>)_tableViewAOPDelegate;
+        self.tableView.delegate = (id<UITableViewDelegate>)_tableViewAOPDelegate;
+    }
+    return _tableViewAOPDelegate;
 }
 
 #pragma mark - UITableViewDataSource

@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "YJUITableCellObject.h"
 #import "YJUITableViewCell.h"
+#import "YJNSAspectOrientProgramming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +36,12 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheCell) {
 
 @property (nonatomic, weak) UITableView *tableView;                              ///< tableView
 @property (nonatomic, strong, readonly) YJUITableViewDelegate *tableViewDelegate; ///< YJUITableViewDelegate,无须赋值，自动化创建
+
+/**
+ *  @abstract UITableView的AOP代理
+ *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，可通过此属性的addTarget:添加
+ */
+@property (nonatomic, strong, readonly) YJNSAspectOrientProgramming *tableViewAOPDelegate;
 
 /**
  *  抽象的初始化接口,会自动填充设置tableView.dataSource = self;tableView.delegate = self.tableViewDelegate;

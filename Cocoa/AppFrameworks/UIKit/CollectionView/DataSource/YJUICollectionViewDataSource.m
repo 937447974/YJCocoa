@@ -12,7 +12,9 @@
 #import "YJUICollectionViewDataSource.h"
 #import "YJUICollectionViewDelegate.h"
 
-@interface YJUICollectionViewDataSource ()
+@interface YJUICollectionViewDataSource () {
+    YJNSAspectOrientProgramming *_collectionViewAOPDelegate; ///< aop代理
+}
 
 @property (nonatomic, strong) NSMutableSet<NSString *> *identifierSet; ///< 记录缓存过的identifier
 
@@ -83,6 +85,18 @@
     _dataSource = dataSource;
     [self.dataSourceGrouped removeAllObjects];
     [self.dataSourceGrouped addObject:dataSource];
+}
+
+- (YJNSAspectOrientProgramming *)collectionViewAOPDelegate {
+    if (!_collectionViewAOPDelegate) {
+        _collectionViewAOPDelegate = [[YJNSAspectOrientProgramming alloc] init];
+        [_collectionViewAOPDelegate addTarget:self];
+        [_collectionViewAOPDelegate addTarget:self.delegate];
+        // 默认设置代理
+        self.collectionView.dataSource = (id<UICollectionViewDataSource>)_collectionViewAOPDelegate;
+        self.collectionView.delegate = (id<UICollectionViewDelegate>)_collectionViewAOPDelegate;
+    }
+    return _collectionViewAOPDelegate;
 }
 
 #pragma mark - UICollectionViewDataSource

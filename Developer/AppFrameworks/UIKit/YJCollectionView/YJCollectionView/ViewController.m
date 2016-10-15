@@ -12,7 +12,7 @@
 #import "YJDispatch.h"
 #import "YJTestCollectionReusableView.h"
 
-@interface ViewController () <YJUICollectionViewCellProtocol>
+@interface ViewController () <YJUICollectionViewCellProtocol, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) YJUICollectionViewDataSource *dataSoutce; ///< 数据源管理
@@ -31,6 +31,8 @@
     self.dataSoutce.delegate.lineItems = 3;          // 一行显示个数
     self.dataSoutce.delegate.itemHeightLayout = YES; // 是否自动适配高
     self.dataSoutce.delegate.cellDelegate = self;
+    // AOP代理
+    [self.dataSoutce.collectionViewAOPDelegate addTarget:self];
     // 测试数据
     for (int i = 0; i<20; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
@@ -71,6 +73,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView scroll:(YJUICollectionViewScroll)scroll {
     NSLog(@"%lu", scroll);
+}
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // AOP代理
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 
