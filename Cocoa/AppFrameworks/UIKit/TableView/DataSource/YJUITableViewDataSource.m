@@ -28,7 +28,7 @@
         self.dataSource = [NSMutableArray array];
         self.tableView = tableView;
         _tableViewDelegate = [[YJUITableViewDelegate alloc] initWithDataSource:self];
-        // 默认设置代理
+        // 设置默认代理
         self.tableView.dataSource = self;
         self.tableView.delegate = self.tableViewDelegate;
     }
@@ -42,6 +42,17 @@
         cell = [self.tableView cellForRowAtIndexPath:cellObject.indexPath];
         [cell reloadDataWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
     }
+}
+
+- (void)addTableViewAOPDelegate:(id)delegate {
+    if (!_tableViewAOPDelegate) {
+        _tableViewAOPDelegate = [[YJNSAspectOrientProgramming alloc] init];
+        [_tableViewAOPDelegate addTarget:self];
+        [_tableViewAOPDelegate addTarget:self.tableViewDelegate];
+    }
+    [_tableViewAOPDelegate addTarget:delegate];
+    self.tableView.dataSource = (id<UITableViewDataSource>)_tableViewAOPDelegate;
+    self.tableView.delegate = (id<UITableViewDelegate>)_tableViewAOPDelegate;
 }
 
 #pragma mark - getter and setter
@@ -64,18 +75,6 @@
             self.tableViewDelegate.cacheHeightStrategy = YJUITableViewCacheHeightClassAndIndexPath;
             break;
     }
-}
-
-- (YJNSAspectOrientProgramming *)tableViewAOPDelegate {
-    if (!_tableViewAOPDelegate) {
-        _tableViewAOPDelegate = [[YJNSAspectOrientProgramming alloc] init];
-        [_tableViewAOPDelegate addTarget:self];
-        [_tableViewAOPDelegate addTarget:self.tableViewDelegate];
-        // 默认设置代理
-        self.tableView.dataSource = (id<UITableViewDataSource>)_tableViewAOPDelegate;
-        self.tableView.delegate = (id<UITableViewDelegate>)_tableViewAOPDelegate;
-    }
-    return _tableViewAOPDelegate;
 }
 
 #pragma mark - UITableViewDataSource

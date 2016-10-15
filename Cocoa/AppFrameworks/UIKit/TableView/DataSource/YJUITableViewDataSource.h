@@ -38,12 +38,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheCell) {
 @property (nonatomic, strong, readonly) YJUITableViewDelegate *tableViewDelegate; ///< YJUITableViewDelegate,无须赋值，自动化创建
 
 /**
- *  @abstract UITableView的AOP代理
- *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，可通过此属性的addTarget:添加
- */
-@property (nonatomic, strong, readonly) YJNSAspectOrientProgramming *tableViewAOPDelegate;
-
-/**
  *  抽象的初始化接口,会自动填充设置tableView.dataSource = self;tableView.delegate = self.tableViewDelegate;
  *
  *  @param tableView UITableView
@@ -51,6 +45,16 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheCell) {
  *  @return YJUITableViewDataSourceGrouped 或 YJUITableViewDataSourcePlain
  */
 - (instancetype)initWithTableView:(UITableView *)tableView;
+
+/**
+ *  @abstract UITableView的AOP代理
+ *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，又不想替换框架中的方法，可通过此属性的addTarget:添加
+ *
+ *  @param delegate id<UITableViewDataSource, UITableViewDelegate>
+ *
+ *  @return void
+ */
+- (void)addTableViewAOPDelegate:(id)delegate;
 
 /**
  *  根据cellObject创建UITableViewCell

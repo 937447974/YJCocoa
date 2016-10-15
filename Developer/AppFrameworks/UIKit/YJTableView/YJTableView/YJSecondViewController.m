@@ -28,7 +28,7 @@
     [self.view addSubview:self.tableView];
     self.dataSourceGrouped = [[YJUITableViewDataSource alloc] initWithTableView:self.tableView];
     self.dataSourceGrouped.tableViewDelegate.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
-    [self.dataSourceGrouped.tableViewAOPDelegate addTarget:self];
+    [self.dataSourceGrouped addTableViewAOPDelegate:self];
     // 测试数据
     for (int i=0; i<3; i++) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
@@ -48,6 +48,10 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
