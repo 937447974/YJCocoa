@@ -59,8 +59,8 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
         af.subspec 'Foundation' do |foundation|
             foundation.source_files = 'Cocoa/AppFrameworks/Foundation/*.{h,m}'
             # AOP
-            foundation.subspec 'DictionaryModel' do |dm|
-                dm.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
+            foundation.subspec 'AOP' do |aop|
+                aop.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
             end
             # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
