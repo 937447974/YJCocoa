@@ -123,6 +123,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 cv.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCell/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
                 end
                 cv.subspec 'CollectionCellObject' do |cco|
                     cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
@@ -162,6 +163,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 tv.source_files  = "Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}"
                 tv.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Suspension/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
