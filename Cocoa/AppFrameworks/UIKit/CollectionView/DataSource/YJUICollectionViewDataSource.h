@@ -12,7 +12,6 @@
 #import <UIKit/UIKit.h>
 #import "YJUICollectionCellObject.h"
 #import "YJUICollectionViewCell.h"
-#import "YJNSAspectOrientProgramming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,12 +41,6 @@ typedef NS_ENUM(NSInteger, YJUICollectionViewCacheCell) {
 @property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *footerDataSource; ///< UICollectionElementKindSectionFooter数据源
 
 /**
- *  @abstract UICollectionView的AOP代理
- *  @discusstion VC想实现UICollectionViewDataSource和UICollectionViewDelegate时，可通过此属性的addTarget:添加
- */
-@property (nonatomic, strong, readonly) YJNSAspectOrientProgramming *collectionViewAOPDelegate;
-
-/**
  *  抽象的初始化接口,会自动填充设置collectionView.dataSource = self;collectionView.delegate = self.tableViewDelegate;
  *
  *  @param collectionView UICollectionView
@@ -55,6 +48,16 @@ typedef NS_ENUM(NSInteger, YJUICollectionViewCacheCell) {
  *  @return YJUICollectionViewDataSource
  */
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
+
+/**
+ *  @abstract 添加UICollectionView的AOP代理
+ *  @discusstion VC想实现UICollectionViewDataSource和UICollectionViewDelegate时，又不想替换框架中的方法，可通过此方法添加
+ *
+ *  @param delegate id<UICollectionViewDataSource, UICollectionViewDelegate>
+ *
+ *  @return void
+ */
+- (void)addCollectionViewAOPDelegate:(id)delegate;
 
 /**
  *  根据cellObject创建UICollectionViewCell

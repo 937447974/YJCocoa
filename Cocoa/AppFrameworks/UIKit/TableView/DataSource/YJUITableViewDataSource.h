@@ -47,8 +47,8 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheCell) {
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
 /**
- *  @abstract UITableView的AOP代理
- *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，又不想替换框架中的方法，可通过此属性的addTarget:添加
+ *  @abstract 添加UITableView的AOP代理
+ *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，又不想替换框架中的方法，可通过此方法添加
  *
  *  @param delegate id<UITableViewDataSource, UITableViewDelegate>
  *

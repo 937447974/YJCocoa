@@ -32,7 +32,7 @@
     self.dataSoutce.delegate.itemHeightLayout = YES; // 是否自动适配高
     self.dataSoutce.delegate.cellDelegate = self;
     // AOP代理
-    [self.dataSoutce.collectionViewAOPDelegate addTarget:self];
+    [self.dataSoutce addCollectionViewAOPDelegate:self];
     // 测试数据
     for (int i = 0; i<20; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
@@ -76,8 +76,11 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // AOP代理
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 

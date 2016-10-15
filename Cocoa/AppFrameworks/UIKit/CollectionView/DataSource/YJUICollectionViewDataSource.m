@@ -11,6 +11,7 @@
 
 #import "YJUICollectionViewDataSource.h"
 #import "YJUICollectionViewDelegate.h"
+#import "YJNSAspectOrientProgramming.h"
 
 @interface YJUICollectionViewDataSource () {
     YJNSAspectOrientProgramming *_collectionViewAOPDelegate; ///< aop代理
@@ -64,6 +65,17 @@
             return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
             break;
     }
+}
+
+- (void)addCollectionViewAOPDelegate:(id)delegate {
+    if (!_collectionViewAOPDelegate) {
+        _collectionViewAOPDelegate = [[YJNSAspectOrientProgramming alloc] init];
+        [_collectionViewAOPDelegate addTarget:self];
+        [_collectionViewAOPDelegate addTarget:self.delegate];
+    }
+    [_collectionViewAOPDelegate addTarget:delegate];
+    self.collectionView.dataSource = (id<UICollectionViewDataSource>)_collectionViewAOPDelegate;
+    self.collectionView.delegate = (id<UICollectionViewDelegate>)_collectionViewAOPDelegate;
 }
 
 #pragma mark - getter and setter
