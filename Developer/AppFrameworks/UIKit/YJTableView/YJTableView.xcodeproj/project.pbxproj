@@ -16,7 +16,6 @@
 		845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D81CF015B800BCC14E /* YJSecondViewController.m */; };
 		8482173F1CF0201000410723 /* YJTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482173E1CF0201000410723 /* YJTestTableViewCell.m */; };
 		848217411CF0208B00410723 /* YJTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848217401CF0208B00410723 /* YJTestTableViewCell.xib */; };
-		84C59DDC1DB0EC3400B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DDB1DB0EC3400B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FC1CEF1CAF0036C57B /* main.m */; };
 		84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */; };
 		84C9E5061CEF1CAF0036C57B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5041CEF1CAF0036C57B /* Main.storyboard */; };
@@ -44,8 +43,6 @@
 		8482173D1CF0201000410723 /* YJTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestTableViewCell.h; sourceTree = "<group>"; };
 		8482173E1CF0201000410723 /* YJTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestTableViewCell.m; sourceTree = "<group>"; };
 		848217401CF0208B00410723 /* YJTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestTableViewCell.xib; sourceTree = "<group>"; };
-		84C59DDA1DB0EC3400B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
-		84C59DDB1DB0EC3400B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84C9E4F81CEF1CAE0036C57B /* YJTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C9E4FC1CEF1CAF0036C57B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,16 +149,6 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
-		84C59DD91DB0EC3400B93218 /* AOP */ = {
-			isa = PBXGroup;
-			children = (
-				84C59DDA1DB0EC3400B93218 /* YJNSAspectOrientProgramming.h */,
-				84C59DDB1DB0EC3400B93218 /* YJNSAspectOrientProgramming.m */,
-			);
-			name = AOP;
-			path = ../../../../../Cocoa/AppFrameworks/Foundation/AOP;
-			sourceTree = "<group>";
-		};
 		84C9E4EF1CEF1CAE0036C57B = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +170,6 @@
 		84C9E4FA1CEF1CAF0036C57B /* YJTableView */ = {
 			isa = PBXGroup;
 			children = (
-				84C59DD91DB0EC3400B93218 /* AOP */,
 				84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */,
 				84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */,
 				845CC1D41CF015A000BCC14E /* Main */,
@@ -352,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C59DDC1DB0EC3400B93218 /* YJNSAspectOrientProgramming.m in Sources */,
 				84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */,
 				845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */,
 				842B10961DABA37600F71C79 /* YJUITableCellObject.m in Sources */,
