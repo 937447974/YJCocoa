@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** cell的协议*/
 @protocol YJUITableViewManagerDelegate <YJUITableViewCellProtocol>
 
+@optional
+
 /**
  *  用户点击整个Cell
  *
