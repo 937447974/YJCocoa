@@ -159,17 +159,16 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
             end
             # UITableView
-            uik.subspec 'TableView' do |tv|
-                tv.source_files  = "Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}"
-                tv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/TableCell/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/Suspension/*.{h,m}'
+            uik.subspec 'TableViewManager' do |tvm|
+                tvm.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/Suspension/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCell/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                tv.subspec 'TableCellObject' do |tco|
+                tvm.subspec 'TableCellObject' do |tco|
                     tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/TableCellObject/*.{h,m}'
                     tco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end

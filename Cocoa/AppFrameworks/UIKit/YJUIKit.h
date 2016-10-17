@@ -26,8 +26,8 @@
 // 轮播图
 #import "YJUIImagePageViewController.h"
 
-// UITableView封装
-#import "YJUITableView.h"
+// UITableView管理器
+#import "YJUITableViewManager.h"
 
 // UIView(UIViewGeometry)相关扩展，可快速设置fram相关
 #import "UIView+YJUIViewGeometry.h"
