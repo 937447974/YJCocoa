@@ -146,7 +146,7 @@
 		84CEC1491DB4B33E004CDF2B /* YJUITableViewDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewDelegateManager.m; sourceTree = "<group>"; };
 		84CEC14A1DB4B33E004CDF2B /* YJUITableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewManager.h; sourceTree = "<group>"; };
 		84CEC14B1DB4B33E004CDF2B /* YJUITableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewManager.m; sourceTree = "<group>"; };
-		84CEC14D1DB4B33E004CDF2B /* YJUiSuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUiSuspensionCellView.h; sourceTree = "<group>"; };
+		84CEC14D1DB4B33E004CDF2B /* YJUISuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUISuspensionCellView.h; sourceTree = "<group>"; };
 		84CEC14E1DB4B33E004CDF2B /* YJUISuspensionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUISuspensionCellView.m; sourceTree = "<group>"; };
 		84CEC1501DB4B33E004CDF2B /* YJUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewCell.h; sourceTree = "<group>"; };
 		84CEC1511DB4B33E004CDF2B /* YJUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewCell.m; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 		84CEC14C1DB4B33E004CDF2B /* Suspension */ = {
 			isa = PBXGroup;
 			children = (
-				84CEC14D1DB4B33E004CDF2B /* YJUiSuspensionCellView.h */,
+				84CEC14D1DB4B33E004CDF2B /* YJUISuspensionCellView.h */,
 				84CEC14E1DB4B33E004CDF2B /* YJUISuspensionCellView.m */,
 			);
 			path = Suspension;
@@ -708,7 +708,7 @@
 		8473AB701CE969DB000E3580 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					8473AB771CE969DB000E3580 = {
@@ -846,8 +846,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -891,8 +893,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
