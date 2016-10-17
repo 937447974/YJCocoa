@@ -169,7 +169,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
                 tvm.subspec 'TableCellObject' do |tco|
-                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/TableCellObject/*.{h,m}'
+                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject/*.{h,m}'
                     tco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end
