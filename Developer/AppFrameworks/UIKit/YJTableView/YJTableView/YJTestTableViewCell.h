@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJUITableView.h"
+#import "YJUITableViewManager.h"
 
 @interface YJTestTableCellModel : NSObject <YJUITableCellModelProtocol>
 

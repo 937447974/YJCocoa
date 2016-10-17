@@ -91,9 +91,9 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-###1.2.6 TableView
+###1.2.6 TableViewManager
 
-UITableView封装
+UITableView管理器
 
 1. 支持市面上百分之百的架构，无须修改原有框架结构。你可以把它作为插件，也可以把它作为TableView的控制中心使用。
 2. 减压UIViewController，使其代码尽可能的精简，可阅读性更高。UIViewController不在关心UITableViewCell的相关显示，缓存。UIViewController与UITableViewCell完全隔离。
@@ -201,7 +201,7 @@ YJ技术支持群：557445088
 | 4.1.0 | 2016-10-12 | Directory上线，可快速获取应用内目录。 |
 | | 2016-10-14 | AOP上线，支持将一对一的通信转换为一对多的通信。|
 | | 2016-10-15 | TableView和CollectionView支持AOP代理 |
-| 4.1.1 | 2016-10-17 | TableView架构升级 |
+| 4.1.1 | 2016-10-17 | TableView架构升级，并更名为TableViewManager |
 
 ##Copyright
 

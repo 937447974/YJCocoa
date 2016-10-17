@@ -10,14 +10,9 @@
 //
 
 #import "YJUITableViewDelegateManager.h"
-#import "YJUISuspensionCellView.h"
-#import "YJUITableCellObject.h"
-#import "YJUITableViewCell.h"
-#import "YJNSFoundationOther.h"
+#import "YJUITableViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
 #import "YJAutoLayout.h"
-
-#import "YJUITableViewManager.h"
 
 @interface YJUITableViewDelegateManager () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y

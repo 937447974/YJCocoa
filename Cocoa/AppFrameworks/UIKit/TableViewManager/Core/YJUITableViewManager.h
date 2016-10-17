@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJUITableViewDelegateManager.h"
 #import "YJUITableViewDataSourceManager.h"
+#import "YJUITableViewDelegateManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -10,9 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJUITableCellObject.h"
 #import "YJUITableViewCell.h"
-#import "YJNSAspectOrientProgramming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

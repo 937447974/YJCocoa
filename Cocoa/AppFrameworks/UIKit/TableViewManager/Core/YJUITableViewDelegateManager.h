@@ -12,7 +12,6 @@
 #import <UIKit/UIKit.h>
 #import "YJUITableViewCell.h"
 #import "YJUISuspensionCellView.h"
-#import "YJUITableCellObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

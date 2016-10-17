@@ -11,7 +11,6 @@
 
 #import "YJUITableViewCell.h"
 #import "YJUITableViewManager.h"
-#import "YJNSFoundationOther.h"
 #import "YJDispatch.h"
 
 #pragma mark - UITableViewCell (YJUITableView)
@@ -36,16 +35,15 @@
 
 + (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
     if (cellObject.createCell == YJUITableViewCellCreateClass) {
-        NSLog(@"自动获取高度时，UITableViewCell子类%@请实现方法：%@", YJNSStringFromClass(self.class), NSStringFromSelector(_cmd));
         return tableViewManager.tableView.rowHeight; // 默认高
     }
     // soryboard方式创建cell
-    UITableViewCell *cell = [tableViewManager.tableView dequeueReusableCellWithIdentifier:YJNSStringFromClass(self.class)];
+    UITableViewCell *cell = [tableViewManager.tableView dequeueReusableCellWithIdentifier:cellObject.cellName];
     if (cell) {
         return CGRectGetHeight(cell.frame);
     }
     // xib创建cell
-    NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:YJNSStringFromClass(self.class) owner:nil options:nil];
+    NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
     return CGRectGetHeight(array.firstObject.frame);
 }
 
@@ -59,7 +57,7 @@
 }
 
 - (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-    NSLog(@"UITableViewCell子类%@请实现方法：%@", YJNSStringFromClass(self.class), NSStringFromSelector(_cmd));
+    NSLog(@"UITableViewCell子类%@请实现方法：%@", cellObject.cellName, NSStringFromSelector(_cmd));
 }
 
 - (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
