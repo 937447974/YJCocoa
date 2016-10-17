@@ -16,11 +16,6 @@
 @end
 
 
-@interface YJTestTableCellObject : YJUITableCellObject
-
-@end
-
-
 @interface YJTestTableViewCell : YJUITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;

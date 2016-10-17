@@ -1,42 +1,45 @@
 //
-//  YJUITableViewDelegate.m
-//  YJUITableViewFactory
+//  YJUITableViewDelegateManager.m
+//  YJTableView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
 //
-//  Created by 阳君 on 16/3/26.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Created by 阳君 on 2016/10/17.
+//  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJUITableViewDelegate.h"
-#import "YJUITableViewDataSource.h"
+#import "YJUITableViewDelegateManager.h"
+#import "YJUISuspensionCellView.h"
 #import "YJUITableCellObject.h"
 #import "YJUITableViewCell.h"
 #import "YJNSFoundationOther.h"
 #import "UIView+YJUIViewGeometry.h"
 #import "YJAutoLayout.h"
 
-@interface YJUITableViewDelegate () {
+#import "YJUITableViewManager.h"
+
+@interface YJUITableViewDelegateManager () {
     CGFloat _contentOffsetY; ///< scrollView.contentOffset.y
     CGFloat _contentOffsetYBegin; ///< 开始的点
     NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高
-    YJUISuspensionCellView *_suspensionCellView;
+    YJUISuspensionCellView *_suspensionCellView; ///< 悬浮cell
 }
 
 @property (nonatomic) YJUITableViewScroll scroll; ///< 滚动
 
 @end
 
-@implementation YJUITableViewDelegate
+@implementation YJUITableViewDelegateManager
+
 
 #pragma mark - init
-- (instancetype)initWithDataSource:(YJUITableViewDataSource *)dataSource {
+- (instancetype)initWithManager:(YJUITableViewManager *)manager {
     self = [super init];
     if (self) {
         _cacheHeightDict = [[NSMutableDictionary alloc] init];
         _isCacheHeight = YES;
-        _dataSource = dataSource;
+        _manager = manager;
         _contentOffsetYBegin = CGFLOAT_MAX;
         self.scrollSpacingWill = 15;
         self.scrollSpacingDid = 30;
@@ -47,14 +50,14 @@
 #pragma mark - getter and setter
 - (YJUISuspensionCellView *)suspensionCellView {
     if (!_suspensionCellView) {
-        self.suspensionCellView = [[YJUISuspensionCellView alloc] initWithFrame:self.dataSource.tableView.frame];
+        self.suspensionCellView = [[YJUISuspensionCellView alloc] initWithFrame:self.manager.tableView.frame];
         self.suspensionCellView.heightFrame = 0;
         _suspensionCellView.clipsToBounds = YES;
-        [self.dataSource.tableView.superview addSubview:_suspensionCellView];
-        if (!self.dataSource.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
-            _suspensionCellView.topLayout.equalTo(self.dataSource.tableView.topLayout);
-            _suspensionCellView.leadingLayout.equalTo(self.dataSource.tableView.leadingLayout);
-            _suspensionCellView.trailingLayout.equalTo(self.dataSource.tableView.trailingLayout);
+        [self.manager.tableView.superview addSubview:_suspensionCellView];
+        if (!self.manager.tableView.translatesAutoresizingMaskIntoConstraints) { // 约束
+            _suspensionCellView.topLayout.equalTo(self.manager.tableView.topLayout);
+            _suspensionCellView.leadingLayout.equalTo(self.manager.tableView.leadingLayout);
+            _suspensionCellView.trailingLayout.equalTo(self.manager.tableView.trailingLayout);
             _suspensionCellView.heightLayout.equalToConstant(0);
         }
     }
@@ -63,22 +66,13 @@
 
 - (void)setSuspensionCellView:(YJUISuspensionCellView *)suspensionCellView {
     _suspensionCellView = suspensionCellView;
-    _suspensionCellView.tableViewDelegate = self;
+    _suspensionCellView.manager = self.manager;
 }
 
 - (void)setScroll:(YJUITableViewScroll)scroll {
-    if (scroll != _scroll && [self.cellDelegate respondsToSelector:@selector(tableView:scroll:)]) {
+    if (scroll != _scroll && [self.manager.delegate respondsToSelector:@selector(tableViewManager:scroll:)]) {
         _scroll = scroll;
-        [self.cellDelegate tableView:self.dataSource.tableView scroll:scroll];
-    }
-}
-
-#pragma mark - UITableViewCell向VC发送数据
-- (void)sendVCWithCellObject:(YJUITableCellObject *)cellObject tableViewCell:(UITableViewCell *)cell {
-    if (self.cellBlock) { // block回调
-        self.cellBlock(cellObject, cell);
-    } else if ([self.cellDelegate respondsToSelector:@selector(tableViewDidSelectCellWithCellObject:tableViewCell:)]) { // 协议回调
-        [self.cellDelegate tableViewDidSelectCellWithCellObject:cellObject tableViewCell:cell];
+        [self.manager.delegate tableViewManager:self.manager scroll:scroll];
     }
 }
 
@@ -91,7 +85,7 @@
     if (!cellObject.indexPath) {
         return;
     }
-    [_cacheHeightDict removeObjectForKey:[self getKeyFromCellObject:cellObject]];    
+    [_cacheHeightDict removeObjectForKey:[self getKeyFromCellObject:cellObject]];
 }
 
 - (void)clearCacheHeightWithCellObjects:(NSArray<YJUITableCellObject *> *)cellObjects {
@@ -137,27 +131,26 @@
         self.scroll = YJUITableViewScrollDidBottom;
         _contentOffsetY = contentOffsetY;
     } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJUITableViewScrollDidBottom) {
-        self.scroll = YJUITableViewScrollWillBottom;        
+        self.scroll = YJUITableViewScrollWillBottom;
     }
-    self.suspensionCellView.contentOffsetY = self.dataSource.tableView.contentOffset.y;
+    self.suspensionCellView.contentOffsetY = contentOffsetY;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.dataSource.dataSourceGrouped.count == 0) {
+    if (self.manager.dataSourceGrouped.count == 0) {
         return;
     }
-    NSInteger section = self.dataSource.dataSourceGrouped.count - 1;
-    NSInteger row = self.dataSource.dataSourceGrouped[section].count - 1;    
-    if (indexPath.section == section && indexPath.row == row && [self.cellDelegate respondsToSelector:@selector(tableViewLoadingPageData:willDisplayCell:)]) { // 加载数据
-        YJUITableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
-        [self.cellDelegate tableViewLoadingPageData:cellObject willDisplayCell:cell];
+    NSInteger section = self.manager.dataSourceGrouped.count - 1;
+    NSInteger row = self.manager.dataSourceGrouped[section].count - 1;
+    if (indexPath.section == section && indexPath.row == row && [self.manager.delegate respondsToSelector:@selector(tableViewManager:loadingPageDataWillDisplayCell:)]) { // 加载数据
+        [self.manager.delegate tableViewManager:self.manager loadingPageDataWillDisplayCell:cell];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // 获取YJUITableCellObject
-    YJUITableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
+    YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
     // 存放缓存高的key
     NSString *key = [self getKeyFromCellObject:cellObject];
@@ -166,13 +159,8 @@
         rowHeight = [_cacheHeightDict objectForKey:key].floatValue;
     }
     if (rowHeight == 0) { //无缓存
-        // 获取高
-        if (cellObject && [cellObject.cellClass respondsToSelector:@selector(tableView:heightForCellObject:)] ) {
-            rowHeight = [cellObject.cellClass tableView:tableView heightForCellObject:cellObject];
-        }
+        rowHeight = [cellObject.cellClass tableViewManager:self.manager heightForCellObject:cellObject];
     }
-    // 获取失败时，使用默认高
-    rowHeight = rowHeight ? rowHeight : tableView.rowHeight;
     // 添加缓存
     if (self.isCacheHeight) {
         [_cacheHeightDict setObject:[NSNumber numberWithFloat:rowHeight] forKey:key];
@@ -181,8 +169,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    YJUITableCellObject *cellObject = self.dataSource.dataSourceGrouped[indexPath.section][indexPath.row];
-    [self sendVCWithCellObject:cellObject tableViewCell:nil];
+    if ([self.manager.delegate respondsToSelector:@selector(tableViewManager:didSelectCellWithCellObject:)]) {
+        YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
+        [self.manager.delegate tableViewManager:self.manager didSelectCellWithCellObject:cellObject];
+    }
 }
 
 @end

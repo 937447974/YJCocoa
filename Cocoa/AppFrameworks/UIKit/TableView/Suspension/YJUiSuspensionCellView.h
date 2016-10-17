@@ -10,16 +10,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJUITableCellObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class YJUITableViewDelegate;
+@class YJUITableViewManager;
 
 /** 悬浮的cell层*/
 @interface YJUISuspensionCellView : UIView
 
-@property (nonatomic, weak) YJUITableViewDelegate *tableViewDelegate; ///< YJUITableViewDelegate
+@property (nonatomic, weak) YJUITableViewManager *manager; ///< YJUITableViewManager
 
 @property (nonatomic) CGFloat contentOffsetY; ///< 偏移Y
 

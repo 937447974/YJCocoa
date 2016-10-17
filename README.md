@@ -200,7 +200,8 @@ YJ技术支持群：557445088
 | 4.0.0 | 2016-10-11 | 依据苹果新的框架结构，YJCocoa架构重组。|
 | 4.1.0 | 2016-10-12 | Directory上线，可快速获取应用内目录。 |
 | | 2016-10-14 | AOP上线，支持将一对一的通信转换为一对多的通信。|
-| | 2016-10-15 | TableView和CollectionView直接AOP代理 |
+| | 2016-10-15 | TableView和CollectionView支持AOP代理 |
+| 4.1.1 | 2016-10-17 | TableView架构升级 |
 
 ##Copyright
 

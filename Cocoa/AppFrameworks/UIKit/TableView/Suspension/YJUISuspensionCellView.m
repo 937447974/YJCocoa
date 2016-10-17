@@ -10,8 +10,7 @@
 //
 
 #import "YJUISuspensionCellView.h"
-#import "YJUITableViewDelegate.h"
-#import "YJUITableViewDataSource.h"
+#import "YJUITableViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
 #import "YJAutoLayout.h"
 
@@ -21,7 +20,6 @@
 
 @property (nonatomic) BOOL scrollAnimate; ///< 悬浮cell动画滑动中
 @property (nonatomic) NSInteger index;    ///< 当前显示下标, 1代表第一个cell固定显示
-@property (nonatomic, weak, readonly) UITableView *tableView; ///< UITableView
 @property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
 
@@ -46,7 +44,7 @@
     }
     [self.indexPaths removeAllObjects];
     [self.suspensionCells removeAllObjects];
-    for (NSArray<YJUITableCellObject *> *array in self.tableViewDelegate.dataSource.dataSourceGrouped) {
+    for (NSArray<YJUITableCellObject *> *array in self.manager.dataSourceGrouped) {
         for (YJUITableCellObject *co in array) {
             if (co.suspension) {
                 [self.indexPaths addObject:co];
@@ -73,7 +71,7 @@
         }
     }
     // 刷新数据
-    [cell reloadDataWithCellObject:cellObject tableViewDelegate:self.tableViewDelegate];
+    [cell reloadDataWithCellObject:cellObject tableViewManager:self.manager];
     return cell;
 }
 
@@ -104,7 +102,7 @@
     if (showIndex) {
         if (self.scrollAnimate && self.heightFrame >= rect.size.height + _showCellHeight) {
             self.scrollAnimate = NO;
-            [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+            [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
             self.heightFrame = _showCellHeight;
             CGFloat topItemY = 0;
             for (int i = 0; i < self.index-1; i++) {
@@ -123,7 +121,7 @@
         }
     } else {
         self.scrollAnimate = NO;
-        [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+        [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
         _showCellHeight = 0;
         self.heightFrame = 0;
         self.index = 0;
@@ -148,7 +146,7 @@
     if (showIndex) {
         if (self.scrollAnimate && heightConstraint.constant >= rect.size.height + _showCellHeight) {
             self.scrollAnimate = NO;
-            [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+            [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
             heightConstraint.constant = _showCellHeight;
             CGFloat topItemY = 0;
             for (int i = 0; i < self.index-1; i++) {
@@ -167,7 +165,7 @@
         }
     } else {
         self.scrollAnimate = NO;
-        [self.tableViewDelegate.dataSource reloadRowsAtIndexPaths:@[cellObj]];
+        [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
         heightConstraint.constants(0);
         _showCellHeight = 0;
         self.index = 0;
@@ -229,7 +227,7 @@
             self.scrollAnimate = YES;
             CGFloat newHeight = rect.origin.y + rect.size.height - _contentOffsetY;
             if (self.heightFrame < newHeight) {
-                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewManager:self.manager];
                 self.topBounds += self.heightFrame + rect.size.height - newHeight;
             } else {
                 self.topBounds += self.heightFrame - newHeight;
@@ -239,7 +237,7 @@
     } else {
         self.topBounds = 0;
         if (_contentOffsetY > rect.origin.y) {
-            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewManager:self.manager];
             _showCellHeight = rect.size.height;
             self.heightFrame = _showCellHeight;
             self.index ++;
@@ -289,7 +287,7 @@
             self.scrollAnimate = YES;
             CGFloat newHeight = rect.origin.y + rect.size.height - _contentOffsetY;
             if (heightConstraint.constant < newHeight) {
-                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewManager:self.manager];
                 self.topBounds += heightConstraint.constant + rect.size.height - newHeight;
             } else {
                 self.topBounds += heightConstraint.constant - newHeight;
@@ -299,7 +297,7 @@
     } else {
         self.topBounds = 0;
         if (_contentOffsetY > rect.origin.y) {
-            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewDelegate:self.tableViewDelegate];
+            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewManager:self.manager];
             heightConstraint.constants(rect.size.height);
             _showCellHeight = rect.size.height;
             self.index ++;
@@ -309,7 +307,7 @@
 
 #pragma mark - setter and getter
 - (UITableView *)tableView {
-    return self.tableViewDelegate.dataSource.tableView;
+    return self.manager.tableView;
 }
 
 - (NSMutableArray<YJUITableCellObject *> *)indexPaths {

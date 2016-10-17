@@ -10,11 +10,10 @@
 //
 
 /**
- * UITableViewCell相关关系。YJUITableViewCell、YJUITableCellModel、YJUITableCellObject。
+ * UITableViewCell相关关系:YJUITableViewCell、YJUITableCellModel、YJUITableCellObject。
  */
 
+#import "YJUITableViewManager.h" // 核心类
 #import "YJUITableViewCell.h"
 #import "YJUITableCellObject.h"
-#import "YJUITableViewDelegate.h"
-#import "YJUITableViewDataSource.h"
 #import "YJUISuspensionCellView.h"

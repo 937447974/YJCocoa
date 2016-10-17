@@ -14,7 +14,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class YJUITableViewDelegate;
+@class YJUITableViewManager;
+
+@protocol YJUITableViewCellProtocol <NSObject>
+
+@optional
+
+/**
+ *  用户点击Cell中的某个控件，如按钮
+ *
+ *  @param tableViewCell 用户操作的cell
+ *  @param cellObject    cell携带的数据源
+ *
+ *  @return void
+ */
+- (void)tableViewCell:(UITableViewCell *)cell sendWithCellObject:(YJUITableCellObject *)cellObject;
+
+@end
 
 /** UITableViewCell扩展*/
 @interface UITableViewCell (YJUITableView)
@@ -49,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return CGFloat
  */
-+ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJUITableCellObject *)cellObject;
++ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject;
 
 /**
  *  刷新UITableViewCell（同步&异步，子类请勿重写）
@@ -59,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate;
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 
 /**
  *  刷新UITableViewCell（同步）
@@ -69,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate;
+- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 
 /**
  *  刷新UITableViewCell（异步）
@@ -79,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate;
+- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 
 @end
 
@@ -87,8 +103,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** UITableViewCell基类（*/
 @interface YJUITableViewCell : UITableViewCell
 
-@property (nonatomic, weak, readonly) YJUITableCellObject *cellObject;          ///< YJUITableCellObject
-@property (nonatomic, weak, readonly) YJUITableViewDelegate *tableViewDelegate; ///< YJUITableViewDelegate
+@property (nonatomic, weak, readonly) YJUITableCellObject *cellObject;        ///< YJUITableCellObject
+@property (nonatomic, weak, readonly) YJUITableViewManager *tableViewManager; ///< YJUITableViewManager
 
 @end
 

@@ -12,18 +12,14 @@
 
 @end
 
-@implementation YJTestTableCellObject
-
-@end
-
 @implementation YJTestTableViewCell
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJUITableCellObject *)cellObject {
++ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
     return 2*cellObject.indexPath.row+40;
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate {
-    [super reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+    [super reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;
     self.sSwitch.on = celModel.switchOn;
@@ -40,15 +36,11 @@
     }
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (IBAction)onClick:(id)sender {
     self.tag = 1;
     YJTestTableCellModel *celModel = self.cellObject.cellModel;
     celModel.switchOn = self.sSwitch.on;
-    [self.tableViewDelegate sendVCWithCellObject:self.cellObject tableViewCell:self];
+    [self.tableViewManager.delegate tableViewCell:self sendWithCellObject:self.cellObject];
 }
 
 @end

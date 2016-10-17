@@ -15,7 +15,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 // 需要强引用
-@property (nonatomic, strong) YJUITableViewDataSource *dataSourceGrouped;
+@property (nonatomic, strong) YJUITableViewManager *tableViewManager;
 
 @end
 
@@ -26,9 +26,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.widthFrame, self.view.heightFrame-150) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
-    self.dataSourceGrouped = [[YJUITableViewDataSource alloc] initWithTableView:self.tableView];
-    self.dataSourceGrouped.tableViewDelegate.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
-    [self.dataSourceGrouped addTableViewAOPDelegate:self];
+    self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
+    self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
+    [self.tableViewManager addTableViewAOPDelegate:self];
     // 测试数据
     for (int i=0; i<3; i++) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
@@ -41,9 +41,9 @@
             // 填充数据源
             [array addObject:co];
         }
-        [self.dataSourceGrouped.dataSourceGrouped addObject:array];
+        [self.tableViewManager.dataSourceGrouped addObject:array];
     }
-    [self.dataSourceGrouped.tableViewDelegate.suspensionCellView reloadData];
+    [self.tableViewManager.delegateManager.suspensionCellView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
