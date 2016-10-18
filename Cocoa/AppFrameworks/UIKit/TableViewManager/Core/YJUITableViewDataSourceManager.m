@@ -48,18 +48,7 @@
 
 #pragma mark 根据YJUITableCellObject生成UITableViewCell
 - (UITableViewCell *)dequeueReusableCellWithCellObject:(YJUITableCellObject *)cellObject {
-    NSString *identifier = @"identifier";
-    switch (self.cacheCellStrategy) {
-        case YJUITableViewCacheCellDefault:
-            identifier = cellObject.cellName;
-            break;
-        case YJUITableViewCacheCellIndexPath:
-            identifier = [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.row];
-            break;
-        case YJUITableViewCacheCellClassAndIndexPath:
-            identifier = [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.row];
-            break;
-    }
+    NSString *identifier = cellObject.cellName;
     // 读取缓存
     UITableViewCell *cell = [_manager.tableView dequeueReusableCellWithIdentifier:identifier];
     // 未找到时，重新注入，再寻找

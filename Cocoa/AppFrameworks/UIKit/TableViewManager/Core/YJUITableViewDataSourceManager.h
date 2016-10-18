@@ -16,17 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class YJUITableViewManager;
 
-/** 缓存Cell的策略*/
-typedef NS_ENUM(NSInteger, YJUITableViewCacheCell) {
-    YJUITableViewCacheCellDefault,          ///< 根据相同的UITableViewCell类名缓存Cell
-    YJUITableViewCacheCellIndexPath,        ///< 根据NSIndexPath对应的位置缓存Cell
-    YJUITableViewCacheCellClassAndIndexPath ///< 根据类名和NSIndexPath双重绑定缓存Cell
-};
-
 /** UITableViewDataSource管理器*/
 @interface YJUITableViewDataSourceManager : NSObject <UITableViewDataSource>
-
-@property (nonatomic) YJUITableViewCacheCell cacheCellStrategy; ///< 缓存Cell的策略
 
 @property (nonatomic, weak, readonly) YJUITableViewManager *manager; ///< YJUITableViewManager
 

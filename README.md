@@ -99,10 +99,7 @@ UITableView管理器
 5. 自动优化UITableView滑动卡顿，支持同步和异步刷新UITableViewCell。
 6. 支持多种点击cell的监听方式，可使用protocol或block。
 7. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
-8. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。多种缓存策略：
-	1. 根据相同的UITableViewCell类名缓存Cell；
-	2. 根据NSIndexPath对应的位置缓存Cell；
-	3. 据类名和NSIndexPath双重绑定缓存Cell。
+8. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。
 9. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
 	1. 根据相同的UITableViewCell类缓存高度；
 	2. 根据NSIndexPath对应的位置缓存高度；
