@@ -26,12 +26,15 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 
 /** UITableView滚动*/
 typedef NS_OPTIONS(NSUInteger, YJUITableViewScroll) {
+    // 上方出现
     YJUITableViewScrollEndTop,     ///< 滚动到顶部
     YJUITableViewScrollDidTop,     ///< 向上滚动
     YJUITableViewScrollWillTop,    ///< 将要向上滚动
+    // 用户触摸
     YJUITableViewScrollNone,       ///< 用户触摸，将要滚动
+    // 下方出现
     YJUITableViewScrollWillBottom, ///< 将要向下滚动
-    YJUITableViewScrollDidBottom,  ///< 向下滚动
+    YJUITableViewScrollDidBottom,  ///< 向下滚动 ()
     YJUITableViewScrollEndBottom   ///< 滚动到底部
 };
 

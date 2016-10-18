@@ -118,15 +118,15 @@
     } else if (contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height) {
         self.scroll = YJUITableViewScrollEndBottom;
     } else if (spacing >= self.scrollSpacingDid) {
-        self.scroll = YJUITableViewScrollDidTop;
-        _contentOffsetY = contentOffsetY;
-    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJUITableViewScrollDidTop) {
-        self.scroll = YJUITableViewScrollWillTop;
-    } else if (spacing <= -self.scrollSpacingDid) {
         self.scroll = YJUITableViewScrollDidBottom;
         _contentOffsetY = contentOffsetY;
-    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJUITableViewScrollDidBottom) {
+    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJUITableViewScrollDidBottom) {
         self.scroll = YJUITableViewScrollWillBottom;
+    } else if (spacing <= -self.scrollSpacingDid) {
+        self.scroll = YJUITableViewScrollDidTop;
+        _contentOffsetY = contentOffsetY;
+    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJUITableViewScrollDidTop) {
+        self.scroll = YJUITableViewScrollWillTop;
     }
     self.suspensionCellView.contentOffsetY = contentOffsetY;
 }
