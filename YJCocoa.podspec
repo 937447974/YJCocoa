@@ -119,14 +119,14 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             # CollectionViewManager
             uik.subspec 'CollectionViewManager' do |cvm|
-                cv.subspec 'Core' do |core|
+                cvm.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCell/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                cv.subspec 'CollectionCellObject' do |cco|
+                cvm.subspec 'CollectionCellObject' do |cco|
                     cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject/*.{h,m}'
                     cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
