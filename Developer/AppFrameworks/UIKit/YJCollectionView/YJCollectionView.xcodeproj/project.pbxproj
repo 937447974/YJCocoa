@@ -22,7 +22,6 @@
 		8473AC4E1CE9A527000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4C1CE9A527000E3580 /* Main.storyboard */; };
 		8473AC501CE9A527000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4F1CE9A527000E3580 /* Assets.xcassets */; };
 		8473AC531CE9A527000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC511CE9A527000E3580 /* LaunchScreen.storyboard */; };
-		84C59DE41DB1CA8500B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DE31DB1CA8500B93218 /* YJNSAspectOrientProgramming.m */; };
 		E8DE076BD44AD7F3F07F117D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B09C668FD974877D62801303 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +55,6 @@
 		8473AC4F1CE9A527000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473AC521CE9A527000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AC541CE9A527000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84C59DE21DB1CA8500B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
-		84C59DE31DB1CA8500B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		B09C668FD974877D62801303 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,7 +165,6 @@
 		8473AC421CE9A527000E3580 /* YJCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				84C59DE11DB1CA8500B93218 /* AOP */,
 				8473AC461CE9A527000E3580 /* AppDelegate.h */,
 				8473AC471CE9A527000E3580 /* AppDelegate.m */,
 				840A57DD1CF08567006779C0 /* Main */,
@@ -196,16 +192,6 @@
 				8473AC511CE9A527000E3580 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		84C59DE11DB1CA8500B93218 /* AOP */ = {
-			isa = PBXGroup;
-			children = (
-				84C59DE21DB1CA8500B93218 /* YJNSAspectOrientProgramming.h */,
-				84C59DE31DB1CA8500B93218 /* YJNSAspectOrientProgramming.m */,
-			);
-			name = AOP;
-			path = ../../../../../Cocoa/AppFrameworks/Foundation/AOP;
 			sourceTree = "<group>";
 		};
 		E411E6B9BDBC07F50EE57865 /* Frameworks */ = {
@@ -349,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C59DE41DB1CA8500B93218 /* YJNSAspectOrientProgramming.m in Sources */,
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
 				842B0FD21DAB96BC00F71C79 /* YJUICollectionReusableView.m in Sources */,
 				842B0FD31DAB96BC00F71C79 /* YJUICollectionViewCell.m in Sources */,
