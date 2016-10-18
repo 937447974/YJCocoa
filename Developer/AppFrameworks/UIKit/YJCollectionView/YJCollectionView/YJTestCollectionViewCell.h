@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJUICollectionViewCell.h"
+#import "YJUICollectionViewManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

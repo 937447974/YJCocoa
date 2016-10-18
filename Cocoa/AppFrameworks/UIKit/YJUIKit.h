@@ -12,8 +12,8 @@
 // NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 #import "YJAutoLayout.h"
 
-// UICollectionView封装
-#import "YJUICollectionView.h"
+// UICollectionView管理器
+#import "YJUICollectionViewManager.h"
 
 // UITextField和UITextView可输入长度控制
 #import "YJInputLength.h"

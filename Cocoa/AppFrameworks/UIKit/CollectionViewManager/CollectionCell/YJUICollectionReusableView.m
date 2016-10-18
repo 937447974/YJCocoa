@@ -10,6 +10,8 @@
 //
 
 #import "YJUICollectionReusableView.h"
+#import "YJUICollectionViewManager.h"
+#import "YJDispatch.h"
 
 #pragma mark - UICollectionReusableView (YJUICollectionView)
 @implementation UICollectionReusableView (YJUICollectionView)
@@ -31,33 +33,31 @@
     return cellObject;
 }
 
-+ (CGSize)collectionViewDelegate:(YJUICollectionViewDelegate *)delegate viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject {
++ (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject {
     if (cellObject.createCell == YJUICollectionCellCreateDefault) { // 默认使用xib创建cell
-        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:YJNSStringFromClass(self.class) owner:nil options:nil];
+        NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
         return array.firstObject.frame.size;
     }
     // 默认设置
     if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
-        return delegate.flowLayout.headerReferenceSize;
+        return collectionViewManager.delegateFlowLayoutManager.flowLayout.headerReferenceSize;
     }
-    return delegate.flowLayout.footerReferenceSize;
+    return collectionViewManager.delegateFlowLayoutManager.flowLayout.footerReferenceSize;
 }
 
 #pragma mark (-)
-- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject delegate:(YJUICollectionViewDelegate *)delegate {
-    [self reloadDataSyncWithCellObject:cellObject delegate:delegate];
+- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
+    [self reloadDataSyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
     __weakSelf
     dispatch_async_main(^{// UI加速
-        [weakSelf reloadDataAsyncWithCellObject:cellObject delegate:delegate];
+        [weakSelf reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
     });
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject delegate:(YJUICollectionViewDelegate *)delegate {
-    
+- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
 }
 
-- (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject delegate:(YJUICollectionViewDelegate *)delegate {
-    
+- (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
 }
 
 @end
@@ -65,9 +65,9 @@
 #pragma mark YJUICollectionViewCell
 @implementation YJUICollectionReusableView
 
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject delegate:(YJUICollectionViewDelegate *)delegate {
+- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
     _cellObject = cellObject;
-    _delegate = delegate;
+    _collectionViewManager = collectionViewManager;
 }
 
 @end

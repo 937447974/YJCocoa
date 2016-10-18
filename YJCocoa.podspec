@@ -117,19 +117,18 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     ale.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
-            # CollectionView
-            uik.subspec 'CollectionView' do |cv|
-                cv.source_files  = "Cocoa/AppFrameworks/UIKit/CollectionView/*.{h,m}"
+            # CollectionViewManager
+            uik.subspec 'CollectionViewManager' do |cvm|
                 cv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/DataSource/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/Delegate/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCell/*.{h,m}'
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCell/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                    core.dependency 'YJCocoa/System/Dispatch'
                 end
                 cv.subspec 'CollectionCellObject' do |cco|
-                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
-                    cco.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject/*.{h,m}'
                     cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                    cco.dependency 'YJCocoa/System/Dispatch'
                 end
             end
             # UITextField和UITextView可输入长度控制

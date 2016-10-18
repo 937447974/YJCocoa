@@ -17,11 +17,6 @@
 		841725DD1DACBC1C006022A9 /* YJUILayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417258F1DACBC1C006022A9 /* YJUILayoutSupport.m */; };
 		841725DE1DACBC1C006022A9 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725921DACBC1C006022A9 /* UIView+YJUIViewLayoutConstraintCreation.m */; };
 		841725DF1DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725951DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m */; };
-		841725E01DACBC1C006022A9 /* YJUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417259A1DACBC1C006022A9 /* YJUICollectionReusableView.m */; };
-		841725E11DACBC1C006022A9 /* YJUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417259C1DACBC1C006022A9 /* YJUICollectionViewCell.m */; };
-		841725E21DACBC1C006022A9 /* YJUICollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417259F1DACBC1C006022A9 /* YJUICollectionCellObject.m */; };
-		841725E31DACBC1C006022A9 /* YJUICollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725A21DACBC1C006022A9 /* YJUICollectionViewDataSource.m */; };
-		841725E41DACBC1C006022A9 /* YJUICollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725A51DACBC1C006022A9 /* YJUICollectionViewDelegate.m */; };
 		841725E51DACBC1C006022A9 /* UITextField+YJInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725A91DACBC1C006022A9 /* UITextField+YJInputLength.m */; };
 		841725E61DACBC1C006022A9 /* UITextView+YJInputLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725AB1DACBC1C006022A9 /* UITextView+YJInputLength.m */; };
 		841725E71DACBC1C006022A9 /* YJUIBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725B01DACBC1C006022A9 /* YJUIBarButtonItem.m */; };
@@ -65,6 +60,13 @@
 		84D356361DAB722B0097D526 /* YJNSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356231DAB722B0097D526 /* YJNSPerformSelector.m */; };
 		84D356371DAB722B0097D526 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356261DAB722B0097D526 /* YJNSSingletonMCenter.m */; };
 		84D356381DAB722B0097D526 /* YJNSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356291DAB722B0097D526 /* YJNSTimer.m */; };
+		84F264E61DB5ECFC00C0F06A /* YJUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264D71DB5ECFC00C0F06A /* YJUICollectionReusableView.m */; };
+		84F264E71DB5ECFC00C0F06A /* YJUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264D91DB5ECFC00C0F06A /* YJUICollectionViewCell.m */; };
+		84F264E81DB5ECFC00C0F06A /* YJUICollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264DC1DB5ECFC00C0F06A /* YJUICollectionCellObject.m */; };
+		84F264E91DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264DF1DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m */; };
+		84F264EA1DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264E11DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m */; };
+		84F264EB1DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264E31DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m */; };
+		84F264EC1DB5ECFC00C0F06A /* YJUICollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264E51DB5ECFC00C0F06A /* YJUICollectionViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,17 +91,6 @@
 		841725941DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJUILayoutSupport.h"; sourceTree = "<group>"; };
 		841725951DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJUILayoutSupport.m"; sourceTree = "<group>"; };
 		841725961DACBC1C006022A9 /* YJAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAutoLayout.h; sourceTree = "<group>"; };
-		841725991DACBC1C006022A9 /* YJUICollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionReusableView.h; sourceTree = "<group>"; };
-		8417259A1DACBC1C006022A9 /* YJUICollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionReusableView.m; sourceTree = "<group>"; };
-		8417259B1DACBC1C006022A9 /* YJUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewCell.h; sourceTree = "<group>"; };
-		8417259C1DACBC1C006022A9 /* YJUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewCell.m; sourceTree = "<group>"; };
-		8417259E1DACBC1C006022A9 /* YJUICollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionCellObject.h; sourceTree = "<group>"; };
-		8417259F1DACBC1C006022A9 /* YJUICollectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionCellObject.m; sourceTree = "<group>"; };
-		841725A11DACBC1C006022A9 /* YJUICollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDataSource.h; sourceTree = "<group>"; };
-		841725A21DACBC1C006022A9 /* YJUICollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDataSource.m; sourceTree = "<group>"; };
-		841725A41DACBC1C006022A9 /* YJUICollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegate.h; sourceTree = "<group>"; };
-		841725A51DACBC1C006022A9 /* YJUICollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegate.m; sourceTree = "<group>"; };
-		841725A61DACBC1C006022A9 /* YJUICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionView.h; sourceTree = "<group>"; };
 		841725A81DACBC1C006022A9 /* UITextField+YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YJInputLength.h"; sourceTree = "<group>"; };
 		841725A91DACBC1C006022A9 /* UITextField+YJInputLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YJInputLength.m"; sourceTree = "<group>"; };
 		841725AA1DACBC1C006022A9 /* UITextView+YJInputLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YJInputLength.h"; sourceTree = "<group>"; };
@@ -189,6 +180,20 @@
 		84D356291DAB722B0097D526 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		84D3562A1DAB722B0097D526 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
 		84D3562D1DAB722B0097D526 /* YJAppFrameworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAppFrameworks.h; sourceTree = "<group>"; };
+		84F264D61DB5ECFC00C0F06A /* YJUICollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionReusableView.h; sourceTree = "<group>"; };
+		84F264D71DB5ECFC00C0F06A /* YJUICollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionReusableView.m; sourceTree = "<group>"; };
+		84F264D81DB5ECFC00C0F06A /* YJUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewCell.h; sourceTree = "<group>"; };
+		84F264D91DB5ECFC00C0F06A /* YJUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewCell.m; sourceTree = "<group>"; };
+		84F264DB1DB5ECFC00C0F06A /* YJUICollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionCellObject.h; sourceTree = "<group>"; };
+		84F264DC1DB5ECFC00C0F06A /* YJUICollectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionCellObject.m; sourceTree = "<group>"; };
+		84F264DE1DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDataSourceManager.h; sourceTree = "<group>"; };
+		84F264DF1DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDataSourceManager.m; sourceTree = "<group>"; };
+		84F264E01DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateFlowLayoutManager.h; sourceTree = "<group>"; };
+		84F264E11DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateFlowLayoutManager.m; sourceTree = "<group>"; };
+		84F264E21DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateManager.h; sourceTree = "<group>"; };
+		84F264E31DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateManager.m; sourceTree = "<group>"; };
+		84F264E41DB5ECFC00C0F06A /* YJUICollectionViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewManager.h; sourceTree = "<group>"; };
+		84F264E51DB5ECFC00C0F06A /* YJUICollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				8417257F1DACBC1C006022A9 /* AutoLayout */,
-				841725971DACBC1C006022A9 /* CollectionView */,
+				84F264D41DB5ECFC00C0F06A /* CollectionViewManager */,
 				841725A71DACBC1C006022A9 /* InputLength */,
 				841725AD1DACBC1C006022A9 /* NavigationBar */,
 				841725B51DACBC1C006022A9 /* PageView */,
@@ -282,56 +287,6 @@
 				841725951DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m */,
 			);
 			path = UIViewController;
-			sourceTree = "<group>";
-		};
-		841725971DACBC1C006022A9 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				841725981DACBC1C006022A9 /* CollectionCell */,
-				8417259D1DACBC1C006022A9 /* CollectionCellObject */,
-				841725A01DACBC1C006022A9 /* DataSource */,
-				841725A31DACBC1C006022A9 /* Delegate */,
-				841725A61DACBC1C006022A9 /* YJUICollectionView.h */,
-			);
-			path = CollectionView;
-			sourceTree = "<group>";
-		};
-		841725981DACBC1C006022A9 /* CollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				841725991DACBC1C006022A9 /* YJUICollectionReusableView.h */,
-				8417259A1DACBC1C006022A9 /* YJUICollectionReusableView.m */,
-				8417259B1DACBC1C006022A9 /* YJUICollectionViewCell.h */,
-				8417259C1DACBC1C006022A9 /* YJUICollectionViewCell.m */,
-			);
-			path = CollectionCell;
-			sourceTree = "<group>";
-		};
-		8417259D1DACBC1C006022A9 /* CollectionCellObject */ = {
-			isa = PBXGroup;
-			children = (
-				8417259E1DACBC1C006022A9 /* YJUICollectionCellObject.h */,
-				8417259F1DACBC1C006022A9 /* YJUICollectionCellObject.m */,
-			);
-			path = CollectionCellObject;
-			sourceTree = "<group>";
-		};
-		841725A01DACBC1C006022A9 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				841725A11DACBC1C006022A9 /* YJUICollectionViewDataSource.h */,
-				841725A21DACBC1C006022A9 /* YJUICollectionViewDataSource.m */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
-		841725A31DACBC1C006022A9 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				841725A41DACBC1C006022A9 /* YJUICollectionViewDelegate.h */,
-				841725A51DACBC1C006022A9 /* YJUICollectionViewDelegate.m */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		841725A71DACBC1C006022A9 /* InputLength */ = {
@@ -682,6 +637,51 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		84F264D41DB5ECFC00C0F06A /* CollectionViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				84F264D51DB5ECFC00C0F06A /* CollectionCell */,
+				84F264DA1DB5ECFC00C0F06A /* CollectionCellObject */,
+				84F264DD1DB5ECFC00C0F06A /* Core */,
+			);
+			path = CollectionViewManager;
+			sourceTree = "<group>";
+		};
+		84F264D51DB5ECFC00C0F06A /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				84F264D61DB5ECFC00C0F06A /* YJUICollectionReusableView.h */,
+				84F264D71DB5ECFC00C0F06A /* YJUICollectionReusableView.m */,
+				84F264D81DB5ECFC00C0F06A /* YJUICollectionViewCell.h */,
+				84F264D91DB5ECFC00C0F06A /* YJUICollectionViewCell.m */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		84F264DA1DB5ECFC00C0F06A /* CollectionCellObject */ = {
+			isa = PBXGroup;
+			children = (
+				84F264DB1DB5ECFC00C0F06A /* YJUICollectionCellObject.h */,
+				84F264DC1DB5ECFC00C0F06A /* YJUICollectionCellObject.m */,
+			);
+			path = CollectionCellObject;
+			sourceTree = "<group>";
+		};
+		84F264DD1DB5ECFC00C0F06A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				84F264DE1DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.h */,
+				84F264DF1DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m */,
+				84F264E01DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.h */,
+				84F264E11DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m */,
+				84F264E21DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.h */,
+				84F264E31DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m */,
+				84F264E41DB5ECFC00C0F06A /* YJUICollectionViewManager.h */,
+				84F264E51DB5ECFC00C0F06A /* YJUICollectionViewManager.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -755,9 +755,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841725E21DACBC1C006022A9 /* YJUICollectionCellObject.m in Sources */,
 				84D356321DAB722B0097D526 /* YJNSHttpAssembly.m in Sources */,
 				841725DD1DACBC1C006022A9 /* YJUILayoutSupport.m in Sources */,
+				84F264E61DB5ECFC00C0F06A /* YJUICollectionReusableView.m in Sources */,
 				84CEC1561DB4B33E004CDF2B /* YJUITableViewDelegateManager.m in Sources */,
 				84D356341DAB722B0097D526 /* YJNSFoundationOther.m in Sources */,
 				84CEC1591DB4B33E004CDF2B /* YJUITableViewCell.m in Sources */,
@@ -766,9 +766,11 @@
 				84CEC1551DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */,
+				84F264EB1DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m in Sources */,
 				84D356331DAB722B0097D526 /* YJNSLog.m in Sources */,
 				84CEC15A1DB4B33E004CDF2B /* YJUITableCellObject.m in Sources */,
 				84D355471DAB59390097D526 /* YJSecRandom.m in Sources */,
+				84F264EC1DB5ECFC00C0F06A /* YJUICollectionViewManager.m in Sources */,
 				841725EA1DACBC1C006022A9 /* YJUIImagePageModel.m in Sources */,
 				841725D71DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
 				841725F51DACBC1C006022A9 /* UIView+YJUIViewGeometry.m in Sources */,
@@ -776,7 +778,6 @@
 				841725DF1DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m in Sources */,
 				841725E51DACBC1C006022A9 /* UITextField+YJInputLength.m in Sources */,
 				841725D91DACBC1C006022A9 /* YJNSLayoutAnchor.m in Sources */,
-				841725E11DACBC1C006022A9 /* YJUICollectionViewCell.m in Sources */,
 				84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */,
@@ -788,21 +789,22 @@
 				84D3562E1DAB722B0097D526 /* NSObject+YJNSDictionaryModel.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				84CEC1571DB4B33E004CDF2B /* YJUITableViewManager.m in Sources */,
-				841725E41DACBC1C006022A9 /* YJUICollectionViewDelegate.m in Sources */,
+				84F264EA1DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				84D356371DAB722B0097D526 /* YJNSSingletonMCenter.m in Sources */,
 				84D355201DAB432F0097D526 /* YJDispatch.m in Sources */,
 				841725DE1DACBC1C006022A9 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */,
+				84F264E91DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m in Sources */,
+				84F264E71DB5ECFC00C0F06A /* YJUICollectionViewCell.m in Sources */,
+				84F264E81DB5ECFC00C0F06A /* YJUICollectionCellObject.m in Sources */,
 				841725E71DACBC1C006022A9 /* YJUIBarButtonItem.m in Sources */,
 				841725EB1DACBC1C006022A9 /* YJUIImagePageViewController.m in Sources */,
 				84D356311DAB722B0097D526 /* YJNSHttpAnalysis.m in Sources */,
-				841725E31DACBC1C006022A9 /* YJUICollectionViewDataSource.m in Sources */,
 				84CEC1581DB4B33E004CDF2B /* YJUISuspensionCellView.m in Sources */,
 				84D356361DAB722B0097D526 /* YJNSPerformSelector.m in Sources */,
 				841725E81DACBC1C006022A9 /* YJUIBarButtonView.m in Sources */,
 				841725EE1DACBC1C006022A9 /* YJUIPageViewController.m in Sources */,
 				841725DA1DACBC1C006022A9 /* YJNSLayoutDimension.m in Sources */,
-				841725E01DACBC1C006022A9 /* YJUICollectionReusableView.m in Sources */,
 				84D3562F1DAB722B0097D526 /* YJNSDictionaryModelManager.m in Sources */,
 				841725ED1DACBC1C006022A9 /* YJUIPageView.m in Sources */,
 				841725DC1DACBC1C006022A9 /* YJNSLayoutYAxisAnchor.m in Sources */,
