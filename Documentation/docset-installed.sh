@@ -31,9 +31,9 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-10-12 | Directory上线，可快速获取应用内目录。" with title "YJCocoa 4.1.0"'
-osascript -e 'display notification "2016-10-14 | AOP上线，支持将一对一的通信转换为一对多的通信。" with title "YJCocoa 4.1.0"'
-osascript -e 'display notification "2016-10-15 | TableView和CollectionView直接AOP代理" with title "YJCocoa 4.1.0"'
+osascript -e 'display notification "2016-10-17 | TableView架构升级，并更名为TableViewManager" with title "YJCocoa 4.1.1"'
+osascript -e 'display notification "2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager" with title "YJCocoa 4.1.1"'
+
 
 
 

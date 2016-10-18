@@ -10,8 +10,7 @@
 //
 
 #import "YJUITableViewCell.h"
-#import "YJUITableViewDelegate.h"
-#import "YJNSFoundationOther.h"
+#import "YJUITableViewManager.h"
 #import "YJDispatch.h"
 
 #pragma mark - UITableViewCell (YJUITableView)
@@ -34,35 +33,34 @@
     return cellObject;
 }
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJUITableCellObject *)cellObject {
++ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
     if (cellObject.createCell == YJUITableViewCellCreateClass) {
-        NSLog(@"自动获取高度时，UITableViewCell子类%@请实现方法：%@", YJNSStringFromClass(self.class), NSStringFromSelector(_cmd));
-        return tableView.rowHeight; // 默认高
+        return tableViewManager.tableView.rowHeight; // 默认高
     }
     // soryboard方式创建cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YJNSStringFromClass(self.class)];
+    UITableViewCell *cell = [tableViewManager.tableView dequeueReusableCellWithIdentifier:cellObject.cellName];
     if (cell) {
         return CGRectGetHeight(cell.frame);
     }
     // xib创建cell
-    NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:YJNSStringFromClass(self.class) owner:nil options:nil];
+    NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
     return CGRectGetHeight(array.firstObject.frame);
 }
 
 #pragma mark - (-)
-- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate {
-    [self reloadDataSyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager; {
+    [self reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
     __weakSelf
     dispatch_async_main(^{// UI加速
-        [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewDelegate:tableViewDelegate];
+        [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewManager:tableViewManager];
     });
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate {
-    NSLog(@"UITableViewCell子类%@请实现方法：%@", YJNSStringFromClass(self.class), NSStringFromSelector(_cmd));
+- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+    NSLog(@"UITableViewCell子类%@请实现方法：%@", cellObject.cellName, NSStringFromSelector(_cmd));
 }
 
-- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate {
+- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
 }
 
 @end
@@ -87,9 +85,9 @@
 }
 
 #pragma mark - YJUITableView
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewDelegate:(YJUITableViewDelegate *)tableViewDelegate {
+- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     _cellObject = cellObject;
-    _tableViewDelegate = tableViewDelegate;
+    _tableViewManager = tableViewManager;
 }
 
 @end

@@ -9,7 +9,6 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "YJUICollectionReusableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -25,15 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return CGFloat
  */
-+ (CGSize)collectionViewDelegate:(YJUICollectionViewDelegate *)delegate sizeForCellObject:(YJUICollectionCellObject *)cellObject;
++ (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager sizeForCellObject:(YJUICollectionCellObject *)cellObject;
 
 @end
 
 /** UICollectionViewCell基类*/
 @interface YJUICollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, weak, readonly) YJUICollectionCellObject *cellObject; ///< YJUICollectionCellObject
-@property (nonatomic, weak, readonly) YJUICollectionViewDelegate *delegate; ///< YJUICollectionViewDelegate
+@property (nonatomic, weak, readonly) YJUICollectionCellObject *cellObject;             ///< YJUICollectionCellObject
+@property (nonatomic, weak, readonly) YJUICollectionViewManager *collectionViewManager; ///< YJUICollectionViewManager
 
 @end
 

@@ -6,17 +6,12 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJUITableView.h"
+#import "YJUITableViewManager.h"
 
 @interface YJTestTableCellModel : NSObject <YJUITableCellModelProtocol>
 
 @property (nonatomic, copy) NSString *userName; ///< 用户名
 @property (nonatomic)       BOOL switchOn;      ///< 是否选中
-
-@end
-
-
-@interface YJTestTableCellObject : YJUITableCellObject
 
 @end
 
