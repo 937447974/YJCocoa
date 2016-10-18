@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return void
  */
-- (void)collectionCell:(UICollectionViewCell *)cell sendWithCellObject:(YJUICollectionCellObject *)cellObject;
+- (void)collectionCell:(__kindof UICollectionViewCell *)cell sendWithCellObject:(YJUICollectionCellObject *)cellObject;
 
 @end
 

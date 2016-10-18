@@ -15,7 +15,6 @@
 
 @interface YJUICollectionViewDelegateFlowLayoutManager () {
     NSMutableDictionary<NSString *, NSString*> *_cacheSizeDict; ///< 缓存Size
-    UICollectionViewFlowLayout *_flowLayout;
 }
 
 @end
@@ -51,9 +50,9 @@
 
 #pragma mark - getter and setter
 - (UICollectionViewFlowLayout *)flowLayout {
-    _flowLayout = (UICollectionViewFlowLayout *)self.manager.collectionView.collectionViewLayout;
-    if ([_flowLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
-        return _flowLayout;
+    UICollectionViewLayout *flowLayout = self.manager.collectionView.collectionViewLayout;
+    if ([flowLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
+        return (UICollectionViewFlowLayout *)flowLayout;
     }
     return nil;
 }
