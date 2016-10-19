@@ -107,6 +107,11 @@
     while (superview && ![superview isEqual:window]) {
         origin.x += superview.originFrame.x;
         origin.y += superview.originFrame.y;
+        if ([superview isKindOfClass:[UIScrollView class]]) {
+            CGPoint contentOffset = ((UIScrollView *)superview).contentOffset;
+            origin.x -= contentOffset.x;
+            origin.y -= contentOffset.y;
+        }
         superview = superview.superview;
     }
     return origin;

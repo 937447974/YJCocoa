@@ -17,14 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 20, 100, 100)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:view];
-    NSLog(@"%@", NSStringFromCGPoint(view.originFrameInWindow));
-    view.centerXFrame = 100;
-    NSLog(@"%@", NSStringFromCGRect(view.frame));
+
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 50, 300, 300)];
+    [self.view addSubview:scrollView];
+    scrollView.contentSize = CGSizeMake(300, 600);
+    scrollView.backgroundColor = [UIColor greenColor];
+    [scrollView addSubview:view];
+    [scrollView setContentOffset:CGPointMake(-100, -50) animated:NO];
     
-    self.view.topBounds = -130;
+    NSLog(@"%@", NSStringFromCGPoint(view.originFrameInWindow));
 }
 
 @end
