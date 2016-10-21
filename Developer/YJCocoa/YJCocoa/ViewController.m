@@ -24,9 +24,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    NSStringFromClass(<#Class  _Nonnull __unsafe_unretained aClass#>)
-    CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
-    UIColor
 }
 
 @end
