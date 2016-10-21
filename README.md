@@ -197,6 +197,7 @@ YJ技术支持群：557445088
 | | 2016-10-15 | TableView和CollectionView支持AOP代理 |
 | 4.1.1 | 2016-10-17 | TableView架构升级，并更名为TableViewManager |
 | | 2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager |
+| 4.2.0 | 2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置 |
 
 ##Copyright
 

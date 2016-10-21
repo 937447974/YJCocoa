@@ -31,8 +31,7 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-10-17 | TableView架构升级，并更名为TableViewManager" with title "YJCocoa 4.1.1"'
-osascript -e 'display notification "2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager" with title "YJCocoa 4.1.1"'
+osascript -e 'display notification "2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置" with title "YJCocoa 4.2.0"'
 
 
 
