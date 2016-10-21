@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "4.1.1"
+    s.version  = "4.2.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -130,6 +130,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
                     cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject/*.{h,m}'
                     cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
+            end
+            # Color
+            uik.subspec 'Color' do |color|
+                color.source_files = 'Cocoa/AppFrameworks/UIKit/Color/*.{h,m}'
             end
             # UITextField和UITextView可输入长度控制
             uik.subspec 'InputLength' do |il|

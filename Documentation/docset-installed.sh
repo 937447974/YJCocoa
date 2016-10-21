@@ -32,6 +32,7 @@ fi
 
 # 更新记录
 osascript -e 'display notification "2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置" with title "YJCocoa 4.2.0"'
+osascript -e 'display notification "2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色" with title "YJCocoa 4.2.0"'
 
 
 

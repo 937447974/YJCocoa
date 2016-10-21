@@ -15,6 +15,9 @@
 // UICollectionView管理器
 #import "YJUICollectionViewManager.h"
 
+// 函数生成UIColor，及点语法设置背景色
+#import "YJUIColor.h"
+
 // UITextField和UITextView可输入长度控制
 #import "YJInputLength.h"
 

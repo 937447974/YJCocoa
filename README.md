@@ -72,15 +72,22 @@ UICollectionView封装
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.3 InputLength
+###1.2.3 Color
+
+UIColor相关。
+
+1. 函数生成UIColor，支持RGB和十六进制。
+2. 点语法快速设置背景色。
+
+###1.2.4 InputLength
 
 UITextField和UITextView可输入长度控制。
 
-###1.2.4 NavigationBar
+###1.2.5 NavigationBar
 
 NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-###1.2.5 PageView
+###1.2.6 PageView
 
 PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
@@ -88,7 +95,7 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-###1.2.6 TableViewManager
+###1.2.7 TableViewManager
 
 UITableView管理器
 
@@ -105,7 +112,7 @@ UITableView管理器
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.7 ViewGeometry
+###1.2.8 ViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
@@ -198,6 +205,7 @@ YJ技术支持群：557445088
 | 4.1.1 | 2016-10-17 | TableView架构升级，并更名为TableViewManager |
 | | 2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager |
 | 4.2.0 | 2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置 |
+| | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
 
 ##Copyright
 

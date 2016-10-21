@@ -37,6 +37,7 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
+		848BA7FF1DB9E7CF0086AB52 /* YJUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */; };
 		84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */; };
 		84CEC1551DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1471DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m */; };
 		84CEC1561DB4B33E004CDF2B /* YJUITableViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1491DB4B33E004CDF2B /* YJUITableViewDelegateManager.m */; };
@@ -129,6 +130,8 @@
 		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
+		848BA7FD1DB9E7CF0086AB52 /* YJUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIColor.h; sourceTree = "<group>"; };
+		848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIColor.m; sourceTree = "<group>"; };
 		84C59DD61DB0EAA700B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84CEC1461DB4B33E004CDF2B /* YJUITableViewDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewDataSourceManager.h; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 			children = (
 				8417257F1DACBC1C006022A9 /* AutoLayout */,
 				84F264D41DB5ECFC00C0F06A /* CollectionViewManager */,
+				848BA7FC1DB9E7CF0086AB52 /* Color */,
 				841725A71DACBC1C006022A9 /* InputLength */,
 				841725AD1DACBC1C006022A9 /* NavigationBar */,
 				841725B51DACBC1C006022A9 /* PageView */,
@@ -417,6 +421,15 @@
 				8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		848BA7FC1DB9E7CF0086AB52 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				848BA7FD1DB9E7CF0086AB52 /* YJUIColor.h */,
+				848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 		84C59DD51DB0EAA700B93218 /* AOP */ = {
@@ -762,6 +775,7 @@
 				84D356341DAB722B0097D526 /* YJNSFoundationOther.m in Sources */,
 				84CEC1591DB4B33E004CDF2B /* YJUITableViewCell.m in Sources */,
 				84D356301DAB722B0097D526 /* YJNSDictionaryModelProperty.m in Sources */,
+				848BA7FF1DB9E7CF0086AB52 /* YJUIColor.m in Sources */,
 				84D356381DAB722B0097D526 /* YJNSTimer.m in Sources */,
 				84CEC1551DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
