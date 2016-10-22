@@ -65,6 +65,8 @@
         return;
     }
     NSArray *propertys = [self.class propertys];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     for (YJNSDictionaryModelProperty *p in propertys) {
         id value = [modelDictionary objectForKey:p.attributeKey];
         if (value == nil || [value isKindOfClass:[NSNull class]]) {
@@ -72,6 +74,9 @@
         }
         switch (p.attributeType) {
             case YJNSDMPAttributeTypeNumber:     // NSNumber
+                if ([value isKindOfClass:[NSString class]]) {                    
+                    value = [numberFormatter numberFromString:value];
+                }
                 [self setValue:value forKey:p.attributeName];
                 break;
             case YJNSDMPAttributeTypeString:     // NSString
