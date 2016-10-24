@@ -206,7 +206,7 @@ YJ技术支持群：557445088
 | | 2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager |
 | 4.2.0 | 2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置 |
 | | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
-| 4.2.1 | 2016-10-22 |  DictionaryModel修复NSString设置到number属性崩溃问题 |
+| 4.2.1 | 2016-10-22 |  DictionaryModel修复NSString值设置到number属性崩溃问题 |
 
 ##Copyright
 
