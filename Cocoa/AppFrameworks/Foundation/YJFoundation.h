@@ -18,6 +18,9 @@
 // 获取应用内目录
 #import "YJNSDirectory.h"
 
+// NSFileManager扩展
+#import "YJNSFileManager.h"
+
 // http链接相关
 #import "YJNSHttp.h"
 

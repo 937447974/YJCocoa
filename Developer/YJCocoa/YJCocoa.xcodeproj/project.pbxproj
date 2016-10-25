@@ -38,6 +38,7 @@
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
 		848BA7FF1DB9E7CF0086AB52 /* YJUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */; };
+		84C1D0381DBF5AAA00D8A058 /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D0371DBF5AAA00D8A058 /* YJNSFileManager.m */; };
 		84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */; };
 		84CEC1551DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1471DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m */; };
 		84CEC1561DB4B33E004CDF2B /* YJUITableViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1491DB4B33E004CDF2B /* YJUITableViewDelegateManager.m */; };
@@ -132,6 +133,8 @@
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
 		848BA7FD1DB9E7CF0086AB52 /* YJUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIColor.h; sourceTree = "<group>"; };
 		848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIColor.m; sourceTree = "<group>"; };
+		84C1D0361DBF5AAA00D8A058 /* YJNSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSFileManager.h; sourceTree = "<group>"; };
+		84C1D0371DBF5AAA00D8A058 /* YJNSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSFileManager.m; sourceTree = "<group>"; };
 		84C59DD61DB0EAA700B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84CEC1461DB4B33E004CDF2B /* YJUITableViewDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewDataSourceManager.h; sourceTree = "<group>"; };
@@ -432,6 +435,15 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
+		84C1D0351DBF5AAA00D8A058 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				84C1D0361DBF5AAA00D8A058 /* YJNSFileManager.h */,
+				84C1D0371DBF5AAA00D8A058 /* YJNSFileManager.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 		84C59DD51DB0EAA700B93218 /* AOP */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +579,7 @@
 				84C59DD51DB0EAA700B93218 /* AOP */,
 				84D3560C1DAB722B0097D526 /* DictionaryModel */,
 				840BE1A91DAE43F600ADE647 /* Directory */,
+				84C1D0351DBF5AAA00D8A058 /* FileManager */,
 				84D356131DAB722B0097D526 /* Http */,
 				84D356191DAB722B0097D526 /* Log */,
 				84D3561C1DAB722B0097D526 /* Other */,
@@ -787,6 +800,7 @@
 				84F264EC1DB5ECFC00C0F06A /* YJUICollectionViewManager.m in Sources */,
 				841725EA1DACBC1C006022A9 /* YJUIImagePageModel.m in Sources */,
 				841725D71DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
+				84C1D0381DBF5AAA00D8A058 /* YJNSFileManager.m in Sources */,
 				841725F51DACBC1C006022A9 /* UIView+YJUIViewGeometry.m in Sources */,
 				841725D81DACBC1C006022A9 /* YJNSLayoutConstraintAnimate.m in Sources */,
 				841725DF1DACBC1C006022A9 /* UIViewController+YJUILayoutSupport.m in Sources */,

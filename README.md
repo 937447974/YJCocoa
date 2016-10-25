@@ -17,24 +17,35 @@ AOP切面编程，将一对一的通信转换为一对多的通信。
 
 快速高效的转换模型和Model。
 
-###1.1.3 Http
+###1.1.3 Directory
+
+快速获取应用内目录
+
+###1.1.4 FileManager
+
+NSFileManager扩展，扩展的方法如下：
+
+1. 快速创建唯一目录。
+2. 负责粘贴文件，目标文件存在则替换。
+
+###1.1.5 Http
 
 1. http链接解析，快速获取其中参数;
 2. http链接组装，快速组装相关参数。
 
-###1.1.4 Log
+###1.1.6 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-###1.1.5 PerformSelector
+###1.1.7 PerformSelector
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
-###1.1.6 Singleton
+###1.1.8 Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-###1.1.7 Timer
+###1.1.9 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -206,7 +217,8 @@ YJ技术支持群：557445088
 | | 2016-10-18 | CollectionView架构升级，并更名为CollectionViewManager |
 | 4.2.0 | 2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置 |
 | | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
-| 4.2.1 | 2016-10-22 |  DictionaryModel修复NSString值设置到number属性崩溃问题 |
+| 4.2.1 | 2016-10-22 | DictionaryModel修复NSString值设置到number属性崩溃问题 |
+| 4.3.0 | 2016-10-25 | FileManager上线，支持快速创建唯一目录和剪切粘贴文件 |
 
 ##Copyright
 

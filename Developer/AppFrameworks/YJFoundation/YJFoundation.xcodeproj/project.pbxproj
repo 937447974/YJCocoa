@@ -11,6 +11,7 @@
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
+		84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF938F1DBF5039004662BF /* YJNSFileManager.m */; };
 		84D355821DAB5E700097D526 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355811DAB5E700097D526 /* main.m */; };
 		84D355851DAB5E700097D526 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355841DAB5E700097D526 /* AppDelegate.m */; };
 		84D355881DAB5E700097D526 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355871DAB5E700097D526 /* ViewController.m */; };
@@ -53,6 +54,8 @@
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAOPTest.m; sourceTree = "<group>"; };
+		84CF938E1DBF5039004662BF /* YJNSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSFileManager.h; sourceTree = "<group>"; };
+		84CF938F1DBF5039004662BF /* YJNSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSFileManager.m; sourceTree = "<group>"; };
 		84D3557D1DAB5E700097D526 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D355811DAB5E700097D526 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84D355831DAB5E700097D526 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +149,15 @@
 			path = AOP;
 			sourceTree = "<group>";
 		};
+		84CF938D1DBF5024004662BF /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				84CF938E1DBF5039004662BF /* YJNSFileManager.h */,
+				84CF938F1DBF5039004662BF /* YJNSFileManager.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 		84D355741DAB5E700097D526 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 				84C59DCE1DB0D43C00B93218 /* AOP */,
 				84D3563A1DAB73F10097D526 /* DictionaryModel */,
 				840BE1A31DAE3B7800ADE647 /* Directory */,
+				84CF938D1DBF5024004662BF /* FileManager */,
 				84D356411DAB73F10097D526 /* Http */,
 				84D356471DAB73F10097D526 /* Log */,
 				84D3564A1DAB73F10097D526 /* Other */,
@@ -475,6 +488,7 @@
 				84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */,
 				84D3565F1DAB73F10097D526 /* YJNSFoundationOther.m in Sources */,
 				84D356621DAB73F10097D526 /* YJNSSingletonMCenter.m in Sources */,
+				84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */,
 				84D3565C1DAB73F10097D526 /* YJNSHttpAnalysis.m in Sources */,
 				84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */,
 				84D3565E1DAB73F10097D526 /* YJNSLog.m in Sources */,

@@ -32,7 +32,7 @@ fi
 
 # 更新记录
 
-osascript -e 'display notification "2016-10-22 | DictionaryModel修复NSString值设置到number属性崩溃问题" with title "YJCocoa 4.2.0"'
+osascript -e 'display notification "2016-10-25 | FileManager上线，支持快速创建唯一目录和复制粘贴文件" with title "YJCocoa 4.3.0"'
 
 
 

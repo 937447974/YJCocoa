@@ -9,14 +9,14 @@
 # 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='china beijing'
 # 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 3.0.0 -o ./Documentation ./Cocoa
 # 验证podspec命令：pod spec lint YJCocoa.podspec --allow-warnings --verbose
-# pod发包：pod trunk push YJCocoa.podspec --allow-warnings
+# pod发包：pod trunk push YJCocoa.podspec --allow-warnings --verbose
 # pod开发环境：#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git'
 
 Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "4.2.1"
+    s.version  = "4.3.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -71,6 +71,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
             foundation.subspec 'Directory' do |directory|
                 directory.source_files = 'Cocoa/AppFrameworks/Foundation/Directory/*.{h,m}'
                 directory.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+            end
+            # FileManager
+            foundation.subspec 'FileManager' do |fileManager|
+                fileManager.source_files = 'Cocoa/AppFrameworks/Foundation/FileManager/*.{h,m}'
             end
             foundation.subspec 'Http' do |http|
                 http.source_files = 'Cocoa/AppFrameworks/Foundation/Http/*.{h,m}'
