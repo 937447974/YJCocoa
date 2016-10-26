@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
+		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
 		84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF938F1DBF5039004662BF /* YJNSFileManager.m */; };
@@ -51,6 +52,7 @@
 		840BE1A41DAE3B8F00ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
 		840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
+		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAOPTest.m; sourceTree = "<group>"; };
@@ -215,12 +217,13 @@
 			isa = PBXGroup;
 			children = (
 				84D355A01DAB601C0097D526 /* Info.plist */,
+				84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */,
 				84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */,
+				8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */,
+				840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */,
 				84D355D91DAB68C50097D526 /* YJHttpTest.m */,
 				84D355A81DAB60750097D526 /* YJLogTest.m */,
 				84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */,
-				840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */,
-				84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			files = (
 				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
 				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
+				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
 				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
 				84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */,
 				84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */,

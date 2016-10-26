@@ -15,53 +15,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSFileManager (YJNSFileManager)
 
-#pragma mark 创建目录
-
 /**
- *  @abstract 创建目录
- *  @discusstion 已创建则不会创建
- *
- *  @param path  目标地址
- *  @param error 错误信息
- *
- *  @return BOOL
- */
-- (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError **)error;
-
-/**
- *  @abstract 创建目录
- *  @discusstion 已创建则不会创建
- *
- *  @param url   NSURL目标地址
- *  @param error 错误信息
- *
- *  @return BOOL
- */
-- (BOOL)createDirectoryAtURL:(NSURL *)url error:(NSError **)error;
-
-#pragma mark 替换
-
-/**
- *  @abstract ⌘+c -> ⌘+v
- *  @discusstion 目标地址存在则替换
+ *  @abstract 安全的移动文件
+ *  @discusstion 替换moveItemAtPath:toPath:error:方法
  *
  *  @param srcPath 源地址
  *  @param dstPath 目标地址
  *
  *  @return BOOL
  */
-- (BOOL)replaceItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error;
+- (BOOL)moveSafeItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError * _Nullable *)error;
 
 /**
- *  @abstract ⌘+c -> ⌘+v
- *  @discusstion 目标地址存在则替换
+ *  @abstract 安全的移动文件
+ *  @discusstion 替换moveItemAtURL:toURL:error:方法
  *
  *  @param srcURL 源地址
  *  @param dstURL 目标地址
  *
  *  @return BOOL
  */
-- (BOOL)replaceItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError **)error;
+- (BOOL)moveSafeItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError * _Nullable *)error;
 
 @end
 

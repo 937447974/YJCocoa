@@ -13,31 +13,25 @@
 
 @implementation NSFileManager (YJNSFileManager)
 
-- (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
-    return [self createDirectoryAtURL:[NSURL URLWithString:path] error:error];
+- (BOOL)moveSafeItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError *__autoreleasing *)error {
+    return [self moveSafeItemAtURL:[NSURL fileURLWithPath:srcPath] toURL:[NSURL fileURLWithPath:dstPath] error:error];
 }
 
-- (BOOL)createDirectoryAtURL:(NSURL *)url error:(NSError *__autoreleasing *)error {
+- (BOOL)moveSafeItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError *__autoreleasing *)error {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:url.path]) {
-        return YES;
+    BOOL result = YES;
+    NSURL *dstDirectory = dstURL.URLByDeletingLastPathComponent;
+    if ([fileManager fileExistsAtPath:dstDirectory.path]) {
+        if ([fileManager fileExistsAtPath:dstURL.path]) {
+            result = [fileManager removeItemAtURL:dstURL error:error];
+        }
+    } else {
+        result = [fileManager createDirectoryAtURL:dstDirectory withIntermediateDirectories:YES attributes:nil error:error];
     }
-    return [fileManager createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:error];
-}
-
-- (BOOL)replaceItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError *__autoreleasing *)error {
-    return [self replaceItemAtURL:[NSURL URLWithString:srcPath] toURL:[NSURL URLWithString:dstPath] error:error];
-}
-
-- (BOOL)replaceItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError *__autoreleasing *)error {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:dstURL.path]) {
-        [fileManager removeItemAtURL:dstURL error:error];
+    if (result) {
+        result = [fileManager moveItemAtURL:srcURL toURL:dstURL error:error];
     }
-    if (!error) {
-        return [fileManager moveItemAtURL:srcURL toURL:dstURL error:error];
-    }
-    return NO;
+    return result;
 }
 
 @end

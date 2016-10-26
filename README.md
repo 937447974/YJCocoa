@@ -23,10 +23,7 @@ AOP切面编程，将一对一的通信转换为一对多的通信。
 
 ###1.1.4 FileManager
 
-NSFileManager扩展，扩展的方法如下：
-
-1. 快速创建唯一目录。
-2. 负责粘贴文件，目标文件存在则替换。
+NSFileManager扩展，支持快速移动文件。主要是替换系统方法`moveItemAtPath:toPath:error:`和`moveItemAtURL:toURL:error:`
 
 ###1.1.5 Http
 
@@ -218,7 +215,7 @@ YJ技术支持群：557445088
 | 4.2.0 | 2016-10-20 | ViewGeometry支持获取UIScrollView中控件在屏幕的位置 |
 | | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
 | 4.2.1 | 2016-10-22 | DictionaryModel修复NSString值设置到number属性崩溃问题 |
-| 4.3.0 | 2016-10-25 | FileManager上线，支持快速创建唯一目录和剪切粘贴文件 |
+| 4.3.0 | 2016-10-25 | FileManager上线，支持快速移动文件 |
 
 ##Copyright
 
