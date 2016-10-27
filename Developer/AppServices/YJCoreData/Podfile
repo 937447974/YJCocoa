@@ -5,7 +5,8 @@ platform :ios, '8.0'
 
 target 'YJCoreData' do
 
-#pod 'YJCocoa/AppFrameworks/Foundation/Directory'
+pod 'YJCocoa/AppFrameworks/Foundation/Directory'
+pod 'YJCocoa/AppFrameworks/Foundation/FileManager'
 pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
 pod 'YJCocoa/AppFrameworks/Foundation/Other'
 

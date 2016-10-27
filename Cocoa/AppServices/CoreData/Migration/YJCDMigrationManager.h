@@ -14,4 +14,6 @@
 /** 迁移管理器，主要用于数据库迁移升级*/
 @interface YJCDMigrationManager : NSObject
 
+- (BOOL)migrateStore;
+
 @end
