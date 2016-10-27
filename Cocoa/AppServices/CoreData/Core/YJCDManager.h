@@ -10,6 +10,7 @@
 //
 
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 #import "YJNSSingletonMCenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -43,8 +44,26 @@ typedef NS_ENUM(NSInteger, YJCDMSetup) {
  *
  *  @return YJCDMSetup
  */
-- (YJCDMSetup)setupWithStoreURL:(NSURL *)storeURL error:(NSError **)error;
+- (YJCDMSetup)setupWithStoreURL:(NSURL *)storeURL error:(NSError * _Nullable *)error;
 
+/**
+ *  @abstract 保存到内存中
+ *  @discusstion 同步操作
+ *
+ *  @param error 错误信息
+ *
+ *  @return BOOL
+ */
+- (BOOL)saveInMemory:(NSError * _Nullable *)error;
+
+/**
+ *  @abstract 保存到持久化存储中
+ *  @discusstion 异步操作。APP进入后台和闪退时，自动执行此方法
+ *
+ *  @param block block异步回调
+ *
+ */
+- (void)saveInStore:(nullable void (^)(BOOL success, NSError *error))block;
 
 @end
 

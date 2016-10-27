@@ -13,6 +13,32 @@
 
 @implementation YJCDManager
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationWillTerminateNotification object:nil];
+    }
+    return self;
+}
+
+#pragma mark getter & setter
+- (NSManagedObjectModel *)model {
+    if (!_model) {
+        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    }
+    return _model;
+}
+
+- (NSPersistentStoreCoordinator *)coordinator {
+    if (!_coordinator) {
+        _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
+    }
+    return _coordinator;
+}
+
+#pragma mark - setup
 - (YJCDMSetup)setupWithStoreURL:(NSURL *)storeURL error:(NSError * _Nullable __autoreleasing *)error {
     if (self.store) {
         return YJCDMSetupSuccess;
@@ -56,19 +82,41 @@
     return YJCDMSetupSuccess;
 }
 
-#pragma mark getter & setter
-- (NSManagedObjectModel *)model {
-    if (!_model) {
-        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+#pragma mark save
+- (BOOL)saveInMemory:(NSError * _Nullable __autoreleasing *)error {
+    if (self.mainContext.hasChanges) {
+        return [self.mainContext save:error];
     }
-    return _model;
+    return YES;
 }
 
-- (NSPersistentStoreCoordinator *)coordinator {
-    if (!_coordinator) {
-        _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
+- (void)saveInStore:(void (^)(BOOL, NSError *))block {
+    __block NSError *error;
+    __block BOOL result = NO;
+    if ([self saveInMemory:&error]) {
+        [self.rootContext performBlock:^{
+            result = YES;
+            if (self.rootContext.hasChanges) {
+                result = [self.rootContext save:&error];
+            }
+            if (block) {
+                block(result, error);
+            }
+        }];
     }
-    return _coordinator;
+    if (block) {
+        block(result, error);
+    }
+}
+
+- (void)saveInNotification {
+    [self saveInStore:^(BOOL success, NSError * _Nonnull error) {
+        if (success) {
+            NSLog(@"YJCoreData自动化保存数据库完成。");
+        } else {
+            NSLog(@"YJCoreData自动化保存数据库失败:%@", error);
+        }
+    }];
 }
 
 @end
