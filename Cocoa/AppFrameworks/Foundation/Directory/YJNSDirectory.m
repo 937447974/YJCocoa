@@ -22,11 +22,11 @@
         _cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
         _tempPath = NSTemporaryDirectory();
         
-        _homeURL = [NSURL URLWithString:_homePath];
-        _documentURL = [NSURL URLWithString:_documentPath];
-        _libraryURL = [NSURL URLWithString:_libraryPath];
-        _cachesURL = [NSURL URLWithString:_cachesPath];
-        _tempURL = [NSURL URLWithString:_tempPath];
+        _homeURL = [NSURL fileURLWithPath:_homePath];
+        _documentURL = [NSURL fileURLWithPath:_documentPath];
+        _libraryURL = [NSURL fileURLWithPath:_libraryPath];
+        _cachesURL = [NSURL fileURLWithPath:_cachesPath];
+        _tempURL = [NSURL fileURLWithPath:_tempPath];
     }
     return self;
 }

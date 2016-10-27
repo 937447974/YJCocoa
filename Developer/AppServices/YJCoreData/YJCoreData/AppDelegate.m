@@ -10,6 +10,8 @@
 //
 
 #import "AppDelegate.h"
+#import "YJCDCoreData.h"
+#import "YJNSDirectory.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
+    [YJCDManagerS setupWithStoreURL:storeURL error:nil];
     return YES;
 }
 

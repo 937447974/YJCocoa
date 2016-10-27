@@ -17,6 +17,9 @@
 		84B92E4E1DC1AA6E00D447A0 /* YJCDImportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E4D1DC1AA6E00D447A0 /* YJCDImportManager.m */; };
 		84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E501DC1AA7D00D447A0 /* YJCDManager.m */; };
 		84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */; };
+		84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */; };
+		84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */; };
+		84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */; };
 		F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,11 @@
 		84B92E501DC1AA7D00D447A0 /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
 		84B92E521DC1AC0300D447A0 /* YJCDManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManagedObject.h; sourceTree = "<group>"; };
 		84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManagedObject.m; sourceTree = "<group>"; };
+		84B92E7D1DC1D40F00D447A0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		84B92E7F1DC1D44B00D447A0 /* YJUser+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJUser+CoreDataClass.h"; sourceTree = "<group>"; };
+		84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataClass.m"; sourceTree = "<group>"; };
+		84B92E811DC1D44B00D447A0 /* YJUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +99,7 @@
 				8487C6FB1DC19AE000E05982 /* ViewController.h */,
 				8487C6FC1DC19AE000E05982 /* ViewController.m */,
 				8487C70D1DC1A1E000E05982 /* CoreData */,
+				84B92E721DC1CF9600D447A0 /* Model */,
 				8487C70C1DC19AE600E05982 /* Resources */,
 				8487C6F51DC19AE000E05982 /* Supporting Files */,
 			);
@@ -163,6 +172,18 @@
 				84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */,
 			);
 			path = Object;
+			sourceTree = "<group>";
+		};
+		84B92E721DC1CF9600D447A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B92E7F1DC1D44B00D447A0 /* YJUser+CoreDataClass.h */,
+				84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */,
+				84B92E811DC1D44B00D447A0 /* YJUser+CoreDataProperties.h */,
+				84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */,
+				84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D1FEEB53BD30259F6D261C1C /* Pods */ = {
@@ -298,6 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B92E4B1DC1AA3200D447A0 /* YJCDMigrationManager.m in Sources */,
+				84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */,
+				84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */,
+				84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */,
 				8487C6FD1DC19AE000E05982 /* ViewController.m in Sources */,
 				84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */,
 				8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */,
@@ -465,6 +489,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84B92E7D1DC1D40F00D447A0 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 84B92E7D1DC1D40F00D447A0 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8487C6EA1DC19AE000E05982 /* Project object */;
 }

@@ -11,6 +11,7 @@
 
 #import <CoreData/CoreData.h>
 
+/** 导入数据，支持xml和SQLite*/
 @interface YJCDImportManager : NSObject
 
 @end
