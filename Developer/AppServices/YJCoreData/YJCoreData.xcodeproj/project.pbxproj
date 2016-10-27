@@ -20,6 +20,7 @@
 		84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */; };
 		84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */; };
 		84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */; };
+		84B92E891DC1D6C000D447A0 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E881DC1D6C000D447A0 /* YJNSDirectory.m */; };
 		F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataClass.m"; sourceTree = "<group>"; };
 		84B92E811DC1D44B00D447A0 /* YJUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJUser+CoreDataProperties.h"; sourceTree = "<group>"; };
 		84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		84B92E871DC1D6C000D447A0 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
+		84B92E881DC1D6C000D447A0 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +103,7 @@
 				8487C6FC1DC19AE000E05982 /* ViewController.m */,
 				8487C70D1DC1A1E000E05982 /* CoreData */,
 				84B92E721DC1CF9600D447A0 /* Model */,
+				84B92E851DC1D6AC00D447A0 /* SDK */,
 				8487C70C1DC19AE600E05982 /* Resources */,
 				8487C6F51DC19AE000E05982 /* Supporting Files */,
 			);
@@ -184,6 +188,24 @@
 				84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84B92E851DC1D6AC00D447A0 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				84B92E861DC1D6C000D447A0 /* Directory */,
+			);
+			name = SDK;
+			sourceTree = "<group>";
+		};
+		84B92E861DC1D6C000D447A0 /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				84B92E871DC1D6C000D447A0 /* YJNSDirectory.h */,
+				84B92E881DC1D6C000D447A0 /* YJNSDirectory.m */,
+			);
+			name = Directory;
+			path = ../../../../Cocoa/AppFrameworks/Foundation/Directory;
 			sourceTree = "<group>";
 		};
 		D1FEEB53BD30259F6D261C1C /* Pods */ = {
@@ -320,6 +342,7 @@
 			files = (
 				84B92E4B1DC1AA3200D447A0 /* YJCDMigrationManager.m in Sources */,
 				84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */,
+				84B92E891DC1D6C000D447A0 /* YJNSDirectory.m in Sources */,
 				84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */,
 				84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */,
 				8487C6FD1DC19AE000E05982 /* ViewController.m in Sources */,
