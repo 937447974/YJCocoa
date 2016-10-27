@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  YJCDMigrationManager.h
 //  YJCoreData
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,12 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+/** 迁移管理器，主要用于数据库升级*/
+@interface YJCDMigrationManager : NSObject
 
 @end
-

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  YJCDCoreData.h
 //  YJCoreData
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,12 +9,13 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+#import "YJCDManager.h"
 
 
-@end
+#import "YJCDImportManager.h"
 
+
+#import "YJCDMigrationManager.h"
+
+
+#import "YJCDManagedObject.h"
