@@ -23,7 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
-    [YJCDManagerS setupWithStoreURL:storeURL error:nil];
+    NSError *error;
+    [YJCDManagerS setupWithStoreURL:storeURL error:&error];
     return YES;
 }
 

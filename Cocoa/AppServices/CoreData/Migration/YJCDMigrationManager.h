@@ -11,7 +11,7 @@
 
 #import <CoreData/CoreData.h>
 
-/** 迁移管理器，主要用于数据库升级*/
+/** 迁移管理器，主要用于数据库迁移升级*/
 @interface YJCDMigrationManager : NSObject
 
 @end
