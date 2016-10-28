@@ -10,12 +10,18 @@
 //
 
 #import "AppDelegate.h"
-#import "YJCDCoreData.h"
+#import "YJCoreData.h"
+
 #import "YJNSDirectory.h"
+#import "YJDispatch.h"
+
+#define version1 0
+
+#if version1
 
 #import "YJTest+CoreDataClass.h"
-//#import "YJTest1+CoreDataClass.h"
-//#import "YJUser+CoreDataClass.h"
+
+#endif
 
 @interface AppDelegate ()
 
@@ -24,7 +30,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    abort();
     [self testMigration];
     return YES;
 }
@@ -32,21 +37,35 @@
 #pragma mark 迁移数据
 - (void)testMigration {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
+    NSLog(@"%@", storeURL);
     NSError *error;
     YJCDMSetup setup = [YJCDManagerS setupWithStoreURL:storeURL error:&error];
     // MigrationModel version1 -> 2
     if (setup == YJCDMSetupSuccess) { // 添加测试数据
-        for (int i = 0;i<1000; i++) {
+#if version1
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 1000000; i++) {
             YJTest *test = [YJTest insertNewObject];
-            test.name = [NSString stringWithFormat:@"阳君-%d", i];
+            test.names = [NSString stringWithFormat:@"阳君-%d", i];
+            [array addObject:test];
+
         }
         [YJCDManagerS saveInStore:^(BOOL success, NSError * _Nonnull error) {
             if (success) {
-                abort();
+                [YJCDManagerS.mainContext deleteObject:[array objectAtIndex:5]];
+                [YJCDManagerS saveInStore:^(BOOL success, NSError * _Nonnull error) {
+                    abort();
+                }];
+            } else {
+                NSLog(@"%@", error);
             }
         }];
+#endif
     } else if (setup == YJCDMSetupMigration) {
-        
+        dispatch_async_background(^{
+            YJCDMigrationManager *mm = [[YJCDMigrationManager alloc] init];
+            NSLog(@"数据库升级是否成功：%d", [mm migrateStore:nil]);
+        });
     } else {
         NSLog(@"%@", error);
     }
@@ -56,13 +75,6 @@
 - (void)testImport {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
     [YJCDManagerS setupWithStoreURL:storeURL error:nil];
-}
-
-#pragma mark 性能测试
-- (void)testPerformance {
-    NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
-    NSError *error;
-    [YJCDManagerS setupWithStoreURL:storeURL error:&error];
 }
 
 @end

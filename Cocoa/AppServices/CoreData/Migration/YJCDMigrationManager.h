@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** 迁移管理器，主要用于数据库迁移升级*/
+/** 迁移管理器*/
 @interface YJCDMigrationManager : NSObject
 
 @property (nonatomic, copy) void (^ migrationProgress)(float progress); ///< 迁移进度[0,1]

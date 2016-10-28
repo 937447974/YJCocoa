@@ -28,7 +28,6 @@
 }
 
 - (BOOL)migrateStore:(NSError *__autoreleasing  _Nullable *)error {
-    BOOL success = NO;
     NSError *resultError = nil;
     // Model
     NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:YJCDManagerS.storeURL error:&resultError];
@@ -41,14 +40,13 @@
         NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinModel];
         [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:nil];
         NSURL *destinStore = [YJNSDirectoryS.tempURL URLByAppendingPathComponent:@"YJCoreDataTemp.sqlite"];
-        success = [migrationManager migrateStoreFromURL:YJCDManagerS.storeURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
+        BOOL success = [migrationManager migrateStoreFromURL:YJCDManagerS.storeURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
         [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
         NSFileManager *fm = [NSFileManager defaultManager];
         if (success) {
             // move store
-            success = [fm moveSafeItemAtURL:destinStore toURL:YJCDManagerS.storeURL error:&resultError];
-            if (success) {
-                success = [YJCDManagerS setupWithStoreURL:YJCDManagerS.storeURL error:&resultError];
+            if ([fm moveSafeItemAtURL:destinStore toURL:YJCDManagerS.storeURL error:&resultError]) {
+                [YJCDManagerS setupWithStoreURL:YJCDManagerS.storeURL error:&resultError];
             }
         } else {
             [migrationManager cancelMigrationWithError:resultError];
@@ -61,11 +59,10 @@
     if (error) {
         *error = resultError;
     }
-    return success;
+    return !resultError;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     if ([@"migrationProgress" isEqualToString:keyPath]) {
         float progress = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
         self.migrationProgress(progress);

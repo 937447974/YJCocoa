@@ -9,6 +9,7 @@ pod 'YJCocoa/AppFrameworks/Foundation/Directory'
 pod 'YJCocoa/AppFrameworks/Foundation/FileManager'
 pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
 pod 'YJCocoa/AppFrameworks/Foundation/Other'
+pod 'YJCocoa/System/Dispatch'
 
 end
 

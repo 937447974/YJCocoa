@@ -80,10 +80,10 @@
 
 - (void)saveInStore:(void (^)(BOOL, NSError *))block {
     __block NSError *error;
-    __block BOOL result = NO;
-    if ([self saveInMemory:&error]) {
+    [self saveInMemory:&error];
+    if (!error) {
         [self.rootContext performBlock:^{
-            result = YES;
+            BOOL result = YES;
             if (self.rootContext.hasChanges) {
                 result = [self.rootContext save:&error];
             }
@@ -91,9 +91,8 @@
                 block(result, error);
             }
         }];
-    }
-    if (block) {
-        block(result, error);
+    } else if (block) {
+        block(NO, error);
     }
 }
 
