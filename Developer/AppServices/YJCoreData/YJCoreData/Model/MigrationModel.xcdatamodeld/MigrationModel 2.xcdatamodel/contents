@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="YJTest1" representedClassName="YJTest1" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="YJTestC" representedClassName="YJTestC" syncable="YES" codeGenerationType="class">
         <attribute name="index" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="qq" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="YJTest1" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="YJTestC" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>
