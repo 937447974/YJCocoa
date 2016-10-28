@@ -10,54 +10,66 @@
 //
 
 #import "YJCDMigrationManager.h"
+#import "YJCDManager.h"
+#import "YJNSDirectory.h"
+#import "YJNSFileManager.h"
 
 @implementation YJCDMigrationManager
 
-- (BOOL)migrateStore {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.migrationProgress = ^(float progress) {
+            int percentage = progress * 100;
+            NSLog(@"已完成迁移: %i%%", percentage);
+        };
+    }
+    return self;
+}
+
+- (BOOL)migrateStore:(NSError *__autoreleasing  _Nullable *)error {
     BOOL success = NO;
-    NSError *error = nil;
-    
-    // 步骤1 收集来源、目的地和映射模型
-    // 数据源
-    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:sourceStore error:&error];// 数据源
-    // 源模型
+    NSError *resultError = nil;
+    // Model
+    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:YJCDManagerS.storeURL error:&resultError];
     NSManagedObjectModel *sourceModel = [NSManagedObjectModel mergedModelFromBundles:nil forStoreMetadata:sourceMetadata];
-    // 目标模型
-    NSManagedObjectModel *destinModel = _model;
-    // 映射模型
+    NSManagedObjectModel *destinModel = YJCDManagerS.model;    
+    // mapping model
     NSMappingModel *mappingModel = [NSMappingModel mappingModelFromBundles:nil forSourceModel:sourceModel destinationModel:destinModel];
-    
-    // 步骤2 执行迁移,假设映射模型不是null
     if (mappingModel) {
-        NSError *error = nil;
-        // 临时存储区
+        // migration
         NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinModel];
         [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:nil];
-        
-        NSURL *destinStore = [[self applicationStoresDirectory] URLByAppendingPathComponent:@"Temp.sqlite"];
-        
-        success = [migrationManager migrateStoreFromURL:sourceStore type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&error];
-        if (success)
-        {
-            // 步骤3 取代旧的存储与新存储迁移
-            if ([self replaceStore:sourceStore withStore:destinStore])
-            {
-                NSLog(@"成功迁移%@到当前Model", sourceStore.path);
-                [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
+        NSURL *destinStore = [YJNSDirectoryS.tempURL URLByAppendingPathComponent:@"YJCoreDataTemp.sqlite"];
+        success = [migrationManager migrateStoreFromURL:YJCDManagerS.storeURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
+        [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if (success) {
+            // move store
+            success = [fm moveSafeItemAtURL:destinStore toURL:YJCDManagerS.storeURL error:&resultError];
+            if (success) {
+                success = [YJCDManagerS setupWithStoreURL:YJCDManagerS.storeURL error:&resultError];
             }
+        } else {
+            [migrationManager cancelMigrationWithError:resultError];
+            [fm removeItemAtURL:destinStore error:nil];
+            NSLog(@"迁移失败: %@", resultError);
         }
-        else
-        {
-            NSLog(@"迁移失败: %@",error);
-        }
+    } else {
+        resultError = [NSError errorWithDomain:@"迁移失败:映射模型是null！" code:YJCDMSetupMigration userInfo:nil];
     }
-    else
-    {
-        NSLog(@"迁移失败:映射模型是null");
+    if (error) {
+        *error = resultError;
     }
-    // 表明迁移完成,不管结果
-    return YES;
+    return success;
+}
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    if ([@"migrationProgress" isEqualToString:keyPath]) {
+        float progress = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+        self.migrationProgress(progress);
+    }
 }
 
 @end

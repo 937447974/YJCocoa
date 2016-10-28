@@ -10,7 +10,17 @@
 //
 
 #import "YJCDManagedObject.h"
+#import "YJCDManager.h"
+#import "YJNSFoundationOther.h"
 
-@implementation YJCDManagedObject
+@implementation NSManagedObject (YJCDManagedObject)
+
++ (instancetype)insertNewObject {
+    return [NSEntityDescription insertNewObjectForEntityForName:YJNSStringFromClass(self.class) inManagedObjectContext:YJCDManagerS.mainContext];
+}
+
++ (NSFetchRequest<NSManagedObject *> *)fetchRequest {
+    return [[NSFetchRequest alloc] initWithEntityName:YJNSStringFromClass(self.class)];
+}
 
 @end

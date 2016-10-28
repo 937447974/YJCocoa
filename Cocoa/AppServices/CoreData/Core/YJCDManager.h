@@ -33,7 +33,9 @@ typedef NS_ENUM(NSInteger, YJCDMSetup) {
 
 @property (nonatomic, strong) NSManagedObjectModel *model;               ///< 托管对象模型
 @property (nonatomic, strong) NSPersistentStoreCoordinator *coordinator; ///< 持久化存储协调器
-@property (nonatomic, strong) NSPersistentStore *store;                  ///< 持久化存储区
+
+@property (nonatomic, strong, readonly) NSPersistentStore *store; ///< 持久化存储区
+@property (nonatomic, strong, readonly) NSURL *storeURL;          ///< 持久化存储区地址
 
 /**
  *  @abstract 通过持久化存储区地址设置相关参数

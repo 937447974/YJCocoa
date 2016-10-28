@@ -11,7 +11,26 @@
 
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** NSManagedObject扩展*/
-@interface YJCDManagedObject : NSObject
+@interface NSManagedObject (YJCDManagedObject)
+
+/**
+ *  @abstract 插入新的NSManagedObject
+ *
+ *  @return instancetype
+ */
++ (instancetype)insertNewObject;
+
+/**
+ *  @abstract 获取Select查询
+ *  @discusstion 实现iOS10的方法
+ *
+ *  @return NSFetchRequest
+ */
++ (NSFetchRequest<NSManagedObject *> *)fetchRequest;
 
 @end
+
+NS_ASSUME_NONNULL_END

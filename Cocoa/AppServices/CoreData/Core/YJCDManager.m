@@ -16,6 +16,18 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // Core Data
+        self.model = [NSManagedObjectModel mergedModelFromBundles:nil];
+        self.coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
+        self.rootContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [self.rootContext performBlockAndWait:^{
+            self.rootContext.persistentStoreCoordinator = self.coordinator;
+            self.rootContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+        }];
+        self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        self.mainContext.parentContext = self.rootContext;
+        self.mainContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+        // Notification
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
         [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationWillTerminateNotification object:nil];
@@ -23,40 +35,16 @@
     return self;
 }
 
-#pragma mark getter & setter
-- (NSManagedObjectModel *)model {
-    if (!_model) {
-        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
-    }
-    return _model;
-}
-
-- (NSPersistentStoreCoordinator *)coordinator {
-    if (!_coordinator) {
-        _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.model];
-    }
-    return _coordinator;
-}
-
 #pragma mark - setup
 - (YJCDMSetup)setupWithStoreURL:(NSURL *)storeURL error:(NSError * _Nullable __autoreleasing *)error {
     if (self.store) {
         return YJCDMSetupSuccess;
     }
-    // init
-    self.rootContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    [self.rootContext performBlockAndWait:^{
-        self.rootContext.persistentStoreCoordinator = self.coordinator;
-        self.rootContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
-    }];
-    self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.mainContext.parentContext = self.rootContext;
-    self.mainContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
-    // setup
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL result = YES;
     BOOL migration = YES;
     NSError *resultError = nil;
+    _storeURL = storeURL;
     if ([fm fileExistsAtPath:storeURL.path]) {
         NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:storeURL options:nil error:&resultError];
         result = sourceMetadata.count;
@@ -71,7 +59,7 @@
         }
     }
     if (result && migration) {
-        self.store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&resultError];
+        _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&resultError];
     }
     if (resultError) {
         if (error) {
@@ -82,7 +70,7 @@
     return YJCDMSetupSuccess;
 }
 
-#pragma mark save
+#pragma mark - save
 - (BOOL)saveInMemory:(NSError * _Nullable __autoreleasing *)error {
     if (self.mainContext.hasChanges) {
         return [self.mainContext save:error];
