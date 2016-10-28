@@ -20,6 +20,10 @@
 		84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */; };
 		84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */; };
 		84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */; };
+		84E262701DC3C14500F036BD /* MigrationModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E2626E1DC3C14500F036BD /* MigrationModel.xcdatamodeld */; };
+		84E262751DC3C18A00F036BD /* YJTest+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E262721DC3C18A00F036BD /* YJTest+CoreDataClass.m */; };
+		84E262761DC3C18A00F036BD /* YJTest+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E262741DC3C18A00F036BD /* YJTest+CoreDataProperties.m */; };
+		84E262791DC3C26D00F036BD /* MigrationModel1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84E262781DC3C26D00F036BD /* MigrationModel1To2.xcmappingmodel */; };
 		F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,13 @@
 		84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataClass.m"; sourceTree = "<group>"; };
 		84B92E811DC1D44B00D447A0 /* YJUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJUser+CoreDataProperties.h"; sourceTree = "<group>"; };
 		84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		84E2626F1DC3C14500F036BD /* MigrationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MigrationModel.xcdatamodel; sourceTree = "<group>"; };
+		84E262711DC3C18A00F036BD /* YJTest+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJTest+CoreDataClass.h"; sourceTree = "<group>"; };
+		84E262721DC3C18A00F036BD /* YJTest+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJTest+CoreDataClass.m"; sourceTree = "<group>"; };
+		84E262731DC3C18A00F036BD /* YJTest+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJTest+CoreDataProperties.h"; sourceTree = "<group>"; };
+		84E262741DC3C18A00F036BD /* YJTest+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YJTest+CoreDataProperties.m"; sourceTree = "<group>"; };
+		84E262771DC3C1ED00F036BD /* MigrationModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MigrationModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		84E262781DC3C26D00F036BD /* MigrationModel1To2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MigrationModel1To2.xcmappingmodel; sourceTree = "<group>"; };
 		FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,11 +188,17 @@
 		84B92E721DC1CF9600D447A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */,
+				84E2626E1DC3C14500F036BD /* MigrationModel.xcdatamodeld */,
+				84E262781DC3C26D00F036BD /* MigrationModel1To2.xcmappingmodel */,
+				84E262711DC3C18A00F036BD /* YJTest+CoreDataClass.h */,
+				84E262721DC3C18A00F036BD /* YJTest+CoreDataClass.m */,
+				84E262731DC3C18A00F036BD /* YJTest+CoreDataProperties.h */,
+				84E262741DC3C18A00F036BD /* YJTest+CoreDataProperties.m */,
 				84B92E7F1DC1D44B00D447A0 /* YJUser+CoreDataClass.h */,
 				84B92E801DC1D44B00D447A0 /* YJUser+CoreDataClass.m */,
 				84B92E811DC1D44B00D447A0 /* YJUser+CoreDataProperties.h */,
 				84B92E821DC1D44B00D447A0 /* YJUser+CoreDataProperties.m */,
-				84B92E7C1DC1D40F00D447A0 /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,11 +339,15 @@
 				84B92E841DC1D44B00D447A0 /* YJUser+CoreDataProperties.m in Sources */,
 				84B92E7E1DC1D40F00D447A0 /* DataModel.xcdatamodeld in Sources */,
 				84B92E831DC1D44B00D447A0 /* YJUser+CoreDataClass.m in Sources */,
+				84E262751DC3C18A00F036BD /* YJTest+CoreDataClass.m in Sources */,
 				8487C6FD1DC19AE000E05982 /* ViewController.m in Sources */,
 				84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */,
 				8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */,
+				84E262701DC3C14500F036BD /* MigrationModel.xcdatamodeld in Sources */,
 				84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */,
+				84E262761DC3C18A00F036BD /* YJTest+CoreDataProperties.m in Sources */,
 				84B92E4E1DC1AA6E00D447A0 /* YJCDImportManager.m in Sources */,
+				84E262791DC3C26D00F036BD /* MigrationModel1To2.xcmappingmodel in Sources */,
 				8487C6F71DC19AE000E05982 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +521,17 @@
 			);
 			currentVersion = 84B92E7D1DC1D40F00D447A0 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		84E2626E1DC3C14500F036BD /* MigrationModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84E262771DC3C1ED00F036BD /* MigrationModel 2.xcdatamodel */,
+				84E2626F1DC3C14500F036BD /* MigrationModel.xcdatamodel */,
+			);
+			currentVersion = 84E2626F1DC3C14500F036BD /* MigrationModel.xcdatamodel */;
+			path = MigrationModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
