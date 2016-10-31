@@ -18,7 +18,7 @@
 		84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E501DC1AA7D00D447A0 /* YJCDManager.m */; };
 		84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */; };
 		84BCC18C1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84BCC17B1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld */; };
-		84F28DCB1DC3E8AC00A894F4 /* Model1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84F28DCA1DC3E8AC00A894F4 /* Model1To2.xcmappingmodel */; };
+		84F28DCD1DC3F68500A894F4 /* Model1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84F28DCC1DC3F68500A894F4 /* Model1To2.xcmappingmodel */; };
 		F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManagedObject.m; sourceTree = "<group>"; };
 		84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MigrationModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MigrationModel.xcdatamodel; sourceTree = "<group>"; };
-		84F28DCA1DC3E8AC00A894F4 /* Model1To2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1To2.xcmappingmodel; sourceTree = "<group>"; };
+		84F28DCC1DC3F68500A894F4 /* Model1To2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1To2.xcmappingmodel; sourceTree = "<group>"; };
 		FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				84BCC17B1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld */,
-				84F28DCA1DC3E8AC00A894F4 /* Model1To2.xcmappingmodel */,
+				84F28DCC1DC3F68500A894F4 /* Model1To2.xcmappingmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 				84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */,
 				84BCC18C1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld in Sources */,
 				8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */,
-				84F28DCB1DC3E8AC00A894F4 /* Model1To2.xcmappingmodel in Sources */,
+				84F28DCD1DC3F68500A894F4 /* Model1To2.xcmappingmodel in Sources */,
 				84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */,
 				84B92E4E1DC1AA6E00D447A0 /* YJCDImportManager.m in Sources */,
 				8487C6F71DC19AE000E05982 /* main.m in Sources */,

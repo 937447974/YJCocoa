@@ -18,9 +18,10 @@
 #define version1 0
 
 #if version1
-
 #import "YJTest+CoreDataClass.h"
-
+#else
+#import "YJUsers+CoreDataClass.h"
+#import "YJPhone+CoreDataClass.h"
 #endif
 
 @interface AppDelegate ()
@@ -31,6 +32,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self testMigration];
+    
+     NSObject *obj = [NSObject new];
+    [[NSNotificationCenter defaultCenter] addObserver:obj selector:@selector(testMigration) name:@"11" object:nil];
+    __weak NSObject *obj2 = obj;
+    dispatch_async_main(^{
+        NSLog(@"%@", obj2);
+        //NSLog(@"%@", obj);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"11" object:nil];
+    });
+    
     return YES;
 }
 
@@ -60,6 +71,9 @@
                 NSLog(@"%@", error);
             }
         }];
+#else
+        YJUsers *user = [YJUsers insertNewObject];
+        [YJCDManagerS saveInStore:nil];
 #endif
     } else if (setup == YJCDMSetupMigration) {
         dispatch_async_background(^{
