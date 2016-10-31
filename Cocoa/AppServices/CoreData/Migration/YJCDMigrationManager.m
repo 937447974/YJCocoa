@@ -32,7 +32,7 @@
     // Model
     NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:YJCDManagerS.storeURL error:&resultError];
     NSManagedObjectModel *sourceModel = [NSManagedObjectModel mergedModelFromBundles:nil forStoreMetadata:sourceMetadata];
-    NSManagedObjectModel *destinModel = YJCDManagerS.model;    
+    NSManagedObjectModel *destinModel = YJCDManagerS.model;
     // mapping model
     NSMappingModel *mappingModel = [NSMappingModel mappingModelFromBundles:nil forSourceModel:sourceModel destinationModel:destinModel];
     if (mappingModel) {
