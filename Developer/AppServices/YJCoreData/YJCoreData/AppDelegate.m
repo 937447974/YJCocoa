@@ -33,7 +33,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self testMigration];
+//    [self testMigration];
+    [self testImport];
     return YES;
 }
 
@@ -60,11 +61,10 @@
     } else if (setup == YJCDMSetupMigration) {
         dispatch_async_background(^{
             YJCDMigrationManager *mm = [[YJCDMigrationManager alloc] init];
-            NSLog(@"数据库升级是否成功：%d", [mm migrateStore:&error]);
-            if (error) {
-                NSLog(@"升级错误：%@", error);
+            if ([mm migrateStore]) {
+                NSLog(@"数据库升级成功");
             } else {
-                
+                NSLog(@"数据库升级错误：%@", error);
             }
         });
     } else {
@@ -76,6 +76,13 @@
 - (void)testImport {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
     [YJCDManagerS setupWithStoreURL:storeURL error:nil];
+//    NSURL *xmlURL = [[NSBundle mainBundle] URLForResource:@"Import" withExtension:@"xml"];
+    YJCDImportManager *im = [YJCDImportManager new];
+    [im importWithStoreURL:nil];
+//    [im importXMLStore:xmlURL];
+//    
+//    YJUser *user = [YJUser new];
+//    user.phones;
 }
 
 @end

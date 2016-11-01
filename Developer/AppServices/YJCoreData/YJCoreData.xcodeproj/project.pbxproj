@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84118F141DC6FC0B009D3CDB /* Model1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84118F131DC6FC0B009D3CDB /* Model1To2.xcmappingmodel */; };
+		84118F191DC736AC009D3CDB /* YJCDFaulter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84118F181DC736AC009D3CDB /* YJCDFaulter.m */; };
 		8487C6F71DC19AE000E05982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F61DC19AE000E05982 /* main.m */; };
 		8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F91DC19AE000E05982 /* AppDelegate.m */; };
 		8487C6FD1DC19AE000E05982 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6FC1DC19AE000E05982 /* ViewController.m */; };
@@ -26,6 +27,8 @@
 		2FEF06D2B7B6C57375F9CDA7 /* Pods-YJCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		4652F0C64E928FD243391748 /* Pods-YJCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		84118F131DC6FC0B009D3CDB /* Model1To2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1To2.xcmappingmodel; sourceTree = "<group>"; };
+		84118F171DC736AC009D3CDB /* YJCDFaulter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDFaulter.h; sourceTree = "<group>"; };
+		84118F181DC736AC009D3CDB /* YJCDFaulter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDFaulter.m; sourceTree = "<group>"; };
 		8487C6F21DC19AE000E05982 /* YJCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8487C6F61DC19AE000E05982 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8487C6F81DC19AE000E05982 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,9 +118,9 @@
 		8487C70C1DC19AE600E05982 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8487C6FE1DC19AE000E05982 /* Main.storyboard */,
 				8487C7011DC19AE000E05982 /* Assets.xcassets */,
 				8487C7031DC19AE000E05982 /* LaunchScreen.storyboard */,
+				8487C6FE1DC19AE000E05982 /* Main.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -147,6 +150,8 @@
 		8487C70F1DC1A30D00E05982 /* Import */ = {
 			isa = PBXGroup;
 			children = (
+				84118F171DC736AC009D3CDB /* YJCDFaulter.h */,
+				84118F181DC736AC009D3CDB /* YJCDFaulter.m */,
 				84B92E4C1DC1AA6E00D447A0 /* YJCDImportManager.h */,
 				84B92E4D1DC1AA6E00D447A0 /* YJCDImportManager.m */,
 			);
@@ -321,6 +326,7 @@
 				84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */,
 				84B92E4E1DC1AA6E00D447A0 /* YJCDImportManager.m in Sources */,
 				8487C6F71DC19AE000E05982 /* main.m in Sources */,
+				84118F191DC736AC009D3CDB /* YJCDFaulter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

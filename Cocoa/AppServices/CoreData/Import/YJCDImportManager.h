@@ -11,7 +11,33 @@
 
 #import <CoreData/CoreData.h>
 
-/** 导入数据，支持xml和SQLite*/
+NS_ASSUME_NONNULL_BEGIN
+
+/** 导入SQLite数据*/
 @interface YJCDImportManager : NSObject
 
+/**
+ *  @abstract 唯一字段<NSManagedObject, 唯一的字段名>
+ *  @discusstion 主要用于避免导入重复数据
+ */
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSString *> *entitiesWithUniqueAttributes;
+@property (nonatomic, strong) NSArray<NSString *> *entities; ///< 需要导入的实体类,默认全部导入
+@property (nonatomic, strong) NSManagedObjectContext *targetContext; ///< 导入的目标托管对象上下文，默认YJCDManagerS.rootContext
+
+@property (nonatomic, copy) void (^ importProgress)(float progress); ///< 导入的进度[0,1]
+
+@property (nonatomic, strong, nullable) NSError *importError; ///< 导入失败时的错误信息
+
+/**
+ *  @abstract 导入SQLite数据
+ *  @discusstion 会堵塞线程，建议后台执行
+ *
+ *  @param storeURL 数据库地址
+ *
+ *  @return BOOL
+ */
+- (BOOL)importWithStoreURL:(NSURL *)storeURL;
+
 @end
+
+NS_ASSUME_NONNULL_END

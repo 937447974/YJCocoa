@@ -27,7 +27,7 @@
     return self;
 }
 
-- (BOOL)migrateStore:(NSError *__autoreleasing  _Nullable *)error {
+- (BOOL)migrateStore {
     NSError *resultError = nil;
     // Model
     NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:YJCDManagerS.storeURL error:&resultError];
@@ -56,10 +56,8 @@
     } else {
         resultError = [NSError errorWithDomain:@"迁移失败:映射模型是null！" code:YJCDMSetupMigration userInfo:nil];
     }
-    if (error) {
-        *error = resultError;
-    }
-    return !resultError;
+    self.migrateError = resultError;
+    return !self.migrateError;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
