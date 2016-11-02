@@ -15,7 +15,7 @@
 #import "YJNSDirectory.h"
 #import "YJDispatch.h"
 
-#define version 1
+#define version 2
 #define version1 version==1
 #define version2 version==2
 
@@ -49,7 +49,7 @@
     // MigrationModel version1 -> 2
     if (setup == YJCDMSetupSuccess) { // 添加测试数据
 #if version1
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100000; i++) {
             YJTest *test = [YJTest insertNewObject];
             test.names = [NSString stringWithFormat:@"阳君-%d", i];
         }

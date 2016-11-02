@@ -29,38 +29,34 @@
 
 - (BOOL)migrateStore {
     NSError *resultError = nil;
+    NSURL *sourceURL = YJCDManagerS.storeURL;
     // Model
-    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:YJCDManagerS.storeURL error:&resultError];
+    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:sourceURL error:&resultError];
     NSManagedObjectModel *sourceModel = [NSManagedObjectModel mergedModelFromBundles:nil forStoreMetadata:sourceMetadata];
-    NSManagedObjectModel *destinModel = YJCDManagerS.model;
+    NSManagedObjectModel *destinationModel = YJCDManagerS.model;
     // mapping model
-    NSMappingModel *mappingModel = [NSMappingModel mappingModelFromBundles:nil forSourceModel:sourceModel destinationModel:destinModel];
+    NSMappingModel *mappingModel = [NSMappingModel mappingModelFromBundles:nil forSourceModel:sourceModel destinationModel:destinationModel];
     if (mappingModel) {
-        // migration
-        NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinModel];
-        [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:nil];
-        NSURL *destinStore = [YJNSDirectoryS.tempURL URLByAppendingPathComponent:@"YJCoreDataTemp.sqlite"];
-        NSMutableDictionary *options = [NSMutableDictionary dictionary];
-        // Core Data会试着把低版本的持久化存储区迁移到最新版本的模型
-        [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
-        // Core Data会试着以最合理的方式自动推断不对版本间的熟悉队员
-        [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
-        [options setObject:@YES forKey:NSInferMappingModelAutomaticallyOption];
-        // 禁用WAL模式
-        [options setObject:[NSDictionary dictionaryWithObject:@"DELETE" forKey:@"journal_mode" ] forKey:NSSQLiteAnalyzeOption];
-        BOOL success = [migrationManager migrateStoreFromURL:YJCDManagerS.storeURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
-        [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
+        // destination URL
         NSFileManager *fm = [NSFileManager defaultManager];
+        NSURL *destinationURL = [YJNSDirectoryS.tempURL URLByAppendingPathComponent:@"YJCoreData"];
+        [fm removeItemAtURL:destinationURL error:nil];
+        [fm createDirectoryAtURL:destinationURL withIntermediateDirectories:YES attributes:nil error:&resultError];
+        destinationURL = [destinationURL URLByAppendingPathComponent:sourceURL.lastPathComponent];
+        // migration
+        NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinationModel];
+        [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:nil];
+        BOOL success = [migrationManager migrateStoreFromURL:sourceURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinationURL destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
+        [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
         if (success) {
             // move store
-            [fm removeItemAtURL:storeURL.URLByDeletingLastPathComponent error:nil];
-            if ([fm moveSafeItemAtURL:destinStore toURL:YJCDManagerS.storeURL error:&resultError]) {
-                [YJCDManagerS setupWithStoreURL:YJCDManagerS.storeURL error:&resultError];
+            if ([fm moveSafeItemAtURL:destinationURL toURL:sourceURL error:&resultError]) {
+                [fm removeItemAtURL:[NSURL fileURLWithPath:[sourceURL.path stringByAppendingString:@"-shm"]] error:nil];
+                [fm removeItemAtURL:[NSURL fileURLWithPath:[sourceURL.path stringByAppendingString:@"-wal"]] error:nil];
+                [YJCDManagerS setupWithStoreURL:sourceURL error:&resultError];
             }
         } else {
             [migrationManager cancelMigrationWithError:resultError];
-            [fm removeItemAtURL:destinStore error:nil];
-            NSLog(@"迁移失败: %@", resultError);
         }
     } else {
         resultError = [NSError errorWithDomain:@"迁移失败:映射模型是null！" code:YJCDMSetupMigration userInfo:nil];

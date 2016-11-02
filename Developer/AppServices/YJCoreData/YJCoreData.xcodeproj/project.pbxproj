@@ -483,7 +483,7 @@
 				84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */,
 				84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */,
 			);
-			currentVersion = 84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */;
+			currentVersion = 84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */;
 			path = MigrationModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
