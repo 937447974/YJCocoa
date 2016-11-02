@@ -216,6 +216,7 @@ YJ技术支持群：557445088
 | | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
 | 4.2.1 | 2016-10-22 | DictionaryModel修复NSString值设置到number属性崩溃问题 |
 | 4.3.0 | 2016-10-25 | FileManager上线，支持快速移动文件 |
+| 4.3.1 | 2016-11-02 | UITableView和UICollectionView数据源越界保护，由crash改为log输出。
 
 ##Copyright
 

@@ -32,7 +32,7 @@ fi
 
 # 更新记录
 
-osascript -e 'display notification "2016-10-25 | FileManager上线，支持快速移动文件" with title "YJCocoa 4.3.0"'
+osascript -e 'display notification "2016-11-02 | UITableView和UICollectionView数据源越界保护，由crash改为log输出。" with title "YJCocoa 4.3.0"'
 
 
 
