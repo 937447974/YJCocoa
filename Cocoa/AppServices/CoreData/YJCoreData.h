@@ -12,9 +12,6 @@
 // CoreData核心管理类
 #import "YJCDManager.h"
 
-// 导入数据，支持xml和SQLite
-#import "YJCDImportManager.h"
-
 // 迁移管理器，主要用于数据库迁移升级
 #import "YJCDMigrationManager.h"
 

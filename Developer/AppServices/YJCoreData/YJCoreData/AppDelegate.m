@@ -33,8 +33,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [self testMigration];
-    [self testImport];
+    [self testMigration];
     return YES;
 }
 
@@ -70,19 +69,6 @@
     } else {
         NSLog(@"%@", error);
     }
-}
-
-#pragma mark 导入数据
-- (void)testImport {
-    NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
-    [YJCDManagerS setupWithStoreURL:storeURL error:nil];
-//    NSURL *xmlURL = [[NSBundle mainBundle] URLForResource:@"Import" withExtension:@"xml"];
-    YJCDImportManager *im = [YJCDImportManager new];
-    [im importWithStoreURL:nil];
-//    [im importXMLStore:xmlURL];
-//    
-//    YJUser *user = [YJUser new];
-//    user.phones;
 }
 
 @end
