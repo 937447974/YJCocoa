@@ -23,4 +23,12 @@
     return [[NSFetchRequest alloc] initWithEntityName:YJNSStringFromClass(self.class)];
 }
 
+- (void)deleteObject {
+    [self.managedObjectContext deleteObject:self];
+}
+
+- (void)refreshObject:(BOOL)mergeChanges {
+    [self.managedObjectContext refreshObject:self mergeChanges:mergeChanges];
+}
+
 @end

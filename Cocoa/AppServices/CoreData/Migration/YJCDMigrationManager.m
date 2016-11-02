@@ -40,11 +40,20 @@
         NSMigrationManager *migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinModel];
         [migrationManager addObserver:self forKeyPath:@"migrationProgress" options:NSKeyValueObservingOptionNew context:nil];
         NSURL *destinStore = [YJNSDirectoryS.tempURL URLByAppendingPathComponent:@"YJCoreDataTemp.sqlite"];
+        NSMutableDictionary *options = [NSMutableDictionary dictionary];
+        // Core Data会试着把低版本的持久化存储区迁移到最新版本的模型
+        [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
+        // Core Data会试着以最合理的方式自动推断不对版本间的熟悉队员
+        [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
+        [options setObject:@YES forKey:NSInferMappingModelAutomaticallyOption];
+        // 禁用WAL模式
+        [options setObject:[NSDictionary dictionaryWithObject:@"DELETE" forKey:@"journal_mode" ] forKey:NSSQLiteAnalyzeOption];
         BOOL success = [migrationManager migrateStoreFromURL:YJCDManagerS.storeURL type:NSSQLiteStoreType options:nil withMappingModel:mappingModel toDestinationURL:destinStore destinationType:NSSQLiteStoreType destinationOptions:nil error:&resultError];
         [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
         NSFileManager *fm = [NSFileManager defaultManager];
         if (success) {
             // move store
+            [fm removeItemAtURL:storeURL.URLByDeletingLastPathComponent error:nil];
             if ([fm moveSafeItemAtURL:destinStore toURL:YJCDManagerS.storeURL error:&resultError]) {
                 [YJCDManagerS setupWithStoreURL:YJCDManagerS.storeURL error:&resultError];
             }

@@ -72,6 +72,12 @@
 
 #pragma mark - save
 - (BOOL)saveInMemory:(NSError * _Nullable __autoreleasing *)error {
+    if (!self.store) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"数据库未设置" code:888 userInfo:nil];
+        }
+        return NO;
+    }
     if (self.mainContext.hasChanges) {
         return [self.mainContext save:error];
     }

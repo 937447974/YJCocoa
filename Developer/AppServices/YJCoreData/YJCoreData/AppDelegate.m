@@ -15,7 +15,7 @@
 #import "YJNSDirectory.h"
 #import "YJDispatch.h"
 
-#define version 2
+#define version 1
 #define version1 version==1
 #define version2 version==2
 
@@ -41,30 +41,26 @@
 - (void)testMigration {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
     NSLog(@"%@", storeURL);
-    __block NSError *error;
+    NSError *error;
 #if version1
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL.URLByDeletingLastPathComponent error:&error];
 #endif
     YJCDMSetup setup = [YJCDManagerS setupWithStoreURL:storeURL error:&error];
     // MigrationModel version1 -> 2
     if (setup == YJCDMSetupSuccess) { // 添加测试数据
 #if version1
-        for (int i = 0; i < 200000; i++) {
+        for (int i = 0; i < 1000; i++) {
             YJTest *test = [YJTest insertNewObject];
             test.names = [NSString stringWithFormat:@"阳君-%d", i];
         }
         [YJCDManagerS saveInStore:^(BOOL success, NSError * _Nonnull error) {
-            success ? abort() : NSLog(@"%@", error);
+            success ? NSLog(@"数据库保存成功") : NSLog(@"%@", error);
         }];
 #endif
     } else if (setup == YJCDMSetupMigration) {
         dispatch_async_background(^{
             YJCDMigrationManager *mm = [[YJCDMigrationManager alloc] init];
-            if ([mm migrateStore]) {
-                NSLog(@"数据库升级成功");
-            } else {
-                NSLog(@"数据库升级错误：%@", error);
-            }
+            [mm migrateStore] ? NSLog(@"数据库升级成功") : NSLog(@"数据库升级错误：%@", mm.migrateError);
         });
     } else {
         NSLog(@"%@", error);

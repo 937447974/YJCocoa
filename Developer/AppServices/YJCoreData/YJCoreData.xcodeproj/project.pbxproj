@@ -211,6 +211,7 @@
 				TargetAttributes = {
 					8487C6F11DC19AE000E05982 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = P64WN7EK5E;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -429,10 +430,11 @@
 			baseConfigurationReference = 2FEF06D2B7B6C57375F9CDA7 /* Pods-YJCoreData.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJCoreData/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJCoreData;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.iphonedev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -442,10 +444,11 @@
 			baseConfigurationReference = 4652F0C64E928FD243391748 /* Pods-YJCoreData.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJCoreData/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJCoreData;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.iphonedev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -480,7 +483,7 @@
 				84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */,
 				84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */,
 			);
-			currentVersion = 84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */;
+			currentVersion = 84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */;
 			path = MigrationModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
