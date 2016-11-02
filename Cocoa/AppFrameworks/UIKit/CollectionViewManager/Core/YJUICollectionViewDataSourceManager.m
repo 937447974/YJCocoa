@@ -71,10 +71,18 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (_manager.dataSourceGrouped.count <= section) {
+        NSLog(@"error:数组越界");
+        return 0;
+    }
     return self.manager.dataSourceGrouped[section].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
+        NSLog(@"error:数组越界");
+        return [UICollectionViewCell new];
+    }
     YJUICollectionCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
     UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
@@ -84,8 +92,16 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     YJUICollectionCellObject *cellObject;
     if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
+        if (self.headerDataSource.count <= indexPath.section) {
+            NSLog(@"error:数组越界");
+            return [UICollectionReusableView new];
+        }
         cellObject = self.headerDataSource[indexPath.section];
     } else {
+        if (self.footerDataSource.count <= indexPath.section) {
+            NSLog(@"error:数组越界");
+            return [UICollectionReusableView new];
+        }
         cellObject = self.footerDataSource[indexPath.section];
     }
     cellObject.indexPath = indexPath;

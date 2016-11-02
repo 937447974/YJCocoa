@@ -37,10 +37,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_manager.dataSourceGrouped.count <= section) {
+        NSLog(@"error:数组越界");
+        return 0;
+    }
     return [_manager.dataSourceGrouped objectAtIndex:section].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+        NSLog(@"error:数组越界");
+        return [UITableViewCell new];
+    }
     YJUITableCellObject *cellObject = _manager.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
     return [self dequeueReusableCellWithCellObject:cellObject];
