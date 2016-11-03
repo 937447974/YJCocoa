@@ -15,7 +15,7 @@
 #import "YJNSDirectory.h"
 #import "YJDispatch.h"
 
-#define version 2
+#define version 1
 #define version1 version==1
 #define version2 version==2
 

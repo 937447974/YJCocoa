@@ -29,8 +29,8 @@
         self.mainContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
         // Notification
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
-        [nc addObserver:self selector:@selector(saveInNotification) name:UIApplicationWillTerminateNotification object:nil];
+        [nc addObserver:self selector:@selector(saveWithNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        [nc addObserver:self selector:@selector(saveWithNotification) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
 }
@@ -102,7 +102,7 @@
     }
 }
 
-- (void)saveInNotification {
+- (void)saveWithNotification {
     [self saveInStore:^(BOOL success, NSError * _Nonnull error) {
         if (success) {
             NSLog(@"YJCoreData自动化保存数据库完成。");
