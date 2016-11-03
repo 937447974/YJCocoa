@@ -188,18 +188,18 @@ YJ技术支持群：557445088
 | 1.1.0 | 2016-05-12 | GCD封装 |
 | 1.2.0 | 2016-05-16 | YJCocoa拆分，可根据自己的需求选择相关库 |
 | 1.3.0 | 2016-05-20 | YJCocoa引入‘YJCocoa/CoreServicesLayer/Foundation/Log’。NSLog打印优化，Unicode自动转化为中文输出。|
-| 1.4.0 | 2016-05-20 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'。YJAutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。 |
-| 1.4.1 | 2016-05-20 | YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
-| 1.5.0 | 2016-05-20 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
+| 1.4.0 | | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout'。YJAutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。 |
+| 1.4.1 | | YJCocoa.h自动引入‘YJCocoa/CocoaTouchLayer/UIKit/AutoLayout' |
+| 1.5.0 | | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。|
 | 1.6.0 | 2016-05-21 | YJCocoa引入‘YJCocoa/CocoaTouchLayer/UIKit/TableView'。UITableView封装。|
-| 1.7.0 | 2016-05-21 | YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
+| 1.7.0 | | YJCocoa/CocoaTouchLayer/UIKit/CollectionView上线，UICollectionView封装 |
 | 1.7.1 | 2016-05-23 | 部分方法调整，说明文档更新 |
 | 1.7.2 | 2016-05-25 | system中gcd封装升级，支持串行和并行 |
 | 1.8.0 | 2016-05-26 | 新库'YJCocoa/CoreServicesLayer/Foundation/Singleton'上线,单例管理中心解决项目级单例滥用问题。 |
-| 1.9.0 | 2016-05-26 | 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
-| 2.0.0 | 2016-05-26 | YJCocoa开发文档首次发包 |
-| 2.0.1 | 2016-05-26 | 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
-| 2.0.2 | 2016-05-26 | ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
+| 1.9.0 | | 新库‘YJCocoa/CoreServicesLayer/Foundation/HttpAnalysis’上线，快速解析http链接获取其中参数 |
+| 2.0.0 | | YJCocoa开发文档首次发包 |
+| 2.0.1 | | 新库'YJCocoa/CocoaTouchLayer/UIKit/InputLength'上线，UITextField和UITextView增加可输入长度控制 |
+| 2.0.2 | | ‘YJCocoa/CocoaTouchLayer/UIKit/PageView’升级，任何间隔切换VC，内存释放稳定。 |
 | | 2016-05-30 | ‘TableView’和‘CollectionView’升级，增加快速刷新cell的方法。|
 | | 2016-05-31 | ‘AutoLayout’升级，增加动画修改约束和快速查找约束的方法。 |
 | 2.1.0 | 2016-06-01 | ‘UIViewGeometry’上线。UIView(UIViewGeometry)相关扩展，可快速设置frame。|
@@ -215,10 +215,10 @@ YJ技术支持群：557445088
 | | 2016-07-25 | PerformSelector库上线，用于安全执行Selector，可携带多个参数。 | 
 | | 2016-07-29 | ‘CoreOSLayer/Security/Randomization’库上线，可快速生成指定位数的随机密码。 |
 | | 2016-08-02 | ‘CoreOSLayer/Security/Keychain’库上线，面向对象管理Keychain，支持自定义存储数据。 |
-| | 2016-08-02 | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
+| | | 修复YJNavigationBar和其他第三方SDK冲突，YJ后添加后缀C。 |
 | 2.4.0 | 2016-08-05 | Log升级，新增方法NSLogS(id obj)，可快速打印对象。 |
-| | 2016-08-05 | Timer上线，替换NSTimer实现相关计时器功能。|
-| | 2016-08-05 | System升级，新增同步主线程方法dispatch_sync_main。|
+| | | Timer上线，替换NSTimer实现相关计时器功能。|
+| | | System升级，新增同步主线程方法dispatch_sync_main。|
 | 2.4.1 | 2016-08-10 | AutoLayout修复bug：二次执行相同代码无法修改约束。 |
 | | 2016-08-17 | Timer升级，修复主线程卡顿崩溃，时间间隔可支持0.001秒。 |
 | 2.4.2 | 2016-08-19 | ViewGeometry升级，支持快速设置UIView.bounds。|
