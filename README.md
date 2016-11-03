@@ -134,6 +134,16 @@ UITableView管理器
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
+#2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101002.png)AppServices
+
+##2.1 CoreData
+
+CoreData封装
+
+1. 多级托管对象上下文管理，有NSPrivateQueueConcurrencyType和NSMainQueueConcurrencyType。
+2. APP进入后台或crash前，自动保存数据，保证数据不丢失。
+3. 手动保存数据，支持前台保存和后台保存。
+4. 通过迁移管理器做数据库版本升级时，可时时获取升级进度。
 
 #2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
 
