@@ -1,5 +1,5 @@
 //
-//  YJCDCoreData.h
+//  YJCoreData.h
 //  YJCoreData
 //
 //  HomePage:https://github.com/937447974/YJCocoa

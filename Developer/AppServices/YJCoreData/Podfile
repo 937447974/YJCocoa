@@ -8,6 +8,8 @@ target 'YJCoreData' do
 pod 'YJCocoa/AppFrameworks/Foundation/Directory'
 pod 'YJCocoa/AppFrameworks/Foundation/FileManager'
 pod 'YJCocoa/AppFrameworks/Foundation/Timer'
+
+# 测试使用
 pod 'YJCocoa/System/Dispatch'
 
 end

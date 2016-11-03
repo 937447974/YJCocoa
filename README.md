@@ -142,22 +142,23 @@ CoreData封装
 
 1. 多级托管对象上下文管理，有NSPrivateQueueConcurrencyType和NSMainQueueConcurrencyType。
 2. APP进入后台或crash前，自动保存数据，保证数据不丢失。
+3. 可定制自动间隔保存，如每3分钟执行一次数据库保存操作。
 3. 手动保存数据，支持前台保存和后台保存。
 4. 通过迁移管理器做数据库版本升级时，可时时获取升级进度。
 
-#2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
+#3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
 
-##2.1 Dispatch
+##3.1 Dispatch
 
 GCD相关封装
 
-##2.2 Security
+##3.2 Security
 
-###2.2.1 Keychain
+###3.2.1 Keychain
 
 面向对象管理Keychain，支持自定义存储数据。
 
-###2.2.2 Random
+###3.2.2 Random
 
 快速生成指定位数的随机密码。
 
@@ -236,6 +237,8 @@ YJ技术支持群：557445088
 | | 2016-10-20 | Color上线，支持函数生成UIColor，及点语法设置背景色 |
 | 4.2.1 | 2016-10-22 | DictionaryModel修复NSString值设置到number属性崩溃问题 |
 | 4.3.0 | 2016-10-25 | FileManager上线，支持快速移动文件 |
+| 5.0.0 | 2016-11-03 | YJCocoa最低支持有iOS6升级到iOS7 |
+| | 2016-11-03 | CoreData上线，支持并发操作、自动保存、前台保存、后台保存以及数据库版本升级 |
 
 ##Copyright
 
