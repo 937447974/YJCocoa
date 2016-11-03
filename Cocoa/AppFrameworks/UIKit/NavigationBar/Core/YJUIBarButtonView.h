@@ -12,13 +12,19 @@
 #import <UIKit/UIKit.h>
 #import "YJUIBarButtonItem.h"
 
+/** 按钮显示的高度*/
+#define YJUIBarButtonHeight 30
+
 NS_ASSUME_NONNULL_BEGIN
 
 /** 按钮View*/
 @interface YJUIBarButtonView : UIView
 
-@property (nullable, nonatomic, strong) YJUIBarButtonItem *barButtonItem; ///< 按钮
-@property (nullable, nonatomic, strong) NSArray<YJUIBarButtonItem *> *barButtonItems; ///< 按钮集合
+@property (nullable, nonatomic, strong) YJUIBarButtonItem *barButtonItem; ///< 按钮Item
+@property (nullable, nonatomic, strong) NSArray<YJUIBarButtonItem *> *barButtonItems; ///< 按钮Item集合
+
+@property (nullable, nonatomic, strong) UIButton *barButton; ///< 按钮
+@property (nullable, nonatomic, strong) NSArray<UIButton *> *barButtons; ///< 按钮集合
 
 @property (nonatomic, strong) UIColor *titleColor; ///< 字体颜色，默认黑色
 @property (nonatomic, strong) UIFont *titleFont;   ///< 字体大小，默认14
