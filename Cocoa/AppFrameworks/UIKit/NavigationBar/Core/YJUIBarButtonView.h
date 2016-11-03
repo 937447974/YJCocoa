@@ -12,9 +12,6 @@
 #import <UIKit/UIKit.h>
 #import "YJUIBarButtonItem.h"
 
-/** 按钮显示的高度*/
-#define YJUIBarButtonHeight 30
-
 NS_ASSUME_NONNULL_BEGIN
 
 /** 按钮View*/

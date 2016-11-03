@@ -74,11 +74,11 @@
         [view removeFromSuperview];
     }
     CGFloat x = -self.spacing;
-    CGFloat y = (self.heightFrame - YJUIBarButtonHeight) / 2;
+    CGFloat centerY = self.heightFrame / 2;
     for (UIButton *button in barButtons) {
         x += self.spacing;
         [self addSubview:button];
-        button.topFrame = y;
+        button.centerYFrame = centerY;
         button.leadingFrame = x;
         x = button.trailingFrame;
     }
@@ -91,7 +91,7 @@
 
 #pragma mark - YJUIBarButtonItem转UIButton
 - (UIButton *)buttonWithItem:(YJUIBarButtonItem *)item {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, YJUIBarButtonHeight)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [self addSubview:button];
     button.tag = item.tag;
     // 标题

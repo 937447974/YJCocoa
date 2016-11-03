@@ -30,7 +30,7 @@
     // 框架按钮
     nb.leftBarButtonView.barButtonItem = [[YJUIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
     // 自定义按钮
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, YJUIBarButtonHeight)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     button.titleLabel.font = [YJUIBarButtonView appearance].titleFont;
     [button setTitle:@"完成" forState:UIControlStateNormal];
     [button setTitleColor:shareBarButtonView.titleColor forState:UIControlStateNormal];
