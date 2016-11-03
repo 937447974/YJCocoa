@@ -33,12 +33,12 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self testMigration];
+    [self test];
     return YES;
 }
 
-#pragma mark 迁移数据
-- (void)testMigration {
+#pragma mark
+- (void)test {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
     NSLog(@"%@", storeURL);
     NSError *error;
@@ -57,6 +57,8 @@
             success ? NSLog(@"数据库保存成功") : NSLog(@"%@", error);
         }];
 #endif
+        // 设置自动保存，10秒保存一次
+        YJCDManagerS.autoSaveInterval = 10;
     } else if (setup == YJCDMSetupMigration) {
         dispatch_async_background(^{
             YJCDMigrationManager *mm = [[YJCDMigrationManager alloc] init];

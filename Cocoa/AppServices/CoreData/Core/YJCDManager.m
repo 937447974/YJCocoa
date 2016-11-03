@@ -10,6 +10,7 @@
 //
 
 #import "YJCDManager.h"
+#import "YJNSTimer.h"
 
 @implementation YJCDManager
 
@@ -29,10 +30,23 @@
         self.mainContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
         // Notification
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(saveWithNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
-        [nc addObserver:self selector:@selector(saveWithNotification) name:UIApplicationWillTerminateNotification object:nil];
+        [nc addObserver:self selector:@selector(saveAuto) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        [nc addObserver:self selector:@selector(saveAuto) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
+}
+
+#pragma mark getter & setter
+- (void)setAutoSaveInterval:(NSTimeInterval)autoSaveInterval {
+    _autoSaveInterval = autoSaveInterval;
+    YJNSTimer *timer = [YJNSTimer timerStrongWithIdentifier:@"YJCDManager"];
+    if (autoSaveInterval > 0) {
+        [timer addTarget:self action:@selector(saveAuto)];
+        timer.timeInterval = autoSaveInterval;
+        [timer run];
+    } else {
+        [timer invalidate];
+    }
 }
 
 #pragma mark - setup
@@ -102,10 +116,10 @@
     }
 }
 
-- (void)saveWithNotification {
+- (void)saveAuto {
     [self saveInStore:^(BOOL success, NSError * _Nonnull error) {
         if (success) {
-            NSLog(@"YJCoreData自动化保存数据库完成。");
+            NSLog(@"YJCoreData自动化保存数据库成功");
         } else {
             NSLog(@"YJCoreData自动化保存数据库失败:%@", error);
         }

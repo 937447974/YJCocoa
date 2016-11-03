@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, YJCDMSetup) {
 /** CoreData核心管理类*/
 @interface YJCDManager : NSObject
 
+@property (nonatomic) NSTimeInterval autoSaveInterval; ///< 自动化间隔保存
+
 @property (nonatomic, strong) NSManagedObjectContext *rootContext; ///< 根托管对象上下文(NSPrivateQueueConcurrencyType)
 @property (nonatomic, strong) NSManagedObjectContext *mainContext; ///< 主托管对象上下文(NSMainQueueConcurrencyType)
 
