@@ -30,6 +30,8 @@
     [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
     YJNSPerformSelector *result = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
     NSLog(@"%@", result.result);
+    // 多参数，方法不接受
+    [self performSelector:@selector(testPerformSelector1) withObjects:@[@"1",@"2"]];
 }
 
 - (void)testPerformSelector1 {

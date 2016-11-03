@@ -21,6 +21,9 @@
         [invo setSelector:aSelector];
         NSInteger idx = 2;
         for (__strong id obj in objects) {
+            if (idx == invo.methodSignature.numberOfArguments) {
+                break;
+            }
             [invo setArgument:&obj atIndex:idx++];
         }
         [invo invoke];
