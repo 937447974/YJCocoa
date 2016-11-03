@@ -16,11 +16,9 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
     // 修改默认配置
     [YJUINavigationBar appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
-    
     YJUIBarButtonView *shareBarButtonView = [YJUIBarButtonView appearance];
     shareBarButtonView.titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
     
