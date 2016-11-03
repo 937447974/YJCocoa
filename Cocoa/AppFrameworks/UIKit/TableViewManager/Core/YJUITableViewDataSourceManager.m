@@ -37,10 +37,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_manager.dataSourceGrouped.count <= section) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
-        return 0;
-    }
     return [_manager.dataSourceGrouped objectAtIndex:section].count;
 }
 
