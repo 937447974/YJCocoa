@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32DCA6F7CB0FB9E2332A0694 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 		84118F141DC6FC0B009D3CDB /* Model1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84118F131DC6FC0B009D3CDB /* Model1To2.xcmappingmodel */; };
 		8487C6F71DC19AE000E05982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F61DC19AE000E05982 /* main.m */; };
 		8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F91DC19AE000E05982 /* AppDelegate.m */; };
@@ -18,7 +19,6 @@
 		84B92E511DC1AA7D00D447A0 /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E501DC1AA7D00D447A0 /* YJCDManager.m */; };
 		84B92E541DC1AC0300D447A0 /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */; };
 		84BCC18C1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84BCC17B1DC3C9BF0044FE1C /* MigrationModel.xcdatamodeld */; };
-		F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A9CB3DB9A6D16039DC2AB4 /* libPods-YJCoreData.a in Frameworks */,
+				32DCA6F7CB0FB9E2332A0694 /* libPods-YJCoreData.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
