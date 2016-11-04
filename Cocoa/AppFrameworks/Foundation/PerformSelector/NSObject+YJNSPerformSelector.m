@@ -15,6 +15,7 @@
 
 - (YJNSPerformSelector *)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
     NSMethodSignature *sig = [self methodSignatureForSelector:aSelector];
+    id anObject;
     if (sig) {
         NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
         [invo setTarget:self];
@@ -28,14 +29,10 @@
         }
         [invo invoke];
         if (sig.methodReturnLength) {
-            id anObject;
             [invo getReturnValue:&anObject];
-            return [[YJNSPerformSelector alloc] initWithSuccess:YES result:anObject];
-        } else {
-            return [[YJNSPerformSelector alloc] initWithSuccess:YES result:nil];
         }
     }
-    return [[YJNSPerformSelector alloc] initWithSuccess:NO result:nil];
+    return [[YJNSPerformSelector alloc] initWithSuccess:sig result:anObject];
 }
 
 @end
