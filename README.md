@@ -241,6 +241,7 @@ YJ技术支持群：557445088
 | 5.0.0 | 2016-11-03 | YJCocoa最低支持由iOS6升级到iOS7 |
 | | | CoreData上线，支持并发操作、自动保存、前台保存、后台保存以及数据库版本升级 |
 | | | NavigationBar升级，支持自定义按钮 |
+| | 2016-11-06 | PerformSelector移除类YJNSPerformSelector |
 
 ##Copyright
 

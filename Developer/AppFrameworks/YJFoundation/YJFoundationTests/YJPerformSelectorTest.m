@@ -16,17 +16,32 @@
 @implementation YJPerformSelectorTest
 
 - (void)testExample {
-    [self performSelector:@selector(testPerformSelector1) withObjects:nil];
-    [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
-    YJNSPerformSelector *result = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
-    NSLog(@"%d---%@", result.success, result.result);
-    // 多参数，方法不接受
-    // 方法传入多参数
-    [self performSelector:@selector(testPerformSelector1) withObjects:@[@"1",@"2"]];
+    [self performSelector:@selector(testPerform) withObjects:nil]; //方法不存在
+    
+    CGFloat result;
+    [[self performSelector:@selector(testPerformSelector) withObjects:nil] getValue:&result];
+    NSLog(@"%f\n ", result);
+    
+    BOOL result1 = [self performSelector:@selector(testPerformSelector1) withObjects:nil];
+    NSLog(@"%d\n ", result1);
+    result1 = [self performSelector:@selector(testPerformSelector1) withObjects:@[@"1",@"2"]];// 方法传入多参数
+    NSLog(@"%d\n ", result1);
+    
+    id result2 = [self performSelector:@selector(testPerformSelector2:withObject:withObject:) withObjects:@[@"1",@"2"]];
+    NSLog(@"%@\n ", result2);
+    
+    NSString *result3 = [self performSelector:@selector(testPerformSelector3:withObject:) withObjects:@[@"1",@"2"]];
+    NSLog(@"%@\n ", result3);
 }
 
-- (void)testPerformSelector1 {
+- (CGFloat)testPerformSelector {
     NSLog(NSStringFromSelector(_cmd), nil);
+    return 1.2;
+}
+
+- (BOOL)testPerformSelector1 {
+    NSLog(NSStringFromSelector(_cmd), nil);
+    return YES;
 }
 
 - (void)testPerformSelector2:(id)object0 withObject:(id)object1 withObject:(id)object2 {

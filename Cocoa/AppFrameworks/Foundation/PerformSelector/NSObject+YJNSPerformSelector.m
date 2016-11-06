@@ -13,7 +13,7 @@
 
 @implementation NSObject (YJNSPerformSelector)
 
-- (YJNSPerformSelector *)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
+- (id)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
     NSMethodSignature *sig = [self methodSignatureForSelector:aSelector];
     id anObject;
     if (sig) {
@@ -29,10 +29,19 @@
         }
         [invo invoke];
         if (sig.methodReturnLength) {
-            [invo getReturnValue:&anObject];
+            // https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1
+            NSSet *numberSet = [NSSet setWithObjects:@"c", @"i", @"s", @"l", @"q", @"C", @"I", @"S", @"L", @"Q", @"f", @"d", @"B", nil];
+            NSString *type = [NSString stringWithUTF8String:sig.methodReturnType];
+            if ([numberSet containsObject:type]) {
+                void *value;
+                [invo getReturnValue:&value];
+                anObject = [[NSNumber alloc] initWithBytes:&value objCType:sig.methodReturnType];
+            } else {
+                [invo getReturnValue:&anObject];
+            }
         }
     }
-    return [[YJNSPerformSelector alloc] initWithSuccess:sig result:anObject];
+    return anObject;
 }
 
 @end

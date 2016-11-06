@@ -10,7 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSPerformSelector.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param aSelector 方法体
  *  @param objects   携带的参数
  *
- *  @return void
+ *  @return id
  */
-- (YJNSPerformSelector *)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
+- (id)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
 
 @end
 
