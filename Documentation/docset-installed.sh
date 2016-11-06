@@ -34,6 +34,7 @@ fi
 osascript -e 'display notification "2016-11-03 | YJCocoa最低支持由iOS6升级到iOS7" with title "YJCocoa 5.0.0"'
 osascript -e 'display notification "2016-11-03 | CoreData上线，支持并发操作、自动保存、前台保存、后台保存以及数据库版本升级" with title "YJCocoa 5.0.0"'
 osascript -e 'display notification "2016-11-03 | NavigationBar升级，支持自定义按钮" with title "YJCocoa 5.0.0"'
+osascript -e 'display notification "2016-11-06 | PerformSelector移除类YJNSPerformSelector" with title "YJCocoa 5.0.0"'
 
 
 
