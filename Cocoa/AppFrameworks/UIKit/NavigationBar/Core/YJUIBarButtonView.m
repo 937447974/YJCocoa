@@ -55,41 +55,31 @@
 
 - (void)setBarButtonItems:(NSArray<YJUIBarButtonItem *> *)barButtonItems {
     _barButtonItems = barButtonItems;
-    [self reloadData];
+    NSMutableArray *barButtons = [NSMutableArray array];
+    for (YJUIBarButtonItem *item in self.barButtonItems) {
+        [barButtons addObject:[self buttonWithItem:item]];
+    }
+    self.barButtons = barButtons;
 }
 
-#pragma mark - 刷新UI
-- (void)reloadData {
+- (void)setBarButton:(UIButton *)barButton {
+    _barButton = barButton;
+    self.barButtons = @[barButton];
+}
+
+- (void)setBarButtons:(NSArray<UIButton *> *)barButtons {
+    _barButtons = barButtons;
     // 界面渲染
     for (UIView *view in self.subviews) {
         [view removeFromSuperview];
     }
-    CGFloat y = (self.heightFrame - 30) / 2;
     CGFloat x = -self.spacing;
-    for (YJUIBarButtonItem *item in self.barButtonItems) {
+    CGFloat centerY = self.heightFrame / 2;
+    for (UIButton *button in barButtons) {
         x += self.spacing;
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, 30, 30)];
         [self addSubview:button];
-        button.tag = item.tag;
-        // 标题
-        if (item.title) {
-            button.titleLabel.font = self.titleFont;
-            [button setTitle:item.title forState:UIControlStateNormal];
-            [button setTitleColor:self.titleColor forState:UIControlStateNormal];
-            [button setTitleColor:[self.titleColor colorWithAlphaComponent:self.highlightedAlpha] forState:UIControlStateHighlighted];
-        }        
-        // 图片
-        if (item.image) {
-            [button setImage:item.image forState:UIControlStateNormal];
-            [button setImage:[self imageWithAlpha:self.highlightedAlpha image:item.image] forState:UIControlStateHighlighted];
-        }
-        // 事件
-        [button addTarget:item.target action:item.action forControlEvents:UIControlEventTouchUpInside];
-        // 位置
-        CGSize size = [button systemLayoutSizeFittingSize:CGSizeMake(300, 30)];
-        if (size.width > 30) {
-            button.widthFrame = size.width;
-        }
+        button.centerYFrame = centerY;
+        button.leadingFrame = x;
         x = button.trailingFrame;
     }
     self.widthFrame = x > 0 ? x : 0;
@@ -99,7 +89,34 @@
     }
 }
 
-#pragma mark - 图片透明度
+#pragma mark - YJUIBarButtonItem转UIButton
+- (UIButton *)buttonWithItem:(YJUIBarButtonItem *)item {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [self addSubview:button];
+    button.tag = item.tag;
+    // 标题
+    if (item.title) {
+        button.titleLabel.font = self.titleFont;
+        [button setTitle:item.title forState:UIControlStateNormal];
+        [button setTitleColor:self.titleColor forState:UIControlStateNormal];
+        [button setTitleColor:[self.titleColor colorWithAlphaComponent:self.highlightedAlpha] forState:UIControlStateHighlighted];
+    }
+    // 图片
+    if (item.image) {
+        [button setImage:item.image forState:UIControlStateNormal];
+        [button setImage:[self imageWithAlpha:self.highlightedAlpha image:item.image] forState:UIControlStateHighlighted];
+    }
+    // 事件
+    [button addTarget:item.target action:item.action forControlEvents:UIControlEventTouchUpInside];
+    // 位置
+    CGSize size = [button systemLayoutSizeFittingSize:CGSizeMake(300, 30)];
+    if (size.width > 30) {
+        button.widthFrame = size.width;
+    }
+    return button;
+}
+
+#pragma mark 图片透明度
 - (UIImage *)imageWithAlpha:(CGFloat)alpha image:(UIImage*)image {
     UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
     CGContextRef ctx = UIGraphicsGetCurrentContext();

@@ -29,6 +29,9 @@
 		841725EE1DACBC1C006022A9 /* YJUIPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725BF1DACBC1C006022A9 /* YJUIPageViewController.m */; };
 		841725EF1DACBC1C006022A9 /* YJUIPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725C11DACBC1C006022A9 /* YJUIPageViewObject.m */; };
 		841725F51DACBC1C006022A9 /* UIView+YJUIViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 841725D51DACBC1C006022A9 /* UIView+YJUIViewGeometry.m */; };
+		8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D5591DCB0E5200D7420B /* YJCDManager.m */; };
+		8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */; };
+		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -118,6 +121,14 @@
 		841725D41DACBC1C006022A9 /* UIView+YJUIViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJUIViewGeometry.h"; sourceTree = "<group>"; };
 		841725D51DACBC1C006022A9 /* UIView+YJUIViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJUIViewGeometry.m"; sourceTree = "<group>"; };
 		841725D61DACBC1C006022A9 /* YJUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIKit.h; sourceTree = "<group>"; };
+		8427D5581DCB0E5200D7420B /* YJCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManager.h; sourceTree = "<group>"; };
+		8427D5591DCB0E5200D7420B /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
+		8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDMigrationManager.h; sourceTree = "<group>"; };
+		8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDMigrationManager.m; sourceTree = "<group>"; };
+		8427D55E1DCB0E5200D7420B /* YJCDManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManagedObject.h; sourceTree = "<group>"; };
+		8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManagedObject.m; sourceTree = "<group>"; };
+		8427D5601DCB0E5200D7420B /* YJCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCoreData.h; sourceTree = "<group>"; };
+		8427D5641DCB0E8B00D7420B /* YJAppServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAppServices.h; sourceTree = "<group>"; };
 		8444EB1F1D6D4A740088D112 /* YJCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCocoa.h; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,10 +375,58 @@
 			path = ViewGeometry;
 			sourceTree = "<group>";
 		};
+		8427D5551DCB0E5200D7420B /* AppServices */ = {
+			isa = PBXGroup;
+			children = (
+				8427D5561DCB0E5200D7420B /* CoreData */,
+				8427D5641DCB0E8B00D7420B /* YJAppServices.h */,
+			);
+			path = AppServices;
+			sourceTree = "<group>";
+		};
+		8427D5561DCB0E5200D7420B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8427D5571DCB0E5200D7420B /* Core */,
+				8427D55A1DCB0E5200D7420B /* Migration */,
+				8427D55D1DCB0E5200D7420B /* Object */,
+				8427D5601DCB0E5200D7420B /* YJCoreData.h */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8427D5571DCB0E5200D7420B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8427D5581DCB0E5200D7420B /* YJCDManager.h */,
+				8427D5591DCB0E5200D7420B /* YJCDManager.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8427D55A1DCB0E5200D7420B /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */,
+				8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */,
+			);
+			path = Migration;
+			sourceTree = "<group>";
+		};
+		8427D55D1DCB0E5200D7420B /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				8427D55E1DCB0E5200D7420B /* YJCDManagedObject.h */,
+				8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		8444EA961D6D4A740088D112 /* Cocoa */ = {
 			isa = PBXGroup;
 			children = (
 				84D3560A1DAB722B0097D526 /* AppFrameworks */,
+				8427D5551DCB0E5200D7420B /* AppServices */,
 				84D3551B1DAB432F0097D526 /* System */,
 				8444EB1F1D6D4A740088D112 /* YJCocoa.h */,
 			);
@@ -791,6 +850,7 @@
 				848BA7FF1DB9E7CF0086AB52 /* YJUIColor.m in Sources */,
 				84D356381DAB722B0097D526 /* YJNSTimer.m in Sources */,
 				84CEC1551DB4B33E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
+				8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */,
 				84F264EB1DB5ECFC00C0F06A /* YJUICollectionViewDelegateManager.m in Sources */,
@@ -822,6 +882,7 @@
 				84D356371DAB722B0097D526 /* YJNSSingletonMCenter.m in Sources */,
 				84D355201DAB432F0097D526 /* YJDispatch.m in Sources */,
 				841725DE1DACBC1C006022A9 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */,
+				8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */,
 				84F264E91DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m in Sources */,
 				84F264E71DB5ECFC00C0F06A /* YJUICollectionViewCell.m in Sources */,
 				84F264E81DB5ECFC00C0F06A /* YJUICollectionCellObject.m in Sources */,
@@ -832,6 +893,7 @@
 				84D356361DAB722B0097D526 /* YJNSPerformSelector.m in Sources */,
 				841725E81DACBC1C006022A9 /* YJUIBarButtonView.m in Sources */,
 				841725EE1DACBC1C006022A9 /* YJUIPageViewController.m in Sources */,
+				8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */,
 				841725DA1DACBC1C006022A9 /* YJNSLayoutDimension.m in Sources */,
 				84D3562F1DAB722B0097D526 /* YJNSDictionaryModelManager.m in Sources */,
 				841725ED1DACBC1C006022A9 /* YJUIPageView.m in Sources */,
@@ -901,7 +963,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -942,7 +1004,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

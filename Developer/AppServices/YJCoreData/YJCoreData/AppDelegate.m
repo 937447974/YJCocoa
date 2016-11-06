@@ -15,12 +15,14 @@
 #import "YJNSDirectory.h"
 #import "YJDispatch.h"
 
-#define version1 0
+#define version 1
+#define version1 version==1
+#define version2 version==2
 
 #if version1
 #import "YJTest+CoreDataClass.h"
-#else
-#import "YJUsers+CoreDataClass.h"
+#elif version2
+#import "YJUser+CoreDataClass.h"
 #import "YJPhone+CoreDataClass.h"
 #endif
 
@@ -31,64 +33,40 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self testMigration];
-    
-     NSObject *obj = [NSObject new];
-    [[NSNotificationCenter defaultCenter] addObserver:obj selector:@selector(testMigration) name:@"11" object:nil];
-    __weak NSObject *obj2 = obj;
-    dispatch_async_main(^{
-        NSLog(@"%@", obj2);
-        //NSLog(@"%@", obj);
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"11" object:nil];
-    });
-    
+    [self test];
     return YES;
 }
 
-#pragma mark 迁移数据
-- (void)testMigration {
+#pragma mark
+- (void)test {
     NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
     NSLog(@"%@", storeURL);
     NSError *error;
+#if version1
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL.URLByDeletingLastPathComponent error:&error];
+#endif
     YJCDMSetup setup = [YJCDManagerS setupWithStoreURL:storeURL error:&error];
     // MigrationModel version1 -> 2
     if (setup == YJCDMSetupSuccess) { // 添加测试数据
 #if version1
-        NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             YJTest *test = [YJTest insertNewObject];
             test.names = [NSString stringWithFormat:@"阳君-%d", i];
-            [array addObject:test];
-
         }
         [YJCDManagerS saveInStore:^(BOOL success, NSError * _Nonnull error) {
-            if (success) {
-                [YJCDManagerS.mainContext deleteObject:[array objectAtIndex:5]];
-                [YJCDManagerS saveInStore:^(BOOL success, NSError * _Nonnull error) {
-                    abort();
-                }];
-            } else {
-                NSLog(@"%@", error);
-            }
+            success ? NSLog(@"数据库保存成功") : NSLog(@"%@", error);
         }];
-#else
-        YJUsers *user = [YJUsers insertNewObject];
-        [YJCDManagerS saveInStore:nil];
 #endif
+        // 设置自动保存，10秒保存一次
+        YJCDManagerS.autoSaveInterval = 10;
     } else if (setup == YJCDMSetupMigration) {
         dispatch_async_background(^{
             YJCDMigrationManager *mm = [[YJCDMigrationManager alloc] init];
-            NSLog(@"数据库升级是否成功：%d", [mm migrateStore:nil]);
+            [mm migrateStore] ? NSLog(@"数据库升级成功") : NSLog(@"数据库升级错误：%@", mm.migrateError);
         });
     } else {
         NSLog(@"%@", error);
     }
-}
-
-#pragma mark 导入数据
-- (void)testImport {
-    NSURL *storeURL = [YJNSDirectoryS.documentURL URLByAppendingPathComponent:@"YJCoreData/CoreData.sqlite"];
-    [YJCDManagerS setupWithStoreURL:storeURL error:nil];
 }
 
 @end

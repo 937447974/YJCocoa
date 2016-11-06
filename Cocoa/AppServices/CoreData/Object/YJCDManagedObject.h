@@ -31,6 +31,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSFetchRequest<NSManagedObject *> *)fetchRequest;
 
+/**
+ *  @abstract 删除当前对象
+ *  @discusstion 需手动保存
+ */
+- (void)deleteObject;
+
+/**
+ *  @abstract 执行refreshObject:mergeChanges:方法
+ */
+- (void)refreshObject:(BOOL)mergeChanges;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -2,16 +2,15 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="YJPhone" representedClassName="YJPhone" syncable="YES" codeGenerationType="class">
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YJUser" inverseName="phones" inverseEntity="YJUser" syncable="YES"/>
     </entity>
-    <entity name="YJUsers" representedClassName="YJUsers" syncable="YES" codeGenerationType="class">
+    <entity name="YJUser" representedClassName="YJUser" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qq" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="phones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YJPhone" syncable="YES"/>
+        <relationship name="phones" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YJPhone" inverseName="user" inverseEntity="YJPhone" syncable="YES"/>
     </entity>
     <elements>
-        <element name="YJUsers" positionX="-54" positionY="-9" width="128" height="103"/>
         <element name="YJPhone" positionX="-360" positionY="18" width="135" height="73"/>
+        <element name="YJUser" positionX="-54" positionY="-9" width="128" height="88"/>
     </elements>
 </model>

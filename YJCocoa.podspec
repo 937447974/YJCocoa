@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "4.3.1"
+    s.version  = "5.0.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -187,7 +187,29 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
         end
     end
 
-    # 2 System
+    # 2 AppServices
+    s.subspec 'AppServices' do |as|
+        as.source_files = 'Cocoa/AppServices/*.{h,m}'
+        as.subspec 'CoreData' do |cd|
+            cd.source_files = 'Cocoa/AppServices/CoreData/*.{h,m}'
+            cd.subspec 'Core' do |cdCore|
+                cdCore.source_files = 'Cocoa/AppServices/CoreData/Core/*.{h,m}'
+                cdCore.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
+            end
+            cd.subspec 'Migration' do |cdMigration|
+                cdMigration.source_files = 'Cocoa/AppServices/CoreData/Migration/*.{h,m}'
+                cdMigration.dependency 'YJCocoa/AppServices/CoreData/Core'
+                cdMigration.dependency 'YJCocoa/AppFrameworks/Foundation/Directory'
+                cdMigration.dependency 'YJCocoa/AppFrameworks/Foundation/FileManager'
+            end
+            cd.subspec 'Object' do |cdObject|
+                cdObject.source_files = 'Cocoa/AppServices/CoreData/Object/*.{h,m}'
+                cdObject.dependency 'YJCocoa/AppServices/CoreData/Core'
+            end
+        end
+    end
+
+    # 3 System
     s.subspec 'System' do |system|
         system.source_files = 'Cocoa/System/*.{h,m}'
         system.subspec 'Dispatch' do |dispatch|

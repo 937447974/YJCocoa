@@ -18,15 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void (^ migrationProgress)(float progress); ///< 迁移进度[0,1]
 
+@property (nonatomic, strong, nullable) NSError *migrateError; ///< 迁移失败时的错误信息
+
 /**
  *  @abstract 执行迁移升级数据库操作
  *  @discusstion 会堵塞线程，建议后台执行
  *
- *  @param error 错误信息
- *
  *  @return BOOL
  */
-- (BOOL)migrateStore:(NSError * _Nullable *)error;
+- (BOOL)migrateStore;
 
 @end
 
