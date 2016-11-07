@@ -32,7 +32,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
 
     # ――― Platform
     s.platform = :ios
-    s.ios.deployment_target = "6.0"
+    s.ios.deployment_target = "7.0"
 
 
     # ——— Documentation And API Reference
