@@ -788,7 +788,7 @@
 		8473AB701CE969DB000E3580 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					8473AB771CE969DB000E3580 = {
