@@ -14,6 +14,10 @@
 
 @implementation YJTestCollectionReusableView
 
++ (YJUICollectionCellCreate)cellCreate {
+    return YJUICollectionCellCreateClass;
+}
+
 + (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject {
     if (cellObject.createCell == YJUICollectionCellCreateClass) {
         return CGSizeMake(10, 100);

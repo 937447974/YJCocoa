@@ -24,7 +24,7 @@
 + (id)cellObject {
     YJUICollectionCellObject *cellObject = [[YJUICollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
     cellObject.createCell = [self cellCreate];
-    return [[YJUICollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
+    return cellObject;
 }
 
 + (id)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel {
