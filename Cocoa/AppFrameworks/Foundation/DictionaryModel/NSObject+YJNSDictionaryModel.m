@@ -82,6 +82,10 @@
             case YJNSDMPAttributeTypeString:     // NSString
                 [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
+            case YJNSDMPAttributeTypeURL:        // NSURL
+                value = [value hasSuffix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
+                [self setValue:value forKey:p.attributeName];
+                break;
             case YJNSDMPAttributeTypeArray:      // NSArray
                 if ([value isKindOfClass:[NSArray class]]) {
                     if (!p.importArrayClassSystem) {
@@ -179,7 +183,7 @@
     if ([attributeItems containsObject:@"R"] || [attributeItems containsObject:@"W"] || ![attributeItems containsObject:@"N"]) {
         return nil;
     }
-    // immutable classes: NSString, NSNumber, NSArray, NSDictionary
+    // immutable classes: NSNumber, NSString, NSURL, NSArray, NSDictionary
     if (attributeItems.count == 3) {
         p.attributeClass = YJNSDMPAttributeTypeNumber;
     } else if (attributeItems.count == 4) {
@@ -195,6 +199,8 @@
             if ([dMManager.systemBaseClass containsObject:p.attributeClass]) {
                 if ([p.attributeClass isSubclassOfClass:[NSString class]]) {
                     p.attributeType = YJNSDMPAttributeTypeString;
+                } else if ([p.attributeClass isSubclassOfClass:[NSURL class]]) {
+                    p.attributeType = YJNSDMPAttributeTypeURL;
                 } else if ([p.attributeClass isSubclassOfClass:[NSDictionary class]]) {
                     p.attributeType = YJNSDMPAttributeTypeDictionary;
                 } else if ([p.attributeClass isSubclassOfClass:[NSArray class]]) {

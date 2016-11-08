@@ -16,7 +16,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _systemBaseClass = [NSSet setWithObjects:[NSString class], [NSNumber class], [NSDecimalNumber class], [NSArray class], [NSDictionary class], [NSNull class], [NSMutableString class], [NSMutableArray class], [NSMutableDictionary class], nil];
+        _systemBaseClass = [NSSet setWithObjects:[NSNumber class], [NSDecimalNumber class], [NSString class],  [NSURL class], [NSArray class], [NSDictionary class], [NSMutableString class], [NSMutableArray class], [NSMutableDictionary class], [NSNull class], nil];
     }
     return self;
 }
