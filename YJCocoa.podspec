@@ -50,7 +50,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "mas
 
 
     # ——— Subspecs
-    s.default_subspec = 'AppFrameworks', 'System'
+    s.default_subspec = 'AppFrameworks', 'AppServices', 'System'
 
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
