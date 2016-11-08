@@ -27,7 +27,7 @@
     self = [self init];
     if (self) {
         [self setModelDictionary:modelDictionary];
-    }    
+    }
     return self;
 }
 
@@ -36,21 +36,24 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *propertys = [self.class propertys];
     for (YJNSDictionaryModelProperty *p in propertys) {
-        id value;
+        id value = [self valueForKey:p.attributeName];
         switch (p.attributeType) {
             case YJNSDMPAttributeTypeNumber:     // NSNumber
             case YJNSDMPAttributeTypeString:     // NSString
             case YJNSDMPAttributeTypeDictionary: // NSDictionary
-                value = [self valueForKey:p.attributeName];
                 break;
+            case YJNSDMPAttributeTypeURL: {        // NSURL
+                NSURL *url = value;
+                value = url.fileURL ? url.path : url.absoluteString;
+                break;
+            }
             case YJNSDMPAttributeTypeArray:      // NSArray
-                value = [self valueForKey:p.attributeName];
                 if (value && !p.importArrayClassSystem) {
                     value = [self getDictionaryArrayValue:value forProperty:p];
                 }
                 break;
             case YJNSDMPAttributeTypeModel:      // Model
-                value = ((NSObject *)[self valueForKey:p.attributeName]).modelDictionary;
+                value = ((NSObject *)value).modelDictionary;
                 break;
         }
         if (value) {
@@ -74,7 +77,7 @@
         }
         switch (p.attributeType) {
             case YJNSDMPAttributeTypeNumber:     // NSNumber
-                if ([value isKindOfClass:[NSString class]]) {                    
+                if ([value isKindOfClass:[NSString class]]) {
                     value = [numberFormatter numberFromString:value];
                 }
                 [self setValue:value forKey:p.attributeName];
@@ -83,7 +86,7 @@
                 [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
             case YJNSDMPAttributeTypeURL:        // NSURL
-                value = [value hasSuffix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
+                value = [value hasPrefix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
                 [self setValue:value forKey:p.attributeName];
                 break;
             case YJNSDMPAttributeTypeArray:      // NSArray

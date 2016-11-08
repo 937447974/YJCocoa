@@ -41,6 +41,9 @@
 @property (nonatomic, weak, nullable) id <UITableViewDelegate> delegate;
 @property (nonatomic, copy) void (^ __nullable block)(BOOL finished);
 @property (nonatomic, copy) NSArray *(^ __nullable block2)(BOOL finished);
+@property (nonatomic, strong) NSURL *httpURL; ///<
+@property (nonatomic, strong) NSURL *fileURL; ///<
+
 @end
 
 @implementation MyModel2
@@ -81,11 +84,13 @@
     m2.qq = 937447974;
     m2.array1 = @[@"array11",@"array12"];
     m2.array2 = @[@[m1]].mutableCopy;
+    m2.httpURL = [NSURL URLWithString:@"https://github.com/937447974/YJCocoa"];
+    m2.fileURL = [NSURL fileURLWithPath:@"/Users/admin/Library/Developer/CoreSimulator/Devices"];
     
     NSLogS(m1.modelDictionary);
+    
     NSDictionary *dict = m2.modelDictionary;
     NSLogS(dict);
-    
     MyModel2 *m3 = [[MyModel2 alloc] initWithModelDictionary:dict];
     NSLogS(m3.modelDictionary);
     

@@ -243,7 +243,7 @@ YJ技术支持群：557445088
 | | | NavigationBar升级，支持自定义按钮 |
 | | 2016-11-06 | PerformSelector移除类YJNSPerformSelector |
 | 5.0.1 | 2016-11-08 | CollectionViewManager修复`+ (YJUICollectionCellCreate)cellCreate`失效错误 |
-| | | d |
+| | | DictionaryModel增加对NSURL属性的自动转换 |
 
 ##Copyright
 
