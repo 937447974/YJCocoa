@@ -244,6 +244,7 @@ YJ技术支持群：557445088
 | | 2016-11-06 | PerformSelector移除类YJNSPerformSelector |
 | 5.0.1 | 2016-11-08 | CollectionViewManager修复`+ (YJUICollectionCellCreate)cellCreate`失效错误 |
 | | | DictionaryModel增加对NSURL属性的自动转换 |
+| 5.0.2 | 2016-11-15 | cellModel属性添加__kindof关键字 |
 
 ##Copyright
 
