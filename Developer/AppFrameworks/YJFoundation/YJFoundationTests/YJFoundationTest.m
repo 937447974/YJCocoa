@@ -2,7 +2,7 @@
 //  YJFoundationTest.m
 //  YJFoundation
 //
-//  Created by admin on 2016/10/12.
+//  Created by 阳君 on 2016/10/12.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 

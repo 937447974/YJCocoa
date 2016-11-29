@@ -2,7 +2,7 @@
 //  YJDictionaryModelTest.m
 //  YJFoundation
 //
-//  Created by admin on 2016/10/10.
+//  Created by 阳君 on 2016/10/10.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 

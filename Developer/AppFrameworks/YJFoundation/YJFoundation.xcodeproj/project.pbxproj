@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
+		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
+		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
 		84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF938F1DBF5039004662BF /* YJNSFileManager.m */; };
+		84D28EC61DED3548001AF6B5 /* YJNSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D28EC51DED3548001AF6B5 /* YJNSURLSession.m */; };
 		84D355821DAB5E700097D526 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355811DAB5E700097D526 /* main.m */; };
 		84D355851DAB5E700097D526 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355841DAB5E700097D526 /* AppDelegate.m */; };
 		84D355881DAB5E700097D526 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355871DAB5E700097D526 /* ViewController.m */; };
@@ -20,7 +23,6 @@
 		84D3558D1DAB5E700097D526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558C1DAB5E700097D526 /* Assets.xcassets */; };
 		84D355901DAB5E700097D526 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558E1DAB5E700097D526 /* LaunchScreen.storyboard */; };
 		84D355A91DAB60750097D526 /* YJLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355A81DAB60750097D526 /* YJLogTest.m */; };
-		84D355D81DAB66900097D526 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D355D71DAB66900097D526 /* libPods.a */; };
 		84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355D91DAB68C50097D526 /* YJHttpTest.m */; };
 		84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */; };
 		84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */; };
@@ -34,7 +36,7 @@
 		84D356601DAB73F10097D526 /* NSObject+YJNSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3564F1DAB73F10097D526 /* NSObject+YJNSPerformSelector.m */; };
 		84D356621DAB73F10097D526 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356541DAB73F10097D526 /* YJNSSingletonMCenter.m */; };
 		84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356571DAB73F10097D526 /* YJNSTimer.m */; };
-		ED35F38E57D551239CD5BE53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1179E5823AC561CE347572D /* libPods.a */; };
+		9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,15 +50,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		840BE1A41DAE3B8F00ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
 		840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
+		847815991DED518900B2ED8D /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
+		8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionTask.m; sourceTree = "<group>"; };
+		847815A01DED523400B2ED8D /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
+		847815A11DED523400B2ED8D /* YJNSURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLRequest.m; sourceTree = "<group>"; };
+		847815A51DED5A4200B2ED8D /* YJNSHTTPBodyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJNSHTTPBodyProtocol.h; sourceTree = "<group>"; };
 		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAOPTest.m; sourceTree = "<group>"; };
 		84CF938E1DBF5039004662BF /* YJNSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSFileManager.h; sourceTree = "<group>"; };
 		84CF938F1DBF5039004662BF /* YJNSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSFileManager.m; sourceTree = "<group>"; };
+		84D28EC41DED3548001AF6B5 /* YJNSURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSession.h; sourceTree = "<group>"; };
+		84D28EC51DED3548001AF6B5 /* YJNSURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSession.m; sourceTree = "<group>"; };
 		84D3557D1DAB5E700097D526 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D355811DAB5E700097D526 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84D355831DAB5E700097D526 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,9 +106,8 @@
 		84D356561DAB73F10097D526 /* YJNSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSTimer.h; sourceTree = "<group>"; };
 		84D356571DAB73F10097D526 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		84D356581DAB73F10097D526 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
-		93AC8A6B1253F33B501CE1E7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A16CE2E581632C57957D4806 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C1179E5823AC561CE347572D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B48EAA311845AE2F047289A /* Pods-YJFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.debug.xcconfig"; sourceTree = "<group>"; };
+		B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED35F38E57D551239CD5BE53 /* libPods.a in Frameworks */,
+				9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D355D81DAB66900097D526 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				84D355D71DAB66900097D526 /* libPods.a */,
-				C1179E5823AC561CE347572D /* libPods.a */,
+				B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,6 +145,32 @@
 				840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */,
 			);
 			path = Directory;
+			sourceTree = "<group>";
+		};
+		847815981DED518900B2ED8D /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				847815991DED518900B2ED8D /* YJNSURLSessionTask.h */,
+				8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		8478159F1DED522500B2ED8D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				847815A01DED523400B2ED8D /* YJNSURLRequest.h */,
+				847815A11DED523400B2ED8D /* YJNSURLRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		847815A31DED59CB00B2ED8D /* HTTPBody */ = {
+			isa = PBXGroup;
+			children = (
+				847815A51DED5A4200B2ED8D /* YJNSHTTPBodyProtocol.h */,
+			);
+			path = HTTPBody;
 			sourceTree = "<group>";
 		};
 		84C59DCE1DB0D43C00B93218 /* AOP */ = {
@@ -157,14 +191,26 @@
 			path = FileManager;
 			sourceTree = "<group>";
 		};
+		84D28EC31DED3535001AF6B5 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				847815A31DED59CB00B2ED8D /* HTTPBody */,
+				8478159F1DED522500B2ED8D /* Request */,
+				847815981DED518900B2ED8D /* Task */,
+				84D28EC41DED3548001AF6B5 /* YJNSURLSession.h */,
+				84D28EC51DED3548001AF6B5 /* YJNSURLSession.m */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
 		84D355741DAB5E700097D526 = {
 			isa = PBXGroup;
 			children = (
 				84D3557F1DAB5E700097D526 /* YJFoundation */,
 				84D3559D1DAB601C0097D526 /* YJFoundationTests */,
 				84D3557E1DAB5E700097D526 /* Products */,
-				FB8CACF23163D51F096F57F4 /* Pods */,
 				7AC3B8E64C87D1A243423627 /* Frameworks */,
+				ECA41A5E7A555D3ED95C735C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +284,7 @@
 				84D3564D1DAB73F10097D526 /* PerformSelector */,
 				84D356521DAB73F10097D526 /* Singleton */,
 				84D356551DAB73F10097D526 /* Timer */,
+				84D28EC31DED3535001AF6B5 /* URLSession */,
 				84D356581DAB73F10097D526 /* YJFoundation.h */,
 			);
 			name = Foundation;
@@ -314,11 +361,11 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		FB8CACF23163D51F096F57F4 /* Pods */ = {
+		ECA41A5E7A555D3ED95C735C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				93AC8A6B1253F33B501CE1E7 /* Pods.debug.xcconfig */,
-				A16CE2E581632C57957D4806 /* Pods.release.xcconfig */,
+				9B48EAA311845AE2F047289A /* Pods-YJFoundation.debug.xcconfig */,
+				070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -330,12 +377,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D355941DAB5E700097D526 /* Build configuration list for PBXNativeTarget "YJFoundation" */;
 			buildPhases = (
-				C6F559B37F1392181EDAAD6C /* Check Pods Manifest.lock */,
+				7DA842ACB51D7E61C1D9DC5C /* [CP] Check Pods Manifest.lock */,
 				84D355791DAB5E700097D526 /* Sources */,
 				84D3557A1DAB5E700097D526 /* Frameworks */,
 				84D3557B1DAB5E700097D526 /* Resources */,
-				37B59FB40ECFB47D4C66B76F /* Embed Pods Frameworks */,
-				71A4D5831973A7767F3D460E /* Copy Pods Resources */,
+				586A082F6E4315DC0242366A /* [CP] Embed Pods Frameworks */,
+				4B0749A574B3ED8F580A80BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -425,44 +472,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37B59FB40ECFB47D4C66B76F /* Embed Pods Frameworks */ = {
+		4B0749A574B3ED8F580A80BF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		71A4D5831973A7767F3D460E /* Copy Pods Resources */ = {
+		586A082F6E4315DC0242366A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6F559B37F1392181EDAAD6C /* Check Pods Manifest.lock */ = {
+		7DA842ACB51D7E61C1D9DC5C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +531,14 @@
 				84D356601DAB73F10097D526 /* NSObject+YJNSPerformSelector.m in Sources */,
 				84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */,
 				84D3565F1DAB73F10097D526 /* YJNSFoundationOther.m in Sources */,
+				847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */,
 				84D356621DAB73F10097D526 /* YJNSSingletonMCenter.m in Sources */,
 				84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */,
+				8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */,
 				84D3565C1DAB73F10097D526 /* YJNSHttpAnalysis.m in Sources */,
 				84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */,
 				84D3565E1DAB73F10097D526 /* YJNSLog.m in Sources */,
+				84D28EC61DED3548001AF6B5 /* YJNSURLSession.m in Sources */,
 				84D3565A1DAB73F10097D526 /* YJNSDictionaryModelManager.m in Sources */,
 				84D355821DAB5E700097D526 /* main.m in Sources */,
 				84D356591DAB73F10097D526 /* NSObject+YJNSDictionaryModel.m in Sources */,
@@ -634,7 +684,7 @@
 		};
 		84D355951DAB5E700097D526 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93AC8A6B1253F33B501CE1E7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 9B48EAA311845AE2F047289A /* Pods-YJFoundation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
@@ -646,7 +696,7 @@
 		};
 		84D355961DAB5E700097D526 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A16CE2E581632C57957D4806 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
