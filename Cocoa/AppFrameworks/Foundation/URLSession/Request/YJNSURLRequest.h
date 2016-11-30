@@ -18,12 +18,10 @@ typedef NSString * YJNSHTTPMethod NS_STRING_ENUM; ///< 请求方式
 FOUNDATION_EXPORT YJNSHTTPMethod const YJNSHTTPMethodGET;  ///< GET请求
 FOUNDATION_EXPORT YJNSHTTPMethod const YJNSHTTPMethodPOST; ///< POST请求
 
-// 建议使用工程模式或扩展模式创建YJNSURLRequest
-
 /** NSURLRequest*/
 @interface YJNSURLRequest : NSObject
 
-@property (nonatomic, readonly, copy) NSString *identifier;
+@property (nonatomic, copy) NSString *identifier; ///< 唯一标示
 
 @property (nonatomic, weak) __kindof NSObject *source; ///< 发起网络请求的对象
 

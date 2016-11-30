@@ -11,6 +11,7 @@
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
+		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
 		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
@@ -59,6 +60,8 @@
 		847815A01DED523400B2ED8D /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
 		847815A11DED523400B2ED8D /* YJNSURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLRequest.m; sourceTree = "<group>"; };
 		847815A51DED5A4200B2ED8D /* YJNSHTTPBodyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJNSHTTPBodyProtocol.h; sourceTree = "<group>"; };
+		847815A71DEE72A900B2ED8D /* YJNSURLSessionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionPool.h; sourceTree = "<group>"; };
+		847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionPool.m; sourceTree = "<group>"; };
 		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
@@ -173,6 +176,15 @@
 			path = HTTPBody;
 			sourceTree = "<group>";
 		};
+		847815A61DEE729500B2ED8D /* Pool */ = {
+			isa = PBXGroup;
+			children = (
+				847815A71DEE72A900B2ED8D /* YJNSURLSessionPool.h */,
+				847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */,
+			);
+			path = Pool;
+			sourceTree = "<group>";
+		};
 		84C59DCE1DB0D43C00B93218 /* AOP */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +206,7 @@
 		84D28EC31DED3535001AF6B5 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
+				847815A61DEE729500B2ED8D /* Pool */,
 				847815A31DED59CB00B2ED8D /* HTTPBody */,
 				8478159F1DED522500B2ED8D /* Request */,
 				847815981DED518900B2ED8D /* Task */,
@@ -536,6 +549,7 @@
 				84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */,
 				8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */,
 				84D3565C1DAB73F10097D526 /* YJNSHttpAnalysis.m in Sources */,
+				847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */,
 				84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */,
 				84D3565E1DAB73F10097D526 /* YJNSLog.m in Sources */,
 				84D28EC61DED3548001AF6B5 /* YJNSURLSession.m in Sources */,

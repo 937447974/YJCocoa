@@ -14,10 +14,34 @@
 @implementation YJNSURLSession
 
 + (YJNSURLSessionTask *)taskWithRequest:(YJNSURLRequest *)request {
-    // 这里可做短线重连，网络管理等相关工作
-    YJNSURLSessionTask *task = [[YJNSURLSessionTask alloc] init];
-    task.request = request;
+    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
+    YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
+    if (!task) {
+        task = [[YJNSURLSessionTask alloc] init];
+        task.request = request;
+        sPool.poolDict[request.identifier] = task;
+    }
     return task;
+}
+
++ (void)resumeAllFailedTask {
+    NSArray *allEffectiveTask = [self allEffectiveTask];
+    for (YJNSURLSessionTask *task in allEffectiveTask) {
+        if (task.state == YJNSURLSessionTaskStateFailure) {
+            [task resume];
+        }
+    }
+}
+
++ (NSArray *)allEffectiveTask {
+    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
+    NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
+    NSMutableArray *removeKeyArray = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
+    for (YJNSURLRequest *request in sPool.poolDict.allValues) {
+        request.source ? [allEffectiveTask addObject:request] : [removeKeyArray addObject:request.identifier];
+    }
+    [sPool.poolDict removeObjectsForKeys:removeKeyArray];
+    return allEffectiveTask;
 }
 
 @end

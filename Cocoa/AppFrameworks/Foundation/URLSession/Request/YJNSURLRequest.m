@@ -24,6 +24,7 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 }
 
 - (NSString *)identifier {
+    if (_identifier) return _identifier;
     return [NSString stringWithFormat:@"%@-%@", NSStringFromClass(self.source.class), self.URL];
 }
 

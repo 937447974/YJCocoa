@@ -10,24 +10,30 @@
 //
 
 #import "YJNSURLSessionTask.h"
+#import "YJDispatch.h"
 
 @implementation YJNSURLSessionTask
 
 #pragma mark - getter & setter
 - (YJNSURLSessionTaskSuccess)success {
-    if(!_success) {
-        _success = ^(__kindof NSObject *data, NSURLResponse *response) { };
-    }
-    return _success;
+    __weakSelf
+    YJNSURLSessionTaskSuccess block = ^(__kindof NSObject *data, NSURLResponse *response) {
+        __strongSelf
+        strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
+        if (strongSelf.success && strongSelf.request.source) strongSelf.success(data, response);
+    };
+    return block;
 }
 
 - (YJNSURLSessionTaskFailure)failure {
-    if(!_failure) {
-        _failure = ^(NSError *error) {
-            NSLog(@"%@", error);
-        };
-    }
-    return _failure;
+    __weakSelf
+    YJNSURLSessionTaskFailure block = ^(NSError *error) {
+        __strongSelf
+        NSLog(@"%@", error);
+        strongSelf -> _state = YJNSURLSessionTaskStateFailure;
+        if (strongSelf.failure && strongSelf.request.source) strongSelf.failure(error);
+    };
+    return block;
 }
 
 #pragma mark -
@@ -39,10 +45,17 @@
 
 - (void)resume {
     NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.HTTPBody.modelDictionary);
+    self -> _state = YJNSURLSessionTaskStateRunning;
+}
+
+- (void)suspend {
+    NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+    self -> _state = YJNSURLSessionTaskStateSuspended;
 }
 
 - (void)cancel {
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+    self -> _state = YJNSURLSessionTaskStateCanceling;
 }
 
 @end

@@ -11,6 +11,9 @@
 
 #import <Foundation/Foundation.h>
 #import "YJNSURLSessionTask.h"
+#import "YJNSURLSessionPool.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /** NSURLSession*/
 @interface YJNSURLSession : NSObject
@@ -24,4 +27,12 @@
  */
 + (__kindof YJNSURLSessionTask *)taskWithRequest:(YJNSURLRequest *)request;
 
+/**
+ *  @abstract 重新执行所有失败的任务
+ *  @discusstion 用户从无网回到有网时，可通过此方法快速恢复业务
+ */
++ (void)resumeAllFailedTask;
+
 @end
+
+NS_ASSUME_NONNULL_END
