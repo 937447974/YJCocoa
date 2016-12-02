@@ -40,8 +40,8 @@
     if (scroll != _scroll && [self.manager.delegate respondsToSelector:@selector(collectionViewManager:scroll:)]) {
         _scroll = scroll;
         [self.manager.delegate collectionViewManager:self.manager scroll:scroll];
-        if (scroll == YJUICollectionViewScrollEndBottom && [self.manager.delegate respondsToSelector:@selector(collectionViewManagerloadingPageData:)]) {
-            [self.manager.delegate collectionViewManagerloadingPageData:self.manager];
+        if (scroll == YJUICollectionViewScrollEndBottom && [self.manager.delegate respondsToSelector:@selector(collectionViewManagerLoadingPageData:)]) {
+            [self.manager.delegate collectionViewManagerLoadingPageData:self.manager];
         }
     }
 }

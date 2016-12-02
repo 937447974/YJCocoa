@@ -33,11 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  分页加载数据
  *
  *  @param manager YJUICollectionViewManager
- *  @param cell    将要显示的Cell
  *
  *  @return void
  */
-- (void)collectionViewManagerloadingPageData:(YJUICollectionViewManager *)manager;
+- (void)collectionViewManagerLoadingPageData:(YJUICollectionViewManager *)manager;
 
 /**
  *  用户滚动UICollectionView

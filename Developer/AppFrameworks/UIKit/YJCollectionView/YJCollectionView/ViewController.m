@@ -59,7 +59,7 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
-- (void)collectionViewManagerloadingPageData:(YJUICollectionViewManager *)manager {
+- (void)collectionViewManagerLoadingPageData:(YJUICollectionViewManager *)manager {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
