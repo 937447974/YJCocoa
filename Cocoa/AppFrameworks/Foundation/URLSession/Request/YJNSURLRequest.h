@@ -21,9 +21,12 @@ FOUNDATION_EXPORT YJNSHTTPMethod const YJNSHTTPMethodPOST; ///< POST请求
 /** NSURLRequest*/
 @interface YJNSURLRequest : NSObject
 
+@property (nonatomic) BOOL supportResume; ///< 是否支持网络重连
+
 @property (nonatomic, copy) NSString *identifier; ///< 唯一标示
 
-@property (nonatomic, weak) __kindof NSObject *source; ///< 发起网络请求的对象
+@property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
+@property (nonatomic, readonly) Class URLSessionTask;  ///< 网络会话任务对应的类
 
 @property (nonatomic, copy) NSString *URL;             ///< 请求地址
 @property (nonatomic, copy) YJNSHTTPMethod HTTPMethod; ///< 请求方式，默认YJNSHTTPMethodGET

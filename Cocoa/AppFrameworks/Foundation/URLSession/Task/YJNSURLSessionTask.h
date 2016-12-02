@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
 
 @property (nonatomic, strong) YJNSURLRequest *request;
 
+@property (nonatomic) BOOL needResume; ///< 是否需要YJNSURLSession执行网络重连
+
 @property (nonatomic, readonly) YJNSURLSessionTaskState state; ///< 任务状态
 
 @property (nonatomic, copy) YJNSURLSessionTaskSuccess success; ///< 成功回调

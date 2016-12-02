@@ -18,14 +18,14 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 
 + (instancetype)requestWithSource:(NSObject *)source {
     YJNSURLRequest *request = [[self alloc] init];
-    request.source = source;
+    request -> _source = source;
     request.HTTPMethod = YJNSHTTPMethodGET;
     return request;
 }
 
 - (NSString *)identifier {
     if (_identifier) return _identifier;
-    return [NSString stringWithFormat:@"%@-%@", NSStringFromClass(self.source.class), self.URL];
+    return [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
 }
 
 @end

@@ -28,10 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (__kindof YJNSURLSessionTask *)taskWithRequest:(YJNSURLRequest *)request;
 
 /**
- *  @abstract 重新执行所有失败的任务
+ *  @abstract 重新执行所有需要重连的任务
  *  @discusstion 用户从无网回到有网时，可通过此方法快速恢复业务
  */
-+ (void)resumeAllFailedTask;
++ (void)resumeAllNeedTask;
 
 @end
 

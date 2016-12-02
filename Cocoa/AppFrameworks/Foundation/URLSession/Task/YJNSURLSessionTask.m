@@ -36,6 +36,10 @@
     return block;
 }
 
+- (BOOL)needResume {
+    return _needResume && self.request.supportResume;
+}
+
 #pragma mark -
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
     self.success = success;
@@ -46,6 +50,7 @@
 - (void)resume {
     NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.HTTPBody.modelDictionary);
     self -> _state = YJNSURLSessionTaskStateRunning;
+    self.needResume = NO;
 }
 
 - (void)suspend {

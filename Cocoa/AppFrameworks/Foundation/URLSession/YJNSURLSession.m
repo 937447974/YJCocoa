@@ -24,10 +24,10 @@
     return task;
 }
 
-+ (void)resumeAllFailedTask {
++ (void)resumeAllNeedTask {
     NSArray *allEffectiveTask = [self allEffectiveTask];
     for (YJNSURLSessionTask *task in allEffectiveTask) {
-        if (task.state == YJNSURLSessionTaskStateFailure) {
+        if (task.needResume) {
             [task resume];
         }
     }

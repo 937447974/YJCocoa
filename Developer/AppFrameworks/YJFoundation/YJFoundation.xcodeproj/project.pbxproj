@@ -12,6 +12,11 @@
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
+		847815AE1DEEDFCA00B2ED8D /* YJURLSessionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815AD1DEEDFCA00B2ED8D /* YJURLSessionTest.m */; };
+		847815B41DEEE04800B2ED8D /* YJTestHTTPBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815B31DEEE04800B2ED8D /* YJTestHTTPBody.m */; };
+		847815B81DEEE10700B2ED8D /* YJTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815B71DEEE10700B2ED8D /* YJTestModel.m */; };
+		847815BC1DEEE16700B2ED8D /* YJTestURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815BB1DEEE16700B2ED8D /* YJTestURLRequest.m */; };
+		847815C01DEEE1CD00B2ED8D /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815BF1DEEE1CD00B2ED8D /* YJTestURLSessionTask.m */; };
 		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
@@ -62,6 +67,15 @@
 		847815A51DED5A4200B2ED8D /* YJNSHTTPBodyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJNSHTTPBodyProtocol.h; sourceTree = "<group>"; };
 		847815A71DEE72A900B2ED8D /* YJNSURLSessionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionPool.h; sourceTree = "<group>"; };
 		847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionPool.m; sourceTree = "<group>"; };
+		847815AD1DEEDFCA00B2ED8D /* YJURLSessionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJURLSessionTest.m; sourceTree = "<group>"; };
+		847815B21DEEE04800B2ED8D /* YJTestHTTPBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestHTTPBody.h; sourceTree = "<group>"; };
+		847815B31DEEE04800B2ED8D /* YJTestHTTPBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestHTTPBody.m; sourceTree = "<group>"; };
+		847815B61DEEE10700B2ED8D /* YJTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestModel.h; sourceTree = "<group>"; };
+		847815B71DEEE10700B2ED8D /* YJTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestModel.m; sourceTree = "<group>"; };
+		847815BA1DEEE16700B2ED8D /* YJTestURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLRequest.h; sourceTree = "<group>"; };
+		847815BB1DEEE16700B2ED8D /* YJTestURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLRequest.m; sourceTree = "<group>"; };
+		847815BE1DEEE1CD00B2ED8D /* YJTestURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLSessionTask.h; sourceTree = "<group>"; };
+		847815BF1DEEE1CD00B2ED8D /* YJTestURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLSessionTask.m; sourceTree = "<group>"; };
 		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
@@ -185,6 +199,46 @@
 			path = Pool;
 			sourceTree = "<group>";
 		};
+		847815AC1DEEDFCA00B2ED8D /* YJURLSessionTest */ = {
+			isa = PBXGroup;
+			children = (
+				847815BD1DEEE1B100B2ED8D /* Task */,
+				847815B91DEEE14700B2ED8D /* Request */,
+				847815B51DEEE08400B2ED8D /* Model */,
+				847815AD1DEEDFCA00B2ED8D /* YJURLSessionTest.m */,
+			);
+			path = YJURLSessionTest;
+			sourceTree = "<group>";
+		};
+		847815B51DEEE08400B2ED8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847815B21DEEE04800B2ED8D /* YJTestHTTPBody.h */,
+				847815B31DEEE04800B2ED8D /* YJTestHTTPBody.m */,
+				847815B61DEEE10700B2ED8D /* YJTestModel.h */,
+				847815B71DEEE10700B2ED8D /* YJTestModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		847815B91DEEE14700B2ED8D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				847815BA1DEEE16700B2ED8D /* YJTestURLRequest.h */,
+				847815BB1DEEE16700B2ED8D /* YJTestURLRequest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		847815BD1DEEE1B100B2ED8D /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				847815BE1DEEE1CD00B2ED8D /* YJTestURLSessionTask.h */,
+				847815BF1DEEE1CD00B2ED8D /* YJTestURLSessionTask.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
 		84C59DCE1DB0D43C00B93218 /* AOP */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,8 +260,8 @@
 		84D28EC31DED3535001AF6B5 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				847815A61DEE729500B2ED8D /* Pool */,
 				847815A31DED59CB00B2ED8D /* HTTPBody */,
+				847815A61DEE729500B2ED8D /* Pool */,
 				8478159F1DED522500B2ED8D /* Request */,
 				847815981DED518900B2ED8D /* Task */,
 				84D28EC41DED3548001AF6B5 /* YJNSURLSession.h */,
@@ -272,6 +326,7 @@
 		84D3559D1DAB601C0097D526 /* YJFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				847815AC1DEEDFCA00B2ED8D /* YJURLSessionTest */,
 				84D355A01DAB601C0097D526 /* Info.plist */,
 				84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */,
 				84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */,
@@ -568,9 +623,14 @@
 				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
 				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
 				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
+				847815BC1DEEE16700B2ED8D /* YJTestURLRequest.m in Sources */,
+				847815B81DEEE10700B2ED8D /* YJTestModel.m in Sources */,
 				84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */,
 				84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */,
 				84D355A91DAB60750097D526 /* YJLogTest.m in Sources */,
+				847815AE1DEEDFCA00B2ED8D /* YJURLSessionTest.m in Sources */,
+				847815C01DEEE1CD00B2ED8D /* YJTestURLSessionTask.m in Sources */,
+				847815B41DEEE04800B2ED8D /* YJTestHTTPBody.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
