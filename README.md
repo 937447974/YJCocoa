@@ -254,6 +254,7 @@ YJ技术支持群：557445088
 | | | DictionaryModel增加对NSURL属性的自动转换 |
 | 5.0.2 | 2016-11-15 | cellModel属性添加__kindof关键字 |
 | 5.1.0 | 2016-12-02 | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连 |
+| | | Http修复锚点解析 | 
 
 ##Copyright
 

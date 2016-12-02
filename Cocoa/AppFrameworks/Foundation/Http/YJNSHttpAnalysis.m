@@ -14,11 +14,15 @@
 @implementation YJNSHttpAnalysis
 
 + (NSDictionary<NSString *,NSString *> *)analysisParams:(NSString *)http {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    NSRange start = [http rangeOfString:@"?"];
-    if (start.location != NSNotFound) {
-        http = [http substringFromIndex:start.location+1];
+    NSRange range = [http rangeOfString:@"?"];
+    if (range.location != NSNotFound) {
+        http = [http substringFromIndex:range.location+1];
     }
+    range = [http rangeOfString:@"#"];
+    if (range.location != NSNotFound) {
+        http = [http substringToIndex:range.location];
+    }
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *array = [http componentsSeparatedByString:@"&"]; // 获取单一参数
     NSArray *keyValue;
     NSString *param, *value;
@@ -27,7 +31,7 @@
         value = keyValue.count == 2 ? keyValue.lastObject : @"";
         [dict setObject:value forKey:keyValue.firstObject];
     }
-    return [NSDictionary dictionaryWithDictionary:dict];
+    return dict;
 }
 
 + (NSString *)analysisParams:(NSString *)http forKey:(NSString *)key {
