@@ -17,10 +17,12 @@
 #pragma mark - getter & setter
 - (YJNSURLSessionTaskSuccess)success {
     __weakSelf
-    YJNSURLSessionTaskSuccess block = ^(__kindof NSObject *data, NSURLResponse *response) {
+    YJNSURLSessionTaskSuccess block = ^(id data) {
         __strongSelf
-        strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
-        if (strongSelf.success && strongSelf.request.source) strongSelf.success(data, response);
+        if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
+            strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
+            if (strongSelf -> _success && strongSelf.request.source) strongSelf -> _success(data);
+        }
     };
     return block;
 }
@@ -29,9 +31,11 @@
     __weakSelf
     YJNSURLSessionTaskFailure block = ^(NSError *error) {
         __strongSelf
-        NSLog(@"%@", error);
-        strongSelf -> _state = YJNSURLSessionTaskStateFailure;
-        if (strongSelf.failure && strongSelf.request.source) strongSelf.failure(error);
+        NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", strongSelf.request.identifier, error);
+        if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
+            strongSelf -> _state = YJNSURLSessionTaskStateFailure;
+            if (strongSelf -> _failure && strongSelf.request.source) strongSelf -> _failure(error);
+        }
     };
     return block;
 }

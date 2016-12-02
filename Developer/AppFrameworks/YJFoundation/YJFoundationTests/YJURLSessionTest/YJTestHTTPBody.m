@@ -10,7 +10,7 @@
 
 @implementation YJTestHTTPBody
 
-+ (Class)responseClass {
+- (Class)responseClass {
     return [YJTestModel class];
 }
 

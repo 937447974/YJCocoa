@@ -16,15 +16,22 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 
 @implementation YJNSURLRequest
 
+#pragma mark - init
 + (instancetype)requestWithSource:(NSObject *)source {
     YJNSURLRequest *request = [[self alloc] init];
     request -> _source = source;
-    request.HTTPMethod = YJNSHTTPMethodGET;
+    request -> _HTTPMethod = YJNSHTTPMethodGET;
     return request;
 }
 
++ (instancetype)requestWithSource:(NSObject *)source HTTPBody:(id<YJNSHTTPBodyProtocol>)body {
+    YJNSURLRequest *request = [self requestWithSource:source];
+    request.HTTPBody = body;
+    return request;
+}
+
+#pragma mark - getter & setter
 - (NSString *)identifier {
-    if (_identifier) return _identifier;
     return [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
 }
 

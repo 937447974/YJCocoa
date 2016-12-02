@@ -12,7 +12,13 @@
 
 - (void)resume {
     [super resume];
-    self.failure([NSError errorWithDomain:@"网络错误测试" code:404 userInfo:nil]);
+    if (random()%4 == 1) {
+        NSDictionary *jsonDict = @{@"desc": @"请求成功"};
+        self.success([[self.request.HTTPBody.responseClass alloc] initWithModelDictionary:jsonDict]);
+    } else {
+        self.needResume = YES;
+        self.failure([NSError errorWithDomain:@"网络错误测试" code:NSURLErrorTimedOut userInfo:nil]);
+    }    
 }
 
 @end

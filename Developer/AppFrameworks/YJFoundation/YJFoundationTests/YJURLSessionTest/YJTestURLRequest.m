@@ -7,11 +7,20 @@
 //
 
 #import "YJTestURLRequest.h"
+#import "YJTestURLSessionTask.h"
 
 @implementation YJTestURLRequest
 
+- (Class)URLSessionTask {
+    return [YJTestURLSessionTask class];
+}
+
 - (NSString *)URL {
     return @"https://github.com/937447974/YJCocoa";
+}
+
+- (BOOL)supportResume {
+    return YES;
 }
 
 @end
