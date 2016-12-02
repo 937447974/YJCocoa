@@ -36,6 +36,9 @@
 // 计时器
 #import "YJNSTimer.h"
 
+// 网络架构
+#import "YJNSURLSession.h"
+
 // 其他不可归类封装
 #import "YJNSFoundationOther.h"
 

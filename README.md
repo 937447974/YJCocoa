@@ -61,6 +61,14 @@ NSLog打印优化，Unicode自动转化为中文输出。
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
+###1.1.10 URLSession
+
+大型APP网络架构，具有以下特性：
+
+1. 兼容市面上任何一款网络SDK,并可以多个SDK协同工作；
+2. 多种设计模式，按照项目需要随意组装架构；
+3. 多种请求方式，可以面向接口请求服务器或面向对象请求服务器；
+4. 支持网络重连。
 
 ##1.2 UIKit
 
@@ -245,6 +253,7 @@ YJ技术支持群：557445088
 | 5.0.1 | 2016-11-08 | CollectionViewManager修复`+ (YJUICollectionCellCreate)cellCreate`失效错误 |
 | | | DictionaryModel增加对NSURL属性的自动转换 |
 | 5.0.2 | 2016-11-15 | cellModel属性添加__kindof关键字 |
+| 5.1.0 | 2016-12-02 | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连 |
 
 ##Copyright
 

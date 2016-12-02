@@ -28,7 +28,7 @@
         [[YJNSURLSession taskWithRequest:[YJTestURLRequest requestWithSource:self]] cancel]; // 取消请求
     } failure:^(NSError *error) {
         [YJNSURLSession resumeAllNeedTask];// 断网重连
-    }] resume];
+    }] resume]; // 发出请求
 }
 
 @end
