@@ -20,7 +20,7 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 + (instancetype)requestWithSource:(NSObject *)source {
     YJNSURLRequest *request = [[self alloc] init];
     request -> _source = source;
-    request -> _HTTPMethod = YJNSHTTPMethodGET;
+    request.HTTPMethod = YJNSHTTPMethodGET;
     return request;
 }
 
@@ -32,7 +32,7 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 
 #pragma mark - getter & setter
 - (NSString *)identifier {
-    return [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
+    return _identifier ? _identifier : [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
 }
 
 @end

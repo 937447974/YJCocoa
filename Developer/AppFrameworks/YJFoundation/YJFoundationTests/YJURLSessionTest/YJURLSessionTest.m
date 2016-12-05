@@ -11,6 +11,7 @@
 #import "YJTestURLSessionTask.h"
 #import "YJTestURLRequest.h"
 #import "YJTestHTTPBody.h"
+#import "YJDispatch.h"
 
 @interface YJURLSessionTest : XCTestCase
 
@@ -22,11 +23,15 @@
     YJTestHTTPBody *body = [[YJTestHTTPBody alloc] init];
     body.name = @"阳君";
     body.qq = @"557445088";
-    [[[YJNSURLSession taskWithRequest:[YJTestURLRequest requestWithSource:self HTTPBody:body]] completionHandler:^(id data) {
+    __weakSelf
+    [[[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:self HTTPBody:body]] completionHandler:^(id data) {
+        __strongSelf
         YJTestModel *model = data;
         NSLog(@"获取服务器数据:%@", model.modelDictionary);
-        [[YJNSURLSession taskWithRequest:[YJTestURLRequest requestWithSource:self]] cancel]; // 取消请求
+        [[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]] cancel]; // 取消请求
     } failure:^(NSError *error) {
+        __strongSelf
+        [YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]].request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
     }] resume]; // 发出请求
 }

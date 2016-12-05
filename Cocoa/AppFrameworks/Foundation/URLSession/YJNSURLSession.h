@@ -11,21 +11,11 @@
 
 #import <Foundation/Foundation.h>
 #import "YJNSURLSessionTask.h"
-#import "YJNSURLSessionPool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** NSURLSession*/
 @interface YJNSURLSession : NSObject
-
-/**
- *  @abstract 通过request获取task
- *
- *  @param request YJNSURLRequest
- *
- *  @return YJNSURLSessionTask
- */
-+ (__kindof YJNSURLSessionTask *)taskWithRequest:(YJNSURLRequest *)request;
 
 /**
  *  @abstract 重新执行所有需要重连的任务

@@ -12,3 +12,7 @@ end
 target 'YJFoundation' do
     shared_pods
 end
+
+target 'YJFoundationTests' do
+    shared_pods
+end

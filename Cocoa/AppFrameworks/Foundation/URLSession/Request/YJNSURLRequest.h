@@ -21,19 +21,18 @@ FOUNDATION_EXPORT YJNSHTTPMethod const YJNSHTTPMethodPOST; ///< POST请求
 /** NSURLRequest*/
 @interface YJNSURLRequest : NSObject
 
-@property (nonatomic) BOOL supportResume; ///< 是否支持网络重连
+@property (nonatomic, copy) NSString *identifier; ///< 唯一标示
 
-@property (nonatomic, strong) id<YJNSHTTPBodyProtocol> HTTPBody;  ///< 请求参数
+@property (nonatomic, copy) NSString *URL;                       ///< 请求地址
+@property (nonatomic, copy) YJNSHTTPMethod HTTPMethod;           ///< 请求方式，默认YJNSHTTPMethodGET
+@property (nonatomic, strong) id<YJNSHTTPBodyProtocol> HTTPBody; ///< 请求参数
 
-@property (nonatomic, copy, readonly) NSString *identifier;      ///< 唯一标示
-@property (nonatomic, weak, readonly) id source;                 ///< 发起网络请求的对象
-@property (nonatomic, readonly) Class URLSessionTask;            ///< 网络会话任务对应的类
-@property (nonatomic, copy, readonly) NSString *URL;             ///< 请求地址
-@property (nonatomic, copy, readonly) YJNSHTTPMethod HTTPMethod; ///< 请求方式，默认YJNSHTTPMethodGET
+@property (nonatomic) BOOL supportResume;        ///< 是否支持网络重连
+@property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
 
 /**
  *  @abstract 初始化YJNSURLRequest或其子类
- *  @discusstion 取消网络请求时使用
+ *  @discusstion 建议取消网络请求时使用
  *
  *  @param source 发起网络请求的对象
  *

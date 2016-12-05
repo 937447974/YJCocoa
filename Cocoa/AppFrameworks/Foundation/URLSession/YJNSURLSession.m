@@ -13,21 +13,10 @@
 
 @implementation YJNSURLSession
 
-+ (YJNSURLSessionTask *)taskWithRequest:(YJNSURLRequest *)request {
-    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
-    YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
-    if (!task) {
-        task = [[request.URLSessionTask alloc] init];
-        task.request = request;
-        sPool.poolDict[request.identifier] = task;
-    }
-    return task;
-}
-
 + (void)resumeAllNeedTask {
     NSArray *allEffectiveTask = [self allEffectiveTask];
     for (YJNSURLSessionTask *task in allEffectiveTask) {
-        if (task.needResume && task.request.source) {
+        if (task.needResume && task.request.supportResume && task.request.source) {
             NSLog(@"%@重发网络请求>>>>>>>>>>>>>>>", task.request.identifier);
             [task resume];
         }

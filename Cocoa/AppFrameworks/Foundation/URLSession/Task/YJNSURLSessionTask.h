@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YJNSURLRequest.h"
+#import "YJNSURLSessionPool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,13 +41,23 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
 @property (nonatomic, copy) YJNSURLSessionTaskFailure failure; ///< 失败回调
 
 /**
+ *  @abstract 通过request.identifier生成或获取Task
+ *  @discusstion 生成的YJNSURLSessionTask会存放在缓存中
+ *
+ *  @param request YJNSURLRequest
+ *
+ *  @return YJNSURLSessionTask
+ */
++ (instancetype)taskWithRequest:(YJNSURLRequest *)request;
+
+/**
  *  @abstract 链式设置回调
  *  @discusstion 建议使用此方法
  *
  *  @param success 成功回调
  *  @param failure 失败回调
  *
- *  @return instancetype
+ *  @return YJNSURLSessionTask
  */
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(nullable YJNSURLSessionTaskFailure)failure;
 

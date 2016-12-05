@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol YJNSHTTPBodyProtocol <NSObject>
 
 @property (nonatomic, readonly) Class responseClass; ///< 服务器返回数据对应的模型
+
+@optional
 @property (nonatomic, strong, readonly) NSDictionary *modelDictionary; ///< 发送到服务器的模型字典
 
 @end

@@ -14,6 +14,17 @@
 
 @implementation YJNSURLSessionTask
 
++ (instancetype)taskWithRequest:(YJNSURLRequest *)request {
+    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
+    YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
+    if (!task) {
+        task = [[self alloc] init];
+        task.request = request;
+        sPool.poolDict[request.identifier] = task;
+    }
+    return task;
+}
+
 #pragma mark - getter & setter
 - (YJNSURLSessionTaskSuccess)success {
     __weakSelf
@@ -40,10 +51,6 @@
     return block;
 }
 
-- (BOOL)needResume {
-    return _needResume && self.request.supportResume;
-}
-
 #pragma mark -
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
     self.success = success;
@@ -65,6 +72,11 @@
 - (void)cancel {
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
     self -> _state = YJNSURLSessionTaskStateCanceling;
+    if (!self.request.supportResume) {
+        [YJNSURLSessionPool.sharedPool.poolDict removeObjectForKey:self.request.identifier];
+        _success = nil;
+        _failure = nil;
+    }
 }
 
 @end

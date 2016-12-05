@@ -64,6 +64,10 @@
 		84D356351DAB722B0097D526 /* NSObject+YJNSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356211DAB722B0097D526 /* NSObject+YJNSPerformSelector.m */; };
 		84D356371DAB722B0097D526 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356261DAB722B0097D526 /* YJNSSingletonMCenter.m */; };
 		84D356381DAB722B0097D526 /* YJNSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356291DAB722B0097D526 /* YJNSTimer.m */; };
+		84E2224E1DF182F60051ABFB /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E222451DF182F60051ABFB /* YJNSURLSessionPool.m */; };
+		84E2224F1DF182F60051ABFB /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E222481DF182F60051ABFB /* YJNSURLRequest.m */; };
+		84E222501DF182F60051ABFB /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2224B1DF182F60051ABFB /* YJNSURLSessionTask.m */; };
+		84E222511DF182F60051ABFB /* YJNSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E2224D1DF182F60051ABFB /* YJNSURLSession.m */; };
 		84F264E61DB5ECFC00C0F06A /* YJUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264D71DB5ECFC00C0F06A /* YJUICollectionReusableView.m */; };
 		84F264E71DB5ECFC00C0F06A /* YJUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264D91DB5ECFC00C0F06A /* YJUICollectionViewCell.m */; };
 		84F264E81DB5ECFC00C0F06A /* YJUICollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F264DC1DB5ECFC00C0F06A /* YJUICollectionCellObject.m */; };
@@ -194,6 +198,15 @@
 		84D356291DAB722B0097D526 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		84D3562A1DAB722B0097D526 /* YJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundation.h; sourceTree = "<group>"; };
 		84D3562D1DAB722B0097D526 /* YJAppFrameworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAppFrameworks.h; sourceTree = "<group>"; };
+		84E222421DF182F60051ABFB /* YJNSHTTPBodyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSHTTPBodyProtocol.h; sourceTree = "<group>"; };
+		84E222441DF182F60051ABFB /* YJNSURLSessionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionPool.h; sourceTree = "<group>"; };
+		84E222451DF182F60051ABFB /* YJNSURLSessionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionPool.m; sourceTree = "<group>"; };
+		84E222471DF182F60051ABFB /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
+		84E222481DF182F60051ABFB /* YJNSURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLRequest.m; sourceTree = "<group>"; };
+		84E2224A1DF182F60051ABFB /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
+		84E2224B1DF182F60051ABFB /* YJNSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionTask.m; sourceTree = "<group>"; };
+		84E2224C1DF182F60051ABFB /* YJNSURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSession.h; sourceTree = "<group>"; };
+		84E2224D1DF182F60051ABFB /* YJNSURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSession.m; sourceTree = "<group>"; };
 		84F264D61DB5ECFC00C0F06A /* YJUICollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionReusableView.h; sourceTree = "<group>"; };
 		84F264D71DB5ECFC00C0F06A /* YJUICollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionReusableView.m; sourceTree = "<group>"; };
 		84F264D81DB5ECFC00C0F06A /* YJUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewCell.h; sourceTree = "<group>"; };
@@ -642,6 +655,7 @@
 				84D3561F1DAB722B0097D526 /* PerformSelector */,
 				84D356241DAB722B0097D526 /* Singleton */,
 				84D356271DAB722B0097D526 /* Timer */,
+				84E222401DF182F60051ABFB /* URLSession */,
 				84D3562A1DAB722B0097D526 /* YJFoundation.h */,
 			);
 			path = Foundation;
@@ -715,6 +729,54 @@
 				84D356291DAB722B0097D526 /* YJNSTimer.m */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		84E222401DF182F60051ABFB /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				84E222411DF182F60051ABFB /* HTTPBody */,
+				84E222431DF182F60051ABFB /* Pool */,
+				84E222461DF182F60051ABFB /* Request */,
+				84E222491DF182F60051ABFB /* Task */,
+				84E2224C1DF182F60051ABFB /* YJNSURLSession.h */,
+				84E2224D1DF182F60051ABFB /* YJNSURLSession.m */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		84E222411DF182F60051ABFB /* HTTPBody */ = {
+			isa = PBXGroup;
+			children = (
+				84E222421DF182F60051ABFB /* YJNSHTTPBodyProtocol.h */,
+			);
+			path = HTTPBody;
+			sourceTree = "<group>";
+		};
+		84E222431DF182F60051ABFB /* Pool */ = {
+			isa = PBXGroup;
+			children = (
+				84E222441DF182F60051ABFB /* YJNSURLSessionPool.h */,
+				84E222451DF182F60051ABFB /* YJNSURLSessionPool.m */,
+			);
+			path = Pool;
+			sourceTree = "<group>";
+		};
+		84E222461DF182F60051ABFB /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				84E222471DF182F60051ABFB /* YJNSURLRequest.h */,
+				84E222481DF182F60051ABFB /* YJNSURLRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		84E222491DF182F60051ABFB /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				84E2224A1DF182F60051ABFB /* YJNSURLSessionTask.h */,
+				84E2224B1DF182F60051ABFB /* YJNSURLSessionTask.m */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 		84F264D41DB5ECFC00C0F06A /* CollectionViewManager */ = {
@@ -853,6 +915,7 @@
 				84CEC15A1DB4B33E004CDF2B /* YJUITableCellObject.m in Sources */,
 				84D355471DAB59390097D526 /* YJSecRandom.m in Sources */,
 				84F264EC1DB5ECFC00C0F06A /* YJUICollectionViewManager.m in Sources */,
+				84E2224E1DF182F60051ABFB /* YJNSURLSessionPool.m in Sources */,
 				841725EA1DACBC1C006022A9 /* YJUIImagePageModel.m in Sources */,
 				841725D71DACBC1C006022A9 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
 				84C1D0381DBF5AAA00D8A058 /* YJNSFileManager.m in Sources */,
@@ -862,6 +925,7 @@
 				841725E51DACBC1C006022A9 /* UITextField+YJInputLength.m in Sources */,
 				841725D91DACBC1C006022A9 /* YJNSLayoutAnchor.m in Sources */,
 				84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */,
+				84E222511DF182F60051ABFB /* YJNSURLSession.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
 				84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */,
 				841725EF1DACBC1C006022A9 /* YJUIPageViewObject.m in Sources */,
@@ -871,6 +935,7 @@
 				841725E91DACBC1C006022A9 /* YJUINavigationBar.m in Sources */,
 				84D3562E1DAB722B0097D526 /* NSObject+YJNSDictionaryModel.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
+				84E222501DF182F60051ABFB /* YJNSURLSessionTask.m in Sources */,
 				84CEC1571DB4B33E004CDF2B /* YJUITableViewManager.m in Sources */,
 				84F264EA1DB5ECFC00C0F06A /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
@@ -881,6 +946,7 @@
 				84F264E91DB5ECFC00C0F06A /* YJUICollectionViewDataSourceManager.m in Sources */,
 				84F264E71DB5ECFC00C0F06A /* YJUICollectionViewCell.m in Sources */,
 				84F264E81DB5ECFC00C0F06A /* YJUICollectionCellObject.m in Sources */,
+				84E2224F1DF182F60051ABFB /* YJNSURLRequest.m in Sources */,
 				841725E71DACBC1C006022A9 /* YJUIBarButtonItem.m in Sources */,
 				841725EB1DACBC1C006022A9 /* YJUIImagePageViewController.m in Sources */,
 				84D356311DAB722B0097D526 /* YJNSHttpAnalysis.m in Sources */,
