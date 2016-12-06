@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YJTestCollectionViewCell.h"
+#import "YJTest2CollectionViewCell.h"
 #import "YJDispatch.h"
 #import "YJTestCollectionReusableView.h"
 
@@ -61,6 +62,12 @@
 
 - (void)collectionViewManagerLoadingPageData:(YJUICollectionViewManager *)manager {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self.collectionViewManager.dataSource removeAllObjects];
+    // 测试数据
+    for (int i = 0; i<20; i++) {
+        [self.collectionViewManager.dataSource addObject:[YJTest2CollectionViewCell cellObjectWithCellModel:nil]];
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)collectionViewManager:(YJUICollectionViewManager *)manager scroll:(YJUICollectionViewScroll)scroll {

@@ -17,6 +17,7 @@
 		8473AC4E1CE9A527000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4C1CE9A527000E3580 /* Main.storyboard */; };
 		8473AC501CE9A527000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4F1CE9A527000E3580 /* Assets.xcassets */; };
 		8473AC531CE9A527000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC511CE9A527000E3580 /* LaunchScreen.storyboard */; };
+		84BB32681DF69E5600574A99 /* YJTest2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB32671DF69E5600574A99 /* YJTest2CollectionViewCell.m */; };
 		84CEC1651DB5BD59004CDF2B /* YJUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC15F1DB5BD59004CDF2B /* YJUICollectionReusableView.m */; };
 		84CEC1661DB5BD59004CDF2B /* YJUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1611DB5BD59004CDF2B /* YJUICollectionViewCell.m */; };
 		84CEC1671DB5BD59004CDF2B /* YJUICollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1641DB5BD59004CDF2B /* YJUICollectionCellObject.m */; };
@@ -45,6 +46,8 @@
 		8473AC4F1CE9A527000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473AC521CE9A527000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AC541CE9A527000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BB32661DF69E5600574A99 /* YJTest2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTest2CollectionViewCell.h; sourceTree = "<group>"; };
+		84BB32671DF69E5600574A99 /* YJTest2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTest2CollectionViewCell.m; sourceTree = "<group>"; };
 		84CEC15E1DB5BD59004CDF2B /* YJUICollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionReusableView.h; sourceTree = "<group>"; };
 		84CEC15F1DB5BD59004CDF2B /* YJUICollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionReusableView.m; sourceTree = "<group>"; };
 		84CEC1601DB5BD59004CDF2B /* YJUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewCell.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				840A57DE1CF08590006779C0 /* YJTestCollectionViewCell.h */,
 				840A57DF1CF08590006779C0 /* YJTestCollectionViewCell.m */,
 				840A57E11CF085A5006779C0 /* YJTestCollectionViewCell.xib */,
+				84BB32661DF69E5600574A99 /* YJTest2CollectionViewCell.h */,
+				84BB32671DF69E5600574A99 /* YJTest2CollectionViewCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BB32681DF69E5600574A99 /* YJTest2CollectionViewCell.m in Sources */,
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
 				84CEC16B1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m in Sources */,
 				846A34241D2F782400AEA37C /* YJTestCollectionReusableView.m in Sources */,

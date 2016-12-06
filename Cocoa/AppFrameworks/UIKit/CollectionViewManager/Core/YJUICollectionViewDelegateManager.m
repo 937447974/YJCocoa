@@ -78,6 +78,10 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.manager.delegate respondsToSelector:@selector(collectionViewManager:didSelectCellWithCellObject:)]) {
+        if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
+            NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+            return;
+        }
         YJUICollectionCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
         [self.manager.delegate collectionViewManager:self.manager didSelectCellWithCellObject:cellObject];
     }
