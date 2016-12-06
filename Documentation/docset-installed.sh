@@ -31,9 +31,10 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-11-08 | CollectionViewManager修复`+ (YJUICollectionCellCreate)cellCreate`失效错误" with title "YJCocoa 5.0.1"'
-osascript -e 'display notification "2016-11-08 | DictionaryModel增加对NSURL属性的自动转换" with title "YJCocoa 5.0.1"'
-
+osascript -e 'display notification "2016-11-15 | cellModel属性添加__kindof关键字" with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-02 | Http修复锚点解析" with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-02 | CollectionViewManager中代理方法collectionViewManagerloadingPageData更名为collectionViewManagerLoadingPageData " with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-06 | CollectionViewManager增加collectionView:didSelectItemAtIndexPath:数据源越界保护" with title "YJCocoa 5.0.2"'
 
 
 
