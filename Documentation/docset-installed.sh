@@ -35,6 +35,8 @@ osascript -e 'display notification "2016-11-15 | cellModel属性添加__kindof�
 osascript -e 'display notification "2016-12-02 | Http修复锚点解析" with title "YJCocoa 5.0.2"'
 osascript -e 'display notification "2016-12-02 | CollectionViewManager中代理方法collectionViewManagerloadingPageData更名为collectionViewManagerLoadingPageData " with title "YJCocoa 5.0.2"'
 osascript -e 'display notification "2016-12-06 | CollectionViewManager增加collectionView:didSelectItemAtIndexPath:数据源越界保护" with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-07 | CollectionViewManager和CollectionViewManager增加对Cell. reuseIdentifier属性的防空处理" with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-07 | DictionaryModel增加对NSURL和NSNumber属性相对于字典中数据的容错处理" with title "YJCocoa 5.0.2"'
 
 
 
