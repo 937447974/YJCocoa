@@ -12,6 +12,7 @@
 #import "YJUITableViewCell.h"
 #import "YJUITableViewManager.h"
 #import "YJDispatch.h"
+#import "YJNSFoundationOther.h"
 
 #pragma mark - UITableViewCell (YJUITableView)
 @implementation UITableViewCell (YJUITableView)
@@ -82,6 +83,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+#pragma mark - getter & setter
+- (NSString *)reuseIdentifier {
+    NSString *reuseIdentifier = [super reuseIdentifier];
+    if (reuseIdentifier) return reuseIdentifier;
+    return YJNSStringFromClass(self.class);
 }
 
 #pragma mark - YJUITableView

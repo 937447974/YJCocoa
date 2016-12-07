@@ -256,6 +256,8 @@ YJ技术支持群：557445088
 | | 2016-12-02 | Http修复锚点解析 | 
 | | | CollectionViewManager中代理方法collectionViewManagerloadingPageData更名为collectionViewManagerLoadingPageData |
 | | 2016-12-06 | CollectionViewManager增加collectionView:didSelectItemAtIndexPath:数据源越界保护。 |
+| | 2016-12-07 | CollectionViewManager和CollectionViewManager增加对Cell. reuseIdentifier属性的防空处理 |
+
 | 5.1.0 | 2016-12-XX | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连 |
 
 ##Copyright

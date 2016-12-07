@@ -12,6 +12,7 @@
 #import "YJUICollectionReusableView.h"
 #import "YJUICollectionViewManager.h"
 #import "YJDispatch.h"
+#import "YJNSFoundationOther.h"
 
 #pragma mark - UICollectionReusableView (YJUICollectionView)
 @implementation UICollectionReusableView (YJUICollectionView)
@@ -64,6 +65,12 @@
 
 #pragma mark YJUICollectionViewCell
 @implementation YJUICollectionReusableView
+
+- (NSString *)reuseIdentifier {
+    NSString *reuseIdentifier = [super reuseIdentifier];
+    if (reuseIdentifier) return reuseIdentifier;
+    return YJNSStringFromClass(self.class);
+}
 
 - (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
     _cellObject = cellObject;
