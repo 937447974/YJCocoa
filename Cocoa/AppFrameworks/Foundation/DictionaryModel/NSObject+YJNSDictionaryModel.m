@@ -80,14 +80,18 @@
                 if ([value isKindOfClass:[NSString class]]) {
                     value = [numberFormatter numberFromString:value];
                 }
-                [self setValue:value forKey:p.attributeName];
+                if ([value isKindOfClass:[NSNumber class]]) {
+                    [self setValue:value forKey:p.attributeName];
+                }
                 break;
             case YJNSDMPAttributeTypeString:     // NSString
                 [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
             case YJNSDMPAttributeTypeURL:        // NSURL
-                value = [value hasPrefix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
-                [self setValue:value forKey:p.attributeName];
+                if ([value isKindOfClass:[NSString class]]) {
+                    value = [value hasPrefix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
+                    [self setValue:value forKey:p.attributeName];
+                }
                 break;
             case YJNSDMPAttributeTypeArray:      // NSArray
                 if ([value isKindOfClass:[NSArray class]]) {
