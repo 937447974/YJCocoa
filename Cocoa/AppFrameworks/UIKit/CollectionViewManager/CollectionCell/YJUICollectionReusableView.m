@@ -19,7 +19,8 @@
 
 #pragma mark (+)
 + (YJUICollectionCellCreate)cellCreate {
-    return YJUICollectionCellCreateDefault;
+    [self doesNotRecognizeSelector:_cmd];
+    return YJUICollectionCellCreateClass;
 }
 
 + (id)cellObject {
@@ -35,7 +36,7 @@
 }
 
 + (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject {
-    if (cellObject.createCell == YJUICollectionCellCreateDefault) { // 默认使用xib创建cell
+    if (cellObject.createCell == YJUICollectionCellCreateClass) { // 默认使用xib创建cell
         NSArray<UIView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
         return array.firstObject.frame.size;
     }
@@ -65,6 +66,13 @@
 
 #pragma mark YJUICollectionViewCell
 @implementation YJUICollectionReusableView
+
++ (YJUICollectionCellCreate)cellCreate {
+    if ([@"YJUICollectionReusableView" isEqualToString:YJNSStringFromClass(self.class)]) {
+        return YJUICollectionCellCreateClass;
+    }
+    return [super cellCreate];
+}
 
 - (NSString *)reuseIdentifier {
     NSString *reuseIdentifier = [super reuseIdentifier];

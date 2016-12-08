@@ -15,6 +15,10 @@
 
 @implementation YJTestCollectionViewCell
 
++ (YJUICollectionCellCreate)cellCreate {
+    return YJUICollectionCellCreateXib;
+}
+
 - (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
     [super reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
     YJTestCollectionCellModel *cellModel = cellObject.cellModel;

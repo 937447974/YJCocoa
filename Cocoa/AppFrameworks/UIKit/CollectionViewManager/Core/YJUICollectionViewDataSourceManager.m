@@ -45,15 +45,15 @@
     // 判断是否缓存
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
-            case YJUICollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
+                case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
+                [self.manager.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:identifier];
+                break;
+                case YJUICollectionCellCreateXib: // 默认使用xib创建cell，推荐此方式
                 [self.manager.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellWithReuseIdentifier:identifier];
                 break;
-            case YJUICollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
+                case YJUICollectionCellCreateStoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 identifier = cellObject.cellName;
-                break;
-            case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
-                [self.manager.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:identifier];
                 break;
         }
         [self.identifierSet addObject:identifier];
@@ -75,14 +75,16 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    YJUICollectionCellObject *cellObject;
     if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
         NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
-        return [UICollectionViewCell new];
+        cellObject = [YJUICollectionViewCell cellObject];
+    } else {
+        cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     }
-    YJUICollectionCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
     UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
-    return  cell;
+    return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -90,23 +92,24 @@
     NSArray *dataSource = [UICollectionElementKindSectionHeader isEqualToString:kind] ? self.headerDataSource : self.footerDataSource;
     if (dataSource.count <= indexPath.section) {
         NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
-        return [UICollectionReusableView new];
+        cellObject = [YJUICollectionReusableView cellObject];
+    } else {
+        cellObject = dataSource[indexPath.section];
     }
-    cellObject = dataSource[indexPath.section];
     cellObject.indexPath = indexPath;
     // 判断是否缓存
     NSString *identifier = [NSString stringWithFormat:@"%@-%@", kind, cellObject.cellName];
     if (![self.identifierSet containsObject:identifier]) {
         switch (cellObject.createCell) {
-            case YJUICollectionCellCreateDefault: // 默认使用xib创建cell，推荐此方式
+                case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionReusableView alloc] initWithFrame:CGRectZero]创建cell
+                [self.manager.collectionView registerClass:cellObject.cellClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+                break;
+                case YJUICollectionCellCreateXib: // 默认使用xib创建cell，推荐此方式
                 [self.manager.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil]  forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
                 break;
-            case YJUICollectionCellCreateSoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
+                case YJUICollectionCellCreateStoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 identifier = cellObject.cellName;
-                break;
-            case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionReusableView alloc] initWithFrame:CGRectZero]创建cell
-                [self.manager.collectionView registerClass:cellObject.cellClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
                 break;
         }
         [self.identifierSet addObject:identifier];
