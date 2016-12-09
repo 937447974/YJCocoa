@@ -31,12 +31,7 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-11-15 | cellModel属性添加__kindof关键字" with title "YJCocoa 5.0.2"'
-osascript -e 'display notification "2016-12-02 | Http修复锚点解析" with title "YJCocoa 5.0.2"'
-osascript -e 'display notification "2016-12-02 | CollectionViewManager中代理方法collectionViewManagerloadingPageData更名为collectionViewManagerLoadingPageData " with title "YJCocoa 5.0.2"'
-osascript -e 'display notification "2016-12-06 | CollectionViewManager增加collectionView:didSelectItemAtIndexPath:数据源越界保护" with title "YJCocoa 5.0.2"'
-osascript -e 'display notification "2016-12-07 | CollectionViewManager和CollectionViewManager增加对Cell. reuseIdentifier属性的防空处理" with title "YJCocoa 5.0.2"'
-osascript -e 'display notification "2016-12-07 | DictionaryModel增加对NSURL和NSNumber属性相对于字典中数据的容错处理" with title "YJCocoa 5.0.2"'
+osascript -e 'display notification "2016-12-09 | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连" with title "YJCocoa 5.1.0"'
 
 
 
