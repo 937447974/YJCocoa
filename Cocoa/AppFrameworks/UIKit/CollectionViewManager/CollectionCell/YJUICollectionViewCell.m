@@ -58,9 +58,4 @@
     _collectionViewManager = collectionViewManager;
 }
 
-- (void)reloadDataCacheWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
-    _cellObject = cellObject;
-    _collectionViewManager = collectionViewManager;
-}
-
 @end
