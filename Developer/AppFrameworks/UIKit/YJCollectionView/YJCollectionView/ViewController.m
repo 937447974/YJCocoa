@@ -30,11 +30,17 @@
     self.collectionViewManager.delegateFlowLayoutManager.flowLayout.minimumInteritemSpacing = 5;
     self.collectionViewManager.delegateFlowLayoutManager.lineItems = 3;          // 一行显示个数
     self.collectionViewManager.delegateFlowLayoutManager.itemHeightLayout = YES; // 是否自动适配高
+    
+//    [self testDefault];
+    [self testCache];
+}
+
+- (void)testDefault {
     self.collectionViewManager.delegate = self;
     // AOP代理
     [self.collectionViewManager addCollectionViewAOPDelegate:self];
     // 测试数据
-    for (int i = 0; i<20; i++) {
+    for (int i = 0; i < 100; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
         [self.collectionViewManager.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
@@ -50,6 +56,16 @@
     [self.collectionViewManager.dataSourceManager.footerDataSource addObject:co];
 }
 
+- (void)testCache {
+    // 测试数据
+    for (int i = 0; i < 1000; i++) {
+        YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
+        cellModel.index = [NSString stringWithFormat:@"%d", i];
+        [self.collectionViewManager.dataSource addObject:[YJTest2CollectionViewCell cellObjectWithCellModel:cellModel]];
+    }
+    [self.collectionView reloadData];
+}
+
 #pragma mark - YJCollectionViewCellProtocol
 - (void)collectionCell:(UICollectionViewCell *)cell sendWithCellObject:(YJUICollectionCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
@@ -62,16 +78,10 @@
 
 - (void)collectionViewManagerLoadingPageData:(YJUICollectionViewManager *)manager {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    [self.collectionViewManager.dataSource removeAllObjects];
-    // 测试数据
-    for (int i = 0; i<20; i++) {
-        [self.collectionViewManager.dataSource addObject:[YJTest2CollectionViewCell cellObjectWithCellModel:nil]];
-    }
-    [self.collectionView reloadData];
 }
 
 - (void)collectionViewManager:(YJUICollectionViewManager *)manager scroll:(YJUICollectionViewScroll)scroll {
-    NSLog(@"%@ -- %lu", NSStringFromSelector(_cmd), scroll);
+    NSLog(@"%@ -- %lu", NSStringFromSelector(_cmd), (unsigned long)scroll);
 }
 
 #pragma mark - UICollectionViewDelegate

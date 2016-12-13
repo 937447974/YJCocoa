@@ -1,11 +1,12 @@
 //
-//  YJTestCollectionViewCell.h
+//  YJTestCollectionCellModel.h
 //  YJCollectionView
 //
-//  Created by 阳君 on 16/5/21.
+//  Created by 阳君 on 2016/12/13.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "YJUICollectionViewManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -13,13 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJTestCollectionCellModel : NSObject <YJUICollectionCellModel>
 
 @property (nonatomic, copy) NSString *index; ///< 位置
-
-@end
-
-
-@interface YJTestCollectionViewCell : YJUICollectionViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 

@@ -23,14 +23,14 @@
     return YJUICollectionCellCreateClass;
 }
 
-+ (id)cellObject {
++ (YJUICollectionCellObject *)cellObject {
     YJUICollectionCellObject *cellObject = [[YJUICollectionCellObject alloc] initWithCollectionViewCellClass:self.class];
-    cellObject.createCell = [self cellCreate];
+    cellObject.createCell = self.cellCreate;
     return cellObject;
 }
 
-+ (id)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel {
-    YJUICollectionCellObject *cellObject = [self cellObject];
++ (YJUICollectionCellObject *)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel {
+    YJUICollectionCellObject *cellObject = self.cellObject;
     cellObject.cellModel = cellModel;
     return cellObject;
 }

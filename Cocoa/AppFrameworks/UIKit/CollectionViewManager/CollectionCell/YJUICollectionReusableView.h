@@ -36,19 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** UICollectionReusableView扩展*/
 @interface UICollectionReusableView (YJUICollectionView)
 
-/**
- *  获取初始化cell的方式
- *
- *  @return YJUICollectionCellCreate
- */
-+ (YJUICollectionCellCreate)cellCreate;
+@property (nonatomic, class, readonly) YJUICollectionCellCreate cellCreate; ///< 获取初始化cell的方式
 
-/**
- *  获取YJUICollectionCellObject
- *
- *  @return YJUICollectionCellObject
- */
-+ (id)cellObject;
+@property (nonatomic, class, readonly, weak) __kindof YJUICollectionCellObject *cellObject; ///< 获取YJUICollectionCellObject
 
 /**
  *  获取YJUICollectionCellObject并自动填充模型。
@@ -57,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return YJUICollectionCellObject
  */
-+ (id)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel;
++ (__kindof YJUICollectionCellObject *)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel;
 
 /**
  *  获取cell的显示Size。子类不实现时，会根据xib自动计算Size

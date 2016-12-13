@@ -7,7 +7,10 @@
 //
 
 #import "YJUICollectionViewCell.h"
+#import "YJTestCollectionCellModel.h"
 
 @interface YJTest2CollectionViewCell : YJUICollectionViewCell
+
+@property (nonatomic, strong) UILabel *label;
 
 @end

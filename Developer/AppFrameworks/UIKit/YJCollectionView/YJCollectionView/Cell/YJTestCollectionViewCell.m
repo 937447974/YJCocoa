@@ -1,22 +1,23 @@
 //
-//  YJTest2CollectionViewCell.m
+//  YJTestCollectionViewCell.m
 //  YJCollectionView
 //
-//  Created by admin on 2016/12/6.
+//  Created by 阳君 on 16/5/21.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJTest2CollectionViewCell.h"
+#import "YJTestCollectionViewCell.h"
 
-@implementation YJTest2CollectionViewCell
+@implementation YJTestCollectionViewCell
 
 + (YJUICollectionCellCreate)cellCreate {
-    return YJUICollectionCellCreateClass;
+    return YJUICollectionCellCreateXib;
 }
 
 - (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
     [super reloadDataSyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
-    self.backgroundColor = [UIColor yellowColor];
+    YJTestCollectionCellModel *cellModel = cellObject.cellModel;
+    self.label.text = cellModel.index;
 }
 
 @end

@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,6 +36,9 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 
 @property (nonatomic, readonly) Class cellClass;          ///< UICollectionViewCell对应的类
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UICollectionViewCell对应的类名
+
+@property (nonatomic) BOOL customCacheCell; ///< 是否使用自定义缓存Cell
+@property (nonatomic, strong, nullable) UICollectionViewCell *cacheCell; ///< 缓存的Cell
 
 /**
  *  初始化YJUICollectionCellObject
