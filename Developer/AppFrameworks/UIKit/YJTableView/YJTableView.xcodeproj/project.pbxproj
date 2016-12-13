@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D248615735AEB9ED4DAF126 /* libPods-YJTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */; };
 		845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D61CF015B800BCC14E /* YJFirstViewController.m */; };
 		845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D81CF015B800BCC14E /* YJSecondViewController.m */; };
 		8482173F1CF0201000410723 /* YJTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482173E1CF0201000410723 /* YJTestTableViewCell.m */; };
@@ -22,10 +23,10 @@
 		84CEC1411DB4B26E004CDF2B /* YJUISuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1371DB4B26E004CDF2B /* YJUISuspensionCellView.m */; };
 		84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */; };
 		84CEC1431DB4B26E004CDF2B /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */; };
-		B44CCC6F5A379B24965DFD54 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD4D3DCEDC23835E3060BAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.release.xcconfig"; sourceTree = "<group>"; };
 		845CC1D51CF015B800BCC14E /* YJFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFirstViewController.h; sourceTree = "<group>"; };
 		845CC1D61CF015B800BCC14E /* YJFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFirstViewController.m; sourceTree = "<group>"; };
 		845CC1D71CF015B800BCC14E /* YJSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecondViewController.h; sourceTree = "<group>"; };
@@ -53,9 +54,8 @@
 		84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewCell.m; sourceTree = "<group>"; };
 		84CEC13C1DB4B26E004CDF2B /* YJUITableCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableCellObject.h; sourceTree = "<group>"; };
 		84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableCellObject.m; sourceTree = "<group>"; };
-		9EACE699668D5E6E087CB5E2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		DCD4D3DCEDC23835E3060BAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC94453C8A6F76114852F3EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +63,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B44CCC6F5A379B24965DFD54 /* libPods.a in Frameworks */,
+				0D248615735AEB9ED4DAF126 /* libPods-YJTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17AE06905E7AB4E2AB8D26C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */,
+				6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		418F167E49229DB1BCDFD89A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		845CC1D41CF015A000BCC14E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +114,8 @@
 			children = (
 				84C9E4FA1CEF1CAF0036C57B /* YJTableView */,
 				84C9E4F91CEF1CAE0036C57B /* Products */,
-				A8875CB73D2F510559A2C1E1 /* Pods */,
-				F39E6BCCE42EE889BAB31AB0 /* Frameworks */,
+				17AE06905E7AB4E2AB8D26C9 /* Pods */,
+				418F167E49229DB1BCDFD89A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,23 +211,6 @@
 			path = TableCellObject;
 			sourceTree = "<group>";
 		};
-		A8875CB73D2F510559A2C1E1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EC94453C8A6F76114852F3EA /* Pods.debug.xcconfig */,
-				9EACE699668D5E6E087CB5E2 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F39E6BCCE42EE889BAB31AB0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DCD4D3DCEDC23835E3060BAD /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,12 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C9E50F1CEF1CAF0036C57B /* Build configuration list for PBXNativeTarget "YJTableView" */;
 			buildPhases = (
-				CD1A5A2210B5CEF09143C8A7 /* Check Pods Manifest.lock */,
+				A4595FB1F90D651523A352C3 /* [CP] Check Pods Manifest.lock */,
 				84C9E4F41CEF1CAE0036C57B /* Sources */,
 				84C9E4F51CEF1CAE0036C57B /* Frameworks */,
 				84C9E4F61CEF1CAE0036C57B /* Resources */,
-				9DE26FF1B29DE2868C54B8EB /* Embed Pods Frameworks */,
-				16F3AA3E0DA0050C88412F89 /* Copy Pods Resources */,
+				8336A4CFA728257A44C147F4 /* [CP] Embed Pods Frameworks */,
+				55C2E661097600D5796DFAFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,49 +282,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16F3AA3E0DA0050C88412F89 /* Copy Pods Resources */ = {
+		55C2E661097600D5796DFAFF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DE26FF1B29DE2868C54B8EB /* Embed Pods Frameworks */ = {
+		8336A4CFA728257A44C147F4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CD1A5A2210B5CEF09143C8A7 /* Check Pods Manifest.lock */ = {
+		A4595FB1F90D651523A352C3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -460,7 +460,7 @@
 		};
 		84C9E5101CEF1CAF0036C57B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC94453C8A6F76114852F3EA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -474,7 +474,7 @@
 		};
 		84C9E5111CEF1CAF0036C57B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EACE699668D5E6E087CB5E2 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
