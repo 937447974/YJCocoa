@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 创建cell的方式*/
 typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
-    YJUICollectionCellCreateClass,    ///< 使用Class创建cell,即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
-    YJUICollectionCellCreateXib,      ///< 默认使用xib创建cell
+    YJUICollectionCellCreateClass,     ///< 使用Class创建cell,即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
+    YJUICollectionCellCreateXib,       ///< 默认使用xib创建cell
     YJUICollectionCellCreateStoryboard ///< 使用soryboard创建cell时，请使用类名作为标识符
 };
 

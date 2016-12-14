@@ -71,6 +71,10 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (_manager.dataSourceGrouped.count <= section) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        return 0;
+    }
     return self.manager.dataSourceGrouped[section].count;
 }
 
@@ -83,7 +87,7 @@
         cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     }
     cellObject.indexPath = indexPath;
-    UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
+    UICollectionViewCell *cell = [self dequeueReusableCacheCellWithCellObject:cellObject];
     return cell;
 }
 

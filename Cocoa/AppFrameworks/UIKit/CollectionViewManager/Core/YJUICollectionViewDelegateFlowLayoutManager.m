@@ -59,6 +59,10 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.manager.dataSourceGrouped.count <= indexPath.section || self.manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        return self.flowLayout.itemSize;
+    }    
     // 获取YJUIableCellObject
     YJUICollectionCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     cellObject.indexPath = indexPath;
@@ -106,7 +110,7 @@
         dataSource = self.manager.dataSourceManager.footerDataSource;
     }
     CGSize size = CGSizeZero;
-    if (dataSource.count == 0) {
+    if (dataSource.count <= section) {
         return size;
     }
     cellObject = dataSource[section];

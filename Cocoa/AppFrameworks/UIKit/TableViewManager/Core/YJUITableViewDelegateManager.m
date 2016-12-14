@@ -133,7 +133,8 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.manager.dataSourceGrouped.count == 0) {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
         return;
     }
     NSInteger section = self.manager.dataSourceGrouped.count - 1;
@@ -144,6 +145,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        return self.manager.tableView.rowHeight;
+    }
     // 获取YJUITableCellObject
     YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
@@ -165,6 +170,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.manager.delegate respondsToSelector:@selector(tableViewManager:didSelectCellWithCellObject:)]) {
+        if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+            NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+            return;
+        }
         YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
         [self.manager.delegate tableViewManager:self.manager didSelectCellWithCellObject:cellObject];
     }
