@@ -75,15 +75,10 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    BOOL invoke = NO;
     for (id target in self.weakTargets) {
         if ([target respondsToSelector:anInvocation.selector]) {
             [anInvocation invokeWithTarget:target];
-            invoke = YES;
         }
-    }
-    if (!invoke) {
-        [super forwardInvocation:anInvocation];
     }
 }
 

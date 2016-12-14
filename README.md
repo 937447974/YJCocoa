@@ -258,6 +258,7 @@ YJ技术支持群：557445088
 | | 2016-12-07 | CollectionViewManager和CollectionViewManager增加对Cell. reuseIdentifier属性的防空处理 |
 | | | DictionaryModel增加对NSURL和NSNumber属性相对于字典中数据的容错处理 |
 | 5.1.0 | 2016-12-09 | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连 |
+| 5.1.1 | 2016-12-14 | AOP修复崩溃错误 |
 
 ##Copyright
 
