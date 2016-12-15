@@ -37,9 +37,6 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 @property (nonatomic, readonly) Class cellClass;          ///< UICollectionViewCell对应的类
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UICollectionViewCell对应的类名
 
-@property (nonatomic) BOOL customCacheCell; ///< 是否使用自定义缓存Cell,YJUICollectionCellCreateStoryboard模式不支持
-@property (nonatomic, strong, nullable) UICollectionViewCell *cacheCell; ///< 缓存的Cell
-
 /**
  *  初始化YJUICollectionCellObject
  *

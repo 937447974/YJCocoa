@@ -87,7 +87,7 @@
         cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
     }
     cellObject.indexPath = indexPath;
-    UICollectionViewCell *cell = [self dequeueReusableCacheCellWithCellObject:cellObject];
+    UICollectionViewCell *cell = [self dequeueReusableCellWithCellObject:cellObject];
     return cell;
 }
 

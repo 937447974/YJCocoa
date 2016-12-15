@@ -31,8 +31,8 @@
     self.collectionViewManager.delegateFlowLayoutManager.lineItems = 3;          // 一行显示个数
     self.collectionViewManager.delegateFlowLayoutManager.itemHeightLayout = YES; // 是否自动适配高
     
-//    [self testDefault];
-    [self testCache];
+    [self testDefault];
+//    [self testClass];
 }
 
 - (void)testDefault {
@@ -56,7 +56,7 @@
     [self.collectionViewManager.dataSourceManager.footerDataSource addObject:co];
 }
 
-- (void)testCache {
+- (void)testClass {
     // 测试数据
     for (int i = 0; i < 1000; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
