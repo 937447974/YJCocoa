@@ -40,4 +40,9 @@
     return YJNSStringFromClass(self.class);
 }
 
+- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
+    _cellObject = cellObject;
+    _collectionViewManager = collectionViewManager;
+}
+
 @end
