@@ -57,6 +57,13 @@
     return nil;
 }
 
+- (void)setLineItems:(CGFloat)lineItems {
+    if (_lineItems) {
+        [self clearAllCacheSize];
+    }
+    _lineItems = lineItems;
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.manager.dataSourceGrouped.count <= indexPath.section || self.manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
@@ -68,16 +75,15 @@
     cellObject.indexPath = indexPath;
     // 存放缓存size的key
     NSString *key = [self getKeyFromCellObject:cellObject];
-    CGSize size = self.flowLayout.itemSize;
+    CGSize size = CGSizeZero;
     NSString *string;
     if (self.isCacheSize) {
         string = [_cacheSizeDict objectForKey:key];
     }
-    if (!string) { //无缓存
-        // 获取Size
-        size = [cellObject.cellClass collectionViewManager:self.manager sizeForCellObject:cellObject];
+    if (string) {
+        return CGSizeFromString(string);
     } else {
-        size = CGSizeFromString(string);
+        size = [cellObject.cellClass collectionViewManager:self.manager sizeForCellObject:cellObject];
     }
     if (self.lineItems) {
         CGFloat itemW = (collectionView.widthFrame - self.flowLayout.sectionInset.left - self.flowLayout.sectionInset.right - self.flowLayout.minimumInteritemSpacing * (self.lineItems - 1))/self.lineItems;
@@ -121,10 +127,10 @@
     if (self.isCacheSize) {
         string = [_cacheSizeDict objectForKey:key];
     }
-    if (!string) { //无缓存
-        size = [cellObject.cellClass collectionViewManager:self.manager viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
+    if (string) {
+        return CGSizeFromString(string);
     } else {
-        size = CGSizeFromString(string);
+        size = [cellObject.cellClass collectionViewManager:self.manager viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
     }
     // 添加缓存
     if (self.isCacheSize) {
