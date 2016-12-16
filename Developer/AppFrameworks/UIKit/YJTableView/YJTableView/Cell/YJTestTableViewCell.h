@@ -7,14 +7,9 @@
 //
 
 #import "YJUITableViewManager.h"
+#import "YJTestTableCellModel.h"
 
-@interface YJTestTableCellModel : NSObject <YJUITableCellModelProtocol>
-
-@property (nonatomic, copy) NSString *userName; ///< 用户名
-@property (nonatomic)       BOOL switchOn;      ///< 是否选中
-
-@end
-
+NS_ASSUME_NONNULL_BEGIN
 
 @interface YJTestTableViewCell : YJUITableViewCell
 
@@ -22,3 +17,5 @@
 @property (weak, nonatomic) IBOutlet UISwitch *sSwitch;
 
 @end
+
+NS_ASSUME_NONNULL_END

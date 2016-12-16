@@ -10,8 +10,10 @@
 		0D248615735AEB9ED4DAF126 /* libPods-YJTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */; };
 		845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D61CF015B800BCC14E /* YJFirstViewController.m */; };
 		845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D81CF015B800BCC14E /* YJSecondViewController.m */; };
-		8482173F1CF0201000410723 /* YJTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482173E1CF0201000410723 /* YJTestTableViewCell.m */; };
-		848217411CF0208B00410723 /* YJTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848217401CF0208B00410723 /* YJTestTableViewCell.xib */; };
+		84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6FDC1E02829D001F81E6 /* YJTestTableCellModel.m */; };
+		84AE6FE31E02829D001F81E6 /* YJTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6FDE1E02829D001F81E6 /* YJTestTableViewCell.m */; };
+		84AE6FE41E02829D001F81E6 /* YJTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE6FDF1E02829D001F81E6 /* YJTestTableViewCell.xib */; };
+		84AE6FE51E02829D001F81E6 /* YJTestTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6FE11E02829D001F81E6 /* YJTestTableViewCell2.m */; };
 		84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FC1CEF1CAF0036C57B /* main.m */; };
 		84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */; };
 		84C9E5061CEF1CAF0036C57B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5041CEF1CAF0036C57B /* Main.storyboard */; };
@@ -31,9 +33,13 @@
 		845CC1D61CF015B800BCC14E /* YJFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFirstViewController.m; sourceTree = "<group>"; };
 		845CC1D71CF015B800BCC14E /* YJSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecondViewController.h; sourceTree = "<group>"; };
 		845CC1D81CF015B800BCC14E /* YJSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecondViewController.m; sourceTree = "<group>"; };
-		8482173D1CF0201000410723 /* YJTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestTableViewCell.h; sourceTree = "<group>"; };
-		8482173E1CF0201000410723 /* YJTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestTableViewCell.m; sourceTree = "<group>"; };
-		848217401CF0208B00410723 /* YJTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestTableViewCell.xib; sourceTree = "<group>"; };
+		84AE6FDB1E02829D001F81E6 /* YJTestTableCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestTableCellModel.h; sourceTree = "<group>"; };
+		84AE6FDC1E02829D001F81E6 /* YJTestTableCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestTableCellModel.m; sourceTree = "<group>"; };
+		84AE6FDD1E02829D001F81E6 /* YJTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestTableViewCell.h; sourceTree = "<group>"; };
+		84AE6FDE1E02829D001F81E6 /* YJTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestTableViewCell.m; sourceTree = "<group>"; };
+		84AE6FDF1E02829D001F81E6 /* YJTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestTableViewCell.xib; sourceTree = "<group>"; };
+		84AE6FE01E02829D001F81E6 /* YJTestTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestTableViewCell2.h; sourceTree = "<group>"; };
+		84AE6FE11E02829D001F81E6 /* YJTestTableViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestTableViewCell2.m; sourceTree = "<group>"; };
 		84C9E4F81CEF1CAE0036C57B /* YJTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C9E4FC1CEF1CAF0036C57B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,7 +96,7 @@
 		845CC1D41CF015A000BCC14E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				845CC1DB1CF0161200BCC14E /* Cell */,
+				84AE6FD91E02829D001F81E6 /* Cell */,
 				845CC1D51CF015B800BCC14E /* YJFirstViewController.h */,
 				845CC1D61CF015B800BCC14E /* YJFirstViewController.m */,
 				845CC1D71CF015B800BCC14E /* YJSecondViewController.h */,
@@ -99,14 +105,26 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		845CC1DB1CF0161200BCC14E /* Cell */ = {
+		84AE6FD91E02829D001F81E6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8482173D1CF0201000410723 /* YJTestTableViewCell.h */,
-				8482173E1CF0201000410723 /* YJTestTableViewCell.m */,
-				848217401CF0208B00410723 /* YJTestTableViewCell.xib */,
+				84AE6FDA1E02829D001F81E6 /* Model */,
+				84AE6FDD1E02829D001F81E6 /* YJTestTableViewCell.h */,
+				84AE6FDE1E02829D001F81E6 /* YJTestTableViewCell.m */,
+				84AE6FDF1E02829D001F81E6 /* YJTestTableViewCell.xib */,
+				84AE6FE01E02829D001F81E6 /* YJTestTableViewCell2.h */,
+				84AE6FE11E02829D001F81E6 /* YJTestTableViewCell2.m */,
 			);
-			name = Cell;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		84AE6FDA1E02829D001F81E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84AE6FDB1E02829D001F81E6 /* YJTestTableCellModel.h */,
+				84AE6FDC1E02829D001F81E6 /* YJTestTableCellModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		84C9E4EF1CEF1CAE0036C57B = {
@@ -241,7 +259,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YJUI;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					84C9E4F71CEF1CAE0036C57B = {
@@ -274,8 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C9E50B1CEF1CAF0036C57B /* LaunchScreen.storyboard in Resources */,
-				848217411CF0208B00410723 /* YJTestTableViewCell.xib in Resources */,
 				84C9E5081CEF1CAF0036C57B /* Assets.xcassets in Resources */,
+				84AE6FE41E02829D001F81E6 /* YJTestTableViewCell.xib in Resources */,
 				84C9E5061CEF1CAF0036C57B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,10 +359,12 @@
 				84CEC13F1DB4B26E004CDF2B /* YJUITableViewDelegateManager.m in Sources */,
 				845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */,
 				84CEC1411DB4B26E004CDF2B /* YJUISuspensionCellView.m in Sources */,
+				84AE6FE51E02829D001F81E6 /* YJTestTableViewCell2.m in Sources */,
+				84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */,
 				84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */,
 				84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */,
-				8482173F1CF0201000410723 /* YJTestTableViewCell.m in Sources */,
 				84CEC13E1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
+				84AE6FE31E02829D001F81E6 /* YJTestTableViewCell.m in Sources */,
 				845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +487,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJTableView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,7 +502,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJTableView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
