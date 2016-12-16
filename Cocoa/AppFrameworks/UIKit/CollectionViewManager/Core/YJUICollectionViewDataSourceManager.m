@@ -41,25 +41,21 @@
 }
 
 - (UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJUICollectionCellObject *)cellObject {
-    NSString *identifier = cellObject.cellName;
-    // 判断是否缓存
-    if (![self.identifierSet containsObject:identifier]) {
+    if (![self.identifierSet containsObject:cellObject.reuseIdentifier]) {
         switch (cellObject.createCell) {
                 case YJUICollectionCellCreateClass: // 使用Class创建cell，即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
-                [self.manager.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:identifier];
+                [self.manager.collectionView registerClass:cellObject.cellClass forCellWithReuseIdentifier:cellObject.reuseIdentifier];
                 break;
                 case YJUICollectionCellCreateXib: // 默认使用xib创建cell，推荐此方式
-                [self.manager.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellWithReuseIdentifier:identifier];
+                [self.manager.collectionView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellWithReuseIdentifier:cellObject.reuseIdentifier];
                 break;
                 case YJUICollectionCellCreateStoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
                 break;
         }
-        [self.identifierSet addObject:identifier];
+        [self.identifierSet addObject:cellObject.reuseIdentifier];
     }
-    // 读取缓存
-    UICollectionViewCell *cell = [self.manager.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:cellObject.indexPath];
-    // 刷新数据
+    UICollectionViewCell *cell = [self.manager.collectionView dequeueReusableCellWithReuseIdentifier:cellObject.reuseIdentifier forIndexPath:cellObject.indexPath];
     [cell reloadDataWithCellObject:cellObject collectionViewManager:self.manager];
     return cell;
 }

@@ -41,9 +41,9 @@
         case YJUICollectionViewCacheSizeDefault: // 根据相同的UITableViewCell类缓存高度
             return cellObject.cellName;
         case YJUICollectionViewCacheSizeIndexPath: // 根据NSIndexPath对应的位置缓存高度
-            return [NSString stringWithFormat:@"%ld-%ld", cellObject.indexPath.section, cellObject.indexPath.item];
+            return [NSString stringWithFormat:@"%ld-%ld", (long)cellObject.indexPath.section, (long)cellObject.indexPath.item];
         case YJUICollectionViewCacheSizeClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存高度
-            return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, cellObject.indexPath.section, cellObject.indexPath.item];
+            return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, (long)cellObject.indexPath.section, (long)cellObject.indexPath.item];
     }
 }
 
