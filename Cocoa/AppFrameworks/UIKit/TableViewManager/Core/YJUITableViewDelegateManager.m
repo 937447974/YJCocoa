@@ -157,10 +157,11 @@
     CGFloat rowHeight = 0;
     if (self.isCacheHeight) {
         rowHeight = [_cacheHeightDict objectForKey:key].floatValue;
+        if (rowHeight) {
+            return rowHeight;
+        }
     }
-    if (rowHeight == 0) { //无缓存
-        rowHeight = [cellObject.cellClass tableViewManager:self.manager heightForCellObject:cellObject];
-    }
+    rowHeight = [cellObject.cellClass tableViewManager:self.manager heightForCellObject:cellObject];
     // 添加缓存
     if (self.isCacheHeight) {
         [_cacheHeightDict setObject:[NSNumber numberWithFloat:rowHeight] forKey:key];
