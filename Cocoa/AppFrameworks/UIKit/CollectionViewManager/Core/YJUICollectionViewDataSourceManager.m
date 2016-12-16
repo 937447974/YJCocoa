@@ -53,7 +53,6 @@
                 break;
                 case YJUICollectionCellCreateStoryboard: // 使用soryboard创建cell时，请使用类名作为标识符
                 // Soryboard中设置UICollectionViewCell类名作为Identifier
-                identifier = cellObject.cellName;
                 break;
         }
         [self.identifierSet addObject:identifier];
