@@ -126,12 +126,9 @@
     NSString *string;
     if (self.isCacheSize) {
         string = [_cacheSizeDict objectForKey:key];
+        if (string) return CGSizeFromString(string);
     }
-    if (string) {
-        return CGSizeFromString(string);
-    } else {
-        size = [cellObject.cellClass collectionViewManager:self.manager viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
-    }
+    size = [cellObject.cellClass collectionViewManager:self.manager viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
     // 添加缓存
     if (self.isCacheSize) {
         [_cacheSizeDict setObject:NSStringFromCGSize(size) forKey:key];

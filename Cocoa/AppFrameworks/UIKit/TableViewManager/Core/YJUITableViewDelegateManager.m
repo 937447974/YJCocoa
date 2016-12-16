@@ -157,9 +157,7 @@
     CGFloat rowHeight = 0;
     if (self.isCacheHeight) {
         rowHeight = [_cacheHeightDict objectForKey:key].floatValue;
-        if (rowHeight) {
-            return rowHeight;
-        }
+        if (rowHeight) return rowHeight;
     }
     rowHeight = [cellObject.cellClass tableViewManager:self.manager heightForCellObject:cellObject];
     // 添加缓存
