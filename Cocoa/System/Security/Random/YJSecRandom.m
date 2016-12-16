@@ -17,7 +17,7 @@ NSString *randomUL(size_t count,  NSString * _Nullable format) {
     int result = SecRandomCopyBytes(kSecRandomDefault, count, randomBytes);
     if(result == 0) {
         NSMutableString *mStr = [[NSMutableString alloc] initWithCapacity:count*2];
-        BOOL bRandom = format;
+        BOOL bRandom = format.length;
         for (NSInteger index = 0; index < count; index++) {
             if (bRandom) {
                 [mStr appendFormat:format, randomBytes[index]];
