@@ -67,17 +67,19 @@
 #pragma mark YJUICollectionViewCell
 @implementation YJUICollectionReusableView
 
-+ (YJUICollectionCellCreate)cellCreate {
-    if ([@"YJUICollectionReusableView" isEqualToString:YJNSStringFromClass(self.class)]) {
-        return YJUICollectionCellCreateClass;
-    }
-    return [super cellCreate];
-}
-
+#pragma mark - getter & setter
 - (NSString *)reuseIdentifier {
     NSString *reuseIdentifier = [super reuseIdentifier];
     if (reuseIdentifier) return reuseIdentifier;
     return YJNSStringFromClass(self.class);
+}
+
+#pragma mark -
++ (YJUICollectionCellCreate)cellCreate {
+    if ([YJNSStringFromClass([YJUICollectionReusableView class]) isEqualToString:YJNSStringFromClass(self.class)]) {
+        return YJUICollectionCellCreateClass;
+    }
+    return [super cellCreate];
 }
 
 - (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
