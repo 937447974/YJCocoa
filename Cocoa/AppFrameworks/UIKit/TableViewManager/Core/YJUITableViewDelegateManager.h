@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 };
 
 /** UITableView滚动*/
-typedef NS_OPTIONS(NSUInteger, YJUITableViewScroll) {
+typedef NS_OPTIONS(NSInteger, YJUITableViewScroll) {
     // 上方出现
     YJUITableViewScrollEndTop,     ///< 滚动到顶部
     YJUITableViewScrollDidTop,     ///< 向上滚动

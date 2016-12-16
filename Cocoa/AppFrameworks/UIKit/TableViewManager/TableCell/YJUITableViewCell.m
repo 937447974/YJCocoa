@@ -29,7 +29,7 @@
     return cellObject;
 }
 
-+ (id)cellObjectWithCellModel:(id<YJUITableCellModelProtocol>)cellModel {
++ (YJUITableCellObject *)cellObjectWithCellModel:(id<YJUITableCellModelProtocol>)cellModel {
     YJUITableCellObject *cellObject = [self cellObject];
     cellObject.cellModel = cellModel;
     return cellObject;

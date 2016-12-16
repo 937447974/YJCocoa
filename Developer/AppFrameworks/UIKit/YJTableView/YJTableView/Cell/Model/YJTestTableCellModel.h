@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJUITableViewManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YJTestTableCellModel : NSObject
+@interface YJTestTableCellModel : NSObject <YJUITableCellModelProtocol>
 
 @property (nonatomic, copy) NSString *userName; ///< 用户名
 @property (nonatomic)       BOOL switchOn;      ///< 是否选中
