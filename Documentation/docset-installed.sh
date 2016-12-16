@@ -31,8 +31,11 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-12-09 | URLSession上线，大型APP网络架构，兼容任何一款网络SDK，并将其转化为面向对象请求，且支持断网重连" with title "YJCocoa 5.1.0"'
-
+osascript -e 'display notification "2016-12-14 | AOP修复崩溃错误" with title "YJCocoa 5.1.1"'
+osascript -e 'display notification "2016-12-15 | CollectionViewManager和TableViewManager增加数据源越界保护" with title "YJCocoa 5.1.1"'
+osascript -e 'display notification "2016-12-16 | TableViewManager增加+ (YJUITableViewCellCreate)cellCreate方法强制实现" with title "YJCocoa 5.1.1"'
+osascript -e 'display notification "2016-12-16 | CollectionViewManager和TableViewManager增加重用标识符" with title "YJCocoa 5.1.1"'
+osascript -e 'display notification "2016-12-16 | 修复部分警告代码" with title "YJCocoa 5.1.1"'
 
 
 
