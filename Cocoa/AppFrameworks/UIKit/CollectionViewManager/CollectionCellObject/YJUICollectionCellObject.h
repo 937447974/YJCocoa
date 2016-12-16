@@ -9,7 +9,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
