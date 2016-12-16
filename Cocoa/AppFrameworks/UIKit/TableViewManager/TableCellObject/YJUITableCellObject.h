@@ -37,8 +37,8 @@ typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
 @property (nonatomic) __kindof id<YJUITableCellModelProtocol> cellModel; ///< cell对应的VM
 @property (nonatomic, strong, nullable) id userInfo;                     ///< 携带的自定义数据
 
-@property (nonatomic) YJUITableViewCellCreate createCell;       ///< 创建cell的方式
-@property (nonatomic, strong, nullable) NSIndexPath *indexPath; ///< cell所处位置，无须添加，自动填充
+@property (nonatomic) YJUITableViewCellCreate createCell; ///< 创建cell的方式
+@property (nonatomic, strong) NSIndexPath *indexPath;     ///< cell所处位置，无须添加，自动填充
 
 @property (nonatomic, readonly)       Class cellClass;    ///< UITableViewCell对应的类
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UITableViewCell对应的类名

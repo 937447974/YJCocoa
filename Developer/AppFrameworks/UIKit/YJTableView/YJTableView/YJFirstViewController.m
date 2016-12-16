@@ -87,7 +87,7 @@
 }
 
 - (void)tableViewManager:(YJUITableViewManager *)manager scroll:(YJUITableViewScroll)scroll {
-    NSLog(@"%@--%d", NSStringFromSelector(_cmd), scroll);
+    NSLog(@"%@--%ld", NSStringFromSelector(_cmd), (long)scroll);
 }
 
 #pragma mark - 悬浮测试
