@@ -20,6 +20,7 @@
     if (self) {
         _cellClass = cellClass;
         _cellName = YJNSStringFromClass(_cellClass);
+        self.reuseIdentifier = _cellName;
     }
     return self;
 }

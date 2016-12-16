@@ -12,12 +12,19 @@
 #import "YJUITableViewDataSourceManager.h"
 #import "YJUITableViewManager.h"
 
+@interface YJUITableViewDataSourceManager ()
+
+@property (nonatomic, strong) NSMutableSet<NSString *> *identifierSet; ///< 记录缓存过的identifier
+
+@end
+
 @implementation YJUITableViewDataSourceManager
 
 - (instancetype)initWithManager:(YJUITableViewManager *)manager {
     self = [super init];
     if (self) {
         _manager = manager;
+        self.identifierSet = [NSMutableSet set];
     }
     return self;
 }
@@ -54,27 +61,22 @@
     return [self dequeueReusableCellWithCellObject:cellObject];
 }
 
-#pragma mark 根据YJUITableCellObject生成UITableViewCell
+#pragma mark - 生成UITableViewCell
 - (UITableViewCell *)dequeueReusableCellWithCellObject:(YJUITableCellObject *)cellObject {
-    NSString *identifier = cellObject.cellName;
-    // 读取缓存
-    UITableViewCell *cell = [_manager.tableView dequeueReusableCellWithIdentifier:identifier];
-    // 未找到时，重新注入，再寻找
-    if (cell == nil) {
+    if (![self.identifierSet containsObject:cellObject.reuseIdentifier]) {
         switch (cellObject.createCell) {
-            case YJUITableViewCellCreateDefault:
-                [_manager.tableView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellReuseIdentifier:identifier];
-                cell = [_manager.tableView dequeueReusableCellWithIdentifier:identifier];
+            case YJUITableViewCellCreateClass:
+                [self.manager.tableView registerClass:cellObject.cellClass forCellReuseIdentifier:cellObject.reuseIdentifier];
+                break;
+            case YJUITableViewCellCreateXib:
+                [self.manager.tableView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forCellReuseIdentifier:cellObject.reuseIdentifier];
                 break;
             case YJUITableViewCellCreateSoryboard:
-                NSLog(@"Soryboard中请使用%@设置cell的Identifier属性", cellObject.cellName);
-                break;
-            case YJUITableViewCellCreateClass:
-                cell = [[cellObject.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 break;
         }
+        [self.identifierSet addObject:cellObject.reuseIdentifier];
     }
-    // 刷新数据
+    UITableViewCell *cell = [_manager.tableView dequeueReusableCellWithIdentifier:cellObject.reuseIdentifier forIndexPath:cellObject.indexPath];
     [cell reloadDataWithCellObject:cellObject tableViewManager:_manager];
     return cell;
 }

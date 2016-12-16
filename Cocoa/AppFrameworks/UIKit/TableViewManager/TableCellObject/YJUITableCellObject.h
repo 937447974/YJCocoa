@@ -9,15 +9,15 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 创建cell的方式*/
 typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
-    YJUITableViewCellCreateDefault,   ///< 默认使用xib创建cell，推荐此方式
-    YJUITableViewCellCreateSoryboard, ///< 使用soryboard创建cell时，请使用类名作为标识符
-    YJUITableViewCellCreateClass      ///< 使用Class创建cell,即使用[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className]创建cell    
+    YJUITableViewCellCreateClass,    ///< 使用Class创建cell,即使用[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className]创建cell
+    YJUITableViewCellCreateXib,      ///< 默认使用xib创建cell
+    YJUITableViewCellCreateSoryboard ///< 使用soryboard创建cell时，请使用类名作为标识符
 };
 
 
@@ -40,6 +40,8 @@ typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
 
 @property (nonatomic, readonly)       Class cellClass;    ///< UITableViewCell对应的类
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UITableViewCell对应的类名
+
+@property (nonatomic, copy) NSString *reuseIdentifier; ///< UITableViewCell标识符，默认类名
 
 /**
  *  初始化YJUITableCellObject，当不想创建子类时，可使用此方法创建对象

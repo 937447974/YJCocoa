@@ -26,9 +26,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
     //    [self test1];
-    [self test2];
+//    [self test2];
 //    [self test3];
-    //    [self test4];
+        [self test4];
 }
 
 #pragma mark - 测试数据
@@ -58,11 +58,7 @@
     for (int i = 0; i < 100; i++) {
         YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
-        YJUITableCellObject *co = [YJTestTableViewCell2 cellObjectWithCellModel:cellModel];
-        if (i <= 9) {
-            co.reuseIdentifier = [NSString stringWithFormat:@"%@-%d", co.reuseIdentifier, i];
-        }
-        [self.tableViewManager.dataSource addObject:co];
+        [self.tableViewManager.dataSource addObject:[YJTestTableViewCell2 cellObjectWithCellModel:cellModel]];
     }
     [self.tableView reloadData];
 }

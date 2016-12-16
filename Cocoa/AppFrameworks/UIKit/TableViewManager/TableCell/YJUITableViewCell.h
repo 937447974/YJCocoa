@@ -35,19 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** UITableViewCell扩展*/
 @interface UITableViewCell (YJUITableView)
 
-/**
- *  获取初始化cell的方式
- *
- *  @return YJUITableViewCellCreate
- */
-+ (YJUITableViewCellCreate)cellCreate;
+@property (nonatomic, class, readonly) YJUITableViewCellCreate cellCreate; ///< 获取初始化cell的方式
 
-/**
- *  获取YJUITableCellObject,子类重写可获取YJUITableCellObject子类。
- *
- *  @return YJUITableCellObject
- */
-+ (id)cellObject;
+@property (nonatomic, class, readonly, weak) __kindof YJUITableCellObject *cellObject; ///< 获取YJUITableCellObject
 
 /**
  *  获取YJUITableCellObject并自动填充模型。

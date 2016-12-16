@@ -19,12 +19,13 @@
 
 #pragma mark - (+)
 + (YJUITableViewCellCreate)cellCreate {
-    return YJUITableViewCellCreateDefault;
+    [self doesNotRecognizeSelector:_cmd];
+    return YJUITableViewCellCreateClass;
 }
 
-+ (id)cellObject {
++ (YJUITableCellObject *)cellObject {
     YJUITableCellObject *cellObject = [[YJUITableCellObject alloc] initWithTableViewCellClass:self.class];
-    cellObject.createCell = [self cellCreate];
+    cellObject.createCell = self.cellCreate;
     return cellObject;
 }
 
@@ -64,6 +65,9 @@
 - (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
 }
 
+- (void)reloadDataCacheWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+}
+
 @end
 
 
@@ -93,6 +97,13 @@
 }
 
 #pragma mark - YJUITableView
++ (YJUITableViewCellCreate)cellCreate {
+    if ([YJNSStringFromClass([YJUITableViewCell class]) isEqualToString:YJNSStringFromClass(self.class)]) {
+        return YJUITableViewCellCreateClass;
+    }
+    return [super cellCreate];
+}
+
 - (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     _cellObject = cellObject;
     _tableViewManager = tableViewManager;

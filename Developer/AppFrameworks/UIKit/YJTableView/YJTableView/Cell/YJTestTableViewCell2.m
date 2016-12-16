@@ -33,9 +33,6 @@
 }
 
 - (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-    if (cellObject == self.cellObject) {
-        NSLog(@"缓存拉取%@", self.label.text);
-    }
     [super reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;

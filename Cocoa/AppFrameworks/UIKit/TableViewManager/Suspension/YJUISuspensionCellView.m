@@ -20,7 +20,7 @@
 
 @property (nonatomic) BOOL scrollAnimate; ///< 悬浮cell动画滑动中
 @property (nonatomic) NSInteger index;    ///< 当前显示下标, 1代表第一个cell固定显示
-@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *indexPaths;    ///< 悬浮的Cell对象
+@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *indexPaths;  ///< 悬浮的Cell对象
 @property (nonatomic, strong) NSMutableArray<UITableViewCell *> *suspensionCells; ///< 悬浮的Cell队列
 
 @end
@@ -59,14 +59,14 @@
     UITableViewCell *cell;
     if (cell == nil) {
         switch (cellObject.createCell) {
-            case YJUITableViewCellCreateDefault:
+            case YJUITableViewCellCreateClass:
+                cell = [[cellObject.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+                break;
+            case YJUITableViewCellCreateXib:
                 cell = [[UINib nibWithNibName:cellObject.cellName bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
                 break;
             case YJUITableViewCellCreateSoryboard:
                 NSAssert(NO, @"悬浮cel不支持YJUITableViewCellCreateSoryboard创建cell");
-                break;
-            case YJUITableViewCellCreateClass:
-                cell = [[cellObject.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
                 break;
         }
     }

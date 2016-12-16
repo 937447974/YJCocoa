@@ -21,9 +21,7 @@
 - (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     [super reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
     YJTestTableCellModel *celModel = cellObject.cellModel;
-    NSLog(@"+++++++++%@", self.label.text);
     self.label.text = celModel.userName;
-    NSLog(@"---------%@", self.label.text);
     self.sSwitch.on = celModel.switchOn;
     switch (cellObject.indexPath.row%3) {
         case 0:
