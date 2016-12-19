@@ -491,9 +491,9 @@
 		8473AC051CE96C75000E3580 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8473AB841CE969DB000E3580 /* Main.storyboard */,
 				8473AB871CE969DB000E3580 /* Assets.xcassets */,
 				8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */,
+				8473AB841CE969DB000E3580 /* Main.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

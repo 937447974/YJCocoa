@@ -387,6 +387,7 @@
 			baseConfigurationReference = 4E3A7F3FE1FD4800A029C238 /* Pods-YJUINavigationRouter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJUINavigationRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -401,6 +402,7 @@
 			baseConfigurationReference = A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJUINavigationRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
