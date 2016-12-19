@@ -21,6 +21,12 @@
     NSLog(@"%@", http);
     NSLog(@"%@", [YJNSHttpAnalysis analysisParams:http]);
     NSLog(@"%@", [YJNSHttpAnalysis analysisParams:http forKey:@"name"]);
+    
+    http = [NSMutableString stringWithString:[YJNSHttpAssembly assemblyHttpEncode:@"https://www.baidu.com/s" params:@{@"name":@"?/阳君\\", @"qq":@"&937447974#"}]];
+    [http appendString:@"#point"]; // 锚点
+    NSLog(@"%@", http);
+    NSLog(@"%@", [YJNSHttpAnalysis analysisParamsDecode:http]);
+    NSLog(@"%@", [YJNSHttpAnalysis analysisParamsDecode:http forKey:@"name"]);
 }
 
 @end

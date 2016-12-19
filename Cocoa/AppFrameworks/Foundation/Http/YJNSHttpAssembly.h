@@ -17,13 +17,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJNSHttpAssembly : NSObject
 
 /**
- *  http组装（只有参数）
+ *  @abstract http组装（只有参数）
  *
  *  @param params 相关参数
  *
- *  @return void
+ *  @return NSString
  */
 + (NSString *)assemblyHttp:(NSDictionary *)params;
+
+/**
+ *  @abstract http组装,URLEncode编码（只有参数）
+ *
+ *  @param params 相关参数
+ *
+ *  @return NSString
+ */
++ (NSString *)assemblyHttpEncode:(NSDictionary *)params;
 
 /**
  *  http组装（链接+参数）
@@ -34,6 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return void
  */
 + (NSString *)assemblyHttp:(NSString *)http params:(NSDictionary *)params;
+
+/**
+ *  @abstract http组装,URLEncode编码（链接+参数）
+ *
+ *  @param http 链接
+ *  @param params 相关参数
+ *
+ *  @return NSString
+ */
++ (NSString *)assemblyHttpEncode:(NSString *)http params:(NSDictionary *)params;
 
 @end
 

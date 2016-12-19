@@ -36,6 +36,9 @@
 // 计时器
 #import "YJNSTimer.h"
 
+// URLEncode编码和URLDecode解码
+#import "YJNSURLCode.h"
+
 // 网络架构
 #import "YJNSURLSession.h"
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
+		8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
@@ -17,6 +18,7 @@
 		847815B81DEEE10700B2ED8D /* YJTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815B71DEEE10700B2ED8D /* YJTestModel.m */; };
 		847815BC1DEEE16700B2ED8D /* YJTestURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815BB1DEEE16700B2ED8D /* YJTestURLRequest.m */; };
 		847815C01DEEE1CD00B2ED8D /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815BF1DEEE1CD00B2ED8D /* YJTestURLSessionTask.m */; };
+		8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
 		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
@@ -63,6 +65,8 @@
 		840BE1A41DAE3B8F00ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
 		840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
+		8446DF691E03FB200093F8A3 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
+		8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLCode.m; sourceTree = "<group>"; };
 		847815991DED518900B2ED8D /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
 		8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionTask.m; sourceTree = "<group>"; };
 		847815A01DED523400B2ED8D /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		847815BB1DEEE16700B2ED8D /* YJTestURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLRequest.m; sourceTree = "<group>"; };
 		847815BE1DEEE1CD00B2ED8D /* YJTestURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLSessionTask.h; sourceTree = "<group>"; };
 		847815BF1DEEE1CD00B2ED8D /* YJTestURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLSessionTask.m; sourceTree = "<group>"; };
+		8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJURLDecodeTest.m; sourceTree = "<group>"; };
 		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
@@ -168,6 +173,15 @@
 				840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */,
 			);
 			path = Directory;
+			sourceTree = "<group>";
+		};
+		8446DF681E03FAFC0093F8A3 /* URLCode */ = {
+			isa = PBXGroup;
+			children = (
+				8446DF691E03FB200093F8A3 /* YJNSURLCode.h */,
+				8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */,
+			);
+			path = URLCode;
 			sourceTree = "<group>";
 		};
 		847815981DED518900B2ED8D /* Task */ = {
@@ -341,6 +355,7 @@
 				84D355D91DAB68C50097D526 /* YJHttpTest.m */,
 				84D355A81DAB60750097D526 /* YJLogTest.m */,
 				84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */,
+				8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -358,6 +373,7 @@
 				84D3564D1DAB73F10097D526 /* PerformSelector */,
 				84D356521DAB73F10097D526 /* Singleton */,
 				84D356551DAB73F10097D526 /* Timer */,
+				8446DF681E03FAFC0093F8A3 /* URLCode */,
 				84D28EC31DED3535001AF6B5 /* URLSession */,
 				84D356581DAB73F10097D526 /* YJFoundation.h */,
 			);
@@ -502,10 +518,12 @@
 				TargetAttributes = {
 					84D3557C1DAB5E700097D526 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = PC936H3Q67;
 						ProvisioningStyle = Automatic;
 					};
 					84D3559B1DAB601C0097D526 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = PC936H3Q67;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84D3557C1DAB5E700097D526;
 					};
@@ -660,6 +678,7 @@
 				84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */,
 				8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */,
 				84D3565C1DAB73F10097D526 /* YJNSHttpAnalysis.m in Sources */,
+				8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */,
 				847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */,
 				84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */,
 				84D3565E1DAB73F10097D526 /* YJNSLog.m in Sources */,
@@ -675,6 +694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */,
 				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
 				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
 				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
@@ -761,7 +781,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -804,7 +824,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -817,9 +837,11 @@
 			baseConfigurationReference = 9B48EAA311845AE2F047289A /* Pods-YJFoundation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -829,9 +851,11 @@
 			baseConfigurationReference = 070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJFoundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -841,6 +865,7 @@
 			baseConfigurationReference = FC22DCABA42C821E860B026E /* Pods-YJFoundationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundationTests;
@@ -854,6 +879,7 @@
 			baseConfigurationReference = 1BE61D82ED98CAD924530731 /* Pods-YJFoundationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundationTests;

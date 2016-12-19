@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJNSHttpAnalysis : NSObject
 
 /**
- *  通过http链接获取对应的参数
+ *  @abstract 通过http链接获取对应的参数
  *
  *  @param http http链接
  *
@@ -26,7 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary<NSString *, NSString *> *)analysisParams:(NSString *)http;
 
 /**
- *  通过http链接和参数key获取对应的参数获取对应的参数
+ *  @abstract 通过http链接获取对应的参数(value会urlDecode解码)
+ *
+ *  @param http http链接
+ *
+ *  @return void
+ */
++ (NSDictionary<NSString *, NSString *> *)analysisParamsDecode:(NSString *)http;
+
+/**
+ *  @abstract 通过http链接和参数key获取对应的参数获取对应的参数
  *
  *  @param http http链接
  *  @param key  参数对应的key
@@ -34,6 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return NSString
  */
 + (nullable NSString *)analysisParams:(NSString *)http forKey:(NSString *)key;
+
+/**
+ *  @abstract 通过http链接和参数key获取对应的参数获取对应的参数(value会urlDecode解码)
+ *
+ *  @param http http链接
+ *  @param key  参数对应的key
+ *
+ *  @return NSString
+ */
++ (nullable NSString *)analysisParamsDecode:(NSString *)http forKey:(NSString *)key;
 
 @end
 
