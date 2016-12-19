@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.1.1"
+    s.version  = "5.2.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -78,6 +78,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'Http' do |http|
                 http.source_files = 'Cocoa/AppFrameworks/Foundation/Http/*.{h,m}'
+                http.dependency 'YJCocoa/AppFrameworks/Foundation/URLCode'
             end
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/AppFrameworks/Foundation/Log/*.{h,m}'
@@ -94,6 +95,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/PerformSelector'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 timer.dependency 'YJCocoa/System/Security/Random'
+            end
+            # URLCode
+            foundation.subspec 'URLCode' do |urlCode|
+                urlCode.source_files = 'Cocoa/AppFrameworks/Foundation/URLCode/*.{h,m}'
             end
             foundation.subspec 'URLSession' do |session|
                 session.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}'

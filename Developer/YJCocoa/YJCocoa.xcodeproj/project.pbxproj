@@ -40,6 +40,7 @@
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		8473AC181CE96DEC000E3580 /* YJCocoa.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC171CE96DEC000E3580 /* YJCocoa.podspec */; };
+		8480BBF41E07D3B200A82399 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBF31E07D3B200A82399 /* YJNSURLCode.m */; };
 		848BA7FF1DB9E7CF0086AB52 /* YJUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */; };
 		84C1D0381DBF5AAA00D8A058 /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D0371DBF5AAA00D8A058 /* YJNSFileManager.m */; };
 		84C59DD81DB0EAA700B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD71DB0EAA700B93218 /* YJNSAspectOrientProgramming.m */; };
@@ -145,6 +146,8 @@
 		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8473AC171CE96DEC000E3580 /* YJCocoa.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YJCocoa.podspec; path = ../../../YJCocoa.podspec; sourceTree = "<group>"; };
+		8480BBF21E07D3B200A82399 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
+		8480BBF31E07D3B200A82399 /* YJNSURLCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLCode.m; sourceTree = "<group>"; };
 		848BA7FD1DB9E7CF0086AB52 /* YJUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIColor.h; sourceTree = "<group>"; };
 		848BA7FE1DB9E7CF0086AB52 /* YJUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIColor.m; sourceTree = "<group>"; };
 		84C1D0361DBF5AAA00D8A058 /* YJNSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSFileManager.h; sourceTree = "<group>"; };
@@ -495,6 +498,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		8480BBF11E07D3B200A82399 /* URLCode */ = {
+			isa = PBXGroup;
+			children = (
+				8480BBF21E07D3B200A82399 /* YJNSURLCode.h */,
+				8480BBF31E07D3B200A82399 /* YJNSURLCode.m */,
+			);
+			path = URLCode;
+			sourceTree = "<group>";
+		};
 		848BA7FC1DB9E7CF0086AB52 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +667,7 @@
 				84D3561F1DAB722B0097D526 /* PerformSelector */,
 				84D356241DAB722B0097D526 /* Singleton */,
 				84D356271DAB722B0097D526 /* Timer */,
+				8480BBF11E07D3B200A82399 /* URLCode */,
 				84E222401DF182F60051ABFB /* URLSession */,
 				84D3562A1DAB722B0097D526 /* YJFoundation.h */,
 			);
@@ -850,7 +863,7 @@
 		8473AB701CE969DB000E3580 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					8473AB771CE969DB000E3580 = {
@@ -935,6 +948,7 @@
 				84D356351DAB722B0097D526 /* NSObject+YJNSPerformSelector.m in Sources */,
 				841725E91DACBC1C006022A9 /* YJUINavigationBar.m in Sources */,
 				84D3562E1DAB722B0097D526 /* NSObject+YJNSDictionaryModel.m in Sources */,
+				8480BBF41E07D3B200A82399 /* YJNSURLCode.m in Sources */,
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				84E222501DF182F60051ABFB /* YJNSURLSessionTask.m in Sources */,
 				84CEC1571DB4B33E004CDF2B /* YJUITableViewManager.m in Sources */,
@@ -1024,7 +1038,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1065,7 +1079,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
