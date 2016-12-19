@@ -36,8 +36,8 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 
 ###1.1.5 Http
 
-1. http链接解析，快速获取其中参数;
-2. http链接组装，快速组装相关参数。
+1. http链接解析，快速获取其中参数，支持URLEncode编码;
+2. http链接组装，快速组装相关参数，支持URLDecode解码。
 
 ###1.1.6 Log
 
@@ -60,7 +60,11 @@ NSLog打印优化，Unicode自动转化为中文输出。
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-###1.1.10 URLSession
+###1.1.10 URLCode
+
+URLEncode编码和URLDecode解码
+
+###1.1.11 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -261,6 +265,8 @@ YJ技术支持群：557445088
 | | 2016-12-16 | TableViewManager增加+ (YJUITableViewCellCreate)cellCreate方法强制实现 |
 | | | CollectionViewManager和TableViewManager增加重用标识符 |
 | | | 修复部分警告代码 |
+| 5.2.0 | 2016-12-19 | URLCode上线，支持URLEncode编码和URLDecode解码 |
+| | | Http接入URLCode库，增加参数URLEncode编码和URLDecode解码的方法 |
 
 ##Copyright
 
