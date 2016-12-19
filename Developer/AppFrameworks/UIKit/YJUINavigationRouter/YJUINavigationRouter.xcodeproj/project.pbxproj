@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1200EE8DA2ACACB36504CA /* libPods-YJUINavigationRouter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D79E1A3F03A4296B5F9563 /* libPods-YJUINavigationRouter.a */; };
 		8480BC031E07D9D200A82399 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC021E07D9D200A82399 /* main.m */; };
 		8480BC061E07D9D200A82399 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC051E07D9D200A82399 /* AppDelegate.m */; };
 		8480BC0C1E07D9D200A82399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8480BC0A1E07D9D200A82399 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15D79E1A3F03A4296B5F9563 /* libPods-YJUINavigationRouter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJUINavigationRouter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E3A7F3FE1FD4800A029C238 /* Pods-YJUINavigationRouter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUINavigationRouter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter.debug.xcconfig"; sourceTree = "<group>"; };
 		8480BBFE1E07D9D200A82399 /* YJUINavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJUINavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8480BC021E07D9D200A82399 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8480BC041E07D9D200A82399 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		8480BC231E07DAB600A82399 /* YJUINavigationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUINavigationRouter.m; sourceTree = "<group>"; };
 		8480BC281E07DB6A00A82399 /* YJUINavigationRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUINavigationRouteManager.h; sourceTree = "<group>"; };
 		8480BC291E07DB6A00A82399 /* YJUINavigationRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUINavigationRouteManager.m; sourceTree = "<group>"; };
+		A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUINavigationRouter.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1200EE8DA2ACACB36504CA /* libPods-YJUINavigationRouter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41A21046F1957ED5DC321190 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E3A7F3FE1FD4800A029C238 /* Pods-YJUINavigationRouter.debug.xcconfig */,
+				A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8480BBF51E07D9D200A82399 = {
 			isa = PBXGroup;
 			children = (
 				8480BC001E07D9D200A82399 /* YJUINavigationRouter */,
 				8480BBFF1E07D9D200A82399 /* Products */,
+				41A21046F1957ED5DC321190 /* Pods */,
+				FCCF90C26F6EEC80EF1E451D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +130,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		FCCF90C26F6EEC80EF1E451D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15D79E1A3F03A4296B5F9563 /* libPods-YJUINavigationRouter.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8480BC151E07D9D200A82399 /* Build configuration list for PBXNativeTarget "YJUINavigationRouter" */;
 			buildPhases = (
+				76859F49F8054C8BC1EF9CE9 /* [CP] Check Pods Manifest.lock */,
 				8480BBFA1E07D9D200A82399 /* Sources */,
 				8480BBFB1E07D9D200A82399 /* Frameworks */,
 				8480BBFC1E07D9D200A82399 /* Resources */,
+				6D1A62AC4AE7D34A10CD7F30 /* [CP] Embed Pods Frameworks */,
+				4742DD9653060D847950C296 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,7 @@
 				TargetAttributes = {
 					8480BBFD1E07D9D200A82399 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = PC936H3Q67;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -180,6 +208,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4742DD9653060D847950C296 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D1A62AC4AE7D34A10CD7F30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76859F49F8054C8BC1EF9CE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8480BBFA1E07D9D200A82399 /* Sources */ = {
@@ -256,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -298,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,22 +384,28 @@
 		};
 		8480BC161E07D9D200A82399 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E3A7F3FE1FD4800A029C238 /* Pods-YJUINavigationRouter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJUINavigationRouter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJUINavigationRouter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		8480BC171E07D9D200A82399 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJUINavigationRouter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJUINavigationRouter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -347,6 +429,7 @@
 				8480BC171E07D9D200A82399 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

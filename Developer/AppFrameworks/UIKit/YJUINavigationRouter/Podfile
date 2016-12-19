@@ -1,0 +1,10 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '7.0'
+
+def shared_pods
+    pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
+end
+
+target 'YJUINavigationRouter' do
+    shared_pods
+end
