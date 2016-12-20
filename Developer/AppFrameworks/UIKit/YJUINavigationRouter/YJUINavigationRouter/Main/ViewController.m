@@ -2,11 +2,12 @@
 //  ViewController.m
 //  YJUINavigationRouter
 //
-//  Created by admin on 2016/12/19.
+//  Created by 阳君 on 2016/12/19.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "UIViewController+YJUINavigationRouter.h"
 
 @interface ViewController ()
 
@@ -18,12 +19,5 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
