@@ -14,11 +14,15 @@
 
 @implementation NSObject (YJNSRouter)
 
+- (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL {
+    return [self init];
+}
+
 - (void)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options completionHandler:(void (^)(BOOL))completion {
     BOOL success = NO;
     Class targetRouterClass = [YJNSRouteManager.sharedManager routerClassForURL:routerURL];
     if (targetRouterClass) {
-        NSObject *targetRouter = [[targetRouterClass alloc] init];
+        NSObject *targetRouter = [[targetRouterClass alloc] initWithRouterURL:routerURL];
         YJNSRouter *router = [[self.router.class alloc] init];
         router.sourceRouter = self.router;
         router.sourceOptions = options;

@@ -20,6 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) YJNSRouter *router; ///< 路由
 
 /**
+ *  @abstract 初始化
+ *
+ *  @param routerURL 路由地址
+ *
+ *  @return instancetype
+ */
+- (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL;
+
+/**
  *  @abstract 通过路由地址打开目标路由器
  *  @discusstion 当前路由器打开下个路由器
  *

@@ -13,11 +13,14 @@
 		8480BC0C1E07D9D200A82399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8480BC0A1E07D9D200A82399 /* Main.storyboard */; };
 		8480BC0E1E07D9D200A82399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8480BC0D1E07D9D200A82399 /* Assets.xcassets */; };
 		8480BC111E07D9D200A82399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8480BC0F1E07D9D200A82399 /* LaunchScreen.storyboard */; };
-		8480BC211E07DA6F00A82399 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC201E07DA6F00A82399 /* ViewController.m */; };
 		8480BC401E08D10700A82399 /* UIViewController+YJUINavigationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC3F1E08D10700A82399 /* UIViewController+YJUINavigationRouter.m */; };
 		8480BC5D1E090C2300A82399 /* YJNSRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC5C1E090C2300A82399 /* YJNSRouteManager.m */; };
 		8480BC601E090CDC00A82399 /* YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC5F1E090CDC00A82399 /* YJNSRouter.m */; };
 		8480BC631E0911D300A82399 /* NSObject+YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC621E0911D300A82399 /* NSObject+YJNSRouter.m */; };
+		8480BC8D1E092ED200A82399 /* YJMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC831E092ED200A82399 /* YJMainViewController.m */; };
+		8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC861E092ED200A82399 /* YJOtherViewController.m */; };
+		8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC891E092ED200A82399 /* YJMainRouteManager.m */; };
+		8480BC901E092ED200A82399 /* YJOtherRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +34,6 @@
 		8480BC0D1E07D9D200A82399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8480BC101E07D9D200A82399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8480BC121E07D9D200A82399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8480BC1F1E07DA6F00A82399 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8480BC201E07DA6F00A82399 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8480BC3E1E08D10700A82399 /* UIViewController+YJUINavigationRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJUINavigationRouter.h"; sourceTree = "<group>"; };
 		8480BC3F1E08D10700A82399 /* UIViewController+YJUINavigationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJUINavigationRouter.m"; sourceTree = "<group>"; };
 		8480BC5A1E090BD600A82399 /* YJNSRouterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJNSRouterHeader.h; sourceTree = "<group>"; };
@@ -42,6 +43,15 @@
 		8480BC5F1E090CDC00A82399 /* YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouter.m; sourceTree = "<group>"; };
 		8480BC611E0911D300A82399 /* NSObject+YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSRouter.h"; sourceTree = "<group>"; };
 		8480BC621E0911D300A82399 /* NSObject+YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSRouter.m"; sourceTree = "<group>"; };
+		8480BC821E092ED200A82399 /* YJMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainViewController.h; sourceTree = "<group>"; };
+		8480BC831E092ED200A82399 /* YJMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainViewController.m; sourceTree = "<group>"; };
+		8480BC851E092ED200A82399 /* YJOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOtherViewController.h; sourceTree = "<group>"; };
+		8480BC861E092ED200A82399 /* YJOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOtherViewController.m; sourceTree = "<group>"; };
+		8480BC881E092ED200A82399 /* YJMainRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainRouteManager.h; sourceTree = "<group>"; };
+		8480BC891E092ED200A82399 /* YJMainRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainRouteManager.m; sourceTree = "<group>"; };
+		8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOtherRouteManager.h; sourceTree = "<group>"; };
+		8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOtherRouteManager.m; sourceTree = "<group>"; };
+		8480BC8C1E092ED200A82399 /* YJRouteHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRouteHeader.h; sourceTree = "<group>"; };
 		A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUINavigationRouter.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +99,7 @@
 			children = (
 				8480BC041E07D9D200A82399 /* AppDelegate.h */,
 				8480BC051E07D9D200A82399 /* AppDelegate.m */,
-				8480BC1E1E07DA6F00A82399 /* Main */,
+				8480BC801E092ED200A82399 /* Main */,
 				8480BC1D1E07DA4F00A82399 /* NavigationRouter */,
 				8480BC181E07DA0700A82399 /* Resources */,
 				8480BC4C1E090B8800A82399 /* Router */,
@@ -127,15 +137,6 @@
 			path = ../../../../../Cocoa/AppFrameworks/UIKit/NavigationRouter;
 			sourceTree = "<group>";
 		};
-		8480BC1E1E07DA6F00A82399 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				8480BC1F1E07DA6F00A82399 /* ViewController.h */,
-				8480BC201E07DA6F00A82399 /* ViewController.m */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		8480BC4C1E090B8800A82399 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +172,46 @@
 			children = (
 				8480BC5E1E090CDC00A82399 /* YJNSRouter.h */,
 				8480BC5F1E090CDC00A82399 /* YJNSRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8480BC801E092ED200A82399 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8480BC811E092ED200A82399 /* Main */,
+				8480BC841E092ED200A82399 /* Other */,
+				8480BC871E092ED200A82399 /* Router */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8480BC811E092ED200A82399 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8480BC821E092ED200A82399 /* YJMainViewController.h */,
+				8480BC831E092ED200A82399 /* YJMainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8480BC841E092ED200A82399 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8480BC851E092ED200A82399 /* YJOtherViewController.h */,
+				8480BC861E092ED200A82399 /* YJOtherViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8480BC871E092ED200A82399 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8480BC881E092ED200A82399 /* YJMainRouteManager.h */,
+				8480BC891E092ED200A82399 /* YJMainRouteManager.m */,
+				8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */,
+				8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */,
+				8480BC8C1E092ED200A82399 /* YJRouteHeader.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -308,12 +349,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8480BC631E0911D300A82399 /* NSObject+YJNSRouter.m in Sources */,
-				8480BC211E07DA6F00A82399 /* ViewController.m in Sources */,
 				8480BC5D1E090C2300A82399 /* YJNSRouteManager.m in Sources */,
 				8480BC601E090CDC00A82399 /* YJNSRouter.m in Sources */,
+				8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */,
 				8480BC061E07D9D200A82399 /* AppDelegate.m in Sources */,
+				8480BC8D1E092ED200A82399 /* YJMainViewController.m in Sources */,
 				8480BC401E08D10700A82399 /* UIViewController+YJUINavigationRouter.m in Sources */,
+				8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */,
 				8480BC031E07D9D200A82399 /* main.m in Sources */,
+				8480BC901E092ED200A82399 /* YJOtherRouteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
