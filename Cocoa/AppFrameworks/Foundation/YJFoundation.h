@@ -30,6 +30,9 @@
 // 线程安全执行Selector
 #import "NSObject+YJNSPerformSelector.h"
 
+// 路由器导航基础库
+#import "NSObject+YJNSRouter.h"
+
 // 单例管理中心
 #import "YJNSSingletonMCenter.h"
 

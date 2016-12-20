@@ -24,6 +24,9 @@
 // UINavigationBar封装，可自定义配置bar
 #import "YJUINavigationBar.h"
 
+// UIViewController路由器导航扩展
+#import "UIViewController+YJUINavigationRouter.h"
+
 // 主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 #import "YJUIPageView.h"
 // 轮播图

@@ -47,11 +47,15 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
-###1.1.8 Singleton
+###1.1.8 Router
+
+Router是NavigationRouter的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
+
+###1.1.9 Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-###1.1.9 Timer
+###1.1.10 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -60,11 +64,11 @@ NSLog打印优化，Unicode自动转化为中文输出。
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-###1.1.10 URLCode
+###1.1.11 URLCode
 
 URLEncode编码和URLDecode解码
 
-###1.1.11 URLSession
+###1.1.12 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -115,7 +119,12 @@ UITextField和UITextView可输入长度控制。
 
 NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-###1.2.6 PageView
+###1.2.6 NavigationRouter
+
+NavigationRouter主要用于实现项目组件化 。
+
+
+###1.2.7 PageView
 
 PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
@@ -123,7 +132,7 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-###1.2.7 TableViewManager
+###1.2.8 TableViewManager
 
 UITableView管理器
 
@@ -139,7 +148,7 @@ UITableView管理器
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.8 ViewGeometry
+###1.2.9 ViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
@@ -267,6 +276,8 @@ YJ技术支持群：557445088
 | | | 修复部分警告代码 |
 | 5.2.0 | 2016-12-19 | URLCode上线，支持URLEncode编码和URLDecode解码 |
 | | | Http接入URLCode库，增加参数URLEncode编码和URLDecode解码的方法 |
+| 5.3.0 | 2016-12-20 | Router上线，是NavigationRouter的基础库 |
+| | | NavigationRouter上线，主要用于实现项目组件化 |
 
 ##Copyright
 
