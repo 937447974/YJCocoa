@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.2.0"
+    s.version  = "5.3.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -85,6 +85,22 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
+            end
+            # Router
+            foundation.subspec 'Router' do |router|
+                router.source_files = 'Cocoa/AppFrameworks/Foundation/Router/*.{h,m}'
+                router.subspec 'Header' do |rHeader|
+                    rHeader.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Header/*.{h,m}'
+                end
+                router.subspec 'Manager' do |rManager|
+                    rManager.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Manager/*.{h,m}'
+                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Header'
+                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                end
+                router.subspec 'Router' do |rRouter|
+                    rRouter.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Router/*.{h,m}'
+                    rRouter.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Header'
+                end
             end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
@@ -176,6 +192,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationBar/Core/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
                 end
+            end
+            # NavigationRouter
+            uik.subspec 'NavigationRouter' do |nr|
+                nr.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationRouter/*.{h,m}'
+                nr.dependency 'YJCocoa/AppFrameworks/Foundation/Router'
             end
             # PageView
             uik.subspec 'PageView' do |pv|

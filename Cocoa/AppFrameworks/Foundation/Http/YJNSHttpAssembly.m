@@ -25,9 +25,11 @@
 + (NSString *)assemblyHttp:(NSDictionary *)params URLEncode:(BOOL)encode {
     if (!params) return @"";
     NSMutableString *paramsString = [NSMutableString string];
+    NSString *value;
     for (NSString *key in params) {
         [paramsString appendFormat:@"&%@=", key];
-        [paramsString appendString:encode ? YJNSURLEncode(params[key]) : params[key]];
+        value = [NSString stringWithFormat:@"%@", params[key]];
+        [paramsString appendString:encode ? YJNSURLEncode(value) : value];
     }
     if (paramsString.length) {
         [paramsString deleteCharactersInRange:NSMakeRange(0, 1)];
@@ -49,7 +51,7 @@
     if (start.location == NSNotFound) {
         return [NSString stringWithFormat:@"%@?%@", http, [self assemblyHttp:params URLEncode:encode]];
     }
-        return [NSString stringWithFormat:@"%@%@", http, [self assemblyHttp:params URLEncode:encode]];
+    return [NSString stringWithFormat:@"%@%@", http, [self assemblyHttp:params URLEncode:encode]];
 }
 
 @end

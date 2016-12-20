@@ -12,9 +12,15 @@
 #import "YJNSURLCode.h"
 
 NSString *YJNSURLEncode(NSString *code) {
-    return [code stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"] invertedSet]];
+    if ([code isKindOfClass:[NSString class]]) {
+        return [code stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"] invertedSet]];
+    }
+    return code;
 }
 
 NSString *YJNSURLDecode(NSString *code) {
-    return [code stringByRemovingPercentEncoding];
+    if ([code isKindOfClass:[NSString class]]) {
+        return [code stringByRemovingPercentEncoding];
+    }
+    return code;
 }

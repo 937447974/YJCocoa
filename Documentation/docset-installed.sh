@@ -31,7 +31,6 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-12-19 | URLCode上线，支持URLEncode编码和URLDecode解码" with title "YJCocoa 5.2.0"'
-osascript -e 'display notification "2016-12-19 | Http接入URLCode库，增加参数URLEncode编码和URLDecode解码的方法" with title "YJCocoa 5.2.0"'
-
+osascript -e 'display notification "2016-12-20 | Router上线，是NavigationRouter的基础库" with title "YJCocoa 5.3.0"'
+osascript -e 'display notification "2016-12-20 | NavigationRouter上线，主要用于实现项目组件化" with title "YJCocoa 5.3.0"'
 
