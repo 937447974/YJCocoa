@@ -31,8 +31,8 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 
 ###1.1.5 Http
 
-1. http链接解析，快速获取其中参数，支持URLEncode编码;
-2. http链接组装，快速组装相关参数，支持URLDecode解码。
+1. http链接解析，快速获取其中参数，支持URLDecode解码;
+2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
 ###1.1.6 Log
 
