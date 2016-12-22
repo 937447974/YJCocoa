@@ -1,0 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '7.0'
+
+def shared_pods
+    pod 'YJCocoa/AppFrameworks/Foundation/AOP'
+end
+
+target 'ScrollViewManager' do
+    shared_pods
+end
+
