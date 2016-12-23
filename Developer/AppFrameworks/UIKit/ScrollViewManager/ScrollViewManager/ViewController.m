@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -18,14 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
+    self.scrollView.delegate = self;
+    self.scrollView.alwaysBounceVertical = YES;
+    self.scrollView.alwaysBounceHorizontal = NO;
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 

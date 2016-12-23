@@ -3,6 +3,7 @@ platform :ios, '7.0'
 
 def shared_pods
     pod 'YJCocoa/AppFrameworks/Foundation/AOP'
+    pod 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
 end
 
 target 'ScrollViewManager' do
