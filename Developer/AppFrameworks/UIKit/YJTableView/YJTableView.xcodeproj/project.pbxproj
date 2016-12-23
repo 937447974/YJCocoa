@@ -25,6 +25,7 @@
 		84CEC1411DB4B26E004CDF2B /* YJUISuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1371DB4B26E004CDF2B /* YJUISuspensionCellView.m */; };
 		84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */; };
 		84CEC1431DB4B26E004CDF2B /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */; };
+		84FE39E81E0D1AE000558A39 /* YJUIScrollViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39E71E0D1AE000558A39 /* YJUIScrollViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewCell.m; sourceTree = "<group>"; };
 		84CEC13C1DB4B26E004CDF2B /* YJUITableCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableCellObject.h; sourceTree = "<group>"; };
 		84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableCellObject.m; sourceTree = "<group>"; };
+		84FE39E61E0D1AE000558A39 /* YJUIScrollViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIScrollViewManager.h; sourceTree = "<group>"; };
+		84FE39E71E0D1AE000558A39 /* YJUIScrollViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIScrollViewManager.m; sourceTree = "<group>"; };
 		B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,9 +154,10 @@
 				84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */,
 				84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */,
 				845CC1D41CF015A000BCC14E /* Main */,
-				84CEC12D1DB4B26E004CDF2B /* TableViewManager */,
 				84C9E5121CEF1D1C0036C57B /* Resources */,
+				84FE39E51E0D1AE000558A39 /* ScrollViewManager */,
 				84C9E4FB1CEF1CAF0036C57B /* Supporting Files */,
+				84CEC12D1DB4B26E004CDF2B /* TableViewManager */,
 			);
 			path = YJTableView;
 			sourceTree = "<group>";
@@ -227,6 +231,16 @@
 				84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */,
 			);
 			path = TableCellObject;
+			sourceTree = "<group>";
+		};
+		84FE39E51E0D1AE000558A39 /* ScrollViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				84FE39E61E0D1AE000558A39 /* YJUIScrollViewManager.h */,
+				84FE39E71E0D1AE000558A39 /* YJUIScrollViewManager.m */,
+			);
+			name = ScrollViewManager;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/ScrollViewManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +377,7 @@
 				84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */,
 				84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */,
 				84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */,
+				84FE39E81E0D1AE000558A39 /* YJUIScrollViewManager.m in Sources */,
 				84CEC13E1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
 				84AE6FE31E02829D001F81E6 /* YJTestTableViewCell.m in Sources */,
 				845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */,
