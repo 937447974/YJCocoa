@@ -11,45 +11,25 @@
 
 #import "YJUITableViewDataSourceManager.h"
 #import "YJUITableViewDelegateManager.h"
+#import "YJUIScrollViewManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** cell的协议*/
-@protocol YJUITableViewManagerDelegate <YJUITableViewCellProtocol>
+/** YJUITableViewManager的代理*/
+@protocol YJUITableViewManagerDelegate <YJUITableViewCellProtocol, YJUIScrollViewManagerDelegate>
 
 @optional
 
 /**
- *  用户点击整个Cell
+ *  @abstract 用户点击整个Cell
  *
  *  @param cellObject    用户点击的cell数据
  *  @param tableViewCell 用户点击的Cell
- *
- *  @return void
  */
 - (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject;
 
-/**
- *  分页加载数据
- *
- *  @param manager YJUITableViewManager
- *  @param cell    将要显示的Cell
- *
- *  @return void
- */
-- (void)tableViewManager:(YJUITableViewManager *)manager loadingPageDataWillDisplayCell:(UITableViewCell *)cell;
-
-/**
- *  用户滚动UITableView
- *
- *  @param manager YJUITableViewManager
- *  @param scroll YJUITableViewScroll
- *
- *  @return void
- */
-- (void)tableViewManager:(YJUITableViewManager *)manager scroll:(YJUITableViewScroll)scroll;
-
 @end
+
 
 /** UITableView管理器*/
 @interface YJUITableViewManager : NSObject
@@ -63,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) YJUITableViewDataSourceManager *dataSourceManager; ///< YJUITableViewDataSourceManager
 @property (nonatomic, strong, readonly) YJUITableViewDelegateManager *delegateManager; ///< YJUITableViewDelegateManager
+@property (nonatomic, strong, readonly) YJUIScrollViewManager *scrollViewManager; ///< YJUIScrollViewManager
 
 /**
  *  @abstract 初始化YJUITableViewManager
@@ -74,14 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
-
 /**
  *  @abstract 添加UITableView的AOP代理
  *  @discusstion VC想实现UITableViewDataSource和UITableViewDelegate时，又不想替换框架中的方法，可通过此方法添加
  *
  *  @param delegate id<UITableViewDataSource, UITableViewDelegate>
- *
- *  @return void
  */
 - (void)addTableViewAOPDelegate:(id)delegate;
 

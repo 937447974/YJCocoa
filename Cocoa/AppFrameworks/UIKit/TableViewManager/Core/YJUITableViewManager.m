@@ -28,9 +28,9 @@
         _tableView = tableView;
         _dataSourceManager = [[YJUITableViewDataSourceManager alloc] initWithManager:self];
         _delegateManager = [[YJUITableViewDelegateManager alloc] initWithManager:self];
+        _scrollViewManager = [[YJUIScrollViewManager alloc] initWithScrollView:tableView];
         // 设置默认代理
-        self.tableView.dataSource = _dataSourceManager;
-        self.tableView.delegate = _delegateManager;
+        [self addTableViewAOPDelegate:_scrollViewManager];
     }
     return self;
 }
@@ -48,9 +48,18 @@
 
 #pragma mark - getter and setter
 - (void)setDataSource:(NSMutableArray<YJUITableCellObject *> *)dataSource {
+    if (!dataSource) {
+        NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
+        dataSource = [NSMutableArray array];
+    }
     _dataSource = dataSource;
     [self.dataSourceGrouped removeAllObjects];
     [self.dataSourceGrouped addObject:_dataSource];
+}
+
+- (void)setDelegate:(id<YJUITableViewManagerDelegate>)delegate {
+    _delegate = delegate;
+    self.scrollViewManager.delegate = delegate;
 }
 
 @end

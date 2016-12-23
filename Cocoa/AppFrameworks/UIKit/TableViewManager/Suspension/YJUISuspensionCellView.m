@@ -12,7 +12,6 @@
 #import "YJUISuspensionCellView.h"
 #import "YJUITableViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
-#import "YJAutoLayout.h"
 
 @interface YJUISuspensionCellView () {
     CGFloat _showCellHeight;  ///< 当前显示Cell高
@@ -29,16 +28,14 @@
 
 #pragma mark - 刷新数据
 - (void)reloadData {
+    if (!self.translatesAutoresizingMaskIntoConstraints) {
+        NSAssert(NO, @"不支持约束悬浮，请使用frame布局");
+        return;
+    }
     _showCellHeight = 0;
     self.index = 0;
     self.scrollAnimate = NO;
-    if (self.translatesAutoresizingMaskIntoConstraints) {
-        self.heightFrame = 0;
-    } else {
-        NSLog(@"不支持IOS10以上的系统，请使用frame布局");
-        [self removeConstraints:self.constraints];
-        self.heightLayout.equalToConstant(0);
-    }
+    self.heightFrame = 0;
     for (UIView *view in self.subviews) {
         [view removeFromSuperview];
     }
@@ -75,21 +72,11 @@
     return cell;
 }
 
-#pragma mark - tableView滑动显示
-#pragma mark tableView滑到顶
+#pragma mark - tableView滑到顶
 - (void)scrollToTop {
     if (!self.suspensionCells.count) {
         return;
     }
-    if (self.translatesAutoresizingMaskIntoConstraints) {
-        [self scrollToTopFrame];
-    } else {
-        [self scrollToTopAutolayout];
-    }
-}
-
-#pragma mark tableView滑到顶frame布局
-- (void)scrollToTopFrame {
     NSInteger showIndex = self.scrollAnimate ? self.index : self.index-1;
     if (showIndex < 0 || showIndex >= self.subviews.count) {
         return;
@@ -128,50 +115,6 @@
     }
 }
 
-#pragma mark tableView滑到顶自动布局
-- (void)scrollToTopAutolayout {
-    NSInteger showIndex = self.scrollAnimate ? self.index : self.index-1;
-    if (showIndex < 0 || showIndex >= self.subviews.count) {
-        return;
-    }
-    NSLayoutConstraint *heightConstraint = self.heightLayout.constraint();
-    if (!heightConstraint.constant) {
-        return;
-    }
-    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:showIndex];
-    CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
-    if (_contentOffsetY > rect.origin.y) {
-        return;
-    }
-    if (showIndex) {
-        if (self.scrollAnimate && heightConstraint.constant >= rect.size.height + _showCellHeight) {
-            self.scrollAnimate = NO;
-            [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
-            heightConstraint.constant = _showCellHeight;
-            CGFloat topItemY = 0;
-            for (int i = 0; i < self.index-1; i++) {
-                topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
-            }
-            self.topBounds = topItemY;
-        } else {
-            if (!self.scrollAnimate) {
-                self.index --;
-                _showCellHeight = [self.suspensionCells objectAtIndex:self.index-1].heightFrame;
-            }
-            self.scrollAnimate = YES;
-            CGFloat newHeight = rect.origin.y + rect.size.height - self.contentOffsetY;
-            self.topBounds -= newHeight - heightConstraint.constant;
-            heightConstraint.constant = newHeight;
-        }
-    } else {
-        self.scrollAnimate = NO;
-        [self.manager.dataSourceManager reloadRowsAtIndexPaths:@[cellObj]];
-        heightConstraint.constants(0);
-        _showCellHeight = 0;
-        self.index = 0;
-    }
-}
-
 #pragma mark tableView滑到底
 - (void)scrollToBottom {
     if (self.indexPaths.count != self.subviews.count) { // 是否已初始化
@@ -185,15 +128,6 @@
     if (!self.suspensionCells.count) {
         return;
     }
-    if (self.translatesAutoresizingMaskIntoConstraints) {
-        [self scrollToBottomFrame];
-    } else {
-        [self scrollToBottomAutolayout];
-    }
-}
-
-#pragma mark tableView滑到底frame布局
-- (void)scrollToBottomFrame {
     // 添加
     if (self.suspensionCells.count != self.subviews.count) {
         UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
@@ -207,6 +141,10 @@
         }
     }
     // 显示
+    [self scrollToBottomShow];
+}
+
+- (void)scrollToBottomShow {
     if (self.index < 0 || self.index >= self.subviews.count) {
         return;
     }
@@ -240,66 +178,6 @@
             [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewManager:self.manager];
             _showCellHeight = rect.size.height;
             self.heightFrame = _showCellHeight;
-            self.index ++;
-        }
-    }
-}
-
-#pragma mark tableView滑到底自动布局
-- (void)scrollToBottomAutolayout {
-    // 添加
-    if (self.suspensionCells.count != self.subviews.count) {
-        UITableViewCell *cell = [self.suspensionCells objectAtIndex:self.subviews.count];
-        [self addSubview:cell];
-        YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.subviews.count-1];
-        CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
-        cell.leadingSpaceToSuper(0);
-        cell.heightLayout.equalToConstant(rect.size.height);
-        cell.widthLayout.equalToConstant(rect.size.width);
-        if (self.subviews.count >= 2) {
-            cell.topLayout.equalTo(self.subviews[self.subviews.count-2].bottomLayout);
-        } else {
-            cell.topSpaceToSuper(0);
-        }
-    }
-    // 显示
-    if (self.index < 0 || self.index >= self.subviews.count) {
-        return;
-    }
-    NSLayoutConstraint *heightConstraint = self.heightLayout.constraint();
-    if (!heightConstraint) {
-        heightConstraint = self.heightLayout.equalToConstant(0);
-    }
-    YJUITableCellObject *cellObj = [self.indexPaths objectAtIndex:self.index];
-    CGRect rect = [self.tableView rectForRowAtIndexPath:cellObj.indexPath];
-    self.scrollAnimate = NO;
-    if (self.index) {
-        if (_contentOffsetY > rect.origin.y) {
-             _showCellHeight = rect.size.height;
-            self.heightLayout.equalToConstant(_showCellHeight);           
-            CGFloat topItemY = 0;
-            for (int i = 0; i < self.index; i++) {
-                topItemY += [self.suspensionCells objectAtIndex:i].heightFrame;
-            }
-            self.topBounds = topItemY;
-            self.index ++;
-        } else if (_contentOffsetY + _showCellHeight > rect.origin.y) {
-            self.scrollAnimate = YES;
-            CGFloat newHeight = rect.origin.y + rect.size.height - _contentOffsetY;
-            if (heightConstraint.constant < newHeight) {
-                [[self.suspensionCells objectAtIndex:self.index] reloadDataWithCellObject:cellObj tableViewManager:self.manager];
-                self.topBounds += heightConstraint.constant + rect.size.height - newHeight;
-            } else {
-                self.topBounds += heightConstraint.constant - newHeight;
-            }
-            heightConstraint.constants(newHeight);
-        }
-    } else {
-        self.topBounds = 0;
-        if (_contentOffsetY > rect.origin.y) {
-            [self.suspensionCells.firstObject reloadDataWithCellObject:cellObj tableViewManager:self.manager];
-            heightConstraint.constants(rect.size.height);
-            _showCellHeight = rect.size.height;
             self.index ++;
         }
     }

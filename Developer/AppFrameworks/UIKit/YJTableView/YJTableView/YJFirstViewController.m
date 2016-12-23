@@ -75,19 +75,18 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
+#pragma mark YJUIScrollViewManagerDelegate
+- (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
+    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+    if (scroll == YJUIScrollViewScrollEndBottom) { // 分页加载
+        NSLog(@"%@分页加载", NSStringFromSelector(_cmd));
+        [self initTestData];
+    }
+}
+
 #pragma mark YJUITableViewManagerDelegate
 - (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-- (void)tableViewManager:(YJUITableViewManager *)manager loadingPageDataWillDisplayCell:(UITableViewCell *)cell {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    NSLog(@"分页加载数据");
-    [self initTestData];
-}
-
-- (void)tableViewManager:(YJUITableViewManager *)manager scroll:(YJUITableViewScroll)scroll {
-    NSLog(@"%@--%ld", NSStringFromSelector(_cmd), (long)scroll);
 }
 
 #pragma mark - 悬浮测试
@@ -107,7 +106,7 @@
         // 填充数据源
         [self.tableViewManager.dataSource addObject:cellObject];
     }
-//    [self.tableViewManager.tableViewDelegate.suspensionCellView reloadData]; // 悬浮cell开始工作 IOS10+不支持约束悬浮
+    [self.tableViewManager.delegateManager.suspensionCellView reloadData]; // 悬浮cell开始工作不支持约束悬浮
 }
 
 @end
