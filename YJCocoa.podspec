@@ -170,6 +170,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
                 cvm.subspec 'CollectionCellObject' do |cco|

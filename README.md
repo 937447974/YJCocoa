@@ -278,6 +278,7 @@ YJ技术支持群：557445088
 | 5.3.0 | 2016-12-20 | Router上线，是NavigationRouter的基础库 |
 | | | NavigationRouter上线，主要用于实现项目组件化 |
 | 5.4.0 | 2016-12-23 | ScrollViewManager上线，支持监听UIScrollView的滚动状态 |
+| | | CollectionViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 
 
 ##Copyright
