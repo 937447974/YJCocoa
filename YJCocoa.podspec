@@ -9,7 +9,7 @@
 # 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='china beijing'
 # 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 3.0.0 -o ./Documentation ./Cocoa
 # 验证podspec命令：pod spec lint YJCocoa.podspec --allow-warnings --verbose
-# pod发包：pod trunk push YJCocoa.podspec --allow-warnings --verbose
+# pod发包：pod trunk push YJCocoa.podspec --verbose --allow-warnings
 # pod开发环境：#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git'
 
 Pod::Spec.new do |s|
