@@ -127,7 +127,11 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-###1.2.8 TableViewManager
+###1.2.8 ScrollViewManager
+
+ScrollViewManager主用用于监听UIScrollView的滚动状态。
+
+###1.2.9 TableViewManager
 
 UITableView管理器
 
@@ -143,7 +147,7 @@ UITableView管理器
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.9 ViewGeometry
+###1.2.10 ViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
@@ -273,6 +277,8 @@ YJ技术支持群：557445088
 | | | Http接入URLCode库，增加参数URLEncode编码和URLDecode解码的方法 |
 | 5.3.0 | 2016-12-20 | Router上线，是NavigationRouter的基础库 |
 | | | NavigationRouter上线，主要用于实现项目组件化 |
+| 5.4.0 | 2016-12-23 | ScrollViewManager上线，支持监听UIScrollView的滚动状态 |
+
 
 ##Copyright
 

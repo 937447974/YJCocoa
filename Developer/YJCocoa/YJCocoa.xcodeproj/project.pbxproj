@@ -80,6 +80,7 @@
 		84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3553D1DAB59390097D526 /* YJSecKeychainItem.m */; };
 		84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3553F1DAB59390097D526 /* YJSecKeychain.m */; };
 		84D355471DAB59390097D526 /* YJSecRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355421DAB59390097D526 /* YJSecRandom.m */; };
+		84FE39E01E0D0E0A00558A39 /* YJUIScrollViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39DF1E0D0E0A00558A39 /* YJUIScrollViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,8 @@
 		84D355411DAB59390097D526 /* YJSecRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecRandom.h; sourceTree = "<group>"; };
 		84D355421DAB59390097D526 /* YJSecRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSecRandom.m; sourceTree = "<group>"; };
 		84D355431DAB59390097D526 /* YJSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSecurity.h; sourceTree = "<group>"; };
+		84FE39DE1E0D0E0A00558A39 /* YJUIScrollViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIScrollViewManager.h; sourceTree = "<group>"; };
+		84FE39DF1E0D0E0A00558A39 /* YJUIScrollViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIScrollViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +596,7 @@
 				8480BD571E09399400A82399 /* NavigationBar */,
 				8480BD5F1E09399400A82399 /* NavigationRouter */,
 				8480BD621E09399400A82399 /* PageView */,
+				84FE39DD1E0D0E0A00558A39 /* ScrollViewManager */,
 				8480BD6F1E09399400A82399 /* TableViewManager */,
 				8480BD801E09399400A82399 /* ViewGeometry */,
 				8480BD831E09399400A82399 /* YJUIKit.h */,
@@ -899,6 +903,15 @@
 			path = Random;
 			sourceTree = "<group>";
 		};
+		84FE39DD1E0D0E0A00558A39 /* ScrollViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				84FE39DE1E0D0E0A00558A39 /* YJUIScrollViewManager.h */,
+				84FE39DF1E0D0E0A00558A39 /* YJUIScrollViewManager.m */,
+			);
+			path = ScrollViewManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1001,6 +1014,7 @@
 				8480BDA21E09399400A82399 /* UIViewController+YJUILayoutSupport.m in Sources */,
 				84D355471DAB59390097D526 /* YJSecRandom.m in Sources */,
 				8480BD911E09399400A82399 /* NSObject+YJNSRouter.m in Sources */,
+				84FE39E01E0D0E0A00558A39 /* YJUIScrollViewManager.m in Sources */,
 				8480BDA81E09399400A82399 /* YJUICollectionViewDelegateManager.m in Sources */,
 				8480BD881E09399400A82399 /* YJNSDictionaryModelProperty.m in Sources */,
 				8480BDB11E09399400A82399 /* YJUIImagePageModel.m in Sources */,

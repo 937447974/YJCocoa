@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.3.0"
+    s.version  = "5.4.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -211,6 +211,12 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     ip.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/ImagePage/*.{h,m}'
                     ip.dependency 'YJCocoa/AppFrameworks/UIKit/PageView/Core'
                 end
+            end
+            # ScrollViewManager
+            uik.subspec 'ScrollViewManager' do |svm|
+                svm.source_files = 'Cocoa/AppFrameworks/UIKit/ScrollViewManager/*.{h,m}'
+                svm.dependency 'YJCocoa/AppFrameworks/Foundation/AOP'
+                svm.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
             end
             # UITableView
             uik.subspec 'TableViewManager' do |tvm|

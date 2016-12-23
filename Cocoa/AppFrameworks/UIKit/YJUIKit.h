@@ -32,6 +32,9 @@
 // 轮播图
 #import "YJUIImagePageViewController.h"
 
+// 监听UIScrollView的滚动状态
+#import "YJUIScrollViewManager.h"
+
 // UITableView管理器
 #import "YJUITableViewManager.h"
 
