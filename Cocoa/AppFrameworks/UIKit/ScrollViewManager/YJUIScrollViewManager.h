@@ -17,21 +17,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** UIScrollView滚动*/
 typedef NS_OPTIONS(NSInteger, YJUIScrollViewScroll) {
-    // 上方出现
+    // 上方出现[0,2]
     YJUIScrollViewScrollEndTop,  ///< 滚动到顶部
     YJUIScrollViewScrollEdgeTop, ///< 滚动到边缘顶部
     YJUIScrollViewScrollDidTop,  ///< 向上滚动
-    // 左方出现
+    // 左方出现[3,5]
     YJUIScrollViewScrollEndLeft,  ///< 滚动到最左
     YJUIScrollViewScrollEdgeLeft, ///< 滚动到边缘左
     YJUIScrollViewScrollDidLeft,  ///< 向左滚动
-    // 用户触摸
+    // 用户触摸[6]
     YJUIScrollViewScrollNone, ///< 用户触摸，将要滚动
-    // 下方出现
+    // 下方出现[7,9]
     YJUIScrollViewScrollDidBottom,  ///< 向下滚动
     YJUIScrollViewScrollEdgeBottom, ///< 滚动到边缘底部
     YJUIScrollViewScrollEndBottom,  ///< 滚动到底部
-    // 右方出现
+    // 右方出现[10,12]
     YJUIScrollViewScrollDidRight,  ///< 向右滚动
     YJUIScrollViewScrollEdgeRight, ///< 滚动到边缘右
     YJUIScrollViewScrollEndRight   ///< 滚动到最右

@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "YJUIScrollViewManager.h"
 
-@interface ViewController () <UIScrollViewDelegate>
+@interface ViewController () <UIScrollViewDelegate, YJUIScrollViewManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, strong) YJUIScrollViewManager *scrollViewManager; ///< YJUIScrollViewManager
 
 @end
 
@@ -18,19 +21,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.delegate = self;
-    self.scrollView.alwaysBounceVertical = YES;
-    self.scrollView.alwaysBounceHorizontal = NO;
+    self.scrollViewManager = [[YJUIScrollViewManager alloc] initWithScrollView:self.scrollView];
+    self.scrollViewManager.delegate = self;
+    [self.scrollViewManager addScrollViewAOPDelegate:self];
+    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(50, 50, 50, 50);
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
+#pragma mark - YJUIScrollViewManagerDelegate
+//- (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
+//    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+//}
+
+- (void)scrollViewManager:(YJUIScrollViewManager *)manager didHorizontalScroll:(YJUIScrollViewScroll)scroll {
+    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+}
 
 @end
