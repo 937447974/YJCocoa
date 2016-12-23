@@ -26,6 +26,7 @@
 		84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC16D1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m */; };
 		84CEC1711DB5BDF7004CDF2B /* YJUICollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */; };
 		84CEC1741DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */; };
+		84FE39E41E0D0F2400558A39 /* YJUIScrollViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewManager.m; sourceTree = "<group>"; };
 		84CEC1721DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateFlowLayoutManager.h; sourceTree = "<group>"; };
 		84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateFlowLayoutManager.m; sourceTree = "<group>"; };
+		84FE39E21E0D0F2400558A39 /* YJUIScrollViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIScrollViewManager.h; sourceTree = "<group>"; };
+		84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIScrollViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +139,10 @@
 			children = (
 				8473AC461CE9A527000E3580 /* AppDelegate.h */,
 				8473AC471CE9A527000E3580 /* AppDelegate.m */,
-				840A57DD1CF08567006779C0 /* Main */,
 				84CEC15C1DB5BD59004CDF2B /* CollectionViewManager */,
+				840A57DD1CF08567006779C0 /* Main */,
 				8473AC5B1CE9A547000E3580 /* Resources */,
+				84FE39E11E0D0F2400558A39 /* ScrollViewManager */,
 				8473AC431CE9A527000E3580 /* Supporting Files */,
 			);
 			path = YJCollectionView;
@@ -207,6 +211,16 @@
 				84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		84FE39E11E0D0F2400558A39 /* ScrollViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				84FE39E21E0D0F2400558A39 /* YJUIScrollViewManager.h */,
+				84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */,
+			);
+			name = ScrollViewManager;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/ScrollViewManager;
 			sourceTree = "<group>";
 		};
 		C00C5718D2E4FE97FEDB10C9 /* Frameworks */ = {
@@ -358,6 +372,7 @@
 				84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */,
 				841DF9E31DFFD86800A76B37 /* YJTestCollectionCellModel.m in Sources */,
 				841DF9DE1DFFD85300A76B37 /* YJTestCollectionReusableView.m in Sources */,
+				84FE39E41E0D0F2400558A39 /* YJUIScrollViewManager.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,
 				84CEC1671DB5BD59004CDF2B /* YJUICollectionCellObject.m in Sources */,
 				84CEC1661DB5BD59004CDF2B /* YJUICollectionViewCell.m in Sources */,

@@ -13,66 +13,14 @@
 #import "YJUICollectionViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
 
-@interface YJUICollectionViewDelegateManager () {
-    CGFloat _contentOffsetY;      ///< scrollView.contentOffset.y
-    CGFloat _contentOffsetYBegin; ///< 开始的点
-}
-
-@property (nonatomic) YJUICollectionViewScroll scroll; ///< 滚动
-
-@end
-
 @implementation YJUICollectionViewDelegateManager
 
 - (instancetype)initWithManager:(YJUICollectionViewManager *)manager {
-    self = [super init];
+    self = [self init];
     if (self) {
         _manager = manager;
-        _contentOffsetYBegin = CGFLOAT_MAX;
-        self.scrollSpacingWill = 15;
-        self.scrollSpacingDid = 30;
     }
     return self;
-}
-
-#pragma mark - getter and setter
-- (void)setScroll:(YJUICollectionViewScroll)scroll {
-    if (scroll != _scroll && [self.manager.delegate respondsToSelector:@selector(collectionViewManager:scroll:)]) {
-        _scroll = scroll;
-        [self.manager.delegate collectionViewManager:self.manager scroll:scroll];
-        if (scroll == YJUICollectionViewScrollEndBottom && [self.manager.delegate respondsToSelector:@selector(collectionViewManagerLoadingPageData:)]) {
-            [self.manager.delegate collectionViewManagerLoadingPageData:self.manager];
-        }
-    }
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    _contentOffsetY = scrollView.contentOffset.y;
-    if (_contentOffsetYBegin == CGFLOAT_MAX) {
-        _contentOffsetYBegin = _contentOffsetY;
-    }
-    self.scroll = YJUICollectionViewScrollNone;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat contentOffsetY = scrollView.contentOffset.y;
-    CGFloat spacing = contentOffsetY - _contentOffsetY;
-    if (contentOffsetY <= _contentOffsetYBegin) {
-        self.scroll = YJUICollectionViewScrollEndTop;
-    } else if (contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height) {
-        self.scroll = YJUICollectionViewScrollEndBottom;
-    } else if (spacing >= self.scrollSpacingDid ) {
-        self.scroll = YJUICollectionViewScrollDidBottom;
-        _contentOffsetY = contentOffsetY;
-    } else if (spacing >= self.scrollSpacingWill && self.scroll != YJUICollectionViewScrollDidBottom) {
-        self.scroll = YJUICollectionViewScrollWillBottom;
-    } else if (spacing <= -self.scrollSpacingDid ) {
-        self.scroll = YJUICollectionViewScrollDidTop;
-        _contentOffsetY = contentOffsetY;
-    } else if (spacing <= -self.scrollSpacingWill && self.scroll != YJUICollectionViewScrollDidTop) {
-        self.scroll = YJUICollectionViewScrollWillTop;
-    }
 }
 
 #pragma mark - UICollectionViewDelegate

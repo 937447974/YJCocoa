@@ -71,23 +71,24 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
-#pragma mark YJUICollectionViewManagerDelegate
+#pragma mark - YJUIScrollViewManagerDelegate
+- (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
+    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+    if (scroll == YJUIScrollViewScrollEndBottom) { // 分页加载
+        [self testClass];
+        NSLog(@"%@分页加载", NSStringFromSelector(_cmd));
+    }
+}
+
+#pragma mark - YJUICollectionViewManagerDelegate
 - (void)collectionViewManager:(YJUICollectionViewManager *)manager didSelectCellWithCellObject:(YJUICollectionCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
-- (void)collectionViewManagerLoadingPageData:(YJUICollectionViewManager *)manager {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-- (void)collectionViewManager:(YJUICollectionViewManager *)manager scroll:(YJUICollectionViewScroll)scroll {
-    NSLog(@"%@ -- %lu", NSStringFromSelector(_cmd), (unsigned long)scroll);
-}
-
 #pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%@--%@", NSStringFromSelector(_cmd), indexPath);
+    return YES;
 }
-
 
 @end

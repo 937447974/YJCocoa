@@ -27,9 +27,8 @@
         _collectionView = collectionView;
         _dataSourceManager = [[YJUICollectionViewDataSourceManager alloc] initWithManager:self];
         _delegateFlowLayoutManager = [[YJUICollectionViewDelegateFlowLayoutManager alloc] initWithManager:self];
-        // 默认设置代理
-        _collectionView.dataSource = _dataSourceManager;
-        _collectionView.delegate = _delegateFlowLayoutManager;
+        _scrollViewManager = [[YJUIScrollViewManager alloc] initWithScrollView:collectionView];
+        [self addCollectionViewAOPDelegate:_scrollViewManager];
     }
     return self;
 }
@@ -47,9 +46,18 @@
 
 #pragma mark - getter and setter
 - (void)setDataSource:(NSMutableArray<YJUICollectionCellObject *> *)dataSource {
+    if (!dataSource) {
+        NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
+        dataSource = [NSMutableArray array];
+    }
     _dataSource = dataSource;
     [self.dataSourceGrouped removeAllObjects];
     [self.dataSourceGrouped addObject:dataSource];
+}
+
+- (void)setDelegate:(id<YJUICollectionViewManagerDelegate>)delegate {
+    _delegate = delegate;
+    self.scrollViewManager.delegate = delegate;
 }
 
 @end
