@@ -281,7 +281,6 @@ YJ技术支持群：557445088
 | | | CollectionViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | | | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 
-
 ##Copyright
 
 CSDN：http://blog.csdn.net/y550918116j
