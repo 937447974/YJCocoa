@@ -62,7 +62,7 @@ typedef NS_OPTIONS(NSInteger, YJUIScrollViewScroll) {
 @end
 
 
-/** UIScrollView滑动监听*/
+/** UIScrollView管理器*/
 @interface YJUIScrollViewManager : NSObject
 
 @property (nonatomic) CGFloat scrollSpacingDid;  ///< 已经滚动间隔，默认30
