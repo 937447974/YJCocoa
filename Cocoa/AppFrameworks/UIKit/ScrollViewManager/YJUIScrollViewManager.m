@@ -71,11 +71,11 @@
     } else if (self.edgeInset.bottom && contentOffsetY + scrollView.heightFrame >= scrollView.contentSize.height - self.edgeInset.bottom) {
         self.verticalScroll = YJUIScrollViewScrollEdgeBottom;
     } else if (spacing <= -self.scrollSpacingDid) {
-        self.verticalScroll = YJUIScrollViewScrollDidBottom;
-        _contentOffset.y = contentOffsetY;
-    } else if (spacing >= self.scrollSpacingDid) {
         self.verticalScroll = YJUIScrollViewScrollDidTop;
         _contentOffset.y = contentOffsetY;
+    } else if (spacing >= self.scrollSpacingDid) {
+        _contentOffset.y = contentOffsetY;
+        self.verticalScroll = YJUIScrollViewScrollDidBottom;
     }
 }
 

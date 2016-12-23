@@ -2,7 +2,7 @@
 //  ViewController.m
 //  ScrollViewManager
 //
-//  Created by admin on 2016/12/22.
+//  Created by 阳君 on 2016/12/22.
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
@@ -22,11 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scrollViewManager = [[YJUIScrollViewManager alloc] initWithScrollView:self.scrollView];
+    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(50, 50, 50, 50);
     self.scrollViewManager.delegate = self;
     [self.scrollViewManager addScrollViewAOPDelegate:self];
-    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(50, 50, 50, 50);
 }
-
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -34,9 +33,9 @@
 }
 
 #pragma mark - YJUIScrollViewManagerDelegate
-//- (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
-//    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
-//}
+- (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
+    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+}
 
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didHorizontalScroll:(YJUIScrollViewScroll)scroll {
     NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
