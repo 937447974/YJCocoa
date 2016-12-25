@@ -9,38 +9,45 @@
 #import <XCTest/XCTest.h>
 #import "YJFoundation.h"
 
-@interface YJTest1 : NSObject
+@protocol YJTestProtocol <NSObject>
+
+@optional
+- (void)test1;
+- (void)test2;
+- (void)test3;
+- (id)test4;
+
+@end
+
+@interface YJTest1 : NSObject <YJTestProtocol>
 
 @end
 
 @implementation YJTest1
 
 - (void)test1 {
-    NSLogS(NSStringFromSelector(_cmd));
-    NSLogS(self);
+    NSLog(@"%@--%@", self, NSStringFromSelector(_cmd));
 }
 
 - (void)test3 {
-    NSLogS(NSStringFromSelector(_cmd));
-    NSLogS(self);
+    NSLog(@"%@--%@", self, NSStringFromSelector(_cmd));
 }
 
 @end
 
-@interface YJTest2 : NSObject
+@interface YJTest2 : NSObject <YJTestProtocol>
 
 @end
 
 @implementation YJTest2
 
 - (void)test2 {
-    NSLogS(NSStringFromSelector(_cmd));
-    NSLogS(self);
+    NSLog(@"%@--%@", self, NSStringFromSelector(_cmd));
+    
 }
 
 - (void)test3 {
-    NSLogS(NSStringFromSelector(_cmd));
-    NSLogS(self);
+    NSLog(@"%@--%@", self, NSStringFromSelector(_cmd));
 }
 
 @end
@@ -52,21 +59,19 @@
 @implementation YJAOPTest
 
 - (void)testExample {
-    YJNSAspectOrientProgramming *aop = [YJNSAspectOrientProgramming new];
     YJTest1 *test1 = [YJTest1 new];
     YJTest2 *test2 = [YJTest2 new];
+    
+    YJNSAspectOrientProgramming *aop = [YJNSAspectOrientProgramming new];
     [aop addTarget:test1];
     [aop addTarget:test2];
-    [aop performSelector:@selector(test1)];
-    [aop performSelector:@selector(test2)];
-    [aop performSelector:@selector(test3)];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Undeclared-Selector"
-    //写在这个中间的代码,都不会被编译器提示-Wdeprecated-declarations类型的警告
-//    dispatch_queue_tcurrent Queue =dispatch_get_current_queue();
-    [aop performSelector:@selector(test4) withObjects:nil];
-#pragma clang diagnostic pop
     
+    id<YJTestProtocol> test = (id<YJTestProtocol>)aop;
+    [test test1];
+    [test test2];
+    [test test3];
+    id result = [test test4];
+    NSLog(@"%@", result);
 }
 
 

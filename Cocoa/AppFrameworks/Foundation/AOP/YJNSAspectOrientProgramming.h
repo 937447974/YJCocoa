@@ -11,6 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+// 调用方法未防止崩溃，需先执行respondsToSelector判断
+
 /** 面向切面编程*/
 @interface YJNSAspectOrientProgramming : NSObject
 

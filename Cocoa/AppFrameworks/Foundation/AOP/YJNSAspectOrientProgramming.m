@@ -62,7 +62,7 @@
 }
 
 - (NSMethodSignature*)methodSignatureForSelector:(SEL)selector {
-    NSMethodSignature* signature = [super methodSignatureForSelector:selector];
+    NSMethodSignature *signature = [super methodSignatureForSelector:selector];
     if (!signature) {
         for (id target in self.weakTargets) {
             signature = [target methodSignatureForSelector:selector];
