@@ -22,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scrollViewManager = [[YJUIScrollViewManager alloc] initWithScrollView:self.scrollView];
-    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(50, 50, 50, 50);
+//    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(50, 50, 50, 50); // 正边缘
+//    self.scrollViewManager.edgeInset = UIEdgeInsetsMake(-20, -20, -20, -20); // 负边缘
     self.scrollViewManager.delegate = self;
     [self.scrollViewManager addScrollViewAOPDelegate:self];
 }
