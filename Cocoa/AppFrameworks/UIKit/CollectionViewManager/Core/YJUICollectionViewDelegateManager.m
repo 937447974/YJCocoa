@@ -11,7 +11,6 @@
 
 #import "YJUICollectionViewDelegateManager.h"
 #import "YJUICollectionViewManager.h"
-#import "UIView+YJUIViewGeometry.h"
 
 @implementation YJUICollectionViewDelegateManager
 
