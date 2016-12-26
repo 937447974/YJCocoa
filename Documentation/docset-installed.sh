@@ -31,7 +31,5 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-12-23 | ScrollViewManager上线，支持监听UIScrollView的滚动状态" with title "YJCocoa 5.3.0"'
-osascript -e 'display notification "2016-12-23 | CollectionViewManager接入ScrollViewManager库实现滑动监听和分页加载" with title "YJCocoa 5.3.0"'
-osascript -e 'display notification "2016-12-23 | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载" with title "YJCocoa 5.3.0"'
+osascript -e 'display notification "2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域" with title "YJCocoa 5.4.1"'
 
