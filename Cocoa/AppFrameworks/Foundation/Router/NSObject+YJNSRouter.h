@@ -15,18 +15,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 路由器扩展*/
 @interface NSObject (YJNSRouter)
 
 @property (nonatomic, strong) YJNSRouter *router; ///< 路由
-
-/**
- *  @abstract 初始化
- *
- *  @param routerURL 路由地址
- *
- *  @return instancetype
- */
-- (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL;
 
 /**
  *  @abstract 通过路由地址打开目标路由器
@@ -34,14 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param routerURL  目标路由地址
  *  @param options    配置参数
- *  @param completion 是否打开
+ *
+ *  @return BOOL 能否打开目标路由器
  */
-- (void)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey, id> *)options completionHandler:(void (^ __nullable)(BOOL success))completion;
-
-/**
- *  @abstract 上个路由器打开当前路由器
- */
-- (BOOL)openTargetRouter;
+- (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey, id> *)options;
 
 /**
  *  @abstract 向来源路由器发送数据

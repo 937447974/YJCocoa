@@ -20,10 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak)   YJNSRouter *sourceRouter;                              ///< 来源路由
 @property (nonatomic, strong) NSDictionary<YJNSRouterOptionsKey, id> *sourceOptions; ///< 来源配置
 
-@property (nonatomic, copy) YJNSRouterURL routerURL; ///< 路由地址
-@property (nonatomic, weak) id currentController;    ///< 当前控制器，默认VC
-
-@property (nonatomic, copy) BOOL (^ completionHandler)(YJNSRouterFoundationID fID, NSDictionary<YJNSRouterOptionsKey, id> *options, YJNSRouter *sender); ///< 接收目标路由传回信息, return（YES(拦截，NO继续下发)
+@property (nonatomic, copy) YJNSRouterURL routerURL;         ///< 路由地址
+@property (nonatomic, weak) id<YJNSRouterDelegate> delegate; ///< 当前控制器，默认VC
 
 @end
 

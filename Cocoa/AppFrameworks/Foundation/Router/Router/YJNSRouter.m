@@ -13,14 +13,4 @@
 
 @implementation YJNSRouter
 
-#pragma mark - getter &setter
-- (BOOL (^)(YJNSRouterFoundationID _Nonnull, NSDictionary<YJNSRouterOptionsKey,id> * _Nonnull, YJNSRouter * _Nonnull))completionHandler {
-    if (!_completionHandler) {
-        _completionHandler = ^ BOOL(YJNSRouterFoundationID fID, NSDictionary<YJNSRouterOptionsKey, id> *options, YJNSRouter *sender) {
-            return NO;
-        };
-    }
-    return _completionHandler;
-}
-
 @end

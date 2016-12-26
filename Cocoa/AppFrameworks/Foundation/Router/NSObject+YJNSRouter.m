@@ -12,14 +12,29 @@
 #import "NSObject+YJNSRouter.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (YJNSRouter)
+@interface NSObject (YJNSRouterDelegate) <YJNSRouterDelegate>
+@end
+
+@implementation NSObject (YJNSRouterDelegate)
 
 - (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL {
     return [self init];
 }
 
-- (void)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options completionHandler:(void (^)(BOOL))completion {
-    BOOL success = NO;
+- (BOOL)openCurrentRouter {
+    return NO;
+}
+
+- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
+    return NO;
+}
+
+@end
+
+
+@implementation NSObject (YJNSRouter)
+
+- (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
     Class targetRouterClass = [YJNSRouteManager.sharedManager routerClassForURL:routerURL];
     if (targetRouterClass) {
         NSObject *targetRouter = [[targetRouterClass alloc] initWithRouterURL:routerURL];
@@ -28,21 +43,15 @@
         router.sourceOptions = options;
         router.routerURL = routerURL;
         targetRouter.router = router;
-        success = [targetRouter openTargetRouter];
+        return [targetRouter openCurrentRouter];
     }
-    if (completion) {
-        completion(success);
-    }
-}
-
-- (BOOL)openTargetRouter {
     return NO;
 }
 
 - (BOOL)sendSourceRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
     YJNSRouter *sourceRouter = self.router.sourceRouter;
     while (sourceRouter) {
-        if (sourceRouter.completionHandler(fID, options, self.router)) {
+        if ([sourceRouter.delegate receiveTargetRouter:fID options:options sender:self.router]) {
             return YES;
         }
         sourceRouter = sourceRouter.sourceRouter;
@@ -61,7 +70,7 @@
 }
 
 - (void)setRouter:(YJNSRouter *)router {
-    router.currentController = self;
+    router.delegate = self;
     objc_setAssociatedObject(self, "YJNSRouter", router, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

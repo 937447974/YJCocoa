@@ -9,7 +9,7 @@
 #import "YJMainViewController.h"
 #import "YJRouteHeader.h"
 
-@interface YJMainViewController ()
+@interface YJMainViewController () <YJNSRouterDelegate>
 
 @end
 
@@ -23,18 +23,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSStringFromClass(self.class);
-    YJNSRouter *router = self.router;
-    router.completionHandler = ^ BOOL(YJNSRouterFoundationID fID, NSDictionary<YJNSRouterOptionsKey, id> *options, YJNSRouter *sender) {
-        if ([@"test" isEqualToString:fID]) {
-            NSLog(@"%@", options);
-        }
-        return NO; // 不拦截，联动发送信息
-    };
-    [self sendSourceRouter:@"test" options:@{@"name":@"阳君"}];
+    NSLog(@"%@发送消息--------", self);
+    [self sendSourceRouter:@"test" options:@{@"name":@"YJCocoa"}];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:YJRouterURLOther options:@{} completionHandler:nil];
+    [self openRouterURL:YJRouterURLOther options:@{}];
+}
+
+#pragma mark - YJNSRouterDelegate
+- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
+    if ([@"test" isEqualToString:fID]) {
+        NSLog(@"%@处理消息-%@", self, options);
+    }
+    return NO; // 不拦截，联动发送信息
 }
 
 @end

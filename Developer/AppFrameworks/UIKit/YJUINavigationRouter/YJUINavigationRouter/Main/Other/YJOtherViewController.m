@@ -26,7 +26,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:YJRouterURLMain options:@{} completionHandler:nil];
+    [self openRouterURL:YJRouterURLMain options:@{}];
 }
 
 @end

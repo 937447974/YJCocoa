@@ -281,6 +281,7 @@ YJ技术支持群：557445088
 | | | CollectionViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | | | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | 5.4.1 | 2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域 |
+| | | Router和NavigationRouter架构升级 |
 
 ##Copyright
 

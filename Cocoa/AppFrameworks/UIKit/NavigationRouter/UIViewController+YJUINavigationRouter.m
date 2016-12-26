@@ -11,17 +11,24 @@
 
 #import "UIViewController+YJUINavigationRouter.h"
 
+@interface NSObject (YJNSRouterDelegate) <YJNSRouterDelegate>
+@end
+
+@implementation NSObject (YJNSRouterDelegate)
+
+@end
+
 @implementation UIViewController (YJUINavigationRouter)
 
-- (BOOL)openTargetRouter {
-    if ([self.router.sourceRouter.currentController isKindOfClass:[UIViewController class]]) {
-        UIViewController *vc = self.router.sourceRouter.currentController;
+- (BOOL)openCurrentRouter {
+    if ([self.router.sourceRouter.delegate isKindOfClass:[UIViewController class]]) {
+        UIViewController *vc = (UIViewController *)self.router.sourceRouter.delegate;
         if (vc.navigationController) {
             [vc.navigationController pushViewController:self animated:YES];
             return YES;
         }
     }
-    return [super openTargetRouter];
+    return [super openCurrentRouter];
 }
 
 @end
