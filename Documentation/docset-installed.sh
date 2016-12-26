@@ -32,4 +32,5 @@ fi
 
 # 更新记录
 osascript -e 'display notification "2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域" with title "YJCocoa 5.4.1"'
+osascript -e 'display notification "2016-12-26 | Router和NavigationRouter架构升级" with title "YJCocoa 5.4.1"'
 
