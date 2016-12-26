@@ -31,8 +31,9 @@
     self = [self init];
     if (self) {
         _scrollView = scrollView;
-        self.scrollSpacingDid = 30;
+        self.didSpacing = 30;
         self.edgeInset = UIEdgeInsetsZero;
+        self.endInset = UIEdgeInsetsZero;
     }
     return self;
 }
@@ -60,70 +61,54 @@
 
 #pragma mark - private
 - (void)scrollViewDidVerticalScroll:(UIScrollView *)scrollView {
-    CGFloat top = scrollView.contentOffset.y;
-    if (top <= 0 || top <= self.edgeInset.top) {
-        if ( self.edgeInset.top < 0 && top <= self.edgeInset.top) {
-            self.verticalScroll = YJUIScrollViewScrollEdgeTop;
-        } else if (top <= 0) {
-            self.verticalScroll = YJUIScrollViewScrollEndTop;
-        } else {
-            self.verticalScroll = YJUIScrollViewScrollEdgeTop;
-        }
-        return;
-    }
-    CGFloat bottom = top + scrollView.heightFrame;
-    CGFloat edgeHeight = scrollView.contentSize.height - self.edgeInset.bottom;
-    if (bottom >= scrollView.contentSize.height || bottom >= edgeHeight) {
-        if (self.edgeInset.bottom < 0 && bottom >= edgeHeight) {
-            self.verticalScroll = YJUIScrollViewScrollEdgeBottom;
-        } else if (bottom >= scrollView.contentSize.height) {
+    CGFloat y = scrollView.contentOffset.y;
+    if (y <= self.endInset.top) {
+        self.verticalScroll = YJUIScrollViewScrollEndTop;
+    } else if (y <= self.edgeInset.top) {
+        self.verticalScroll = YJUIScrollViewScrollEdgeTop;
+    } else {
+        CGFloat scrollHeight = scrollView.heightFrame > scrollView.contentSize.height ? scrollView.heightFrame : scrollView.contentSize.height;
+        CGFloat bottom = y + scrollView.heightFrame;
+        if (bottom >= scrollHeight - self.endInset.bottom) {
             self.verticalScroll = YJUIScrollViewScrollEndBottom;
-        } else {
+        } else if (bottom >= scrollHeight - self.edgeInset.bottom) {
             self.verticalScroll = YJUIScrollViewScrollEdgeBottom;
+        } else {
+            CGFloat spacing = y - _contentOffset.y;
+            if (spacing <= -self.didSpacing) {
+                self.verticalScroll = YJUIScrollViewScrollDidTop;
+                _contentOffset.y = y;
+            } else if (spacing >= self.didSpacing) {
+                self.verticalScroll = YJUIScrollViewScrollDidBottom;
+                _contentOffset.y = y;
+            }
         }
-        return;
-    }
-    CGFloat spacing = top - _contentOffset.y;
-    if (spacing <= -self.scrollSpacingDid) {
-        self.verticalScroll = YJUIScrollViewScrollDidTop;
-        _contentOffset.y = top;
-    } else if (spacing >= self.scrollSpacingDid) {
-        _contentOffset.y = top;
-        self.verticalScroll = YJUIScrollViewScrollDidBottom;
     }
 }
 
 - (void)scrollViewDidHorizontalScroll:(UIScrollView *)scrollView {
-    CGFloat left = scrollView.contentOffset.x;
-    if (left <= 0 || left <= self.edgeInset.left) {
-        if (self.edgeInset.left < 0 && left <= self.edgeInset.left) {
-            self.horizontalScroll = YJUIScrollViewScrollEdgeLeft;
-        } else if (left <= 0) {
-            self.horizontalScroll = YJUIScrollViewScrollEndLeft;
-        } else {
-            self.horizontalScroll = YJUIScrollViewScrollEdgeLeft;
-        }
-        return;
-    }
-    CGFloat right = left + scrollView.widthFrame;
-    CGFloat edgeWidth = scrollView.contentSize.width - self.edgeInset.right;
-    if (right >= scrollView.contentSize.width || right >= edgeWidth) {
-        if (self.edgeInset.left < 0 && right >= edgeWidth) {
-            self.horizontalScroll = YJUIScrollViewScrollEdgeRight;
-        } else if (right >= scrollView.contentSize.width) {
+    CGFloat x = scrollView.contentOffset.x;
+    if (x <= self.endInset.left) {
+        self.horizontalScroll = YJUIScrollViewScrollEndLeft;
+    } else if (x <= self.edgeInset.left) {
+        self.horizontalScroll = YJUIScrollViewScrollEdgeLeft;
+    } else {
+        CGFloat scrollWidth = scrollView.widthFrame > scrollView.contentSize.width ? scrollView.widthFrame : scrollView.contentSize.width;
+        CGFloat right = x + scrollView.widthFrame;
+        if (right >= scrollWidth - self.endInset.right) {
             self.horizontalScroll = YJUIScrollViewScrollEndRight;
-        } else {
+        } else if (right >= scrollWidth - self.edgeInset.right) {
             self.horizontalScroll = YJUIScrollViewScrollEdgeRight;
+        } else {
+            CGFloat spacing = x - _contentOffset.x;
+            if (spacing <= -self.didSpacing) {
+                self.horizontalScroll = YJUIScrollViewScrollDidLeft;
+                _contentOffset.x = x;
+            } else if (spacing >= self.didSpacing) {
+                self.horizontalScroll = YJUIScrollViewScrollDidRight;
+                _contentOffset.x = x;
+            }
         }
-        return;
-    }
-    CGFloat spacing = left - _contentOffset.x;
-    if (spacing <= -self.scrollSpacingDid) {
-        self.horizontalScroll = YJUIScrollViewScrollDidLeft;
-        _contentOffset.x = left;
-    } else if (spacing >= self.scrollSpacingDid) {
-        self.horizontalScroll = YJUIScrollViewScrollDidRight;
-        _contentOffset.x = left;
     }
 }
 

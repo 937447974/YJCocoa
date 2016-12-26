@@ -27,14 +27,14 @@ typedef NS_OPTIONS(NSInteger, YJUIScrollViewScroll) {
     YJUIScrollViewScrollDidLeft,  ///< 向左滚动
     // 用户触摸[6]
     YJUIScrollViewScrollNone, ///< 用户触摸，将要滚动
-    // 下方出现[7,9]
-    YJUIScrollViewScrollDidBottom,  ///< 向下滚动
-    YJUIScrollViewScrollEdgeBottom, ///< 滚动到边缘底部
-    YJUIScrollViewScrollEndBottom,  ///< 滚动到底部
-    // 右方出现[10,12]
+    // 右方出现[7,9]
     YJUIScrollViewScrollDidRight,  ///< 向右滚动
     YJUIScrollViewScrollEdgeRight, ///< 滚动到边缘右
-    YJUIScrollViewScrollEndRight   ///< 滚动到最右
+    YJUIScrollViewScrollEndRight,  ///< 滚动到最右
+    // 下方出现[10,12]
+    YJUIScrollViewScrollDidBottom,  ///< 向下滚动
+    YJUIScrollViewScrollEdgeBottom, ///< 滚动到边缘底部
+    YJUIScrollViewScrollEndBottom   ///< 滚动到底部
 };
 
 
@@ -65,17 +65,13 @@ typedef NS_OPTIONS(NSInteger, YJUIScrollViewScroll) {
 /** UIScrollView管理器*/
 @interface YJUIScrollViewManager : NSObject
 
-@property (nonatomic) CGFloat scrollSpacingDid;  ///< 已经滚动间隔，默认30
+@property (nonatomic) CGFloat didSpacing;     ///< 已经滚动间隔,控制.Did...枚举提示间隔
+@property (nonatomic) UIEdgeInsets endInset;  ///< 边界距离,控制.End...枚举提示区域
+@property (nonatomic) UIEdgeInsets edgeInset; ///< 边缘距离,控制.Edge...枚举提示区域,需edgeInset内值>endInset内值
 
 @property (nonatomic, weak) id<YJUIScrollViewManagerDelegate> delegate; ///< 滑动代理监听
 
 @property (nonatomic, weak, readonly) UIScrollView *scrollView; ///< UIScrollView
-
-/**
- *  @abstract 边缘距离,default UIEdgeInsetsZero
- *  @discusstion 值大于0时YJUIScrollViewScrollEdge...枚举才有效
- */
-@property (nonatomic) UIEdgeInsets edgeInset;
 
 /**
  *  初始化

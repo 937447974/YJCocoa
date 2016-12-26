@@ -280,7 +280,7 @@ YJ技术支持群：557445088
 | 5.4.0 | 2016-12-23 | ScrollViewManager上线，支持监听UIScrollView的滚动状态 |
 | | | CollectionViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | | | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
-| 5.4.1 | 2016-12-25 | ScrollViewManager支持正负边缘 |
+| 5.4.1 | 2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域 |
 
 ##Copyright
 
