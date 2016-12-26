@@ -26,7 +26,6 @@
 		84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC16D1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m */; };
 		84CEC1711DB5BDF7004CDF2B /* YJUICollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */; };
 		84CEC1741DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */; };
-		84FE39E41E0D0F2400558A39 /* YJUIScrollViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +65,6 @@
 		84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewManager.m; sourceTree = "<group>"; };
 		84CEC1721DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateFlowLayoutManager.h; sourceTree = "<group>"; };
 		84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateFlowLayoutManager.m; sourceTree = "<group>"; };
-		84FE39E21E0D0F2400558A39 /* YJUIScrollViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIScrollViewManager.h; sourceTree = "<group>"; };
-		84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIScrollViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +139,6 @@
 				84CEC15C1DB5BD59004CDF2B /* CollectionViewManager */,
 				840A57DD1CF08567006779C0 /* Main */,
 				8473AC5B1CE9A547000E3580 /* Resources */,
-				84FE39E11E0D0F2400558A39 /* ScrollViewManager */,
 				8473AC431CE9A527000E3580 /* Supporting Files */,
 			);
 			path = YJCollectionView;
@@ -213,16 +209,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		84FE39E11E0D0F2400558A39 /* ScrollViewManager */ = {
-			isa = PBXGroup;
-			children = (
-				84FE39E21E0D0F2400558A39 /* YJUIScrollViewManager.h */,
-				84FE39E31E0D0F2400558A39 /* YJUIScrollViewManager.m */,
-			);
-			name = ScrollViewManager;
-			path = ../../../../../Cocoa/AppFrameworks/UIKit/ScrollViewManager;
-			sourceTree = "<group>";
-		};
 		C00C5718D2E4FE97FEDB10C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YJ;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					8473AC3F1CE9A527000E3580 = {
@@ -372,7 +358,6 @@
 				84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */,
 				841DF9E31DFFD86800A76B37 /* YJTestCollectionCellModel.m in Sources */,
 				841DF9DE1DFFD85300A76B37 /* YJTestCollectionReusableView.m in Sources */,
-				84FE39E41E0D0F2400558A39 /* YJUIScrollViewManager.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,
 				84CEC1671DB5BD59004CDF2B /* YJUICollectionCellObject.m in Sources */,
 				84CEC1661DB5BD59004CDF2B /* YJUICollectionViewCell.m in Sources */,
@@ -443,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -484,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
