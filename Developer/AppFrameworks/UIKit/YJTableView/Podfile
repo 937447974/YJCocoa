@@ -4,9 +4,8 @@ platform :ios, '7.0'
 # use_frameworks!
 
 def shared_pods
-    pod 'YJCocoa/AppFrameworks/Foundation/AOP'
     pod 'YJCocoa/AppFrameworks/Foundation/Other'
-    pod 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+    pod 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
     pod 'YJCocoa/System/Dispatch'
 end
 
