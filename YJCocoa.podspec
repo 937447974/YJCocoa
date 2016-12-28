@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.4.1"
+    s.version  = "5.4.2"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -89,6 +89,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             # Router
             foundation.subspec 'Router' do |router|
                 router.source_files = 'Cocoa/AppFrameworks/Foundation/Router/*.{h,m}'
+                router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
                 router.subspec 'Header' do |rHeader|
                     rHeader.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Header/*.{h,m}'
                 end

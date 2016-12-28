@@ -46,6 +46,9 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 Router是NavigationRouter的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
+1. 支持Get或Post跳转；
+2. 支持长连接或短连接。
+
 ###1.1.9 Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
@@ -282,6 +285,7 @@ YJ技术支持群：557445088
 | | | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | 5.4.1 | 2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域 |
 | | | Router和NavigationRouter架构升级 |
+| 5.4.2 | 2016-12-28 | Router支持Get跳转 |
 
 ##Copyright
 
