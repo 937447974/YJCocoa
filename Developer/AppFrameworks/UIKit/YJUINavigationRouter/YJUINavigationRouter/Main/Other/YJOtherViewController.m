@@ -26,7 +26,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:YJRouterURLMain options:@{}];
+    [self openRouterURL:[NSString stringWithFormat:@"%@?name=阳君", YJRouterURLMain]];
 }
 
 @end

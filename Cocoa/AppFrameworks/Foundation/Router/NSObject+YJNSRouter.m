@@ -11,6 +11,7 @@
 
 #import "NSObject+YJNSRouter.h"
 #import <objc/runtime.h>
+#import "YJNSHttp.h"
 
 @interface NSObject (YJNSRouterDelegate) <YJNSRouterDelegate>
 @end
@@ -33,6 +34,16 @@
 
 
 @implementation NSObject (YJNSRouter)
+
+- (BOOL)openRouterURL:(YJNSRouterURL)routerURL {
+    NSArray *array = [routerURL componentsSeparatedByString:@"?"];
+    if (array.count == 1) {
+        return [self openRouterURL:array.firstObject options:@{}];
+    } else if (array.count == 2) {
+        return [self openRouterURL:array.firstObject options:[YJNSHttpAnalysis analysisParamsDecode:array.lastObject]];
+    }
+    return NO;
+}
 
 - (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
     Class targetRouterClass = [YJNSRouteManager.sharedManager routerClassForURL:routerURL];

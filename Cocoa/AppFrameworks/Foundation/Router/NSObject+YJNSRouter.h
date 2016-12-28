@@ -21,7 +21,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) YJNSRouter *router; ///< 路由
 
 /**
- *  @abstract 通过路由地址打开目标路由器
+ *  @abstract 通过路由地址打开目标路由器（get跳转）
+ *  @discusstion 当前路由器打开下个路由器
+ *
+ *  @param routerURL  目标路由地址
+ *
+ *  @return BOOL 能否打开目标路由器
+ */
+- (BOOL)openRouterURL:(YJNSRouterURL)routerURL;
+
+/**
+ *  @abstract 通过路由地址打开目标路由器（post跳转）
  *  @discusstion 当前路由器打开下个路由器
  *
  *  @param routerURL  目标路由地址
