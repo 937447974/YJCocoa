@@ -286,6 +286,7 @@ YJ技术支持群：557445088
 | 5.4.1 | 2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域 |
 | | | Router和NavigationRouter架构升级 |
 | 5.4.2 | 2016-12-28 | Router支持Get跳转 |
+| | 2017-01-04 | 修复YJNSTimer超边界计时 |
 
 ##Copyright
 

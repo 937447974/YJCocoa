@@ -93,10 +93,10 @@
         [self invalidate];
         return;
     }
-    if (self.time < 0 && self.countdown) {
+    if (self.time <= 0 && self.countdown) {
         [self pause];
         return;
-    } else if (self.time > 86400 && !self.countdown) {
+    } else if (self.time >= 86400 && !self.countdown) {
         [self pause];
         return;
     }
