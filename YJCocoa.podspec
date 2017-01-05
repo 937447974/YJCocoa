@@ -63,8 +63,8 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 aop.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
             end
             # Calendar
-            foundation.subspec 'AOP' do |aop|
-                aop.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'
+            foundation.subspec 'Calendar' do |calendar|
+                calendar.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'
             end
             # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
