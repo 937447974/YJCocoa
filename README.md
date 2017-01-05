@@ -17,43 +17,47 @@ YJ系列开源库
 
 AOP切面编程，将一对一的通信转换为一对多的通信。
 
-###1.1.2 DictionaryModel
+###1.1.2 Calendar
+
+日历工具，快速将秒转换为天、时、分等。
+
+###1.1.3 DictionaryModel
 
 快速高效的转换模型和Model。
 
-###1.1.3 Directory
+###1.1.4 Directory
 
 快速获取应用内目录
 
-###1.1.4 FileManager
+###1.1.5 FileManager
 
 NSFileManager扩展，支持快速移动文件。主要是替换系统方法`moveItemAtPath:toPath:error:`和`moveItemAtURL:toURL:error:`
 
-###1.1.5 Http
+###1.1.6 Http
 
 1. http链接解析，快速获取其中参数，支持URLDecode解码;
 2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
-###1.1.6 Log
+###1.1.7 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-###1.1.7 PerformSelector
+###1.1.8 PerformSelector
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
-###1.1.8 Router
+###1.1.9 Router
 
 Router是NavigationRouter的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
 1. 支持Get或Post跳转；
 2. 支持长连接或短连接。
 
-###1.1.9 Singleton
+###1.1.10 Singleton
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-###1.1.10 Timer
+###1.1.11 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -62,11 +66,11 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-###1.1.11 URLCode
+###1.1.12 URLCode
 
 URLEncode编码和URLDecode解码
 
-###1.1.12 URLSession
+###1.1.13 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -285,8 +289,9 @@ YJ技术支持群：557445088
 | | | TableViewManager接入ScrollViewManager库实现滑动监听和分页加载 |
 | 5.4.1 | 2016-12-26 | ScrollViewManager支持设置边缘和边界提示区域 |
 | | | Router和NavigationRouter架构升级 |
-| 5.4.2 | 2016-12-28 | Router支持Get跳转 |
+| 5.5.0 | 2016-12-28 | Router支持Get跳转 |
 | | 2017-01-04 | 修复YJNSTimer超边界计时 |
+| | 2017-01-05 | Calendar上线，支持快速将秒转换为天、时、分等 |
 
 ##Copyright
 
