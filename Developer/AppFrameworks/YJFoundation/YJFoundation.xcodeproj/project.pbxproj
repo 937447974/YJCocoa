@@ -10,6 +10,10 @@
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */; };
+		8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC871E1DE74700470C69 /* YJNSCalendar.m */; };
+		8463DC8D1E1DE74700470C69 /* YJNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC891E1DE74700470C69 /* YJNSDate.m */; };
+		8463DC8E1E1DE74700470C69 /* YJNSDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */; };
+		8463DC901E1DEB2600470C69 /* YJCalendarTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
@@ -70,6 +74,13 @@
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
 		8446DF691E03FB200093F8A3 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
 		8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLCode.m; sourceTree = "<group>"; };
+		8463DC861E1DE74700470C69 /* YJNSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSCalendar.h; sourceTree = "<group>"; };
+		8463DC871E1DE74700470C69 /* YJNSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSCalendar.m; sourceTree = "<group>"; };
+		8463DC881E1DE74700470C69 /* YJNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDate.h; sourceTree = "<group>"; };
+		8463DC891E1DE74700470C69 /* YJNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDate.m; sourceTree = "<group>"; };
+		8463DC8A1E1DE74700470C69 /* YJNSDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDateComponents.h; sourceTree = "<group>"; };
+		8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDateComponents.m; sourceTree = "<group>"; };
+		8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCalendarTest.m; sourceTree = "<group>"; };
 		847815991DED518900B2ED8D /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
 		8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionTask.m; sourceTree = "<group>"; };
 		847815A01DED523400B2ED8D /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
@@ -192,6 +203,19 @@
 				8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */,
 			);
 			path = URLCode;
+			sourceTree = "<group>";
+		};
+		8463DC851E1DE74700470C69 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8463DC861E1DE74700470C69 /* YJNSCalendar.h */,
+				8463DC871E1DE74700470C69 /* YJNSCalendar.m */,
+				8463DC881E1DE74700470C69 /* YJNSDate.h */,
+				8463DC891E1DE74700470C69 /* YJNSDate.m */,
+				8463DC8A1E1DE74700470C69 /* YJNSDateComponents.h */,
+				8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		847815981DED518900B2ED8D /* Task */ = {
@@ -366,6 +390,7 @@
 				84D355A81DAB60750097D526 /* YJLogTest.m */,
 				84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */,
 				8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */,
+				8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -374,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				84C59DCE1DB0D43C00B93218 /* AOP */,
+				8463DC851E1DE74700470C69 /* Calendar */,
 				84D3563A1DAB73F10097D526 /* DictionaryModel */,
 				840BE1A31DAE3B7800ADE647 /* Directory */,
 				84CF938D1DBF5024004662BF /* FileManager */,
@@ -721,6 +747,8 @@
 				84D355851DAB5E700097D526 /* AppDelegate.m in Sources */,
 				84D356601DAB73F10097D526 /* NSObject+YJNSPerformSelector.m in Sources */,
 				84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */,
+				8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */,
+				8463DC8D1E1DE74700470C69 /* YJNSDate.m in Sources */,
 				84D3565F1DAB73F10097D526 /* YJNSFoundationOther.m in Sources */,
 				84FE39F41E0F5F0200558A39 /* YJNSRouteManager.m in Sources */,
 				847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */,
@@ -733,6 +761,7 @@
 				847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */,
 				84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */,
 				84D3565E1DAB73F10097D526 /* YJNSLog.m in Sources */,
+				8463DC8E1E1DE74700470C69 /* YJNSDateComponents.m in Sources */,
 				84D28EC61DED3548001AF6B5 /* YJNSURLSession.m in Sources */,
 				84D3565A1DAB73F10097D526 /* YJNSDictionaryModelManager.m in Sources */,
 				84FE39F61E0F5F0200558A39 /* YJNSRouter.m in Sources */,
@@ -749,6 +778,7 @@
 				8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */,
 				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
 				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
+				8463DC901E1DEB2600470C69 /* YJCalendarTest.m in Sources */,
 				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
 				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
 				847815BC1DEEE16700B2ED8D /* YJTestURLRequest.m in Sources */,
