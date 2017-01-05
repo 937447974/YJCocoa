@@ -10,6 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJNSCalendar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,10 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSTimeInterval time;           ///< 当前执行时间
 @property (nonatomic) BOOL countdown;                ///< 是否倒计时运行，默认NO（倒计时time=0时停止，正计时time=60*60*24时停止）
 
-@property (nonatomic, readonly) NSInteger day;         ///< 天
-@property (nonatomic, readonly) NSInteger hour;        ///< 小时
-@property (nonatomic, readonly) NSInteger minute;      ///< 分
-@property (nonatomic, readonly) NSTimeInterval second; ///< 秒
+@property (nonatomic) YJNSCalendarUnit unitFlags;                           ///< 解析的日期单位
+@property (nonatomic, strong, readonly) YJNSDateComponents *dateComponents; ///< 日期组件
 
 /**
  *  初始化

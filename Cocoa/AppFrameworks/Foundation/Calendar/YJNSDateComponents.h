@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** 日期组件*/
+/** 日期组件NSDateComponents*/
 @interface YJNSDateComponents : NSObject
 
 @property (nonatomic) NSInteger day;         ///< 天

@@ -19,8 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self testSingleton];
-//    [self testTimer];
-    [self testCalendar];
+    [self testTimer];
+//    [self testCalendar];
 }
 
 #pragma mark - 单例
@@ -39,9 +39,10 @@
 
 #pragma mark - 倒计时
 - (void)testTimer {
-    for (int i=0; i<3; i++) {
+    for (int i=0; i<1; i++) {
         YJNSTimer *timer = [YJNSTimer timerWeakWithIdentifier:nil];
         [timer addTarget:self action:@selector(testTimerLog:)];
+        timer.unitFlags =  YJNSCalendarUnitDay|YJNSCalendarUnitHour|YJNSCalendarUnitMinute|YJNSCalendarUnitSecond ;
         timer.timeInterval = 3;
         timer.time = 10;
         timer.countdown = YES;
@@ -50,7 +51,7 @@
 }
 
 - (void)testTimerLog:(YJNSTimer *)timer {
-    NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.day, (long)timer.hour, (long)timer.minute, timer.second);
+    NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.dateComponents.day, (long)timer.dateComponents.hour, (long)timer.dateComponents.minute, timer.dateComponents.second);
     // 模拟释放当前VC
     if (timer.time<=0) {
         [timer invalidate];
@@ -59,8 +60,9 @@
 
 #pragma mark - Calendar
 - (void)testCalendar {
-    YJNSDateComponents *c = [[YJNSCalendar alloc] components:YJNSCalendarUnitDay | YJNSCalendarUnitHour | YJNSCalendarUnitMinute | YJNSCalendarUnitSecond fromDate:[[YJNSDate alloc] initWithSecond:86400+3600+60+5.98]];
-    NSLog(@"%ld %ld:%ld:%.3f", (long)c.day, (long)c.hour, (long)c.minute, c.second);
+    YJNSCalendar *calendar = [[YJNSCalendar alloc] init];
+    [calendar components:YJNSCalendarUnitDay | YJNSCalendarUnitHour | YJNSCalendarUnitMinute | YJNSCalendarUnitSecond fromSecond:86400+3600+60+5.98];
+    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)calendar.dateComponents.day, (long)calendar.dateComponents.hour, (long)calendar.dateComponents.minute, calendar.dateComponents.second);
 }
 
 @end

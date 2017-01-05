@@ -28,6 +28,7 @@
 @property (nonatomic, nullable) SEL action;              ///< 目标方法
 
 @property (nonatomic, strong) NSTimer *timer; /// 计时器
+@property (nonatomic, strong) YJNSCalendar *calendar; ///<
 
 @end
 
@@ -63,6 +64,7 @@
         timer = [[YJNSTimer alloc] init];
         timer.identifier = identifier;
         timer.timeInterval = 1;
+        timer.calendar = [[YJNSCalendar alloc] init];
     }
     [tDict setObject:timer forKey:timer.identifier];
     return timer;
@@ -123,18 +125,18 @@
 
 - (void)setTime:(NSTimeInterval)time {
     _time = time;
-    NSInteger timeC = time;
-    _day = timeC / 86400;
-    timeC -= _day * 86400;
-    _hour = timeC / 3600;
-    timeC -= _hour * 3600;
-    _minute = timeC / 60;
-    _second = time - _day * 86400 - _hour * 3600 - _minute*60;
+    if (self.unitFlags) {
+        [self.calendar components:self.unitFlags fromSecond:time];
+    }
     if (self.weakTarget) {
         [self.weakTarget performSelector:self.action withObjects:@[self]];
     } else {
         [self.strongTarget performSelector:self.action withObjects:@[self]];
     }
+}
+
+- (YJNSDateComponents *)dateComponents {
+    return self.calendar.dateComponents;
 }
 
 @end

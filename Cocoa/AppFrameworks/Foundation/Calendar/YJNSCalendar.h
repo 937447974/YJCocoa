@@ -10,7 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSDate.h"
 #import "YJNSDateComponents.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,15 +25,15 @@ typedef NS_ENUM(NSInteger, YJNSCalendarUnit) {
 /** 日历*/
 @interface YJNSCalendar : NSObject
 
+@property (nonatomic, strong, readonly) YJNSDateComponents *dateComponents; ///< 组装的数据
+
 /**
  *  @abstract 提取日期相关数据
  *
  *  @param unitFlags 日历单位，如YJNSCalendarUnitDay|YJNSCalendarUnitHour.
- *  @param date YJNSCalendarUnit
- *
- *  @return YJNSDateComponents
+ *  @param second    秒
  */
-- (YJNSDateComponents *)components:(YJNSCalendarUnit)unitFlags fromDate:(YJNSDate *)date;
+- (void)components:(YJNSCalendarUnit)unitFlags fromSecond:(NSTimeInterval)second;
 
 @end
 

@@ -13,25 +13,25 @@
 
 @implementation YJNSCalendar
 
-- (YJNSDateComponents *)components:(YJNSCalendarUnit)unitFlags fromDate:(YJNSDate *)date {
-    YJNSDateComponents *components = [[YJNSDateComponents alloc] init];
-     NSTimeInterval second = date.second; ///< 秒
-    if (unitFlags & YJNSCalendarUnitDay) {
-        components.day = second / 86400;
-        second -= components.day * 86400;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _dateComponents = [[YJNSDateComponents alloc] init];
     }
-    if (unitFlags & YJNSCalendarUnitHour) {
-        components.hour = second / 3600;
-        second -= components.hour * 3600;
-    }
-    if (unitFlags & YJNSCalendarUnitMinute) {
-        components.minute = second / 60;
-        second -= components.minute * 60;
-    }
-    if (unitFlags & YJNSCalendarUnitSecond) {
-        components.second = second;
-    }
-    return components;
+    return self;
+}
+
+- (void)components:(YJNSCalendarUnit)unitFlags fromSecond:(NSTimeInterval)second {
+    self.dateComponents.day = unitFlags & YJNSCalendarUnitDay ? second / 86400 : 0;
+    second -= self.dateComponents.day * 86400;
+    
+    self.dateComponents.hour = unitFlags & YJNSCalendarUnitHour ? second / 3600 : 0;
+    second -= self.dateComponents.hour * 3600;
+    
+    self.dateComponents.minute = unitFlags & YJNSCalendarUnitMinute ? second / 60 : 0;
+    second -= self.dateComponents.minute * 60;
+    
+    self.dateComponents.second = unitFlags & YJNSCalendarUnitSecond ? second : 0;
 }
 
 @end

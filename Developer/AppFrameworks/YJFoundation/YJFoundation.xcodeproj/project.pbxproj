@@ -11,7 +11,6 @@
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */; };
 		8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC871E1DE74700470C69 /* YJNSCalendar.m */; };
-		8463DC8D1E1DE74700470C69 /* YJNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC891E1DE74700470C69 /* YJNSDate.m */; };
 		8463DC8E1E1DE74700470C69 /* YJNSDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
@@ -75,8 +74,6 @@
 		8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLCode.m; sourceTree = "<group>"; };
 		8463DC861E1DE74700470C69 /* YJNSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSCalendar.h; sourceTree = "<group>"; };
 		8463DC871E1DE74700470C69 /* YJNSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSCalendar.m; sourceTree = "<group>"; };
-		8463DC881E1DE74700470C69 /* YJNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDate.h; sourceTree = "<group>"; };
-		8463DC891E1DE74700470C69 /* YJNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDate.m; sourceTree = "<group>"; };
 		8463DC8A1E1DE74700470C69 /* YJNSDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDateComponents.h; sourceTree = "<group>"; };
 		8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDateComponents.m; sourceTree = "<group>"; };
 		847815991DED518900B2ED8D /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
@@ -208,8 +205,6 @@
 			children = (
 				8463DC861E1DE74700470C69 /* YJNSCalendar.h */,
 				8463DC871E1DE74700470C69 /* YJNSCalendar.m */,
-				8463DC881E1DE74700470C69 /* YJNSDate.h */,
-				8463DC891E1DE74700470C69 /* YJNSDate.m */,
 				8463DC8A1E1DE74700470C69 /* YJNSDateComponents.h */,
 				8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */,
 			);
@@ -745,7 +740,6 @@
 				84D356601DAB73F10097D526 /* NSObject+YJNSPerformSelector.m in Sources */,
 				84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */,
 				8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */,
-				8463DC8D1E1DE74700470C69 /* YJNSDate.m in Sources */,
 				84D3565F1DAB73F10097D526 /* YJNSFoundationOther.m in Sources */,
 				84FE39F41E0F5F0200558A39 /* YJNSRouteManager.m in Sources */,
 				847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */,
