@@ -12,6 +12,9 @@
 /** 面向切面编程*/
 #import "YJNSAspectOrientProgramming.h"
 
+// 日历工具，快速将秒转换为天、时、分等
+#import "YJNSCalendar.h"
+
 // Dictionary转Model
 #import "NSObject+YJNSDictionaryModel.h"
 

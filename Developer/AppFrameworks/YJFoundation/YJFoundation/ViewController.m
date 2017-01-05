@@ -20,6 +20,7 @@
     [super viewDidLoad];
 //    [self testSingleton];
 //    [self testTimer];
+    [self testCalendar];
 }
 
 #pragma mark - 单例
@@ -54,6 +55,12 @@
     if (timer.time<=0) {
         [timer invalidate];
     }
+}
+
+#pragma mark - Calendar
+- (void)testCalendar {
+    YJNSDateComponents *c = [[YJNSCalendar alloc] components:YJNSCalendarUnitDay | YJNSCalendarUnitHour | YJNSCalendarUnitMinute | YJNSCalendarUnitSecond fromDate:[[YJNSDate alloc] initWithSecond:86400+3600+60+5.98]];
+    NSLog(@"%ld %ld:%ld:%.3f", (long)c.day, (long)c.hour, (long)c.minute, c.second);
 }
 
 @end

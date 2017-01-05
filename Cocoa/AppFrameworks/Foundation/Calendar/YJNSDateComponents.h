@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJNSDateComponents : NSObject
 
 @property (nonatomic) NSInteger day;         ///< 天
-@property (nonatomic) NSInteger hour;        ///< 小时
+@property (nonatomic) NSInteger hour;        ///< 时
 @property (nonatomic) NSInteger minute;      ///< 分
 @property (nonatomic) NSTimeInterval second; ///< 秒
 

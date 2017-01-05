@@ -13,7 +13,6 @@
 		8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC871E1DE74700470C69 /* YJNSCalendar.m */; };
 		8463DC8D1E1DE74700470C69 /* YJNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC891E1DE74700470C69 /* YJNSDate.m */; };
 		8463DC8E1E1DE74700470C69 /* YJNSDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */; };
-		8463DC901E1DEB2600470C69 /* YJCalendarTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
@@ -80,7 +79,6 @@
 		8463DC891E1DE74700470C69 /* YJNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDate.m; sourceTree = "<group>"; };
 		8463DC8A1E1DE74700470C69 /* YJNSDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDateComponents.h; sourceTree = "<group>"; };
 		8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDateComponents.m; sourceTree = "<group>"; };
-		8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCalendarTest.m; sourceTree = "<group>"; };
 		847815991DED518900B2ED8D /* YJNSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionTask.h; sourceTree = "<group>"; };
 		8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionTask.m; sourceTree = "<group>"; };
 		847815A01DED523400B2ED8D /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 				84D355A81DAB60750097D526 /* YJLogTest.m */,
 				84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */,
 				8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */,
-				8463DC8F1E1DEB2600470C69 /* YJCalendarTest.m */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -778,7 +775,6 @@
 				8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */,
 				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
 				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
-				8463DC901E1DEB2600470C69 /* YJCalendarTest.m in Sources */,
 				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
 				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
 				847815BC1DEEE16700B2ED8D /* YJTestURLRequest.m in Sources */,
