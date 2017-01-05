@@ -62,6 +62,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             foundation.subspec 'AOP' do |aop|
                 aop.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
             end
+            # Calendar
+            foundation.subspec 'AOP' do |aop|
+                aop.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'
+            end
             # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
@@ -107,8 +111,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
             end
+            # Timer
             foundation.subspec 'Timer' do |timer|
                 timer.source_files = 'Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}'
+                timer.dependency 'YJCocoa/AppFrameworks/Foundation/Calendar'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/PerformSelector'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 timer.dependency 'YJCocoa/System/Security/Random'
