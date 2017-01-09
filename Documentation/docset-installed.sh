@@ -31,9 +31,6 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2016-12-28 | Router支持Get跳转" with title "YJCocoa 5.5.0"'
-osascript -e 'display notification "2017-01-04 | 修复YJNSTimer超边界计时" with title "YJCocoa 5.5.0"'
-osascript -e 'display notification "2017-01-05 | Calendar上线，支持快速将秒转换为天、时、分等" with title "YJCocoa 5.5.0"'
-osascript -e 'display notification "2017-01-05 | Timer接入Calendar做时间解析器" with title "YJCocoa 5.5.0"'
+osascript -e 'display notification "2017-01-09 | URLSession架构升级，支持螺旋开发架构" with title "YJCocoa 5.5.1"'
 
 

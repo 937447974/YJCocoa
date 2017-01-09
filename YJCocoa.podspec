@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.5.0"
+    s.version  = "5.5.1"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -125,17 +125,12 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'URLSession' do |session|
                 session.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}'
-                session.subspec 'HTTPBody' do |body|
-                    body.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/HTTPBody/*.{h,m}'
-                    body.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
-                end
                 session.subspec 'Pool' do |pool|
                     pool.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Pool/*.{h,m}'
                     pool.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 end
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
-                    request.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/HTTPBody'
                 end
                 session.subspec 'Task' do |task|
                     task.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Task/*.{h,m}'

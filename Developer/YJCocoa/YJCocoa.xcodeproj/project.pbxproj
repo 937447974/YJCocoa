@@ -143,7 +143,6 @@
 		8480BD101E09399400A82399 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		8480BD121E09399400A82399 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
 		8480BD131E09399400A82399 /* YJNSURLCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLCode.m; sourceTree = "<group>"; };
-		8480BD161E09399400A82399 /* YJNSHTTPBodyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSHTTPBodyProtocol.h; sourceTree = "<group>"; };
 		8480BD181E09399400A82399 /* YJNSURLSessionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLSessionPool.h; sourceTree = "<group>"; };
 		8480BD191E09399400A82399 /* YJNSURLSessionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionPool.m; sourceTree = "<group>"; };
 		8480BD1B1E09399400A82399 /* YJNSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequest.h; sourceTree = "<group>"; };
@@ -548,7 +547,6 @@
 		8480BD141E09399400A82399 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				8480BD151E09399400A82399 /* HTTPBody */,
 				8480BD171E09399400A82399 /* Pool */,
 				8480BD1A1E09399400A82399 /* Request */,
 				8480BD1D1E09399400A82399 /* Task */,
@@ -556,14 +554,6 @@
 				8480BD211E09399400A82399 /* YJNSURLSession.m */,
 			);
 			path = URLSession;
-			sourceTree = "<group>";
-		};
-		8480BD151E09399400A82399 /* HTTPBody */ = {
-			isa = PBXGroup;
-			children = (
-				8480BD161E09399400A82399 /* YJNSHTTPBodyProtocol.h */,
-			);
-			path = HTTPBody;
 			sourceTree = "<group>";
 		};
 		8480BD171E09399400A82399 /* Pool */ = {
