@@ -11,8 +11,8 @@
 
 #import "YJNSURLRequest.h"
 
-YJNSHTTPMethod const YJNSHTTPMethodGET = @"GET";
-YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
+YJNSURLRequestMethod const YJNSURLRequestMethodGET = @"GET";
+YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 
 @implementation YJNSURLRequest
 
@@ -20,19 +20,23 @@ YJNSHTTPMethod const YJNSHTTPMethodPOST = @"POST";
 + (instancetype)requestWithSource:(NSObject *)source {
     YJNSURLRequest *request = [[self alloc] init];
     request -> _source = source;
-    request.HTTPMethod = YJNSHTTPMethodGET;
     return request;
 }
 
-+ (instancetype)requestWithSource:(NSObject *)source HTTPBody:(id<YJNSHTTPBodyProtocol>)body {
++ (instancetype)requestWithSource:(NSObject *)source requestModel:(id<YJNSURLRequestModel>)requestModel {
     YJNSURLRequest *request = [self requestWithSource:source];
-    request.HTTPBody = body;
+    request -> _requestModel = requestModel;
     return request;
 }
 
 #pragma mark - getter & setter
 - (NSString *)identifier {
     return _identifier ? _identifier : [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
+}
+
+- (YJNSURLRequestMethod)requestMethod {
+    [self doesNotRecognizeSelector:_cmd];
+    return YJNSURLRequestMethodGET;
 }
 
 @end

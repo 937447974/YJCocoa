@@ -59,7 +59,7 @@
 }
 
 - (void)resume {
-    NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.HTTPBody.modelDictionary);
+    NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
     self -> _state = YJNSURLSessionTaskStateRunning;
     self.needResume = NO;
 }
