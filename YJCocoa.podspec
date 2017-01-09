@@ -131,6 +131,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 end
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
+                    request.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
                 end
                 session.subspec 'Task' do |task|
                     task.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Task/*.{h,m}'
