@@ -14,4 +14,12 @@
     return @"https://github.com/937447974/YJCocoa";
 }
 
+- (YJNSURLRequestMethod)requestMethod {
+    return YJNSURLRequestMethodGET;
+}
+
+- (Class)responseModelClass {
+    return [YJNSURLResponseModel class];
+}
+
 @end

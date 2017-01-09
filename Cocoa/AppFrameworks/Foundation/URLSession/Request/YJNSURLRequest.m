@@ -39,4 +39,9 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
     return YJNSURLRequestMethodGET;
 }
 
+- (Class)responseModelClass {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 @end

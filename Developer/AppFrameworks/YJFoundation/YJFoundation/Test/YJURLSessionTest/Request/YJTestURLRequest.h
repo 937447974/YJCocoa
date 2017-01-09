@@ -7,6 +7,8 @@
 //
 
 #import "YJNSURLRequest.h"
+#import "YJNSURLResponseModel.h"
+#import "YJTestURLRequestModel.h"
 
 @interface YJTestURLRequest : YJNSURLRequest
 

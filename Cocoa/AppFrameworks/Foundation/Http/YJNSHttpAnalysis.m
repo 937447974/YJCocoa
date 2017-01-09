@@ -29,6 +29,7 @@
         range = [param rangeOfString:@"="]; // 参数分离
         if (range.location != NSNotFound) {
             NSString *value = range.location+1 == param.length ? @"" : [param substringFromIndex:range.location+1];
+            value = encode ? YJNSURLDecode(value) : value;
             [dict setObject:value forKey:[param substringToIndex:range.location]];
         } else {
             [dict setObject:@"" forKey:param];

@@ -10,6 +10,9 @@
 #import "YJDispatch.h"
 #import "YJFoundation.h"
 
+#import "YJTestURLSessionTask.h"
+#import "YJTestURLRequest.h"
+
 @interface ViewController ()
 
 @end
@@ -19,8 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self testSingleton];
-    [self testTimer];
+//    [self testTimer];
 //    [self testCalendar];
+    [self testURLSession];
 }
 
 #pragma mark - 单例
@@ -64,5 +68,24 @@
     [calendar components:YJNSCalendarUnitDay | YJNSCalendarUnitHour | YJNSCalendarUnitMinute | YJNSCalendarUnitSecond fromSecond:86400+3600+60+5.98];
     NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)calendar.dateComponents.day, (long)calendar.dateComponents.hour, (long)calendar.dateComponents.minute, calendar.dateComponents.second);
 }
+
+#pragma mark - URLSession
+- (void)testURLSession {
+    YJTestURLRequestModel *requestModel = [[YJTestURLRequestModel alloc] init];
+    requestModel.name = @"阳君";
+    requestModel.qq = @"557445088";
+    __weakSelf
+    [[[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:self requestModel:requestModel]] completionHandler:^(id data) {
+        __strongSelf
+        YJNSURLResponseModel *responseModel = data;
+        NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
+        [[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]] cancel]; // 取消请求
+    } failure:^(NSError *error) {
+        __strongSelf
+        [YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]].request.supportResume = YES; // 开启断网重连
+        [YJNSURLSession resumeAllNeedTask];// 断网重连
+    }] resume]; // 发出请求
+}
+
 
 @end
