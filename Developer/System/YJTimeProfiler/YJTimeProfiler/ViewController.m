@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "YJTimeProfiler.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -16,14 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [YJTimeProfiler startTimeProfiler];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timerRun) userInfo:nil repeats:true];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)timerRun {
+    NSLog(@"1");
+    for (int i = 0; i < 10000; i ++) {
+        NSLog(@"......");
+    }
 }
-
 
 @end
