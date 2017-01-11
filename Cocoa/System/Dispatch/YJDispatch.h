@@ -35,4 +35,15 @@ FOUNDATION_EXPORT void dispatch_after_main(int64_t delayInSeconds, dispatch_bloc
 /** 并发队列执行*/
 FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
 
+/**
+ *  @abstract 创建GCD计时器
+ *
+ *  @param queue    队列
+ *  @param interval 间隔
+ *  @param handler  回调
+ *
+ *  @return void
+ */
+FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, double interval, dispatch_block_t _Nullable handler);
+
 NS_ASSUME_NONNULL_END

@@ -132,6 +132,7 @@
 				TargetAttributes = {
 					84D32D001DAB3D550068621F = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = PC936H3Q67;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -295,9 +296,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJDispatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJDispatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -306,9 +309,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PC936H3Q67;
 				INFOPLIST_FILE = YJDispatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJDispatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

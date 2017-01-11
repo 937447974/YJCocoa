@@ -11,6 +11,7 @@
 
 @interface ViewController () {
     dispatch_queue_t _queue;
+    dispatch_source_t _timer;
 }
 
 @end
@@ -41,6 +42,10 @@
     });
     dispatch_sync_main(^{
         [weakSelf test:@"sync"];
+    });
+    NSLog(@"2");
+    _timer = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 3, ^{
+        NSLog(@"1");
     });
 }
 

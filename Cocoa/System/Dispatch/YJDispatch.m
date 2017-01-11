@@ -48,3 +48,15 @@ void dispatch_async_concurrent(dispatch_block_t block) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
+dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, double interval, dispatch_block_t _Nullable handler) {
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    if (timer) {
+        interval = interval * NSEC_PER_SEC;
+        dispatch_source_set_timer(timer, dispatch_walltime(NULL, interval), interval, interval/1000);
+        dispatch_source_set_event_handler(timer, handler);
+        dispatch_resume(timer);
+    }
+    return timer;
+}
+
+
