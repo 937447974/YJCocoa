@@ -170,28 +170,30 @@ CoreData封装
 3. 手动保存数据，支持前台保存和后台保存。
 4. 通过迁移管理器做数据库版本升级时，可时时获取升级进度。
 
-#3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
+#3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101006.png)DeveloperTools
 
-##3.1 Dispatch
-
-GCD相关封装
-
-##3.2 Security
-
-###3.2.1 Keychain
-
-面向对象管理Keychain，支持自定义存储数据。
-
-###3.2.2 Random
-
-快速生成指定位数的随机密码。
-
-##3.3 TimeProfiler
+##3.2 TimeProfiler
 
 时间分析器，主要用于分析引起主线程卡顿的代码。
 
 1. 支持定制模块分析。
 2. 支持设置分析频率和帧间隔。
+
+#4 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
+
+##4.1 Dispatch
+
+GCD相关封装
+
+##4.2 Security
+
+###4.2.1 Keychain
+
+面向对象管理Keychain，支持自定义存储数据。
+
+###4.2.2 Random
+
+快速生成指定位数的随机密码。
 
 ----------
 
@@ -301,8 +303,9 @@ YJ技术支持群：557445088
 | | 2017-01-05 | Calendar上线，支持快速将秒转换为天、时、分等 |
 | | | Timer接入Calendar做时间解析器 |
 | 5.5.1 | 2017-01-09 | URLSession架构升级，支持螺旋开发架构 |
-| 5.6.0 | 2017-01-10 | Dispatch增加创建GCD倒计时的方法 |
+| 6.0.0 | 2017-01-10 | Dispatch增加创建GCD倒计时的方法 |
 | | 2017-01-10 | TimeProfiler上线，支持抓取主线程耗性能的代码 |
+| | 2017-01-11 | DeveloperTools层上线，集成相关开发工具 |
 
 ##Copyright
 
