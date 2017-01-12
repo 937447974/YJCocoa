@@ -31,6 +31,7 @@ void YJTimeProfilerSingalHandler(int sig) {
 @implementation YJTimeProfiler
 
 + (YJTimeProfiler *)shared {
+#if DEBUG
     static YJTimeProfiler *tp;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -41,6 +42,14 @@ void YJTimeProfilerSingalHandler(int sig) {
         tp.interval = 0.17;
     });
     return tp;
+#else
+    return nil;
+#endif
+}
+
+
+- (void)dealloc {
+    [self cancel];
 }
 
 #pragma mark - start
