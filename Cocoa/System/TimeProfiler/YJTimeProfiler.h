@@ -16,10 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** 时间分析器*/
 @interface YJTimeProfiler : NSObject
 
+@property (class, nonatomic, strong, readonly) YJTimeProfiler *shared; ///< 共享
+
 /**
  *  @abstract 启动时间分析器
  */
-+ (void)startTimeProfiler;
+- (void)start;
+
+/**
+ *  @abstract 启动时间分析器
+ */
+- (void)cancel;
 
 @end
 

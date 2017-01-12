@@ -14,52 +14,73 @@
 #include <pthread/pthread.h>
 #include <signal.h>
 
+#define YJTimeProfilerSingal SIGUSR1
+
 void YJTimeProfilerSingalHandler(int sig) {
-    if (sig == SIGUSR1) {
-        NSLog(@"%@\n", [NSThread callStackSymbols]);
+    if (sig == YJTimeProfilerSingal) {
+        NSLog(@"\n%@", [NSThread callStackSymbols]);
     }
 }
 
 @interface YJTimeProfiler ()
 
 @property (nonatomic) pthread_t pthreadMain; ///< 主线程
-@property (nonatomic, strong) dispatch_source_t pingTimer;
-@property (nonatomic, strong) dispatch_source_t pingTimeout;
+@property (nonatomic, strong) dispatch_source_t requestTimer;   ///< 请求计时器
+@property (nonatomic, strong) dispatch_source_t requestTimeout; ///< 请求超时计时器
 
 @end
 
 @implementation YJTimeProfiler
 
-+ (void)startTimeProfiler {
++ (YJTimeProfiler *)shared {
     static YJTimeProfiler *tp;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         tp = [[YJTimeProfiler alloc] init];
+        signal(YJTimeProfilerSingal, YJTimeProfilerSingalHandler);
+        tp.pthreadMain = pthread_self();
+    });
+    return tp;
+}
+
+#pragma mark - start
+- (void)start {
+    self.requestTimer = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 1, ^{
+        [self request];
+    });
+}
+
+- (void)request {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    self.requestTimeout = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 0.17, ^{
+        NSLog(@"-----%@", NSStringFromSelector(_cmd));
+        [self cancelRequestTimeout];
+        pthread_kill(self.pthreadMain, YJTimeProfilerSingal);
     });
     dispatch_async_main(^{
-        signal(SIGUSR1, YJTimeProfilerSingalHandler);
-        tp.pthreadMain = pthread_self();
-        tp.pingTimer = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 1, ^{
-            [tp ping];
-        });
-    });
+        [self cancelRequestTimeout];
+    });}
+
+#pragma mark - cancel
+- (void)cancel {
+    [self cancelRequestTimer];
+    [self cancelRequestTimeout];
 }
 
-- (void)ping {
-    self.pingTimeout = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 0.16, ^{
-        [self cancelPingTimeout];
-        pthread_kill(self.pthreadMain, SIGUSR1);
-    });
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self cancelPingTimeout];
-    });
+- (void)cancelRequestTimer {
+    if (self.requestTimer) {
+        dispatch_source_cancel(self.requestTimer);
+        self.requestTimer = nil;
+    }
 }
 
-- (void)cancelPingTimeout {
-    if (self.pingTimeout) {
-        dispatch_source_cancel(self.pingTimeout);
-        self.pingTimeout = nil;
+- (void)cancelRequestTimeout {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    if (self.requestTimeout) {
+        dispatch_source_cancel(self.requestTimeout);
+        self.requestTimeout = nil;
     }
 }
 
 @end
+

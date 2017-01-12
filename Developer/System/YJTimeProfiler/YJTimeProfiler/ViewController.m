@@ -11,22 +11,20 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSTimer *timer;
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [YJTimeProfiler startTimeProfiler];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timerRun) userInfo:nil repeats:true];
+    [YJTimeProfiler.shared start];
 }
 
-- (void)timerRun {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
     NSLog(@"1");
-    for (int i = 0; i < 10000; i ++) {
-        NSLog(@"......");
+    for (int i = 0; i < 1000; i ++) {
+        NSLog(@"......%d", i);
     }
 }
 
