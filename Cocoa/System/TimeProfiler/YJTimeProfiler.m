@@ -14,10 +14,8 @@
 #include <pthread/pthread.h>
 #include <signal.h>
 
-#define YJTimeProfilerSingal SIGUSR1
-
 void YJTimeProfilerSingalHandler(int sig) {
-    if (sig == YJTimeProfilerSingal) {
+    if (sig == SIGUSR1) {
         NSLog(@"\n%@", [NSThread callStackSymbols]);
     }
 }
@@ -36,30 +34,31 @@ void YJTimeProfilerSingalHandler(int sig) {
     static YJTimeProfiler *tp;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        signal(SIGUSR1, YJTimeProfilerSingalHandler);
         tp = [[YJTimeProfiler alloc] init];
-        signal(YJTimeProfilerSingal, YJTimeProfilerSingalHandler);
         tp.pthreadMain = pthread_self();
+        tp.frequency = 1;
+        tp.interval = 0.17;
     });
     return tp;
 }
 
 #pragma mark - start
 - (void)start {
-    self.requestTimer = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 1, ^{
+    self.requestTimer = dispatch_timer_default(self.frequency, ^{
         [self request];
     });
 }
 
 - (void)request {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    self.requestTimeout = dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), 0.17, ^{
-        NSLog(@"-----%@", NSStringFromSelector(_cmd));
+    self.requestTimeout = dispatch_timer_default(self.interval, ^{
         [self cancelRequestTimeout];
-        pthread_kill(self.pthreadMain, YJTimeProfilerSingal);
+        pthread_kill(self.pthreadMain, SIGUSR1);
     });
     dispatch_async_main(^{
         [self cancelRequestTimeout];
-    });}
+    });
+}
 
 #pragma mark - cancel
 - (void)cancel {
@@ -75,7 +74,6 @@ void YJTimeProfilerSingalHandler(int sig) {
 }
 
 - (void)cancelRequestTimeout {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
     if (self.requestTimeout) {
         dispatch_source_cancel(self.requestTimeout);
         self.requestTimeout = nil;

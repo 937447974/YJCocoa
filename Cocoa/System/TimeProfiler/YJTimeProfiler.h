@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, strong, readonly) YJTimeProfiler *shared; ///< 共享
 
+@property (nonatomic) NSInteger frequency;     ///< 分析频率，默认1秒
+@property (nonatomic) NSTimeInterval interval; ///< 帧间隔，默认0.17秒
+
 /**
  *  @abstract 启动时间分析器
  */

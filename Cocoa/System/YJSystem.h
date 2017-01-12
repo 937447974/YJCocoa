@@ -14,3 +14,6 @@
 
 // 安全框架，定义了C接口保护数据的安全和软件的访问。如Keychain、随机数。
 #import "YJSecurity.h"
+
+// 时间分析器，主要用于分析引起主线程卡顿的代码。
+#import "YJTimeProfiler.h"

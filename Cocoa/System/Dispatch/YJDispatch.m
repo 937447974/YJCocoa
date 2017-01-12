@@ -32,7 +32,7 @@ void dispatch_async_background(dispatch_block_t block) {
 }
 
 // 主线程延时执行
-void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block) {
+void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
@@ -48,7 +48,8 @@ void dispatch_async_concurrent(dispatch_block_t block) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
-dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, double interval, dispatch_block_t _Nullable handler) {
+#pragma mark - timer
+dispatch_source_t dispatch_timer(dispatch_queue_t queue, NSTimeInterval interval, dispatch_block_t handler) {
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     if (timer) {
         interval = interval * NSEC_PER_SEC;
@@ -58,5 +59,14 @@ dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, double interv
     }
     return timer;
 }
+
+dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler) {
+    return dispatch_timer(dispatch_get_main_queue(), interval, handler);
+}
+
+dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler) {
+    return dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), interval, handler);
+}
+
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84083AD71E27312800D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AD61E27312800D89EAA /* YJTimeProfiler.m */; };
 		8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D5591DCB0E5200D7420B /* YJCDManager.m */; };
 		8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */; };
 		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
@@ -87,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		84083A421E2342D400D89EAA /* YJNSURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequestModel.h; sourceTree = "<group>"; };
+		84083AD51E27312800D89EAA /* YJTimeProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimeProfiler.h; sourceTree = "<group>"; };
+		84083AD61E27312800D89EAA /* YJTimeProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimeProfiler.m; sourceTree = "<group>"; };
 		8427D5581DCB0E5200D7420B /* YJCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManager.h; sourceTree = "<group>"; };
 		8427D5591DCB0E5200D7420B /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
 		8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDMigrationManager.h; sourceTree = "<group>"; };
@@ -259,6 +262,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84083AD41E27312800D89EAA /* TimeProfiler */ = {
+			isa = PBXGroup;
+			children = (
+				84083AD51E27312800D89EAA /* YJTimeProfiler.h */,
+				84083AD61E27312800D89EAA /* YJTimeProfiler.m */,
+			);
+			path = TimeProfiler;
+			sourceTree = "<group>";
+		};
 		8427D5551DCB0E5200D7420B /* AppServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +871,7 @@
 			children = (
 				84D3551C1DAB432F0097D526 /* Dispatch */,
 				84D3551F1DAB432F0097D526 /* Security */,
+				84083AD41E27312800D89EAA /* TimeProfiler */,
 				84D355211DAB43470097D526 /* YJSystem.h */,
 			);
 			path = System;
@@ -1030,6 +1043,7 @@
 				8480BD881E09399400A82399 /* YJNSDictionaryModelProperty.m in Sources */,
 				8480BDB11E09399400A82399 /* YJUIImagePageModel.m in Sources */,
 				8480BD921E09399400A82399 /* YJNSRouter.m in Sources */,
+				84083AD71E27312800D89EAA /* YJTimeProfiler.m in Sources */,
 				84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */,
 				8480BD981E09399400A82399 /* YJNSURLSessionTask.m in Sources */,
 				84C0A31A1E1E1A9D00455B46 /* YJNSCalendar.m in Sources */,

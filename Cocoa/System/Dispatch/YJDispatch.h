@@ -27,13 +27,15 @@ FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
 FOUNDATION_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 /** 主线程延时执行*/
-FOUNDATION_EXPORT void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block);
+FOUNDATION_EXPORT void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block);
 
 /** 串行队列执行(同步)*/
 // void dispatch_sync_serial(const char *label, dispatch_block_t block);
 
 /** 并发队列执行*/
 FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
+
+#pragma mark - timer
 
 /**
  *  @abstract 创建GCD计时器
@@ -44,6 +46,10 @@ FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
  *
  *  @return void
  */
-FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, double interval, dispatch_block_t _Nullable handler);
+FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, NSTimeInterval interval, dispatch_block_t handler);
+/** 主队列GCD计时器*/
+FOUNDATION_EXPORT dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler);
+/** DISPATCH_QUEUE_PRIORITY_DEFAULT队列GCD计时器*/
+FOUNDATION_EXPORT dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler);
 
 NS_ASSUME_NONNULL_END
