@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		84083ADD1E2759A100D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */; };
 		84083AE31E2759E300D89EAA /* YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AE21E2759E300D89EAA /* YJLeaks.m */; };
+		84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B331E277FE900D89EAA /* YJSwizzling.m */; };
 		8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D5591DCB0E5200D7420B /* YJCDManager.m */; };
 		8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */; };
 		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
@@ -94,6 +95,8 @@
 		84083ADE1E2759BD00D89EAA /* YJDeveloperTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDeveloperTools.h; sourceTree = "<group>"; };
 		84083AE11E2759E300D89EAA /* YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLeaks.h; sourceTree = "<group>"; };
 		84083AE21E2759E300D89EAA /* YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeaks.m; sourceTree = "<group>"; };
+		84083B321E277FE900D89EAA /* YJSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSwizzling.h; sourceTree = "<group>"; };
+		84083B331E277FE900D89EAA /* YJSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSwizzling.m; sourceTree = "<group>"; };
 		8427D5581DCB0E5200D7420B /* YJCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManager.h; sourceTree = "<group>"; };
 		8427D5591DCB0E5200D7420B /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
 		8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDMigrationManager.h; sourceTree = "<group>"; };
@@ -294,6 +297,15 @@
 			path = TimeProfiler;
 			sourceTree = "<group>";
 		};
+		84083B311E277FE900D89EAA /* Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				84083B321E277FE900D89EAA /* YJSwizzling.h */,
+				84083B331E277FE900D89EAA /* YJSwizzling.m */,
+			);
+			path = Swizzling;
+			sourceTree = "<group>";
+		};
 		8427D5551DCB0E5200D7420B /* AppServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +441,7 @@
 				8480BCFD1E09399400A82399 /* PerformSelector */,
 				8480BD001E09399400A82399 /* Router */,
 				8480BD0B1E09399400A82399 /* Singleton */,
+				84083B311E277FE900D89EAA /* Swizzling */,
 				8480BD0E1E09399400A82399 /* Timer */,
 				8480BD111E09399400A82399 /* URLCode */,
 				8480BD141E09399400A82399 /* URLSession */,
@@ -1046,6 +1059,7 @@
 				8480BD9A1E09399400A82399 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
 				8480BDA61E09399400A82399 /* YJUICollectionViewDataSourceManager.m in Sources */,
 				8480BD8D1E09399400A82399 /* YJNSLog.m in Sources */,
+				84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */,
 				84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */,
 				8480BDA91E09399400A82399 /* YJUICollectionViewManager.m in Sources */,
 				8480BDAC1E09399400A82399 /* UITextView+YJInputLength.m in Sources */,

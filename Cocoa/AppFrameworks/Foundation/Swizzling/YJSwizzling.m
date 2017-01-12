@@ -26,6 +26,7 @@
             return;
         }
         [selCache setObject:@"YJSwizzling" forKey:key];
+        [selCache removeObjectForKey:[NSString stringWithFormat:@"%@-%@-%@", NSStringFromClass(class), NSStringFromSelector(swizzlingSEL), NSStringFromSelector(originalSEL)]];
         NSLog(@"%@(%@)", NSStringFromSelector(_cmd), key);
         // swizzling
         Method originalMethod = class_getInstanceMethod(class, originalSEL);

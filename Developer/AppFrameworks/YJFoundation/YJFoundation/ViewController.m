@@ -102,6 +102,11 @@
     dispatch_group_notify(group, queue, ^{
         NSLog(@"dispatch_group_notify");
         [self testSwizzlingOriginal];
+        // 多次交换
+        [self.class swizzlingSEL:@selector(testSwizzlingNew) withSEL:@selector(testSwizzlingOriginal)];
+        [self testSwizzlingOriginal];
+        [self.class swizzlingSEL:@selector(testSwizzlingOriginal) withSEL:@selector(testSwizzlingNew)];
+        [self testSwizzlingOriginal];
     });
 }
 

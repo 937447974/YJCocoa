@@ -111,6 +111,12 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
             end
+            # Swizzling
+            foundation.subspec 'Swizzling' do |swizzling|
+                swizzling.source_files = 'Cocoa/AppFrameworks/Foundation/Swizzling/*.{h,m}'
+                swizzling.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                swizzling.dependency 'YJCocoa/System/Dispatch'
+            end
             # Timer
             foundation.subspec 'Timer' do |timer|
                 timer.source_files = 'Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}'

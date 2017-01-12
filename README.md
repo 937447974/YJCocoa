@@ -57,7 +57,11 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 
 单例管理中心，一行代码即可让当前类转换为单例。
 
-###1.1.11 Timer
+###1.1.11 Swizzling 
+
+支持随时随地交换方法。
+
+###1.1.12 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -66,11 +70,11 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-###1.1.12 URLCode
+###1.1.13 URLCode
 
 URLEncode编码和URLDecode解码
 
-###1.1.13 URLSession
+###1.1.14 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -306,6 +310,7 @@ YJ技术支持群：557445088
 | 6.0.0 | 2017-01-10 | Dispatch增加创建GCD倒计时的方法 |
 | | 2017-01-10 | TimeProfiler上线，支持抓取主线程耗性能的代码 |
 | | 2017-01-11 | DeveloperTools层上线，集成相关开发工具 |
+| | 2017-01-12 | Swizzling上线，支持随时随地交换方法。 |
 
 ##Copyright
 
