@@ -22,6 +22,7 @@
 
 - (void)swizzling_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion {
     [self swizzling_dismissViewControllerAnimated:flag completion:completion];
+    [self leaksCapture];
 }
 
 - (void)leaksCapture {
@@ -35,7 +36,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if (weakSelf) {
             [subviews compact];
-            NSLog(@"YJLeaks捕获内存泄漏\nUIViewController:%@\nsubviews:%@", className, subviews.allObjects);
+            NSLog(@"\nYJLeaks捕获内存泄漏\nUIViewController:%@\nsubviews:%@", className, subviews.allObjects);
         }
     });
 }
