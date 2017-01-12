@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "5.6.0"
+    s.version  = "6.0.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -262,7 +262,17 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         end
     end
 
-    # 3 System
+    #3 DeveloperTools
+    s.subspec 'DeveloperTools' do |dt|
+        dt.source_files = 'Cocoa/DeveloperTools/*.{h,m}'
+        # TimeProfiler
+        dt.subspec 'TimeProfiler' do |tp|
+            tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
+            tp.dependency 'YJCocoa/System/Dispatch'
+        end
+    end
+
+    # 4 System
     s.subspec 'System' do |system|
         system.source_files = 'Cocoa/System/*.{h,m}'
         system.subspec 'Dispatch' do |dispatch|
