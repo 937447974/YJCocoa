@@ -39,6 +39,9 @@
 // 单例管理中心
 #import "YJNSSingletonMCenter.h"
 
+// 交换方法
+#import "YJSwizzling.h"
+
 // 计时器
 #import "YJNSTimer.h"
 

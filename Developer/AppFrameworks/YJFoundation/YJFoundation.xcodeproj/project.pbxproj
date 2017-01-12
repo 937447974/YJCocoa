@@ -11,6 +11,7 @@
 		84083A2D1E23395A00D89EAA /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */; };
 		84083A401E233A5A00D89EAA /* YJNSURLResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */; };
 		84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */; };
+		84083B301E27761D00D89EAA /* YJSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B2F1E27761D00D89EAA /* YJSwizzling.m */; };
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
 		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */; };
@@ -75,6 +76,8 @@
 		84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLResponseModel.m; sourceTree = "<group>"; };
 		84083A3E1E233A5A00D89EAA /* YJTestURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLRequestModel.h; sourceTree = "<group>"; };
 		84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLRequestModel.m; sourceTree = "<group>"; };
+		84083B2E1E27761D00D89EAA /* YJSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSwizzling.h; sourceTree = "<group>"; };
+		84083B2F1E27761D00D89EAA /* YJSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSwizzling.m; sourceTree = "<group>"; };
 		840BE1A41DAE3B8F00ADE647 /* YJNSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDirectory.h; sourceTree = "<group>"; };
 		840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSDirectory.m; sourceTree = "<group>"; };
 		840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationTest.m; sourceTree = "<group>"; };
@@ -217,6 +220,15 @@
 				84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		84083B2D1E2775E900D89EAA /* Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				84083B2E1E27761D00D89EAA /* YJSwizzling.h */,
+				84083B2F1E27761D00D89EAA /* YJSwizzling.m */,
+			);
+			path = Swizzling;
 			sourceTree = "<group>";
 		};
 		840BE1A31DAE3B7800ADE647 /* Directory */ = {
@@ -390,6 +402,7 @@
 				84D3564D1DAB73F10097D526 /* PerformSelector */,
 				84FE39E91E0F5F0200558A39 /* Router */,
 				84D356521DAB73F10097D526 /* Singleton */,
+				84083B2D1E2775E900D89EAA /* Swizzling */,
 				84D356551DAB73F10097D526 /* Timer */,
 				8446DF681E03FAFC0093F8A3 /* URLCode */,
 				84D28EC31DED3535001AF6B5 /* URLSession */,
@@ -731,6 +744,7 @@
 				84D356631DAB73F10097D526 /* YJNSTimer.m in Sources */,
 				8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */,
 				84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */,
+				84083B301E27761D00D89EAA /* YJSwizzling.m in Sources */,
 				84D3565F1DAB73F10097D526 /* YJNSFoundationOther.m in Sources */,
 				84FE39F41E0F5F0200558A39 /* YJNSRouteManager.m in Sources */,
 				847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */,

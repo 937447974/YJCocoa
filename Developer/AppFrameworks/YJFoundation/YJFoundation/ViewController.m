@@ -21,10 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self testSingleton];
-//    [self testTimer];
-//    [self testCalendar];
-    [self testURLSession];
+    //    [self testSingleton];
+    //    [self testTimer];
+    //    [self testCalendar];
+    //    [self testURLSession];
+    [self testSwizzling];
 }
 
 #pragma mark - 单例
@@ -87,5 +88,30 @@
     }] resume]; // 发出请求
 }
 
+#pragma mark - Swizzling
+- (void)testSwizzling {
+    // 分组多线程交换测试
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    dispatch_group_t group = dispatch_group_create();
+    for (int i = 0; i < 20; i++) {
+        dispatch_group_async(group, queue, ^{
+            NSLog(@"dispatch_group_async:%d", i);
+            [self.class swizzlingSEL:@selector(testSwizzlingOriginal) withSEL:@selector(testSwizzlingNew)];
+        });
+    }
+    dispatch_group_notify(group, queue, ^{
+        NSLog(@"dispatch_group_notify");
+        [self testSwizzlingOriginal];
+    });
+}
+
+- (void)testSwizzlingOriginal {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)testSwizzlingNew {
+    [self testSwizzlingNew];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
 
 @end

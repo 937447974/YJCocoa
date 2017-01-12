@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YJLeaksViewController.h
 //  YJLeaks
 //
 //  Created by 阳君 on 2017/1/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface YJLeaksViewController : UIViewController
 
 @end
-

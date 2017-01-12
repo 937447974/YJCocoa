@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  UIView+YJLeaks.h
 //  YJLeaks
 //
-//  Created by 阳君 on 2017/1/12.
+//  Created by admin on 2017/1/12.
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface UIView_YJLeaks : UIView
 
 @end
-

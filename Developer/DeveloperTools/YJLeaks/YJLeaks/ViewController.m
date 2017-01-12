@@ -2,11 +2,12 @@
 //  ViewController.m
 //  YJLeaks
 //
-//  Created by admin on 2017/1/12.
+//  Created by 阳君 on 2017/1/12.
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "YJLeaksViewController.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onClickPresent:(id)sender {
+    [self presentViewController:[[YJLeaksViewController alloc] init] animated:YES completion:nil];
 }
 
+- (IBAction)onClickPush:(id)sender {
+    [self.navigationController pushViewController:[[YJLeaksViewController alloc] init] animated:YES];
+}
 
 @end

@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  YJLeaks
 //
-//  Created by admin on 2017/1/12.
+//  Created by 阳君 on 2017/1/12.
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
@@ -13,7 +13,6 @@
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
