@@ -10,6 +10,8 @@
 
 @interface YJLeaksViewController ()
 
+@property (nonatomic, strong) NSTimer *timer; ///<
+
 @end
 
 @implementation YJLeaksViewController
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor greenColor];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(test) userInfo:nil repeats:true];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -24,6 +27,10 @@
     if (!self.navigationController) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (void)test {
+    NSLog(@"%@", self);
 }
 
 @end

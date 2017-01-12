@@ -16,11 +16,11 @@
 
 @implementation YJLeaks
 
-+ (void)startLeaks {
++ (void)start {
 #if DEBUG
-    [UINavigationController startLeaks];
-    [UIViewController startLeaks];
-    [UIView startLeaks];
+    [UINavigationController start];
+    [UIViewController start];
+    [UIView start];
 #endif
 }
 

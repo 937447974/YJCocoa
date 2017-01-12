@@ -16,6 +16,11 @@
 /**
  *  @abstract 开始内存泄漏分析
  */
-+ (void)startLeaks;
++ (void)start;
+
+/**
+ *  @abstract 执行泄漏捕获
+ */
+- (void)leaksCapture;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YJLeaksViewController.h"
+#import "YJLeaks.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [YJLeaks start];
 }
 
 - (IBAction)onClickPresent:(id)sender {

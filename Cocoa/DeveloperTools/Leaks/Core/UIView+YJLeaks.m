@@ -10,11 +10,27 @@
 //
 
 #import "UIView+YJLeaks.h"
+#import "YJSwizzling.h"
 
 @implementation UIView (YJLeaks)
 
-+ (void)startLeaks {
++ (void)start {
+    
+}
 
+- (void)swizzling_removeFromSuperview {
+    [self removeFromSuperview];
+}
+
+- (void)allSubview:(UIView *)view toLeaks:(NSPointerArray *)subviews {
+    NSString *className;
+    for (UIView *subview in view.subviews) {
+        className = NSStringFromClass(subview.class);
+        if ([className hasPrefix:@"UI"] || [className hasPrefix:@"_"]) {
+            continue;
+        }
+        [subviews addPointer:(__bridge void * _Nullable)(subview)];
+    }
 }
 
 @end

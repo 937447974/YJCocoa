@@ -17,6 +17,6 @@
 /**
  *  @abstract 开始内存泄漏分析
  */
-+ (void)startLeaks;
++ (void)start;
 
 @end
