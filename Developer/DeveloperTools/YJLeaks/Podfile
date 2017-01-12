@@ -6,7 +6,8 @@ target 'YJLeaks' do
   # use_frameworks!
 
   # Pods for YJLeaks
-
+  
+    pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
     pod 'YJCocoa/System/Dispatch'
 
 end
