@@ -11,7 +11,6 @@
 
 #import "UIViewController+YJLeaks.h"
 #import "YJSwizzling.h"
-#import "UIView+YJLeaks.h"
 
 @implementation UIViewController (YJLeaks)
 
