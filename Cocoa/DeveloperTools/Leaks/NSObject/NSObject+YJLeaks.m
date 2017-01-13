@@ -34,7 +34,7 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
-    NSLog(@"%@ %@", className, NSStringFromSelector(_cmd));
+    NSLog(@"%@ leaks capture start", className);
     NSPointerArray *leakPropertys = [NSPointerArray weakObjectsPointerArray];
     [self leaksCaptureProperty:leakPropertys level:0];
     __weakSelf
@@ -55,6 +55,7 @@
             }
             NSLog(@"%@", log);
         }
+        NSLog(@"%@ leaks capture end", className);
     });
 #endif
 }
