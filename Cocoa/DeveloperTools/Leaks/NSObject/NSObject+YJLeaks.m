@@ -34,21 +34,23 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
+    NSLog(@"%@ %@", className, NSStringFromSelector(_cmd));
     NSPointerArray *leakPropertys = [NSPointerArray weakObjectsPointerArray];
     [self leaksCaptureProperty:leakPropertys level:0];
     __weakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        [leakPropertys compact];
-        if (weakSelf || leakPropertys.count) {
+        NSMutableArray *leakPaths = [NSMutableArray array];
+        for (NSObject *item in leakPropertys) {
+            if (item) {
+                [leakPaths addObject:item.leakPropertyPath];
+            }
+        }
+        if (weakSelf || leakPaths.count) {
             NSMutableString *log = [NSMutableString stringWithString:@"\nYJLeaks捕获内存泄漏"];
             if (weakSelf) {
                 [log appendFormat:@"\nClass : %@", className];
             }
-            if (leakPropertys.count) {
-                NSMutableArray *leakPaths = [NSMutableArray array];
-                for (NSObject *item in leakPropertys) {
-                    [leakPaths addObject:item.leakPropertyPath];
-                }
+            if (leakPaths.count) {
                 [log appendFormat:@"\nProperty : %@", leakPaths];
             }
             NSLog(@"%@", log);
@@ -67,6 +69,7 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
+    [leakPropertys addPointer:(__bridge void * _Nullable)(self)];
     for (NSString *p in [self.class leakPropertys]) {
         id value = [self valueForKey:p];
         if ([value isKindOfClass:[NSObject class]]) {
