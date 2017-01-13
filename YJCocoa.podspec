@@ -315,11 +315,6 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 random.source_files = 'Cocoa/System/Security/Random/*.{h,m}'
             end
         end
-        # TimeProfiler
-        system.subspec 'TimeProfiler' do |tp|
-            tp.source_files = 'Cocoa/System/TimeProfiler/*.{h,m}'
-            tp.dependency 'YJCocoa/System/Dispatch'
-        end
     end
 
 
