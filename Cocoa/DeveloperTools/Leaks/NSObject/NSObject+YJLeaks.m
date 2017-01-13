@@ -69,7 +69,6 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
-    [leakPropertys addPointer:(__bridge void * _Nullable)(self)];
     for (NSString *p in [self.class leakPropertys]) {
         id value = [self valueForKey:p];
         if ([value isKindOfClass:[NSObject class]]) {
