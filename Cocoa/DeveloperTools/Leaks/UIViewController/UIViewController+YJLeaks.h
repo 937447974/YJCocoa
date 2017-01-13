@@ -1,5 +1,5 @@
 //
-//  UINavigationController+YJLeaks.h
+//  UIViewController+YJLeaks.h
 //  YJLeaks
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -10,12 +10,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+YJLeaks.h"
 
-@interface UINavigationController (YJLeaks)
+NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  @abstract 开始内存泄漏分析
- */
-+ (void)start;
+/** UIViewController内存泄漏捕获*/
+@interface UIViewController (YJLeaks)
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -10,17 +10,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+YJLeaks.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+/** UIView内存泄漏捕获*/
 @interface UIView (YJLeaks)
 
-/**
- *  @abstract 开始内存泄漏分析
- */
-+ (void)start;
-
-/**
- *  @abstract 将所有非系统子View加载到内存监听数组中
- */
-- (void)allSubview:(UIView *)view toLeaks:(NSPointerArray *)subviews;
-
 @end
+
+NS_ASSUME_NONNULL_END

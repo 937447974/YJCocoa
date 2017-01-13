@@ -1,5 +1,5 @@
 //
-//  UIViewController+YJLeaks.m
+//  UIView+YJLeaks.m
 //  YJLeaks
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,20 +9,19 @@
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
-#import "UIViewController+YJLeaks.h"
-#import "YJSwizzling.h"
 #import "UIView+YJLeaks.h"
-#import "YJDispatch.h"
+#import "YJSwizzling.h"
 
-@implementation UIViewController (YJLeaks)
+@implementation UIView (YJLeaks)
 
 + (void)start {
-    [self swizzlingSEL:@selector(dismissViewControllerAnimated:completion:) withSEL:@selector(swizzling_dismissViewControllerAnimated:completion:)];
+    [self swizzlingSEL:@selector(removeFromSuperview) withSEL:@selector(swizzling_removeFromSuperview)];
 }
 
-- (void)swizzling_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion {
-    [self swizzling_dismissViewControllerAnimated:flag completion:completion];
-    [self leaksCapture];
+- (void)swizzling_removeFromSuperview {
+    NSLog(@"----%@", self);
+    [self swizzling_removeFromSuperview];
+    
 }
 
 - (void)leaksCapture {
@@ -31,7 +30,6 @@
         return;
     }
     NSPointerArray *subviews = [NSPointerArray weakObjectsPointerArray];
-    [self.view allSubview:self.view toLeaks:subviews];
     __weakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if (weakSelf) {
