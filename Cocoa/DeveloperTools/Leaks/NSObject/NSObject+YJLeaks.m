@@ -12,6 +12,7 @@
 #import "NSObject+YJLeaks.h"
 #import <objc/runtime.h>
 #import "YJNSSingletonMCenter.h"
+#import "YJDispatch.h"
 
 @interface NSObject (YJLeaksProperty)
 
@@ -28,6 +29,7 @@
 }
 
 - (void)leaksCapture {
+#if DEBUG
     NSString *className = NSStringFromClass(self.class);
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
@@ -52,6 +54,7 @@
             NSLog(@"%@", log);
         }
     });
+#endif
 }
 
 #pragma mark - private(-)

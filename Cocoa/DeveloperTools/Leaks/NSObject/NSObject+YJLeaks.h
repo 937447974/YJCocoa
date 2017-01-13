@@ -10,7 +10,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJDispatch.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -31,6 +31,9 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-01-09 | URLSession架构升级，支持螺旋开发架构" with title "YJCocoa 5.5.1"'
-
+osascript -e 'display notification "2017-01-10 | Dispatch增加创建GCD倒计时的方法" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-01-10 | TimeProfiler上线，支持抓取主线程耗性能的代码" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-01-11 | DeveloperTools层上线，集成相关开发工具" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-01-12 | Swizzling上线，支持随时随地交换方法" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-01-13 | Leaks上线，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性" with title "YJCocoa 6.6.0"'
 

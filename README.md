@@ -176,6 +176,10 @@ CoreData封装
 
 #3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101006.png)DeveloperTools
 
+##3.1 Leaks
+
+内存泄漏分析器，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。
+
 ##3.2 TimeProfiler
 
 时间分析器，主要用于分析引起主线程卡顿的代码。
@@ -311,6 +315,7 @@ YJ技术支持群：557445088
 | | 2017-01-10 | TimeProfiler上线，支持抓取主线程耗性能的代码 |
 | | 2017-01-11 | DeveloperTools层上线，集成相关开发工具 |
 | | 2017-01-12 | Swizzling上线，支持随时随地交换方法。 |
+| | 2017-01-13 | Leaks上线，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。 |
 
 ##Copyright
 

@@ -10,6 +10,10 @@
 		84083ADD1E2759A100D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */; };
 		84083AE31E2759E300D89EAA /* YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AE21E2759E300D89EAA /* YJLeaks.m */; };
 		84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B331E277FE900D89EAA /* YJSwizzling.m */; };
+		84083B5D1E289A7F00D89EAA /* NSObject+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */; };
+		84083B5E1E289A7F00D89EAA /* UIView+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */; };
+		84083B5F1E289A7F00D89EAA /* UINavigationController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */; };
+		84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */; };
 		8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D5591DCB0E5200D7420B /* YJCDManager.m */; };
 		8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */; };
 		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
@@ -97,6 +101,14 @@
 		84083AE21E2759E300D89EAA /* YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeaks.m; sourceTree = "<group>"; };
 		84083B321E277FE900D89EAA /* YJSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSwizzling.h; sourceTree = "<group>"; };
 		84083B331E277FE900D89EAA /* YJSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSwizzling.m; sourceTree = "<group>"; };
+		84083B531E289A7F00D89EAA /* NSObject+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJLeaks.h"; sourceTree = "<group>"; };
+		84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJLeaks.m"; sourceTree = "<group>"; };
+		84083B561E289A7F00D89EAA /* UIView+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJLeaks.h"; sourceTree = "<group>"; };
+		84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJLeaks.m"; sourceTree = "<group>"; };
+		84083B591E289A7F00D89EAA /* UINavigationController+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YJLeaks.h"; sourceTree = "<group>"; };
+		84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YJLeaks.m"; sourceTree = "<group>"; };
+		84083B5B1E289A7F00D89EAA /* UIViewController+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJLeaks.h"; sourceTree = "<group>"; };
+		84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJLeaks.m"; sourceTree = "<group>"; };
 		8427D5581DCB0E5200D7420B /* YJCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManager.h; sourceTree = "<group>"; };
 		8427D5591DCB0E5200D7420B /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
 		8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDMigrationManager.h; sourceTree = "<group>"; };
@@ -282,6 +294,9 @@
 		84083AD91E2759A100D89EAA /* Leaks */ = {
 			isa = PBXGroup;
 			children = (
+				84083B521E289A7F00D89EAA /* NSObject */,
+				84083B551E289A7F00D89EAA /* UIView */,
+				84083B581E289A7F00D89EAA /* UIViewController */,
 				84083AE11E2759E300D89EAA /* YJLeaks.h */,
 				84083AE21E2759E300D89EAA /* YJLeaks.m */,
 			);
@@ -304,6 +319,35 @@
 				84083B331E277FE900D89EAA /* YJSwizzling.m */,
 			);
 			path = Swizzling;
+			sourceTree = "<group>";
+		};
+		84083B521E289A7F00D89EAA /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				84083B531E289A7F00D89EAA /* NSObject+YJLeaks.h */,
+				84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		84083B551E289A7F00D89EAA /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				84083B561E289A7F00D89EAA /* UIView+YJLeaks.h */,
+				84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		84083B581E289A7F00D89EAA /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84083B591E289A7F00D89EAA /* UINavigationController+YJLeaks.h */,
+				84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */,
+				84083B5B1E289A7F00D89EAA /* UIViewController+YJLeaks.h */,
+				84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		8427D5551DCB0E5200D7420B /* AppServices */ = {
@@ -1071,6 +1115,7 @@
 				8480BD871E09399400A82399 /* YJNSDictionaryModelManager.m in Sources */,
 				84083AE31E2759E300D89EAA /* YJLeaks.m in Sources */,
 				8480BDB81E09399400A82399 /* YJUITableViewDelegateManager.m in Sources */,
+				84083B5E1E289A7F00D89EAA /* UIView+YJLeaks.m in Sources */,
 				8480BD961E09399400A82399 /* YJNSURLSessionPool.m in Sources */,
 				84C0A31B1E1E1A9D00455B46 /* YJNSDateComponents.m in Sources */,
 				8480BDA21E09399400A82399 /* UIViewController+YJUILayoutSupport.m in Sources */,
@@ -1098,6 +1143,7 @@
 				8480BD8F1E09399400A82399 /* NSObject+YJNSPerformSelector.m in Sources */,
 				8480BD9D1E09399400A82399 /* YJNSLayoutDimension.m in Sources */,
 				8480BDA71E09399400A82399 /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
+				84083B5D1E289A7F00D89EAA /* NSObject+YJLeaks.m in Sources */,
 				8480BD9B1E09399400A82399 /* YJNSLayoutConstraintAnimate.m in Sources */,
 				8480BDBD1E09399400A82399 /* UIView+YJUIViewGeometry.m in Sources */,
 				8480BD851E09399400A82399 /* YJNSAspectOrientProgramming.m in Sources */,
@@ -1112,11 +1158,13 @@
 				8480BDAD1E09399400A82399 /* YJUIBarButtonItem.m in Sources */,
 				8480BDA51E09399400A82399 /* YJUICollectionCellObject.m in Sources */,
 				8480BDAB1E09399400A82399 /* UITextField+YJInputLength.m in Sources */,
+				84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */,
 				8480BD861E09399400A82399 /* NSObject+YJNSDictionaryModel.m in Sources */,
 				8480BD901E09399400A82399 /* YJNSRouteManager.m in Sources */,
 				8480BDA11E09399400A82399 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */,
 				8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */,
 				8480BD941E09399400A82399 /* YJNSTimer.m in Sources */,
+				84083B5F1E289A7F00D89EAA /* UINavigationController+YJLeaks.m in Sources */,
 				8480BD8C1E09399400A82399 /* YJNSHttpAssembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 YJ. All rights reserved.
 //
 
-// 泄漏分析器，主要用于分析有内存泄漏的类。
+// 内存泄漏分析器，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。
 #import "YJLeaks.h"
 
 // 时间分析器，主要用于分析引起主线程卡顿的代码。
