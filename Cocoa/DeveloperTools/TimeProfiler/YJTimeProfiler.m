@@ -60,6 +60,9 @@ void YJTimeProfilerSingalHandler(int sig) {
 }
 
 - (void)request {
+#if DEBUG
+    NSLog(@"YJTimeProfiler request main queue start");
+
     self.requestTimeout = dispatch_timer_default(self.interval, ^{
         [self cancelRequestTimeout];
         pthread_kill(self.pthreadMain, SIGUSR1);
@@ -67,6 +70,7 @@ void YJTimeProfilerSingalHandler(int sig) {
     dispatch_async_main(^{
         [self cancelRequestTimeout];
     });
+#endif
 }
 
 #pragma mark - cancel
@@ -83,6 +87,7 @@ void YJTimeProfilerSingalHandler(int sig) {
 }
 
 - (void)cancelRequestTimeout {
+    NSLog(@"YJTimeProfiler request main queue end");
     if (self.requestTimeout) {
         dispatch_source_cancel(self.requestTimeout);
         self.requestTimeout = nil;
