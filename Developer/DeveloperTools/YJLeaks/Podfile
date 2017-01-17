@@ -8,6 +8,7 @@ target 'YJLeaks' do
   # Pods for YJLeaks
   
     pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
+    pod 'YJCocoa/AppFrameworks/Foundation/Swizzling'
     pod 'YJCocoa/System/Dispatch'
 
 end

@@ -316,6 +316,7 @@ YJ技术支持群：557445088
 | | 2017-01-11 | DeveloperTools层上线，集成相关开发工具 |
 | | 2017-01-12 | Swizzling上线，支持随时随地交换方法。 |
 | | 2017-01-13 | Leaks上线，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。 |
+| 6.0.1 | 2017-01-17 | Swizzling和Leaks log打印优化 |
 
 ##Copyright
 
