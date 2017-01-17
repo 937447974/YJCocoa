@@ -28,30 +28,30 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (void)leaksCapture {
+- (void)captureMemoryLeaks {
 #if DEBUG
     NSString *className = NSStringFromClass(self.class);
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
     NSLog(@"%@ leaks capture start", className);
-    NSPointerArray *leakPropertys = [NSPointerArray weakObjectsPointerArray];
-    [self leaksCaptureProperty:leakPropertys level:0];
+    NSPointerArray *leakPropertyArray = [NSPointerArray weakObjectsPointerArray];
+    [self captureMemoryLeakPropertyArray:leakPropertyArray level:0];
     __weakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSMutableArray *leakPaths = [NSMutableArray array];
-        for (NSObject *item in leakPropertys) {
+        NSMutableSet *leakPathSet = [NSMutableSet set];
+        for (NSObject *item in leakPropertyArray) {
             if (item) {
-                [leakPaths addObject:item.leakPropertyPath];
+                [leakPathSet addObject:item.leakPropertyPath];
             }
         }
-        if (weakSelf || leakPaths.count) {
+        if (weakSelf || leakPathSet.count) {
             NSMutableString *log = [NSMutableString stringWithString:@"\nYJLeaks捕获内存泄漏"];
             if (weakSelf) {
                 [log appendFormat:@"\nClass : %@", className];
             }
-            if (leakPaths.count) {
-                [log appendFormat:@"\nProperty : %@", leakPaths];
+            if (leakPathSet.count) {
+                [log appendFormat:@"\nProperty : %@", leakPathSet];
             }
             NSLog(@"%@", log);
         }
@@ -61,7 +61,7 @@
 }
 
 #pragma mark - private(-)
-- (void)leaksCaptureProperty:(NSPointerArray *)leakPropertys level:(NSInteger)level {
+- (void)captureMemoryLeakPropertyArray:(NSPointerArray *)leakPropertyArray level:(NSInteger)level {
     if (level == 3) {
         return;
     }
@@ -70,29 +70,29 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
-    for (NSString *p in [self.class leakPropertys]) {
+    for (NSString *p in [self.class leakProperties]) {
         id value = [self valueForKey:p];
         if ([value isKindOfClass:[NSObject class]]) {
             NSObject *item = value;
             item.leakPropertyPath = [NSString stringWithFormat:@"%@.%@", self.leakPropertyPath, p];
-            [leakPropertys addPointer:(__bridge void * _Nullable)(item)];
-            [item leaksCaptureProperty:leakPropertys level:level];
+            [leakPropertyArray addPointer:(__bridge void * _Nullable)(item)];
+            [item captureMemoryLeakPropertyArray:leakPropertyArray level:level];
         }
     }
 }
 
 #pragma mark - private(+)
-+ (NSArray<NSString *> *)leakPropertys {
++ (NSArray<NSString *> *)leakProperties {
     Class sourceClass = self.class;
     NSString *className = NSStringFromClass(sourceClass);
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return [NSMutableArray array];
     }
     NSMutableDictionary *dict = [YJNSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJLeaks)"];
-    NSMutableArray<NSString *> *propertys = [dict objectForKey:className];
-    if (!propertys) {
-        propertys = [NSMutableArray array];
-        [dict setObject:propertys forKey:className];
+    NSMutableArray<NSString *> *propertyArray = [dict objectForKey:className];
+    if (!propertyArray) {
+        propertyArray = [NSMutableArray array];
+        [dict setObject:propertyArray forKey:className];
         NSString *leakProperty;
         unsigned int propertyCount;
         objc_property_t *properties = class_copyPropertyList(sourceClass, &propertyCount);
@@ -100,13 +100,13 @@
             objc_property_t property = properties[i];
             leakProperty = [self getLeakProperty:property];
             if (leakProperty) {
-                [propertys addObject:leakProperty];
+                [propertyArray addObject:leakProperty];
             }
         }
         free(properties);
-        [propertys addObjectsFromArray:[sourceClass.superclass leakPropertys]];
+        [propertyArray addObjectsFromArray:[sourceClass.superclass leakProperties]];
     }
-    return propertys;
+    return propertyArray;
 }
 
 + (NSString *)getLeakProperty:(objc_property_t)property  {

@@ -22,10 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)start;
 
 /**
- *  @abstract 执行泄漏捕获
+ *  @abstract 执行捕获内存泄漏
  *  @discusstion 释放对象前调用
  */
-- (void)leaksCapture;
+- (void)captureMemoryLeaks;
 
 @end
 

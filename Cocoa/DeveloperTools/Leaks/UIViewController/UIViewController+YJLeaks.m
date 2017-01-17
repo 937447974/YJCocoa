@@ -19,7 +19,7 @@
 }
 
 - (void)swizzling_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion {
-    [self leaksCapture];
+    [self captureMemoryLeaks];
     [self swizzling_dismissViewControllerAnimated:flag completion:completion];    
 }
 

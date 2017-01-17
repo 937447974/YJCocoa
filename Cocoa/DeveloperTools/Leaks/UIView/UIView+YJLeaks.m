@@ -19,7 +19,7 @@
 }
 
 - (void)swizzling_removeFromSuperview {
-    [self leaksCapture];
+    [self captureMemoryLeaks];
     [self swizzling_removeFromSuperview];
 }
 

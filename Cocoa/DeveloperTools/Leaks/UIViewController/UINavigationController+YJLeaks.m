@@ -22,17 +22,17 @@
 }
 
 - (UIViewController *)swizzling_popViewControllerAnimated:(BOOL)animated {
-    [self.topViewController leaksCapture];
+    [self.topViewController captureMemoryLeaks];
     return [self swizzling_popViewControllerAnimated:animated];
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)swizzling_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [self.topViewController leaksCapture];
+    [self.topViewController captureMemoryLeaks];
     return [self swizzling_popToViewController:viewController animated:animated];
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)swizzling_popToRootViewControllerAnimated:(BOOL)animated {
-    [self.topViewController leaksCapture];
+    [self.topViewController captureMemoryLeaks];
     return [self swizzling_popToRootViewControllerAnimated:animated];
 }
 
