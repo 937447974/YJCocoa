@@ -76,13 +76,13 @@
 		84083AAF1E2603B900D89EAA /* YJTimeProfiler */ = {
 			isa = PBXGroup;
 			children = (
-				84083B391E27836400D89EAA /* TimeProfiler */,
 				84083AB31E2603B900D89EAA /* AppDelegate.h */,
 				84083AB41E2603B900D89EAA /* AppDelegate.m */,
-				84083AB61E2603B900D89EAA /* ViewController.h */,
-				84083AB71E2603B900D89EAA /* ViewController.m */,
 				84083AC71E26040D00D89EAA /* Resources */,
 				84083AB01E2603B900D89EAA /* Supporting Files */,
+				84083B391E27836400D89EAA /* TimeProfiler */,
+				84083AB61E2603B900D89EAA /* ViewController.h */,
+				84083AB71E2603B900D89EAA /* ViewController.m */,
 			);
 			path = YJTimeProfiler;
 			sourceTree = "<group>";

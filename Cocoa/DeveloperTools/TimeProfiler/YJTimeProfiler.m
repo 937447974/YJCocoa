@@ -16,7 +16,7 @@
 
 void YJTimeProfilerSingalHandler(int sig) {
     if (sig == SIGUSR1) {
-        NSLog(@"\n%@", [NSThread callStackSymbols]);
+        NSLog(@"\nYJTimeProfiler捕获主线程耗时代码 : \n%@", [NSThread callStackSymbols]);
     }
 }
 
