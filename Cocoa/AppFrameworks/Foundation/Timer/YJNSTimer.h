@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// 使用YJNSTimer时，除特殊情况外，外部弱引用YJNSTimer。
+// 使用YJNSTimer时，除特殊情况外，外部应弱引用YJNSTimer。
 
 /** 计时器NSTimer*/
 @interface YJNSTimer : NSObject
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) id userInfo; ///< 携带的数据
 @property (nonatomic) NSTimeInterval timeInterval;   ///< 时间间隔,默认1
 @property (nonatomic) NSTimeInterval time;           ///< 当前执行时间
-@property (nonatomic) BOOL countdown;                ///< 是否倒计时运行，默认NO（倒计时time=0时停止，正计时time=60*60*24时停止）
+@property (nonatomic) BOOL countdown;                ///< 是否倒计时运行，默认NO（倒计时time=0时自动失效）
 
 @property (nonatomic) YJNSCalendarUnit unitFlags;                           ///< 解析的日期单位
 @property (nonatomic, strong, readonly) YJNSDateComponents *dateComponents; ///< 日期组件

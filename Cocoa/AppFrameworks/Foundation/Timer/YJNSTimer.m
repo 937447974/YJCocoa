@@ -95,14 +95,16 @@
         [self invalidate];
         return;
     }
-    if (self.time <= 0 && self.countdown) {
-        [self pause];
-        return;
-    } else if (self.time >= 86400 && !self.countdown) {
-        [self pause];
-        return;
+    if (self.countdown) {
+        NSTimeInterval time = self.time - self.timeInterval;
+        if (time <= 0) {
+            [self invalidate];
+            time = 0;
+        }
+        self.time = time;
+    } else {
+        self.time = self.time + self.timeInterval;
     }
-    self.time = self.countdown ? self.time-self.timeInterval : self.time+self.timeInterval;
 }
 
 - (void)pause {
