@@ -11,6 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  URLEncode编码
  *
@@ -18,7 +20,7 @@
  *
  *  @return NSString
  */
-FOUNDATION_EXPORT NSString *YJNSURLEncode(NSString *code);
+FOUNDATION_EXPORT NSString * _Nullable YJNSURLEncode(NSString *code);
 
 /**
  *  URLDecode解码
@@ -27,4 +29,7 @@ FOUNDATION_EXPORT NSString *YJNSURLEncode(NSString *code);
  *
  *  @return NSString
  */
-FOUNDATION_EXPORT NSString *YJNSURLDecode(NSString *code);
+FOUNDATION_EXPORT NSString * _Nullable YJNSURLDecode(NSString *code);
+
+NS_ASSUME_NONNULL_END
+

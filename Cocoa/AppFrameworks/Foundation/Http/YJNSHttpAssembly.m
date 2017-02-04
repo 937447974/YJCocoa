@@ -29,7 +29,10 @@
     for (NSString *key in params) {
         [paramsString appendFormat:@"&%@=", key];
         value = [NSString stringWithFormat:@"%@", params[key]];
-        [paramsString appendString:encode ? YJNSURLEncode(value) : value];
+        value = encode ? YJNSURLEncode(value) : value;
+        if (value) {
+            [paramsString appendString:value];
+        }        
     }
     if (paramsString.length) {
         [paramsString deleteCharactersInRange:NSMakeRange(0, 1)];
