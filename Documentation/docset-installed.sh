@@ -31,7 +31,6 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-01-17 | Swizzling和Leaks log打印优化" with title "YJCocoa 6.0.1"'
-osascript -e 'display notification "2017-01-18 | Timer倒计时time=0时自动失效，正计时去掉上限" with title "YJCocoa 6.0.1"'
+osascript -e 'display notification "2017-02-04 | 修复Http URLEncode解析崩溃" with title "YJCocoa 6.0.2"'
 
 
