@@ -13,6 +13,10 @@
 #import "YJDispatch.h"
 #include <pthread/pthread.h>
 #include <signal.h>
+#import "YJThreadLogger.h"
+
+// 是否断点模式
+#define YJTimeProfilerDebug 1
 
 void YJTimeProfilerSingalHandler(int sig) {
     if (sig == SIGUSR1) {
@@ -23,6 +27,8 @@ void YJTimeProfilerSingalHandler(int sig) {
 @interface YJTimeProfiler ()
 
 @property (nonatomic) pthread_t pthreadMain; ///< 主线程
+@property (nonatomic, strong) YJThreadLogger *threadLogger; ///< 线程日志记录器
+
 @property (nonatomic, strong) dispatch_source_t requestTimer;   ///< 请求计时器
 @property (nonatomic, strong) dispatch_source_t requestTimeout; ///< 请求超时计时器
 
@@ -37,7 +43,11 @@ void YJTimeProfilerSingalHandler(int sig) {
     dispatch_once(&onceToken, ^{
         signal(SIGUSR1, YJTimeProfilerSingalHandler);
         tp = [[YJTimeProfiler alloc] init];
+#if YJTimeProfilerDebug
         tp.pthreadMain = pthread_self();
+#else
+        tp.threadLogger = [[YJThreadLogger alloc] init];
+#endif
         tp.frequency = 1;
         tp.interval = 0.17;
     });
@@ -62,10 +72,13 @@ void YJTimeProfilerSingalHandler(int sig) {
 - (void)request {
 #if DEBUG
     NSLog(@"YJTimeProfiler request main queue start");
-
     self.requestTimeout = dispatch_timer_default(self.interval, ^{
         [self cancelRequestTimeout];
+#if YJTimeProfilerDebug
         pthread_kill(self.pthreadMain, SIGUSR1);
+#else
+        NSLog(@"\nYJTimeProfiler捕获主线程耗时代码 : \n%@", self.threadLogger.log);
+#endif
     });
     dispatch_async_main(^{
         [self cancelRequestTimeout];
