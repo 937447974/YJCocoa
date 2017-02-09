@@ -32,7 +32,7 @@ void dispatch_async_background(dispatch_block_t block) {
 }
 
 // 主线程延时执行
-void dispatch_after_main(int64_t delayInSeconds, dispatch_block_t block) {
+void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
@@ -47,4 +47,26 @@ void dispatch_async_concurrent(dispatch_block_t block) {
     // 并发队列：有多个线程，操作进来之后它会将这些队列安排在可用的处理器上，同时保证先进来的任务优先处理
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
+
+#pragma mark - timer
+dispatch_source_t dispatch_timer(dispatch_queue_t queue, NSTimeInterval interval, dispatch_block_t handler) {
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    if (timer) {
+        interval = interval * NSEC_PER_SEC;
+        dispatch_source_set_timer(timer, dispatch_walltime(NULL, interval), interval, interval/1000);
+        dispatch_source_set_event_handler(timer, handler);
+        dispatch_resume(timer);
+    }
+    return timer;
+}
+
+dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler) {
+    return dispatch_timer(dispatch_get_main_queue(), interval, handler);
+}
+
+dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler) {
+    return dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), interval, handler);
+}
+
+
 
