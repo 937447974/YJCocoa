@@ -11,8 +11,8 @@
 		84460DA71E4C5F86004EBB00 /* YJUIImagePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DA31E4C5F86004EBB00 /* YJUIImagePageModel.m */; };
 		84460DA81E4C5F86004EBB00 /* YJUIImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DA51E4C5F86004EBB00 /* YJUIImagePageViewController.m */; };
 		84460DA91E4C5F86004EBB00 /* YJUIImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84460DA61E4C5F86004EBB00 /* YJUIImagePageViewController.xib */; };
-		84460DB01E4C673F004EBB00 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DAF1E4C673F004EBB00 /* YJUIPageViewCell.m */; };
-		84460DB31E4C6837004EBB00 /* YJUIPageViewCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DB21E4C6837004EBB00 /* YJUIPageViewCellObject.m */; };
+		84460DCA1E4C70E8004EBB00 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DC61E4C70E8004EBB00 /* YJUIPageViewCell.m */; };
+		84460DCB1E4C70E8004EBB00 /* YJUIPageViewCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DC91E4C70E8004EBB00 /* YJUIPageViewCellObject.m */; };
 		844981391CDADB6B002E25E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844981381CDADB6B002E25E2 /* main.m */; };
 		8449813C1CDADB6B002E25E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449813B1CDADB6B002E25E2 /* AppDelegate.m */; };
 		8449813F1CDADB6B002E25E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449813E1CDADB6B002E25E2 /* ViewController.m */; };
@@ -32,10 +32,10 @@
 		84460DA41E4C5F86004EBB00 /* YJUIImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIImagePageViewController.h; sourceTree = "<group>"; };
 		84460DA51E4C5F86004EBB00 /* YJUIImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIImagePageViewController.m; sourceTree = "<group>"; };
 		84460DA61E4C5F86004EBB00 /* YJUIImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJUIImagePageViewController.xib; sourceTree = "<group>"; };
-		84460DAE1E4C673F004EBB00 /* YJUIPageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCell.h; sourceTree = "<group>"; };
-		84460DAF1E4C673F004EBB00 /* YJUIPageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCell.m; sourceTree = "<group>"; };
-		84460DB11E4C6837004EBB00 /* YJUIPageViewCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCellObject.h; sourceTree = "<group>"; };
-		84460DB21E4C6837004EBB00 /* YJUIPageViewCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCellObject.m; sourceTree = "<group>"; };
+		84460DC51E4C70E8004EBB00 /* YJUIPageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCell.h; sourceTree = "<group>"; };
+		84460DC61E4C70E8004EBB00 /* YJUIPageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCell.m; sourceTree = "<group>"; };
+		84460DC81E4C70E8004EBB00 /* YJUIPageViewCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCellObject.h; sourceTree = "<group>"; };
+		84460DC91E4C70E8004EBB00 /* YJUIPageViewCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCellObject.m; sourceTree = "<group>"; };
 		844981341CDADB6B002E25E2 /* YJPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844981381CDADB6B002E25E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8449813A1CDADB6B002E25E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 		842B0FE21DAB9DB500F71C79 /* PageView */ = {
 			isa = PBXGroup;
 			children = (
-				84460DAC1E4C6713004EBB00 /* PageViewCell */,
-				84460DAD1E4C6713004EBB00 /* PageViewCellObject */,
+				84460DC41E4C70E8004EBB00 /* Cell */,
+				84460DC71E4C70E8004EBB00 /* CellObject */,
 				842B0FE91DAB9DB500F71C79 /* YJUIPageView.h */,
 				842B0FEA1DAB9DB500F71C79 /* YJUIPageView.m */,
 			);
@@ -94,22 +94,22 @@
 			path = ImagePage;
 			sourceTree = "<group>";
 		};
-		84460DAC1E4C6713004EBB00 /* PageViewCell */ = {
+		84460DC41E4C70E8004EBB00 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				84460DAE1E4C673F004EBB00 /* YJUIPageViewCell.h */,
-				84460DAF1E4C673F004EBB00 /* YJUIPageViewCell.m */,
+				84460DC51E4C70E8004EBB00 /* YJUIPageViewCell.h */,
+				84460DC61E4C70E8004EBB00 /* YJUIPageViewCell.m */,
 			);
-			path = PageViewCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		84460DAD1E4C6713004EBB00 /* PageViewCellObject */ = {
+		84460DC71E4C70E8004EBB00 /* CellObject */ = {
 			isa = PBXGroup;
 			children = (
-				84460DB11E4C6837004EBB00 /* YJUIPageViewCellObject.h */,
-				84460DB21E4C6837004EBB00 /* YJUIPageViewCellObject.m */,
+				84460DC81E4C70E8004EBB00 /* YJUIPageViewCellObject.h */,
+				84460DC91E4C70E8004EBB00 /* YJUIPageViewCellObject.m */,
 			);
-			path = PageViewCellObject;
+			path = CellObject;
 			sourceTree = "<group>";
 		};
 		8449812B1CDADB6B002E25E2 = {
@@ -295,14 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84460DCA1E4C70E8004EBB00 /* YJUIPageViewCell.m in Sources */,
 				84460DA81E4C5F86004EBB00 /* YJUIImagePageViewController.m in Sources */,
 				8449813F1CDADB6B002E25E2 /* ViewController.m in Sources */,
+				84460DCB1E4C70E8004EBB00 /* YJUIPageViewCellObject.m in Sources */,
 				8449813C1CDADB6B002E25E2 /* AppDelegate.m in Sources */,
 				84460DA71E4C5F86004EBB00 /* YJUIImagePageModel.m in Sources */,
 				842B0FF21DAB9DB500F71C79 /* YJUIPageView.m in Sources */,
 				844981391CDADB6B002E25E2 /* main.m in Sources */,
-				84460DB01E4C673F004EBB00 /* YJUIPageViewCell.m in Sources */,
-				84460DB31E4C6837004EBB00 /* YJUIPageViewCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

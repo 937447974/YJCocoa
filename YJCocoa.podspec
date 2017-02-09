@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "6.0.2"
+    s.version  = "6.1.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -208,16 +208,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             # PageView
             uik.subspec 'PageView' do |pv|
-                pv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
-                    core.dependency 'YJCocoa/System/Dispatch'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
-                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                end
-                pv.subspec 'ImagePage' do |ip|
-                    ip.resources = 'Cocoa/AppFrameworks/UIKit/PageView/ImagePage/*.xib'
-                    ip.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/ImagePage/*.{h,m}'
-                    ip.dependency 'YJCocoa/AppFrameworks/UIKit/PageView/Core'
+                core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
+                core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
+                core.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                pv.subspec 'CellObject' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/CellObject/*.{h,m}'
                 end
             end
             # ScrollViewManager

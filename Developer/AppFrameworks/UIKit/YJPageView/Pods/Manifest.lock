@@ -12,16 +12,14 @@ PODS:
     - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor
   - YJCocoa/AppFrameworks/UIKit/AutoLayout/UIViewController (6.0.2):
     - YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor
-  - YJCocoa/System/Dispatch (6.0.2)
 
 DEPENDENCIES:
   - YJCocoa/AppFrameworks/Foundation/Other
   - YJCocoa/AppFrameworks/UIKit/AutoLayout
-  - YJCocoa/System/Dispatch
 
 SPEC CHECKSUMS:
   YJCocoa: 189100daea369bbb412ae52f91941ab030129d2f
 
-PODFILE CHECKSUM: a38b638af5298d25609b7e641365f865c92b2fbd
+PODFILE CHECKSUM: 57c1712a38b99fbb8d0c58962c335d202c64877d
 
 COCOAPODS: 1.1.1

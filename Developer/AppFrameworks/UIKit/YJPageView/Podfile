@@ -4,7 +4,6 @@ platform :ios, '7.0'
 # use_frameworks!
 
 target 'YJPageView' do
-    pod 'YJCocoa/System/Dispatch'
     pod 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
     pod 'YJCocoa/AppFrameworks/Foundation/Other'
 end
