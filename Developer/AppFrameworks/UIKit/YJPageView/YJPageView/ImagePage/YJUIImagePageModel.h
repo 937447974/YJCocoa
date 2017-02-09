@@ -12,7 +12,7 @@
 #import "YJUIPageView.h"
 
 /** YJUIImagePageViewController对应的model*/
-@interface YJUIImagePageModel : NSObject <YJUIPageViewModelProtocol>
+@interface YJUIImagePageModel : NSObject <YJUIPageViewCellModelProtocol>
 
 @property (nonatomic) BOOL isOnClick;             ///< 能否点击
 @property (nonatomic, copy) NSString *imageNamed; ///< 图片名

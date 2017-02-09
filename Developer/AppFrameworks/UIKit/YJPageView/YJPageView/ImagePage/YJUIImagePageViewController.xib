@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJUIImagePageViewController" customModule="YJCocoa" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJUIImagePageViewController" customModule="YJPageView" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="S7Y-Yu-5af" id="vf6-kK-N5G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -17,17 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paS-X9-Dda">
-                    <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
+                    <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7Y-Yu-5af">
-                            <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="lby-f1-2pC" appends="YES" id="hKT-ms-sFl"/>
                             </connections>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="S7Y-Yu-5af" secondAttribute="bottom" id="9ND-Fa-Nbr"/>
                         <constraint firstItem="S7Y-Yu-5af" firstAttribute="top" secondItem="paS-X9-Dda" secondAttribute="top" id="FCD-Om-qDf"/>
@@ -36,14 +40,13 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="paS-X9-Dda" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Bm2-EA-cdQ"/>
                 <constraint firstItem="paS-X9-Dda" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="SAu-hy-Dgc"/>
                 <constraint firstItem="paS-X9-Dda" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kK8-U5-HfR"/>
                 <constraint firstItem="paS-X9-Dda" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="lWW-Z5-M3o"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
         <tapGestureRecognizer id="lby-f1-2pC">
             <connections>

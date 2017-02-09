@@ -24,8 +24,8 @@
 
 - (void)viewDidLoad {    
     [super viewDidLoad];
-//    [self test];
-    [self testPressure];
+    [self test];
+//    [self testPressure];
 }
 
 - (void)test {
@@ -48,28 +48,26 @@
     pageView.timeInterval = 0.5;
 //    pageView.isTimeLoopAnimatedStop = YES;
     // 监听
-    pageView.pageViewAppear = ^(YJUIPageViewController *pageVC, YJUIPageViewAppear appear) {
+    pageView.pageViewAppear = ^(YJUIPageViewCell *pageVC, YJUIPageViewAppear appear) {
         switch (appear) {
             case YJUIPageViewAppearWill: {
-                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
+                NSLog(@"Will：%ld", (long)pageVC.cellObject.pageIndex);
                 break;
             }
             case YJUIPageViewAppearDid:
-                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
+                NSLog(@"Did：%ld", (long)pageVC.cellObject.pageIndex);
                 break;
         }
     };
-    pageView.pageViewDidSelect = ^(YJUIPageViewController *pageVC) {
-        NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
+    pageView.pageViewDidSelect = ^(YJUIPageViewCell *pageVC) {
+        NSLog(@"点击：%ld", (long)pageVC.cellObject.pageIndex);
     };
     // 填充数据源
     for (int i=0; i<5; i++) {
-        YJUIPageViewObject *obj = [YJUIImagePageViewController pageViewObject];
         YJUIImagePageModel *model = [[YJUIImagePageModel alloc] init];
         model.imageNamed = @"LaunchImage";
         model.isOnClick = YES;
-        obj.pageModel = model;
-        [pageView.dataSource addObject:obj];
+        [pageView.dataSource addObject:[YJUIImagePageViewController cellObjectWithCellModel:model]];
     }
     [pageView reloadPage];
 }
@@ -83,24 +81,22 @@
     pageView.isLoop = YES;
     pageView.timeInterval = 0.01; // 峰值，内存释放稳定
     // 监听
-    pageView.pageViewAppear = ^(YJUIPageViewController *pageVC, YJUIPageViewAppear appear) {
+    pageView.pageViewAppear = ^(YJUIPageViewCell *pageVC, YJUIPageViewAppear appear) {
         switch (appear) {
             case YJUIPageViewAppearWill: {
-                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
+                NSLog(@"Will：%ld", (long)pageVC.cellObject.pageIndex);
                 break;
             }
             case YJUIPageViewAppearDid:
-                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
+                NSLog(@"Did：%ld", (long)pageVC.cellObject.pageIndex);
                 break;
         }
     };
     // 填充数据源100个
     for (int i=0; i<100; i++) {
-        YJUIPageViewObject *obj = [YJUIImagePageViewController pageViewObject];
         YJUIImagePageModel *model = [[YJUIImagePageModel alloc] init];
         model.imageNamed = @"LaunchImage";
-        obj.pageModel = model;
-        [pageView.dataSource addObject:obj];
+        [pageView.dataSource addObject:[YJUIImagePageViewController cellObjectWithCellModel:model]];
     }
     [pageView reloadPage];
 }

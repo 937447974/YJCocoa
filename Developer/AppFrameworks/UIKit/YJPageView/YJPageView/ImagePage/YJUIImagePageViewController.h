@@ -12,7 +12,7 @@
 #import "YJUIImagePageModel.h"
 
 /** UIImageView样式*/
-@interface YJUIImagePageViewController : YJUIPageViewController
+@interface YJUIImagePageViewController : YJUIPageViewCell
 
 // 可通过imageView.topSpaceToSuper(0).bottomSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0)修改位置
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

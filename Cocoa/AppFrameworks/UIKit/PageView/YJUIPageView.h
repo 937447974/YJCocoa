@@ -10,8 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJUIPageViewObject.h"
-#import "YJUIPageViewController.h"
+#import "YJUIPageViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,10 +20,10 @@ typedef NS_ENUM(NSInteger, YJUIPageViewAppear) {
     YJUIPageViewAppearDid   ///< viewDidAppear
 };
 
-/** YJUIPageViewController显示通知*/
-typedef void (^ YJUIPageViewAppearBlock)(YJUIPageViewController *pageVC, YJUIPageViewAppear appear);
-/** YJUIPageViewController点击通知*/
-typedef void (^ YJUIPageViewDidSelectBlock)(YJUIPageViewController *pageVC);
+/** YJUIPageViewCell显示通知*/
+typedef void (^ YJUIPageViewAppearBlock)(YJUIPageViewCell *pageVC, YJUIPageViewAppear appear);
+/** YJUIPageViewCell点击通知*/
+typedef void (^ YJUIPageViewDidSelectBlock)(YJUIPageViewCell *pageVC);
 
 
 /** page view*/
@@ -35,12 +34,17 @@ typedef void (^ YJUIPageViewDidSelectBlock)(YJUIPageViewController *pageVC);
 @property (nonatomic) BOOL isDisableBounces; ///< 是否取消阻力效果（YES时，isLoop自动设为NO）
 @property (nonatomic) NSTimeInterval timeInterval; ///< 轮播转动时间间隔（0停止；>0时开启，自动设置isLoop=YES,isDisableBounces=NO）
 @property (nonatomic) BOOL isTimeLoopAnimatedStop; ///< 轮播时，是否动画切换（默认NO，开启动画切换）
-@property (nonatomic, copy) YJUIPageViewAppearBlock pageViewAppear;       ///< YJUIPageViewController显示通知
-@property (nonatomic, copy) YJUIPageViewDidSelectBlock pageViewDidSelect; ///< YJUIPageViewController点击通知
-@property (nonatomic, strong) NSMutableArray<YJUIPageViewObject *> *dataSource; ///< 数据源
+
+
+@property (nonatomic, copy) YJUIPageViewAppearBlock pageViewAppear;       ///< YJUIPageViewCell显示通知
+@property (nonatomic, copy) YJUIPageViewDidSelectBlock pageViewDidSelect; ///< YJUIPageViewCell点击通知
+
+@property (nonatomic, strong) NSMutableArray<YJUIPageViewCellObject *> *dataSource; ///< 数据源
+
 @property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
 @property (nonatomic, strong, readonly) UIPageControl *pageControl;   ///< 。。。提示
-@property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJUIPageViewController*> *pageCache; ///< 页面缓存
+
+@property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJUIPageViewCell*> *pageCache; ///< 页面缓存
 
 /**
  *  修改pageVC时可使用此方法

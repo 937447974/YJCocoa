@@ -23,9 +23,9 @@
 }
 
 #pragma mark - YJUIPageView
-- (void)reloadDataAsyncWithPageViewObject:(YJUIPageViewObject *)pageViewObject pageView:(YJUIPageView *)pageView {
-    [super reloadDataAsyncWithPageViewObject:pageViewObject pageView:pageView];
-    YJUIImagePageModel *model = pageViewObject.pageModel;
+- (void)reloadDataWithPageViewCellObject:(YJUIPageViewCellObject *)cellObject pageView:(YJUIPageView *)pageView {
+    [super reloadDataWithPageViewCellObject:cellObject pageView:pageView];
+    YJUIImagePageModel *model = cellObject.cellModel;
     self.imageView.image = [UIImage imageNamed:model.imageNamed];
     self.imageView.userInteractionEnabled = model.isOnClick;
 }

@@ -1,24 +1,24 @@
 //
-//  YJUIPageViewObject.m
-//  YJUIPageView
+//  YJUIPageViewCellObject.m
+//  YJPageView
 //
 //  HomePage:https://github.com/937447974/YJCocoa
 //  YJ技术支持群:557445088
 //
-//  Created by 阳君 on 16/5/3.
-//  Copyright © 2016年 YJCocoa. All rights reserved.
+//  Created by 阳君 on 2017/2/9.
+//  Copyright © 2017年 YJ. All rights reserved.
 //
 
-#import "YJUIPageViewObject.h"
+#import "YJUIPageViewCellObject.h"
 
-@implementation YJUIPageViewObject
+@implementation YJUIPageViewCellObject
 
 - (instancetype)initWithPageClass:(Class)pageClass {
     self = [super init];
     if (self) {
         _pageClass = pageClass;
     }
-    return self;    
+    return self;
 }
 
 @end
