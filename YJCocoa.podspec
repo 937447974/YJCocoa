@@ -208,9 +208,9 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             # PageView
             uik.subspec 'PageView' do |pv|
-                core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
-                core.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
-                core.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                pv.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/PageView/Cell/*.{h,m}'
+                pv.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
+                pv.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 pv.subspec 'CellObject' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/CellObject/*.{h,m}'
                 end
