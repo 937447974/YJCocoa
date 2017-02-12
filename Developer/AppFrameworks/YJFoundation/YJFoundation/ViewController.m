@@ -90,32 +90,46 @@
 
 #pragma mark - Swizzling
 - (void)testSwizzling {
+    /*
     // 分组多线程交换测试
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_group_t group = dispatch_group_create();
     for (int i = 0; i < 20; i++) {
         dispatch_group_async(group, queue, ^{
             NSLog(@"dispatch_group_async:%d", i);
-            [self.class swizzlingSEL:@selector(testSwizzlingOriginal) withSEL:@selector(testSwizzlingNew)];
+            [self.class swizzlingSEL:@selector(testSwizzlingInstance) withSEL:@selector(swizzling_testSwizzlingInstance)];
         });
     }
     dispatch_group_notify(group, queue, ^{
         NSLog(@"dispatch_group_notify");
-        [self testSwizzlingOriginal];
+        [self testSwizzlingInstance];
         // 多次交换
-        [self.class swizzlingSEL:@selector(testSwizzlingNew) withSEL:@selector(testSwizzlingOriginal)];
-        [self testSwizzlingOriginal];
-        [self.class swizzlingSEL:@selector(testSwizzlingOriginal) withSEL:@selector(testSwizzlingNew)];
-        [self testSwizzlingOriginal];
+        [self.class swizzlingSEL:@selector(testSwizzlingInstance) withSEL:@selector(swizzling_testSwizzlingInstance)];
+        [self testSwizzlingInstance];
+        [self.class swizzlingSEL:@selector(swizzling_testSwizzlingInstance) withSEL:@selector(testSwizzlingInstance)];
+        [self testSwizzlingInstance];
     });
+     */
+    // class方法交换
+    [self.class swizzlingClassSEL:@selector(testSwizzlingClass) withSEL:@selector(swizzling_testSwizzlingClass)];
+    [self.class testSwizzlingClass];
 }
 
-- (void)testSwizzlingOriginal {
+- (void)testSwizzlingInstance {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
-- (void)testSwizzlingNew {
-    [self testSwizzlingNew];
+- (void)swizzling_testSwizzlingInstance{
+    [self swizzling_testSwizzlingInstance];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
++ (void)testSwizzlingClass {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
++ (void)swizzling_testSwizzlingClass {
+    [self swizzling_testSwizzlingClass];
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 

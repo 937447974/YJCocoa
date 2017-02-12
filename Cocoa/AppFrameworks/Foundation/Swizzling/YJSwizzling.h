@@ -13,10 +13,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 交换方法*/
 @interface NSObject (YJSwizzling)
 
 /**
- *  @abstract 交换方法
+ *  @abstract 交换方法(Class)
+ *
+ *  @param originalSEL 原始方法
+ *  @param swizzlingSEL 交换的方法
+ */
++ (void)swizzlingClassSEL:(SEL)originalSEL withSEL:(SEL)swizzlingSEL;
+
+/**
+ *  @abstract 交换方法(Instance)
  *
  *  @param originalSEL 原始方法
  *  @param swizzlingSEL 交换的方法

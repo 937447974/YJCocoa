@@ -16,6 +16,10 @@
 
 @implementation NSObject (YJSwizzling)
 
++ (void)swizzlingClassSEL:(SEL)originalSEL withSEL:(SEL)swizzlingSEL {
+    [object_getClass(self) swizzlingSEL:originalSEL withSEL:swizzlingSEL];
+}
+
 + (void)swizzlingSEL:(SEL)originalSEL withSEL:(SEL)swizzlingSEL {
     dispatch_sync_main(^{
         Class class = self.class;
