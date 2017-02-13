@@ -17,13 +17,13 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 @implementation YJNSURLRequest
 
 #pragma mark - init
-+ (instancetype)requestWithSource:(NSObject *)source {
++ (instancetype)requestWithSource:(id)source {
     YJNSURLRequest *request = [[self alloc] init];
     request -> _source = source;
     return request;
 }
 
-+ (instancetype)requestWithSource:(NSObject *)source requestModel:(id<YJNSURLRequestModel>)requestModel {
++ (instancetype)requestWithSource:(id)source requestModel:(id<YJNSURLRequestModel>)requestModel {
     YJNSURLRequest *request = [self requestWithSource:source];
     request.requestModel = requestModel;
     return request;
@@ -32,16 +32,6 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 #pragma mark - getter & setter
 - (NSString *)identifier {
     return _identifier ? _identifier : [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
-}
-
-- (YJNSURLRequestMethod)requestMethod {
-    [self doesNotRecognizeSelector:_cmd];
-    return YJNSURLRequestMethodGET;
-}
-
-- (Class)responseModelClass {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
 }
 
 @end

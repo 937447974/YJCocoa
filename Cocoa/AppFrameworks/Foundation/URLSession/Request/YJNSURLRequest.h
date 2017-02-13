@@ -26,9 +26,9 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
 
 @property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
 
-@property (nonatomic, copy, readonly) NSString *URL;                        ///< 请求地址
-@property (nonatomic, copy, readonly) YJNSURLRequestMethod requestMethod;   ///< 请求方式
-@property (nonatomic, strong)         id<YJNSURLRequestModel> requestModel; ///< 请求参数模型
+@property (nonatomic, copy)   NSString *URL;                        ///< 请求地址
+@property (nonatomic, copy)   YJNSURLRequestMethod requestMethod;   ///< 请求方式
+@property (nonatomic, strong) id<YJNSURLRequestModel> requestModel; ///< 请求参数模型
 
 @property (nonatomic, readonly) Class responseModelClass; ///< 服务器返回数据对应的模型class
 
@@ -40,7 +40,7 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
  *
  *  @return instancetype
  */
-+ (instancetype)requestWithSource:(NSObject *)source;
++ (instancetype)requestWithSource:(id)source;
 
 /**
  *  @abstract 初始化YJNSURLRequest或其子类
@@ -51,7 +51,7 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
  *
  *  @return instancetype
  */
-+ (instancetype)requestWithSource:(NSObject *)source requestModel:(id<YJNSURLRequestModel>)requestModel;
++ (instancetype)requestWithSource:(id)source requestModel:(id<YJNSURLRequestModel>)requestModel;
 
 @end
 
