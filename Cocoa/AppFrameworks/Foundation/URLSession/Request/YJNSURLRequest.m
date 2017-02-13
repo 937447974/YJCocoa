@@ -25,7 +25,7 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 
 + (instancetype)requestWithSource:(NSObject *)source requestModel:(id<YJNSURLRequestModel>)requestModel {
     YJNSURLRequest *request = [self requestWithSource:source];
-    request -> _requestModel = requestModel;
+    request.requestModel = requestModel;
     return request;
 }
 
