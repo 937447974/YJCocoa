@@ -2,7 +2,7 @@
 //  YJTestTableViewCell2.h
 //  YJTableView
 //
-//  Created by admin on 2016/12/15.
+//  Created by 阳君 on 2016/12/15.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 

@@ -28,8 +28,8 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 /** UICollectionViewCell封装对象*/
 @interface YJUICollectionCellObject : NSObject
 
-@property (nonatomic) id<YJUICollectionCellModel> cellModel; ///< cell对应的VM
-@property (nonatomic, strong, nullable) id userInfo;         ///< 携带的数据
+@property (nonatomic, strong) id<YJUICollectionCellModel> cellModel; ///< cell对应的VM
+@property (nonatomic, strong, nullable) id userInfo;                 ///< 携带的数据
 
 @property (nonatomic) YJUICollectionCellCreate createCell; ///< 创建cell的方式
 @property (nonatomic, strong) NSIndexPath *indexPath;      ///< cell所处位置，无须添加，自动填充
