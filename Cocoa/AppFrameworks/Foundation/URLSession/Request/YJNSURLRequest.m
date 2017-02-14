@@ -23,12 +23,6 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
     return request;
 }
 
-+ (instancetype)requestWithSource:(id)source requestModel:(id<YJNSURLRequestModel>)requestModel {
-    YJNSURLRequest *request = [self requestWithSource:source];
-    request.requestModel = requestModel;
-    return request;
-}
-
 #pragma mark - getter & setter
 - (NSString *)identifier {
     if (!_identifier) {

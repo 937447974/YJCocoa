@@ -32,7 +32,14 @@
         __strongSelf
         if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
             strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
-            if (strongSelf -> _success && strongSelf.request.source) strongSelf -> _success(data);
+            if (strongSelf -> _success && strongSelf.request.source) {
+                if (strongSelf.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
+                    data = [[strongSelf.request.responseModelClass alloc] initWithModelDictionary:data];
+                }
+                dispatch_async_main(^{
+                    strongSelf -> _success(data);
+                });
+            }
         }
     };
     return block;

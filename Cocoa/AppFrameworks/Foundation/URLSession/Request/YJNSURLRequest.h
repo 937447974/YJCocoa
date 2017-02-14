@@ -34,24 +34,12 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
 
 /**
  *  @abstract 初始化YJNSURLRequest或其子类
- *  @discusstion 建议取消网络请求时使用
  *
  *  @param source 发起网络请求的对象
  *
  *  @return instancetype
  */
 + (instancetype)requestWithSource:(id)source;
-
-/**
- *  @abstract 初始化YJNSURLRequest或其子类
- *  @discusstion 建议发送网络请求时使用
- *
- *  @param source 发起网络请求的对象
- *  @param requestModel 请求参数模型
- *
- *  @return instancetype
- */
-+ (instancetype)requestWithSource:(id)source requestModel:(id<YJNSURLRequestModel>)requestModel;
 
 @end
 

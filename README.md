@@ -326,6 +326,7 @@ YJ技术支持群：557445088
 | 6.1.0 | 2017-02-09 | TimeProfiler支持直接打印主线程卡顿堆栈信息 |
 | | | PageView架构升级 |
 | | 2017-02-12 | Swizzling增加class方法交换 |
+| | 2017-02-14 | URLSession架构升级 |
 
 ##Copyright
 
