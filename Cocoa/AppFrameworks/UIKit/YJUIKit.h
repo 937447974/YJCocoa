@@ -29,8 +29,6 @@
 
 // 主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 #import "YJUIPageView.h"
-// 轮播图
-#import "YJUIImagePageViewController.h"
 
 // UIScrollView管理器，主要用于监听UIScrollView滚动状态
 #import "YJUIScrollViewManager.h"
