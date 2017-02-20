@@ -31,6 +31,7 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-02-04 | 修复Http URLEncode解析崩溃" with title "YJCocoa 6.0.2"'
-
-
+osascript -e 'display notification "2017-02-09 | TimeProfiler支持直接打印主线程卡顿堆栈信息" with title "YJCocoa 6.1.0"'
+osascript -e 'display notification "2017-02-09 | PageView架构升级" with title "YJCocoa 6.1.0"'
+osascript -e 'display notification "2017-02-12 | Swizzling增加class方法交换" with title "YJCocoa 6.1.0"'
+osascript -e 'display notification "2017-02-14 | URLSession架构升级" with title "YJCocoa 6.1.0"'
