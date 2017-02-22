@@ -19,9 +19,9 @@
     YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
     if (!task) {
         task = [[self alloc] init];
-        task.request = request;
         sPool.poolDict[request.identifier] = task;
     }
+    task.request = request;
     return task;
 }
 
