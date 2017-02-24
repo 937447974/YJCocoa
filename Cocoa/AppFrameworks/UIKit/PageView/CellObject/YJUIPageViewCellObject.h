@@ -21,8 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** pageViewCell对应的模型封装*/
 @interface YJUIPageViewCellObject : NSObject
 
-@property (nonatomic) __kindof id<YJUIPageViewCellModelProtocol> cellModel; ///< PageViewCell对应的VM
-@property (nonatomic, strong, nullable) id userInfo;                        ///< 携带的数据
+@property (nonatomic, strong) id<YJUIPageViewCellModelProtocol> cellModel; ///< PageViewCell对应的VM
+@property (nonatomic, strong, nullable) id userInfo;                       ///< 携带的数据
 
 @property (nonatomic) NSInteger pageIndex;       ///< 当前页码，无须添加，自动填充
 @property (nonatomic, readonly) Class pageClass; ///< PageView对应的类
