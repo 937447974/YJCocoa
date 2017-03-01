@@ -12,6 +12,8 @@
 #import "YJUINavigationBar.h"
 #import "UIView+YJUIViewGeometry.h"
 
+static YJUINavigationBar *NBarS; ///< YJUINavigationBar单例
+
 @interface YJUINavigationBar ()
 
 @property (nonatomic, strong) UILabel *titleLabel; ///< 标题label
@@ -22,23 +24,16 @@
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJUINavigationBar *nb;
-    if (!nb) {
-        nb = [[YJUINavigationBar alloc] initWithAppearance];
+    if (!NBarS) {
+        NBarS = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
+        // 默认共享
+        NBarS.titleColor = [UIColor blackColor];
+        NBarS.titleFont = [UIFont systemFontOfSize:14];
+        NBarS.leftSpacing = 10;
+        NBarS.rightSpacing = 10;
+        NBarS.middle = YES;
     }
-    return nb;
-}
-
-- (instancetype)initWithAppearance {
-    self = [super initWithFrame:CGRectZero];
-    if (self) { // 默认共享
-        self.titleColor = [UIColor blackColor];
-        self.titleFont = [UIFont systemFontOfSize:14];
-        self.leftSpacing = 10;
-        self.rightSpacing = 10;
-        self.middle = YES;
-    }
-    return self;
+    return NBarS;
 }
 
 #pragma mark - self
@@ -46,12 +41,11 @@
     frame = CGRectMake(0, 0, 9999, 44);
     self = [super initWithFrame:frame];
     if (self) {
-        YJUINavigationBar *nb = [YJUINavigationBar appearance];
-        _titleColor = nb.titleColor;
-        _titleFont = nb.titleFont;
-        _leftSpacing = nb.leftSpacing;
-        _rightSpacing = nb.rightSpacing;
-        _middle = nb.middle;
+        _titleColor = NBarS.titleColor;
+        _titleFont = NBarS.titleFont;
+        _leftSpacing = NBarS.leftSpacing;
+        _rightSpacing = NBarS.rightSpacing;
+        _middle = NBarS.middle;
         self.leftBarButtonView = [[YJUIBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
         self.rightBarButtonView = [[YJUIBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
     }

@@ -12,37 +12,31 @@
 #import "YJUIBarButtonView.h"
 #import "UIView+YJUIViewGeometry.h"
 
+static YJUIBarButtonView *BBViewS; ///< YJUIBarButtonView单例
+
 @implementation YJUIBarButtonView
 
 #pragma mark - 共享
 + (instancetype)appearance {
-    static YJUIBarButtonView *bbView;
-    if (!bbView) {
-        bbView = [[YJUIBarButtonView alloc] initWithAppearance];
+    if (!BBViewS) {
+        BBViewS = [[YJUIBarButtonView alloc] init];
+        // 默认共享
+        BBViewS.titleColor = [UIColor blackColor];
+        BBViewS.titleFont = [UIFont systemFontOfSize:14];
+        BBViewS.highlightedAlpha = 0.5;
+        BBViewS.spacing = 5;
     }
-    return bbView;
-}
-
-- (instancetype)initWithAppearance {
-    self = [super initWithFrame:CGRectZero];
-    if (self) { // 默认共享
-        self.titleColor = [UIColor blackColor];
-        self.titleFont = [UIFont systemFontOfSize:14];
-        self.highlightedAlpha = 0.5;
-        self.spacing = 5;
-    }
-    return self;
+    return BBViewS;
 }
 
 #pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        YJUIBarButtonView *bbView = [YJUIBarButtonView appearance];
-        _titleColor = bbView.titleColor;
-        _titleFont = bbView.titleFont;
-        _highlightedAlpha = bbView.highlightedAlpha;
-        _spacing = bbView.spacing;
+        _titleColor = BBViewS.titleColor;
+        _titleFont = BBViewS.titleFont;
+        _highlightedAlpha = BBViewS.highlightedAlpha;
+        _spacing = BBViewS.spacing;
     }
     return self;
 }

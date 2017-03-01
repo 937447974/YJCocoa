@@ -327,6 +327,7 @@ YJ技术支持群：557445088
 | | | PageView架构升级 |
 | | 2017-02-12 | Swizzling增加class方法交换 |
 | | 2017-02-14 | URLSession架构升级 |
+| 6.1.1 | 2017-03-01 | NavigationBar修复部分机型启动崩溃错误 |
 
 ##Copyright
 

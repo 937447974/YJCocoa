@@ -9,11 +9,6 @@
 //  Copyright © 2016年 YJUIocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "YJUIBarButtonView.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
 /*使用方法
  YJUINavigationBar *nb = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
  nb.title = @"YJNavigationBar";
@@ -21,8 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
  self.navigationItem.titleView = nb;
  
  通过[YJUINavigationBar appearance]和[YJUIBarButtonView appearance]可修改默认配置
- 
  */
+
+#import <UIKit/UIKit.h>
+#import "YJUIBarButtonView.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /** 替换UINavigationItem.titleView*/
 @interface YJUINavigationBar : UIView
