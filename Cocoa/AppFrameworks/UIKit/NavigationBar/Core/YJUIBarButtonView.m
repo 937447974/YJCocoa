@@ -20,11 +20,6 @@ static YJUIBarButtonView *BBViewS; ///< YJUIBarButtonView单例
 + (instancetype)appearance {
     if (!BBViewS) {
         BBViewS = [[YJUIBarButtonView alloc] init];
-        // 默认共享
-        BBViewS.titleColor = [UIColor blackColor];
-        BBViewS.titleFont = [UIFont systemFontOfSize:14];
-        BBViewS.highlightedAlpha = 0.5;
-        BBViewS.spacing = 5;
     }
     return BBViewS;
 }
@@ -33,10 +28,17 @@ static YJUIBarButtonView *BBViewS; ///< YJUIBarButtonView单例
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _titleColor = BBViewS.titleColor;
-        _titleFont = BBViewS.titleFont;
-        _highlightedAlpha = BBViewS.highlightedAlpha;
-        _spacing = BBViewS.spacing;
+        if (BBViewS) {
+            self.titleColor = BBViewS.titleColor;
+            self.titleFont = BBViewS.titleFont;
+            self.highlightedAlpha = BBViewS.highlightedAlpha;
+            self.spacing = BBViewS.spacing;
+        } else {
+            self.titleColor = [UIColor blackColor];
+            self.titleFont = [UIFont systemFontOfSize:14];
+            self.highlightedAlpha = 0.5;
+            self.spacing = 5;
+        }
     }
     return self;
 }

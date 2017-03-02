@@ -26,12 +26,6 @@ static YJUINavigationBar *NBarS; ///< YJUINavigationBar单例
 + (instancetype)appearance {
     if (!NBarS) {
         NBarS = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
-        // 默认共享
-        NBarS.titleColor = [UIColor blackColor];
-        NBarS.titleFont = [UIFont systemFontOfSize:14];
-        NBarS.leftSpacing = 10;
-        NBarS.rightSpacing = 10;
-        NBarS.middle = YES;
     }
     return NBarS;
 }
@@ -41,11 +35,19 @@ static YJUINavigationBar *NBarS; ///< YJUINavigationBar单例
     frame = CGRectMake(0, 0, 9999, 44);
     self = [super initWithFrame:frame];
     if (self) {
-        _titleColor = NBarS.titleColor;
-        _titleFont = NBarS.titleFont;
-        _leftSpacing = NBarS.leftSpacing;
-        _rightSpacing = NBarS.rightSpacing;
-        _middle = NBarS.middle;
+        if (NBarS) {
+            self.titleColor = NBarS.titleColor;
+            self.titleFont = NBarS.titleFont;
+            self.leftSpacing = NBarS.leftSpacing;
+            self.rightSpacing = NBarS.rightSpacing;
+            self.middle = NBarS.middle;
+        } else {
+            self.titleColor = [UIColor blackColor];
+            self.titleFont = [UIFont systemFontOfSize:14];
+            self.leftSpacing = 10;
+            self.rightSpacing = 10;
+            self.middle = YES;
+        }
         self.leftBarButtonView = [[YJUIBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
         self.rightBarButtonView = [[YJUIBarButtonView alloc] initWithFrame:CGRectMake(0, 0, 0, frame.size.height)];
     }
