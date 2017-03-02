@@ -21,11 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    [self testSingleton];
+        [self testSingleton];
     //    [self testTimer];
     //    [self testCalendar];
     //    [self testURLSession];
-    [self testSwizzling];
+//    [self testSwizzling];
 }
 
 #pragma mark - 单例
@@ -75,15 +75,14 @@
     YJTestURLRequestModel *requestModel = [[YJTestURLRequestModel alloc] init];
     requestModel.name = @"阳君";
     requestModel.qq = @"557445088";
-    __weakSelf
-    [[[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:self requestModel:requestModel]] completionHandler:^(id data) {
-        __strongSelf
+    YJTestURLRequest *request = [YJTestURLRequest requestWithSource:self];
+    request.requestModel = requestModel;
+    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(id data) {
         YJNSURLResponseModel *responseModel = data;
         NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
-        [[YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]] cancel]; // 取消请求
+        [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求
     } failure:^(NSError *error) {
-        __strongSelf
-        [YJTestURLSessionTask taskWithRequest:[YJTestURLRequest requestWithSource:strongSelf]].request.supportResume = YES; // 开启断网重连
+        [YJTestURLSessionTask taskWithRequest:request].request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
     }] resume]; // 发出请求
 }

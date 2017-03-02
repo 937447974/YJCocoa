@@ -12,14 +12,14 @@
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
 #import <UIKit/UIKit.h>
+#import <pthread.h>
 
 @interface YJNSSingletonMCenter() {
-    dispatch_queue_t _queue; // 串行队列
+    pthread_mutex_t _lock;
 }
-/** 随应用一直存在的单例*/
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict;
-/** 内存警告时会回收的单例*/
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict;
+
+@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict; ///< 随应用一直存在的单例
+@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict; ///< 内存警告时会回收的单例
 
 @end
 
@@ -43,33 +43,38 @@
     if (self) {
         self.strongDict = [NSMutableDictionary dictionary];
         self.weakDict = [NSMutableDictionary dictionary];
-        // 串行队列
-        _queue = dispatch_queue_create("YJSingletonMCenter", DISPATCH_QUEUE_SERIAL);
+        pthread_mutex_init(&_lock, NULL);
         // 内存监听
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
 }
 
+- (void)dealloc {
+    pthread_mutex_destroy(&_lock);
+}
+
 #pragma mark 内存警告
 - (void)didReceiveMemoryWarning {
-    // 无须考虑self释放，此为应用级单例，随应用一直存在
-    dispatch_async(_queue, ^{
-        [self.weakDict removeAllObjects];
-    });
+    pthread_mutex_lock(&_lock);
+    [self.weakDict removeAllObjects];
+    pthread_mutex_unlock(&_lock);
 }
 
 #pragma mark 注册单例辅助方法
 - (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)sClass forIdentifier:(NSString *)identifier {
-    __block id singleton = [dict objectForKey:identifier];
+    id singleton;
     while (!singleton) {
-        dispatch_sync(_queue, ^{
+        if (pthread_mutex_trylock(&_lock) == 0) {
             singleton = [dict objectForKey:identifier];
-            if (singleton) return; // 已存在直接返回
-            // 未存在，初始化
-            singleton = [[sClass alloc] init];
-            [dict setObject:singleton forKey:identifier];
-        });
+            if (!singleton) {
+                singleton = [[sClass alloc] init];
+                [dict setObject:singleton forKey:identifier];
+            }
+            pthread_mutex_unlock(&_lock);
+        } else {
+            usleep(5000); //5ms
+        }
     }
     return singleton;
 }
@@ -94,15 +99,15 @@
 
 #pragma mark - 移除weak单例
 - (void)removeWeakSingleton:(Class)sClass {
-    dispatch_sync(_queue, ^{
-        [self.weakDict removeObjectForKey:YJNSStringFromClass(sClass)];
-    });
+    pthread_mutex_lock(&_lock);
+    [self.weakDict removeObjectForKey:YJNSStringFromClass(sClass)];
+    pthread_mutex_unlock(&_lock);
 }
 
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {
-    dispatch_sync(_queue, ^{
-        [self.weakDict removeObjectForKey:identifier];
-    });
+    pthread_mutex_lock(&_lock);
+    [self.weakDict removeObjectForKey:identifier];
+    pthread_mutex_unlock(&_lock);
 }
 
 @end
