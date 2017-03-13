@@ -25,85 +25,81 @@ void YJTimeProfilerSingalHandler(int sig) {
 }
 
 @interface YJTimeProfiler ()
+{
+    CFRunLoopObserverRef _runLoopObserver;
+}
 
 @property (nonatomic) pthread_t pthreadMain; ///< 主线程
 @property (nonatomic, strong) YJThreadLogger *threadLogger; ///< 线程日志记录器
 
-@property (nonatomic, strong) dispatch_source_t requestTimer;   ///< 请求计时器
-@property (nonatomic, strong) dispatch_source_t requestTimeout; ///< 请求超时计时器
+@property (nonatomic, strong) dispatch_source_t timeout; ///< 超时计时器
 
 @end
 
 @implementation YJTimeProfiler
 
 + (YJTimeProfiler *)shared {
-#if DEBUG
     static YJTimeProfiler *tp;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        signal(SIGUSR1, YJTimeProfilerSingalHandler);
         tp = [[YJTimeProfiler alloc] init];
+        tp.frequency = 1;
+        tp.interval = 0.17;
 #if YJTimeProfilerDebug
+        signal(SIGUSR1, YJTimeProfilerSingalHandler);
         tp.pthreadMain = pthread_self();
 #else
         tp.threadLogger = [[YJThreadLogger alloc] init];
 #endif
-        tp.frequency = 1;
-        tp.interval = 0.17;
     });
     return tp;
-#else
-    return nil;
+    
+}
+
+#pragma mark - setter
+- (void)setStart:(BOOL)start {
+    _start = start;
+#if DEBUG
+    CFRunLoopRef runLoop = CFRunLoopGetCurrent();
+    CFStringRef runLoopMode = kCFRunLoopCommonModes;
+    if (start) {
+        __weakSelf
+        _runLoopObserver = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, true, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+            if (activity == kCFRunLoopBeforeWaiting) {
+                [weakSelf runLoopBeforeWaiting];
+            } else if (activity == kCFRunLoopAfterWaiting) {
+                [weakSelf runLoopAfterWaiting];
+            }
+        });
+        CFRunLoopAddObserver(runLoop, _runLoopObserver, runLoopMode);
+    } else {
+        if (_runLoopObserver) {
+            [self runLoopBeforeWaiting];
+            CFRunLoopRemoveObserver(runLoop, _runLoopObserver, runLoopMode);
+            CFRelease(_runLoopObserver); // 注意释放，否则会造成内存泄露
+        }
+    }
 #endif
 }
 
-
-- (void)dealloc {
-    [self cancel];
-}
-
-#pragma mark - start
-- (void)start {
-    self.requestTimer = dispatch_timer_default(self.frequency, ^{
-        [self request];
-    });
-}
-
-- (void)request {
-#if DEBUG
-    NSLog(@"YJTimeProfiler request main queue start");
-    self.requestTimeout = dispatch_timer_default(self.interval, ^{
-        [self cancelRequestTimeout];
+#pragma mark - private
+- (void)runLoopAfterWaiting {
+    NSLog(@"YJTimeProfiler main queue start");
+    self.timeout = dispatch_timer_default(self.interval, ^{
+        [self runLoopBeforeWaiting];
 #if YJTimeProfilerDebug
         pthread_kill(self.pthreadMain, SIGUSR1);
 #else
         NSLog(@"\nYJTimeProfiler捕获主线程耗时代码 : \n%@", self.threadLogger.log);
 #endif
     });
-    dispatch_async_main(^{
-        [self cancelRequestTimeout];
-    });
-#endif
 }
 
-#pragma mark - cancel
-- (void)cancel {
-    [self cancelRequestTimer];
-    [self cancelRequestTimeout];
-}
-
-- (void)cancelRequestTimer {
-    if (self.requestTimer) {
-        dispatch_source_cancel(self.requestTimer);
-        self.requestTimer = nil;
-    }
-}
-
-- (void)cancelRequestTimeout {
-    NSLog(@"YJTimeProfiler request main queue end");
-    if (self.requestTimeout) {
-        dispatch_source_cancel(self.requestTimeout);
-        self.requestTimeout = nil;
+- (void)runLoopBeforeWaiting {
+    NSLog(@"YJTimeProfiler main queue end");
+    if (self.timeout) {
+        dispatch_source_cancel(self.timeout);
+        self.timeout = nil;
     }
 }
 

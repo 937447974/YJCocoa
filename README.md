@@ -331,6 +331,7 @@ YJ技术支持群：557445088
 | | 2017-03-02 | Singleton性能优化，启用pthread_mutex锁 |
 | | 2017-03-13 | Dispatch增加pthread锁架构 |
 | | 2017-03-13 | Router和NavigationRouter架构升级 |
+| | 2017-03-13 | TimeProfiler启用RunLoop监听主线程 |
 
 ##Copyright
 
