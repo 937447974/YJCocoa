@@ -19,7 +19,7 @@
 }
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict; ///< 随应用一直存在的单例
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict; ///< 内存警告时会回收的单例
+@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict;   ///< 内存警告时会回收的单例
 
 @end
 

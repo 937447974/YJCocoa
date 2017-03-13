@@ -59,7 +59,8 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 
 ###1.1.10 Singleton
 
-单例管理中心，一行代码即可让当前类转换为单例。
+1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary)`
+2. 内含单例管理中心，可定制局域单例。
 
 ###1.1.11 Swizzling 
 
@@ -332,6 +333,7 @@ YJ技术支持群：557445088
 | | 2017-03-13 | Dispatch增加pthread锁架构 |
 | | 2017-03-13 | Router和NavigationRouter架构升级 |
 | | 2017-03-13 | TimeProfiler启用RunLoop监听主线程 |
+| | 2017-03-13 | Singleton增加单例宏 |
 
 ##Copyright
 

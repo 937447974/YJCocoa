@@ -30,13 +30,13 @@
 
 #pragma mark - 单例
 - (void)testSingleton {
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i<10; i++) {
         //异步执行队列任务
         dispatch_async_concurrent(^{
-            NSLog(@"%@", [YJNSSingletonMC registerStrongSingleton:[ViewController class]]);
+            NSLog(@"%@", YJNSSingletonS(ViewController).view);
         });
         dispatch_async_concurrent(^{
-            NSLog(@"%@", [YJNSSingletonMC registerStrongSingleton:[YJNSSingletonMCenter class]]);
+            NSLog(@"%@", YJNSSingletonW(NSMutableDictionary));
         });
     }
     NSLog(@"dispatch_queue_create");
