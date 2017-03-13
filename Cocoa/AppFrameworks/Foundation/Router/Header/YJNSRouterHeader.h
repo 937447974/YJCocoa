@@ -18,7 +18,6 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
 /** 路由代理*/
 @protocol YJNSRouterDelegate <NSObject>
 
-@optional
 /**
  *  @abstract 初始化
  *

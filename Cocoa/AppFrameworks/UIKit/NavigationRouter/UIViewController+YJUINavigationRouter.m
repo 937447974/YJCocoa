@@ -10,13 +10,7 @@
 //
 
 #import "UIViewController+YJUINavigationRouter.h"
-
-@interface NSObject (YJNSRouterDelegate) <YJNSRouterDelegate>
-@end
-
-@implementation NSObject (YJNSRouterDelegate)
-
-@end
+#import "YJNSRouterPrivateHeader.h"
 
 @implementation UIViewController (YJUINavigationRouter)
 

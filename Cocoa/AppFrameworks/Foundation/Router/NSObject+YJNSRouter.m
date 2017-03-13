@@ -12,26 +12,7 @@
 #import "NSObject+YJNSRouter.h"
 #import <objc/runtime.h>
 #import "YJNSHttp.h"
-
-@interface NSObject (YJNSRouterDelegate) <YJNSRouterDelegate>
-@end
-
-@implementation NSObject (YJNSRouterDelegate)
-
-- (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL {
-    return [self init];
-}
-
-- (BOOL)openCurrentRouter {
-    return NO;
-}
-
-- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
-    return NO;
-}
-
-@end
-
+#import "YJNSRouterPrivateHeader.h"
 
 @implementation NSObject (YJNSRouter)
 

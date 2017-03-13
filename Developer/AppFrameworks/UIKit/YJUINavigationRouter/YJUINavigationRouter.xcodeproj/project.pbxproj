@@ -21,6 +21,7 @@
 		8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC861E092ED200A82399 /* YJOtherViewController.m */; };
 		8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC891E092ED200A82399 /* YJMainRouteManager.m */; };
 		8480BC901E092ED200A82399 /* YJOtherRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */; };
+		84A8D4E91E768552008B4407 /* YJNSRouterPrivateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4E81E768552008B4407 /* YJNSRouterPrivateHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOtherRouteManager.h; sourceTree = "<group>"; };
 		8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOtherRouteManager.m; sourceTree = "<group>"; };
 		8480BC8C1E092ED200A82399 /* YJRouteHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRouteHeader.h; sourceTree = "<group>"; };
+		84A8D4E71E768552008B4407 /* YJNSRouterPrivateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterPrivateHeader.h; sourceTree = "<group>"; };
+		84A8D4E81E768552008B4407 /* YJNSRouterPrivateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouterPrivateHeader.m; sourceTree = "<group>"; };
 		A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUINavigationRouter.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				8480BC5A1E090BD600A82399 /* YJNSRouterHeader.h */,
+				84A8D4E71E768552008B4407 /* YJNSRouterPrivateHeader.h */,
+				84A8D4E81E768552008B4407 /* YJNSRouterPrivateHeader.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */,
 				8480BC061E07D9D200A82399 /* AppDelegate.m in Sources */,
 				8480BC8D1E092ED200A82399 /* YJMainViewController.m in Sources */,
+				84A8D4E91E768552008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
 				8480BC401E08D10700A82399 /* UIViewController+YJUINavigationRouter.m in Sources */,
 				8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */,
 				8480BC031E07D9D200A82399 /* main.m in Sources */,
