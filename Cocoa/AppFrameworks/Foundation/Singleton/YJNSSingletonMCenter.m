@@ -9,10 +9,10 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
-#import <UIKit/UIKit.h>
-#import <pthread.h>
+#import "YJDispatch.h"
 
 @interface YJNSSingletonMCenter() {
     pthread_mutex_t _lock;
@@ -56,25 +56,23 @@
 
 #pragma mark 内存警告
 - (void)didReceiveMemoryWarning {
-    pthread_mutex_lock(&_lock);
+    @synchronized_pthread (_lock)
     [self.weakDict removeAllObjects];
-    pthread_mutex_unlock(&_lock);
 }
 
 #pragma mark 注册单例辅助方法
 - (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)sClass forIdentifier:(NSString *)identifier {
     id singleton;
     while (!singleton) {
-        if (pthread_mutex_trylock(&_lock) == 0) {
+        @synchronized_pthread_try(_lock) {
             singleton = [dict objectForKey:identifier];
             if (!singleton) {
                 singleton = [[sClass alloc] init];
                 [dict setObject:singleton forKey:identifier];
             }
-            pthread_mutex_unlock(&_lock);
-        } else {
+        } @synchronized_pthread_try_else {
             usleep(5000); //5ms
-        }
+        } @synchronized_pthread_try_end
     }
     return singleton;
 }
@@ -99,15 +97,13 @@
 
 #pragma mark - 移除weak单例
 - (void)removeWeakSingleton:(Class)sClass {
-    pthread_mutex_lock(&_lock);
+    @synchronized_pthread (_lock)
     [self.weakDict removeObjectForKey:YJNSStringFromClass(sClass)];
-    pthread_mutex_unlock(&_lock);
 }
 
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {
-    pthread_mutex_lock(&_lock);
+    @synchronized_pthread (_lock)
     [self.weakDict removeObjectForKey:identifier];
-    pthread_mutex_unlock(&_lock);
 }
 
 @end
