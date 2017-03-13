@@ -14,6 +14,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - gcd
+
 /** 弱引用*/
 #define __weakSelf   __weak __typeof__(self) weakSelf = self;
 /** 强引用*/
@@ -80,7 +82,7 @@ static inline void executeCleanupBlock (__strong cleanup_block_t _Nonnull * _Non
 #define finally_execute symbol_at __strong cleanup_block __attribute__((cleanup(executeCleanupBlock), unused)) = ^
 
 
-#pragma mark - pthread
+#pragma mark - pthread🔐
 
 /**
  pthread_mutex_t _lock;            //1. @interface内属性
@@ -94,5 +96,14 @@ static inline void executeCleanupBlock (__strong cleanup_block_t _Nonnull * _Non
             symbol_at \
             pthread_mutex_lock(&lock); @finally_execute { pthread_mutex_unlock(&lock); };
 
+/**
+ @synchronized_pthread_try(_lock) { //1. 🔐成功
+ } @synchronized_pthread_try_else { //2. 🔐失败
+ } @synchronized_pthread_try_end    //3. 🔐结束
+ */
+#define synchronized_pthread_try(lock)  symbol_at if (pthread_mutex_trylock(&lock) == 0) {\
+                                                    @finally_execute { pthread_mutex_unlock(&lock); };
+#define synchronized_pthread_try_else   symbol_at } else {
+#define synchronized_pthread_try_end    symbol_at }
 
 NS_ASSUME_NONNULL_END

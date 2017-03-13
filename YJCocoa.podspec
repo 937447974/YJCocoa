@@ -109,8 +109,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
-                singleton.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                singleton.dependency 'YJCocoa/System/Dispatch'
+                singleton.subspec 'Core' do |score|
+                    score.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}'
+                    score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                    score.dependency 'YJCocoa/System/Dispatch'
+                end
             end
             # Swizzling
             foundation.subspec 'Swizzling' do |swizzling|

@@ -41,7 +41,6 @@
 		8480BD901E09399400A82399 /* YJNSRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD051E09399400A82399 /* YJNSRouteManager.m */; };
 		8480BD911E09399400A82399 /* NSObject+YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD071E09399400A82399 /* NSObject+YJNSRouter.m */; };
 		8480BD921E09399400A82399 /* YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD0A1E09399400A82399 /* YJNSRouter.m */; };
-		8480BD931E09399400A82399 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD0D1E09399400A82399 /* YJNSSingletonMCenter.m */; };
 		8480BD941E09399400A82399 /* YJNSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD101E09399400A82399 /* YJNSTimer.m */; };
 		8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD131E09399400A82399 /* YJNSURLCode.m */; };
 		8480BD961E09399400A82399 /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD191E09399400A82399 /* YJNSURLSessionPool.m */; };
@@ -79,6 +78,9 @@
 		8480BDBB1E09399400A82399 /* YJUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD7C1E09399400A82399 /* YJUITableViewCell.m */; };
 		8480BDBC1E09399400A82399 /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD7F1E09399400A82399 /* YJUITableCellObject.m */; };
 		8480BDBD1E09399400A82399 /* UIView+YJUIViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD821E09399400A82399 /* UIView+YJUIViewGeometry.m */; };
+		84A8D4FC1E76ACA5008B4407 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F91E76ACA5008B4407 /* YJNSSingletonMCenter.m */; };
+		84A8D4FD1E76ACA5008B4407 /* NSObject+YJNSSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4FB1E76ACA5008B4407 /* NSObject+YJNSSingleton.m */; };
+		84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */; };
 		84C0A31A1E1E1A9D00455B46 /* YJNSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0A3171E1E1A9D00455B46 /* YJNSCalendar.m */; };
 		84C0A31B1E1E1A9D00455B46 /* YJNSDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0A3191E1E1A9D00455B46 /* YJNSDateComponents.m */; };
 		84D355201DAB432F0097D526 /* YJDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3551E1DAB432F0097D526 /* YJDispatch.m */; };
@@ -161,8 +163,6 @@
 		8480BD071E09399400A82399 /* NSObject+YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSRouter.m"; sourceTree = "<group>"; };
 		8480BD091E09399400A82399 /* YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouter.h; sourceTree = "<group>"; };
 		8480BD0A1E09399400A82399 /* YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouter.m; sourceTree = "<group>"; };
-		8480BD0C1E09399400A82399 /* YJNSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingletonMCenter.h; sourceTree = "<group>"; };
-		8480BD0D1E09399400A82399 /* YJNSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingletonMCenter.m; sourceTree = "<group>"; };
 		8480BD0F1E09399400A82399 /* YJNSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSTimer.h; sourceTree = "<group>"; };
 		8480BD101E09399400A82399 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		8480BD121E09399400A82399 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
@@ -242,6 +242,12 @@
 		8480BD821E09399400A82399 /* UIView+YJUIViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJUIViewGeometry.m"; sourceTree = "<group>"; };
 		8480BD831E09399400A82399 /* YJUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIKit.h; sourceTree = "<group>"; };
 		8480BD841E09399400A82399 /* YJAppFrameworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAppFrameworks.h; sourceTree = "<group>"; };
+		84A8D4F81E76ACA5008B4407 /* YJNSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingletonMCenter.h; sourceTree = "<group>"; };
+		84A8D4F91E76ACA5008B4407 /* YJNSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingletonMCenter.m; sourceTree = "<group>"; };
+		84A8D4FA1E76ACA5008B4407 /* NSObject+YJNSSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSSingleton.h"; sourceTree = "<group>"; };
+		84A8D4FB1E76ACA5008B4407 /* NSObject+YJNSSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSSingleton.m"; sourceTree = "<group>"; };
+		84A8D4FE1E76AD33008B4407 /* YJNSRouterPrivateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterPrivateHeader.h; sourceTree = "<group>"; };
+		84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouterPrivateHeader.m; sourceTree = "<group>"; };
 		84C0A3161E1E1A9D00455B46 /* YJNSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSCalendar.h; sourceTree = "<group>"; };
 		84C0A3171E1E1A9D00455B46 /* YJNSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSCalendar.m; sourceTree = "<group>"; };
 		84C0A3181E1E1A9D00455B46 /* YJNSDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSDateComponents.h; sourceTree = "<group>"; };
@@ -599,6 +605,8 @@
 			isa = PBXGroup;
 			children = (
 				8480BD021E09399400A82399 /* YJNSRouterHeader.h */,
+				84A8D4FE1E76AD33008B4407 /* YJNSRouterPrivateHeader.h */,
+				84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -624,8 +632,9 @@
 		8480BD0B1E09399400A82399 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
-				8480BD0C1E09399400A82399 /* YJNSSingletonMCenter.h */,
-				8480BD0D1E09399400A82399 /* YJNSSingletonMCenter.m */,
+				84A8D4F71E76ACA5008B4407 /* Core */,
+				84A8D4FA1E76ACA5008B4407 /* NSObject+YJNSSingleton.h */,
+				84A8D4FB1E76ACA5008B4407 /* NSObject+YJNSSingleton.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -931,6 +940,15 @@
 			path = ViewGeometry;
 			sourceTree = "<group>";
 		};
+		84A8D4F71E76ACA5008B4407 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				84A8D4F81E76ACA5008B4407 /* YJNSSingletonMCenter.h */,
+				84A8D4F91E76ACA5008B4407 /* YJNSSingletonMCenter.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		84C0A3151E1E1A9D00455B46 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1089,6 +1107,7 @@
 				8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */,
 				8480BD9F1E09399400A82399 /* YJNSLayoutYAxisAnchor.m in Sources */,
 				8480BDB41E09399400A82399 /* YJUIPageView.m in Sources */,
+				84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
 				8480BDBA1E09399400A82399 /* YJUISuspensionCellView.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				8480BDAA1E09399400A82399 /* YJUIColor.m in Sources */,
@@ -1105,7 +1124,6 @@
 				84460DC31E4C7001004EBB00 /* YJUIPageViewCellObject.m in Sources */,
 				8480BD891E09399400A82399 /* YJNSDirectory.m in Sources */,
 				8480BDAE1E09399400A82399 /* YJUIBarButtonView.m in Sources */,
-				8480BD931E09399400A82399 /* YJNSSingletonMCenter.m in Sources */,
 				8480BD871E09399400A82399 /* YJNSDictionaryModelManager.m in Sources */,
 				84083AE31E2759E300D89EAA /* YJLeaks.m in Sources */,
 				8480BDB81E09399400A82399 /* YJUITableViewDelegateManager.m in Sources */,
@@ -1131,6 +1149,7 @@
 				8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */,
 				8473AB7D1CE969DB000E3580 /* main.m in Sources */,
 				8480BDB71E09399400A82399 /* YJUITableViewDataSourceManager.m in Sources */,
+				84A8D4FC1E76ACA5008B4407 /* YJNSSingletonMCenter.m in Sources */,
 				8480BD8F1E09399400A82399 /* NSObject+YJNSPerformSelector.m in Sources */,
 				8480BD9D1E09399400A82399 /* YJNSLayoutDimension.m in Sources */,
 				8480BDA71E09399400A82399 /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
@@ -1152,6 +1171,7 @@
 				8480BDAB1E09399400A82399 /* UITextField+YJInputLength.m in Sources */,
 				84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */,
 				8480BD861E09399400A82399 /* NSObject+YJNSDictionaryModel.m in Sources */,
+				84A8D4FD1E76ACA5008B4407 /* NSObject+YJNSSingleton.m in Sources */,
 				8480BD901E09399400A82399 /* YJNSRouteManager.m in Sources */,
 				8480BDA11E09399400A82399 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */,
 				8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */,
