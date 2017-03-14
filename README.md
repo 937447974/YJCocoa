@@ -59,10 +59,10 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 
 ###1.1.10 Singleton
 
-1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary)`
-2. 内含单例管理中心，可定制局域单例。
+1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
+2. 可定制全局单例和局域单例。
 
-###1.1.11 Swizzling 
+###1.1.11 Swizzling
 
 支持随时随地交换方法。
 
