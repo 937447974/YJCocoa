@@ -292,6 +292,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         # TimeProfiler
         dt.subspec 'TimeProfiler' do |tp|
             tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
+            tp.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
             tp.dependency 'YJCocoa/System/Dispatch'
         end
     end

@@ -10,13 +10,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 共享类*/
+#define YJTimeProfilerS YJNSingletonS(YJTimeProfiler, nil)
+
 /** 时间分析器*/
 @interface YJTimeProfiler : NSObject
-
-@property (class, nonatomic, strong, readonly) YJTimeProfiler *shared; ///< 共享
 
 @property (nonatomic) BOOL start; ///< 是否启动
 

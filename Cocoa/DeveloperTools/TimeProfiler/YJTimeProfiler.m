@@ -38,23 +38,21 @@ void YJTimeProfilerSingalHandler(int sig) {
 
 @implementation YJTimeProfiler
 
-+ (YJTimeProfiler *)shared {
-    static YJTimeProfiler *tp;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        tp = [[YJTimeProfiler alloc] init];
-        tp.frequency = 1;
-        tp.interval = 0.17;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.frequency = 1;
+        self.interval = 0.17;
 #if YJTimeProfilerDebug
         signal(SIGUSR1, YJTimeProfilerSingalHandler);
-        tp.pthreadMain = pthread_self();
+        self.pthreadMain = pthread_self();
 #else
-        tp.threadLogger = [[YJThreadLogger alloc] init];
+        self.threadLogger = [[YJThreadLogger alloc] init];
 #endif
-    });
-    return tp;
-    
+    }
+    return self;
 }
+
 
 #pragma mark - setter
 - (void)setStart:(BOOL)start {
