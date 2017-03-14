@@ -10,7 +10,6 @@
 //
 
 #import "YJNSRouteManager.h"
-#import "YJNSSingletonMCenter.h"
 
 @interface YJNSRouteManager ()
 
@@ -19,10 +18,6 @@
 @end
 
 @implementation YJNSRouteManager
-
-+ (YJNSRouteManager *)sharedManager {
-    return [YJNSSingletonMC registerStrongSingleton:[self class]];
-}
 
 - (instancetype)init {
     self = [super init];

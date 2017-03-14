@@ -11,12 +11,12 @@
 
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
-#import "YJNSSingletonMCenter.h"
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 // YJCDManager单例
-#define YJCDManagerS ((YJCDManager *)[YJNSSingletonMC registerStrongSingleton:[YJCDManager class]])
+#define YJCDManagerS YJNSSingletonS(YJCDManager, nil)
 
 /** CoreData设置的结果*/
 typedef NS_ENUM(NSInteger, YJCDMSetup) {

@@ -33,10 +33,16 @@
     for (int i = 0; i<10; i++) {
         //异步执行队列任务
         dispatch_async_concurrent(^{
-            NSLog(@"%@", YJNSSingletonS(ViewController).view);
+            NSLog(@"0-%@", YJNSSingletonS(ViewController, nil));
         });
         dispatch_async_concurrent(^{
-            NSLog(@"%@", YJNSSingletonW(NSMutableDictionary));
+            NSLog(@"1- %@", YJNSSingletonS(ViewController, @"private"));
+        });
+        dispatch_async_concurrent(^{
+            NSLog(@"2-  %@", YJNSSingletonW(ViewController, nil));
+        });
+        dispatch_async_concurrent(^{
+            NSLog(@"3-   %@", YJNSSingletonW(ViewController, @"private"));
         });
     }
     NSLog(@"dispatch_queue_create");

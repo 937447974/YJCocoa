@@ -11,7 +11,7 @@
 
 #import "NSObject+YJLeaks.h"
 #import <objc/runtime.h>
-#import "YJNSSingletonMCenter.h"
+#import "YJNSSingleton.h"
 #import "YJDispatch.h"
 
 @interface NSObject (YJLeaksProperty)
@@ -88,7 +88,7 @@
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return [NSMutableArray array];
     }
-    NSMutableDictionary *dict = [YJNSSingletonMC registerWeakSingleton:[NSMutableDictionary class] forIdentifier:@"NSObject(YJLeaks)"];
+    NSMutableDictionary *dict = YJNSSingletonW(NSMutableDictionary, @"NSObject(YJLeaks)");
     NSMutableArray<NSString *> *propertyArray = [dict objectForKey:className];
     if (!propertyArray) {
         propertyArray = [NSMutableArray array];

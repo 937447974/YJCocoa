@@ -10,13 +10,8 @@
 //
 
 #import "YJNSURLSessionPool.h"
-#import "YJNSSingletonMCenter.h"
 
 @implementation YJNSURLSessionPool
-
-+ (YJNSURLSessionPool *)sharedPool {
-    return [YJNSSingletonMC registerStrongSingleton:self.class];
-}
 
 - (instancetype)init {
     self = [super init];

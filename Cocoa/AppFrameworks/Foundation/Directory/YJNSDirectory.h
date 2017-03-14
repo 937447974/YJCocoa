@@ -10,12 +10,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSSingletonMCenter.h"
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 // 快速通过单例获取目录
-#define YJNSDirectoryS ((YJNSDirectory *)[YJNSSingletonMC registerWeakSingleton:[YJNSDirectory class]])
+#define YJNSDirectoryS YJNSSingletonW(YJNSDirectory, nil)
 
 /** 应用内目录*/
 @interface YJNSDirectory : NSObject

@@ -10,13 +10,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 共享网络会话池*/
+#define YJNSURLSessionPoolS YJNSSingletonS(YJNSURLSessionPool, nil)
+
 /** 网络会话池*/
 @interface YJNSURLSessionPool : NSObject
-
-@property (class, readonly) YJNSURLSessionPool *sharedPool; ///< 共享网络会话池
 
 /**
  *  @abstract 存储

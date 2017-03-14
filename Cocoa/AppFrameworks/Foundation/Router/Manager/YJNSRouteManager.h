@@ -11,13 +11,15 @@
 
 #import <Foundation/Foundation.h>
 #import "YJNSRouterHeader.h"
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 共享类*/
+#define YJNSRouteManagerS YJNSSingletonS(YJNSRouteManager, nil)
+
 /** 路由导航管理器*/
 @interface YJNSRouteManager : NSObject
-
-@property (class, nonatomic, readonly) YJNSRouteManager *sharedManager; ///< 共享类
 
 /**
  *  @abstract 注册路由

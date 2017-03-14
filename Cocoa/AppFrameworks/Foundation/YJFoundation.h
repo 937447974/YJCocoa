@@ -36,8 +36,8 @@
 // 路由器导航基础库
 #import "NSObject+YJNSRouter.h"
 
-// 快速将类转换为单例类
-#import "NSObject+YJNSSingleton.h"
+// 宏定义，快速将类转换为单例类
+#import "YJNSSingleton.h"
 
 // 交换方法
 #import "YJSwizzling.h"

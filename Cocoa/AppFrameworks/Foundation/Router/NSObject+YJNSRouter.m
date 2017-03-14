@@ -27,7 +27,7 @@
 }
 
 - (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
-    Class targetRouterClass = [YJNSRouteManager.sharedManager routerClassForURL:routerURL];
+    Class targetRouterClass = [YJNSRouteManagerS routerClassForURL:routerURL];
     if (targetRouterClass) {
         NSObject *targetRouter = [[targetRouterClass alloc] initWithRouterURL:routerURL];
         YJNSRouter *router = [[self.router.class alloc] init];

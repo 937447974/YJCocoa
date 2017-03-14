@@ -27,15 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (YJNSSingletonMCenter *)defaultCenter;
 
-#pragma mark 注册strong单例
-/**
- *  注册strong单例（随应用一直存在）
- *
- *  @param sClass 单例类
- *
- *  @return singleton
- */
-- (id)registerStrongSingleton:(Class)sClass;
+#pragma mark 注册单例
 
 /**
  *  注册strong单例（随应用一直存在）
@@ -45,17 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return singleton
  */
-- (id)registerStrongSingleton:(Class)sClass forIdentifier:(NSString *)identifier;
-
-#pragma mark 注册weak单例
-/**
- *  注册weak单例（内存警告时回收）
- *
- *  @param sClass 单例类
- *
- *  @return singleton
- */
-- (id)registerWeakSingleton:(Class)sClass;
+- (id)registerStrongSingleton:(Class)sClass forIdentifier:(nullable NSString *)identifier;
 
 /**
  *  注册weak单例（内存警告时回收）
@@ -65,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return singleton
  */
-- (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier;
+- (id)registerWeakSingleton:(Class)sClass forIdentifier:(nullable NSString *)identifier;
 
 #pragma mark 移除weak单例
 /**

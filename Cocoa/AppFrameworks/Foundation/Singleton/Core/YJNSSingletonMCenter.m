@@ -37,7 +37,7 @@
     return singletonMC;
 }
 
-#pragma mark - (-)
+#pragma mark - super
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -54,14 +54,24 @@
     pthread_mutex_destroy(&_lock);
 }
 
-#pragma mark 内存警告
 - (void)didReceiveMemoryWarning {
     @synchronized_pthread (_lock)
     [self.weakDict removeAllObjects];
 }
 
-#pragma mark 注册单例辅助方法
+#pragma mark - 注册单例
+- (id)registerStrongSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
+    return [self registerSingleton:self.strongDict forClass:sClass forIdentifier:identifier];
+}
+
+- (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
+    return [self registerSingleton:self.weakDict forClass:sClass forIdentifier:identifier];
+}
+
 - (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)sClass forIdentifier:(NSString *)identifier {
+    if (!identifier) {
+        identifier = YJNSStringFromClass(sClass);
+    }
     id singleton;
     while (!singleton) {
         @synchronized_pthread_try(_lock) {
@@ -77,28 +87,9 @@
     return singleton;
 }
 
-#pragma mark - 注册strong单例
-- (id)registerStrongSingleton:(Class)sClass {
-    return [self registerStrongSingleton:sClass forIdentifier:YJNSStringFromClass(sClass)];
-}
-
-- (id)registerStrongSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
-    return [self registerSingleton:self.strongDict forClass:sClass forIdentifier:identifier];
-}
-
-#pragma mark - 注册weak单例
-- (id)registerWeakSingleton:(Class)sClass {
-    return [self registerWeakSingleton:sClass forIdentifier:YJNSStringFromClass(sClass)];
-}
-
-- (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
-    return [self registerSingleton:self.weakDict forClass:sClass forIdentifier:identifier];
-}
-
 #pragma mark - 移除weak单例
 - (void)removeWeakSingleton:(Class)sClass {
-    @synchronized_pthread (_lock)
-    [self.weakDict removeObjectForKey:YJNSStringFromClass(sClass)];
+    [self removeWeakSingletonWithIdentifier:YJNSStringFromClass(sClass)];
 }
 
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {

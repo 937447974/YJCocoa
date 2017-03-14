@@ -22,9 +22,9 @@
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
 		8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
 		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
-		84A8D4EF1E76A5D7008B4407 /* NSObject+YJNSSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4EE1E76A5D7008B4407 /* NSObject+YJNSSingleton.m */; };
 		84A8D4F31E76A65D008B4407 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F21E76A65D008B4407 /* YJNSSingletonMCenter.m */; };
 		84A8D4F61E76A7D6008B4407 /* YJNSRouterPrivateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F51E76A7D6008B4407 /* YJNSRouterPrivateHeader.m */; };
+		84A8D5061E778BEA008B4407 /* YJNSSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D5051E778BEA008B4407 /* YJNSSingleton.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
 		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
 		84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF938F1DBF5039004662BF /* YJNSFileManager.m */; };
@@ -97,12 +97,12 @@
 		847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSURLSessionPool.m; sourceTree = "<group>"; };
 		8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJURLDecodeTest.m; sourceTree = "<group>"; };
 		8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFileManagerTest.m; sourceTree = "<group>"; };
-		84A8D4ED1E76A5D7008B4407 /* NSObject+YJNSSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSSingleton.h"; sourceTree = "<group>"; };
-		84A8D4EE1E76A5D7008B4407 /* NSObject+YJNSSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSSingleton.m"; sourceTree = "<group>"; };
 		84A8D4F11E76A65D008B4407 /* YJNSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingletonMCenter.h; sourceTree = "<group>"; };
 		84A8D4F21E76A65D008B4407 /* YJNSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingletonMCenter.m; sourceTree = "<group>"; };
 		84A8D4F41E76A7D6008B4407 /* YJNSRouterPrivateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterPrivateHeader.h; sourceTree = "<group>"; };
 		84A8D4F51E76A7D6008B4407 /* YJNSRouterPrivateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouterPrivateHeader.m; sourceTree = "<group>"; };
+		84A8D5041E778BEA008B4407 /* YJNSSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingleton.h; sourceTree = "<group>"; };
+		84A8D5051E778BEA008B4407 /* YJNSSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingleton.m; sourceTree = "<group>"; };
 		84C59DCF1DB0D49F00B93218 /* YJNSAspectOrientProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSAspectOrientProgramming.h; sourceTree = "<group>"; };
 		84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSAspectOrientProgramming.m; sourceTree = "<group>"; };
 		84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAOPTest.m; sourceTree = "<group>"; };
@@ -482,9 +482,9 @@
 		84D356521DAB73F10097D526 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
+				84A8D5041E778BEA008B4407 /* YJNSSingleton.h */,
+				84A8D5051E778BEA008B4407 /* YJNSSingleton.m */,
 				84A8D4F01E76A65D008B4407 /* Core */,
-				84A8D4ED1E76A5D7008B4407 /* NSObject+YJNSSingleton.h */,
-				84A8D4EE1E76A5D7008B4407 /* NSObject+YJNSSingleton.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -783,8 +783,8 @@
 				84D355821DAB5E700097D526 /* main.m in Sources */,
 				84A8D4F61E76A7D6008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
 				84D356591DAB73F10097D526 /* NSObject+YJNSDictionaryModel.m in Sources */,
-				84A8D4EF1E76A5D7008B4407 /* NSObject+YJNSSingleton.m in Sources */,
 				84083A2D1E23395A00D89EAA /* YJTestURLSessionTask.m in Sources */,
+				84A8D5061E778BEA008B4407 /* YJNSSingleton.m in Sources */,
 				840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

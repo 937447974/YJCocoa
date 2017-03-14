@@ -11,11 +11,11 @@
 
 #import "YJNSTimer.h"
 #import "NSObject+YJNSPerformSelector.h"
-#import "YJNSSingletonMCenter.h"
+#import "YJNSSingleton.h"
 #import "YJSecRandom.h"
 
 /** 时间缓存池*/
-#define timerDict [YJNSSingletonMC registerStrongSingleton:[NSMutableDictionary class] forIdentifier:@"YJNSTimer"]
+#define TimerDict YJNSSingletonS(NSMutableDictionary, @"YJNSTimer")
 
 @interface YJNSTimer ()
 
@@ -48,7 +48,7 @@
 }
 
 + (instancetype)timerWithIdentifier:(NSString *)identifier {
-    NSMutableDictionary<NSString *, YJNSTimer *> *tDict = timerDict;
+    NSMutableDictionary<NSString *, YJNSTimer *> *tDict = TimerDict;
     if (tDict.count >= 5) {
         for (YJNSTimer *timer in tDict.allValues) {
             if (timer.weakT && !timer.weakTarget) {
@@ -58,7 +58,7 @@
     }
     YJNSTimer *timer;
     if (identifier) {
-        timer = [timerDict objectForKey:identifier];
+        timer = [tDict objectForKey:identifier];
     }
     if (!timer) {
         timer = [[YJNSTimer alloc] init];
@@ -114,7 +114,7 @@
 - (void)invalidate {
     [self.timer invalidate];
     self.timer = nil;
-    [timerDict removeObjectForKey:self.identifier];
+    [TimerDict removeObjectForKey:self.identifier];
 }
 
 #pragma mark - getter & setter

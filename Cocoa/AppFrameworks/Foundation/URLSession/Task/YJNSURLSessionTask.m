@@ -15,7 +15,7 @@
 @implementation YJNSURLSessionTask
 
 + (instancetype)taskWithRequest:(YJNSURLRequest *)request {
-    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
+    YJNSURLSessionPool *sPool = YJNSURLSessionPoolS;
     YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
     if (!task) {
         task = [[self alloc] init];
@@ -80,7 +80,7 @@
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
     self -> _state = YJNSURLSessionTaskStateCanceling;
     if (!self.request.supportResume) {
-        [YJNSURLSessionPool.sharedPool.poolDict removeObjectForKey:self.request.identifier];
+        [YJNSURLSessionPoolS.poolDict removeObjectForKey:self.request.identifier];
         _success = nil;
         _failure = nil;
     }

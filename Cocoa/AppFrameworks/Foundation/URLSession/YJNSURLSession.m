@@ -24,7 +24,7 @@
 }
 
 + (NSArray *)allEffectiveTask {
-    YJNSURLSessionPool *sPool = YJNSURLSessionPool.sharedPool;
+    YJNSURLSessionPool *sPool = YJNSURLSessionPoolS;
     NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
     NSMutableArray *removeKeyArray = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
     for (YJNSURLSessionTask *task in sPool.poolDict.allValues) {
