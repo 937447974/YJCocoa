@@ -334,6 +334,7 @@ YJ技术支持群：557445088
 | | 2017-03-13 | Router和NavigationRouter架构升级 |
 | | 2017-03-13 | TimeProfiler启用RunLoop监听主线程 |
 | | 2017-03-13 | Singleton增加单例宏 |
+| | 2017-03-14 | DictionaryModel、Directory、Router、Swizzling、Timer、URLSession、CoreData、Leaks和TimeProfiler库启用Singleton单例宏 |
 
 ##Copyright
 
