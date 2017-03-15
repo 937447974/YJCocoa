@@ -289,6 +289,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 luivc.dependency 'YJCocoa/DeveloperTools/Leaks/NSObject'
             end
         end
+        # MemoryInfo
+        dt.subspec 'MemoryInfo' do |mi|
+            mi.source_files = 'Cocoa/DeveloperTools/MemoryInfo/*.{h,m}'
+        end
         # TimeProfiler
         dt.subspec 'TimeProfiler' do |tp|
             tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'

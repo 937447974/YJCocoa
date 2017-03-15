@@ -19,6 +19,7 @@
 		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
 		84460DC21E4C7001004EBB00 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DBE1E4C7001004EBB00 /* YJUIPageViewCell.m */; };
 		84460DC31E4C7001004EBB00 /* YJUIPageViewCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460DC11E4C7001004EBB00 /* YJUIPageViewCellObject.m */; };
+		84584E501E790E6E000586A5 /* YJMemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84584E4F1E790E6E000586A5 /* YJMemoryInfo.m */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -122,6 +123,8 @@
 		84460DBE1E4C7001004EBB00 /* YJUIPageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCell.m; sourceTree = "<group>"; };
 		84460DC01E4C7001004EBB00 /* YJUIPageViewCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCellObject.h; sourceTree = "<group>"; };
 		84460DC11E4C7001004EBB00 /* YJUIPageViewCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCellObject.m; sourceTree = "<group>"; };
+		84584E4E1E790E6E000586A5 /* YJMemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMemoryInfo.h; sourceTree = "<group>"; };
+		84584E4F1E790E6E000586A5 /* YJMemoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMemoryInfo.m; sourceTree = "<group>"; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				84083AD91E2759A100D89EAA /* Leaks */,
+				84584E4D1E790E6E000586A5 /* MemoryInfo */,
 				84083ADA1E2759A100D89EAA /* TimeProfiler */,
 				84083ADE1E2759BD00D89EAA /* YJDeveloperTools.h */,
 			);
@@ -429,6 +433,15 @@
 				84460DC11E4C7001004EBB00 /* YJUIPageViewCellObject.m */,
 			);
 			path = CellObject;
+			sourceTree = "<group>";
+		};
+		84584E4D1E790E6E000586A5 /* MemoryInfo */ = {
+			isa = PBXGroup;
+			children = (
+				84584E4E1E790E6E000586A5 /* YJMemoryInfo.h */,
+				84584E4F1E790E6E000586A5 /* YJMemoryInfo.m */,
+			);
+			path = MemoryInfo;
 			sourceTree = "<group>";
 		};
 		8473AB6F1CE969DB000E3580 = {
@@ -1107,6 +1120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8480BDBC1E09399400A82399 /* YJUITableCellObject.m in Sources */,
+				84584E501E790E6E000586A5 /* YJMemoryInfo.m in Sources */,
 				8480BD8E1E09399400A82399 /* YJNSFoundationOther.m in Sources */,
 				8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */,
 				8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */,

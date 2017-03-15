@@ -185,7 +185,11 @@ CoreData封装
 
 内存泄漏分析器，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。
 
-##3.2 TimeProfiler
+##3.2 MemoryInfo
+
+主要用于获取运行过程中的RAM相关信息，如剩余内存。
+
+##3.3 TimeProfiler
 
 时间分析器，主要用于分析引起主线程卡顿的代码。
 
@@ -335,6 +339,7 @@ YJ技术支持群：557445088
 | | 2017-03-13 | TimeProfiler启用RunLoop监听主线程 |
 | | 2017-03-13 | Singleton增加单例宏 |
 | | 2017-03-14 | DictionaryModel、Directory、Router、Swizzling、Timer、URLSession、CoreData、Leaks和TimeProfiler库启用Singleton单例宏 |
+| | 2017-03-15 | MemoryInfo上线，主要用于获取运行过程中的RAM相关信息，如剩余内存。|
 
 ##Copyright
 

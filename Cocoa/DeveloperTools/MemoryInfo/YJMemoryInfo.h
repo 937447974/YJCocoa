@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** RAM相关信息*/
 @interface YJMemoryInfo : NSObject
 
 @property (nonatomic, readonly) CGFloat physicalMB; ///< 物理内存
