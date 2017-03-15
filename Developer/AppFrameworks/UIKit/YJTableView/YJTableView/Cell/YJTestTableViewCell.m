@@ -15,7 +15,8 @@
 }
 
 + (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
-    return 2*cellObject.indexPath.row+40;
+    CGFloat height = 2*cellObject.indexPath.row+40;
+    return height <= 200 ? height : 200;
 }
 
 - (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
