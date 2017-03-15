@@ -13,6 +13,7 @@
 		846566501E78EDED00F6B41A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8465664E1E78EDED00F6B41A /* Main.storyboard */; };
 		846566521E78EDEE00F6B41A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846566511E78EDEE00F6B41A /* Assets.xcassets */; };
 		846566551E78EDEE00F6B41A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846566531E78EDEE00F6B41A /* LaunchScreen.storyboard */; };
+		846566601E78EF2600F6B41A /* YJMemoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465665F1E78EF2600F6B41A /* YJMemoryInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		846566511E78EDEE00F6B41A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846566541E78EDEE00F6B41A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846566561E78EDEE00F6B41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8465665E1E78EF2600F6B41A /* YJMemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMemoryInfo.h; sourceTree = "<group>"; };
+		8465665F1E78EF2600F6B41A /* YJMemoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMemoryInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			children = (
 				846566481E78EDEC00F6B41A /* AppDelegate.h */,
 				846566491E78EDED00F6B41A /* AppDelegate.m */,
+				8465665D1E78EF1C00F6B41A /* MemoryInfo */,
 				8465665C1E78EE0A00F6B41A /* Resources */,
 				846566451E78EDEC00F6B41A /* Supporting Files */,
 				8465664B1E78EDED00F6B41A /* ViewController.h */,
@@ -85,6 +89,16 @@
 				846566531E78EDEE00F6B41A /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8465665D1E78EF1C00F6B41A /* MemoryInfo */ = {
+			isa = PBXGroup;
+			children = (
+				8465665E1E78EF2600F6B41A /* YJMemoryInfo.h */,
+				8465665F1E78EF2600F6B41A /* YJMemoryInfo.m */,
+			);
+			name = MemoryInfo;
+			path = ../../../../Cocoa/DeveloperTools/MemoryInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8465664D1E78EDED00F6B41A /* ViewController.m in Sources */,
+				846566601E78EF2600F6B41A /* YJMemoryInfo.m in Sources */,
 				8465664A1E78EDED00F6B41A /* AppDelegate.m in Sources */,
 				846566471E78EDEC00F6B41A /* main.m in Sources */,
 			);
