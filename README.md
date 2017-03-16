@@ -1,14 +1,10 @@
 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016110201.png)
 
-[![Language: Objective-C](https://img.shields.io/badge/language-Objective%20C-orange.svg?style=flat)](https://developer.apple.com/reference/objectivec) 
-[![Platform](https://img.shields.io/cocoapods/p/YJCocoa.svg?style=flat)](http://cocoadocs.org/docsets/YJCocoa) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/937447974/YJCocoa/blob/master/LICENSE) 
-[![CocoaPods](https://img.shields.io/cocoapods/v/YJCocoa.svg?style=flat)](http://cocoapods.org) 
-![Apps](https://img.shields.io/cocoapods/at/YJCocoa.svg?style=flat) 
-![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
+[![Language: Objective-C](https://img.shields.io/badge/language-Objective%20C-orange.svg?style=flat)](https://developer.apple.com/reference/objectivec) [![Platform](https://img.shields.io/cocoapods/p/YJCocoa.svg?style=flat)](http://cocoadocs.org/docsets/YJCocoa) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/937447974/YJCocoa/blob/master/LICENSE) [![CocoaPods](https://img.shields.io/cocoapods/v/YJCocoa.svg?style=flat)](http://cocoapods.org) ![Apps](https://img.shields.io/cocoapods/at/YJCocoa.svg?style=flat) ![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
 
 YJ系列开源库
 
-1. 支持iOS7.0和Swift开发。
+1. 支持 iOS 7.0 和 Swift 3.0 开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
 
 整体架构和苹果类似,每一层都有各自的开源库。
