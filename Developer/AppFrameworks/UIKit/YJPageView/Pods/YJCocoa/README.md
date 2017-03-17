@@ -1,14 +1,10 @@
 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016110201.png)
 
-[![Language: Objective-C](https://img.shields.io/badge/language-Objective%20C-orange.svg?style=flat)](https://developer.apple.com/reference/objectivec) 
-[![Platform](https://img.shields.io/cocoapods/p/YJCocoa.svg?style=flat)](http://cocoadocs.org/docsets/YJCocoa) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/937447974/YJCocoa/blob/master/LICENSE) 
-[![CocoaPods](https://img.shields.io/cocoapods/v/YJCocoa.svg?style=flat)](http://cocoapods.org) 
-![Apps](https://img.shields.io/cocoapods/at/YJCocoa.svg?style=flat) 
-![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
+[![Language: Objective-C](https://img.shields.io/badge/language-Objective%20C-orange.svg?style=flat)](https://developer.apple.com/reference/objectivec) [![Platform](https://img.shields.io/cocoapods/p/YJCocoa.svg?style=flat)](http://cocoadocs.org/docsets/YJCocoa) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/937447974/YJCocoa/blob/master/LICENSE) [![CocoaPods](https://img.shields.io/cocoapods/v/YJCocoa.svg?style=flat)](http://cocoapods.org) ![Apps](https://img.shields.io/cocoapods/at/YJCocoa.svg?style=flat) ![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
 
 YJ系列开源库
 
-1. 支持iOS7.0和Swift开发。
+1. 支持 iOS 7.0 和 Swift 3.0 开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
 
 整体架构和苹果类似,每一层都有各自的开源库。
@@ -59,9 +55,10 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 
 ###1.1.10 Singleton
 
-单例管理中心，一行代码即可让当前类转换为单例。
+1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
+2. 可定制全局单例和局域单例。
 
-###1.1.11 Swizzling 
+###1.1.11 Swizzling
 
 支持随时随地交换方法。
 
@@ -184,7 +181,11 @@ CoreData封装
 
 内存泄漏分析器，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。
 
-##3.2 TimeProfiler
+##3.2 MemoryInfo
+
+主要用于获取运行过程中的RAM相关信息，如剩余内存。
+
+##3.3 TimeProfiler
 
 时间分析器，主要用于分析引起主线程卡顿的代码。
 
@@ -323,6 +324,18 @@ YJ技术支持群：557445088
 | 6.0.1 | 2017-01-17 | Swizzling和Leaks log打印优化 |
 | | 2017-01-18 | Timer倒计时time=0时自动失效，正计时去掉上限 |
 | 6.0.2 | 2017-02-04 | 修复Http URLEncode解析崩溃 |
+| 6.1.0 | 2017-02-09 | TimeProfiler支持直接打印主线程卡顿堆栈信息 |
+| | | PageView架构升级 |
+| | 2017-02-12 | Swizzling增加class方法交换 |
+| | 2017-02-14 | URLSession架构升级 |
+| 6.2.0 | 2017-03-01 | NavigationBar修复部分机型启动崩溃错误 |
+| | 2017-03-02 | Singleton性能优化，启用pthread_mutex锁 |
+| | 2017-03-13 | Dispatch增加pthread锁架构 |
+| | 2017-03-13 | Router和NavigationRouter架构升级 |
+| | 2017-03-13 | TimeProfiler启用RunLoop监听主线程 |
+| | 2017-03-13 | Singleton增加单例宏 |
+| | 2017-03-14 | DictionaryModel、Directory、Router、Swizzling、Timer、URLSession、CoreData、Leaks和TimeProfiler库启用Singleton单例宏 |
+| | 2017-03-15 | MemoryInfo上线，主要用于获取运行过程中的RAM相关信息，如剩余内存。|
 
 ##Copyright
 
