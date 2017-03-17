@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32DCA6F7CB0FB9E2332A0694 /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */; };
+		71A67429EE20BCA5426F167B /* libPods-YJCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 023719D9C1A18734ACA09C79 /* libPods-YJCoreData.a */; };
 		84118F141DC6FC0B009D3CDB /* Model1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 84118F131DC6FC0B009D3CDB /* Model1To2.xcmappingmodel */; };
 		8487C6F71DC19AE000E05982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F61DC19AE000E05982 /* main.m */; };
 		8487C6FA1DC19AE000E05982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6F91DC19AE000E05982 /* AppDelegate.m */; };
@@ -22,8 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FEF06D2B7B6C57375F9CDA7 /* Pods-YJCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.debug.xcconfig"; sourceTree = "<group>"; };
-		4652F0C64E928FD243391748 /* Pods-YJCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.release.xcconfig"; sourceTree = "<group>"; };
+		023719D9C1A18734ACA09C79 /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6609C5EFD1C1D63445D19741 /* Pods-YJCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		84118F131DC6FC0B009D3CDB /* Model1To2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1To2.xcmappingmodel; sourceTree = "<group>"; };
 		8487C6F21DC19AE000E05982 /* YJCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8487C6F61DC19AE000E05982 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		84B92E531DC1AC0300D447A0 /* YJCDManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManagedObject.m; sourceTree = "<group>"; };
 		84BCC17C1DC3C9BF0044FE1C /* MigrationModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MigrationModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		84BCC17D1DC3C9BF0044FE1C /* MigrationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MigrationModel.xcdatamodel; sourceTree = "<group>"; };
-		FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01EEDCD92E67A724B815567 /* Pods-YJCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,17 +52,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32DCA6F7CB0FB9E2332A0694 /* libPods-YJCoreData.a in Frameworks */,
+				71A67429EE20BCA5426F167B /* libPods-YJCoreData.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		736D1323BA1172D0E192851C /* Frameworks */ = {
+		3EC634D7BB35FF111F4EF14E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FA48DE10D123E8587A6CF55A /* libPods-YJCoreData.a */,
+				A01EEDCD92E67A724B815567 /* Pods-YJCoreData.debug.xcconfig */,
+				6609C5EFD1C1D63445D19741 /* Pods-YJCoreData.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		77018B0697C4BC5FB0AA6B12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				023719D9C1A18734ACA09C79 /* libPods-YJCoreData.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,8 +81,8 @@
 			children = (
 				8487C6F41DC19AE000E05982 /* YJCoreData */,
 				8487C6F31DC19AE000E05982 /* Products */,
-				D1FEEB53BD30259F6D261C1C /* Pods */,
-				736D1323BA1172D0E192851C /* Frameworks */,
+				3EC634D7BB35FF111F4EF14E /* Pods */,
+				77018B0697C4BC5FB0AA6B12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,15 +176,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D1FEEB53BD30259F6D261C1C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2FEF06D2B7B6C57375F9CDA7 /* Pods-YJCoreData.debug.xcconfig */,
-				4652F0C64E928FD243391748 /* Pods-YJCoreData.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,12 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8487C7091DC19AE000E05982 /* Build configuration list for PBXNativeTarget "YJCoreData" */;
 			buildPhases = (
-				D7DCF5880E42357781C8DE77 /* Check Pods Manifest.lock */,
+				93C27A494473DA89991948FD /* [CP] Check Pods Manifest.lock */,
 				8487C6EE1DC19AE000E05982 /* Sources */,
 				8487C6EF1DC19AE000E05982 /* Frameworks */,
 				8487C6F01DC19AE000E05982 /* Resources */,
-				28C9B0D596355B069CAB9D56 /* Embed Pods Frameworks */,
-				FF1D549718A83F53D361C782 /* Copy Pods Resources */,
+				F127B152C86D6DE838CEDA96 /* [CP] Embed Pods Frameworks */,
+				1F5CFF633296C0BC7F36F5D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,49 +248,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28C9B0D596355B069CAB9D56 /* Embed Pods Frameworks */ = {
+		1F5CFF633296C0BC7F36F5D1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7DCF5880E42357781C8DE77 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FF1D549718A83F53D361C782 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93C27A494473DA89991948FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F127B152C86D6DE838CEDA96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCoreData/Pods-YJCoreData-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -427,7 +427,7 @@
 		};
 		8487C70A1DC19AE000E05982 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FEF06D2B7B6C57375F9CDA7 /* Pods-YJCoreData.debug.xcconfig */;
+			baseConfigurationReference = A01EEDCD92E67A724B815567 /* Pods-YJCoreData.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
@@ -441,7 +441,7 @@
 		};
 		8487C70B1DC19AE000E05982 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4652F0C64E928FD243391748 /* Pods-YJCoreData.release.xcconfig */;
+			baseConfigurationReference = 6609C5EFD1C1D63445D19741 /* Pods-YJCoreData.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
