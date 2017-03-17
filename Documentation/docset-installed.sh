@@ -31,7 +31,12 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-02-09 | TimeProfiler支持直接打印主线程卡顿堆栈信息" with title "YJCocoa 6.1.0"'
-osascript -e 'display notification "2017-02-09 | PageView架构升级" with title "YJCocoa 6.1.0"'
-osascript -e 'display notification "2017-02-12 | Swizzling增加class方法交换" with title "YJCocoa 6.1.0"'
-osascript -e 'display notification "2017-02-14 | URLSession架构升级" with title "YJCocoa 6.1.0"'
+osascript -e 'display notification "2017-03-01 | NavigationBar修复部分机型启动崩溃错误" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-02 | Singleton性能优化，启用pthread_mutex锁" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-13 | Dispatch增加pthread锁架构" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-13 | Router和NavigationRouter架构升级" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-13 | TimeProfiler启用RunLoop监听主线程" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-13 | Singleton增加单例宏" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-14 | DictionaryModel、Directory、Router、Swizzling、Timer、URLSession、CoreData、Leaks和TimeProfiler库启用Singleton单例宏" with title "YJCocoa 6.2.0"'
+osascript -e 'display notification "2017-03-15 | MemoryInfo上线，主要用于获取运行过程中的RAM相关信息，如剩余内存。" with title "YJCocoa 6.2.0"'
+
