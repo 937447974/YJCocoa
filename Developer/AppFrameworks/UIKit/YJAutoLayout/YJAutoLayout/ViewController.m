@@ -61,7 +61,7 @@
 //    [self testNSLayoutConstraintExtend];
 //    [self testNSLayoutAnchor];
 //    [self testYJAutoLayout]; // IOS7测试通过
-//    [self testSpaceToSuper];
+    [self testSpaceToSuper];
 //    [self testCombinativeLayout];
 //    [self testFindConstraint];
 //    [self testAnimate];

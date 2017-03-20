@@ -142,7 +142,7 @@
 // 寻找两个view的共同父节点
 + (UIView *)findRootView:(UIView *)view1 toItem:(nullable UIView *)view2 {
     // 算法运行时间O(n)
-    if (view2 == nil) {
+    if (!view2) {
         return view1;
     }
     // 添加数据源
@@ -170,7 +170,8 @@
             return view1;
         }
     }
-    return view1;
+    NSAssert(NO, @"%@和%@没有相同的rootview", view1, view2);
+    return nil;
 }
 
 #pragma mark - getter
