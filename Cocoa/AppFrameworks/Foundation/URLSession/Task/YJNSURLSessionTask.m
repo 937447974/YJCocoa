@@ -37,7 +37,7 @@
                     data = [[strongSelf.request.responseModelClass alloc] initWithModelDictionary:data];
                 }
                 dispatch_async_main(^{
-                    strongSelf -> _success(data);
+                    if (strongSelf -> _success) strongSelf -> _success(data);
                 });
             }
         }
@@ -52,7 +52,11 @@
         NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", strongSelf.request.identifier, error);
         if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
             strongSelf -> _state = YJNSURLSessionTaskStateFailure;
-            if (strongSelf -> _failure && strongSelf.request.source) strongSelf -> _failure(error);
+            if (strongSelf -> _failure && strongSelf.request.source) {
+                dispatch_async_main(^{
+                    if (strongSelf -> _failure) strongSelf -> _failure(error);
+                });
+            }
         }
     };
     return block;
@@ -81,8 +85,6 @@
     self -> _state = YJNSURLSessionTaskStateCanceling;
     if (!self.request.supportResume) {
         [YJNSURLSessionPoolS.poolDict removeObjectForKey:self.request.identifier];
-        _success = nil;
-        _failure = nil;
     }
 }
 
