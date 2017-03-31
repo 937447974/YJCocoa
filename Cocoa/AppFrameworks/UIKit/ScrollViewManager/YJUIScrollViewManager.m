@@ -34,6 +34,7 @@
         self.didSpacing = 30;
         self.edgeInset = UIEdgeInsetsZero;
         self.endInset = UIEdgeInsetsZero;
+        _scrollView.delegate = self;
     }
     return self;
 }
@@ -117,9 +118,6 @@
     _delegate = delegate;
     _verticalScrollEnable = [delegate respondsToSelector:@selector(scrollViewManager:didVerticalScroll:)];
     _horizontalScrollEnable = [delegate respondsToSelector:@selector(scrollViewManager:didHorizontalScroll:)];
-    if (!self.aopDelegate) {
-        _scrollView.delegate = self;
-    }
 }
 
 - (void)setVerticalScroll:(YJUIScrollViewScroll)verticalScroll {

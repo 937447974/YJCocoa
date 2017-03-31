@@ -336,6 +336,8 @@ YJ技术支持群：557445088
 | | 2017-03-13 | Singleton增加单例宏 |
 | | 2017-03-14 | DictionaryModel、Directory、Router、Swizzling、Timer、URLSession、CoreData、Leaks和TimeProfiler库启用Singleton单例宏 |
 | | 2017-03-15 | MemoryInfo上线，主要用于获取运行过程中的RAM相关信息，如剩余内存。|
+| 6.2.1 | 2017-03-28 | URLSession 崩溃修复 |
+| | 2017-03-31 | YJUIScrollViewManager 代理错误设置修复 |
 
 ##Copyright
 
