@@ -19,6 +19,8 @@
 
 @interface YJNSTimer ()
 
+@property (nonatomic, copy) NSString *identifier; ///< 标识符
+
 @property (nonatomic, weak) id target;                ///< 弱引用目标
 @property (nonatomic, copy) YJNSTimerSuccess success; ///< 成功回调
 
@@ -36,7 +38,7 @@
     YJNSTimer *timer = [tDict objectForKey:identifier];
     if (!timer) {
         timer = [[YJNSTimer alloc] init];
-        timer -> _identifier = identifier;
+        timer.identifier = identifier;
         timer.timeInterval = 1;
         timer.calendar = [[YJNSCalendar alloc] init];
     }
@@ -90,7 +92,7 @@
     if (self.unitFlags) {
         [self.calendar components:self.unitFlags fromSecond:time];
     }
-    self.success(self.target);
+    self.success(self);
 }
 
 - (YJNSDateComponents *)dateComponents {

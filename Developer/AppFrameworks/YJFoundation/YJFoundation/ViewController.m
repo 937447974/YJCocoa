@@ -51,7 +51,7 @@
 #pragma mark - 倒计时
 - (void)testTimer {
     for (int i=0; i<1; i++) {
-        YJNSTimer *timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer *timer, ViewController *self) {
+        YJNSTimer *timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer *timer) {
             NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.dateComponents.day, (long)timer.dateComponents.hour, (long)timer.dateComponents.minute, timer.dateComponents.second);
         }];
         timer.unitFlags =  YJNSCalendarUnitDay|YJNSCalendarUnitHour|YJNSCalendarUnitMinute|YJNSCalendarUnitSecond ;
@@ -77,13 +77,11 @@
     requestModel.qq = @"557445088";
     YJTestURLRequest *request = [YJTestURLRequest requestWithSource:self];
     request.requestModel = requestModel;
-    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(ViewController *self, id data) {
-        NSLog(@"%@", self);
+    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(id data) {
         YJNSURLResponseModel *responseModel = data;
         NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
         [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求        
-    } failure:^(ViewController *self, NSError *error) {
-        NSLog(@"%@", self);
+    } failure:^(NSError *error) {
         [YJTestURLSessionTask taskWithRequest:request].request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
     }] resume]; // 发出请求
