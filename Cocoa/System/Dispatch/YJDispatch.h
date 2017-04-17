@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - rac
 /** 弱引用*/
-#define weakSelf symbol_at  __weak __typeof(self) wSelf = self;
+#define weakSelf symbol_at  __weak typeof(self) wSelf = self;
 /** 强引用*/
-#define strongSelf symbol_at __strong __typeof(wSelf) self = wSelf;
+#define strongSelf symbol_at __strong typeof(wSelf) self = wSelf;
 
 
 #pragma mark - gcd
