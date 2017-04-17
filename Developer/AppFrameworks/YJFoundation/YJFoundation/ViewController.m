@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        [self testSingleton];
-    //    [self testTimer];
+//        [self testSingleton];
+        [self testTimer];
     //    [self testCalendar];
     //    [self testURLSession];
 //    [self testSwizzling];
@@ -51,8 +51,9 @@
 #pragma mark - 倒计时
 - (void)testTimer {
     for (int i=0; i<1; i++) {
-        YJNSTimer *timer = [YJNSTimer timerWeakWithIdentifier:nil];
-        [timer addTarget:self action:@selector(testTimerLog:)];
+        YJNSTimer *timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer *timer, ViewController *self) {
+            NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.dateComponents.day, (long)timer.dateComponents.hour, (long)timer.dateComponents.minute, timer.dateComponents.second);
+        }];
         timer.unitFlags =  YJNSCalendarUnitDay|YJNSCalendarUnitHour|YJNSCalendarUnitMinute|YJNSCalendarUnitSecond ;
         timer.timeInterval = 3;
         timer.time = 10;
@@ -61,13 +62,6 @@
     }
 }
 
-- (void)testTimerLog:(YJNSTimer *)timer {
-    NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.dateComponents.day, (long)timer.dateComponents.hour, (long)timer.dateComponents.minute, timer.dateComponents.second);
-    // 模拟释放当前VC
-    if (timer.time<=0) {
-        [timer invalidate];
-    }
-}
 
 #pragma mark - Calendar
 - (void)testCalendar {

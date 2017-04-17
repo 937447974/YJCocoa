@@ -19,67 +19,34 @@
 
 @interface YJNSTimer ()
 
-@property (nonatomic, copy) NSString *identifier; ///< 标识符
+@property (nonatomic, weak) id target;                ///< 弱引用目标
+@property (nonatomic, copy) YJNSTimerSuccess success; ///< 成功回调
 
-@property (nonatomic) BOOL weakT; ///< 是否弱引用
-
-@property (nonatomic, strong, nullable) id strongTarget; ///< 强引用目标
-@property (nonatomic, weak, nullable) id weakTarget;     ///< 弱引用目标
-@property (nonatomic, nullable) SEL action;              ///< 目标方法
-
-@property (nonatomic, strong) NSTimer *timer; /// 计时器
-@property (nonatomic, strong) YJNSCalendar *calendar; ///<
+@property (nonatomic, strong) NSTimer *timer;         ///< 计时器
+@property (nonatomic, strong) YJNSCalendar *calendar; ///< 日历
 
 @end
 
 @implementation YJNSTimer
 
 #pragma mark - init
-+ (instancetype)timerStrongWithIdentifier:(NSString *)identifier {
-    YJNSTimer *timer = [self timerWithIdentifier:identifier];
-    timer.weakT = NO;
-    return timer;
-}
-
-+ (instancetype)timerWeakWithIdentifier:(NSString *)identifier {
-    YJNSTimer *timer = [self timerWithIdentifier:identifier];
-    timer.weakT = YES;
-    return timer;
-}
-
-+ (instancetype)timerWithIdentifier:(NSString *)identifier {
++ (instancetype)timerIdentifier:(NSString *)identifier target:(NSObject *)target completionHandler:(YJNSTimerSuccess)success {
+    identifier = identifier.length ? identifier : YJSecRandomUL(5);
     NSMutableDictionary<NSString *, YJNSTimer *> *tDict = TimerDict;
-    if (tDict.count >= 5) {
-        for (YJNSTimer *timer in tDict.allValues) {
-            if (timer.weakT && !timer.weakTarget) {
-                [tDict removeObjectForKey:timer.identifier];
-            }
-        }
-    }
-    YJNSTimer *timer;
-    if (identifier) {
-        timer = [tDict objectForKey:identifier];
-    }
+    YJNSTimer *timer = [tDict objectForKey:identifier];
     if (!timer) {
         timer = [[YJNSTimer alloc] init];
-        timer.identifier = identifier;
+        timer -> _identifier = identifier;
         timer.timeInterval = 1;
         timer.calendar = [[YJNSCalendar alloc] init];
     }
     [tDict setObject:timer forKey:timer.identifier];
+    timer.target = target;
+    timer.success = success;
     return timer;
 }
 
 #pragma mark - business
-- (void)addTarget:(id)target action:(SEL)action {
-    self.action = action;
-    if (self.weakT) {
-        self.weakTarget = target;
-    } else {
-        self.strongTarget = target;
-    }
-}
-
 - (void)run {
     NSAssert(self.timeInterval > 0, @"YJNSTimer.timeInterval小于等于0");
     if (!self.timer || self.timer.timeInterval != self.timeInterval) {
@@ -91,7 +58,7 @@
 }
 
 - (void)autoUpdateTime {
-    if (self.weakT && !self.weakTarget) {
+    if (!self.target) {
         [self invalidate];
         return;
     }
@@ -118,23 +85,12 @@
 }
 
 #pragma mark - getter & setter
-- (NSString *)identifier {
-    if (!_identifier) {
-        _identifier = YJSecRandomUL(5);
-    }
-    return _identifier;
-}
-
 - (void)setTime:(NSTimeInterval)time {
     _time = time;
     if (self.unitFlags) {
         [self.calendar components:self.unitFlags fromSecond:time];
     }
-    if (self.weakTarget) {
-        [self.weakTarget performSelector:self.action withObjects:@[self]];
-    } else {
-        [self.strongTarget performSelector:self.action withObjects:@[self]];
-    }
+    self.success(self, self.target);
 }
 
 - (YJNSDateComponents *)dateComponents {
