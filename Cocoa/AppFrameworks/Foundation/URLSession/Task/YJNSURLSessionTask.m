@@ -28,7 +28,7 @@
 #pragma mark - getter & setter
 - (YJNSURLSessionTaskSuccess)success {
     __weakSelf
-    YJNSURLSessionTaskSuccess block = ^(id data) {
+    YJNSURLSessionTaskSuccess block = ^(id self, id data) {
         __strongSelf
         if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
             strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
@@ -36,9 +36,7 @@
                 if (strongSelf.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
                     data = [[strongSelf.request.responseModelClass alloc] initWithModelDictionary:data];
                 }
-                dispatch_async_main(^{
-                    if (strongSelf -> _success) strongSelf -> _success(data);
-                });
+                if (strongSelf -> _success) strongSelf -> _success(self, data);
             }
         }
     };
@@ -47,15 +45,13 @@
 
 - (YJNSURLSessionTaskFailure)failure {
     __weakSelf
-    YJNSURLSessionTaskFailure block = ^(NSError *error) {
+    YJNSURLSessionTaskFailure block = ^(id self, NSError *error) {
         __strongSelf
         NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", strongSelf.request.identifier, error);
         if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
             strongSelf -> _state = YJNSURLSessionTaskStateFailure;
             if (strongSelf -> _failure && strongSelf.request.source) {
-                dispatch_async_main(^{
-                    if (strongSelf -> _failure) strongSelf -> _failure(error);
-                });
+                if (strongSelf -> _failure) strongSelf -> _failure(self, error);
             }
         }
     };

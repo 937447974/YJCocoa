@@ -15,10 +15,10 @@
     NSLog(@"请求方式：%@", self.request.requestMethod);
     if (random()%4 == 1) {
         NSDictionary *jsonDict = @{@"desc": @"请求成功"};
-        self.success([[self.request.responseModelClass alloc] initWithModelDictionary:jsonDict]);
+        self.success(self.request.source, [[self.request.responseModelClass alloc] initWithModelDictionary:jsonDict]);
     } else {
         self.needResume = YES;
-        self.failure([NSError errorWithDomain:@"网络错误测试" code:NSURLErrorTimedOut userInfo:nil]);
+        self.failure(self.request.source, [NSError errorWithDomain:@"网络错误测试" code:NSURLErrorTimedOut userInfo:nil]);
     }    
 }
 

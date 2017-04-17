@@ -339,6 +339,7 @@ YJ技术支持群：557445088
 | 6.3.0 | 2017-03-28 | URLSession 崩溃修复 |
 | | 2017-03-31 | YJUIScrollViewManager 代理错误设置修复 |
 | | 2017-04-17 | Timer 架构升级，由原有的方法回调，改为 block 回调，并支持自动解 self 循环引用。|
+| | 2017-04-17 | URLSession 支持自动解 self 循环引用 |
 
 ##Copyright
 

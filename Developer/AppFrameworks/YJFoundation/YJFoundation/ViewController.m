@@ -23,8 +23,8 @@
     [super viewDidLoad];
 //        [self testSingleton];
         [self testTimer];
-    //    [self testCalendar];
-    //    [self testURLSession];
+//        [self testCalendar];
+        [self testURLSession];
 //    [self testSwizzling];
 }
 
@@ -77,11 +77,13 @@
     requestModel.qq = @"557445088";
     YJTestURLRequest *request = [YJTestURLRequest requestWithSource:self];
     request.requestModel = requestModel;
-    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(id data) {
+    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(ViewController *self, id data) {
+        NSLog(@"%@", self);
         YJNSURLResponseModel *responseModel = data;
         NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
-        [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求
-    } failure:^(NSError *error) {
+        [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求        
+    } failure:^(ViewController *self, NSError *error) {
+        NSLog(@"%@", self);
         [YJTestURLSessionTask taskWithRequest:request].request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
     }] resume]; // 发出请求

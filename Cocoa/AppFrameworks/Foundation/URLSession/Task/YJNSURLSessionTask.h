@@ -14,9 +14,9 @@
 #import "YJNSURLSessionPool.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef void (^ YJNSURLSessionTaskSuccess)(id data);
-typedef void (^ YJNSURLSessionTaskFailure)(NSError *error);
+// self = YJNSURLRequest.source
+typedef void (^ YJNSURLSessionTaskSuccess)(id self, id data);
+typedef void (^ YJNSURLSessionTaskFailure)(id self, NSError *error);
 
 /** */
 typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
