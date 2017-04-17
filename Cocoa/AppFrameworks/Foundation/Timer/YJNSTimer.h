@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class YJNSTimer;
 
-typedef void (^ YJNSTimerSuccess)(YJNSTimer *timer, id self);
+typedef void (^ YJNSTimerSuccess)(YJNSTimer *timer);
 
 // 使用YJNSTimer时，除特殊情况外，外部应弱引用YJNSTimer。
 

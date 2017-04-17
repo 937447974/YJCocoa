@@ -50,9 +50,9 @@
 #pragma mark (-)
 - (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
     [self reloadDataSyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
-    __weakSelf
+    @weakSelf
     dispatch_async_main(^{// UI加速
-        [weakSelf reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
+        [wSelf reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
     });
 }
 

@@ -12,6 +12,12 @@
 #import "YJNSURLSessionTask.h"
 #import "YJDispatch.h"
 
+@interface YJNSURLSessionTask ()
+
+@property (nonatomic) YJNSURLSessionTaskState state; ///< 任务状态
+
+@end
+
 @implementation YJNSURLSessionTask
 
 + (instancetype)taskWithRequest:(YJNSURLRequest *)request {
@@ -27,17 +33,16 @@
 
 #pragma mark - getter & setter
 - (YJNSURLSessionTaskSuccess)success {
-    __weakSelf
-    YJNSURLSessionTaskSuccess block = ^(id source, id data) {
-        __strongSelf
-        if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
-            strongSelf -> _state = YJNSURLSessionTaskStateSuccess;
-            if (strongSelf -> _success && source) {
-                if (strongSelf.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
-                    data = [[strongSelf.request.responseModelClass alloc] initWithModelDictionary:data];
+    @weakSelf
+    YJNSURLSessionTaskSuccess block = ^(id data) {
+        @strongSelf
+        if (self.state == YJNSURLSessionTaskStateRunning) {
+            self.state = YJNSURLSessionTaskStateSuccess;
+            if (_success && self.request.source) {
+                if (self.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
+                    data = [[self.request.responseModelClass alloc] initWithModelDictionary:data];
                 }
-                
-                if (strongSelf -> _success) strongSelf -> _success(source, data);
+                _success(data);
             }
         }
     };
@@ -45,14 +50,14 @@
 }
 
 - (YJNSURLSessionTaskFailure)failure {
-    __weakSelf
-    YJNSURLSessionTaskFailure block = ^(id source, NSError *error) {
-        __strongSelf
-        NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", strongSelf.request.identifier, error);
-        if (strongSelf.state == YJNSURLSessionTaskStateRunning) {
-            strongSelf -> _state = YJNSURLSessionTaskStateFailure;
-            if (strongSelf -> _failure && source) {
-                if (strongSelf -> _failure) strongSelf -> _failure(source, error);
+    @weakSelf
+    YJNSURLSessionTaskFailure block = ^(NSError *error) {
+        @strongSelf
+        NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
+        if (self.state == YJNSURLSessionTaskStateRunning) {
+            self.state = YJNSURLSessionTaskStateFailure;
+            if (_failure && self.request.source) {
+                _failure(error);
             }
         }
     };
@@ -68,18 +73,18 @@
 
 - (void)resume {
     NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
-    self -> _state = YJNSURLSessionTaskStateRunning;
+    self.state = YJNSURLSessionTaskStateRunning;
     self.needResume = NO;
 }
 
 - (void)suspend {
     NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
-    self -> _state = YJNSURLSessionTaskStateSuspended;
+    self.state = YJNSURLSessionTaskStateSuspended;
 }
 
 - (void)cancel {
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
-    self -> _state = YJNSURLSessionTaskStateCanceling;
+    self.state = YJNSURLSessionTaskStateCanceling;
     if (!self.request.supportResume) {
         [YJNSURLSessionPoolS.poolDict removeObjectForKey:self.request.identifier];
     }

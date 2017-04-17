@@ -61,12 +61,13 @@ void YJTimeProfilerSingalHandler(int sig) {
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFStringRef runLoopMode = kCFRunLoopCommonModes;
     if (start) {
-        __weakSelf
+        @weakSelf
         _runLoopObserver = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, true, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+            @strongSelf
             if (activity == kCFRunLoopBeforeWaiting) {
-                [weakSelf runLoopBeforeWaiting];
+                [self runLoopBeforeWaiting];
             } else if (activity == kCFRunLoopAfterWaiting) {
-                [weakSelf runLoopAfterWaiting];
+                [self runLoopAfterWaiting];
             }
         });
         CFRunLoopAddObserver(runLoop, _runLoopObserver, runLoopMode);

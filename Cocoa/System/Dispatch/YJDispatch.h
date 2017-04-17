@@ -14,12 +14,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - gcd
+#pragma mark - @符号
 
+#define symbol_at try {} @catch (...) {}
+
+
+#pragma mark - rac
 /** 弱引用*/
-#define __weakSelf   __weak __typeof__(self) weakSelf = self;
+#define weakSelf symbol_at  __weak __typeof(self) wSelf = self;
 /** 强引用*/
-#define __strongSelf __strong __typeof(weakSelf) strongSelf = weakSelf;
+#define strongSelf symbol_at __strong __typeof(wSelf) self = wSelf;
+
+
+#pragma mark - gcd
 
 /** 主线程运行,同步执行*/
 FOUNDATION_EXPORT void dispatch_sync_main(dispatch_block_t block);
@@ -55,11 +62,6 @@ FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable qu
 FOUNDATION_EXPORT dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler);
 /** DISPATCH_QUEUE_PRIORITY_DEFAULT队列GCD计时器*/
 FOUNDATION_EXPORT dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler);
-
-
-#pragma mark - @符号
-
-#define symbol_at try {} @catch (...) {}
 
 
 #pragma mark - @finally_execute{}

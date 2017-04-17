@@ -11,6 +11,7 @@
 
 #import "YJCDManager.h"
 #import "YJNSTimer.h"
+#import "YJDispatch.h"
 
 @implementation YJCDManager
 
@@ -39,9 +40,11 @@
 #pragma mark getter & setter
 - (void)setAutoSaveInterval:(NSTimeInterval)autoSaveInterval {
     _autoSaveInterval = autoSaveInterval;
-    YJNSTimer *timer = [YJNSTimer timerStrongWithIdentifier:@"YJCDManager"];
+    @weakSelf
+    YJNSTimer *timer = [YJNSTimer timerIdentifier:@"YJCDManager" target:self completionHandler:^(YJNSTimer * timer) {
+        [wSelf saveAuto];
+    }];
     if (autoSaveInterval > 0) {
-        [timer addTarget:self action:@selector(saveAuto)];
         timer.timeInterval = autoSaveInterval;
         [timer run];
     } else {

@@ -90,7 +90,7 @@
     if (self.unitFlags) {
         [self.calendar components:self.unitFlags fromSecond:time];
     }
-    self.success(self, self.target);
+    self.success(self.target);
 }
 
 - (YJNSDateComponents *)dateComponents {

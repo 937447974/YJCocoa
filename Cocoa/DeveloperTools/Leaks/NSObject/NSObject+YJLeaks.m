@@ -37,17 +37,18 @@
     NSLog(@"%@ capture memory leaks start", className);
     NSPointerArray *leakPropertyArray = [NSPointerArray weakObjectsPointerArray];
     [self captureMemoryLeakPropertyArray:leakPropertyArray level:0];
-    __weakSelf
+    @weakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        @strongSelf
         NSMutableSet *leakPathSet = [NSMutableSet set];
         for (NSObject *item in leakPropertyArray) {
             if (item) {
                 [leakPathSet addObject:item.leakPropertyPath];
             }
         }
-        if (weakSelf || leakPathSet.count) {
+        if (self || leakPathSet.count) {
             NSMutableString *log = [NSMutableString stringWithString:@"\nYJLeaks捕获内存泄漏"];
-            if (weakSelf) {
+            if (self) {
                 [log appendFormat:@"\nClass : %@", className];
             }
             if (leakPathSet.count) {

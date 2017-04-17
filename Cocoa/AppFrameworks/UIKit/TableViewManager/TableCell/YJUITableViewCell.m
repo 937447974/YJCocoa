@@ -52,9 +52,10 @@
 #pragma mark - (-)
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager; {
     [self reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
-    __weakSelf
+    @weakSelf
     dispatch_async_main(^{// UI加速
-        [weakSelf reloadDataAsyncWithCellObject:cellObject tableViewManager:tableViewManager];
+        @strongSelf
+        [self reloadDataAsyncWithCellObject:cellObject tableViewManager:tableViewManager];
     });
 }
 
