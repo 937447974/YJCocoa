@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject;
 
 /**
- *  刷新UITableViewCell（同步&异步，子类请勿重写）
+ *  刷新UITableViewCell
  *
  *  @param cellObject        YJUITableCellObject
  *  @param tableViewDelegate YJUITableViewDelegate
@@ -66,26 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return void
  */
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
-
-/**
- *  刷新UITableViewCell（同步）
- *
- *  @param cellObject        YJUITableCellObject
- *  @param tableViewDelegate YJUITableViewDelegate
- *
- *  @return void
- */
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
-
-/**
- *  刷新UITableViewCell（异步）
- *
- *  @param cellObject        YJUITableCellObject
- *  @param tableViewDelegate YJUITableViewDelegate
- *
- *  @return void
- */
-- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 
 @end
 

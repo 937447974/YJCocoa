@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject;
 
 /**
- *  刷新UICollectionReusableView（同步&异步，子类请勿重写）
+ *  刷新UICollectionReusableView
  *
  *  @param cellObject            YJUICollectionCellObject
  *  @param collectionViewManager YJUICollectionViewManager
@@ -69,26 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return void
  */
 - (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager;
-
-/**
- *  刷新UICollectionReusableView（同步）
- *
- *  @param cellObject            YJUICollectionCellObject
- *  @param collectionViewManager YJUICollectionViewManager
- *
- *  @return void
- */
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager;
-
-/**
- *  刷新UICollectionReusableView（异步）
- *
- *  @param cellObject            YJUICollectionCellObject
- *  @param collectionViewManager YJUICollectionViewManager
- *
- *  @return void
- */
-- (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager;
 
 @end
 

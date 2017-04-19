@@ -50,23 +50,8 @@
 }
 
 #pragma mark - (-)
-- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager; {
-    [self reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
-    @weakSelf
-    dispatch_async_main(^{// UI加速
-        @strongSelf
-        [self reloadDataAsyncWithCellObject:cellObject tableViewManager:tableViewManager];
-    });
-}
-
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-    NSLog(@"UITableViewCell子类%@请实现方法：%@", cellObject.cellName, NSStringFromSelector(_cmd));
-}
-
-- (void)reloadDataAsyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-}
-
-- (void)reloadDataCacheWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end
@@ -105,7 +90,7 @@
     return [super cellCreate];
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     _cellObject = cellObject;
     _tableViewManager = tableViewManager;
 }

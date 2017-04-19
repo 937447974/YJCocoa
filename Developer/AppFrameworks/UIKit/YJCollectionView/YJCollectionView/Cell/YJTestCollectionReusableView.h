@@ -15,6 +15,6 @@
 
 @end
 
-@interface YJTestCollectionReusableView : UICollectionReusableView
+@interface YJTestCollectionReusableView : YJUICollectionReusableView
 
 @end

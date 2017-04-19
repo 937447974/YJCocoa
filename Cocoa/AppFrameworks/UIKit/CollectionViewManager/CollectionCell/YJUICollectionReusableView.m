@@ -49,17 +49,7 @@
 
 #pragma mark (-)
 - (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
-    [self reloadDataSyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
-    @weakSelf
-    dispatch_async_main(^{// UI加速
-        [wSelf reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
-    });
-}
-
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
-}
-
-- (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end
@@ -82,7 +72,7 @@
     return [super cellCreate];
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
+- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
     _cellObject = cellObject;
     _collectionViewManager = collectionViewManager;
 }

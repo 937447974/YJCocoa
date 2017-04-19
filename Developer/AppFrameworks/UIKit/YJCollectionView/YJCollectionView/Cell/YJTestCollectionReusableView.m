@@ -25,8 +25,8 @@
     return [super collectionViewManager:collectionViewManager viewForSupplementaryElementOfKind:kind referenceSizeForCellObject:cellObject];
 }
 
-- (void)reloadDataAsyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
-    [super reloadDataAsyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
+- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
+    [super reloadDataWithCellObject:cellObject collectionViewManager:collectionViewManager];
     YJTestCollectionReusableViewModel *cm = cellObject.cellModel;
     self.backgroundColor = cm.backgroundColor;
 }

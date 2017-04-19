@@ -42,7 +42,7 @@
     return [super cellCreate];
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
+- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(nonnull YJUICollectionViewManager *)collectionViewManager {
     _cellObject = cellObject;
     _collectionViewManager = collectionViewManager;
 }

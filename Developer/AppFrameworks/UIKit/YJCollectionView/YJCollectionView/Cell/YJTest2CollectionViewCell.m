@@ -31,8 +31,8 @@
     return YJUICollectionCellCreateClass;
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
-    [super reloadDataSyncWithCellObject:cellObject collectionViewManager:collectionViewManager];
+- (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager {
+    [super reloadDataWithCellObject:cellObject collectionViewManager:collectionViewManager];
     YJTestCollectionCellModel *cellModel = cellObject.cellModel;
     self.label.text = cellModel.index;
 }

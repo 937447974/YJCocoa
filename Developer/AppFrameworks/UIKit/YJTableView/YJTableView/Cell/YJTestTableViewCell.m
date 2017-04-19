@@ -19,8 +19,8 @@
     return height <= 200 ? height : 200;
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-    [super reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+    [super reloadDataWithCellObject:cellObject tableViewManager:tableViewManager];
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;
     self.sSwitch.on = celModel.switchOn;

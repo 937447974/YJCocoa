@@ -32,8 +32,8 @@
     self.label.frame = self.bounds;
 }
 
-- (void)reloadDataSyncWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
-    [super reloadDataSyncWithCellObject:cellObject tableViewManager:tableViewManager];
+- (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
+    [super reloadDataWithCellObject:cellObject tableViewManager:tableViewManager];
     YJTestTableCellModel *celModel = cellObject.cellModel;
     self.label.text = celModel.userName;
 }

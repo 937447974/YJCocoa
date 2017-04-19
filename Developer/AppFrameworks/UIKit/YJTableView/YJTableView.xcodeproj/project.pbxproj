@@ -259,12 +259,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YJUI;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					84C9E4F71CEF1CAE0036C57B = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = PC936H3Q67;
+						DevelopmentTeam = P64WN7EK5E;
 					};
 				};
 			};
@@ -485,7 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = PC936H3Q67;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTableView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -500,7 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = PC936H3Q67;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTableView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
