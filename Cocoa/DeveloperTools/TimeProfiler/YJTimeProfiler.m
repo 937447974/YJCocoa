@@ -11,8 +11,8 @@
 
 #import "YJTimeProfiler.h"
 #import "YJDispatch.h"
-#include <pthread/pthread.h>
-#include <signal.h>
+#import <pthread/pthread.h>
+#import <signal.h>
 #import "YJThreadLogger.h"
 
 // 是否断点模式
