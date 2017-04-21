@@ -11,58 +11,58 @@ YJ系列开源库
 
 # 1 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101001.png)AppFrameworks
 
-##1.1 Foundation
+## 1.1 Foundation
 
-###1.1.1 AOP
+### 1.1.1 AOP
 
 AOP切面编程，将一对一的通信转换为一对多的通信。
 
-###1.1.2 Calendar
+### 1.1.2 Calendar
 
 日历工具，快速将秒转换为天、时、分等。
 
-###1.1.3 DictionaryModel
+### 1.1.3 DictionaryModel
 
 快速高效的转换模型和Model。
 
-###1.1.4 Directory
+### 1.1.4 Directory
 
 快速获取应用内目录
 
-###1.1.5 FileManager
+### 1.1.5 FileManager
 
 NSFileManager扩展，支持快速移动文件。主要是替换系统方法`moveItemAtPath:toPath:error:`和`moveItemAtURL:toURL:error:`
 
-###1.1.6 Http
+### 1.1.6 Http
 
 1. http链接解析，快速获取其中参数，支持URLDecode解码;
 2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
-###1.1.7 Log
+### 1.1.7 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-###1.1.8 PerformSelector
+### 1.1.8 PerformSelector
 
 合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
 
-###1.1.9 Router
+### 1.1.9 Router
 
 Router是NavigationRouter的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
 1. 支持Get或Post跳转；
 2. 支持长连接或短连接。
 
-###1.1.10 Singleton
+### 1.1.10 Singleton
 
 1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
 2. 可定制全局单例和局域单例。
 
-###1.1.11 Swizzling
+### 1.1.11 Swizzling
 
 支持随时随地交换方法。
 
-###1.1.12 Timer
+### 1.1.12 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -71,11 +71,11 @@ Router是NavigationRouter的基础库，主要用于实现组件化开发，也�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-###1.1.13 URLCode
+### 1.1.13 URLCode
 
 URLEncode编码和URLDecode解码
 
-###1.1.14 URLSession
+### 1.1.14 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -84,9 +84,9 @@ URLEncode编码和URLDecode解码
 3. 多种请求方式，可以面向接口请求服务器或面向对象请求服务器；
 4. 支持网络重连。
 
-##1.2 UIKit
+## 1.2 UIKit
 
-###1.2.1 AutoLayout
+### 1.2.1 AutoLayout
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
  
@@ -94,7 +94,7 @@ AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我�
 3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
 4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
-###1.2.2 CollectionViewManager
+### 1.2.2 CollectionViewManager
 
 UICollectionView封装
 
@@ -111,27 +111,27 @@ UICollectionView封装
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.3 Color
+### 1.2.3 Color
 
 UIColor相关。
 
 1. 函数生成UIColor，支持RGB和十六进制。
 2. 点语法快速设置背景色。
 
-###1.2.4 InputLength
+### 1.2.4 InputLength
 
 UITextField和UITextView可输入长度控制。
 
-###1.2.5 NavigationBar
+### 1.2.5 NavigationBar
 
 NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
 
-###1.2.6 NavigationRouter
+### 1.2.6 NavigationRouter
 
 NavigationRouter主要用于实现项目组件化 。
 
 
-###1.2.7 PageView
+### 1.2.7 PageView
 
 PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
 
@@ -139,11 +139,11 @@ PageView主要实现对轮播图、导航图、小说翻页等多种翻页模式
 2. 多种配置模式适应任何多页面需求。
 3. 任何间隔切换VC，内存释放稳定。
 
-###1.2.8 ScrollViewManager
+### 1.2.8 ScrollViewManager
 
 ScrollViewManager主用用于监听UIScrollView的滚动状态。
 
-###1.2.9 TableViewManager
+### 1.2.9 TableViewManager
 
 UITableView管理器
 
@@ -159,13 +159,13 @@ UITableView管理器
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-###1.2.10 ViewGeometry
+### 1.2.10 ViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
-#2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101002.png)AppServices
+# 2 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101002.png)AppServices
 
-##2.1 CoreData
+## 2.1 CoreData
 
 CoreData封装
 
@@ -175,44 +175,44 @@ CoreData封装
 3. 手动保存数据，支持前台保存和后台保存。
 4. 通过迁移管理器做数据库版本升级时，可时时获取升级进度。
 
-#3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101006.png)DeveloperTools
+# 3 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101006.png)DeveloperTools
 
-##3.1 Leaks
+## 3.1 Leaks
 
 内存泄漏分析器，用于捕获项目中有内存泄漏的UIViewController、UIView和Property属性。
 
-##3.2 MemoryInfo
+## 3.2 MemoryInfo
 
 主要用于获取运行过程中的RAM相关信息，如剩余内存。
 
-##3.3 TimeProfiler
+## 3.3 TimeProfiler
 
 时间分析器，主要用于分析引起主线程卡顿的代码。
 
 1. 支持定制模块分析。
 2. 支持设置分析频率和帧间隔。
 
-#4 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
+# 4 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
 
-##4.1 Dispatch
+## 4.1 Dispatch
 
 GCD相关封装
 
-##4.2 Security
+## 4.2 Security
 
-###4.2.1 Keychain
+### 4.2.1 Keychain
 
 面向对象管理Keychain，支持自定义存储数据。
 
-###4.2.2 Random
+### 4.2.2 Random
 
 快速生成指定位数的随机密码。
 
 ----------
 
-#<a id="Appendix">Appendix
+# <a id="Appendix">Appendix
 
-##Author
+## Author
 
 姓名：阳君
 
@@ -226,7 +226,7 @@ YJ技术支持群：557445088
 
 如果你也想来和我们一起在聚美优品(北京)从事iOS研发工作，欢迎投递简历到937447974@qq.com。
 
-##Revision History
+## Revision History
 
 | 版本 | 时间  | 描述 |
 | ---- | ---- | ---- |
@@ -342,7 +342,7 @@ YJ技术支持群：557445088
 | | 2017-04-19 | CollectionViewManager 和 TableViewManager 移除同步和异步刷新 cell 的方法 |
 
 
-##Copyright
+## Copyright
 
 CSDN：http://blog.csdn.net/y550918116j
 
