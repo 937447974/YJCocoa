@@ -9,7 +9,7 @@ YJ系列开源库
 
 整体架构和苹果类似,每一层都有各自的开源库。
 
-#1 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101001.png)AppFrameworks
+# 1 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101001.png)AppFrameworks
 
 ##1.1 Foundation
 
