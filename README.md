@@ -90,9 +90,9 @@ URLEncode编码和URLDecode解码
 
 AutoLayout主要实现NSLayoutConstraint的相关扩展和封装，它能使我们关于屏幕布局的开发越来越简单。
  
-2. IOS和Swift的编程代码**一模一样**。
-3. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
-4. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
+1. IOS和Swift的编程代码**一模一样**。
+2. 代码写法模仿Apple关于约束的原生伪代码，增加代码可阅读性。
+3. 将IOS9推出的NSLayoutAnchor迁移到IOS6上使用。
 
 ### 1.2.2 CollectionViewManager
 
@@ -101,12 +101,11 @@ UICollectionView封装
 1. 支持市面上百分之百的架构，无须修改原有框架结构。你可以把它作为插件，也可以把它作为UICollectionView的控制中心使用。
 2. 减压UIViewController，使其代码尽可能的精简，可阅读性更高。UIViewController不在关心UICollectionViewCell的相关显示，缓存。UIViewController与UICollectionViewCell完全隔离。
 3. 自带存储数据源，支持单数组和多数组显示的数据源。
-4. 自动将数据从UIViewController传输到UICollectionViewCell，支持任意数据类型的传输，如项目中常用的CellModel、Dictionary字典。
-5. 自动优化UICollectionView滑动卡顿，支持同步和异步刷新UICollectionViewCell。
-6. 支持多种创建UICollectionViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
-7. 支持UICollectionViewFlowLayout动态布局；可设置一行显示个数，系统自动计算item宽度；可开启高度自适应，框架会根据计算的宽度动态缩放宽。
-8. 自动register注册UICollectionViewCell，自动显示UICollectionViewCell，自动缓存UICollectionViewCell。
-9. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
+4. 自动将数据从UIViewController传输到UICollectionViewCell，支持任意数据类型的传输。
+5. 支持多种创建UICollectionViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
+6. 支持UICollectionViewFlowLayout动态布局；可设置一行显示个数，系统自动计算item宽度；可开启高度自适应，框架会根据计算的宽度动态缩放宽。
+7. 自动register注册UICollectionViewCell，自动显示UICollectionViewCell，自动缓存UICollectionViewCell。
+8. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
 	1. 根据相同的UICollectionViewCell类缓存高度；
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
@@ -150,11 +149,10 @@ UITableView管理器
 1. 支持市面上百分之百的架构，无须修改原有框架结构。你可以把它作为插件，也可以把它作为TableView的控制中心使用。
 2. 减压UIViewController，使其代码尽可能的精简，可阅读性更高。UIViewController不在关心UITableViewCell的相关显示，缓存。UIViewController与UITableViewCell完全隔离。
 3. 自带存储数据源，支持UITableViewStylePlain和UITableViewStyleGrouped显示的数据源。
-4. 自动将数据从UIViewController传输到UITableViewCell，支持任意数据类型的传输，如项目中常用的CellModel、Dictionary字典。
-5. 自动优化UITableView滑动卡顿，支持同步和异步刷新UITableViewCell。
-6. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
-7. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。
-8. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
+4. 自动将数据从UIViewController传输到UITableViewCell，支持任意数据类型的传输。
+5. 支持多种创建UITableViewCell的方式，如纯代码、xib和storyboard。无须改变你写代码的习惯。
+6. 自动register注册UITableViewCell，自动显示UITableViewCell，自动缓存UITableViewCell。
+7. 自动计算cell显示的高度或手动计算cell显示的高度，并缓存高度。多种缓存高度策略：
 	1. 根据相同的UITableViewCell类缓存高度；
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
