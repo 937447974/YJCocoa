@@ -15,7 +15,7 @@
 
 @implementation UINavigationController (YJLeaks)
 
-+ (void)start {
++ (void)startCaptureMemoryLeaks {
     [self swizzlingSEL:@selector(popViewControllerAnimated:) withSEL:@selector(swizzling_popViewControllerAnimated:)];
     [self swizzlingSEL:@selector(popToViewController:animated:) withSEL:@selector(swizzling_popToViewController:animated:)];
     [self swizzlingSEL:@selector(popToRootViewControllerAnimated:) withSEL:@selector(swizzling_popToRootViewControllerAnimated:)];

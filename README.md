@@ -189,6 +189,7 @@ CoreData封装
 
 1. 支持定制模块分析。
 2. 支持设置分析频率和帧间隔。
+3. 控制台打印 VC 加载时间。
 
 # 4 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016101005.png)System
 
@@ -338,6 +339,7 @@ YJ技术支持群：557445088
 | | 2017-03-31 | YJUIScrollViewManager 代理错误设置修复 |
 | | 2017-04-17 | Dispatch 中 __weakSelf 改为 @weakSelf，__strongSelf 改为 @strongSelf。|
 | | 2017-04-19 | CollectionViewManager 和 TableViewManager 移除同步和异步刷新 cell 的方法 |
+| | 2017-04-25 | TimeProfiler 增加页面分析器，控制台打印 VC 加载时间。 |
 
 
 ## Copyright

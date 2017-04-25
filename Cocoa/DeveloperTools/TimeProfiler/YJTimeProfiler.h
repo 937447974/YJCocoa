@@ -10,20 +10,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-/** 共享类*/
-#define YJTimeProfilerS YJNSingletonS(YJTimeProfiler, nil)
 
 /** 时间分析器*/
 @interface YJTimeProfiler : NSObject
 
-@property (nonatomic) BOOL start; ///< 是否启动
-
 @property (nonatomic) NSInteger frequency;     ///< 分析频率，默认1秒
 @property (nonatomic) NSTimeInterval interval; ///< 帧间隔，默认0.17秒
+
+/**
+ *  @abstract 启动
+ */
+- (void)start;
 
 @end
 

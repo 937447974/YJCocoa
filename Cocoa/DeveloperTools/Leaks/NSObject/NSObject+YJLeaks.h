@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract 开始内存泄漏分析
  */
-+ (void)start;
++ (void)startCaptureMemoryLeaks;
 
 /**
  *  @abstract 执行捕获内存泄漏

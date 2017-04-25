@@ -14,6 +14,7 @@
 		84083B5E1E289A7F00D89EAA /* UIView+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */; };
 		84083B5F1E289A7F00D89EAA /* UINavigationController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */; };
 		84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */; };
+		841151621EAEF2850076D296 /* YJTimePageProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 841151611EAEF2850076D296 /* YJTimePageProfiler.m */; };
 		8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D5591DCB0E5200D7420B /* YJCDManager.m */; };
 		8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55C1DCB0E5200D7420B /* YJCDMigrationManager.m */; };
 		8427D5631DCB0E5200D7420B /* YJCDManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427D55F1DCB0E5200D7420B /* YJCDManagedObject.m */; };
@@ -110,6 +111,8 @@
 		84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YJLeaks.m"; sourceTree = "<group>"; };
 		84083B5B1E289A7F00D89EAA /* UIViewController+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJLeaks.h"; sourceTree = "<group>"; };
 		84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJLeaks.m"; sourceTree = "<group>"; };
+		841151601EAEF2850076D296 /* YJTimePageProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimePageProfiler.h; sourceTree = "<group>"; };
+		841151611EAEF2850076D296 /* YJTimePageProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimePageProfiler.m; sourceTree = "<group>"; };
 		8427D5581DCB0E5200D7420B /* YJCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDManager.h; sourceTree = "<group>"; };
 		8427D5591DCB0E5200D7420B /* YJCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCDManager.m; sourceTree = "<group>"; };
 		8427D55B1DCB0E5200D7420B /* YJCDMigrationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCDMigrationManager.h; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 			children = (
 				84A8D5071E7791A5008B4407 /* YJThreadLogger.h */,
 				84A8D5081E7791A5008B4407 /* YJThreadLogger.m */,
+				841151601EAEF2850076D296 /* YJTimePageProfiler.h */,
+				841151611EAEF2850076D296 /* YJTimePageProfiler.m */,
 				84083ADB1E2759A100D89EAA /* YJTimeProfiler.h */,
 				84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */,
 			);
@@ -1136,6 +1141,7 @@
 				8480BD8D1E09399400A82399 /* YJNSLog.m in Sources */,
 				84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */,
 				84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */,
+				841151621EAEF2850076D296 /* YJTimePageProfiler.m in Sources */,
 				8480BDA91E09399400A82399 /* YJUICollectionViewManager.m in Sources */,
 				8480BDAC1E09399400A82399 /* UITextView+YJInputLength.m in Sources */,
 				8480BDA41E09399400A82399 /* YJUICollectionViewCell.m in Sources */,

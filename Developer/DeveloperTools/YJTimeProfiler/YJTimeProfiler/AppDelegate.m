@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "YJTimeProfiler.h"
+#import "YJNSSingleton.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [YJNSSingletonS(YJTimeProfiler, nil) start];
     // Override point for customization after application launch.
     return YES;
 }

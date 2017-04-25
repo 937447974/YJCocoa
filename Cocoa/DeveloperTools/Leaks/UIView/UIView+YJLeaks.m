@@ -14,7 +14,7 @@
 
 @implementation UIView (YJLeaks)
 
-+ (void)start {
++ (void)startCaptureMemoryLeaks {
     [self swizzlingSEL:@selector(removeFromSuperview) withSEL:@selector(swizzling_removeFromSuperview)];
 }
 

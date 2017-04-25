@@ -14,7 +14,7 @@
 
 @implementation UIViewController (YJLeaks)
 
-+ (void)start {
++ (void)startCaptureMemoryLeaks {
     [self swizzlingSEL:@selector(dismissViewControllerAnimated:completion:) withSEL:@selector(swizzling_dismissViewControllerAnimated:completion:)];
 }
 

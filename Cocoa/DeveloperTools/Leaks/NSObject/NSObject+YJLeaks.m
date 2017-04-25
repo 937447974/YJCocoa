@@ -24,7 +24,7 @@
 #pragma mark - YJLeaks
 @implementation NSObject (YJLeaks)
 
-+ (void)start {
++ (void)startCaptureMemoryLeaks {
     [self doesNotRecognizeSelector:_cmd];
 }
 

@@ -10,13 +10,14 @@
 //
 
 #import "YJTimeProfiler.h"
-#import "YJDispatch.h"
 #import <pthread/pthread.h>
 #import <signal.h>
+#import "YJDispatch.h"
 #import "YJThreadLogger.h"
+#import "YJTimePageProfiler.h"
 
 // 是否断点模式
-#define YJTimeProfilerDebug 1
+#define YJTimeProfilerDebug 0
 
 void YJTimeProfilerSingalHandler(int sig) {
     if (sig == SIGUSR1) {
@@ -54,30 +55,23 @@ void YJTimeProfilerSingalHandler(int sig) {
 }
 
 
-#pragma mark - setter
-- (void)setStart:(BOOL)start {
-    _start = start;
+#pragma mark - run
+- (void)start {
 #if DEBUG
+    [YJTimePageProfiler start];
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFStringRef runLoopMode = kCFRunLoopCommonModes;
-    if (start) {
-        @weakSelf
-        _runLoopObserver = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, true, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
-            @strongSelf
-            if (activity == kCFRunLoopBeforeWaiting) {
-                [self runLoopBeforeWaiting];
-            } else if (activity == kCFRunLoopAfterWaiting) {
-                [self runLoopAfterWaiting];
-            }
-        });
-        CFRunLoopAddObserver(runLoop, _runLoopObserver, runLoopMode);
-    } else {
-        if (_runLoopObserver) {
+    @weakSelf
+    _runLoopObserver = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, true, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        @strongSelf
+        if (activity == kCFRunLoopBeforeWaiting) {
             [self runLoopBeforeWaiting];
-            CFRunLoopRemoveObserver(runLoop, _runLoopObserver, runLoopMode);
-            CFRelease(_runLoopObserver); // 注意释放，否则会造成内存泄露
+        } else if (activity == kCFRunLoopAfterWaiting) {
+            [self runLoopAfterWaiting];
         }
-    }
+    });
+    CFRunLoopAddObserver(runLoop, _runLoopObserver, runLoopMode);
+    CFRelease(_runLoopObserver); // 注意释放，否则会造成内存泄露
 #endif
 }
 

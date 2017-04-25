@@ -18,9 +18,9 @@
 
 + (void)start {
 #if DEBUG
-    [UINavigationController start];
-    [UIViewController start];
-    [UIView start];
+    [UINavigationController startCaptureMemoryLeaks];
+    [UIViewController startCaptureMemoryLeaks];
+    [UIView startCaptureMemoryLeaks];
 #endif
 }
 
