@@ -14,6 +14,7 @@
 		84083ABD1E2603BA00D89EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84083ABC1E2603BA00D89EAA /* Assets.xcassets */; };
 		84083AC01E2603BA00D89EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84083ABE1E2603BA00D89EAA /* LaunchScreen.storyboard */; };
 		84083B3C1E27836400D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B3B1E27836400D89EAA /* YJTimeProfiler.m */; };
+		8443515F1EADFC71004F1133 /* YJTimePageProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */; };
 		84460D801E4C0A11004EBB00 /* YJThreadLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */; };
 		C85101B95A85E9A9AE9F00FE /* libPods-YJTimeProfiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB8467F81E483DC3C249818 /* libPods-YJTimeProfiler.a */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,8 @@
 		84083AC11E2603BA00D89EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84083B3A1E27836400D89EAA /* YJTimeProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimeProfiler.h; sourceTree = "<group>"; };
 		84083B3B1E27836400D89EAA /* YJTimeProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimeProfiler.m; sourceTree = "<group>"; };
+		8443515D1EADFC71004F1133 /* YJTimePageProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimePageProfiler.h; sourceTree = "<group>"; };
+		8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimePageProfiler.m; sourceTree = "<group>"; };
 		84460D7E1E4C0A11004EBB00 /* YJThreadLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJThreadLogger.h; sourceTree = "<group>"; };
 		84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJThreadLogger.m; sourceTree = "<group>"; };
 		916333EADC49901BD6243492 /* Pods-YJTimeProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimeProfiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJTimeProfiler/Pods-YJTimeProfiler.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,10 +115,12 @@
 		84083B391E27836400D89EAA /* TimeProfiler */ = {
 			isa = PBXGroup;
 			children = (
-				84083B3A1E27836400D89EAA /* YJTimeProfiler.h */,
-				84083B3B1E27836400D89EAA /* YJTimeProfiler.m */,
 				84460D7E1E4C0A11004EBB00 /* YJThreadLogger.h */,
 				84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */,
+				8443515D1EADFC71004F1133 /* YJTimePageProfiler.h */,
+				8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */,
+				84083B3A1E27836400D89EAA /* YJTimeProfiler.h */,
+				84083B3B1E27836400D89EAA /* YJTimeProfiler.m */,
 			);
 			name = TimeProfiler;
 			path = ../../../../Cocoa/DeveloperTools/TimeProfiler;
@@ -164,7 +169,7 @@
 				TargetAttributes = {
 					84083AAC1E2603B900D89EAA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PC936H3Q67;
+						DevelopmentTeam = P64WN7EK5E;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -256,6 +261,7 @@
 				84083AB81E2603B900D89EAA /* ViewController.m in Sources */,
 				84083AB51E2603B900D89EAA /* AppDelegate.m in Sources */,
 				84083AB21E2603B900D89EAA /* main.m in Sources */,
+				8443515F1EADFC71004F1133 /* YJTimePageProfiler.m in Sources */,
 				84083B3C1E27836400D89EAA /* YJTimeProfiler.m in Sources */,
 				84460D801E4C0A11004EBB00 /* YJThreadLogger.m in Sources */,
 			);
@@ -379,7 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = PC936H3Q67;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTimeProfiler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -394,7 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = PC936H3Q67;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTimeProfiler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

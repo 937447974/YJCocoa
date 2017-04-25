@@ -30,7 +30,7 @@
     self.collectionViewManager.delegateFlowLayoutManager.flowLayout.minimumInteritemSpacing = 5;
     self.collectionViewManager.delegateFlowLayoutManager.lineItems = 3;          // 一行显示个数
     self.collectionViewManager.delegateFlowLayoutManager.itemHeightLayout = YES; // 是否自动适配高
-    
+    self.collectionView.alwaysBounceVertical = YES;
     [self testDefault];
 //    [self testClass];
 }
@@ -40,7 +40,7 @@
     // AOP代理
     [self.collectionViewManager addCollectionViewAOPDelegate:self];
     // 测试数据
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 2; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
         [self.collectionViewManager.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
@@ -75,7 +75,7 @@
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
     NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
     if (scroll == YJUIScrollViewScrollEndBottom) { // 分页加载
-        [self testClass];
+//        [self testClass];
         NSLog(@"%@分页加载", NSStringFromSelector(_cmd));
     }
 }

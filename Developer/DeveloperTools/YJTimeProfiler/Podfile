@@ -6,6 +6,8 @@ target 'YJTimeProfiler' do
   # use_frameworks!
 
   # Pods for YJTimeProfiler
-    pod 'YJCocoa/System/Dispatch'
-
+  pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
+  pod 'YJCocoa/AppFrameworks/Foundation/Swizzling'
+  pod 'YJCocoa/System/Dispatch'
+    
 end
