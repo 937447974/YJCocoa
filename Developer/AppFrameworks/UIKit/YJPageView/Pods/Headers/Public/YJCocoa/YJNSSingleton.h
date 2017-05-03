@@ -1,0 +1,1 @@
+../../../YJCocoa/Cocoa/AppFrameworks/Foundation/Singleton/YJNSSingleton.h

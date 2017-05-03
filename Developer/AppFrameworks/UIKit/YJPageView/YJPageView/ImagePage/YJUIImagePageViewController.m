@@ -19,7 +19,7 @@
 
 #pragma mark - IBAction 点击图片
 - (IBAction)onClickImageView:(id)sender {
-    self.pageView.pageViewDidSelect(self);
+//    self.pageView.pageViewDidSelect(self);
 }
 
 #pragma mark - YJUIPageView

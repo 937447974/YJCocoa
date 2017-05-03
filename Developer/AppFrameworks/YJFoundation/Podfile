@@ -11,8 +11,9 @@ end
 
 target 'YJFoundation' do
     shared_pods
+    target 'YJFoundationTests' do
+        inherit! :search_paths
+    end
 end
 
-target 'YJFoundationTests' do
-    shared_pods
-end
+

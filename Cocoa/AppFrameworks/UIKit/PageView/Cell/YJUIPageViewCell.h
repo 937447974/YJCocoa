@@ -27,15 +27,20 @@
  *
  *  @return YJUITableCellObject
  */
-+ (__kindof YJUIPageViewCellObject *)cellObjectWithCellModel:(id<YJUIPageViewCellModelProtocol>)cellModel;
++ (YJUIPageViewCellObject *)cellObjectWithCellModel:(id<YJUIPageViewCellModelProtocol>)cellModel;
+
+/**
+ *  @abstract 初始化
+ *
+ *  @return YJUIPageViewCell
+ */
+- (instancetype)initPageView;
 
 /**
  *  刷新page
  *
  *  @param cellObject page封装的对象
  *  @param pageView   YJUIPageView
- *
- *  @return void
  */
 - (void)reloadDataWithPageViewCellObject:(YJUIPageViewCellObject *)cellObject pageView:(YJUIPageView *)pageView;
 

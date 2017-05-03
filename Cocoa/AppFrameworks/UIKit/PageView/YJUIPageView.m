@@ -12,16 +12,16 @@
 #import "YJUIPageView.h"
 #import "YJAutoLayout.h"
 #import "YJNSFoundationOther.h"
+#import "YJNSTimer.h"
 
 @interface YJUIPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
-    UIPageControl *_pageControl;   ///< pageControl的备份
     NSInteger _appearWillIndex;    ///< 页面将要显示
     NSInteger _appearDidIndex;     ///< 当前页面
 }
 
 @property (nonatomic, weak) UIScrollView *scrollView;
-@property (nonatomic, strong) NSTimer *timer;   ///< 轮转图的时间触发器
+@property (nonatomic, strong) YJNSTimer *timer;   ///< 轮转图的时间触发器
 
 @end
 
@@ -43,7 +43,6 @@
 
 #pragma mark 刷新PageVC
 - (void)reloadPage {
-    _pageControl.numberOfPages = self.dataSource.count;
     [self gotoPageWithIndex:0 animated:NO completion:nil];
 }
 
@@ -108,7 +107,7 @@
     NSNumber *cacheKey = [NSNumber numberWithInteger:pageIndex];
     YJUIPageViewCell *pageVC = [self.pageCache objectForKey:cacheKey];
     if (!pageVC) { // 未缓存，则初始化
-        pageVC = [[cellObject.pageClass alloc] init];
+        pageVC = [[cellObject.pageClass alloc] initPageView];
         [self.pageCache setObject:pageVC forKey:cacheKey];
         if (!pageVC.view.backgroundColor) {
             pageVC.view.backgroundColor = [UIColor whiteColor];
@@ -117,13 +116,6 @@
     // 刷新page
     [pageVC reloadDataWithPageViewCellObject:cellObject pageView:self];
     return pageVC;
-}
-
-#pragma mark 点击UIPageControl
-- (void)onClickPageControl:(UIPageControl *)pageControl {
-    if (_pageControl.currentPage != _appearDidIndex) {
-        [self gotoPageWithIndex:_pageControl.currentPage animated:YES completion:nil];
-    }
 }
 
 #pragma mark - KOV
@@ -184,16 +176,6 @@
     return _pageVC;
 }
 
-- (UIPageControl *)pageControl {
-    if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
-        [self insertSubview:_pageControl aboveSubview:self.pageVC.view]; // 显示
-        [_pageControl addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionNew context:nil];
-        [_pageControl addTarget:self action:@selector(onClickPageControl:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _pageControl;
-}
-
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         for (UIView *v in self.pageVC.view.subviews) {
@@ -219,33 +201,11 @@
     return _pageCache;
 }
 
-- (YJUIPageViewAppearBlock)pageViewAppear {
-    __weak YJUIPageViewAppearBlock weakBlock = _pageViewAppear;
-    YJUIPageViewAppearBlock pageViewAppear = ^(YJUIPageViewCell *pageVC, YJUIPageViewAppear appeear) {
-        switch (appeear) {
-            case YJUIPageViewAppearWill:
-                _appearWillIndex = pageVC.cellObject.pageIndex;
-                _pageControl.currentPage = _appearWillIndex;
-                break;
-            case YJUIPageViewAppearDid:
-                _appearDidIndex = pageVC.cellObject.pageIndex;
-                _pageControl.currentPage = _appearDidIndex;
-                break;
-        }
-        if (weakBlock) {
-            weakBlock(pageVC, appeear);
-        }
-    };
-    return pageViewAppear;
-}
-
-- (YJUIPageViewDidSelectBlock)pageViewDidSelect {
-    if (!_pageViewDidSelect) {
-        _pageViewDidSelect = ^(YJUIPageViewCell *pageVC) {
-            NSLog(@"当前UIViewController未设置pageView.pageViewDidSelect属性");
-        };
+- (void)setIsLoop:(BOOL)isLoop {
+    _isLoop = isLoop;
+    if (isLoop) {
+        self.isDisableBounces = NO;
     }
-    return _pageViewDidSelect;
 }
 
 - (void)setIsDisableScrool:(BOOL)isDisableScrool {
@@ -256,24 +216,29 @@
 - (void)setIsDisableBounces:(BOOL)isDisableBounces {
     _isDisableBounces = isDisableBounces;
     if (_isDisableBounces) {
-        self.isLoop = NO;
+        _isLoop = NO;
         [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     } else {
         [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
     }
 }
 
+- (YJNSTimer *)timer {
+    if (!_timer) {
+        _timer = [YJNSTimer]
+    }
+}
+
 - (void)setTimeInterval:(NSTimeInterval)timeInterval {
     if (timeInterval > 0) {
         self.isLoop = YES;
-        if (self.isDisableBounces) {
-            self.isDisableBounces = NO;
-        }
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(timeLoop) userInfo:nil repeats:YES];
+        self.timer = [YJNSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(timeLoop) userInfo:nil repeats:YES];
         // [self.timer setFireDate:[NSDate date]];// 继续
     } else {
         [self.timer setFireDate:[NSDate distantFuture]];// 暂停
     }    
 }
+
+
 
 @end

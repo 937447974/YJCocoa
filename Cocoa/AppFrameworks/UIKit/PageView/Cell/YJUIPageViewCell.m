@@ -25,15 +25,8 @@
     return co;
 }
 
-#pragma mark - super
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.pageView.pageViewAppear(self, YJUIPageViewAppearWill);
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.pageView.pageViewAppear(self, YJUIPageViewAppearDid);
+- (instancetype)initPageView {
+    return [self init];
 }
 
 #pragma mark - 刷新界面
