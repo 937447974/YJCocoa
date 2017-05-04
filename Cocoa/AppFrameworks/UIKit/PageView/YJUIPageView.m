@@ -42,33 +42,9 @@
 }
 
 #pragma mark 刷新PageVC
-- (void)reloadPage {
-    [self gotoPageWithIndex:0 animated:NO completion:nil];
-}
 
 #pragma mark 前往指定界面
-- (void)gotoPageWithIndex:(NSInteger)pageIndex animated:(BOOL)animated completion:(void (^)(BOOL))completion {
-    NSMutableArray<YJUIPageViewCell *> *array = [NSMutableArray array];
-    YJUIPageViewCell *pvc = [self pageViewControllerAtIndex:pageIndex];
-    if (!pvc) {
-        return;
-    }
-    [array addObject:pvc];
-    if (self.pageVC.spineLocation == UIPageViewControllerSpineLocationMid) { // 双页面显示
-        pvc = [self pageViewControllerAtIndex:pageIndex+1];
-        if (pvc) {
-            [array addObject:pvc];
-        } else {
-            pvc = [self pageViewControllerAtIndex:pageIndex-1];
-            if (!pvc) {
-                return;
-            }
-            [array insertObject:pvc atIndex:0];
-        }
-    }
-    UIPageViewControllerNavigationDirection direction =  pageIndex >= _appearDidIndex ?UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
-    [self.pageVC setViewControllers:array direction:direction animated:animated completion:completion];
-}
+
 
 #pragma mark - 辅助方法
 #pragma mark 获取当前UIViewController
@@ -118,44 +94,7 @@
     return pageVC;
 }
 
-#pragma mark - KOV
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentOffset"] && _isDisableBounces && (_appearDidIndex == 0 || _appearDidIndex == self.dataSource.count-1)) {
-        CGPoint contentOffset = self.scrollView.contentOffset;
-        if (_appearDidIndex == 0) { // 首页
-            switch (self.pageVC.navigationOrientation) {
-                case UIPageViewControllerNavigationOrientationHorizontal:
-                    if (contentOffset.x < self.frame.size.width) {
-                        contentOffset.x = self.frame.size.width;
-                        [self.scrollView setContentOffset:contentOffset animated:NO];
-                    }
-                    break;
-                case UIPageViewControllerNavigationOrientationVertical:
-                    if (contentOffset.y<self.frame.size.height) {
-                        contentOffset.y = self.frame.size.height;
-                        [self.scrollView setContentOffset:contentOffset animated:NO];
-                    }
-                    break;
-            }
-        }
-        if (_appearDidIndex == self.dataSource.count-1) { // 尾页
-            switch (self.pageVC.navigationOrientation) {
-                case UIPageViewControllerNavigationOrientationHorizontal:
-                    if (contentOffset.x > self.frame.size.width) {
-                        contentOffset.x = self.frame.size.width;
-                        [self.scrollView setContentOffset:contentOffset animated:NO];
-                    }
-                    break;
-                case UIPageViewControllerNavigationOrientationVertical:
-                    if (contentOffset.y>self.frame.size.height) {
-                        contentOffset.y = self.frame.size.height;
-                        [self.scrollView setContentOffset:contentOffset animated:NO];
-                    }
-                    break;
-            }
-        }
-    }
-}
+
 
 #pragma mark - UIPageViewControllerDataSource
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -201,43 +140,10 @@
     return _pageCache;
 }
 
-- (void)setIsLoop:(BOOL)isLoop {
-    _isLoop = isLoop;
-    if (isLoop) {
-        self.isDisableBounces = NO;
-    }
-}
 
-- (void)setIsDisableScrool:(BOOL)isDisableScrool {
-    _isDisableScrool = isDisableScrool;
-    self.scrollView.scrollEnabled = !_isDisableScrool;
-}
 
-- (void)setIsDisableBounces:(BOOL)isDisableBounces {
-    _isDisableBounces = isDisableBounces;
-    if (_isDisableBounces) {
-        _isLoop = NO;
-        [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    } else {
-        [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
-    }
-}
 
-- (YJNSTimer *)timer {
-    if (!_timer) {
-        _timer = [YJNSTimer]
-    }
-}
 
-- (void)setTimeInterval:(NSTimeInterval)timeInterval {
-    if (timeInterval > 0) {
-        self.isLoop = YES;
-        self.timer = [YJNSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(timeLoop) userInfo:nil repeats:YES];
-        // [self.timer setFireDate:[NSDate date]];// 继续
-    } else {
-        [self.timer setFireDate:[NSDate distantFuture]];// 暂停
-    }    
-}
 
 
 

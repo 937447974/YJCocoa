@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
     YJUIPageViewCellCacheIndex,  ///< 根据位置缓存
 };
 
+@protocol YJUITableViewManagerDelegate
+
 /** page view*/
 @interface YJUIPageView : UIView
 
@@ -36,34 +38,6 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
 
 @property (nonatomic, strong) NSMutableDictionary<NSNumber *, YJUIPageViewCell*> *pageCache; ///< 页面缓存
 
-/**
- *  修改pageVC时可使用此方法
- *
- *  @param style The style for transitions between pages.
- *  @param navigationOrientation The orientation of the page-by-page navigation.
- *  @param options A dictionary of options. For keys, see Options Keys.
- *
- *  @return void
- */
-- (void)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(nullable NSDictionary<NSString *, id> *)options;
-
-/**
- *  刷新pageVC
- *
- *  @return void
- */
-- (void)reloadPage;
-
-/**
- *  前往指定界面
- *
- *  @param pageIndex  页码[0...]
- *  @param animated   是否动画
- *  @param completion 回调
- *
- *  @return void
- */
-- (void)gotoPageWithIndex:(NSInteger)pageIndex animated:(BOOL)animated completion:(void (^ __nullable)(BOOL finished))completion;
 
 @end
 

@@ -14,6 +14,12 @@
 		8425A58E1EB9E3D500EBFFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8425A58C1EB9E3D500EBFFDA /* Main.storyboard */; };
 		8425A5901EB9E3D500EBFFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8425A58F1EB9E3D500EBFFDA /* Assets.xcassets */; };
 		8425A5931EB9E3D500EBFFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8425A5911EB9E3D500EBFFDA /* LaunchScreen.storyboard */; };
+		84B4B1751EB9E8A0008A0B77 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */; };
+		84B4B1761EB9E8A0008A0B77 /* YJUIPageViewCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */; };
+		84B4B1791EB9EA92008A0B77 /* YJUIPageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */; };
+		84B4B17E1EBADC25008A0B77 /* YJUIPageViewTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B17C1EBADC25008A0B77 /* YJUIPageViewTestCell.m */; };
+		84B4B17F1EBADC25008A0B77 /* YJUIPageViewTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B4B17D1EBADC25008A0B77 /* YJUIPageViewTestCell.xib */; };
+		84B4B1821EBADC41008A0B77 /* YJUIPageViewTestCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1811EBADC41008A0B77 /* YJUIPageViewTestCell2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,17 @@
 		8425A58F1EB9E3D500EBFFDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8425A5921EB9E3D500EBFFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8425A5941EB9E3D500EBFFDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B4B1701EB9E8A0008A0B77 /* YJUIPageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCell.h; sourceTree = "<group>"; };
+		84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCell.m; sourceTree = "<group>"; };
+		84B4B1731EB9E8A0008A0B77 /* YJUIPageViewCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCellObject.h; sourceTree = "<group>"; };
+		84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCellObject.m; sourceTree = "<group>"; };
+		84B4B1771EB9EA92008A0B77 /* YJUIPageViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewManager.h; sourceTree = "<group>"; };
+		84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewManager.m; sourceTree = "<group>"; };
+		84B4B17B1EBADC25008A0B77 /* YJUIPageViewTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewTestCell.h; sourceTree = "<group>"; };
+		84B4B17C1EBADC25008A0B77 /* YJUIPageViewTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewTestCell.m; sourceTree = "<group>"; };
+		84B4B17D1EBADC25008A0B77 /* YJUIPageViewTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJUIPageViewTestCell.xib; sourceTree = "<group>"; };
+		84B4B1801EBADC41008A0B77 /* YJUIPageViewTestCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewTestCell2.h; sourceTree = "<group>"; };
+		84B4B1811EBADC41008A0B77 /* YJUIPageViewTestCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewTestCell2.m; sourceTree = "<group>"; };
 		BE7842423C9270B1D9D12774 /* libPods-YJUIPageViewManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJUIPageViewManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D2ABFBA4DA33578AEFFC20 /* Pods-YJUIPageViewManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUIPageViewManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJUIPageViewManager/Pods-YJUIPageViewManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +99,8 @@
 		8425A5821EB9E3D500EBFFDA /* YJUIPageViewManager */ = {
 			isa = PBXGroup;
 			children = (
+				84B4B17A1EBADBEC008A0B77 /* Cell */,
+				84B4B16E1EB9E587008A0B77 /* PageViewManager */,
 				8425A5861EB9E3D500EBFFDA /* AppDelegate.h */,
 				8425A5871EB9E3D500EBFFDA /* AppDelegate.m */,
 				84B4B16D1EB9E519008A0B77 /* Resources */,
@@ -109,6 +128,48 @@
 				8425A5911EB9E3D500EBFFDA /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		84B4B16E1EB9E587008A0B77 /* PageViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				84B4B16F1EB9E8A0008A0B77 /* Cell */,
+				84B4B1721EB9E8A0008A0B77 /* CellObject */,
+				84B4B1771EB9EA92008A0B77 /* YJUIPageViewManager.h */,
+				84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */,
+			);
+			name = PageViewManager;
+			path = ../../../../../Cocoa/AppFrameworks/UIKit/PageViewManager;
+			sourceTree = "<group>";
+		};
+		84B4B16F1EB9E8A0008A0B77 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84B4B1701EB9E8A0008A0B77 /* YJUIPageViewCell.h */,
+				84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		84B4B1721EB9E8A0008A0B77 /* CellObject */ = {
+			isa = PBXGroup;
+			children = (
+				84B4B1731EB9E8A0008A0B77 /* YJUIPageViewCellObject.h */,
+				84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */,
+			);
+			path = CellObject;
+			sourceTree = "<group>";
+		};
+		84B4B17A1EBADBEC008A0B77 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84B4B17B1EBADC25008A0B77 /* YJUIPageViewTestCell.h */,
+				84B4B17C1EBADC25008A0B77 /* YJUIPageViewTestCell.m */,
+				84B4B17D1EBADC25008A0B77 /* YJUIPageViewTestCell.xib */,
+				84B4B1801EBADC41008A0B77 /* YJUIPageViewTestCell2.h */,
+				84B4B1811EBADC41008A0B77 /* YJUIPageViewTestCell2.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +206,7 @@
 				TargetAttributes = {
 					8425A57F1EB9E3D500EBFFDA = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = P64WN7EK5E;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -174,6 +236,7 @@
 			files = (
 				8425A5931EB9E3D500EBFFDA /* LaunchScreen.storyboard in Resources */,
 				8425A5901EB9E3D500EBFFDA /* Assets.xcassets in Resources */,
+				84B4B17F1EBADC25008A0B77 /* YJUIPageViewTestCell.xib in Resources */,
 				8425A58E1EB9E3D500EBFFDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +298,12 @@
 			files = (
 				8425A58B1EB9E3D500EBFFDA /* ViewController.m in Sources */,
 				8425A5881EB9E3D500EBFFDA /* AppDelegate.m in Sources */,
+				84B4B1791EB9EA92008A0B77 /* YJUIPageViewManager.m in Sources */,
+				84B4B1751EB9E8A0008A0B77 /* YJUIPageViewCell.m in Sources */,
 				8425A5851EB9E3D500EBFFDA /* main.m in Sources */,
+				84B4B1821EBADC41008A0B77 /* YJUIPageViewTestCell2.m in Sources */,
+				84B4B1761EB9E8A0008A0B77 /* YJUIPageViewCellObject.m in Sources */,
+				84B4B17E1EBADC25008A0B77 /* YJUIPageViewTestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -359,9 +427,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJUIPageViewManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJUIPageViewManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -372,9 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJUIPageViewManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJUIPageViewManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
