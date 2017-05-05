@@ -99,9 +99,9 @@
     // 页面缓存
     NSString *cacheKey;
     if (self.cellCache == YJUIPageViewCellCacheDefault) {
-        cacheKey = [NSString stringWithFormat:@"%@-%ld", NSStringFromClass(cellObject.class), pageIndex%3];
+        cacheKey = [NSString stringWithFormat:@"%@-%ld", NSStringFromClass(cellObject.class), (long)pageIndex%3];
     } else {
-        cacheKey = [NSString stringWithFormat:@"%ld", pageIndex];
+        cacheKey = [NSString stringWithFormat:@"%ld", (long)pageIndex];
     }
     YJUIPageViewCell *pageVC = [self.pageCache objectForKey:cacheKey];
     if (!pageVC) { // 未缓存，则初始化
