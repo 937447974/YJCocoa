@@ -211,12 +211,11 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 nr.dependency 'YJCocoa/AppFrameworks/Foundation/Router'
             end
             # PageView
-            uik.subspec 'PageView' do |pv|
-                pv.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/PageView/Cell/*.{h,m}'
-                pv.dependency 'YJCocoa/AppFrameworks/UIKit/AutoLayout'
-                pv.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                pv.subspec 'CellObject' do |co|
-                    co.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/CellObject/*.{h,m}'
+            uik.subspec 'PageViewManager' do |pvm|
+                pvm.source_files = 'Cocoa/AppFrameworks/UIKit/PageViewManager/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/PageViewManager/Cell/*.{h,m}'
+                pvm.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
+                pvm.subspec 'CellObject' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/PageViewManager/CellObject/*.{h,m}'
                 end
             end
             # ScrollViewManager
