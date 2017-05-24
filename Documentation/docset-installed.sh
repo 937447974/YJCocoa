@@ -31,10 +31,6 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-03-28 | URLSession 崩溃修复" with title "YJCocoa 6.3.0"'
-osascript -e 'display notification "2017-03-31 | YJUIScrollViewManager 代理错误设置修复" with title "YJCocoa 6.3.0"'
-osascript -e 'display notification "2017-04-17 | Dispatch 中 __weakSelf 改为 @weakSelf，__strongSelf 改为 @strongSelf" with title "YJCocoa 6.3.0"'
-osascript -e 'display notification "2017-04-19 | CollectionViewManager 和 TableViewManager 移除同步和异步刷新 cell 的方法" with title "YJCocoa 6.3.0"'
-osascript -e 'display notification "2017-04-25 | TimeProfiler 增加页面分析器，控制台打印 VC 加载时间。" with title "YJCocoa 6.3.0"'
+osascript -e 'display notification "2017-05-04 | PageView 升级为 PageViewManager，主要实现对 UIPageViewController 的封装，支持轮播图、导航图、小说翻页等多种翻页模式。" with title "YJCocoa 6.4.0"'
 
 
