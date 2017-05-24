@@ -6,7 +6,7 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-# 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='china beijing'
+# 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='YJCocoa'
 # 文档发包:appledoc -c "阳君" --company-id "com.YJ" -p YJCocoa -v 3.0.0 -o ./Documentation ./Cocoa
 # 验证podspec命令：pod spec lint YJCocoa.podspec --allow-warnings --verbose
 # pod发包：pod trunk push YJCocoa.podspec --verbose --allow-warnings
