@@ -340,6 +340,7 @@ YJ技术支持群：557445088
 | | 2017-04-19 | CollectionViewManager 和 TableViewManager 移除同步和异步刷新 cell 的方法 |
 | | 2017-04-25 | TimeProfiler 增加页面分析器，控制台打印 VC 加载时间。 |
 | 6.4.0 | 2017-05-04 | PageView 升级为 PageViewManager，主要实现对 UIPageViewController 的封装，支持轮播图、导航图、小说翻页等多种翻页模式。|
+| 6.5.0 | 2017-05-29 | TableViewManager 移除 cell 悬浮支持 |
 
 
 ## Copyright

@@ -27,8 +27,7 @@
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
     //    [self test1];
 //    [self test2];
-//    [self test3];
-        [self test4];
+    [self test3];
 }
 
 #pragma mark - 测试数据
@@ -87,26 +86,6 @@
 #pragma mark YJUITableViewManagerDelegate
 - (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-#pragma mark - 悬浮测试
-- (void)test4 {
-    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    tableHeaderView.backgroundColor = [UIColor blueColor];
-    self.tableView.tableHeaderView = tableHeaderView;
-    self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
-    // 测试数据
-    for (int i=0; i<150; i++) {
-        // 封装模型
-        YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
-        cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
-        // 封装CellObject
-        YJUITableCellObject *cellObject = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
-        cellObject.suspension = i%10 == 0;
-        // 填充数据源
-        [self.tableViewManager.dataSource addObject:cellObject];
-    }
-    [self.tableViewManager.delegateManager.suspensionCellView reloadData]; // 悬浮cell开始工作不支持约束悬浮
 }
 
 @end

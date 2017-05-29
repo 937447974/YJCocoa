@@ -30,8 +30,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
 /** TableCell对象*/
 @interface YJUITableCellObject : NSObject
 
-@property (nonatomic) BOOL suspension; ///< 是否悬浮
-
 @property (nonatomic, copy) NSString *reuseIdentifier; ///< UITableViewCell.reuseIdentifier，默认类名
 
 @property (nonatomic, strong) id<YJUITableCellModelProtocol> cellModel; ///< cell对应的VM

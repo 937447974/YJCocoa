@@ -15,7 +15,6 @@
 
 @interface YJUITableViewDelegateManager () {
     NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高
-    YJUISuspensionCellView *_suspensionCellView; ///< 悬浮cell
 }
 
 @end
@@ -32,22 +31,6 @@
         _manager = manager;
     }
     return self;
-}
-
-#pragma mark - getter and setter
-- (YJUISuspensionCellView *)suspensionCellView {
-    if (!_suspensionCellView) {
-        self.suspensionCellView = [[YJUISuspensionCellView alloc] initWithFrame:self.manager.tableView.frame];
-        self.suspensionCellView.heightFrame = 0;
-        _suspensionCellView.clipsToBounds = YES;
-        [self.manager.tableView.superview addSubview:_suspensionCellView];
-    }
-    return _suspensionCellView;
-}
-
-- (void)setSuspensionCellView:(YJUISuspensionCellView *)suspensionCellView {
-    _suspensionCellView = suspensionCellView;
-    _suspensionCellView.manager = self.manager;
 }
 
 #pragma mark - 清除缓存
@@ -78,11 +61,6 @@
         case YJUITableViewCacheHeightClassAndIndexPath: // 根据类名和NSIndexPath双重绑定缓存高度
             return [NSString stringWithFormat:@"%@(%ld-%ld)", cellObject.cellName, (long)cellObject.indexPath.section, (long)cellObject.indexPath.row];
     }
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.suspensionCellView.contentOffsetY = scrollView.contentOffset.y;
 }
 
 #pragma mark - UITableViewDelegate

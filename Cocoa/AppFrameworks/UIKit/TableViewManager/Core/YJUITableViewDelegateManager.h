@@ -11,7 +11,6 @@
 
 #import <UIKit/UIKit.h>
 #import "YJUITableViewCell.h"
-#import "YJUISuspensionCellView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,8 +30,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 
 @property (nonatomic) BOOL isCacheHeight;                           ///< 是否缓存高，默认YES缓存，NO不缓存
 @property (nonatomic) YJUITableViewCacheHeight cacheHeightStrategy; ///< 缓存高的策略
-
-@property (nonatomic, strong) YJUISuspensionCellView *suspensionCellView; ///< 悬浮的cell层
 
 /**
  *  初始化

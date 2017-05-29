@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.widthFrame, self.view.heightFrame-150) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
@@ -37,13 +37,11 @@
             YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
             YJUITableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
-            co.suspension = j%10 == 0;
             // 填充数据源
             [array addObject:co];
         }
         [self.tableViewManager.dataSourceGrouped addObject:array];
     }
-    [self.tableViewManager.delegateManager.suspensionCellView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
