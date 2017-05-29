@@ -227,7 +227,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             # UITableView
             uik.subspec 'TableViewManager' do |tvm|
                 tvm.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/Suspension/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCell/*.{h,m}'
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCell/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'

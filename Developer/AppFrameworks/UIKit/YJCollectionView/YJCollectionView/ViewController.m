@@ -73,7 +73,7 @@
 
 #pragma mark - YJUIScrollViewManagerDelegate
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
-    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+    NSLog(@"%@ -- %ld", NSStringFromSelector(_cmd), (long)scroll);
     if (scroll == YJUIScrollViewScrollEndBottom) { // 分页加载
 //        [self testClass];
         NSLog(@"%@分页加载", NSStringFromSelector(_cmd));

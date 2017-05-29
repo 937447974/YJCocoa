@@ -73,7 +73,6 @@
 		8480BDB71E09399400A82399 /* YJUITableViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD721E09399400A82399 /* YJUITableViewDataSourceManager.m */; };
 		8480BDB81E09399400A82399 /* YJUITableViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD741E09399400A82399 /* YJUITableViewDelegateManager.m */; };
 		8480BDB91E09399400A82399 /* YJUITableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD761E09399400A82399 /* YJUITableViewManager.m */; };
-		8480BDBA1E09399400A82399 /* YJUISuspensionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD791E09399400A82399 /* YJUISuspensionCellView.m */; };
 		8480BDBB1E09399400A82399 /* YJUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD7C1E09399400A82399 /* YJUITableViewCell.m */; };
 		8480BDBC1E09399400A82399 /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD7F1E09399400A82399 /* YJUITableCellObject.m */; };
 		8480BDBD1E09399400A82399 /* UIView+YJUIViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD821E09399400A82399 /* UIView+YJUIViewGeometry.m */; };
@@ -233,8 +232,6 @@
 		8480BD741E09399400A82399 /* YJUITableViewDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewDelegateManager.m; sourceTree = "<group>"; };
 		8480BD751E09399400A82399 /* YJUITableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewManager.h; sourceTree = "<group>"; };
 		8480BD761E09399400A82399 /* YJUITableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewManager.m; sourceTree = "<group>"; };
-		8480BD781E09399400A82399 /* YJUISuspensionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUISuspensionCellView.h; sourceTree = "<group>"; };
-		8480BD791E09399400A82399 /* YJUISuspensionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUISuspensionCellView.m; sourceTree = "<group>"; };
 		8480BD7B1E09399400A82399 /* YJUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewCell.h; sourceTree = "<group>"; };
 		8480BD7C1E09399400A82399 /* YJUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewCell.m; sourceTree = "<group>"; };
 		8480BD7E1E09399400A82399 /* YJUITableCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableCellObject.h; sourceTree = "<group>"; };
@@ -878,7 +875,6 @@
 			isa = PBXGroup;
 			children = (
 				8480BD701E09399400A82399 /* Core */,
-				8480BD771E09399400A82399 /* Suspension */,
 				8480BD7A1E09399400A82399 /* TableCell */,
 				8480BD7D1E09399400A82399 /* TableCellObject */,
 			);
@@ -896,15 +892,6 @@
 				8480BD761E09399400A82399 /* YJUITableViewManager.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		8480BD771E09399400A82399 /* Suspension */ = {
-			isa = PBXGroup;
-			children = (
-				8480BD781E09399400A82399 /* YJUISuspensionCellView.h */,
-				8480BD791E09399400A82399 /* YJUISuspensionCellView.m */,
-			);
-			path = Suspension;
 			sourceTree = "<group>";
 		};
 		8480BD7A1E09399400A82399 /* TableCell */ = {
@@ -1139,7 +1126,6 @@
 				8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */,
 				8480BD9F1E09399400A82399 /* YJNSLayoutYAxisAnchor.m in Sources */,
 				84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
-				8480BDBA1E09399400A82399 /* YJUISuspensionCellView.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				8480BDAA1E09399400A82399 /* YJUIColor.m in Sources */,
 				8480BDB01E09399400A82399 /* UIViewController+YJUINavigationRouter.m in Sources */,
