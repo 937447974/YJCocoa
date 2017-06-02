@@ -12,6 +12,8 @@
 #import "UIViewController+YJLeaks.h"
 #import "YJSwizzling.h"
 
+#if DEBUG
+
 @implementation UIViewController (YJLeaks)
 
 + (void)startCaptureMemoryLeaks {
@@ -24,3 +26,5 @@
 }
 
 @end
+
+#endif

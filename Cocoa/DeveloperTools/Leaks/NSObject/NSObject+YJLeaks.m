@@ -14,6 +14,8 @@
 #import "YJNSSingleton.h"
 #import "YJDispatch.h"
 
+#if DEBUG
+
 @interface NSObject (YJLeaksProperty)
 
 @property (nonatomic, copy) NSString *leakPropertyPath; ///<内存泄漏属性地址
@@ -29,7 +31,6 @@
 }
 
 - (void)captureMemoryLeaks {
-#if DEBUG
     NSString *className = NSStringFromClass(self.class);
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
@@ -58,7 +59,6 @@
         }
         NSLog(@"%@ capture memory leaks end", className);
     });
-#endif
 }
 
 #pragma mark - private(-)
@@ -66,14 +66,17 @@
     if (level == 3) {
         return;
     }
-    level++;
+    if ([YJNSSingletonS(NSMutableSet, @"YJLeaks.ignoredClasses") containsObject:self.class]) { // 对象忽略
+        return;
+    }
     NSString *className = NSStringFromClass(self.class);
     if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"_"]) {
         return;
     }
+    level++;
     for (NSString *p in [self.class leakProperties]) {
         id value = [self valueForKey:p];
-        if ([value isKindOfClass:[NSObject class]]) {
+        if ([value isKindOfClass:[NSObject class]] && ![value isKindOfClass:[NSString class]]) { // 忽略 NSString
             NSObject *item = value;
             item.leakPropertyPath = [NSString stringWithFormat:@"%@.%@", self.leakPropertyPath, p];
             [leakPropertyArray addPointer:(__bridge void * _Nullable)(item)];
@@ -138,5 +141,7 @@
 }
 
 @end
+
+#endif
 
 

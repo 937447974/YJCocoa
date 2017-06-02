@@ -13,6 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#if DEBUG
+
 /** 内存泄漏捕获基类*/
 @interface NSObject (YJLeaks)
 
@@ -28,5 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)captureMemoryLeaks;
 
 @end
+
+#endif
 
 NS_ASSUME_NONNULL_END

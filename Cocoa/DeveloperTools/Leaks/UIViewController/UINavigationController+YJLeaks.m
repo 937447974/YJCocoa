@@ -13,6 +13,8 @@
 #import "YJSwizzling.h"
 #import "UIViewController+YJLeaks.h"
 
+#if DEBUG
+
 @implementation UINavigationController (YJLeaks)
 
 + (void)startCaptureMemoryLeaks {
@@ -37,3 +39,5 @@
 }
 
 @end
+
+#endif

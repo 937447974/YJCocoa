@@ -13,8 +13,13 @@
 #import "UINavigationController+YJLeaks.h"
 #import "UIViewController+YJLeaks.h"
 #import "UIView+YJLeaks.h"
+#import "YJNSSingleton.h"
 
 @implementation YJLeaks
+
++ (NSMutableSet<Class> *)ignoredClasses {
+    return YJNSSingletonS(NSMutableSet, @"YJLeaks.ignoredClasses");
+}
 
 + (void)start {
 #if DEBUG
