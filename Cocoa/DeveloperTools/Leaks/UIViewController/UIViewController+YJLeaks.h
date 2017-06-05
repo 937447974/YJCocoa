@@ -14,9 +14,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#if DEBUG
+
 /** UIViewController内存泄漏捕获*/
 @interface UIViewController (YJLeaks)
 
 @end
+
+#endif
 
 NS_ASSUME_NONNULL_END

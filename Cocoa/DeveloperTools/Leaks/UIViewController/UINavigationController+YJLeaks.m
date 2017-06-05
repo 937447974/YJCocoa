@@ -18,24 +18,24 @@
 @implementation UINavigationController (YJLeaks)
 
 + (void)startCaptureMemoryLeaks {
-    [self swizzlingSEL:@selector(popViewControllerAnimated:) withSEL:@selector(swizzling_popViewControllerAnimated:)];
-    [self swizzlingSEL:@selector(popToViewController:animated:) withSEL:@selector(swizzling_popToViewController:animated:)];
-    [self swizzlingSEL:@selector(popToRootViewControllerAnimated:) withSEL:@selector(swizzling_popToRootViewControllerAnimated:)];
+    [self swizzlingSEL:@selector(popViewControllerAnimated:) withSEL:@selector(swizzlingLeaks_popViewControllerAnimated:)];
+    [self swizzlingSEL:@selector(popToViewController:animated:) withSEL:@selector(swizzlingLeaks_popToViewController:animated:)];
+    [self swizzlingSEL:@selector(popToRootViewControllerAnimated:) withSEL:@selector(swizzlingLeaks_popToRootViewControllerAnimated:)];
 }
 
-- (UIViewController *)swizzling_popViewControllerAnimated:(BOOL)animated {
+- (UIViewController *)swizzlingLeaks_popViewControllerAnimated:(BOOL)animated {
     [self.topViewController captureMemoryLeaks];
-    return [self swizzling_popViewControllerAnimated:animated];
+    return [self swizzlingLeaks_popViewControllerAnimated:animated];
 }
 
-- (nullable NSArray<__kindof UIViewController *> *)swizzling_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (nullable NSArray<__kindof UIViewController *> *)swizzlingLeaks_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self.topViewController captureMemoryLeaks];
-    return [self swizzling_popToViewController:viewController animated:animated];
+    return [self swizzlingLeaks_popToViewController:viewController animated:animated];
 }
 
-- (nullable NSArray<__kindof UIViewController *> *)swizzling_popToRootViewControllerAnimated:(BOOL)animated {
+- (nullable NSArray<__kindof UIViewController *> *)swizzlingLeaks_popToRootViewControllerAnimated:(BOOL)animated {
     [self.topViewController captureMemoryLeaks];
-    return [self swizzling_popToRootViewControllerAnimated:animated];
+    return [self swizzlingLeaks_popToRootViewControllerAnimated:animated];
 }
 
 @end

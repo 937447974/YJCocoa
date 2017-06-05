@@ -17,12 +17,12 @@
 @implementation UIViewController (YJLeaks)
 
 + (void)startCaptureMemoryLeaks {
-    [self swizzlingSEL:@selector(dismissViewControllerAnimated:completion:) withSEL:@selector(swizzling_dismissViewControllerAnimated:completion:)];
+    [self swizzlingSEL:@selector(dismissViewControllerAnimated:completion:) withSEL:@selector(swizzlingLeaks_dismissViewControllerAnimated:completion:)];
 }
 
-- (void)swizzling_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion {
+- (void)swizzlingLeaks_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion {
     [self captureMemoryLeaks];
-    [self swizzling_dismissViewControllerAnimated:flag completion:completion];    
+    [self swizzlingLeaks_dismissViewControllerAnimated:flag completion:completion];
 }
 
 @end

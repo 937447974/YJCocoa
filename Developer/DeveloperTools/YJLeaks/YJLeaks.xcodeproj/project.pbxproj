@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A90B0FD1EE53A9F004F5484 /* YJLeaksTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B0FC1EE53A9F004F5484 /* YJLeaksTool.m */; };
+		0A90B1031EE53E7D004F5484 /* YJLeakRetainCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B1021EE53E7D004F5484 /* YJLeakRetainCount.m */; };
 		0AE9879F88CCFEBC61D5FBC3 /* libPods-YJLeaks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B8E6119F543D45404AC2D9 /* libPods-YJLeaks.a */; };
 		84083AF21E275E0600D89EAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AF11E275E0600D89EAA /* main.m */; };
 		84083AF51E275E0600D89EAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AF41E275E0600D89EAA /* AppDelegate.m */; };
@@ -24,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A90B0FB1EE53A9F004F5484 /* YJLeaksTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLeaksTool.h; sourceTree = "<group>"; };
+		0A90B0FC1EE53A9F004F5484 /* YJLeaksTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeaksTool.m; sourceTree = "<group>"; };
+		0A90B1011EE53E7D004F5484 /* YJLeakRetainCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLeakRetainCount.h; sourceTree = "<group>"; };
+		0A90B1021EE53E7D004F5484 /* YJLeakRetainCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeakRetainCount.m; sourceTree = "<group>"; };
 		84083AED1E275E0600D89EAA /* YJLeaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJLeaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84083AF11E275E0600D89EAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84083AF31E275E0600D89EAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A90B0FA1EE53A72004F5484 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0A90B0FB1EE53A9F004F5484 /* YJLeaksTool.h */,
+				0A90B0FC1EE53A9F004F5484 /* YJLeaksTool.m */,
+				0A90B1011EE53E7D004F5484 /* YJLeakRetainCount.h */,
+				0A90B1021EE53E7D004F5484 /* YJLeakRetainCount.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		84083AE41E275E0600D89EAA = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				84083B431E286A8F00D89EAA /* NSObject */,
+				0A90B0FA1EE53A72004F5484 /* Tool */,
 				84083B441E286A8F00D89EAA /* UIView */,
 				84083B471E286A8F00D89EAA /* UIViewController */,
 				84083B091E27617300D89EAA /* YJLeaks.h */,
@@ -305,7 +323,9 @@
 			files = (
 				84083B511E286AA700D89EAA /* NSObject+YJLeaks.m in Sources */,
 				84083B0E1E2761EE00D89EAA /* YJLeaksViewController.m in Sources */,
+				0A90B1031EE53E7D004F5484 /* YJLeakRetainCount.m in Sources */,
 				84083AF81E275E0600D89EAA /* ViewController.m in Sources */,
+				0A90B0FD1EE53A9F004F5484 /* YJLeaksTool.m in Sources */,
 				84083B4E1E286A8F00D89EAA /* UIViewController+YJLeaks.m in Sources */,
 				84083B4C1E286A8F00D89EAA /* UIView+YJLeaks.m in Sources */,
 				84083AF51E275E0600D89EAA /* AppDelegate.m in Sources */,

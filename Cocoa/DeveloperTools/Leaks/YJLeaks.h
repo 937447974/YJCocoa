@@ -14,8 +14,6 @@
 /** 内存泄漏分析器*/
 @interface YJLeaks : NSObject
 
-@property (class, nonatomic, strong, readonly) NSMutableSet<Class> *ignoredClasses; ///< 忽略的对象集合（白名单）
-
 /**
  *  @abstract 开始内存泄漏分析
  */

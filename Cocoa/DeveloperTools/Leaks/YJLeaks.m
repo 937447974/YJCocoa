@@ -17,10 +17,6 @@
 
 @implementation YJLeaks
 
-+ (NSMutableSet<Class> *)ignoredClasses {
-    return YJNSSingletonS(NSMutableSet, @"YJLeaks.ignoredClasses");
-}
-
 + (void)start {
 #if DEBUG
     [UINavigationController startCaptureMemoryLeaks];
