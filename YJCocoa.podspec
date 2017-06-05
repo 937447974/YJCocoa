@@ -272,20 +272,20 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
         # Leaks
         dt.subspec 'Leaks' do |leaks|
             leaks.source_files = 'Cocoa/DeveloperTools/Leaks/*.{h,m}'
-            leaks.subspec 'NSObject' do |lnso|
-                lnso.source_files = 'Cocoa/DeveloperTools/Leaks/NSObject/*.{h,m}'
-                lnso.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                lnso.dependency 'YJCocoa/System/Dispatch'
+            leaks.subspec 'Core' do |lcore|
+                lcore.source_files = 'Cocoa/DeveloperTools/Leaks/Core/*.{h,m}'
+                lcore.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                lcore.dependency 'YJCocoa/System/Dispatch'
             end
             leaks.subspec 'UIView' do |luiv|
                 luiv.source_files = 'Cocoa/DeveloperTools/Leaks/UIView/*.{h,m}'
                 luiv.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
-                luiv.dependency 'YJCocoa/DeveloperTools/Leaks/NSObject'
+                luiv.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
             end
             leaks.subspec 'UIViewController' do |luivc|
                 luivc.source_files = 'Cocoa/DeveloperTools/Leaks/UIViewController/*.{h,m}'
                 luivc.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
-                luivc.dependency 'YJCocoa/DeveloperTools/Leaks/NSObject'
+                luivc.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
             end
         end
         # MemoryInfo

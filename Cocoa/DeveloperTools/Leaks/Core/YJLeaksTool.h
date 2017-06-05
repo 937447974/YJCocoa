@@ -14,6 +14,7 @@
 
 #if DEBUG
 
+// 单例
 #define YJLeaksToolS [YJLeaksTool strongSingleton:nil]
 
 /** 工具包*/
