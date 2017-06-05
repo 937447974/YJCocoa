@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A90B1101EE55B69004F5484 /* NSObject+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B10D1EE55B69004F5484 /* NSObject+YJLeaks.m */; };
+		0A90B1111EE55B69004F5484 /* YJLeaksTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B10F1EE55B69004F5484 /* YJLeaksTool.m */; };
 		84083ADD1E2759A100D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */; };
 		84083AE31E2759E300D89EAA /* YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083AE21E2759E300D89EAA /* YJLeaks.m */; };
 		84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B331E277FE900D89EAA /* YJSwizzling.m */; };
-		84083B5D1E289A7F00D89EAA /* NSObject+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */; };
 		84083B5E1E289A7F00D89EAA /* UIView+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */; };
 		84083B5F1E289A7F00D89EAA /* UINavigationController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5A1E289A7F00D89EAA /* UINavigationController+YJLeaks.m */; };
 		84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B5C1E289A7F00D89EAA /* UIViewController+YJLeaks.m */; };
@@ -94,6 +95,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A90B10C1EE55B69004F5484 /* NSObject+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJLeaks.h"; sourceTree = "<group>"; };
+		0A90B10D1EE55B69004F5484 /* NSObject+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJLeaks.m"; sourceTree = "<group>"; };
+		0A90B10E1EE55B69004F5484 /* YJLeaksTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLeaksTool.h; sourceTree = "<group>"; };
+		0A90B10F1EE55B69004F5484 /* YJLeaksTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeaksTool.m; sourceTree = "<group>"; };
 		84083A421E2342D400D89EAA /* YJNSURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequestModel.h; sourceTree = "<group>"; };
 		84083ADB1E2759A100D89EAA /* YJTimeProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimeProfiler.h; sourceTree = "<group>"; };
 		84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimeProfiler.m; sourceTree = "<group>"; };
@@ -102,8 +107,6 @@
 		84083AE21E2759E300D89EAA /* YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLeaks.m; sourceTree = "<group>"; };
 		84083B321E277FE900D89EAA /* YJSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSwizzling.h; sourceTree = "<group>"; };
 		84083B331E277FE900D89EAA /* YJSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSwizzling.m; sourceTree = "<group>"; };
-		84083B531E289A7F00D89EAA /* NSObject+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJLeaks.h"; sourceTree = "<group>"; };
-		84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJLeaks.m"; sourceTree = "<group>"; };
 		84083B561E289A7F00D89EAA /* UIView+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YJLeaks.h"; sourceTree = "<group>"; };
 		84083B571E289A7F00D89EAA /* UIView+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YJLeaks.m"; sourceTree = "<group>"; };
 		84083B591E289A7F00D89EAA /* UINavigationController+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YJLeaks.h"; sourceTree = "<group>"; };
@@ -285,6 +288,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A90B10B1EE55B69004F5484 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0A90B10C1EE55B69004F5484 /* NSObject+YJLeaks.h */,
+				0A90B10D1EE55B69004F5484 /* NSObject+YJLeaks.m */,
+				0A90B10E1EE55B69004F5484 /* YJLeaksTool.h */,
+				0A90B10F1EE55B69004F5484 /* YJLeaksTool.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		84083AD81E2759A100D89EAA /* DeveloperTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,7 +313,7 @@
 		84083AD91E2759A100D89EAA /* Leaks */ = {
 			isa = PBXGroup;
 			children = (
-				84083B521E289A7F00D89EAA /* NSObject */,
+				0A90B10B1EE55B69004F5484 /* Core */,
 				84083B551E289A7F00D89EAA /* UIView */,
 				84083B581E289A7F00D89EAA /* UIViewController */,
 				84083AE11E2759E300D89EAA /* YJLeaks.h */,
@@ -328,15 +342,6 @@
 				84083B331E277FE900D89EAA /* YJSwizzling.m */,
 			);
 			path = Swizzling;
-			sourceTree = "<group>";
-		};
-		84083B521E289A7F00D89EAA /* NSObject */ = {
-			isa = PBXGroup;
-			children = (
-				84083B531E289A7F00D89EAA /* NSObject+YJLeaks.h */,
-				84083B541E289A7F00D89EAA /* NSObject+YJLeaks.m */,
-			);
-			path = NSObject;
 			sourceTree = "<group>";
 		};
 		84083B551E289A7F00D89EAA /* UIView */ = {
@@ -1128,7 +1133,9 @@
 				84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				8480BDAA1E09399400A82399 /* YJUIColor.m in Sources */,
+				0A90B1111EE55B69004F5484 /* YJLeaksTool.m in Sources */,
 				8480BDB01E09399400A82399 /* UIViewController+YJUINavigationRouter.m in Sources */,
+				0A90B1101EE55B69004F5484 /* NSObject+YJLeaks.m in Sources */,
 				8480BD9A1E09399400A82399 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
 				8480BDA61E09399400A82399 /* YJUICollectionViewDataSourceManager.m in Sources */,
 				8480BD8D1E09399400A82399 /* YJNSLog.m in Sources */,
@@ -1173,7 +1180,6 @@
 				8480BD8F1E09399400A82399 /* NSObject+YJNSPerformSelector.m in Sources */,
 				8480BD9D1E09399400A82399 /* YJNSLayoutDimension.m in Sources */,
 				8480BDA71E09399400A82399 /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
-				84083B5D1E289A7F00D89EAA /* NSObject+YJLeaks.m in Sources */,
 				8480BD9B1E09399400A82399 /* YJNSLayoutConstraintAnimate.m in Sources */,
 				8480BDBD1E09399400A82399 /* UIView+YJUIViewGeometry.m in Sources */,
 				8480BD851E09399400A82399 /* YJNSAspectOrientProgramming.m in Sources */,
