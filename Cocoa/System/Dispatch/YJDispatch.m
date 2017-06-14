@@ -11,13 +11,11 @@
 
 #import "YJDispatch.h"
 
+#pragma mark - gcd
+
 // 主线程运行,同步
 void dispatch_sync_main(dispatch_block_t block) {
-    if ([[NSThread currentThread] isMainThread]) {
-        block();
-    } else {
-        dispatch_sync(dispatch_get_main_queue(), block);
-    }
+    NSThread.currentThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
 }
 
 // 主线程运行,异步
@@ -25,10 +23,14 @@ void dispatch_async_main(dispatch_block_t block) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
+// queue default 运行
+void dispatch_async_default(dispatch_block_t block) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+}
+
 // 后台运行
 void dispatch_async_background(dispatch_block_t block) {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-    dispatch_async(queue, block);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block);
 }
 
 // 主线程延时执行
@@ -36,11 +38,13 @@ void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block) 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
+/*
 // 串行队列执行
 void dispatch_sync_serial(const char *label, dispatch_block_t block) {
     // 串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行
     dispatch_sync(dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL), block);
 }
+*/
 
 // 并发队列
 void dispatch_async_concurrent(dispatch_block_t block) {
