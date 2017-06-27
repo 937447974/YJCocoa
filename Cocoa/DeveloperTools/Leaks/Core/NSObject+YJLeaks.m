@@ -11,8 +11,6 @@
 
 #import "NSObject+YJLeaks.h"
 #import "YJLeaksTool.h"
-#import "YJSwizzling.h"
-#import "YJNSFoundationOther.h"
 
 #if DEBUG
 
