@@ -31,6 +31,9 @@ if [ -d ${docset_dest_path} ]; then
 fi
 
 # 更新记录
-osascript -e 'display notification "2017-05-04 | PageView 升级为 PageViewManager，主要实现对 UIPageViewController 的封装，支持轮播图、导航图、小说翻页等多种翻页模式。" with title "YJCocoa 6.4.0"'
+osascript -e 'display notification "2017-05-29 | TableViewManager 移除 cell 悬浮支持" with title "YJCocoa 6.5.0"'
+osascript -e 'display notification "2017-06-02 | Leaks 增加白名单，可添加无须内存分析的类" with title "YJCocoa 6.5.0"'
+osascript -e 'display notification "2017-06-14 | Dispatch 增加 dispatch_async_default(dispatch_block_t block) 方法" with title "YJCocoa 6.5.0"'
+
 
 
