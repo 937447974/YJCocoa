@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (YJNSPerformSelector)
 
 /**
- *  线程安全执行Selector
+ *  @abstract 线程安全执行Selector
  *
  *  @param aSelector 方法体
  *  @param objects   携带的参数

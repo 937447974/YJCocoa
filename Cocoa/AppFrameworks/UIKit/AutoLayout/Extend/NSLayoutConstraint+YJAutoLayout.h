@@ -24,7 +24,7 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 @property (nonatomic, readonly) Multiplier multipliers; ///< 修改multiplier的值
 
 /**
- *  动画修改约束值
+ *  @abstract 动画修改约束值
  *
  *  @param duration 时间(秒)
  *  @param constant 修改后的值
@@ -33,13 +33,13 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 - (void)animateWithDuration:(NSTimeInterval)duration constant:(CGFloat)constant completion:(nullable YJTConstraintAnimateCompletion)completion;
 
 /**
- *  取消动画修改约束值
+ *  @abstract 取消动画修改约束值
  */
 - (void)animateCancel;
 
 #pragma mark - (+)
 /**
- *  搜索NSLayoutConstraint
+ *  @abstract 搜索NSLayoutConstraint
  *
  *  @return NSLayoutConstraint
  */
@@ -47,28 +47,28 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 
 #pragma mark NSLayoutRelationEqual
 /**
- *  relatedBy = NSLayoutRelationEqual;view2 = nil; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationEqual;view2 = nil; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToConstant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationEqual; multiplier = 1; constant = 0;
+ *  @abstract relatedBy = NSLayoutRelationEqual; multiplier = 1; constant = 0;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2;
 
 /**
- *  relatedBy = NSLayoutRelationEqual; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationEqual; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 equalToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationEqual;
+ *  @abstract relatedBy = NSLayoutRelationEqual;
  *
  *  @return NSLayoutConstraint
  */
@@ -76,28 +76,28 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 
 #pragma mark NSLayoutRelationLessThanOrEqual
 /**
- *  relatedBy = NSLayoutRelationEqual;view2 = nil; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationEqual;view2 = nil; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToConstant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationLessThanOrEqual; multiplier = 1; constant = 0;
+ *  @abstract relatedBy = NSLayoutRelationLessThanOrEqual; multiplier = 1; constant = 0;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2;
 
 /**
- *  relatedBy = NSLayoutRelationLessThanOrEqual; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationLessThanOrEqual; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 lessThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationLessThanOrEqual;
+ *  @abstract relatedBy = NSLayoutRelationLessThanOrEqual;
  *
  *  @return NSLayoutConstraint
  */
@@ -105,28 +105,28 @@ typedef NSLayoutConstraint * _Nonnull (^ Multiplier)(CGFloat multiplier);
 
 #pragma mark NSLayoutRelationGreaterThanOrEqual
 /**
- *  relatedBy = NSLayoutRelationGreaterThanOrEqual;view2 = nil; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationGreaterThanOrEqual;view2 = nil; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToConstant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationGreaterThanOrEqual; multiplier = 1; constant = 0;
+ *  @abstract relatedBy = NSLayoutRelationGreaterThanOrEqual; multiplier = 1; constant = 0;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2;
 
 /**
- *  relatedBy = NSLayoutRelationGreaterThanOrEqual; multiplier = 1;
+ *  @abstract relatedBy = NSLayoutRelationGreaterThanOrEqual; multiplier = 1;
  *
  *  @return NSLayoutConstraint
  */
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 greaterThanOrEqualToItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 constant:(CGFloat)c;
 
 /**
- *  relatedBy = NSLayoutRelationGreaterThanOrEqual;
+ *  @abstract relatedBy = NSLayoutRelationGreaterThanOrEqual;
  *
  *  @return NSLayoutConstraint
  */

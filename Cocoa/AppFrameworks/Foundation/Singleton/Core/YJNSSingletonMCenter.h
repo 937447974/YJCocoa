@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 获取默认
 /**
- *  获取默认的单例中心
+ *  @abstract 获取默认的单例中心
  *
  *  @return YJSingletonCenter
  */
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 注册单例
 
 /**
- *  注册strong单例（随应用一直存在）
+ *  @abstract 注册strong单例（随应用一直存在）
  *
  *  @param sClass 单例类
  *  @param identifier 自定义标签
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)registerStrongSingleton:(Class)sClass forIdentifier:(nullable NSString *)identifier;
 
 /**
- *  注册weak单例（内存警告时回收）
+ *  @abstract 注册weak单例（内存警告时回收）
  *
  *  @param sClass 单例类
  *  @param identifier 自定义标签
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 移除weak单例
 /**
- *  通过类移除weak单例
+ *  @abstract 通过类移除weak单例
  *
  *  @param sClass 单例类
  *
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeWeakSingleton:(Class)sClass;
 
 /**
- *  通过自定义标签移除weak单例
+ *  @abstract 通过自定义标签移除weak单例
  *
  *  @param identifier 单例类
  *

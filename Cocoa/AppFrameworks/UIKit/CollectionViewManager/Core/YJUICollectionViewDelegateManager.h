@@ -20,7 +20,7 @@
 @property (nonatomic, weak, readonly) YJUICollectionViewManager *manager; ///< YJUICollectionViewManager
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @param manager YJUICollectionViewManager
  *

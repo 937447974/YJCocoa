@@ -33,7 +33,7 @@ typedef void (^ YJNSTimerSuccess)(YJNSTimer *timer);
 @property (nonatomic, strong, readonly) YJNSDateComponents *dateComponents; ///< 日期组件
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @note 随target的生命周期存在。当target回收时，YJNSTimer自动回收。
  *
@@ -46,22 +46,19 @@ typedef void (^ YJNSTimerSuccess)(YJNSTimer *timer);
 + (instancetype)timerIdentifier:(nullable NSString *)identifier target:(NSObject *)target completionHandler:(YJNSTimerSuccess)success;
 
 /**
- *  运行
- *
+ *  @abstract 运行
  */
 - (void)run;
 
 /**
- *  暂停
- *
+ *  @abstract 暂停
  */
 - (void)pause;
 
 /**
- *  失效，手动回收YJNSTimer
+ *  @abstract 失效，手动回收YJNSTimer
  *
  *  @note 当前类自动回收
- *
  */
 - (void)invalidate;
 

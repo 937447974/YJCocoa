@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readonly) YJUITableViewManager *manager; ///< YJUITableViewManager
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @param manager YJUITableViewManager
  *
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithManager:(YJUITableViewManager *)manager;
 
 /**
- *  根据cellObject创建UITableViewCell
+ *  @abstract 根据cellObject创建UITableViewCell
  *
  *  @param cellObject YJUITableCellObject
  *
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (__kindof UITableViewCell *)dequeueReusableCellWithCellObject:(YJUITableCellObject *)cellObject;
 
 /**
- *  快速刷新已加载cell
+ *  @abstract 快速刷新已加载cell
  *
  *  @param cellObjects NSArray<YJUITableCellObject *>
  */

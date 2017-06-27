@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  生成指定位数的随机密码（字母全大写）
+ *  @abstract 生成指定位数的随机密码（字母全大写）
  *
  *  @param count bytes数
  *
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *YJSecRandomU(size_t count);
 
 /**
- *  生成指定位数的随机密码（字母全小写）
+ *  @abstract 生成指定位数的随机密码（字母全小写）
  *
  *  @param count bytes数
  *
@@ -32,7 +32,7 @@ FOUNDATION_EXPORT NSString *YJSecRandomU(size_t count);
 FOUNDATION_EXPORT NSString *YJSecRandomL(size_t count);
 
 /**
- *  生成指定位数的随机密码（字母大写或小写，耗时)
+ *  @abstract 生成指定位数的随机密码（字母大写或小写，耗时)
  *
  *  @param count bytes数
  *

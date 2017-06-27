@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
- *  用户点击Cell中的某个控件，如按钮
+ *  @abstract 用户点击Cell中的某个控件，如按钮
  *
  *  @param tableViewCell 用户操作的cell
  *  @param cellObject    cell携带的数据源
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, class, readonly, weak) __kindof YJUITableCellObject *cellObject; ///< 获取YJUITableCellObject
 
 /**
- *  获取YJUITableCellObject并自动填充模型。
+ *  @abstract 获取YJUITableCellObject并自动填充模型。
  *
  *  @param cellModel 对应的Cell模型
  *
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (__kindof YJUITableCellObject *)cellObjectWithCellModel:(id<YJUITableCellModelProtocol>)cellModel;
 
 /**
- *  获取cell的显示高。子类不实行时，会根据xib设置的高度自动计算高
+ *  @abstract 获取cell的显示高。子类不实行时，会根据xib设置的高度自动计算高
  *
  *  @param cellObject cell封装的对象
  *
@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject;
 
 /**
- *  刷新UITableViewCell
+ *  @abstract 刷新UITableViewCell
  *
  *  @param cellObject        YJUITableCellObject
  *  @param tableViewDelegate YJUITableViewDelegate

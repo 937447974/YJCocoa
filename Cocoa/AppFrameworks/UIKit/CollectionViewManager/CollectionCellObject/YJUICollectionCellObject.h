@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 @property (nonatomic, copy) NSString *reuseIdentifier; ///< UICollectionReusableView.reuseIdentifier，默认类名
 
 /**
- *  初始化YJUICollectionCellObject
+ *  @abstract 初始化YJUICollectionCellObject
  *
  *  @param cellClass YJUIableViewCell对应的类
  *

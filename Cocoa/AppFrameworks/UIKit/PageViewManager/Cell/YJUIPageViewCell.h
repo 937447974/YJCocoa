@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readonly) YJUIPageViewManager *pageViewManager; ///< YJUIPageViewManager
 
 /**
- *  获取YJUITableCellObject并自动填充模型。
+ *  @abstract 获取YJUITableCellObject并自动填充模型。
  *
  *  @param cellModel 对应的Cell模型
  *
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initPageView;
 
 /**
- *  刷新 YJUIPageViewCell
+ *  @abstract 刷新 YJUIPageViewCell
  *
  *  @param cellObject       page封装的对象
  *  @param pageViewManager   YJUIPageViewManager

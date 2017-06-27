@@ -44,12 +44,12 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
 - (instancetype)initWithPageViewController:(UIPageViewController *)pageVC;
 
 /**
- *  刷新pageVC
+ *  @abstract 刷新pageVC
  */
 - (void)reloadPage;
 
 /**
- *  前往指定界面
+ *  @abstract 前往指定界面
  *
  *  @param pageIndex  页码[0...]
  *  @param animated   是否动画

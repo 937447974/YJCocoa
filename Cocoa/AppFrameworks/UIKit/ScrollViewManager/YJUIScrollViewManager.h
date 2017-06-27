@@ -74,7 +74,7 @@ typedef NS_OPTIONS(NSInteger, YJUIScrollViewScroll) {
 @property (nonatomic, weak, readonly) UIScrollView *scrollView; ///< UIScrollView
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @param scrollView UIScrollView
  *

@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
- *  用户点击Cell中的某个控件，如按钮
+ *  @abstract 用户点击Cell中的某个控件，如按钮
  *
  *  @param UICollectionViewCell 用户操作的cell
  *  @param cellObject           cell携带的数据源
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, class, readonly, weak) __kindof YJUICollectionCellObject *cellObject; ///< 获取YJUICollectionCellObject
 
 /**
- *  获取YJUICollectionCellObject并自动填充模型。
+ *  @abstract 获取YJUICollectionCellObject并自动填充模型。
  *
  *  @param cellModel 对应的Cell模型
  *
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (__kindof YJUICollectionCellObject *)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel;
 
 /**
- *  获取cell的显示Size。子类不实现时，会根据xib自动计算Size
+ *  @abstract 获取cell的显示Size。子类不实现时，会根据xib自动计算Size
  *
  *  @param collectionViewManager YJUICollectionViewManager
  *  @param kind                  UICollectionElementKindSectionHeader | UICollectionElementKindSectionFooter
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGSize)collectionViewManager:(YJUICollectionViewManager *)collectionViewManager viewForSupplementaryElementOfKind:(NSString *)kind referenceSizeForCellObject:(YJUICollectionCellObject *)cellObject;
 
 /**
- *  刷新UICollectionReusableView
+ *  @abstract 刷新UICollectionReusableView
  *
  *  @param cellObject            YJUICollectionCellObject
  *  @param collectionViewManager YJUICollectionViewManager

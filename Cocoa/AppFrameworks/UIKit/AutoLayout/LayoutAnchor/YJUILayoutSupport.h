@@ -21,7 +21,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 @property (nonatomic, strong, readonly) YJNSLayoutYAxisAnchor *bottomLayout; ///< 替换bottomAnchor
 
 /**
- *  初始化YJUILayoutSupport
+ *  @abstract 初始化YJUILayoutSupport
  *
  *  @param layoutGuide topLayoutGuide/bottomLayoutGuide
  *

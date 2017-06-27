@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, YJUICollectionViewCacheSize) {
 @property (nonatomic) YJUICollectionViewCacheSize cacheSizeStrategy; ///< 缓存size的策略。无须赋值，YJUICollectionViewDataSource抽象接口会根据cacheCellStrategy自动赋值
 
 /**
- *  清除所有缓存Size
+ *  @abstract 清除所有缓存Size
  */
 - (void)clearAllCacheSize;
 

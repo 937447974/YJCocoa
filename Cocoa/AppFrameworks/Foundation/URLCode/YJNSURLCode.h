@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  URLEncode编码
+ *  @abstract URLEncode编码
  *
  *  @param code 被编译字符串
  *
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString * _Nullable YJNSURLEncode(NSString *code);
 
 /**
- *  URLDecode解码
+ *  @abstract URLDecode解码
  *
  *  @param code 被编译字符串
  *

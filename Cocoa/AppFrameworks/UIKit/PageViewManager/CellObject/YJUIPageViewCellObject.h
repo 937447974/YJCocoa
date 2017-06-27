@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) Class pageClass; ///< PageView对应的类
 
 /**
- *  初始化YJUIPageViewObject
+ *  @abstract 初始化YJUIPageViewObject
  *
  *  @param pageClass YJUIPageViewController对应的类
  *

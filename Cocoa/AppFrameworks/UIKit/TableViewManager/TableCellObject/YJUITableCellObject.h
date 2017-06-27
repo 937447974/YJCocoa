@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
 @property (nonatomic, copy, readonly) NSString *cellName; ///< UITableViewCell对应的类名
 
 /**
- *  初始化YJUITableCellObject，当不想创建子类时，可使用此方法创建对象
+ *  @abstract 初始化YJUITableCellObject，当不想创建子类时，可使用此方法创建对象
  *
  *  @param cellClass YJUITableViewCell对应的类
  */

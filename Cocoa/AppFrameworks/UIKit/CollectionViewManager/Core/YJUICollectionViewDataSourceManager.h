@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readonly) YJUICollectionViewManager *manager; ///< YJUICollectionViewManager
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @param manager YJUICollectionViewManager
  *
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithManager:(YJUICollectionViewManager *)manager;
 
 /**
- *  根据cellObject创建UICollectionViewCell
+ *  @abstract 根据cellObject创建UICollectionViewCell
  *
  *  @param cellObject YJUICollectionCellObject
  *
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (__kindof UICollectionViewCell *)dequeueReusableCellWithCellObject:(YJUICollectionCellObject *)cellObject;
 
 /**
- *  快速刷新已加载cell
+ *  @abstract 快速刷新已加载cell
  *
  *  @param cellObjects NSArray<YJUICollectionCellObject *>
  */

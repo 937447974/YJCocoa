@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 @property (nonatomic) YJUITableViewCacheHeight cacheHeightStrategy; ///< 缓存高的策略
 
 /**
- *  初始化
+ *  @abstract 初始化
  *
  *  @param manager YJUITableViewManager
  *
@@ -41,19 +41,19 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 - (instancetype)initWithManager:(YJUITableViewManager *)manager;
 
 /**
- *  清除所有缓存高
+ *  @abstract 清除所有缓存高
  */
 - (void)clearAllCacheHeight;
 
 /**
- *  根据cellObject清楚缓存高
+ *  @abstract 根据cellObject清楚缓存高
  *
  *  @param cellObject YJUITableCellObject
  */
 - (void)clearCacheHeightWithCellObject:(YJUITableCellObject *)cellObject;
 
 /**
- *  根据多个cellObject清楚缓存高
+ *  @abstract 根据多个cellObject清楚缓存高
  *
  *  @param cellObject YJUITableCellObject
  */

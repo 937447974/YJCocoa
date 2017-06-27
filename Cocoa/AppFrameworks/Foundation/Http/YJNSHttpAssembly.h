@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)assemblyHttpEncode:(NSDictionary *)params;
 
 /**
- *  http组装（链接+参数）
+ *  @abstract http组装（链接+参数）
  *
  *  @param http 链接
  *  @param params 相关参数

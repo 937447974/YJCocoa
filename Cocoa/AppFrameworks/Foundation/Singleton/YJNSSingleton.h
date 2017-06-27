@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (YJNSSingleton)
 
 /**
- *  strong单例（随应用一直存在）
+ *  @abstract strong单例（随应用一直存在）
  *
  *  @param identifier 自定义标签（nil时使用类名做标签）
  *
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)strongSingleton:(nullable NSString *)identifier;
 
 /**
- *  weak单例（内存警告时回收）
+ *  @abstract weak单例（内存警告时回收）
  *
  *  @param identifier 自定义标签（nil时使用类名做标签）
  *

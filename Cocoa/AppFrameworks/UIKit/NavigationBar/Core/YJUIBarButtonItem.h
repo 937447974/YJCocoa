@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic)       SEL action; ///< 回调方法
 
 /**
- *  通过文字初始化
+ *  @abstract 通过文字初始化
  *
  *  @param title 标题
  *  @param target 回调目标
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitle:(nullable NSString *)title target:(nullable id)target action:(nullable SEL)action;
 
 /**
- *  通过图片初始化
+ *  @abstract 通过图片初始化
  *
  *  @param image 图片
  *  @param target 回调目标
