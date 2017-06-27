@@ -39,8 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param http 链接
  *  @param params 相关参数
- *
- *  @return void
  */
 + (NSString *)assemblyHttp:(NSString *)http params:(NSDictionary *)params;
 

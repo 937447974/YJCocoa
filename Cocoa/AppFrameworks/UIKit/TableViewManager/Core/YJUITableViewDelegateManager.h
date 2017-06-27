@@ -42,8 +42,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 
 /**
  *  清除所有缓存高
- *
- *  @return void
  */
 - (void)clearAllCacheHeight;
 
@@ -51,8 +49,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
  *  根据cellObject清楚缓存高
  *
  *  @param cellObject YJUITableCellObject
- *
- *  @return void
  */
 - (void)clearCacheHeightWithCellObject:(YJUITableCellObject *)cellObject;
 
@@ -60,8 +56,6 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
  *  根据多个cellObject清楚缓存高
  *
  *  @param cellObject YJUITableCellObject
- *
- *  @return void
  */
 - (void)clearCacheHeightWithCellObjects:(NSArray<YJUITableCellObject *> *)cellObjects;
 

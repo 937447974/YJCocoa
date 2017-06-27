@@ -52,8 +52,6 @@ FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
  *  @param queue    队列
  *  @param interval 间隔
  *  @param handler  回调
- *
- *  @return void
  */
 FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, NSTimeInterval interval, dispatch_block_t handler);
 /** 主队列GCD计时器*/

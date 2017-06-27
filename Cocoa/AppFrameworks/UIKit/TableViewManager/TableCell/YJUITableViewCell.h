@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param tableViewCell 用户操作的cell
  *  @param cellObject    cell携带的数据源
- *
- *  @return void
  */
 - (void)tableViewCell:(UITableViewCell *)cell sendWithCellObject:(YJUITableCellObject *)cellObject;
 
@@ -62,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param cellObject        YJUITableCellObject
  *  @param tableViewDelegate YJUITableViewDelegate
- *
- *  @return void
  */
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 

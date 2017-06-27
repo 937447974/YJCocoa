@@ -29,8 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @abstract 通过http链接获取对应的参数(value会urlDecode解码)
  *
  *  @param http http链接
- *
- *  @return void
  */
 + (NSDictionary<NSString *, NSString *> *)analysisParamsDecode:(NSString *)http;
 

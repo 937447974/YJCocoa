@@ -29,8 +29,6 @@ typedef NS_ENUM(NSInteger, YJUICollectionViewCacheSize) {
 
 /**
  *  清除所有缓存Size
- *
- *  @return void
  */
 - (void)clearAllCacheSize;
 

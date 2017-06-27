@@ -26,8 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param UICollectionViewCell 用户操作的cell
  *  @param cellObject           cell携带的数据源
- *
- *  @return void
  */
 - (void)collectionCell:(__kindof UICollectionReusableView *)cell sendWithCellObject:(YJUICollectionCellObject *)cellObject;
 
@@ -65,8 +63,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param cellObject            YJUICollectionCellObject
  *  @param collectionViewManager YJUICollectionViewManager
- *
- *  @return void
  */
 - (void)reloadDataWithCellObject:(YJUICollectionCellObject *)cellObject collectionViewManager:(YJUICollectionViewManager *)collectionViewManager;
 
