@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract 用户点击Cell中的某个控件，如按钮
  *
- *  @param UICollectionViewCell 用户操作的cell
- *  @param cellObject           cell携带的数据源
+ *  @param cell       用户操作的cell
+ *  @param cellObject cell携带的数据源
  */
 - (void)collectionCell:(__kindof UICollectionReusableView *)cell sendWithCellObject:(YJUICollectionCellObject *)cellObject;
 

@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, YJUITableViewCacheHeight) {
 /**
  *  @abstract 根据多个cellObject清楚缓存高
  *
- *  @param cellObject YJUITableCellObject
+ *  @param cellObjects YJUITableCellObject
  */
 - (void)clearCacheHeightWithCellObjects:(NSArray<YJUITableCellObject *> *)cellObjects;
 

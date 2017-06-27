@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @abstract 用户点击整个Cell
  *  @discusstion 线程安全
  *
- *  @param cellObject    用户点击的cell数据
- *  @param tableViewCell 用户点击的Cell
+ *  @param manager    YJUICollectionViewManager
+ *  @param cellObject 用户点击的 cell
  */
 - (void)collectionViewManager:(YJUICollectionViewManager *)manager didSelectCellWithCellObject:(YJUICollectionCellObject *)cellObject;
 

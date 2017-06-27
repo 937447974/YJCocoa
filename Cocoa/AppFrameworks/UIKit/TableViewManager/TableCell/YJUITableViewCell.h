@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract 刷新UITableViewCell
  *
- *  @param cellObject        YJUITableCellObject
- *  @param tableViewDelegate YJUITableViewDelegate
+ *  @param cellObject       刷新的 cell 模型
+ *  @param tableViewManager YJUITableViewManager
  */
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 

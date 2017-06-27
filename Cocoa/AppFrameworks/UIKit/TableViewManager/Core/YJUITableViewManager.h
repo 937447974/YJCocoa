@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract 用户点击整个Cell
  *
- *  @param cellObject    用户点击的cell数据
- *  @param tableViewCell 用户点击的Cell
+ *  @param manager    UITableView管理器
+ *  @param cellObject 用户点击的cell数据
  */
 - (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject;
 

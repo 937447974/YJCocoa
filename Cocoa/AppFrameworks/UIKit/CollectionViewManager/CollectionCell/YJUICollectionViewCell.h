@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract 获取cell的显示Size。子类不实现时，会根据xib自动计算Size
  *
- *  @param delegate   YJUICollectionViewDelegate
- *  @param cellObject cell封装的对象
+ *  @param collectionViewManager UICollectionView管理器
+ *  @param cellObject            cell封装的对象
  *
  *  @return CGFloat
  */
