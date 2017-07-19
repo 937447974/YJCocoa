@@ -34,15 +34,11 @@ FOUNDATION_EXPORT void dispatch_sync_main(dispatch_block_t block);
 FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
 /** queue default 异步执行 **/
 FOUNDATION_EXPORT void dispatch_async_default(dispatch_block_t block);
-/** queue background 异步执行 **/
+/** queue background 异步执行（I/O） **/
 FOUNDATION_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 /** 主线程延时执行*/
 FOUNDATION_EXPORT void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block);
-
-/** 并发队列执行*/
-FOUNDATION_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
-
 
 #pragma mark - timer
 

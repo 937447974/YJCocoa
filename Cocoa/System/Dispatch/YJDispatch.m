@@ -44,13 +44,14 @@ void dispatch_sync_serial(const char *label, dispatch_block_t block) {
     // 串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行
     dispatch_sync(dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL), block);
 }
-*/
 
 // 并发队列
-void dispatch_async_concurrent(dispatch_block_t block) {
+void dispatch_async_concurrent(const char *label, dispatch_block_t block) {
     // 并发队列：有多个线程，操作进来之后它会将这些队列安排在可用的处理器上，同时保证先进来的任务优先处理
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+    // dispatch_queue_create("com.starming.concurrentqueue", DISPATCH_QUEUE_CONCURRENT)
+    dispatch_async(dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT), block);
 }
+*/
 
 #pragma mark - timer
 dispatch_source_t dispatch_timer(dispatch_queue_t queue, NSTimeInterval interval, dispatch_block_t handler) {
