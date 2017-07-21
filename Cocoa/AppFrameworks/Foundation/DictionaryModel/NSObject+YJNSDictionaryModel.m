@@ -24,15 +24,23 @@
 
 #pragma mark - init
 - (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary {
+    return [self initWithModelDictionary:modelDictionary optionalAttributes:@{}];
+}
+
+- (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary optionalAttributes:(NSDictionary<NSString *,NSString *> *)optionalAttributes {
     self = [self init];
     if (self) {
-        [self setModelDictionary:modelDictionary];
+        [self setModelDictionary:modelDictionary optionalAttributes:optionalAttributes];
     }
     return self;
 }
 
 #pragma mark - geter & setter
 - (NSDictionary *)modelDictionary {
+    return [self modelDictionaryWithOptionalAttributes:@{}];
+}
+
+- (NSDictionary *)modelDictionaryWithOptionalAttributes:(NSDictionary<NSString *,NSString *> *)optionalAttributes {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *propertys = [self.class propertys];
     for (YJNSDictionaryModelProperty *p in propertys) {
@@ -57,13 +65,14 @@
                 break;
         }
         if (value) {
-            [dict setObject:value forKey:p.attributeKey];
+            NSString *attributeKey = [optionalAttributes objectForKey:p.attributeName];
+            [dict setObject:value forKey:attributeKey ?: p.attributeKey];
         }
     }
     return dict;
 }
 
-- (void)setModelDictionary:(NSDictionary * _Nonnull)modelDictionary {
+- (void)setModelDictionary:(NSDictionary *)modelDictionary optionalAttributes:(NSDictionary<NSString *,NSString *> *)optionalAttributes {
     if (![modelDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
@@ -71,7 +80,8 @@
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     for (YJNSDictionaryModelProperty *p in propertys) {
-        id value = [modelDictionary objectForKey:p.attributeKey];
+        NSString *attributeKey = [optionalAttributes objectForKey:p.attributeName];
+        id value = [modelDictionary objectForKey:attributeKey ?: p.attributeKey];
         if (value == nil || [value isKindOfClass:[NSNull class]]) {
             continue;
         }

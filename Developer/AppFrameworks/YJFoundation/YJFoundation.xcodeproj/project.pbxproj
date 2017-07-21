@@ -7,26 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A83F3711F20874B00B9DCC7 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
+		0A83F3721F20874B00B9DCC7 /* YJDictionaryModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */; };
+		0A83F3731F20874B00B9DCC7 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
+		0A83F3741F20874B00B9DCC7 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
+		0A83F3751F20874B00B9DCC7 /* YJHttpTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355D91DAB68C50097D526 /* YJHttpTest.m */; };
+		0A83F3761F20874B00B9DCC7 /* YJLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355A81DAB60750097D526 /* YJLogTest.m */; };
+		0A83F3771F20874B00B9DCC7 /* YJPerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */; };
+		0A83F3781F20874B00B9DCC7 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
 		84083A2C1E23395A00D89EAA /* YJTestURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A261E23395A00D89EAA /* YJTestURLRequest.m */; };
 		84083A2D1E23395A00D89EAA /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */; };
 		84083A401E233A5A00D89EAA /* YJNSURLResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */; };
 		84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */; };
 		84083B301E27761D00D89EAA /* YJSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B2F1E27761D00D89EAA /* YJSwizzling.m */; };
 		840BE1A61DAE3B8F00ADE647 /* YJNSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A51DAE3B8F00ADE647 /* YJNSDirectory.m */; };
-		840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE1A71DAE401C00ADE647 /* YJFoundationTest.m */; };
 		8446DF6B1E03FB200093F8A3 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446DF6A1E03FB200093F8A3 /* YJNSURLCode.m */; };
 		8463DC8C1E1DE74700470C69 /* YJNSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC871E1DE74700470C69 /* YJNSCalendar.m */; };
 		8463DC8E1E1DE74700470C69 /* YJNSDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463DC8B1E1DE74700470C69 /* YJNSDateComponents.m */; };
 		8478159B1DED518900B2ED8D /* YJNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478159A1DED518900B2ED8D /* YJNSURLSessionTask.m */; };
 		847815A21DED523400B2ED8D /* YJNSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A11DED523400B2ED8D /* YJNSURLRequest.m */; };
 		847815A91DEE72A900B2ED8D /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847815A81DEE72A900B2ED8D /* YJNSURLSessionPool.m */; };
-		8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
-		8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487C6BE1DC0418500E05982 /* YJFileManagerTest.m */; };
 		84A8D4F31E76A65D008B4407 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F21E76A65D008B4407 /* YJNSSingletonMCenter.m */; };
 		84A8D4F61E76A7D6008B4407 /* YJNSRouterPrivateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F51E76A7D6008B4407 /* YJNSRouterPrivateHeader.m */; };
 		84A8D5061E778BEA008B4407 /* YJNSSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D5051E778BEA008B4407 /* YJNSSingleton.m */; };
 		84C59DD11DB0D49F00B93218 /* YJNSAspectOrientProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD01DB0D49F00B93218 /* YJNSAspectOrientProgramming.m */; };
-		84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C59DD21DB0DF0F00B93218 /* YJAOPTest.m */; };
 		84CF93901DBF5039004662BF /* YJNSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF938F1DBF5039004662BF /* YJNSFileManager.m */; };
 		84D28EC61DED3548001AF6B5 /* YJNSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D28EC51DED3548001AF6B5 /* YJNSURLSession.m */; };
 		84D355821DAB5E700097D526 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355811DAB5E700097D526 /* main.m */; };
@@ -35,10 +39,6 @@
 		84D3558B1DAB5E700097D526 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D355891DAB5E700097D526 /* Main.storyboard */; };
 		84D3558D1DAB5E700097D526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558C1DAB5E700097D526 /* Assets.xcassets */; };
 		84D355901DAB5E700097D526 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558E1DAB5E700097D526 /* LaunchScreen.storyboard */; };
-		84D355A91DAB60750097D526 /* YJLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355A81DAB60750097D526 /* YJLogTest.m */; };
-		84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355D91DAB68C50097D526 /* YJHttpTest.m */; };
-		84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */; };
-		84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */; };
 		84D356591DAB73F10097D526 /* NSObject+YJNSDictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3563C1DAB73F10097D526 /* NSObject+YJNSDictionaryModel.m */; };
 		84D3565A1DAB73F10097D526 /* YJNSDictionaryModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3563E1DAB73F10097D526 /* YJNSDictionaryModelManager.m */; };
 		84D3565B1DAB73F10097D526 /* YJNSDictionaryModelProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D356401DAB73F10097D526 /* YJNSDictionaryModelProperty.m */; };
@@ -52,11 +52,10 @@
 		84FE39F51E0F5F0200558A39 /* NSObject+YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39F01E0F5F0200558A39 /* NSObject+YJNSRouter.m */; };
 		84FE39F61E0F5F0200558A39 /* YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE39F31E0F5F0200558A39 /* YJNSRouter.m */; };
 		9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */; };
-		D5FDA1E464E26C63BA1FE33B /* libPods-YJFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84D355A11DAB601C0097D526 /* PBXContainerItemProxy */ = {
+		0A83F36C1F20872F00B9DCC7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84D355751DAB5E700097D526 /* Project object */;
 			proxyType = 1;
@@ -67,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		0A83F3671F20872F00B9DCC7 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE61D82ED98CAD924530731 /* Pods-YJFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84083A0F1E2333A100D89EAA /* YJNSURLRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJNSURLRequestModel.h; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		84D3558C1DAB5E700097D526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D3558F1DAB5E700097D526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D355911DAB5E700097D526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84D3559C1DAB601C0097D526 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D355A01DAB601C0097D526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D355A81DAB60750097D526 /* YJLogTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLogTest.m; sourceTree = "<group>"; };
 		84D355D71DAB66900097D526 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/YJFoundation-adtinvwebbekxbghhymqqxlbzzpd/Build/Products/Debug-iphonesimulator/libPods.a"; sourceTree = "<group>"; };
@@ -160,19 +159,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A83F3641F20872F00B9DCC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84D3557A1DAB5E700097D526 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84D355991DAB601C0097D526 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5FDA1E464E26C63BA1FE33B /* libPods-YJFoundationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				84D3557D1DAB5E700097D526 /* YJFoundation.app */,
-				84D3559C1DAB601C0097D526 /* YJFoundationTests.xctest */,
+				0A83F3671F20872F00B9DCC7 /* YJFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -552,6 +550,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A83F3661F20872F00B9DCC7 /* YJFoundationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A83F36E1F20872F00B9DCC7 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */;
+			buildPhases = (
+				0A83F3631F20872F00B9DCC7 /* Sources */,
+				0A83F3641F20872F00B9DCC7 /* Frameworks */,
+				0A83F3651F20872F00B9DCC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A83F36D1F20872F00B9DCC7 /* PBXTargetDependency */,
+			);
+			name = YJFoundationTests;
+			productName = YJFoundationTests;
+			productReference = 0A83F3671F20872F00B9DCC7 /* YJFoundationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		84D3557C1DAB5E700097D526 /* YJFoundation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D355941DAB5E700097D526 /* Build configuration list for PBXNativeTarget "YJFoundation" */;
@@ -572,27 +588,6 @@
 			productReference = 84D3557D1DAB5E700097D526 /* YJFoundation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84D3559B1DAB601C0097D526 /* YJFoundationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84D355A51DAB601D0097D526 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */;
-			buildPhases = (
-				ECDA3A9B14A9FDA38EA3FB8A /* [CP] Check Pods Manifest.lock */,
-				84D355981DAB601C0097D526 /* Sources */,
-				84D355991DAB601C0097D526 /* Frameworks */,
-				84D3559A1DAB601C0097D526 /* Resources */,
-				2E2376472D31956968C1E8D9 /* [CP] Embed Pods Frameworks */,
-				1E21111ABCDBCDAE6D69B209 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				84D355A21DAB601C0097D526 /* PBXTargetDependency */,
-			);
-			name = YJFoundationTests;
-			productName = YJFoundationTests;
-			productReference = 84D3559C1DAB601C0097D526 /* YJFoundationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -603,16 +598,14 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = YJCocoa;
 				TargetAttributes = {
-					84D3557C1DAB5E700097D526 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = P64WN7EK5E;
-						ProvisioningStyle = Automatic;
-					};
-					84D3559B1DAB601C0097D526 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = PC936H3Q67;
+					0A83F3661F20872F00B9DCC7 = {
+						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84D3557C1DAB5E700097D526;
+					};
+					84D3557C1DAB5E700097D526 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -630,12 +623,19 @@
 			projectRoot = "";
 			targets = (
 				84D3557C1DAB5E700097D526 /* YJFoundation */,
-				84D3559B1DAB601C0097D526 /* YJFoundationTests */,
+				0A83F3661F20872F00B9DCC7 /* YJFoundationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A83F3651F20872F00B9DCC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84D3557B1DAB5E700097D526 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,46 +646,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84D3559A1DAB601C0097D526 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E21111ABCDBCDAE6D69B209 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2E2376472D31956968C1E8D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4B0749A574B3ED8F580A80BF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -731,24 +694,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		ECDA3A9B14A9FDA38EA3FB8A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A83F3631F20872F00B9DCC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A83F3711F20874B00B9DCC7 /* YJAOPTest.m in Sources */,
+				0A83F3721F20874B00B9DCC7 /* YJDictionaryModelTest.m in Sources */,
+				0A83F3731F20874B00B9DCC7 /* YJFileManagerTest.m in Sources */,
+				0A83F3741F20874B00B9DCC7 /* YJFoundationTest.m in Sources */,
+				0A83F3751F20874B00B9DCC7 /* YJHttpTest.m in Sources */,
+				0A83F3761F20874B00B9DCC7 /* YJLogTest.m in Sources */,
+				0A83F3771F20874B00B9DCC7 /* YJPerformSelectorTest.m in Sources */,
+				0A83F3781F20874B00B9DCC7 /* YJURLDecodeTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84D355791DAB5E700097D526 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -789,28 +752,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84D355981DAB601C0097D526 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8480BBF01E07C6C800A82399 /* YJURLDecodeTest.m in Sources */,
-				840BE1A81DAE401C00ADE647 /* YJFoundationTest.m in Sources */,
-				84C59DD31DB0DF0F00B93218 /* YJAOPTest.m in Sources */,
-				8487C6BF1DC0418500E05982 /* YJFileManagerTest.m in Sources */,
-				84D355DE1DAB6DA70097D526 /* YJDictionaryModelTest.m in Sources */,
-				84D355DC1DAB6AA90097D526 /* YJPerformSelectorTest.m in Sources */,
-				84D355DA1DAB68C50097D526 /* YJHttpTest.m in Sources */,
-				84D355A91DAB60750097D526 /* YJLogTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		84D355A21DAB601C0097D526 /* PBXTargetDependency */ = {
+		0A83F36D1F20872F00B9DCC7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84D3557C1DAB5E700097D526 /* YJFoundation */;
-			targetProxy = 84D355A11DAB601C0097D526 /* PBXContainerItemProxy */;
+			targetProxy = 0A83F36C1F20872F00B9DCC7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -834,6 +782,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A83F36F1F20872F00B9DCC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				INFOPLIST_FILE = YJFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-1.YJFoundationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
+			};
+			name = Debug;
+		};
+		0A83F3701F20872F00B9DCC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				INFOPLIST_FILE = YJFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-1.YJFoundationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
+			};
+			name = Release;
+		};
 		84D355921DAB5E700097D526 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -932,7 +908,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = P64WN7EK5E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YJFoundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -947,7 +923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = P64WN7EK5E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YJFoundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -956,37 +932,17 @@
 			};
 			name = Release;
 		};
-		84D355A31DAB601D0097D526 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC22DCABA42C821E860B026E /* Pods-YJFoundationTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = PC936H3Q67;
-				INFOPLIST_FILE = YJFoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
-			};
-			name = Debug;
-		};
-		84D355A41DAB601D0097D526 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BE61D82ED98CAD924530731 /* Pods-YJFoundationTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = PC936H3Q67;
-				INFOPLIST_FILE = YJFoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJCocoa.YJFoundationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A83F36E1F20872F00B9DCC7 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A83F36F1F20872F00B9DCC7 /* Debug */,
+				0A83F3701F20872F00B9DCC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		84D355781DAB5E700097D526 /* Build configuration list for PBXProject "YJFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1001,15 +957,6 @@
 			buildConfigurations = (
 				84D355951DAB5E700097D526 /* Debug */,
 				84D355961DAB5E700097D526 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84D355A51DAB601D0097D526 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84D355A31DAB601D0097D526 /* Debug */,
-				84D355A41DAB601D0097D526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

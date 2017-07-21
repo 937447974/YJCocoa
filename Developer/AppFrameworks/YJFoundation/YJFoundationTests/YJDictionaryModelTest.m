@@ -97,6 +97,11 @@
     // 非法数据
     MyModel2 *m4 = [[MyModel2 alloc] initWithModelDictionary:@{@"user_id":@(2), @"f":@"3"}];
     NSLogS(m4.modelDictionary);
+    
+    // 定制属性对应关系
+    NSDictionary<NSString *,NSString *> *optionalAttributes = @{@"userID":@"user_ID"};
+    MyModel1 *m5 = [[MyModel1 alloc] initWithModelDictionary:@{@"user_ID":@(2)} optionalAttributes:optionalAttributes];
+    NSLogS([m5 modelDictionaryWithOptionalAttributes:optionalAttributes]);
 }
 
 @end

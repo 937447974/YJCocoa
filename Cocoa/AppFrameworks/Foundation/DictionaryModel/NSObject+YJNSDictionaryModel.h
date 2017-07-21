@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  @abstract 获取DictionaryModel转换管理器
- *  @discusstion 可通过此控制器配置转换相关设置
+ *  @discusstion 可通过此控制器配置转换相关设置，子类重写
  *
  *  @return YJNSDictionaryModelManager
  */
@@ -36,6 +36,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return instancetype
  */
 - (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary;
+
+#pragma mark - Compatible
+
+/**
+ *  @abstract 类转换为模型字典
+ *  @discusstion 在 dictionaryModelManager 的基础上定制属性对应关系
+ *
+ *  @param optionalAttributes YJNSDictionaryModelManager.optionalAttributes属性
+ *
+ *  @return 模型字典
+ */
+- (NSDictionary *)modelDictionaryWithOptionalAttributes:(NSDictionary<NSString *, NSString *> *)optionalAttributes;
+
+/**
+ *  @abstract 模型字典转换为类
+ *  @discusstion 在 dictionaryModelManager 的基础上定制属性对应关系
+ *
+ *  @param modelDictionary 模型字典
+ *  @param optionalAttributes YJNSDictionaryModelManager.optionalAttributes属性
+ *
+ *  @return 模型字典
+ */
+- (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary optionalAttributes:(NSDictionary<NSString *, NSString *> *)optionalAttributes;
 
 @end
 
