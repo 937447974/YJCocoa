@@ -343,7 +343,8 @@ YJ技术支持群：557445088
 | 6.5.0 | 2017-05-29 | TableViewManager 移除 cell 悬浮支持 |
 | | 2017-06-02 | Leaks 增加白名单，可添加无须内存分析的类 |
 | | 2017-06-14 | Dispatch 增加 dispatch_async_default(dispatch_block_t block) 方法 |
-| 6.6.0 | 2017-07-21 | DictionaryModel 增加模型转换时根据外部属性key动态设置方法 |
+| 6.6.0 | 2017-07-19 | Dispatch 移除并发队列方法 |
+| | 2017-07-21 | DictionaryModel 增加模型转换时根据外部属性key动态设置方法 |
 
 ## Copyright
 
