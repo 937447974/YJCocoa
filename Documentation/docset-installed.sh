@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # 路径声明
-docset_name=com.YJ.YJCocoa.docset
-docset_path=Documentation/${docset_name}
-docset_dest_dir=~/Library/Developer/Shared/Documentation/DocSets
-docset_dest_path=${docset_dest_dir}/${docset_name}
+#docset_name=com.YJ.YJCocoa.docset
+#docset_path=Documentation/${docset_name}
+#docset_dest_dir=~/Library/Developer/Shared/Documentation/DocSets
+#docset_dest_path=${docset_dest_dir}/${docset_name}
 
 # 对比已有的文档，如果有不同则用最新的覆盖已有的
 #diff --recursive ${docset_path} ${docset_dest_path} > /dev/null
@@ -25,15 +25,13 @@ docset_dest_path=${docset_dest_dir}/${docset_name}
 
 # 删除开发文档
 #目录存在则删除
-if [ -d ${docset_dest_path} ]; then
-    rm -rf ${docset_dest_path}
-    osascript -e 'display notification "请重启Xcode后在Help -> Documentation And API Reference中查看" with title "YJCocoa开发文档已删除"'
-fi
+#if [ -d ${docset_dest_path} ]; then
+#    rm -rf ${docset_dest_path}
+#    osascript -e 'display notification "请重启Xcode后在Help -> Documentation And API Reference中查看" with title "YJCocoa开发文档已删除"'
+#fi
 
 # 更新记录
-osascript -e 'display notification "2017-05-29 | TableViewManager 移除 cell 悬浮支持" with title "YJCocoa 6.5.0"'
-osascript -e 'display notification "2017-06-02 | Leaks 增加白名单，可添加无须内存分析的类" with title "YJCocoa 6.5.0"'
-osascript -e 'display notification "2017-06-14 | Dispatch 增加 dispatch_async_default(dispatch_block_t block) 方法" with title "YJCocoa 6.5.0"'
-
+osascript -e 'display notification "2017-07-19 | Dispatch 移除并发队列方法" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-07-21 | DictionaryModel 增加模型转换时根据外部属性key动态设置方法" with title "YJCocoa 6.6.0"'
 
 
