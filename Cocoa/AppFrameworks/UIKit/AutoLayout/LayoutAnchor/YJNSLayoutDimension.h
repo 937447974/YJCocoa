@@ -21,7 +21,7 @@ typedef NSLayoutConstraint * _Nonnull (^ EqualToConstant)(CGFloat constant);
 /** NSLayoutConstraint.relation = NSLayoutRelationGreaterThanOrEqual and .constant = constant*/
 typedef NSLayoutConstraint * _Nonnull (^ GreaterThanOrEqualToConstant)(CGFloat constant);
 /** 快速查询约束*/
-typedef NSLayoutConstraint * __nullable (^ Constraint)();
+typedef NSLayoutConstraint * __nullable (^ Constraint)(void);
 
 /** YJNSLayoutDimension对应的协议*/
 @protocol YJNSLayoutDimensionProtocol <YJNSLayoutAnchorProtocol>

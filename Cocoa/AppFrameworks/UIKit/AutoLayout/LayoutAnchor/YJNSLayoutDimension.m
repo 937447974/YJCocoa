@@ -40,7 +40,7 @@
 
 - (Constraint)constraint {
     __weak YJNSLayoutAnchor *wSelf = self;
-    Constraint block = ^ () {
+    Constraint block = ^ (void) {
         return [NSLayoutConstraint findConstraintWithItem:wSelf.item attribute:wSelf.attribute toItem:nil attribute:NSLayoutAttributeNotAnAttribute];
     };
     return block;

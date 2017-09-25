@@ -202,7 +202,7 @@
     }
     // immutable classes: NSNumber, NSString, NSURL, NSArray, NSDictionary
     if (attributeItems.count == 3) {
-        p.attributeClass = YJNSDMPAttributeTypeNumber;
+        p.attributeType = YJNSDMPAttributeTypeNumber;
     } else if (attributeItems.count == 4) {
         NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
         if ([scanner scanString:@"T@\"" intoString:nil]) {

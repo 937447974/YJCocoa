@@ -11,6 +11,8 @@
 
 #import "YJNSLayoutYAxisAnchor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** 仿UILayoutSupport*/
 NS_CLASS_AVAILABLE_IOS(7_0)
 @interface YJUILayoutSupport : NSObject
@@ -30,3 +32,5 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 - (instancetype)initWithItem:(id<UILayoutSupport>)layoutGuide;
 
 @end
+
+NS_ASSUME_NONNULL_END

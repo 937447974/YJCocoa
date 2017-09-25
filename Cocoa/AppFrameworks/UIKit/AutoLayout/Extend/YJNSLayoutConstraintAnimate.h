@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^ YJTConstraintAnimateCompletion)();
+typedef void (^ YJTConstraintAnimateCompletion)(void);
 
 /** 约束动画携带的参数*/
 @interface YJNSLayoutConstraintAnimate : NSObject

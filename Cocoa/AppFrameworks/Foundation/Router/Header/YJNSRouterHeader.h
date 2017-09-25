@@ -9,6 +9,8 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NSString * YJNSRouterURL NS_STRING_ENUM; ///< 路由地址
 typedef NSString * YJNSRouterOptionsKey NS_STRING_ENUM; ///< 路由参数Key
 typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
@@ -17,6 +19,8 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
 
 /** 路由代理*/
 @protocol YJNSRouterDelegate <NSObject>
+
+@optional
 
 /**
  *  @abstract 初始化
@@ -47,4 +51,5 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
 
 @end
 
+NS_ASSUME_NONNULL_END
 
