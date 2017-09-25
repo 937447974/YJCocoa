@@ -31,7 +31,7 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2017-07-19 | Dispatch 移除并发队列方法" with title "YJCocoa 6.6.0"'
-osascript -e 'display notification "2017-07-21 | DictionaryModel 增加模型转换时根据外部属性key动态设置方法" with title "YJCocoa 6.6.0"'
+osascript -e 'display notification "2017-09-25 | 兼容 Xcode 9，消除警告提示" with title "YJCocoa 7.0.0"'
+
 
 
