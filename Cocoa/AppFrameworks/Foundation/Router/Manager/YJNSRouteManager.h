@@ -10,7 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSRouterHeader.h"
+#import "YJNSRouterNode.h"
 #import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,21 +22,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJNSRouteManager : NSObject
 
 /**
- *  @abstract 注册路由
+ *  @abstract 注册路由节点
  *
- *  @param routerClass 路由目标类（UIViewController子类或看门狗）
- *  @param routerURL   路由地址
+ *  @param routerNode 路由节点
  */
-- (void)registerRouter:(Class)routerClass forURL:(YJNSRouterURL)routerURL;
+- (void)registerRouterNode:(YJNSRouterNode *)routerNode;
 
 /**
- *  @abstract 获取路由类
+ *  @abstract 获取路由节点
  *
  *  @param routerURL 路由地址
  *
- *  @return nullable Class
+ *  @return nullable YJNSRouterNode
  */
-- (nullable Class)routerClassForURL:(YJNSRouterURL)routerURL;
+- (nullable YJNSRouterNode *)routerNodeForURL:(YJNSRouterURL)routerURL;
+
+#pragma mark - 节点缓存
+/**
+ *  @abstract 存放节点对应的控制器
+ *
+ *  @param routerNode 路由节点
+ */
+- (void)setObject:(id)anObject forRouterNode:(YJNSRouterNode *)routerNode;
+
+/**
+ *  @abstract 获取节点对应的控制器
+ *
+ *  @param routerNode 路由节点
+ *
+ *  @return nullable id
+ */
+- (nullable id)objectForRouterNode:(YJNSRouterNode *)routerNode;
+
+/**
+ *  @abstract 释放节点对应控制器
+ *
+ *  @param routerNode 路由节点
+ */
+- (void)removeObjectForRouterNode:(YJNSRouterNode *)routerNode;
+
+/**
+ *  @abstract 释放指定作用域内的所有控制器
+ *
+ *  @param scope 路由作用域
+ */
+- (void)removeObjectsForScope:(YJNSRouterNodeScope)scope;
 
 @end
 

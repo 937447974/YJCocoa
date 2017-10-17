@@ -14,7 +14,7 @@ YJNSRouterURL const YJRouterURLOther = @"YJRouterURLOther"; ///< 其他
 @implementation YJOtherRouteManager
 
 + (void)setup {
-    [YJNSRouteManagerS registerRouter:[YJOtherViewController class] forURL:YJRouterURLOther];
+    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:YJOtherViewController.class scope:nil routerURL:YJRouterURLOther]];
 }
 
 @end

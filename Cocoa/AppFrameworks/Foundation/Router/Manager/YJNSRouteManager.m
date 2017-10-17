@@ -13,7 +13,8 @@
 
 @interface YJNSRouteManager ()
 
-@property (nonatomic, strong) NSMutableDictionary<YJNSRouterURL, Class> *routerPool; ///< 路由器池
+@property (nonatomic, strong) NSMutableDictionary<YJNSRouterURL, YJNSRouterNode *> *routerPool; ///< 节点池
+@property (nonatomic, strong) NSMutableDictionary<YJNSRouterNodeScope, NSMutableDictionary<YJNSRouterURL, id> *> *routerCache; ///< 缓存池
 
 @end
 
@@ -23,17 +24,40 @@
     self = [super init];
     if (self) {
         self.routerPool = [NSMutableDictionary dictionary];
+        self.routerCache = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 #pragma mark - routerPool
-- (void)registerRouter:(Class)routerClass forURL:(YJNSRouterURL)routerURL {
-    [self.routerPool setObject:routerClass forKey:routerURL];
+- (void)registerRouterNode:(YJNSRouterNode *)routerNode {
+    [self.routerPool setObject:routerNode forKey:routerNode.routerURL];
 }
 
-- (Class)routerClassForURL:(YJNSRouterURL)routerURL {
+- (YJNSRouterNode *)routerNodeForURL:(YJNSRouterURL)routerURL {
     return [self.routerPool objectForKey:routerURL];
+}
+
+#pragma mark - cache
+- (void)setObject:(id)anObject forRouterNode:(YJNSRouterNode *)routerNode {
+    NSMutableDictionary *dict = [self.routerCache objectForKey:routerNode.scope];
+    if (!dict) {
+        dict = [NSMutableDictionary dictionary];
+        [self.routerCache setObject:dict forKey:routerNode.scope];
+    }
+    [dict setObject:anObject forKey:routerNode.routerURL];
+}
+
+- (id)objectForRouterNode:(YJNSRouterNode *)routerNode {
+    return [[self.routerCache objectForKey:routerNode.scope] objectForKey:routerNode.routerURL];
+}
+
+- (void)removeObjectForRouterNode:(YJNSRouterNode *)routerNode {
+    [[self.routerCache objectForKey:routerNode.scope] removeObjectForKey:routerNode.routerURL];
+}
+
+- (void)removeObjectsForScope:(YJNSRouterNodeScope)scope {
+    [self.routerCache removeObjectForKey:scope];
 }
 
 @end

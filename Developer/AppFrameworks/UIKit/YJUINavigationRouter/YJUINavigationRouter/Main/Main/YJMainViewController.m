@@ -23,12 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSStringFromClass(self.class);
+    NSLog(@"%@", self);
     NSLog(@"%@发送消息--------", self);
     [self sendSourceRouter:@"test" options:@{@"name":@"YJCocoa"}];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:YJRouterURLOther options:@{}];
+    [self openRouterURL:@"2" options:@{@"1":@"3"}];
+    [self openRouterURL:YJRouterURLOther options:@{@"1":@"3"}];
 }
 
 #pragma mark - YJNSRouterDelegate

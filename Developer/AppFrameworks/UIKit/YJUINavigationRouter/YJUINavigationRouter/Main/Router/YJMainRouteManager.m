@@ -14,7 +14,7 @@ YJNSRouterURL const YJRouterURLMain = @"YJRouterURLMain";
 @implementation YJMainRouteManager
 
 + (void)setup {
-    [YJNSRouteManagerS registerRouter:[YJMainViewController class] forURL:YJRouterURLMain];
+    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:YJMainViewController.class scope:YJNSRouterNodeScopeSingleton routerURL:YJRouterURLMain]];
 }
 
 @end

@@ -10,7 +10,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSRouterHeader.h"
+#import "YJNSRouterDelegate.h"
+#import "YJNSRouterNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,8 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak)   YJNSRouter *sourceRouter;                              ///< 来源路由
 @property (nonatomic, strong) NSDictionary<YJNSRouterOptionsKey, id> *sourceOptions; ///< 来源配置
 
-@property (nonatomic, copy) YJNSRouterURL routerURL;         ///< 路由地址
 @property (nonatomic, weak) id<YJNSRouterDelegate> delegate; ///< 当前控制器，默认VC
+@property (nonatomic, strong) YJNSRouterNode *routerNodeL;   ///< 当前控制器对应的路由节点
 
 @end
 

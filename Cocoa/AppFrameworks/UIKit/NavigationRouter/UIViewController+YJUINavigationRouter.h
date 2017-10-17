@@ -15,4 +15,11 @@
 /** UIViewController路由导航扩展*/
 @interface UIViewController (YJUINavigationRouter)
 
+/**
+ *  @abstract 移除当前 NavigationController 中的某个 UIViewController
+ *
+ *  @param vc 被移除的 UIViewController
+ */
+- (void)removeNavigationViewController:(UIViewController *)vc;
+
 @end
