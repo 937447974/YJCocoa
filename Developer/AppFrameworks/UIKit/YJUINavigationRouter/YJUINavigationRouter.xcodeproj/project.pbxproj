@@ -213,9 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				8480BC881E092ED200A82399 /* YJMainRouteManager.h */,
-				8480BC891E092ED200A82399 /* YJMainRouteManager.m */,
 				8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */,
 				8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */,
+				8480BC891E092ED200A82399 /* YJMainRouteManager.m */,
 				8480BC8C1E092ED200A82399 /* YJRouteHeader.h */,
 			);
 			path = Router;

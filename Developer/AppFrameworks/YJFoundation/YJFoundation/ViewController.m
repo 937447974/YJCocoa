@@ -22,10 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //        [self testSingleton];
-        [self testTimer];
+//        [self testTimer];
 //        [self testCalendar];
-        [self testURLSession];
+//        [self testURLSession];
 //    [self testSwizzling];
+    [self testLog];
+}
+
+#pragma mark - log
+- (void)testLog {
+    NSArray *array = [NSArray arrayWithObjects:@"阳君", nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
+    NSSet *set = [NSSet setWithObjects:@"937447974", @"阳君", dict, nil];
+    array = [NSArray arrayWithObjects:@"阳君", dict, set, nil];
+    dict = [NSDictionary dictionaryWithObjectsAndKeys:array, @"name", @"937447974", @"qq", nil];
+    NSLog(@"%@", dict);
 }
 
 #pragma mark - 单例

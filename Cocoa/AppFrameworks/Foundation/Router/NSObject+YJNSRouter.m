@@ -20,8 +20,9 @@
     YJNSRouter *router = objc_getAssociatedObject(self, "YJNSRouter");
     if (!router) {
         router = [[YJNSRouter alloc] init];
+        [self setRouter:router];
         router.delegate = self;
-        self.router = router;
+        router.routerNode = [YJNSRouterNode nodeWithRouterClass:self.class scope:nil routerURL:@"root"];
     }
     return router;
 }
@@ -35,7 +36,7 @@
     return [self init];
 }
 
-- (BOOL)openCurrentRouter {
+- (BOOL)openCurrentRouterFromSourceRouter:(YJNSRouter *)sourceRouter completion:(void (^)(NSObject *))completion {
     return NO;
 }
 
@@ -64,20 +65,17 @@
     NSObject *targetController = [routeManager objectForRouterNode:routerNode];
     if (!targetController) {
         targetController = [[routerNode.routerClass alloc] initWithRouterURL:routerURL];
-        if (![routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
-            [routeManager setObject:targetController forRouterNode:routerNode];
-        }
+        [routeManager setObject:targetController forRouterNode:routerNode];
     }
-    // 加载数据
-    YJNSRouter *targetRouter = [[YJNSRouter alloc] init];
-    targetRouter.sourceRouter = self.router;
-    targetRouter.sourceOptions = options;
-    targetRouter.delegate = targetController;
-    targetRouter.routerNodeL = routerNode;
-    // 绑定
-    targetController.router = targetRouter;
-    // 跳转
-    return [targetController openCurrentRouter];
+    YJNSRouter *sourceRouter = self.router;
+    void (^ completion)(NSObject *controller) = ^(NSObject *controller) {
+        if (![controller isEqual:targetController]) {
+            [routeManager setObject:controller forRouterNode:routerNode];
+        }
+        controller.router = [[YJNSRouter alloc] initWithSourceRouter:sourceRouter sourceOptions:options delegate:controller routerNode:routerNode];
+        [controller reloadRouterData];        
+    };
+    return [targetController openCurrentRouterFromSourceRouter:sourceRouter completion:completion];
 }
 
 #pragma mark - 和上个页面交互

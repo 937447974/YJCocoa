@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A67E6851F971B68005BA20A /* NSObject+YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67E67A1F971B67005BA20A /* NSObject+YJNSRouter.m */; };
+		0A67E6861F971B68005BA20A /* YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67E67C1F971B67005BA20A /* YJNSRouter.m */; };
+		0A67E6871F971B68005BA20A /* YJNSRouterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67E67F1F971B67005BA20A /* YJNSRouterNode.m */; };
+		0A67E6881F971B68005BA20A /* YJNSRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67E6841F971B68005BA20A /* YJNSRouteManager.m */; };
 		0A90B1101EE55B69004F5484 /* NSObject+YJLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B10D1EE55B69004F5484 /* NSObject+YJLeaks.m */; };
 		0A90B1111EE55B69004F5484 /* YJLeaksTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90B10F1EE55B69004F5484 /* YJLeaksTool.m */; };
 		84083ADD1E2759A100D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083ADC1E2759A100D89EAA /* YJTimeProfiler.m */; };
@@ -39,9 +43,6 @@
 		8480BD8D1E09399400A82399 /* YJNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BCF91E09399400A82399 /* YJNSLog.m */; };
 		8480BD8E1E09399400A82399 /* YJNSFoundationOther.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BCFC1E09399400A82399 /* YJNSFoundationOther.m */; };
 		8480BD8F1E09399400A82399 /* NSObject+YJNSPerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BCFF1E09399400A82399 /* NSObject+YJNSPerformSelector.m */; };
-		8480BD901E09399400A82399 /* YJNSRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD051E09399400A82399 /* YJNSRouteManager.m */; };
-		8480BD911E09399400A82399 /* NSObject+YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD071E09399400A82399 /* NSObject+YJNSRouter.m */; };
-		8480BD921E09399400A82399 /* YJNSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD0A1E09399400A82399 /* YJNSRouter.m */; };
 		8480BD941E09399400A82399 /* YJNSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD101E09399400A82399 /* YJNSTimer.m */; };
 		8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD131E09399400A82399 /* YJNSURLCode.m */; };
 		8480BD961E09399400A82399 /* YJNSURLSessionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD191E09399400A82399 /* YJNSURLSessionPool.m */; };
@@ -78,7 +79,6 @@
 		8480BDBC1E09399400A82399 /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD7F1E09399400A82399 /* YJUITableCellObject.m */; };
 		8480BDBD1E09399400A82399 /* UIView+YJUIViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BD821E09399400A82399 /* UIView+YJUIViewGeometry.m */; };
 		84A8D4FC1E76ACA5008B4407 /* YJNSSingletonMCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4F91E76ACA5008B4407 /* YJNSSingletonMCenter.m */; };
-		84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */; };
 		84A8D5031E77895D008B4407 /* YJNSSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D5021E77895D008B4407 /* YJNSSingleton.m */; };
 		84A8D5091E7791A5008B4407 /* YJThreadLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A8D5081E7791A5008B4407 /* YJThreadLogger.m */; };
 		84B4B1B11EBB2419008A0B77 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1AB1EBB2419008A0B77 /* YJUIPageViewCell.m */; };
@@ -95,6 +95,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A67E6791F971B67005BA20A /* NSObject+YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSRouter.h"; sourceTree = "<group>"; };
+		0A67E67A1F971B67005BA20A /* NSObject+YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSRouter.m"; sourceTree = "<group>"; };
+		0A67E67C1F971B67005BA20A /* YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouter.m; sourceTree = "<group>"; };
+		0A67E67D1F971B67005BA20A /* YJNSRouterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterNode.h; sourceTree = "<group>"; };
+		0A67E67E1F971B67005BA20A /* YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouter.h; sourceTree = "<group>"; };
+		0A67E67F1F971B67005BA20A /* YJNSRouterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouterNode.m; sourceTree = "<group>"; };
+		0A67E6811F971B67005BA20A /* YJNSRouterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterDelegate.h; sourceTree = "<group>"; };
+		0A67E6831F971B68005BA20A /* YJNSRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouteManager.h; sourceTree = "<group>"; };
+		0A67E6841F971B68005BA20A /* YJNSRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouteManager.m; sourceTree = "<group>"; };
 		0A90B10C1EE55B69004F5484 /* NSObject+YJLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJLeaks.h"; sourceTree = "<group>"; };
 		0A90B10D1EE55B69004F5484 /* NSObject+YJLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJLeaks.m"; sourceTree = "<group>"; };
 		0A90B10E1EE55B69004F5484 /* YJLeaksTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLeaksTool.h; sourceTree = "<group>"; };
@@ -161,13 +170,6 @@
 		8480BCFC1E09399400A82399 /* YJNSFoundationOther.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSFoundationOther.m; sourceTree = "<group>"; };
 		8480BCFE1E09399400A82399 /* NSObject+YJNSPerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSPerformSelector.h"; sourceTree = "<group>"; };
 		8480BCFF1E09399400A82399 /* NSObject+YJNSPerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSPerformSelector.m"; sourceTree = "<group>"; };
-		8480BD021E09399400A82399 /* YJNSRouterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterHeader.h; sourceTree = "<group>"; };
-		8480BD041E09399400A82399 /* YJNSRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouteManager.h; sourceTree = "<group>"; };
-		8480BD051E09399400A82399 /* YJNSRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouteManager.m; sourceTree = "<group>"; };
-		8480BD061E09399400A82399 /* NSObject+YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YJNSRouter.h"; sourceTree = "<group>"; };
-		8480BD071E09399400A82399 /* NSObject+YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YJNSRouter.m"; sourceTree = "<group>"; };
-		8480BD091E09399400A82399 /* YJNSRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouter.h; sourceTree = "<group>"; };
-		8480BD0A1E09399400A82399 /* YJNSRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouter.m; sourceTree = "<group>"; };
 		8480BD0F1E09399400A82399 /* YJNSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSTimer.h; sourceTree = "<group>"; };
 		8480BD101E09399400A82399 /* YJNSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSTimer.m; sourceTree = "<group>"; };
 		8480BD121E09399400A82399 /* YJNSURLCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLCode.h; sourceTree = "<group>"; };
@@ -245,8 +247,6 @@
 		8480BD841E09399400A82399 /* YJAppFrameworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAppFrameworks.h; sourceTree = "<group>"; };
 		84A8D4F81E76ACA5008B4407 /* YJNSSingletonMCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingletonMCenter.h; sourceTree = "<group>"; };
 		84A8D4F91E76ACA5008B4407 /* YJNSSingletonMCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingletonMCenter.m; sourceTree = "<group>"; };
-		84A8D4FE1E76AD33008B4407 /* YJNSRouterPrivateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSRouterPrivateHeader.h; sourceTree = "<group>"; };
-		84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSRouterPrivateHeader.m; sourceTree = "<group>"; };
 		84A8D5011E77895D008B4407 /* YJNSSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSSingleton.h; sourceTree = "<group>"; };
 		84A8D5021E77895D008B4407 /* YJNSSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNSSingleton.m; sourceTree = "<group>"; };
 		84A8D5071E7791A5008B4407 /* YJThreadLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJThreadLogger.h; sourceTree = "<group>"; };
@@ -288,6 +288,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A67E67B1F971B67005BA20A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A67E67C1F971B67005BA20A /* YJNSRouter.m */,
+				0A67E67D1F971B67005BA20A /* YJNSRouterNode.h */,
+				0A67E67E1F971B67005BA20A /* YJNSRouter.h */,
+				0A67E67F1F971B67005BA20A /* YJNSRouterNode.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A67E6801F971B67005BA20A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0A67E6811F971B67005BA20A /* YJNSRouterDelegate.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		0A67E6821F971B68005BA20A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0A67E6831F971B68005BA20A /* YJNSRouteManager.h */,
+				0A67E6841F971B68005BA20A /* YJNSRouteManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		0A90B10B1EE55B69004F5484 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,39 +627,11 @@
 		8480BD001E09399400A82399 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				8480BD011E09399400A82399 /* Header */,
-				8480BD031E09399400A82399 /* Manager */,
-				8480BD061E09399400A82399 /* NSObject+YJNSRouter.h */,
-				8480BD071E09399400A82399 /* NSObject+YJNSRouter.m */,
-				8480BD081E09399400A82399 /* Router */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		8480BD011E09399400A82399 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				8480BD021E09399400A82399 /* YJNSRouterHeader.h */,
-				84A8D4FE1E76AD33008B4407 /* YJNSRouterPrivateHeader.h */,
-				84A8D4FF1E76AD33008B4407 /* YJNSRouterPrivateHeader.m */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		8480BD031E09399400A82399 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				8480BD041E09399400A82399 /* YJNSRouteManager.h */,
-				8480BD051E09399400A82399 /* YJNSRouteManager.m */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		8480BD081E09399400A82399 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				8480BD091E09399400A82399 /* YJNSRouter.h */,
-				8480BD0A1E09399400A82399 /* YJNSRouter.m */,
+				0A67E6821F971B68005BA20A /* Manager */,
+				0A67E67B1F971B67005BA20A /* Model */,
+				0A67E6791F971B67005BA20A /* NSObject+YJNSRouter.h */,
+				0A67E67A1F971B67005BA20A /* NSObject+YJNSRouter.m */,
+				0A67E6801F971B67005BA20A /* Protocol */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1131,15 +1131,16 @@
 				8427D5621DCB0E5200D7420B /* YJCDMigrationManager.m in Sources */,
 				8480BD951E09399400A82399 /* YJNSURLCode.m in Sources */,
 				8480BD9F1E09399400A82399 /* YJNSLayoutYAxisAnchor.m in Sources */,
-				84A8D5001E76AD33008B4407 /* YJNSRouterPrivateHeader.m in Sources */,
 				84D355441DAB59390097D526 /* YJSecKeychainGPItem.m in Sources */,
 				8480BDAA1E09399400A82399 /* YJUIColor.m in Sources */,
 				0A90B1111EE55B69004F5484 /* YJLeaksTool.m in Sources */,
 				8480BDB01E09399400A82399 /* UIViewController+YJUINavigationRouter.m in Sources */,
 				0A90B1101EE55B69004F5484 /* NSObject+YJLeaks.m in Sources */,
+				0A67E6871F971B68005BA20A /* YJNSRouterNode.m in Sources */,
 				8480BD9A1E09399400A82399 /* NSLayoutConstraint+YJAutoLayout.m in Sources */,
 				8480BDA61E09399400A82399 /* YJUICollectionViewDataSourceManager.m in Sources */,
 				8480BD8D1E09399400A82399 /* YJNSLog.m in Sources */,
+				0A67E6861F971B68005BA20A /* YJNSRouter.m in Sources */,
 				84083B341E277FE900D89EAA /* YJSwizzling.m in Sources */,
 				84D355451DAB59390097D526 /* YJSecKeychainItem.m in Sources */,
 				84B4B1B21EBB2419008A0B77 /* YJUIPageViewCellObject.m in Sources */,
@@ -1158,17 +1159,17 @@
 				84C0A31B1E1E1A9D00455B46 /* YJNSDateComponents.m in Sources */,
 				8480BDA21E09399400A82399 /* UIViewController+YJUILayoutSupport.m in Sources */,
 				84D355471DAB59390097D526 /* YJSecRandom.m in Sources */,
-				8480BD911E09399400A82399 /* NSObject+YJNSRouter.m in Sources */,
 				84FE39E01E0D0E0A00558A39 /* YJUIScrollViewManager.m in Sources */,
 				8480BDA81E09399400A82399 /* YJUICollectionViewDelegateManager.m in Sources */,
 				8480BD881E09399400A82399 /* YJNSDictionaryModelProperty.m in Sources */,
-				8480BD921E09399400A82399 /* YJNSRouter.m in Sources */,
 				84083ADD1E2759A100D89EAA /* YJTimeProfiler.m in Sources */,
 				84A8D5031E77895D008B4407 /* YJNSSingleton.m in Sources */,
 				84D355461DAB59390097D526 /* YJSecKeychain.m in Sources */,
 				8480BD981E09399400A82399 /* YJNSURLSessionTask.m in Sources */,
 				84C0A31A1E1E1A9D00455B46 /* YJNSCalendar.m in Sources */,
 				8473AB831CE969DB000E3580 /* ViewController.m in Sources */,
+				0A67E6881F971B68005BA20A /* YJNSRouteManager.m in Sources */,
+				0A67E6851F971B68005BA20A /* NSObject+YJNSRouter.m in Sources */,
 				8480BD9E1E09399400A82399 /* YJNSLayoutXAxisAnchor.m in Sources */,
 				8480BDBB1E09399400A82399 /* YJUITableViewCell.m in Sources */,
 				8480BD8A1E09399400A82399 /* YJNSFileManager.m in Sources */,
@@ -1199,7 +1200,6 @@
 				8480BDAB1E09399400A82399 /* UITextField+YJInputLength.m in Sources */,
 				84083B601E289A7F00D89EAA /* UIViewController+YJLeaks.m in Sources */,
 				8480BD861E09399400A82399 /* NSObject+YJNSDictionaryModel.m in Sources */,
-				8480BD901E09399400A82399 /* YJNSRouteManager.m in Sources */,
 				8480BDA11E09399400A82399 /* UIView+YJUIViewLayoutConstraintCreation.m in Sources */,
 				8427D5611DCB0E5200D7420B /* YJCDManager.m in Sources */,
 				8480BD941E09399400A82399 /* YJNSTimer.m in Sources */,

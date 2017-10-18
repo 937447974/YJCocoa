@@ -22,7 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary<YJNSRouterOptionsKey, id> *sourceOptions; ///< 来源配置
 
 @property (nonatomic, weak) id<YJNSRouterDelegate> delegate; ///< 当前控制器，默认VC
-@property (nonatomic, strong) YJNSRouterNode *routerNodeL;   ///< 当前控制器对应的路由节点
+@property (nonatomic, strong) YJNSRouterNode *routerNode;    ///< 当前控制器对应的路由节点
+
+/**
+ *  @abstract 初始化
+ *
+ *  @param sourceRouter  来源路由
+ *  @param sourceOptions 来源配置
+ *  @param delegate      当前控制器，默认VC
+ *  @param routerNode    当前控制器对应的路由节点
+ *
+ *  @return instancetype
+ */
+- (instancetype)initWithSourceRouter:(nullable YJNSRouter *)sourceRouter sourceOptions:(nullable NSDictionary<YJNSRouterOptionsKey, id> *)sourceOptions delegate:(id<YJNSRouterDelegate>)delegate routerNode:(YJNSRouterNode *)routerNode;
 
 @end
 

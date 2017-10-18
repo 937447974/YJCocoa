@@ -33,7 +33,7 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
  *
  *  @return BOOL 是否已打开当前路由器
  */
-- (BOOL)openCurrentRouter;
+- (BOOL)openCurrentRouterFromSourceRouter:(YJNSRouter *)sourceRouter completion:(void (^)(NSObject *controller))completion;
 
 /**
  *  @abstract 刷新当前路由器数据

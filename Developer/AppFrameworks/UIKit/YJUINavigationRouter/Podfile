@@ -4,6 +4,7 @@ platform :ios, '8.0'
 def shared_pods
     pod 'YJCocoa/AppFrameworks/Foundation/Http'
     pod 'YJCocoa/AppFrameworks/Foundation/Singleton'
+    pod 'YJCocoa/AppFrameworks/Foundation/Log'
 end
 
 target 'YJUINavigationRouter' do

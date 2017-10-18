@@ -40,6 +40,9 @@
 
 #pragma mark - cache
 - (void)setObject:(id)anObject forRouterNode:(YJNSRouterNode *)routerNode {
+    if ([routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
+        return;
+    }
     NSMutableDictionary *dict = [self.routerCache objectForKey:routerNode.scope];
     if (!dict) {
         dict = [NSMutableDictionary dictionary];

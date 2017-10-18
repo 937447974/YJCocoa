@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 路由器扩展*/
 @interface NSObject (YJNSRouter) <YJNSRouterDelegate>
 
-@property (nonatomic, strong, readonly) YJNSRouter *router; ///< 当前路由
+@property (nonatomic, strong) YJNSRouter *router; ///< 当前路由
 
 @end
 

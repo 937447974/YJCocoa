@@ -10,51 +10,34 @@
 //
 
 #import "UIViewController+YJUINavigationRouter.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (YJUINavigationRouter)
 
-- (void)removeNavigationViewController:(UIViewController *)vc {
-    NSMutableArray *viewControllers = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
-    for (UIViewController *item in viewControllers) {
-        if ([item isEqual:viewControllers]) {
-            [viewControllers removeObject:vc];
-            break;
-        }
-    }
-    self.navigationController.viewControllers = viewControllers;
-}
-
-- (BOOL)openCurrentRouter {
-    if ([self.router.sourceRouter.delegate isKindOfClass:[UIViewController class]]) {
-        UIViewController *vc = (UIViewController *)self.router.sourceRouter.delegate;
-        if (vc.navigationController) {
+- (BOOL)openCurrentRouterFromSourceRouter:(YJNSRouter *)sourceRouter completion:(void (^)(NSObject *))completion {
+    if ([sourceRouter.delegate isKindOfClass:[UIViewController class]]) {
+        UIViewController *sourceVC = (UIViewController *)sourceRouter.delegate;
+        if (sourceVC.navigationController) {
             UIViewController *targetVC = self;
-            if ([vc isEqual:targetVC]) {
-                targetVC = 
-            }      targetController = [[routerNode.routerClass alloc] initWithRouterURL:routerURL];
-            if (![routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
-                [routeManager setObject:targetController forRouterNode:routerNode];
+            YJNSRouterNode *routerNode = self.router.routerNode;
+            if (![self.router.routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
+                BOOL include = NO;
+                for (UIViewController *childVC in sourceVC.navigationController.viewControllers) {
+                    if ([childVC isEqual:targetVC]) {
+                        include = YES;
+                        break;
+                    }
+                }
+                if (include) {
+                    targetVC = [[routerNode.routerClass alloc] initWithRouterURL:routerNode.routerURL];
+                }
             }
-        }
-        // 加载数据
-        YJNSRouter *targetRouter = [[YJNSRouter alloc] init];
-        targetRouter.sourceRouter = self.router;
-        targetRouter.sourceOptions = options;
-        targetRouter.delegate = targetController;
-        targetRouter.routerNodeL = routerNode;
-        // 绑定
-        targetController.router = targetRouter;
-            [vc.navigationController pushViewController:self animated:YES];
+            [sourceVC.navigationController pushViewController:targetVC animated:YES];
+            completion(targetVC);
             return YES;
         }
     }
-    return [super openCurrentRouter];
-}
-
-
-
-- (void)viewDidDisappear:(BOOL)animated {
-    self.navigationController.viewControllers
+    return [super openCurrentRouterFromSourceRouter:sourceRouter completion:completion];
 }
 
 @end

@@ -13,4 +13,15 @@
 
 @implementation YJNSRouter
 
+- (instancetype)initWithSourceRouter:(YJNSRouter *)sourceRouter sourceOptions:(NSDictionary<YJNSRouterOptionsKey,id> *)sourceOptions delegate:(id<YJNSRouterDelegate>)delegate routerNode:(YJNSRouterNode *)routerNode {
+    self = [super init];
+    if (self) {
+        self.sourceRouter = sourceRouter;
+        self.sourceOptions = sourceOptions;
+        self.delegate = delegate;
+        self.routerNode = routerNode;
+    }
+    return self;
+}
+
 @end
