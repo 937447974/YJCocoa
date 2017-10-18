@@ -20,7 +20,7 @@
         if (sourceVC.navigationController) {
             UIViewController *targetVC = self;
             YJNSRouterNode *routerNode = self.router.routerNode;
-            if (![self.router.routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
+            if (![self.router.routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
                 BOOL include = NO;
                 for (UIViewController *childVC in sourceVC.navigationController.viewControllers) {
                     if ([childVC isEqual:targetVC]) {

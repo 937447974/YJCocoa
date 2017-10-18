@@ -14,7 +14,7 @@
 @interface YJNSRouteManager ()
 
 @property (nonatomic, strong) NSMutableDictionary<YJNSRouterURL, YJNSRouterNode *> *routerPool; ///< 节点池
-@property (nonatomic, strong) NSMutableDictionary<YJNSRouterNodeScope, NSMutableDictionary<YJNSRouterURL, id> *> *routerCache; ///< 缓存池
+@property (nonatomic, strong) NSMutableDictionary<YJNSRouterScope, NSMutableDictionary<YJNSRouterURL, id> *> *routerCache; ///< 缓存池
 
 @end
 
@@ -40,7 +40,7 @@
 
 #pragma mark - cache
 - (void)setObject:(id)anObject forRouterNode:(YJNSRouterNode *)routerNode {
-    if ([routerNode.scope isEqualToString:YJNSRouterNodeScopePrototype]) {
+    if ([routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
         return;
     }
     NSMutableDictionary *dict = [self.routerCache objectForKey:routerNode.scope];
@@ -59,7 +59,7 @@
     [[self.routerCache objectForKey:routerNode.scope] removeObjectForKey:routerNode.routerURL];
 }
 
-- (void)removeObjectsForScope:(YJNSRouterNodeScope)scope {
+- (void)removeObjectsForScope:(YJNSRouterScope)scope {
     [self.routerCache removeObjectForKey:scope];
 }
 

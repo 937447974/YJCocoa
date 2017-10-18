@@ -291,9 +291,9 @@
 		0A67E67B1F971B67005BA20A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A67E67E1F971B67005BA20A /* YJNSRouter.h */,
 				0A67E67C1F971B67005BA20A /* YJNSRouter.m */,
 				0A67E67D1F971B67005BA20A /* YJNSRouterNode.h */,
-				0A67E67E1F971B67005BA20A /* YJNSRouter.h */,
 				0A67E67F1F971B67005BA20A /* YJNSRouterNode.m */,
 			);
 			path = Model;

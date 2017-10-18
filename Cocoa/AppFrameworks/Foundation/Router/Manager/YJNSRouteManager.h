@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param scope 路由作用域
  */
-- (void)removeObjectsForScope:(YJNSRouterNodeScope)scope;
+- (void)removeObjectsForScope:(YJNSRouterScope)scope;
 
 @end
 

@@ -8,16 +8,17 @@
 
 #import "YJNSRouterNode.h"
 
-YJNSRouterNodeScope const YJNSRouterNodeScopeSingleton = @"singleton";
-YJNSRouterNodeScope const YJNSRouterNodeScopePrototype = @"prototype";
+YJNSRouterScope const YJNSRouterScopeSingleton = @"singleton";
+YJNSRouterScope const YJNSRouterScopePrototype = @"prototype";
+YJNSRouterScope const YJNSRouterScopeMemoryWarning = @"memoryWarning";
 
 @implementation YJNSRouterNode
 
-+ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(YJNSRouterNodeScope)scope routerURL:(YJNSRouterURL)routerURL {
++ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(YJNSRouterScope)scope routerURL:(YJNSRouterURL)routerURL {
     YJNSRouterNode *node = [[YJNSRouterNode alloc] init];
     if (node) {
         node -> _routerClass = routerClass;
-        node -> _scope = scope ?: YJNSRouterNodeScopePrototype;;
+        node -> _scope = scope ?: YJNSRouterScopePrototype;;
         node -> _routerURL = routerURL;
     }
     return node;
