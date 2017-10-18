@@ -31,7 +31,8 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2017-09-25 | 兼容 Xcode 9，消除警告提示" with title "YJCocoa 7.0.0"'
+osascript -e 'display notification "2017-10-18 | Log 库升级，支持 iOS 11 控制台 NSArray 和 NSDictionary 中文输出。" with title "YJCocoa 7.1.0"'
+osascript -e 'display notification "2017-10-18 | Router 和 NavigationRouter 架构升级，增加路由器的作用域控制，实现了热翻页效果。" with title "YJCocoa 7.1.0"'
 
 
 

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "7.0.0"
+    s.version  = "7.1.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -93,18 +93,17 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             # Router
             foundation.subspec 'Router' do |router|
                 router.source_files = 'Cocoa/AppFrameworks/Foundation/Router/*.{h,m}'
-                router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
-                router.subspec 'Header' do |rHeader|
-                    rHeader.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Header/*.{h,m}'
-                end
                 router.subspec 'Manager' do |rManager|
                     rManager.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Manager/*.{h,m}'
-                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Header'
+                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Model'
                     rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 end
-                router.subspec 'Router' do |rRouter|
-                    rRouter.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Router/*.{h,m}'
-                    rRouter.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Header'
+                router.subspec 'Model' do |rModel|
+                    rModel.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Model/*.{h,m}'
+                    rModel.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Protocol'
+                end
+                router.subspec 'Protocol' do |rProtocol|
+                    rRouter.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Protocol/*.{h,m}'
                 end
             end
             foundation.subspec 'Singleton' do |singleton|

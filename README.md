@@ -44,14 +44,18 @@ NSLog打印优化，Unicode自动转化为中文输出。
 
 ### 1.1.8 PerformSelector
 
-合并respondsToSelector和performSelector方法，用于安全执行Selector，可携带多个参数
+合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
 ### 1.1.9 Router
 
-Router是NavigationRouter的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
+Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
-1. 支持Get或Post跳转；
+1. 支持 Get 或 Post 跳转。
 2. 支持长连接或短连接。
+3. 支持作用域控制，单例模式，原型模式和内存警告模式。
+	1. 单例模式：项目中只存在一份对应的实例。
+	2. 原型模式：每次跳转时都会重新创建一份对应的实例。
+	3. 内存警告模式：内存警告时，释放相关联的控制器。
 
 ### 1.1.10 Singleton
 
@@ -127,8 +131,7 @@ NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置U
 
 ### 1.2.6 NavigationRouter
 
-NavigationRouter主要用于实现项目组件化 。
-
+NavigationRouter 主要用于实现项目组件化，基础库是 Router。
 
 ### 1.2.7 PageViewManager
 
@@ -346,6 +349,8 @@ YJ技术支持群：557445088
 | 6.6.0 | 2017-07-19 | Dispatch 移除并发队列方法 |
 | | 2017-07-21 | DictionaryModel 增加模型转换时根据外部属性key动态设置方法 |
 | 7.0.0 | 2017-09-25 | 兼容 Xcode 9，消除警告提示 |
+| 7.1.0 | 2017-10-18 | Log 库升级，支持 iOS 11 控制台 NSArray 和 NSDictionary 中文输出 |
+| | | Router 和 NavigationRouter 架构升级，增加路由器的作用域控制，实现了热翻页效果。 |
 
 ## Copyright
 

@@ -21,6 +21,7 @@
             UIViewController *targetVC = self;
             YJNSRouterNode *routerNode = self.router.routerNode;
             if (![self.router.routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
+                // navigationController 只能存在一份VC，否则程序崩溃
                 BOOL include = NO;
                 for (UIViewController *childVC in sourceVC.navigationController.viewControllers) {
                     if ([childVC isEqual:targetVC]) {
