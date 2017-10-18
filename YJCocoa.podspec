@@ -103,7 +103,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                     rModel.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Protocol'
                 end
                 router.subspec 'Protocol' do |rProtocol|
-                    rRouter.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Protocol/*.{h,m}'
+                    rProtocol.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Protocol/*.{h,m}'
                 end
             end
             foundation.subspec 'Singleton' do |singleton|
