@@ -35,6 +35,10 @@ void NSLogS(id obj) {
 
 #pragma mark 数组打印
 - (NSString *)descriptionWithLocale:(id)locale {
+    return [self descriptionWithLocale:locale indent:0];
+}
+
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level {
     NSMutableString *str = [NSMutableString stringWithString:@"[\n"];
     // 遍历数组的所有元素
     for (id obj in self) {
@@ -52,6 +56,10 @@ void NSLogS(id obj) {
 
 #pragma mark 字典打印
 - (NSString *)descriptionWithLocale:(id)locale {
+    return [self descriptionWithLocale:locale indent:0];
+}
+
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level {
     __block NSMutableString *str = [NSMutableString stringWithString:@"{\n"];
     // 遍历字典的所有键值对
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
