@@ -93,6 +93,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
             # Router
             foundation.subspec 'Router' do |router|
                 router.source_files = 'Cocoa/AppFrameworks/Foundation/Router/*.{h,m}'
+                router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
                 router.subspec 'Manager' do |rManager|
                     rManager.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Manager/*.{h,m}'
                     rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Model'
