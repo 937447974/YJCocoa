@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
+    [self.tableViewManager addTableViewAOPDelegate:self];
     //    [self test1];
 //    [self test2];
     [self test3];
