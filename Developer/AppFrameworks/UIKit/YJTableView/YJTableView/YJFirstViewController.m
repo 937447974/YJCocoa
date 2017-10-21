@@ -25,7 +25,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
-    [self.tableViewManager addTableViewAOPDelegate:self];
+    
     //    [self test1];
 //    [self test2];
     [self test3];
@@ -66,6 +66,7 @@
 #pragma mark - 协议监听dell
 - (void)test3 {
     self.tableViewManager.delegate = self;
+    [self.tableViewManager addTableViewAOPDelegate:self];
     self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
     [self initTestData];
 }

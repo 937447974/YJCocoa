@@ -28,6 +28,7 @@
     [self.view addSubview:self.tableView];
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
     self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
+    self.tableViewManager.delegate = self;
     [self.tableViewManager addTableViewAOPDelegate:self];
     // 测试数据
     for (int i=0; i<3; i++) {
@@ -50,6 +51,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
