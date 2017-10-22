@@ -63,10 +63,10 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - 协议监听dell
+#pragma mark - 协议监听cell
 - (void)test3 {
-    self.tableViewManager.delegate = self;
     [self.tableViewManager addTableViewAOPDelegate:self];
+    self.tableViewManager.delegate = self;
     self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
     [self initTestData];
 }

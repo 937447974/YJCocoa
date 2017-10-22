@@ -19,11 +19,6 @@
 		84C9E5061CEF1CAF0036C57B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5041CEF1CAF0036C57B /* Main.storyboard */; };
 		84C9E5081CEF1CAF0036C57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5071CEF1CAF0036C57B /* Assets.xcassets */; };
 		84C9E50B1CEF1CAF0036C57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5091CEF1CAF0036C57B /* LaunchScreen.storyboard */; };
-		84CEC13E1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1301DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m */; };
-		84CEC13F1DB4B26E004CDF2B /* YJUITableViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1321DB4B26E004CDF2B /* YJUITableViewDelegateManager.m */; };
-		84CEC1401DB4B26E004CDF2B /* YJUITableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1341DB4B26E004CDF2B /* YJUITableViewManager.m */; };
-		84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */; };
-		84CEC1431DB4B26E004CDF2B /* YJUITableCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,16 +42,6 @@
 		84C9E5071CEF1CAF0036C57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C9E50A1CEF1CAF0036C57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C9E50C1CEF1CAF0036C57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CEC12F1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewDataSourceManager.h; sourceTree = "<group>"; };
-		84CEC1301DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewDataSourceManager.m; sourceTree = "<group>"; };
-		84CEC1311DB4B26E004CDF2B /* YJUITableViewDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewDelegateManager.h; sourceTree = "<group>"; };
-		84CEC1321DB4B26E004CDF2B /* YJUITableViewDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewDelegateManager.m; sourceTree = "<group>"; };
-		84CEC1331DB4B26E004CDF2B /* YJUITableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewManager.h; sourceTree = "<group>"; };
-		84CEC1341DB4B26E004CDF2B /* YJUITableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewManager.m; sourceTree = "<group>"; };
-		84CEC1391DB4B26E004CDF2B /* YJUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableViewCell.h; sourceTree = "<group>"; };
-		84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewCell.m; sourceTree = "<group>"; };
-		84CEC13C1DB4B26E004CDF2B /* YJUITableCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUITableCellObject.h; sourceTree = "<group>"; };
-		84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUITableCellObject.m; sourceTree = "<group>"; };
 		B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +135,6 @@
 				845CC1D41CF015A000BCC14E /* Main */,
 				84C9E5121CEF1D1C0036C57B /* Resources */,
 				84C9E4FB1CEF1CAF0036C57B /* Supporting Files */,
-				84CEC12D1DB4B26E004CDF2B /* TableViewManager */,
 			);
 			path = YJTableView;
 			sourceTree = "<group>";
@@ -172,48 +156,6 @@
 				84C9E5091CEF1CAF0036C57B /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		84CEC12D1DB4B26E004CDF2B /* TableViewManager */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC12E1DB4B26E004CDF2B /* Core */,
-				84CEC1381DB4B26E004CDF2B /* TableCell */,
-				84CEC13B1DB4B26E004CDF2B /* TableCellObject */,
-			);
-			name = TableViewManager;
-			path = ../../../../../Cocoa/AppFrameworks/UIKit/TableViewManager;
-			sourceTree = "<group>";
-		};
-		84CEC12E1DB4B26E004CDF2B /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC12F1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.h */,
-				84CEC1301DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m */,
-				84CEC1311DB4B26E004CDF2B /* YJUITableViewDelegateManager.h */,
-				84CEC1321DB4B26E004CDF2B /* YJUITableViewDelegateManager.m */,
-				84CEC1331DB4B26E004CDF2B /* YJUITableViewManager.h */,
-				84CEC1341DB4B26E004CDF2B /* YJUITableViewManager.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		84CEC1381DB4B26E004CDF2B /* TableCell */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC1391DB4B26E004CDF2B /* YJUITableViewCell.h */,
-				84CEC13A1DB4B26E004CDF2B /* YJUITableViewCell.m */,
-			);
-			path = TableCell;
-			sourceTree = "<group>";
-		};
-		84CEC13B1DB4B26E004CDF2B /* TableCellObject */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC13C1DB4B26E004CDF2B /* YJUITableCellObject.h */,
-				84CEC13D1DB4B26E004CDF2B /* YJUITableCellObject.m */,
-			);
-			path = TableCellObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,13 +266,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJTableView-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -340,16 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CEC1431DB4B26E004CDF2B /* YJUITableCellObject.m in Sources */,
-				84CEC1401DB4B26E004CDF2B /* YJUITableViewManager.m in Sources */,
 				84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */,
-				84CEC13F1DB4B26E004CDF2B /* YJUITableViewDelegateManager.m in Sources */,
 				845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */,
 				84AE6FE51E02829D001F81E6 /* YJTestTableViewCell2.m in Sources */,
 				84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */,
 				84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */,
-				84CEC1421DB4B26E004CDF2B /* YJUITableViewCell.m in Sources */,
-				84CEC13E1DB4B26E004CDF2B /* YJUITableViewDataSourceManager.m in Sources */,
 				84AE6FE31E02829D001F81E6 /* YJTestTableViewCell.m in Sources */,
 				845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */,
 			);

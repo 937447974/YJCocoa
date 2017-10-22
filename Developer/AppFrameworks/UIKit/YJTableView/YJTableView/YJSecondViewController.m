@@ -10,7 +10,7 @@
 #import "YJTestTableViewCell.h"
 #import "UIView+YJUIViewGeometry.h"
 
-@interface YJSecondViewController () <UITableViewDelegate>
+@interface YJSecondViewController () <UITableViewDelegate, YJUITableViewManagerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
