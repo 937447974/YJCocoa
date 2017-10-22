@@ -1,9 +1,8 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 def shared_pods
-    pod 'YJCocoa/AppFrameworks/Foundation/AOP'
-    pod 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+    pod 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager', :path => "../../../../YJCocoa.podspec"
 end
 
 target 'ScrollViewManager' do

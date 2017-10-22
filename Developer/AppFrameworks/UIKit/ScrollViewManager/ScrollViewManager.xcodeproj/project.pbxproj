@@ -14,7 +14,6 @@
 		84554B0D1E0BD0DF0004636A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0A1E0BD0DE0004636A /* Assets.xcassets */; };
 		84554B0E1E0BD0DF0004636A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0B1E0BD0DE0004636A /* LaunchScreen.storyboard */; };
 		84554B0F1E0BD0DF0004636A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0C1E0BD0DE0004636A /* Main.storyboard */; };
-		84554B131E0BD7C10004636A /* YJUIScrollViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84554B121E0BD7C10004636A /* YJUIScrollViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +29,6 @@
 		84554B0A1E0BD0DE0004636A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84554B0B1E0BD0DE0004636A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84554B0C1E0BD0DE0004636A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		84554B111E0BD7C10004636A /* YJUIScrollViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIScrollViewManager.h; sourceTree = "<group>"; };
-		84554B121E0BD7C10004636A /* YJUIScrollViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIScrollViewManager.m; sourceTree = "<group>"; };
 		B09CE4D7F7EDD64D5458ACDF /* Pods-ScrollViewManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollViewManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollViewManager/Pods-ScrollViewManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +77,6 @@
 				84554AC01E0BC2880004636A /* AppDelegate.m */,
 				84554AD41E0BC3190004636A /* Main */,
 				84554B091E0BD0DE0004636A /* Resources */,
-				84554B101E0BD7AA0004636A /* ScrollViewManager */,
 				84554ABC1E0BC2880004636A /* Supporting Files */,
 			);
 			path = ScrollViewManager;
@@ -112,16 +108,6 @@
 				84554B0C1E0BD0DE0004636A /* Main.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		84554B101E0BD7AA0004636A /* ScrollViewManager */ = {
-			isa = PBXGroup;
-			children = (
-				84554B111E0BD7C10004636A /* YJUIScrollViewManager.h */,
-				84554B121E0BD7C10004636A /* YJUIScrollViewManager.m */,
-			);
-			name = ScrollViewManager;
-			path = ../../../../../Cocoa/AppFrameworks/UIKit/ScrollViewManager;
 			sourceTree = "<group>";
 		};
 		B43C1E493C5CF84B12CB8888 /* Pods */ = {
@@ -225,13 +211,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScrollViewManager-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0C15349372212D26781C03C /* [CP] Copy Pods Resources */ = {
@@ -256,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84554B131E0BD7C10004636A /* YJUIScrollViewManager.m in Sources */,
 				84554AC41E0BC2880004636A /* ViewController.m in Sources */,
 				84554AC11E0BC2880004636A /* AppDelegate.m in Sources */,
 				84554ABE1E0BC2880004636A /* main.m in Sources */,
@@ -306,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -348,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -364,7 +352,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = ScrollViewManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,7 +367,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = ScrollViewManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";

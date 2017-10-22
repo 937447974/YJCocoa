@@ -35,11 +35,11 @@
 
 #pragma mark - YJUIScrollViewManagerDelegate
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
-    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+    NSLog(@"%@ -- %ld", NSStringFromSelector(_cmd), scroll);
 }
 
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didHorizontalScroll:(YJUIScrollViewScroll)scroll {
-    NSLog(@"%@ -- %d", NSStringFromSelector(_cmd), scroll);
+    NSLog(@"%@ -- %ld", NSStringFromSelector(_cmd), scroll);
 }
 
 @end
