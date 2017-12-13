@@ -112,11 +112,7 @@
             viewTemp2.translatesAutoresizingMaskIntoConstraints = NO;
         }
         lc = [self constraintWithItem:view1 attribute:attr1 relatedBy:relation toItem:view2 attribute:attr2 multiplier:multiplier constant:c];
-        if ([lc respondsToSelector:@selector(setActive:)]) { // IOS8才支持active属性
-            [lc setActive:YES];
-        } else { // IOS8以下添加到相同父节点
-            [superView addConstraint:lc];
-        }
+        [lc setActive:YES];
     }
     return lc;
 }
