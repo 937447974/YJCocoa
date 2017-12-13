@@ -4,7 +4,7 @@
 
 YJ系列开源库
 
-1. 支持 iOS 7.0 和 Swift 3.0 开发。
+1. 支持 iOS 8.0 和 Swift 4.0 开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
 
 整体架构和苹果类似,每一层都有各自的开源库。
@@ -38,15 +38,20 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 1. http链接解析，快速获取其中参数，支持URLDecode解码;
 2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
-### 1.1.7 Log
+### 1.1.7 KVO
+
+1. 支持 Block 的方式监听 KeyValue 变化。
+2. Observer 自动移除，无须手动调用 `removeObserver: forKeyPath:`移除。
+
+### 1.1.8 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-### 1.1.8 PerformSelector
+### 1.1.9 PerformSelector
 
 合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
-### 1.1.9 Router
+### 1.1.10 Router
 
 Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
@@ -57,16 +62,16 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 	2. 原型模式：每次跳转时都会重新创建一份对应的控制器。
 	3. 内存警告模式：内存警告时，释放相关联的控制器。
 
-### 1.1.10 Singleton
+### 1.1.11 Singleton
 
 1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
 2. 可定制全局单例和局域单例。
 
-### 1.1.11 Swizzling
+### 1.1.12 Swizzling
 
 支持随时随地交换方法。
 
-### 1.1.12 Timer
+### 1.1.13 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -75,11 +80,11 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-### 1.1.13 URLCode
+### 1.1.14 URLCode
 
 URLEncode编码和URLDecode解码
 
-### 1.1.14 URLSession
+### 1.1.15 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -351,6 +356,9 @@ YJ技术支持群：557445088
 | 7.0.0 | 2017-09-25 | 兼容 Xcode 9，消除警告提示 |
 | 7.1.0 | 2017-10-18 | Log 库升级，支持 iOS 11 控制台 NSArray 和 NSDictionary 中文输出 |
 | | | Router 和 NavigationRouter 架构升级，增加路由器的作用域控制，实现了热翻页效果。 |
+| 8.0.0 | 2017-11-30 | 优化 strongSelf 宏，提示性能 |
+| | 2017-12-13 | 升级支持最低版本为 iOS 8.0 和 Swift 4.0 |
+| | | 增加 KVO 库，支持 block 回调和自动移除 Observer |
 
 ## Copyright
 
