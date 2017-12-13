@@ -84,6 +84,10 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "v#{s.v
                 http.source_files = 'Cocoa/AppFrameworks/Foundation/Http/*.{h,m}'
                 http.dependency 'YJCocoa/AppFrameworks/Foundation/URLCode'
             end
+            # KVO
+            foundation.subspec 'KVO' do |kvo|
+                kvo.source_files = 'Cocoa/AppFrameworks/Foundation/KVO/*.{h,m}'
+            end
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/AppFrameworks/Foundation/Log/*.{h,m}'
             end

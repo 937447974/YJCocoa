@@ -27,6 +27,9 @@
 // http链接相关
 #import "YJNSHttp.h"
 
+// KVO
+#import "NSObject+YJNSKVO.h"
+
 // NSLog打印优化，Unicode自动转化为中文输出。
 #import "YJNSLog.h"
 
