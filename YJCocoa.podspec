@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
 #s.source = { :git => "https://github.com/937447974/YJCocoa.git", :branch => "master" }
-s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => "s.version" }
+s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => s.version }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                       姓名：阳君
