@@ -12,10 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+YJLeaks.h"
 
-#if DEBUG
-
 @interface UINavigationController (YJLeaks)
 
 @end
 
-#endif

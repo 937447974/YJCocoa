@@ -31,9 +31,7 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2017-11-30 | 优化 strongSelf 宏，提升性能" with title "YJCocoa 8.0.0"'
-osascript -e 'display notification "2017-12-13 | 升级支持最低版本为 iOS 8.0 和 Swift 4.0" with title "YJCocoa 8.0.0"'
-osascript -e 'display notification "2017-12-13 | 增加 KVO 库，支持 block 回调和自动移除 Observer" with title "YJCocoa 8.0.0"'
+osascript -e 'display notification "2018-04-16 | 移除 DEBUG 宏判断" with title "YJCocoa 8.0.1"'
 
 
 

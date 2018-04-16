@@ -21,11 +21,9 @@
 
 @end
 
-#if DEBUG
 @interface UIViewController (YJTimePageProfiler)
 + (void)startTimePageProfiler;
 @end
-#endif
 
 @implementation YJTimePageProfiler
 
@@ -40,14 +38,11 @@
 }
 
 + (void)start {
-#if DEBUG
     [UIViewController startTimePageProfiler];
-#endif
 }
 
 @end
 
-#if DEBUG
 @implementation UIViewController (YJTimePageProfiler)
 
 + (void)startTimePageProfiler {
@@ -108,4 +103,3 @@
 }
 
 @end
-#endif

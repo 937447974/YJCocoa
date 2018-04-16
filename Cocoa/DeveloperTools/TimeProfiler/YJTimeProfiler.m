@@ -57,7 +57,6 @@ void YJTimeProfilerSingalHandler(int sig) {
 
 #pragma mark - run
 - (void)start {
-#if DEBUG
     [YJTimePageProfiler start];
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFStringRef runLoopMode = kCFRunLoopCommonModes;
@@ -72,7 +71,6 @@ void YJTimeProfilerSingalHandler(int sig) {
     });
     CFRunLoopAddObserver(runLoop, _runLoopObserver, runLoopMode);
     CFRelease(_runLoopObserver); // 注意释放，否则会造成内存泄露
-#endif
 }
 
 #pragma mark - private

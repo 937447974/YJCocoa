@@ -12,8 +12,6 @@
 #import <UIKit/UIKit.h>
 #import "YJNSSingleton.h"
 
-#if DEBUG
-
 // 单例
 #define YJLeaksToolS [YJLeaksTool strongSingleton:nil]
 
@@ -29,6 +27,4 @@
 - (void)captureTargetMemoryLeaks:(NSObject *)target;
 
 @end
-
-#endif
 

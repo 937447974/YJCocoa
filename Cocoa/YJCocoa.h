@@ -13,7 +13,9 @@
 
 #import "YJAppServices.h"
 
+#if __has_include("YJDeveloperTools.h")
 #import "YJDeveloperTools.h"
+#endif
 
 #import "YJSystem.h"
 

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "8.0.0"
+    s.version  = "8.0.1"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -50,7 +50,7 @@ s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => s.versi
 
 
     # ——— Subspecs
-    s.default_subspec = 'AppFrameworks', 'AppServices', 'DeveloperTools', 'System'
+    s.default_subspec = 'AppFrameworks', 'AppServices', 'System'
 
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|

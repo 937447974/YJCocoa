@@ -12,8 +12,6 @@
 #import "NSObject+YJLeaks.h"
 #import "YJLeaksTool.h"
 
-#if DEBUG
-
 @implementation NSObject (YJLeaks)
 
 + (void)startCaptureMemoryLeaks {
@@ -25,7 +23,4 @@
 }
  
 @end
-
-#endif
-
 

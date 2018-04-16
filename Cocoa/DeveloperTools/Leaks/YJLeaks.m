@@ -18,11 +18,9 @@
 @implementation YJLeaks
 
 + (void)start {
-#if DEBUG
     [UINavigationController startCaptureMemoryLeaks];
     [UIViewController startCaptureMemoryLeaks];
     [UIView startCaptureMemoryLeaks];
-#endif
 }
 
 @end

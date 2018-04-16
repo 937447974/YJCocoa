@@ -14,8 +14,6 @@
 #import "YJDispatch.h"
 #import "YJNSFoundationOther.h"
 
-#if DEBUG
-
 @interface NSObject (YJLeaksProperty)
 
 @property (nonatomic, copy) NSString *leakPropertyPath; ///<内存泄漏属性地址
@@ -138,7 +136,4 @@
 }
 
 @end
-
-#endif
-
 
