@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 时间分析器*/
 @interface YJTimeProfiler : NSObject
 
-@property (nonatomic) NSInteger frequency;     ///< 分析频率，默认1秒
 @property (nonatomic) NSTimeInterval interval; ///< 帧间隔，默认0.17秒
 
 /**

@@ -42,7 +42,6 @@ void YJTimeProfilerSingalHandler(int sig) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.frequency = 1;
         self.interval = 0.17;
 #if YJTimeProfilerDebug
         signal(SIGUSR1, YJTimeProfilerSingalHandler);
