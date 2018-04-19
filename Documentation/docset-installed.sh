@@ -31,7 +31,6 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2018-04-16 | 移除 DEBUG 宏判断" with title "YJCocoa 8.0.1"'
-
+osascript -e 'display notification "2018-04-19 | Leaks 忽略对 WK 前缀对象的内存泄漏分析" with title "YJCocoa 8.0.2"'
 
 

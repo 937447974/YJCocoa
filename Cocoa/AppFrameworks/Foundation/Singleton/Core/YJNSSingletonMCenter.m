@@ -55,7 +55,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
-    @synchronized_pthread (_lock)
+    @synchronized_pthread (self -> _lock)
     [self.weakDict removeAllObjects];
 }
 
@@ -74,7 +74,7 @@
     }
     id singleton;
     while (!singleton) {
-        @synchronized_pthread_try(_lock) {
+        @synchronized_pthread_try(self -> _lock) {
             singleton = [dict objectForKey:identifier];
             if (!singleton) {
                 singleton = [[sClass alloc] init];
@@ -93,7 +93,7 @@
 }
 
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {
-    @synchronized_pthread (_lock)
+    @synchronized_pthread (self -> _lock)
     [self.weakDict removeObjectForKey:identifier];
 }
 
