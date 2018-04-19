@@ -55,8 +55,8 @@
 
 - (void)captureTargetMemoryLeaks:(NSObject *)target {
     NSString *className = YJNSStringFromClass(target.class);
-    if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"CA"] || [className hasPrefix:@"_"]) {
-        return;
+    for (NSString *prefix in @[@"UI", @"NS", @"WK", @"CA", @"_"]) {
+        if ([className hasPrefix:prefix]) return;
     }
     NSLog(@"%@ capture memory leaks start", className);
     NSPointerArray *leakPropertyArray = [NSPointerArray weakObjectsPointerArray];
@@ -92,8 +92,8 @@
         return;
     }
     NSString *className = YJNSStringFromClass(self.class);
-    if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"CA"] || [className hasPrefix:@"_"]) {
-        return;
+    for (NSString *prefix in @[@"UI", @"NS", @"WK", @"CA", @"_"]) {
+        if ([className hasPrefix:prefix]) return;
     }
     level++;
     for (NSString *p in [self leakProperties:target.class]) {
