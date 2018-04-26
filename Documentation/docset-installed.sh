@@ -31,6 +31,6 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2018-04-19 | Leaks 忽略对 WK 前缀对象的内存泄漏分析" with title "YJCocoa 8.0.2"'
+osascript -e 'display notification "2018-04-26 | URLSession 架构升级，支持主线程或子线程返回数据" with title "YJCocoa 8.1.0"'
 
 
