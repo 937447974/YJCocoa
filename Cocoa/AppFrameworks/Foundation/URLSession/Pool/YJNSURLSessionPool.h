@@ -9,23 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef YJNSURLSessionPool_h
+#define YJNSURLSessionPool_h
+
 #import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** 共享网络会话池*/
-#define YJNSURLSessionPoolS YJNSSingletonS(YJNSURLSessionPool, nil)
-
-/** 网络会话池*/
-@interface YJNSURLSessionPool : NSObject
-
-/**
- *  @abstract 存储
- *  @discusstion NSMutableDictionary<YJNSURLRequest.identifier, YJNSURLSessionTask>
- */
-@property (nonatomic, strong) NSMutableDictionary *poolDict;
-
-@end
+#define YJNSURLSessionPoolS YJNSSingletonS(NSMutableDictionary, @"YJNSURLSessionPool")
 
 NS_ASSUME_NONNULL_END
+
+#endif /* YJNSURLSessionPool_h */

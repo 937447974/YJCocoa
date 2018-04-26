@@ -31,14 +31,16 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
 /** NSURLSessionTask*/
 @interface YJNSURLSessionTask : NSObject
 
-@property (nonatomic, strong) YJNSURLRequest *request;
-
-@property (nonatomic) BOOL needResume; ///< 是否需要YJNSURLSession执行网络重连
+@property (nonatomic) BOOL mainQueue;  ///< 是否主线程返回，默认YES
 
 @property (nonatomic, readonly) YJNSURLSessionTaskState state; ///< 任务状态
 
-@property (nonatomic, copy) YJNSURLSessionTaskSuccess success; ///< 成功回调
-@property (nonatomic, copy) YJNSURLSessionTaskFailure failure; ///< 失败回调
+@property (nonatomic, strong, readonly) YJNSURLRequest *request;///< 请求
+
+@property (nonatomic, copy, readonly) YJNSURLSessionTaskSuccess success; ///< 成功回调
+@property (nonatomic, copy, readonly) YJNSURLSessionTaskFailure failure; ///< 失败回调
+
+@property (nonatomic, readonly) BOOL needResume; ///< 是否需要 YJNSURLSession 执行网络重连
 
 /**
  *  @abstract 通过request.identifier生成或获取Task

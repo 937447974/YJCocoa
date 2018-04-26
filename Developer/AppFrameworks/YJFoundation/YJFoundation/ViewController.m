@@ -26,10 +26,10 @@
     //        [self testSingleton];
     //        [self testTimer];
     //        [self testCalendar];
-    //        [self testURLSession];
+            [self testURLSession];
     //    [self testSwizzling];
     //    [self testLog];
-    [self testKVO];
+//    [self testKVO];
 }
 
 #pragma mark - log

@@ -10,7 +10,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSURLRequestModel.h"
+#import "NSObject+YJNSDictionaryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,9 +26,9 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
 
 @property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
 
-@property (nonatomic, copy)   NSString *URL;                        ///< 请求地址
-@property (nonatomic, copy)   YJNSURLRequestMethod requestMethod;   ///< 请求方式
-@property (nonatomic, strong) id<YJNSURLRequestModel> requestModel; ///< 请求参数模型
+@property (nonatomic, copy)   NSString *URL;                      ///< 请求地址
+@property (nonatomic, copy)   YJNSURLRequestMethod requestMethod; ///< 请求方式
+@property (nonatomic, strong) NSObject *requestModel;             ///< 请求参数模型
 
 @property (nonatomic) Class responseModelClass; ///< 服务器返回数据对应的模型class
 

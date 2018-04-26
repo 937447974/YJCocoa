@@ -24,14 +24,12 @@
 }
 
 + (NSArray *)allEffectiveTask {
-    YJNSURLSessionPool *sPool = YJNSURLSessionPoolS;
-    NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
-    NSMutableArray *removeKeyArray = [NSMutableArray arrayWithCapacity:sPool.poolDict.count];
-    for (YJNSURLSessionTask *task in sPool.poolDict.allValues) {
+    NSMutableDictionary *sPool = YJNSURLSessionPoolS;
+    NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:sPool.count];
+    for (YJNSURLSessionTask *task in sPool.allValues) {
         YJNSURLRequest *request = task.request;
-        request.source ? [allEffectiveTask addObject:task] : [removeKeyArray addObject:request.identifier];
-    }
-    [sPool.poolDict removeObjectsForKeys:removeKeyArray];
+        request.source ? [allEffectiveTask addObject:task] : [sPool removeObjectForKey:request.identifier];
+    }    
     return allEffectiveTask;
 }
 

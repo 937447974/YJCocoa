@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YJTestURLRequestModel : NSObject <YJNSURLRequestModel>
+@interface YJTestURLRequestModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *qq;

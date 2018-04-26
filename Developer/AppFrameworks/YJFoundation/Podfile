@@ -4,7 +4,7 @@ platform :ios, '8.0'
 # use_frameworks!
 
 def shared_pods
-   pod 'YJCocoa/AppFrameworks/Foundation', :path => "../../../YJCocoa.podspec", :inhibit_warnings => false
+    pod 'YJCocoa/AppFrameworks/Foundation', :path => "../../../YJCocoa.podspec"
 end
 
 target 'YJFoundation' do

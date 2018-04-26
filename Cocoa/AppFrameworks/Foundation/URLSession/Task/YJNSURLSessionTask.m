@@ -14,60 +14,52 @@
 
 @interface YJNSURLSessionTask ()
 
-@property (nonatomic) YJNSURLSessionTaskState state; ///< 任务状态
+@property (nonatomic) YJNSURLSessionTaskState state;
+@property (nonatomic) BOOL needResume;
+@property (nonatomic, strong) YJNSURLRequest *request;
+@property (nonatomic, copy) YJNSURLSessionTaskSuccess success;
+@property (nonatomic, copy) YJNSURLSessionTaskFailure failure;
 
 @end
 
 @implementation YJNSURLSessionTask
 
 + (instancetype)taskWithRequest:(YJNSURLRequest *)request {
-    YJNSURLSessionPool *sPool = YJNSURLSessionPoolS;
-    YJNSURLSessionTask *task = sPool.poolDict[request.identifier];
+    NSMutableDictionary *sPool = YJNSURLSessionPoolS;
+    YJNSURLSessionTask *task = [sPool objectForKey:request.identifier];
     if (!task) {
         task = [[self alloc] init];
-        sPool.poolDict[request.identifier] = task;
+        [sPool setObject:task forKey:request.identifier];
+        task.mainQueue = YES;
     }
     task.request = request;
     return task;
 }
 
-#pragma mark - getter & setter
-- (YJNSURLSessionTaskSuccess)success {
+#pragma mark - business
+- (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
     @weakSelf
-    YJNSURLSessionTaskSuccess block = ^(id data) {
+    self.success = ^(id data) {
         @strongSelf
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateSuccess;
-            if (_success && self.request.source) {
+            if (success && self.request.source) {
                 if (self.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
                     data = [[self.request.responseModelClass alloc] initWithModelDictionary:data];
                 }
-                _success(data);
+                self.mainQueue ? dispatch_async_main(^{success(data);}) : success(data);
             }
         }
     };
-    return block;
-}
-
-- (YJNSURLSessionTaskFailure)failure {
-    @weakSelf
-    YJNSURLSessionTaskFailure block = ^(NSError *error) {
+    self.failure = ^(NSError *error) {
         @strongSelf
         NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
+        self.needResume = YES;
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateFailure;
-            if (_failure && self.request.source) {
-                _failure(error);
-            }
+            if (failure && self.request.source) failure(error);
         }
     };
-    return block;
-}
-
-#pragma mark -
-- (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
-    self.success = success;
-    self.failure = failure;
     return self;
 }
 
@@ -85,9 +77,10 @@
 - (void)cancel {
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
     self.state = YJNSURLSessionTaskStateCanceling;
+    self.needResume = NO;
     if (!self.request.supportResume) {
-        [YJNSURLSessionPoolS.poolDict removeObjectForKey:self.request.identifier];
-    }
+        [YJNSURLSessionPoolS removeObjectForKey:self.request.identifier];
+    }    
 }
 
 @end
