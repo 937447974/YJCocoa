@@ -1,16 +1,12 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '7.0'
+platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
 target 'YJCoreData' do
-
-pod 'YJCocoa/AppFrameworks/Foundation/Directory'
-pod 'YJCocoa/AppFrameworks/Foundation/FileManager'
-pod 'YJCocoa/AppFrameworks/Foundation/Timer'
-
-# 测试使用
-pod 'YJCocoa/System/Dispatch'
-
+    
+    pod 'YJCocoa/AppServices/CoreData', :path => "../../../YJCocoa.podspec"
+    pod 'YJCocoa/System/Dispatch', :path => "../../../YJCocoa.podspec"
+    
 end
 
