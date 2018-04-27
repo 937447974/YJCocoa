@@ -14,11 +14,15 @@ YJNSRouterScope const YJNSRouterScopeMemoryWarning = @"memoryWarning";
 
 @implementation YJNSRouterNode
 
++ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass routerURL:(YJNSRouterURL)routerURL {
+    return [self nodeWithRouterClass:routerClass scope:YJNSRouterScopePrototype routerURL:routerURL];
+}
+
 + (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(YJNSRouterScope)scope routerURL:(YJNSRouterURL)routerURL {
     YJNSRouterNode *node = [[YJNSRouterNode alloc] init];
     if (node) {
         node -> _routerClass = routerClass;
-        node -> _scope = scope ?: YJNSRouterScopePrototype;;
+        node -> _scope = scope ;
         node -> _routerURL = routerURL;
     }
     return node;

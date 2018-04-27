@@ -19,9 +19,19 @@ FOUNDATION_EXPORT YJNSRouterScope const YJNSRouterScopeMemoryWarning;///< 内存
 /** 路由器的节点*/
 @interface YJNSRouterNode : NSObject
 
-@property (nonatomic, readonly) Class routerClass;             ///< 路由目标类（UIViewController子类或看门狗）
+@property (nonatomic, readonly) Class routerClass;         ///< 路由目标类（UIViewController子类或看门狗）
 @property (nonatomic, readonly) YJNSRouterScope scope;     ///< 节点作用域
 @property (nonatomic, copy, readonly) YJNSRouterURL routerURL; ///< 路由地址
+
+/**
+ *  @abstract 初始化,scope 默认 YJNSRouterScopePrototype
+ *
+ *  @param routerClass 路由目标类（UIViewController子类或看门狗）
+ *  @param routerURL 路由地址
+ *
+ *  @return instancetype
+ */
++ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass routerURL:(YJNSRouterURL)routerURL;
 
 /**
  *  @abstract 初始化
@@ -32,7 +42,7 @@ FOUNDATION_EXPORT YJNSRouterScope const YJNSRouterScopeMemoryWarning;///< 内存
  *
  *  @return instancetype
  */
-+ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(nullable YJNSRouterScope)scope routerURL:(YJNSRouterURL)routerURL;
++ (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(YJNSRouterScope)scope routerURL:(YJNSRouterURL)routerURL;
 
 @end
 

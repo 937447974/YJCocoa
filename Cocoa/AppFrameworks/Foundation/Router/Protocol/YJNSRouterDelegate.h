@@ -17,7 +17,7 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
 /** 路由代理*/
 @protocol YJNSRouterDelegate <NSObject>
 
-#pragma mark - 当前页面操作
+#pragma mark 页面初始化
 /**
  *  @abstract 初始化
  *
@@ -40,16 +40,7 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
  */
 - (void)reloadRouterData;
 
-#pragma mark - 和下个页面交互
-/**
- *  @abstract 接收目标路由器发来的数据
- *
- *  @param fID     YJNSRouterFoundationID
- *  @param options 配置参数
- *
- *  @return BOOL YES拦截数据，NO未拦截数据
- */
-- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey, id> *)options sender:(YJNSRouter *)sender;
+#pragma mark 页面跳转
 
 /**
  *  @abstract 通过路由地址打开目标路由器（get跳转）
@@ -72,9 +63,9 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
  */
 - (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey, id> *)options;
 
-#pragma mark - 和上个页面交互
+#pragma mark 数据交互
 /**
- *  @abstract 向来源路由器发送数据
+ *  @abstract 发送数据
  *
  *  @param fID     YJNSRouterFoundationID
  *  @param options 配置参数
@@ -82,6 +73,16 @@ typedef NSString * YJNSRouterFoundationID NS_STRING_ENUM; ///< 路由功能ID
  *  @return BOOL YES数据已被拦截处理，NO数据未拦截
  */
 - (BOOL)sendSourceRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey, id> *)options;
+
+/**
+ *  @abstract 接收数据
+ *
+ *  @param fID     YJNSRouterFoundationID
+ *  @param options 配置参数
+ *
+ *  @return BOOL YES拦截数据，NO未拦截数据
+ */
+- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey, id> *)options sender:(YJNSRouter *)sender;
 
 @end
 

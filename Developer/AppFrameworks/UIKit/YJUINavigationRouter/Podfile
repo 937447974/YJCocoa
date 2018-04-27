@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 def shared_pods
     pod 'YJCocoa/AppFrameworks/UIKit/NavigationRouter', :path => "../../../../YJCocoa.podspec"
+    pod 'YJCocoa/AppFrameworks/Foundation/Log', :path => "../../../../YJCocoa.podspec"
 end
 
 target 'YJUINavigationRouter' do

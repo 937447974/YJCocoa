@@ -15,23 +15,7 @@
 
 @implementation NSObject (YJNSRouter)
 
-#pragma mark getter & setter
-- (YJNSRouter *)router {
-    YJNSRouter *router = objc_getAssociatedObject(self, "YJNSRouter");
-    if (!router) {
-        router = [[YJNSRouter alloc] init];
-        [self setRouter:router];
-        router.delegate = self;
-        router.routerNode = [YJNSRouterNode nodeWithRouterClass:self.class scope:nil routerURL:@"root"];
-    }
-    return router;
-}
-
-- (void)setRouter:(YJNSRouter *)router {
-    objc_setAssociatedObject(self, "YJNSRouter", router, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-#pragma mark - 当前页面操作
+#pragma mark - YJNSRouterDelegate
 - (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL {
     return [self init];
 }
@@ -43,25 +27,17 @@
 - (void)reloadRouterData {
 }
 
-#pragma mark - 和下个页面交互
-- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
-    return NO;
-}
-
+#pragma mark 页面跳转
 - (BOOL)openRouterURL:(YJNSRouterURL)routerURL {
+    if (!routerURL.length) return NO;
     NSArray *array = [routerURL componentsSeparatedByString:@"?"];
-    if (array.count == 1) {
-        return [self openRouterURL:array.firstObject options:@{}];
-    } else if (array.count == 2) {
-        return [self openRouterURL:array.firstObject options:[YJNSHttpAnalysis analysisParamsDecode:array.lastObject]];
-    }
-    return NO;
+    NSDictionary *options = array.count == 2 ? [YJNSHttpAnalysis analysisParamsDecode:array.lastObject] : @{};
+    return [self openRouterURL:array.firstObject options:options];
 }
 
 - (BOOL)openRouterURL:(YJNSRouterURL)routerURL options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
     YJNSRouteManager *routeManager = YJNSRouteManagerS;
     YJNSRouterNode *routerNode = [routeManager routerNodeForURL:routerURL];
-    NSAssert(routerNode, @"路由节点 %@ 不存在", routerURL);
     NSObject *targetController = [routeManager objectForRouterNode:routerNode];
     if (!targetController) {
         targetController = [[routerNode.routerClass alloc] initWithRouterURL:routerURL];
@@ -78,7 +54,7 @@
     return [targetController openCurrentRouterFromSourceRouter:sourceRouter completion:completion];
 }
 
-#pragma mark - 和上个页面交互
+#pragma mark 数据交互
 - (BOOL)sendSourceRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options {
     YJNSRouter *sourceRouter = self.router.sourceRouter;
     while (sourceRouter) {
@@ -88,6 +64,26 @@
         sourceRouter = sourceRouter.sourceRouter;
     }
     return NO;
+}
+
+- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
+    return NO;
+}
+
+#pragma mark getter & setter
+- (YJNSRouter *)router {
+    YJNSRouter *router = objc_getAssociatedObject(self, "YJNSRouter");
+    if (!router) {
+        router = [[YJNSRouter alloc] init];
+        [self setRouter:router];
+        router.delegate = self;
+        router.routerNode = [YJNSRouterNode nodeWithRouterClass:self.class routerURL:@"root"];
+    }
+    return router;
+}
+
+- (void)setRouter:(YJNSRouter *)router {
+    objc_setAssociatedObject(self, "YJNSRouter", router, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

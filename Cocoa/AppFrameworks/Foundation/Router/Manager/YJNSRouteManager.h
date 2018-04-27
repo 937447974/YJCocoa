@@ -22,6 +22,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YJNSRouteManager : NSObject
 
 /**
+ *  @abstract 获取路由节点
+ *  @discusstion 外部依赖注入处理未注册的路由节点
+ *
+ *  @param routerURL 路由地址
+ *
+ *  @return YJNSRouterNode
+ */
+@property (nonatomic, copy) YJNSRouterNode * (^ routerNodeBlock)(YJNSRouterURL routerURL);
+
+/**
  *  @abstract 注册路由节点
  *
  *  @param routerNode 路由节点

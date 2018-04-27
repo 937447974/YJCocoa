@@ -23,7 +23,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%@-%@", NSStringFromSelector(_cmd), self);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

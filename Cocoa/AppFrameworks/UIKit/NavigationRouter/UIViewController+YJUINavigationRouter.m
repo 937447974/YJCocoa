@@ -15,28 +15,27 @@
 @implementation UIViewController (YJUINavigationRouter)
 
 - (BOOL)openCurrentRouterFromSourceRouter:(YJNSRouter *)sourceRouter completion:(void (^)(NSObject *))completion {
-    if ([sourceRouter.delegate isKindOfClass:[UIViewController class]]) {
-        UIViewController *sourceVC = (UIViewController *)sourceRouter.delegate;
-        if (sourceVC.navigationController) {
-            UIViewController *targetVC = self;
-            YJNSRouterNode *routerNode = self.router.routerNode;
-            if (![self.router.routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
-                // navigationController 只能存在一份VC，否则程序崩溃
-                BOOL include = NO;
-                for (UIViewController *childVC in sourceVC.navigationController.viewControllers) {
-                    if ([childVC isEqual:targetVC]) {
-                        include = YES;
-                        break;
-                    }
-                }
-                if (include) {
-                    targetVC = [[routerNode.routerClass alloc] initWithRouterURL:routerNode.routerURL];
+    UIViewController *svc = [sourceRouter.delegate isKindOfClass:[UIViewController class]] ? (UIViewController *)sourceRouter.delegate : UIApplication.sharedApplication.keyWindow.rootViewController;
+    UINavigationController *snc = [svc isKindOfClass:[UINavigationController class]] ? (UINavigationController *)svc : svc.navigationController;
+    if (snc) {
+        UIViewController *targetVC = self;
+        YJNSRouterNode *routerNode = self.router.routerNode;
+        if (![routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
+            // navigationController 只能存在一份VC，否则程序崩溃
+            BOOL include = NO;
+            for (UIViewController *childVC in snc.viewControllers) {
+                if ([childVC isEqual:targetVC]) {
+                    include = YES;
+                    break;
                 }
             }
-            [sourceVC.navigationController pushViewController:targetVC animated:YES];
-            completion(targetVC);
-            return YES;
+            if (include) {
+                targetVC = [[routerNode.routerClass alloc] initWithRouterURL:routerNode.routerURL];
+            }
         }
+        [snc pushViewController:targetVC animated:YES];
+        completion(targetVC);
+        return YES;
     }
     return [super openCurrentRouterFromSourceRouter:sourceRouter completion:completion];
 }

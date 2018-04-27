@@ -25,6 +25,9 @@
     if (self) {
         self.routerPool = [NSMutableDictionary dictionary];
         self.routerCache = [NSMutableDictionary dictionary];
+        self.routerNodeBlock = ^YJNSRouterNode *(YJNSRouterURL routerURL) {
+            return nil;
+        };
     }
     return self;
 }
@@ -35,7 +38,10 @@
 }
 
 - (YJNSRouterNode *)routerNodeForURL:(YJNSRouterURL)routerURL {
-    return [self.routerPool objectForKey:routerURL];
+    YJNSRouterNode *node = [self.routerPool objectForKey:routerURL];
+    node = node? : self.routerNodeBlock(routerURL);
+    NSAssert(node, @"路由节点 %@ 不存在", routerURL);
+    return node;
 }
 
 #pragma mark - cache

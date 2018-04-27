@@ -42,7 +42,13 @@
 }
 
 - (IBAction)onClickOnceJump:(id)sender {
-    [self openRouterURL:YJRouterURLMain options:@{}];
+    // 使用按钮跳转
+//    [sender openRouterURL:YJRouterURLMain];
+    // 自定义跳转地址
+    YJNSRouteManagerS.routerNodeBlock = ^ YJNSRouterNode *(YJNSRouterURL routerURL) {
+        return [YJNSRouteManagerS routerNodeForURL:YJRouterURLMain];
+    };
+    [sender openRouterURL:@"HTTP"];
 }
 
 #pragma mark - YJNSRouterDelegate
