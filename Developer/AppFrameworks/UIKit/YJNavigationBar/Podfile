@@ -1,11 +1,10 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '7.0'
+platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
 def shared_pods
-
-    pod 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
+    pod 'YJCocoa/AppFrameworks/UIKit/NavigationBar', :path => "../../../../YJCocoa.podspec"
 end
 
 target 'YJNavigationBar' do
