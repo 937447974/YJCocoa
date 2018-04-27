@@ -28,6 +28,9 @@
         self.routerNodeBlock = ^YJNSRouterNode *(YJNSRouterURL routerURL) {
             return nil;
         };
+        [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidReceiveMemoryWarningNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            [self removeObjectsForScope:YJNSRouterScopeMemoryWarning];
+        }];
     }
     return self;
 }
