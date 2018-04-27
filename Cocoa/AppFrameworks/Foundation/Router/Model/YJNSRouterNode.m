@@ -10,7 +10,6 @@
 
 YJNSRouterScope const YJNSRouterScopeSingleton = @"singleton";
 YJNSRouterScope const YJNSRouterScopePrototype = @"prototype";
-YJNSRouterScope const YJNSRouterScopeMemoryWarning = @"memoryWarning";
 
 @implementation YJNSRouterNode
 

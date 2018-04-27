@@ -11,10 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NSString * YJNSRouterScope NS_STRING_ENUM; ///< 节点作用域
+typedef NSString *YJNSRouterScope NS_STRING_ENUM; ///< 节点作用域
 FOUNDATION_EXPORT YJNSRouterScope const YJNSRouterScopeSingleton;///< 单例模式
 FOUNDATION_EXPORT YJNSRouterScope const YJNSRouterScopePrototype;///< 原型默认
-FOUNDATION_EXPORT YJNSRouterScope const YJNSRouterScopeMemoryWarning;///< 内存警告模式(内存警告时自动释放对应的控制器)
 
 /** 路由器的节点*/
 @interface YJNSRouterNode : NSObject
