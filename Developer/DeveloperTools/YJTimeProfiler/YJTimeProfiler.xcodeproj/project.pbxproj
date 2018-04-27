@@ -13,9 +13,6 @@
 		84083ABB1E2603BA00D89EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84083AB91E2603BA00D89EAA /* Main.storyboard */; };
 		84083ABD1E2603BA00D89EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84083ABC1E2603BA00D89EAA /* Assets.xcassets */; };
 		84083AC01E2603BA00D89EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84083ABE1E2603BA00D89EAA /* LaunchScreen.storyboard */; };
-		84083B3C1E27836400D89EAA /* YJTimeProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083B3B1E27836400D89EAA /* YJTimeProfiler.m */; };
-		8443515F1EADFC71004F1133 /* YJTimePageProfiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */; };
-		84460D801E4C0A11004EBB00 /* YJThreadLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */; };
 		C85101B95A85E9A9AE9F00FE /* libPods-YJTimeProfiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB8467F81E483DC3C249818 /* libPods-YJTimeProfiler.a */; };
 /* End PBXBuildFile section */
 
@@ -31,12 +28,6 @@
 		84083ABC1E2603BA00D89EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84083ABF1E2603BA00D89EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84083AC11E2603BA00D89EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84083B3A1E27836400D89EAA /* YJTimeProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimeProfiler.h; sourceTree = "<group>"; };
-		84083B3B1E27836400D89EAA /* YJTimeProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimeProfiler.m; sourceTree = "<group>"; };
-		8443515D1EADFC71004F1133 /* YJTimePageProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTimePageProfiler.h; sourceTree = "<group>"; };
-		8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTimePageProfiler.m; sourceTree = "<group>"; };
-		84460D7E1E4C0A11004EBB00 /* YJThreadLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJThreadLogger.h; sourceTree = "<group>"; };
-		84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJThreadLogger.m; sourceTree = "<group>"; };
 		916333EADC49901BD6243492 /* Pods-YJTimeProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimeProfiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJTimeProfiler/Pods-YJTimeProfiler.release.xcconfig"; sourceTree = "<group>"; };
 		CCB8467F81E483DC3C249818 /* libPods-YJTimeProfiler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJTimeProfiler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,11 +75,10 @@
 			children = (
 				84083AB31E2603B900D89EAA /* AppDelegate.h */,
 				84083AB41E2603B900D89EAA /* AppDelegate.m */,
-				84083AC71E26040D00D89EAA /* Resources */,
-				84083AB01E2603B900D89EAA /* Supporting Files */,
-				84083B391E27836400D89EAA /* TimeProfiler */,
 				84083AB61E2603B900D89EAA /* ViewController.h */,
 				84083AB71E2603B900D89EAA /* ViewController.m */,
+				84083AC71E26040D00D89EAA /* Resources */,
+				84083AB01E2603B900D89EAA /* Supporting Files */,
 			);
 			path = YJTimeProfiler;
 			sourceTree = "<group>";
@@ -110,20 +100,6 @@
 				84083ABE1E2603BA00D89EAA /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		84083B391E27836400D89EAA /* TimeProfiler */ = {
-			isa = PBXGroup;
-			children = (
-				84460D7E1E4C0A11004EBB00 /* YJThreadLogger.h */,
-				84460D7F1E4C0A11004EBB00 /* YJThreadLogger.m */,
-				8443515D1EADFC71004F1133 /* YJTimePageProfiler.h */,
-				8443515E1EADFC71004F1133 /* YJTimePageProfiler.m */,
-				84083B3A1E27836400D89EAA /* YJTimeProfiler.h */,
-				84083B3B1E27836400D89EAA /* YJTimeProfiler.m */,
-			);
-			name = TimeProfiler;
-			path = ../../../../Cocoa/DeveloperTools/TimeProfiler;
 			sourceTree = "<group>";
 		};
 		E57E3392DDFF9E3B9D97D22B /* Pods */ = {
@@ -164,7 +140,7 @@
 		84083AA51E2603B900D89EAA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = YJCocoa;
 				TargetAttributes = {
 					84083AAC1E2603B900D89EAA = {
@@ -242,13 +218,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJTimeProfiler-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -261,9 +240,6 @@
 				84083AB81E2603B900D89EAA /* ViewController.m in Sources */,
 				84083AB51E2603B900D89EAA /* AppDelegate.m in Sources */,
 				84083AB21E2603B900D89EAA /* main.m in Sources */,
-				8443515F1EADFC71004F1133 /* YJTimePageProfiler.m in Sources */,
-				84083B3C1E27836400D89EAA /* YJTimeProfiler.m in Sources */,
-				84460D801E4C0A11004EBB00 /* YJThreadLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,15 +274,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -346,15 +330,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -387,7 +379,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTimeProfiler/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,7 +394,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = YJTimeProfiler/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
