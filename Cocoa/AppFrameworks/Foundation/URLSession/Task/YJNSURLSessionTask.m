@@ -53,7 +53,9 @@
     };
     self.failure = ^(NSError *error) {
         @strongSelf
+#if DEBUG
         NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
+#endif
         self.needResume = YES;
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateFailure;
@@ -64,18 +66,24 @@
 }
 
 - (void)resume {
+#if DEBUG
     NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
+#endif
     self.state = YJNSURLSessionTaskStateRunning;
     self.needResume = NO;
 }
 
 - (void)suspend {
+#if DEBUG
     NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+#endif
     self.state = YJNSURLSessionTaskStateSuspended;
 }
 
 - (void)cancel {
+#if DEBUG
     NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+#endif
     self.state = YJNSURLSessionTaskStateCanceling;
     self.needResume = NO;
     if (!self.request.supportResume) {
