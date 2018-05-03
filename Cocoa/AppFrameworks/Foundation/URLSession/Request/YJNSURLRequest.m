@@ -14,12 +14,28 @@
 YJNSURLRequestMethod const YJNSURLRequestMethodGET = @"GET";
 YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 
+@interface YJNSURLRequest ()
+
+@property (nonatomic, weak) id source;
+
+@property (nonatomic, copy) NSString *URL;
+@property (nonatomic, copy) YJNSURLRequestMethod requestMethod;
+@property (nonatomic, strong) NSObject *requestModel;
+
+@property (nonatomic) Class responseModelClass;
+
+@end
+
 @implementation YJNSURLRequest
 
 #pragma mark - init
-+ (instancetype)requestWithSource:(id)source {
++ (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass{
     YJNSURLRequest *request = [[self alloc] init];
-    request -> _source = source;
+    request.source = source;
+    request.URL = url;
+    request.requestMethod = reqMethod;
+    request.requestModel = reqModel;
+    request.responseModelClass = respModelClass;
     return request;
 }
 
