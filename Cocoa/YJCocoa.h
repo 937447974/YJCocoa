@@ -9,6 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
+#ifndef YJCocoa_h
+#define YJCocoa_h
+
 #import "YJAppFrameworks.h"
 
 #import "YJAppServices.h"
@@ -19,3 +22,4 @@
 
 #import "YJSystem.h"
 
+#endif /* YJCocoa_h */
