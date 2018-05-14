@@ -44,9 +44,7 @@
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateSuccess;
             if (success && self.request.source) {
-                if (self.request.responseModelClass && [data isKindOfClass:[NSDictionary class]]) {
-                    data = [[self.request.responseModelClass alloc] initWithModelDictionary:data];
-                }
+                data = [self responseModelWithDictionary:data];
                 self.mainQueue ? dispatch_async_main(^{success(data);}) : success(data);
             }
         }
@@ -89,6 +87,13 @@
     if (!self.request.supportResume) {
         [YJNSURLSessionPoolS removeObjectForKey:self.request.identifier];
     }    
+}
+
+- (id)responseModelWithDictionary:(NSDictionary *)md {
+    if (self.request.responseModelClass && [md isKindOfClass:[NSDictionary class]]) {
+        return [[self.request.responseModelClass alloc] initWithModelDictionary:md];
+    }
+    return md;
 }
 
 @end

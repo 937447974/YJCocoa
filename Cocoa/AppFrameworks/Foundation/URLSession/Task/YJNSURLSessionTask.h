@@ -78,6 +78,15 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
  */
 - (void)cancel;
 
+/**
+ *  @abstract 根据服务器返回的数据生成对应的模型
+ *
+ *  @param modelDictionary 服务器返回的模型数据
+ *
+ *  @return id
+ */
+- (id)responseModelWithDictionary:(NSDictionary *)modelDictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END
