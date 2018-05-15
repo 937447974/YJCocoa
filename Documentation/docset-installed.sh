@@ -31,7 +31,7 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2018-04-26 | URLSession 架构升级，支持主线程或子线程返回数据。" with title "YJCocoa 8.1.0"'
+osascript -e 'display notification "2018-04-26 | URLSession 架构升级，支持指定线程返回数据和自定义数据模型转换。" with title "YJCocoa 8.1.0"'
 osascript -e 'display notification "2018-04-27 | NavigationRouter 和 Router 架构升级，支持外部依赖注入处理未注册的路由节点。" with title "YJCocoa 8.1.0"'
 
 
