@@ -3,10 +3,9 @@ platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
+
 def shared_pods
-    pod 'YJCocoa/AppFrameworks/Foundation/Other'
-    pod 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
-    pod 'YJCocoa/System/Dispatch'
+    pod 'YJCocoa/AppFrameworks/UIKit/CollectionViewManager', :path => "../../../../"
 end
 
 target 'YJCollectionView' do

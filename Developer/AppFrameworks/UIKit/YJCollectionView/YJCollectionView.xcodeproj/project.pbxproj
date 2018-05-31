@@ -19,13 +19,6 @@
 		8473AC4E1CE9A527000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4C1CE9A527000E3580 /* Main.storyboard */; };
 		8473AC501CE9A527000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC4F1CE9A527000E3580 /* Assets.xcassets */; };
 		8473AC531CE9A527000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AC511CE9A527000E3580 /* LaunchScreen.storyboard */; };
-		84CEC1651DB5BD59004CDF2B /* YJUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC15F1DB5BD59004CDF2B /* YJUICollectionReusableView.m */; };
-		84CEC1661DB5BD59004CDF2B /* YJUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1611DB5BD59004CDF2B /* YJUICollectionViewCell.m */; };
-		84CEC1671DB5BD59004CDF2B /* YJUICollectionCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1641DB5BD59004CDF2B /* YJUICollectionCellObject.m */; };
-		84CEC16B1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC16A1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m */; };
-		84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC16D1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m */; };
-		84CEC1711DB5BDF7004CDF2B /* YJUICollectionViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */; };
-		84CEC1741DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,20 +44,6 @@
 		8473AC4F1CE9A527000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8473AC521CE9A527000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AC541CE9A527000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CEC15E1DB5BD59004CDF2B /* YJUICollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionReusableView.h; sourceTree = "<group>"; };
-		84CEC15F1DB5BD59004CDF2B /* YJUICollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionReusableView.m; sourceTree = "<group>"; };
-		84CEC1601DB5BD59004CDF2B /* YJUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewCell.h; sourceTree = "<group>"; };
-		84CEC1611DB5BD59004CDF2B /* YJUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewCell.m; sourceTree = "<group>"; };
-		84CEC1631DB5BD59004CDF2B /* YJUICollectionCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionCellObject.h; sourceTree = "<group>"; };
-		84CEC1641DB5BD59004CDF2B /* YJUICollectionCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionCellObject.m; sourceTree = "<group>"; };
-		84CEC1691DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateManager.h; sourceTree = "<group>"; };
-		84CEC16A1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateManager.m; sourceTree = "<group>"; };
-		84CEC16C1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDataSourceManager.h; sourceTree = "<group>"; };
-		84CEC16D1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDataSourceManager.m; sourceTree = "<group>"; };
-		84CEC16F1DB5BDF7004CDF2B /* YJUICollectionViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewManager.h; sourceTree = "<group>"; };
-		84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewManager.m; sourceTree = "<group>"; };
-		84CEC1721DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUICollectionViewDelegateFlowLayoutManager.h; sourceTree = "<group>"; };
-		84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUICollectionViewDelegateFlowLayoutManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +115,6 @@
 			children = (
 				8473AC461CE9A527000E3580 /* AppDelegate.h */,
 				8473AC471CE9A527000E3580 /* AppDelegate.m */,
-				84CEC15C1DB5BD59004CDF2B /* CollectionViewManager */,
 				840A57DD1CF08567006779C0 /* Main */,
 				8473AC5B1CE9A547000E3580 /* Resources */,
 				8473AC431CE9A527000E3580 /* Supporting Files */,
@@ -161,52 +139,6 @@
 				8473AC511CE9A527000E3580 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		84CEC15C1DB5BD59004CDF2B /* CollectionViewManager */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC1681DB5BD7D004CDF2B /* Core */,
-				84CEC15D1DB5BD59004CDF2B /* CollectionCell */,
-				84CEC1621DB5BD59004CDF2B /* CollectionCellObject */,
-			);
-			name = CollectionViewManager;
-			path = ../../../../../Cocoa/AppFrameworks/UIKit/CollectionViewManager;
-			sourceTree = "<group>";
-		};
-		84CEC15D1DB5BD59004CDF2B /* CollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC15E1DB5BD59004CDF2B /* YJUICollectionReusableView.h */,
-				84CEC15F1DB5BD59004CDF2B /* YJUICollectionReusableView.m */,
-				84CEC1601DB5BD59004CDF2B /* YJUICollectionViewCell.h */,
-				84CEC1611DB5BD59004CDF2B /* YJUICollectionViewCell.m */,
-			);
-			path = CollectionCell;
-			sourceTree = "<group>";
-		};
-		84CEC1621DB5BD59004CDF2B /* CollectionCellObject */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC1631DB5BD59004CDF2B /* YJUICollectionCellObject.h */,
-				84CEC1641DB5BD59004CDF2B /* YJUICollectionCellObject.m */,
-			);
-			path = CollectionCellObject;
-			sourceTree = "<group>";
-		};
-		84CEC1681DB5BD7D004CDF2B /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				84CEC16C1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.h */,
-				84CEC16D1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m */,
-				84CEC1721DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.h */,
-				84CEC1731DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m */,
-				84CEC1691DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.h */,
-				84CEC16A1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m */,
-				84CEC16F1DB5BDF7004CDF2B /* YJUICollectionViewManager.h */,
-				84CEC1701DB5BDF7004CDF2B /* YJUICollectionViewManager.m */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		C00C5718D2E4FE97FEDB10C9 /* Frameworks */ = {
@@ -237,8 +169,6 @@
 				8473AC3C1CE9A527000E3580 /* Sources */,
 				8473AC3D1CE9A527000E3580 /* Frameworks */,
 				8473AC3E1CE9A527000E3580 /* Resources */,
-				700543D8BD1136ACBE94A7B4 /* [CP] Embed Pods Frameworks */,
-				4F40E4D6579B3A3134BA4CF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,7 +186,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YJ;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
 					8473AC3F1CE9A527000E3580 = {
@@ -316,36 +246,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F40E4D6579B3A3134BA4CF9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		700543D8BD1136ACBE94A7B4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,19 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
-				84CEC16B1DB5BDB0004CDF2B /* YJUICollectionViewDelegateManager.m in Sources */,
-				84CEC1651DB5BD59004CDF2B /* YJUICollectionReusableView.m in Sources */,
 				841DF9DD1DFFD85300A76B37 /* YJTest2CollectionViewCell.m in Sources */,
 				8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */,
-				84CEC16E1DB5BDEB004CDF2B /* YJUICollectionViewDataSourceManager.m in Sources */,
 				841DF9E31DFFD86800A76B37 /* YJTestCollectionCellModel.m in Sources */,
 				841DF9DE1DFFD85300A76B37 /* YJTestCollectionReusableView.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,
-				84CEC1671DB5BD59004CDF2B /* YJUICollectionCellObject.m in Sources */,
-				84CEC1661DB5BD59004CDF2B /* YJUICollectionViewCell.m in Sources */,
 				841DF9DF1DFFD85300A76B37 /* YJTestCollectionViewCell.m in Sources */,
-				84CEC1741DB5BEFC004CDF2B /* YJUICollectionViewDelegateFlowLayoutManager.m in Sources */,
-				84CEC1711DB5BDF7004CDF2B /* YJUICollectionViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,12 +298,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -458,12 +353,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
