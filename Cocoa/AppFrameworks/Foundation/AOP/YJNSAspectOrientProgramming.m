@@ -27,17 +27,17 @@
     return self;
 }
 
-- (void)addTarget:(NSObject *)target {
+- (void)addTarget:(id)target {
     [self.weakTargets compact];
     for (id item in self.weakTargets) {
         if ([item isEqual:target]) {
             return;
         }
     }
-    [self.weakTargets addPointer:(__bridge void * _Nullable)(target)];
+    [self.weakTargets addPointer:(__bridge void *)target];
 }
 
-- (void)removeTarget:(NSObject *)target {
+- (void)removeTarget:(id)target {
     [self.weakTargets compact];
     for (NSInteger index = 0; index < self.weakTargets.count; index++) {
         if ([target isEqual:[self.weakTargets pointerAtIndex:index]]) {

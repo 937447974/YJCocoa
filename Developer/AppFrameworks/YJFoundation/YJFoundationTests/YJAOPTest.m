@@ -70,6 +70,10 @@
     [test test1];
     [test test2];
     [test test3];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        test1;
+        [test test3];
+    });
     id result = [test test4];
     NSLog(@"%@", result);
 }

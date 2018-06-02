@@ -21,13 +21,13 @@
  *
  *  @param target 接受者
  */
-- (void)addTarget:(NSObject *)target;
+- (void)addTarget:(id)target;
 
 /**
  *  @abstract 移除切面的接受者
  *
  *  @param target 接受者
  */
-- (void)removeTarget:(NSObject *)target;
+- (void)removeTarget:(id)target;
 
 @end
