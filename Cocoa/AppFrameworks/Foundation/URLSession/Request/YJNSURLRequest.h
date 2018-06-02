@@ -35,7 +35,7 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
 /**
  *  @abstract 初始化YJNSURLRequest或其子类
  *
- *  @param source 发起网络请求的对象
+ *  @param source 发起网络请求的对象（source 传 nil 代表永远接受数据）
  *  @param url       请求地址
  *  @param reqMethod 请求方式
  *  @param reqModel  请求参数模型
@@ -43,7 +43,7 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST
  *
  *  @return instancetype
  */
-+ (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass;
++ (instancetype)requestWithSource:(nullable id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass;
 
 @end
 

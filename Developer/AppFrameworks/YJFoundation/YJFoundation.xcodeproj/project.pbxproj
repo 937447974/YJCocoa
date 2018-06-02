@@ -15,7 +15,6 @@
 		0A83F3761F20874B00B9DCC7 /* YJLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355A81DAB60750097D526 /* YJLogTest.m */; };
 		0A83F3771F20874B00B9DCC7 /* YJPerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */; };
 		0A83F3781F20874B00B9DCC7 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
-		84083A2C1E23395A00D89EAA /* YJTestURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A261E23395A00D89EAA /* YJTestURLRequest.m */; };
 		84083A2D1E23395A00D89EAA /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */; };
 		84083A401E233A5A00D89EAA /* YJNSURLResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */; };
 		84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */; };
@@ -44,8 +43,6 @@
 		0A83F3671F20872F00B9DCC7 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE61D82ED98CAD924530731 /* Pods-YJFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84083A251E23395A00D89EAA /* YJTestURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLRequest.h; sourceTree = "<group>"; };
-		84083A261E23395A00D89EAA /* YJTestURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLRequest.m; sourceTree = "<group>"; };
 		84083A281E23395A00D89EAA /* YJTestURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLSessionTask.h; sourceTree = "<group>"; };
 		84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLSessionTask.m; sourceTree = "<group>"; };
 		84083A3C1E233A5A00D89EAA /* YJNSURLResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLResponseModel.h; sourceTree = "<group>"; };
@@ -129,8 +126,6 @@
 			children = (
 				84083A3C1E233A5A00D89EAA /* YJNSURLResponseModel.h */,
 				84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */,
-				84083A251E23395A00D89EAA /* YJTestURLRequest.h */,
-				84083A261E23395A00D89EAA /* YJTestURLRequest.m */,
 				84083A3E1E233A5A00D89EAA /* YJTestURLRequestModel.h */,
 				84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */,
 			);
@@ -237,8 +232,6 @@
 				0A83F3631F20872F00B9DCC7 /* Sources */,
 				0A83F3641F20872F00B9DCC7 /* Frameworks */,
 				0A83F3651F20872F00B9DCC7 /* Resources */,
-				D10FE3F26FECE882E29C02CC /* [CP] Embed Pods Frameworks */,
-				571AC13A81362753546DFE41 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,8 +251,6 @@
 				84D355791DAB5E700097D526 /* Sources */,
 				84D3557A1DAB5E700097D526 /* Frameworks */,
 				84D3557B1DAB5E700097D526 /* Resources */,
-				586A082F6E4315DC0242366A /* [CP] Embed Pods Frameworks */,
-				4B0749A574B3ED8F580A80BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,51 +322,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B0749A574B3ED8F580A80BF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		571AC13A81362753546DFE41 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		586A082F6E4315DC0242366A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5D164701591118EC2FDC3884 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,21 +358,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D10FE3F26FECE882E29C02CC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -450,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D355881DAB5E700097D526 /* ViewController.m in Sources */,
-				84083A2C1E23395A00D89EAA /* YJTestURLRequest.m in Sources */,
 				84D355851DAB5E700097D526 /* AppDelegate.m in Sources */,
 				84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */,
 				84083A401E233A5A00D89EAA /* YJNSURLResponseModel.m in Sources */,

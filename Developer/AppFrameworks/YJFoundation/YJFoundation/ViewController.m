@@ -11,7 +11,8 @@
 #import "YJFoundation.h"
 
 #import "YJTestURLSessionTask.h"
-#import "YJTestURLRequest.h"
+#import "YJTestURLRequestModel.h"
+#import "YJNSURLResponseModel.h"
 
 @interface ViewController ()
 
@@ -89,14 +90,12 @@
     YJTestURLRequestModel *requestModel = [[YJTestURLRequestModel alloc] init];
     requestModel.name = @"阳君";
     requestModel.qq = @"557445088";
-    YJTestURLRequest *request = [YJTestURLRequest requestWithSource:self];
-    request.requestModel = requestModel;
-    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(id data) {
-        YJNSURLResponseModel *responseModel = data;
+    YJNSURLRequest *request = [YJNSURLRequest requestWithSource:nil url:@"https://github.com/937447974/YJCocoa" reqMethod:YJNSURLRequestMethodPOST reqModel:requestModel respModelClass:YJNSURLResponseModel.class];
+    [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(YJNSURLResponseModel *responseModel) {
         NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
         [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求        
     } failure:^(NSError *error) {
-        [YJTestURLSessionTask taskWithRequest:request].request.supportResume = YES; // 开启断网重连
+        request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
     }] resume]; // 发出请求
 }

@@ -17,7 +17,6 @@
         NSDictionary *jsonDict = @{@"desc": @"请求成功"};
         self.success([[self.request.responseModelClass alloc] initWithModelDictionary:jsonDict]);
     } else {
-        self.needResume = YES;
         self.failure([NSError errorWithDomain:@"网络错误测试" code:NSURLErrorTimedOut userInfo:nil]);
     }    
 }

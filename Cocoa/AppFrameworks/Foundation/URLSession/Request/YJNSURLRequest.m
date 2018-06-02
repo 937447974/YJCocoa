@@ -31,7 +31,7 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 #pragma mark - init
 + (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass{
     YJNSURLRequest *request = [[self alloc] init];
-    request.source = source;
+    request.source = source ?: self;
     request.URL = url;
     request.requestMethod = reqMethod;
     request.requestModel = reqModel;
