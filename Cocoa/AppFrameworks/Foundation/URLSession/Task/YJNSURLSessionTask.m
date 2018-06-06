@@ -84,9 +84,6 @@
 #endif
     self.state = YJNSURLSessionTaskStateCanceling;
     self.needResume = NO;
-    if (!self.request.supportResume) {
-        [YJNSURLSessionPoolS removeObjectForKey:self.request.identifier];
-    }    
 }
 
 - (id)responseModelWithDictionary:(NSDictionary *)md {

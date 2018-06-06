@@ -23,9 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.widthFrame, self.view.heightFrame-150) style:UITableViewStyleGrouped];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.widthFrame, self.view.heightFrame) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, CGFLOAT_MIN)];
     self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
     self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
     self.tableViewManager.delegate = self;
