@@ -42,7 +42,7 @@ YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
 #pragma mark - getter & setter
 - (NSString *)identifier {
     if (!_identifier) {
-        _identifier = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(((NSObject *)self.source).class), self.URL];
+        _identifier = [NSString stringWithFormat:@"%@-%@-%@", self.source, self.URL, self.requestModel];
     }
     return _identifier;
 }
