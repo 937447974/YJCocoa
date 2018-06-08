@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         _dataSourceGrouped = [NSMutableArray array];
-        self.dataSource = [NSMutableArray array];
+        [_dataSourceGrouped addObject:[NSMutableArray array]];
         _tableView = tableView;
         _dataSourceManager = [[YJUITableViewDataSourceManager alloc] initWithManager:self];
         _delegateManager = [[YJUITableViewDelegateManager alloc] initWithManager:self];
@@ -52,9 +52,15 @@
         NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
         dataSource = [NSMutableArray array];
     }
-    _dataSource = dataSource;
-    [self.dataSourceGrouped removeAllObjects];
-    [self.dataSourceGrouped addObject:_dataSource];
+    if (self.dataSourceGrouped.count) {
+        [self.dataSourceGrouped replaceObjectAtIndex:0 withObject:dataSource];
+    } else {
+        [self.dataSourceGrouped addObject:dataSource];
+    }    
+}
+
+- (NSMutableArray<YJUITableCellObject *> *)dataSource {
+    return self.dataSourceGrouped.firstObject;
 }
 
 - (void)setDelegate:(id<YJUITableViewManagerDelegate>)delegate {
