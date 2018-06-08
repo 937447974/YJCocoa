@@ -15,8 +15,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString * YJNSURLRequestMethod NS_STRING_ENUM; ///< 请求方式
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodGET;  ///< GET请求
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST; ///< POST请求
+FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST;   ///< POST请求   增
+FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodDELETE; ///< DELETE请求 删
+FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPUT;    ///< PUT请求    改
+FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodGET;    ///< GET请求    查
 
 /** NSURLRequest*/
 @interface YJNSURLRequest : NSObject

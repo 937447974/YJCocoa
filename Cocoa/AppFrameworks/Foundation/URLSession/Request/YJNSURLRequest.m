@@ -11,8 +11,10 @@
 
 #import "YJNSURLRequest.h"
 
-YJNSURLRequestMethod const YJNSURLRequestMethodGET = @"GET";
 YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
+YJNSURLRequestMethod const YJNSURLRequestMethodDELETE = @"DELETE";
+YJNSURLRequestMethod const YJNSURLRequestMethodPUT = @"PUT";
+YJNSURLRequestMethod const YJNSURLRequestMethodGET = @"GET";
 
 @interface YJNSURLRequest ()
 
