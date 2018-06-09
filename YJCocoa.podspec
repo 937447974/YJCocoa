@@ -228,15 +228,16 @@ Pod::Spec.new do |s|
                 svm.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
             end
             # UITableView
-            uik.subspec 'TableViewManager' do |tvm|
-                tvm.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCell/*.{h,m}'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject'
+            uik.subspec 'TableView' do |tv|
+                tv.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}'
+                tv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/TableCell/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                tvm.subspec 'TableCellObject' do |tco|
-                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject/*.{h,m}'
+                tv.subspec 'TableCellObject' do |tco|
+                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/TableCellObject/*.{h,m}'
                     tco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end

@@ -14,11 +14,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NSString * YJNSURLRequestMethod NS_STRING_ENUM; ///< 请求方式
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPOST;   ///< POST请求   增
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodDELETE; ///< DELETE请求 删
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodPUT;    ///< PUT请求    改
-FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodGET;    ///< GET请求    查
+/** 网络请求方式*/
+typedef NS_ENUM(NSInteger, YJNSURLRequestMethod) {
+    YJNSURLRequestMethodPOST,  ///< POST请求   增
+    YJNSURLRequestMethodDELETE,///< DELETE请求 删
+    YJNSURLRequestMethodPUT,   ///< PUT请求    改
+    YJNSURLRequestMethodGET    ///< GET请求    查
+};
 
 /** NSURLRequest*/
 @interface YJNSURLRequest : NSObject
@@ -28,9 +30,9 @@ FOUNDATION_EXPORT YJNSURLRequestMethod const YJNSURLRequestMethodGET;    ///< GE
 
 @property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
 
-@property (nonatomic, copy, readonly) NSString *URL;                      ///< 请求地址
-@property (nonatomic, copy, readonly) YJNSURLRequestMethod requestMethod; ///< 请求方式
-@property (nonatomic, strong, readonly) NSObject *requestModel;           ///< 请求参数模型
+@property (nonatomic, copy, readonly) NSString *URL;                ///< 请求地址
+@property (nonatomic, readonly) YJNSURLRequestMethod requestMethod; ///< 请求方式
+@property (nonatomic, strong, readonly) NSObject *requestModel;     ///< 请求参数模型
 
 @property (nonatomic, readonly) Class responseModelClass; ///< 服务器返回数据对应的模型class
 

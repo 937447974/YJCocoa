@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m2s-2D-08H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m2s-2D-08H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +15,7 @@
                 <navigationController id="Ee8-i8-33Q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="item2" image="tab_base" id="kFs-K6-ITA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F13-9k-Ekl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -52,7 +52,7 @@
                 <navigationController id="S5O-hU-gcr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="tab_base" id="yAK-vt-asE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rQX-bc-PQH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -74,24 +74,9 @@
                     <view key="view" contentMode="scaleToFill" id="Fxv-X7-jgE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a66-6r-7sI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="a66-6r-7sI" secondAttribute="trailing" id="HYF-vo-arq"/>
-                            <constraint firstItem="XPK-3O-EMd" firstAttribute="top" secondItem="a66-6r-7sI" secondAttribute="bottom" id="P3B-Uc-7fL"/>
-                            <constraint firstItem="a66-6r-7sI" firstAttribute="leading" secondItem="Fxv-X7-jgE" secondAttribute="leading" id="aUf-Ef-Vvh"/>
-                            <constraint firstItem="a66-6r-7sI" firstAttribute="top" secondItem="tY3-f7-8ld" secondAttribute="bottom" id="lcj-3i-fmt"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CcY-ZT-rx7"/>
-                    <connections>
-                        <outlet property="tableView" destination="a66-6r-7sI" id="7nw-lP-tAG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ww-hf-lIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

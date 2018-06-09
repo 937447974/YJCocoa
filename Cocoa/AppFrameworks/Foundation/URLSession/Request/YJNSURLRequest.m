@@ -11,17 +11,12 @@
 
 #import "YJNSURLRequest.h"
 
-YJNSURLRequestMethod const YJNSURLRequestMethodPOST = @"POST";
-YJNSURLRequestMethod const YJNSURLRequestMethodDELETE = @"DELETE";
-YJNSURLRequestMethod const YJNSURLRequestMethodPUT = @"PUT";
-YJNSURLRequestMethod const YJNSURLRequestMethodGET = @"GET";
-
 @interface YJNSURLRequest ()
 
 @property (nonatomic, weak) id source;
 
 @property (nonatomic, copy) NSString *URL;
-@property (nonatomic, copy) YJNSURLRequestMethod requestMethod;
+@property (nonatomic) YJNSURLRequestMethod requestMethod;
 @property (nonatomic, strong) NSObject *requestModel;
 
 @property (nonatomic) Class responseModelClass;

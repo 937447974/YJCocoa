@@ -33,8 +33,8 @@
 // UIScrollView管理器，主要用于监听UIScrollView滚动状态
 #import "YJUIScrollViewManager.h"
 
-// UITableView管理器
-#import "YJUITableViewManager.h"
+// UITableView
+#import "YJUITableView.h"
 
 // UIView(UIViewGeometry)相关扩展，可快速设置fram相关
 #import "UIView+YJUIViewGeometry.h"

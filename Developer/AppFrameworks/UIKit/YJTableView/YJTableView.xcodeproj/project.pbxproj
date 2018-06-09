@@ -169,8 +169,6 @@
 				84C9E4F41CEF1CAE0036C57B /* Sources */,
 				84C9E4F51CEF1CAE0036C57B /* Frameworks */,
 				84C9E4F61CEF1CAE0036C57B /* Resources */,
-				8336A4CFA728257A44C147F4 /* [CP] Embed Pods Frameworks */,
-				55C2E661097600D5796DFAFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,36 +228,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		55C2E661097600D5796DFAFF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8336A4CFA728257A44C147F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A4595FB1F90D651523A352C3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -4,7 +4,7 @@ platform :ios, '8.0'
 # use_frameworks!
 
 def shared_pods
-    pod 'YJCocoa/AppFrameworks/UIKit/TableViewManager', :path => "../../../../YJCocoa.podspec"
+    pod 'YJCocoa/AppFrameworks/UIKit/TableView', :path => "../../../../YJCocoa.podspec"
 end
 
 target 'YJTableView' do

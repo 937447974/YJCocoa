@@ -9,13 +9,11 @@
 #import "YJSecondViewController.h"
 #import "YJTestTableViewCell.h"
 #import "UIView+YJUIViewGeometry.h"
+#import "YJUITableView.h"
 
 @interface YJSecondViewController () <UITableViewDelegate, YJUITableViewManagerDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
-
-// 需要强引用
-@property (nonatomic, strong) YJUITableViewManager *tableViewManager;
+@property (nonatomic, strong) YJUITableView *tableView;
 
 @end
 
@@ -24,13 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.widthFrame, self.view.heightFrame) style:UITableViewStyleGrouped];
+    self.tableView = [[YJUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.widthFrame, self.view.heightFrame) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, CGFLOAT_MIN)];
-    self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
-    self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
-    self.tableViewManager.delegate = self;
-    [self.tableViewManager addTableViewAOPDelegate:self];
+    self.tableView.manager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
+    self.tableView.manager.delegate = self;
+    [self.tableView.manager addTableViewAOPDelegate:self];
     // 测试数据
     for (int i=0; i<3; i++) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
@@ -42,7 +39,7 @@
             // 填充数据源
             [array addObject:co];
         }
-        [self.tableViewManager.dataSourceGrouped addObject:array];
+        [self.tableView.dataSourceGrouped addObject:array];
     }
 }
 

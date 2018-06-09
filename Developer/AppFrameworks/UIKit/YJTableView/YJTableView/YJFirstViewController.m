@@ -9,13 +9,13 @@
 #import "YJFirstViewController.h"
 #import "YJTestTableViewCell.h"
 #import "YJTestTableViewCell2.h"
+#import "YJUITableView.h"
+#import "UIView+YJUIViewGeometry.h"
 
 @interface YJFirstViewController () <YJUITableViewManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) YJUITableView *tableView;
 
-// 需要强引用
-@property (nonatomic, strong) YJUITableViewManager *tableViewManager;
 
 @end
 
@@ -24,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableViewManager = [[YJUITableViewManager alloc] initWithTableView:self.tableView];
+    self.tableView = [[YJUITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.widthFrame, self.view.heightFrame) style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
     
     //    [self test1];
 //    [self test2];
@@ -33,7 +34,7 @@
 
 #pragma mark - 测试数据
 - (void)initTestData {
-    CGFloat count = self.tableViewManager.dataSource.count;
+    CGFloat count = self.tableView.dataSourcePlain.count;
     // 测试数据
     for (int i=count; i<count+10; i++) {
         // 封装模型
@@ -42,7 +43,7 @@
         // 封装CellObject
         YJUITableCellObject *cellObject = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
         // 填充数据源
-        [self.tableViewManager.dataSource addObject:cellObject];
+        [self.tableView.dataSourcePlain addObject:cellObject];
     }
     [self.tableView reloadData];
 }
@@ -54,20 +55,20 @@
 
 #pragma mark - class
 - (void)test2 {
-    self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
+    self.tableView.manager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
     for (int i = 0; i < 100; i++) {
         YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
         cellModel.userName = [NSString stringWithFormat:@"阳君-%d", i];
-        [self.tableViewManager.dataSource addObject:[YJTestTableViewCell2 cellObjectWithCellModel:cellModel]];
+        [self.tableView.dataSourcePlain addObject:[YJTestTableViewCell2 cellObjectWithCellModel:cellModel]];
     }
     [self.tableView reloadData];
 }
 
 #pragma mark - 协议监听cell
 - (void)test3 {
-    [self.tableViewManager addTableViewAOPDelegate:self];
-    self.tableViewManager.delegate = self;
-    self.tableViewManager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
+    [self.tableView.manager addTableViewAOPDelegate:self];
+    self.tableView.manager.delegate = self;
+    self.tableView.manager.delegateManager.cacheHeightStrategy = YJUITableViewCacheHeightIndexPath;
     [self initTestData];
 }
 
