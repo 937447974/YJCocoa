@@ -14,9 +14,6 @@
 		8425A58E1EB9E3D500EBFFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8425A58C1EB9E3D500EBFFDA /* Main.storyboard */; };
 		8425A5901EB9E3D500EBFFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8425A58F1EB9E3D500EBFFDA /* Assets.xcassets */; };
 		8425A5931EB9E3D500EBFFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8425A5911EB9E3D500EBFFDA /* LaunchScreen.storyboard */; };
-		84B4B1751EB9E8A0008A0B77 /* YJUIPageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */; };
-		84B4B1761EB9E8A0008A0B77 /* YJUIPageViewCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */; };
-		84B4B1791EB9EA92008A0B77 /* YJUIPageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */; };
 		84B4B17E1EBADC25008A0B77 /* YJUIPageViewTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B17C1EBADC25008A0B77 /* YJUIPageViewTestCell.m */; };
 		84B4B17F1EBADC25008A0B77 /* YJUIPageViewTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B4B17D1EBADC25008A0B77 /* YJUIPageViewTestCell.xib */; };
 		84B4B1821EBADC41008A0B77 /* YJUIPageViewTestCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B1811EBADC41008A0B77 /* YJUIPageViewTestCell2.m */; };
@@ -34,12 +31,6 @@
 		8425A58F1EB9E3D500EBFFDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8425A5921EB9E3D500EBFFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8425A5941EB9E3D500EBFFDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84B4B1701EB9E8A0008A0B77 /* YJUIPageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCell.h; sourceTree = "<group>"; };
-		84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCell.m; sourceTree = "<group>"; };
-		84B4B1731EB9E8A0008A0B77 /* YJUIPageViewCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewCellObject.h; sourceTree = "<group>"; };
-		84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewCellObject.m; sourceTree = "<group>"; };
-		84B4B1771EB9EA92008A0B77 /* YJUIPageViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewManager.h; sourceTree = "<group>"; };
-		84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewManager.m; sourceTree = "<group>"; };
 		84B4B17B1EBADC25008A0B77 /* YJUIPageViewTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIPageViewTestCell.h; sourceTree = "<group>"; };
 		84B4B17C1EBADC25008A0B77 /* YJUIPageViewTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIPageViewTestCell.m; sourceTree = "<group>"; };
 		84B4B17D1EBADC25008A0B77 /* YJUIPageViewTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJUIPageViewTestCell.xib; sourceTree = "<group>"; };
@@ -100,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				84B4B17A1EBADBEC008A0B77 /* Cell */,
-				84B4B16E1EB9E587008A0B77 /* PageViewManager */,
 				8425A5861EB9E3D500EBFFDA /* AppDelegate.h */,
 				8425A5871EB9E3D500EBFFDA /* AppDelegate.m */,
 				84B4B16D1EB9E519008A0B77 /* Resources */,
@@ -130,36 +120,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		84B4B16E1EB9E587008A0B77 /* PageViewManager */ = {
-			isa = PBXGroup;
-			children = (
-				84B4B16F1EB9E8A0008A0B77 /* Cell */,
-				84B4B1721EB9E8A0008A0B77 /* CellObject */,
-				84B4B1771EB9EA92008A0B77 /* YJUIPageViewManager.h */,
-				84B4B1781EB9EA92008A0B77 /* YJUIPageViewManager.m */,
-			);
-			name = PageViewManager;
-			path = ../../../../../Cocoa/AppFrameworks/UIKit/PageViewManager;
-			sourceTree = "<group>";
-		};
-		84B4B16F1EB9E8A0008A0B77 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				84B4B1701EB9E8A0008A0B77 /* YJUIPageViewCell.h */,
-				84B4B1711EB9E8A0008A0B77 /* YJUIPageViewCell.m */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		84B4B1721EB9E8A0008A0B77 /* CellObject */ = {
-			isa = PBXGroup;
-			children = (
-				84B4B1731EB9E8A0008A0B77 /* YJUIPageViewCellObject.h */,
-				84B4B1741EB9E8A0008A0B77 /* YJUIPageViewCellObject.m */,
-			);
-			path = CellObject;
-			sourceTree = "<group>";
-		};
 		84B4B17A1EBADBEC008A0B77 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,8 +143,6 @@
 				8425A57C1EB9E3D500EBFFDA /* Sources */,
 				8425A57D1EB9E3D500EBFFDA /* Frameworks */,
 				8425A57E1EB9E3D500EBFFDA /* Resources */,
-				A6C6B14142A07B0038169A85 /* [CP] Embed Pods Frameworks */,
-				5C1D470E91E429D68DF12C2B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,7 +159,7 @@
 		8425A5781EB9E3D500EBFFDA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = YJCocoa;
 				TargetAttributes = {
 					8425A57F1EB9E3D500EBFFDA = {
@@ -250,43 +208,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJUIPageViewManager-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5C1D470E91E429D68DF12C2B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUIPageViewManager/Pods-YJUIPageViewManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6C6B14142A07B0038169A85 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUIPageViewManager/Pods-YJUIPageViewManager-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -298,11 +229,8 @@
 			files = (
 				8425A58B1EB9E3D500EBFFDA /* ViewController.m in Sources */,
 				8425A5881EB9E3D500EBFFDA /* AppDelegate.m in Sources */,
-				84B4B1791EB9EA92008A0B77 /* YJUIPageViewManager.m in Sources */,
-				84B4B1751EB9E8A0008A0B77 /* YJUIPageViewCell.m in Sources */,
 				8425A5851EB9E3D500EBFFDA /* main.m in Sources */,
 				84B4B1821EBADC41008A0B77 /* YJUIPageViewTestCell2.m in Sources */,
-				84B4B1761EB9E8A0008A0B77 /* YJUIPageViewCellObject.m in Sources */,
 				84B4B17E1EBADC25008A0B77 /* YJUIPageViewTestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +271,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -350,6 +279,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -398,6 +328,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -405,6 +336,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
