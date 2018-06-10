@@ -5,7 +5,7 @@ platform :ios, '8.0'
 
 
 def shared_pods
-    pod 'YJCocoa/AppFrameworks/UIKit/CollectionViewManager', :path => "../../../../"
+    pod 'YJCocoa/AppFrameworks/UIKit/CollectionView', :path => "../../../../"
 end
 
 target 'YJCollectionView' do

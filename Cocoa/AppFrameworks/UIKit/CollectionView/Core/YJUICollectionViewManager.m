@@ -22,8 +22,8 @@
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView {
     self = [super init];
     if (self) {
-        _dataSourceGrouped = [NSMutableArray array];
-        self.dataSource = [NSMutableArray array];
+        self.dataSourceGrouped = [NSMutableArray array];
+        [self.dataSourceGrouped addObject:[NSMutableArray array]];
         _collectionView = collectionView;
         _dataSourceManager = [[YJUICollectionViewDataSourceManager alloc] initWithManager:self];
         _delegateFlowLayoutManager = [[YJUICollectionViewDelegateFlowLayoutManager alloc] initWithManager:self];
@@ -45,14 +45,19 @@
 }
 
 #pragma mark - getter and setter
-- (void)setDataSource:(NSMutableArray<YJUICollectionCellObject *> *)dataSource {
-    if (!dataSource) {
+- (void)setDataSourcePlain:(NSMutableArray<YJUICollectionCellObject *> *)dataSourcePlain {
+    if (!dataSourcePlain) {
         NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
-        dataSource = [NSMutableArray array];
+        dataSourcePlain = [NSMutableArray array];
     }
-    _dataSource = dataSource;
-    [self.dataSourceGrouped removeAllObjects];
-    [self.dataSourceGrouped addObject:dataSource];
+    if (self.dataSourceGrouped.count) {
+        [self.dataSourceGrouped replaceObjectAtIndex:0 withObject:dataSourcePlain];
+    } else {
+        [self.dataSourceGrouped addObject:dataSourcePlain];
+    }
+}
+- (NSMutableArray<YJUICollectionCellObject *> *)dataSourcePlain {
+    return self.dataSourceGrouped.firstObject;
 }
 
 - (void)setDelegate:(id<YJUICollectionViewManagerDelegate>)delegate {

@@ -179,16 +179,17 @@ Pod::Spec.new do |s|
                     ale.source_files = 'Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}'
                 end
             end
-            # CollectionViewManager
-            uik.subspec 'CollectionViewManager' do |cvm|
-                cvm.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCell/*.{h,m}'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject'
+            # CollectionView
+            uik.subspec 'CollectionView' do |cv|
+                cv.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/*.{h,m}'
+                cv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/{Core,CollectionCell}/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                cvm.subspec 'CollectionCellObject' do |cco|
-                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject/*.{h,m}'
+                cv.subspec 'CollectionCellObject' do |cco|
+                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
                     cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end
@@ -198,7 +199,7 @@ Pod::Spec.new do |s|
             end
             # UITextField和UITextView可输入长度控制
             uik.subspec 'InputLength' do |il|
-                il.source_files  = "Cocoa/AppFrameworks/UIKit/InputLength/*.{h,m}"
+                il.source_files  = 'Cocoa/AppFrameworks/UIKit/InputLength/*.{h,m}'
             end
             # NavigationBar
             uik.subspec 'NavigationBar' do |nb|
@@ -231,7 +232,7 @@ Pod::Spec.new do |s|
             uik.subspec 'TableView' do |tv|
                 tv.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}'
                 tv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/Core/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/TableView/TableCell/*.{h,m}'
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/{Core,TableCell}/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
@@ -243,7 +244,7 @@ Pod::Spec.new do |s|
             end
             # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
             uik.subspec 'ViewGeometry' do |vg|
-                vg.source_files  = "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
+                vg.source_files  = 'Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}'
             end
         end
     end

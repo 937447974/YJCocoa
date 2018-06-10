@@ -25,8 +25,8 @@
     if (self) {
         _manager = manager;
         self.identifierSet = [NSMutableSet set];
-        self.headerDataSource = [NSMutableArray array];
-        self.footerDataSource = [NSMutableArray array];
+        _dataSourceHeader = [NSMutableArray array];
+        _dataSourceFooter = [NSMutableArray array];
     }
     return self;
 }
@@ -88,7 +88,7 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     YJUICollectionCellObject *cellObject;
-    NSArray *dataSource = [UICollectionElementKindSectionHeader isEqualToString:kind] ? self.headerDataSource : self.footerDataSource;
+    NSArray *dataSource = [UICollectionElementKindSectionHeader isEqualToString:kind] ? self.dataSourceHeader : self.dataSourceFooter;
     if (dataSource.count <= indexPath.section) {
         NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
         cellObject = [YJUICollectionReusableView cellObject];
@@ -117,12 +117,6 @@
     UICollectionReusableView *rv = [self.manager.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
     // 刷新数据
     [rv reloadDataWithCellObject:cellObject collectionViewManager:self.manager];
-    // 指向
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        _collectionHeaderView = rv;
-    } else {
-        _collectionFooterView = rv;
-    }
     return rv;
 }
 

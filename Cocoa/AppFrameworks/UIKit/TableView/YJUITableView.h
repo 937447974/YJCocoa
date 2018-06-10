@@ -12,11 +12,15 @@
 #import <UIKit/UIKit.h>
 #import "YJUITableViewManager.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+/** UITableView*/
 @interface YJUITableView : UITableView
 
 @property (nonatomic, strong, readonly) YJUITableViewManager *manager; ///< 管理器
-@property (nonatomic, strong, readonly) NSMutableArray<YJUITableCellObject *> *dataSourcePlain; ///< 数据源UITableViewStylePlain
-@property (nonatomic, strong, readonly) NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *dataSourceGrouped; ///< 数据源UITableViewStyleGrouped
+@property (nonatomic, strong, readonly) NSMutableArray<YJUITableCellObject *> *dataSourcePlain; ///< 数据源单一数组
+@property (nonatomic, strong, readonly) NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *dataSourceGrouped; ///< 数据源多数组
 
 @end
 
+NS_ASSUME_NONNULL_END

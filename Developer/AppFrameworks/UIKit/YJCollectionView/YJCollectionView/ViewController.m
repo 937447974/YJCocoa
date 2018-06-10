@@ -11,11 +11,11 @@
 #import "YJTest2CollectionViewCell.h"
 #import "YJDispatch.h"
 #import "YJTestCollectionReusableView.h"
+#import "YJUICollectionView.h"
 
 @interface ViewController () <YJUICollectionViewManagerDelegate, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) YJUICollectionViewManager *collectionViewManager; ///< 数据源管理
+@property (weak, nonatomic) IBOutlet YJUICollectionView *collectionView;
 
 @end
 
@@ -23,37 +23,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collectionViewManager = [[YJUICollectionViewManager alloc] initWithCollectionView:self.collectionView];
     // 设置相关属性
-    self.collectionViewManager.delegateFlowLayoutManager.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    self.collectionViewManager.delegateFlowLayoutManager.flowLayout.minimumLineSpacing = 5;
-    self.collectionViewManager.delegateFlowLayoutManager.flowLayout.minimumInteritemSpacing = 5;
-    self.collectionViewManager.delegateFlowLayoutManager.lineItems = 3;          // 一行显示个数
-    self.collectionViewManager.delegateFlowLayoutManager.itemHeightLayout = YES; // 是否自动适配高
+    self.collectionView.manager.delegateFlowLayoutManager.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    self.collectionView.manager.delegateFlowLayoutManager.flowLayout.minimumLineSpacing = 5;
+    self.collectionView.manager.delegateFlowLayoutManager.flowLayout.minimumInteritemSpacing = 5;
+    self.collectionView.manager.delegateFlowLayoutManager.lineItems = 3;          // 一行显示个数
+    self.collectionView.manager.delegateFlowLayoutManager.itemHeightLayout = YES; // 是否自动适配高
     self.collectionView.alwaysBounceVertical = YES;
     [self testDefault];
 //    [self testClass];
 }
 
 - (void)testDefault {
-    self.collectionViewManager.delegate = self;
+    self.collectionView.manager.delegate = self;
     // AOP代理
-    [self.collectionViewManager addCollectionViewAOPDelegate:self];
+    [self.collectionView.manager addCollectionViewAOPDelegate:self];
     // 测试数据
     for (int i = 0; i < 2; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.collectionViewManager.dataSource addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
+        [self.collectionView.dataSourcePlain addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
     }
     // 头部、尾部
     YJTestCollectionReusableViewModel *hvm = [[YJTestCollectionReusableViewModel alloc] init];
     hvm.backgroundColor = [UIColor greenColor];
-    [self.collectionViewManager.dataSourceManager.headerDataSource addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
+    [self.collectionView.dataSourceHeader addObject:[YJTestCollectionReusableView cellObjectWithCellModel:hvm]];
     YJTestCollectionReusableViewModel *fvm = [[YJTestCollectionReusableViewModel alloc] init];
     fvm.backgroundColor = [UIColor redColor];
     YJUICollectionCellObject *co = [YJTestCollectionReusableView cellObjectWithCellModel:fvm];
     co.createCell = YJUICollectionCellCreateClass;
-    [self.collectionViewManager.dataSourceManager.footerDataSource addObject:co];
+    [self.collectionView.dataSourceFooter addObject:co];
 }
 
 - (void)testClass {
@@ -61,7 +60,7 @@
     for (int i = 0; i < 1000; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.collectionViewManager.dataSource addObject:[YJTest2CollectionViewCell cellObjectWithCellModel:cellModel]];
+        [self.collectionView.dataSourcePlain addObject:[YJTest2CollectionViewCell cellObjectWithCellModel:cellModel]];
     }
     [self.collectionView reloadData];
 }

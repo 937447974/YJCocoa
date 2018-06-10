@@ -111,9 +111,9 @@
     YJUICollectionCellObject *cellObject;
     NSMutableArray<YJUICollectionCellObject *> *dataSource;
     if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
-        dataSource = self.manager.dataSourceManager.headerDataSource;
+        dataSource = self.manager.dataSourceManager.dataSourceHeader;
     } else {
-        dataSource = self.manager.dataSourceManager.footerDataSource;
+        dataSource = self.manager.dataSourceManager.dataSourceFooter;
     }
     CGSize size = CGSizeZero;
     if (dataSource.count <= section) {

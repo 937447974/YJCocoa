@@ -18,10 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YJUICollectionViewDataSourceManager : NSObject <UICollectionViewDataSource>
 
-@property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionHeaderView; ///< 头部View
-@property (nonatomic, strong, nullable, readonly) UICollectionReusableView *collectionFooterView; ///< 尾部View
-@property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *headerDataSource; ///< UICollectionElementKindSectionHeader数据源
-@property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *footerDataSource; ///< UICollectionElementKindSectionFooter数据源
+@property (nonatomic, strong, readonly) NSMutableArray<YJUICollectionCellObject *> *dataSourceHeader; ///< SectionHeader数据源
+@property (nonatomic, strong, readonly) NSMutableArray<YJUICollectionCellObject *> *dataSourceFooter; ///< SectionFooter数据源
 
 @property (nonatomic, weak, readonly) YJUICollectionViewManager *manager; ///< YJUICollectionViewManager
 
