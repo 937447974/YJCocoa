@@ -183,14 +183,14 @@ Pod::Spec.new do |s|
             uik.subspec 'CollectionView' do |cv|
                 cv.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/*.{h,m}'
                 cv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/{Core,CollectionCell}/*.{h,m}'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject'
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/{Cell,Manager}/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                cv.subspec 'CollectionCellObject' do |cco|
-                    cco.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CollectionCellObject/*.{h,m}'
-                    cco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                cv.subspec 'CellObject' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CellObject/*.{h,m}'
+                    co.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end
             # Color
@@ -235,14 +235,14 @@ Pod::Spec.new do |s|
             uik.subspec 'TableView' do |tv|
                 tv.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/*.{h,m}'
                 tv.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/{Core,TableCell}/*.{h,m}'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/TableCellObject'
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/{Manager,Cell}/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
                 end
-                tv.subspec 'TableCellObject' do |tco|
-                    tco.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/TableCellObject/*.{h,m}'
-                    tco.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                tv.subspec 'CellObject' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/CellObject/*.{h,m}'
+                    co.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                 end
             end
             # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
