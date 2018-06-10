@@ -23,4 +23,9 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"%ld", self.cellObject.pageIndex);
+}
+
 @end

@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
 
 @property (nonatomic, weak) id<YJUIPageViewManagerDelegate> delegate; ///< YJUIPageViewManagerDelegate
 
-@property (nonatomic, strong) NSMutableArray<YJUIPageViewCellObject *> *dataSource; ///< 数据源
+@property (nonatomic, strong) NSMutableArray<YJUIPageViewCellObject *> *dataSourcePlain; ///< 数据源
 
 
 /**
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
 /**
  *  @abstract 刷新pageVC
  */
-- (void)reloadPage;
+- (void)reloadData;
 
 /**
  *  @abstract 前往指定界面

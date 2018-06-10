@@ -26,10 +26,6 @@
     return co;
 }
 
-- (instancetype)initPageView {
-    return [self init];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.viewDidAppearBlock(self);

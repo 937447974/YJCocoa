@@ -41,7 +41,7 @@
     if (self) {
         pageVC.dataSource = self;
         self.pageVC = pageVC;
-        self.dataSource = [NSMutableArray array];
+        self.dataSourcePlain = [NSMutableArray array];
         self.pageCache = [NSMutableDictionary dictionary];
         @weakSelf
         self.timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer * _Nonnull timer) {
@@ -52,7 +52,7 @@
     return self;
 }
 
-- (void)reloadPage {
+- (void)reloadData {
     [self gotoPageWithIndex:0 animated:NO completion:nil];
 }
 
@@ -82,19 +82,19 @@
 #pragma mark - private
 - (nullable YJUIPageViewCell *)pageViewCellAtIndex:(NSInteger)pageIndex {
     // 数据校验
-    if (self.dataSource.count == 0) {
+    if (self.dataSourcePlain.count == 0) {
         return nil;
     }
-    if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮循过滤
+    if (!self.isLoop && (pageIndex < 0 || self.dataSourcePlain.count <= pageIndex )) {// 不轮循过滤
         return nil;
     }
     // 循环显示
     if (pageIndex < 0) {
-        pageIndex = self.dataSource.count - 1;
-    } else if (pageIndex == self.dataSource.count){
+        pageIndex = self.dataSourcePlain.count - 1;
+    } else if (pageIndex == self.dataSourcePlain.count){
         pageIndex = 0;
     }
-    YJUIPageViewCellObject *cellObject = self.dataSource[pageIndex];
+    YJUIPageViewCellObject *cellObject = self.dataSourcePlain[pageIndex];
     cellObject.pageIndex = pageIndex;
     // 页面缓存
     NSString *cacheKey;
@@ -105,7 +105,7 @@
     }
     YJUIPageViewCell *pageVC = [self.pageCache objectForKey:cacheKey];
     if (!pageVC) { // 未缓存，则初始化
-        pageVC = [[cellObject.pageClass alloc] initPageView];
+        pageVC = [cellObject.pageClass new];
         [self.pageCache setObject:pageVC forKey:cacheKey];
         if (!pageVC.view.backgroundColor) {
             pageVC.view.backgroundColor = [UIColor whiteColor];
@@ -153,7 +153,7 @@
                     break;
             }
         }
-        if (self.currentPageIndex == self.dataSource.count - 1) { // 尾页
+        if (self.currentPageIndex == self.dataSourcePlain.count - 1) { // 尾页
             switch (self.pageVC.navigationOrientation) {
                 case UIPageViewControllerNavigationOrientationHorizontal:
                     if (contentOffset.x > self.scrollView.frame.size.width) {

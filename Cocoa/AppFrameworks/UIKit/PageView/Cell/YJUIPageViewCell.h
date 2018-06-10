@@ -32,13 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (YJUIPageViewCellObject *)cellObjectWithCellModel:(nullable id<YJUIPageViewCellModelProtocol>)cellModel;
 
 /**
- *  @abstract 初始化
- *
- *  @return YJUIPageViewCell
- */
-- (instancetype)initPageView;
-
-/**
  *  @abstract 刷新 YJUIPageViewCell
  *
  *  @param cellObject       page封装的对象

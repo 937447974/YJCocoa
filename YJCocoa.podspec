@@ -215,11 +215,14 @@ Pod::Spec.new do |s|
                 nr.dependency 'YJCocoa/AppFrameworks/Foundation/Router'
             end
             # PageView
-            uik.subspec 'PageViewManager' do |pvm|
-                pvm.source_files = 'Cocoa/AppFrameworks/UIKit/PageViewManager/*.{h,m}', 'Cocoa/AppFrameworks/UIKit/PageViewManager/Cell/*.{h,m}'
-                pvm.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
-                pvm.subspec 'CellObject' do |co|
-                    co.source_files = 'Cocoa/AppFrameworks/UIKit/PageViewManager/CellObject/*.{h,m}'
+            uik.subspec 'PageView' do |pv|
+                pv.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
+                pv.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/{Cell,Manager}/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
+                end
+                pv.subspec 'CellObject' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/CellObject/*.{h,m}'
                 end
             end
             # ScrollViewManager
