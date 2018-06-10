@@ -19,12 +19,10 @@ YJNSRouterScope const YJNSRouterScopeMemoryWarning = @"memoryWarning";
 }
 
 + (YJNSRouterNode *)nodeWithRouterClass:(Class)routerClass scope:(YJNSRouterScope)scope routerURL:(YJNSRouterURL)routerURL {
-    YJNSRouterNode *node = [[YJNSRouterNode alloc] init];
-    if (node) {
-        node -> _routerClass = routerClass;
-        node -> _scope = scope ;
-        node -> _routerURL = routerURL;
-    }
+    YJNSRouterNode *node = [YJNSRouterNode new];
+    node -> _routerClass = routerClass;
+    node -> _scope = scope ;
+    node -> _routerURL = routerURL;
     return node;
 }
 

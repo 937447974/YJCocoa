@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return id
  */
-- (id)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
+- (nullable id)performSelector:(SEL)aSelector withObjects:(nullable NSArray<id> *)objects;
 
 @end
 
