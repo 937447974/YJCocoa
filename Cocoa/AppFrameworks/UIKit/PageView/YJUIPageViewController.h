@@ -12,6 +12,8 @@
 #import <UIKit/UIKit.h>
 #import "YJUIPageViewManager.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface YJUIPageViewController : UIPageViewController
 
 @property (nonatomic, strong) YJUIPageViewManager *manager; ///< 管理器
@@ -23,3 +25,5 @@
 - (void)reloadData;
 
 @end
+
+NS_ASSUME_NONNULL_END

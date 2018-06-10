@@ -12,8 +12,8 @@
 // NSLayoutConstraint的相关扩展和封装,可使用伪代码的方式快速开发AutoLayout
 #import "YJAutoLayout.h"
 
-// UICollectionView管理器
-#import "YJUICollectionViewManager.h"
+// UICollectionView
+#import "YJUICollectionView.h"
 
 // 函数生成UIColor，及点语法设置背景色
 #import "YJUIColor.h"
@@ -27,8 +27,8 @@
 // UIViewController路由器导航扩展
 #import "UIViewController+YJUINavigationRouter.h"
 
-// UIPageViewController 管理器，支持轮播图、导航图、小说翻页等多种翻页模式。
-#import "YJUIPageViewManager.h"
+// UIPageViewController，支持轮播图、导航图、小说翻页等多种翻页模式。
+#import "YJUIPageViewController.h"
 
 // UIScrollView管理器，主要用于监听UIScrollView滚动状态
 #import "YJUIScrollViewManager.h"

@@ -2,7 +2,7 @@
 //  YJNSRouterNode.m
 //  YJUINavigationRouter
 //
-//  Created by didi on 2017/10/17.
+//  Created by 阳君 on 2017/10/17.
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 

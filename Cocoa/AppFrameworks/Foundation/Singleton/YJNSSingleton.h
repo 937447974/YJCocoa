@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 2017/3/14.
-//  Copyright © 2017年 YJ. All rights reserved.
+//  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
 #import "YJNSSingletonMCenter.h"
