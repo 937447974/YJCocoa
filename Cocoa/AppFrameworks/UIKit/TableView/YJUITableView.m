@@ -16,18 +16,26 @@
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame style:style];
     if (self) {
-        _manager = [[YJUITableViewManager alloc] initWithTableView:self];
+        self.manager = [[YJUITableViewManager alloc] initWithTableView:self];
     }
     return self;
 }
 
 #pragma mark - getter
 - (NSMutableArray<YJUITableCellObject *> *)dataSourcePlain {
-    return self.manager.dataSource;
+    return self.manager.dataSourcePlain;
+}
+
+- (void)setDataSourcePlain:(NSMutableArray<YJUITableCellObject *> *)dataSourcePlain {
+    self.manager.dataSourcePlain = dataSourcePlain;
 }
 
 - (NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *)dataSourceGrouped {
     return self.manager.dataSourceGrouped;
+}
+
+- (void)setDataSourceGrouped:(NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *)dataSourceGrouped {
+    self.manager.dataSourceGrouped = dataSourceGrouped;
 }
 
 @end

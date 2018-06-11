@@ -219,6 +219,7 @@ Pod::Spec.new do |s|
                 pv.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/*.{h,m}'
                 pv.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/PageView/{Cell,Manager}/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/UIKit/PageView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
                 end
                 pv.subspec 'CellObject' do |co|

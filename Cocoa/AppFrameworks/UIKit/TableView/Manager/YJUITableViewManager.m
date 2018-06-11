@@ -23,8 +23,8 @@
 - (instancetype)initWithTableView:(UITableView *)tableView {
     self = [super init];
     if (self) {
-        _dataSourceGrouped = [NSMutableArray array];
-        [_dataSourceGrouped addObject:[NSMutableArray array]];
+        self.dataSourceGrouped = [NSMutableArray array];
+        [self.dataSourceGrouped addObject:[NSMutableArray array]];
         _tableView = tableView;
         _dataSourceManager = [[YJUITableViewDataSourceManager alloc] initWithManager:self];
         _delegateManager = [[YJUITableViewDelegateManager alloc] initWithManager:self];
@@ -47,19 +47,19 @@
 }
 
 #pragma mark - getter and setter
-- (void)setDataSource:(NSMutableArray<YJUITableCellObject *> *)dataSource {
-    if (!dataSource) {
+- (void)setDataSourcePlain:(NSMutableArray<YJUITableCellObject *> *)dataSourcePlain {
+    if (!dataSourcePlain) {
         NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
-        dataSource = [NSMutableArray array];
+        dataSourcePlain = [NSMutableArray array];
     }
     if (self.dataSourceGrouped.count) {
-        [self.dataSourceGrouped replaceObjectAtIndex:0 withObject:dataSource];
+        [self.dataSourceGrouped replaceObjectAtIndex:0 withObject:dataSourcePlain];
     } else {
-        [self.dataSourceGrouped addObject:dataSource];
+        [self.dataSourceGrouped addObject:dataSourcePlain];
     }    
 }
 
-- (NSMutableArray<YJUITableCellObject *> *)dataSource {
+- (NSMutableArray<YJUITableCellObject *> *)dataSourcePlain {
     return self.dataSourceGrouped.firstObject;
 }
 

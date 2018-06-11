@@ -34,8 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** UITableView管理器*/
 @interface YJUITableViewManager : NSObject
 
-@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *dataSource; ///< 数据源UITableViewStylePlain
-@property (nonatomic, strong, readonly) NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *dataSourceGrouped; ///< 数据源UITableViewStyleGrouped
+@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *dataSourcePlain; ///< 数据源单组
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *dataSourceGrouped; ///< 数据源多组
 
 @property (nonatomic, weak, nullable) id<YJUITableViewManagerDelegate> delegate; ///< YJUITableViewManagerDelegate
 
