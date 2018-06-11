@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** UICollectionView*/
 @interface YJUICollectionView : UICollectionView
 
-@property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *dataSourcePlain; ///< 数据源单一数组
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<YJUICollectionCellObject *> *> *dataSourceGrouped; ///< 数据源多数组
+@property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *dataSourcePlain; ///< 数据源单组
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<YJUICollectionCellObject *> *> *dataSourceGrouped; ///< 数据源多组
 
 @property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *dataSourceHeader; ///< SectionHeader数据源
 @property (nonatomic, strong) NSMutableArray<YJUICollectionCellObject *> *dataSourceFooter; ///< SectionFooter数据源
