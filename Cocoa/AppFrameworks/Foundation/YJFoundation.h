@@ -32,6 +32,7 @@
 
 // NSLog打印优化，Unicode自动转化为中文输出。
 #import "YJNSLog.h"
+#import "NSNotificationCenter+YJ.h" // 通知中心 block 回调
 
 // 线程安全执行Selector
 #import "NSObject+YJNSPerformSelector.h"

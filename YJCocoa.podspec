@@ -90,6 +90,9 @@ Pod::Spec.new do |s|
             foundation.subspec 'Log' do |log|
                 log.source_files = 'Cocoa/AppFrameworks/Foundation/Log/*.{h,m}'
             end
+            foundation.subspec 'NotificationCenter' do |nc|
+                nc.source_files = 'Cocoa/AppFrameworks/Foundation/NotificationCenter/*.{h,m}'
+            end
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
             end

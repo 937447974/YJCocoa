@@ -47,11 +47,15 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-### 1.1.9 PerformSelector
+### 1.1.9 NotificationCenter
+
+NSNotificationCenter block 回调，并支持自动释放。
+
+### 1.1.10 PerformSelector
 
 合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
-### 1.1.10 Router
+### 1.1.11 Router
 
 Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
@@ -62,16 +66,16 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 	2. 原型模式：每次跳转时都会重新创建一份对应的控制器。
 	3. 内存警告模式：内存警告时，释放相关联的控制器。
 
-### 1.1.11 Singleton
+### 1.1.12 Singleton
 
 1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
 2. 可定制全局单例和局域单例。
 
-### 1.1.12 Swizzling
+### 1.1.13 Swizzling
 
 支持随时随地交换方法。
 
-### 1.1.13 Timer
+### 1.1.14 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -80,11 +84,11 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-### 1.1.14 URLCode
+### 1.1.15 URLCode
 
 URLEncode编码和URLDecode解码
 
-### 1.1.15 URLSession
+### 1.1.16 URLSession
 
 大型APP网络架构，具有以下特性：
 
@@ -363,6 +367,7 @@ YJ技术支持群：557445088
 | 8.0.2 | 2018-04-19 | Leaks 忽略对 WK 前缀对象的内存泄漏分析 |
 | 8.1.0 | 2018-04-26 | URLSession 架构升级，支持指定线程返回数据和自定义数据模型转换。 |
 | | 2018-04-27 | NavigationRouter 和 Router 架构升级，支持外部依赖注入处理未注册的路由节点。 | 
+| 8.2.0 |  2018-06-11 | NSNotificationCenter 上线，主要用于 block 回调通知，并支持自动释放。|
 
 ## Copyright
 

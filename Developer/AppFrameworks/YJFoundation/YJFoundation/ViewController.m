@@ -27,10 +27,11 @@
     //        [self testSingleton];
     //        [self testTimer];
     //        [self testCalendar];
-            [self testURLSession];
+//            [self testURLSession];
     //    [self testSwizzling];
     //    [self testLog];
 //    [self testKVO];
+    [self testNotificationCenter];
 }
 
 #pragma mark - log
@@ -172,6 +173,18 @@
     observer = nil; // 自动移除
     target.str = @"YJ4";
     [target removeKVObserver:observer forKeyPath:nil];// 重复移除崩溃测试
+}
+
+#pragma mark - NotificationCenter
+- (void)testNotificationCenter {
+    NSObject *test = [NSObject new];
+    [NSNotificationCenter.defaultCenter addObserver:test name:@"test" usingBlock:^(NSNotification *note) {
+        NSLog(@"%@", note);
+    }];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"test" object:nil userInfo:@{@"1":@"1"}];
+    dispatch_async_main(^{
+        [NSNotificationCenter.defaultCenter postNotificationName:@"test" object:nil userInfo:@{@"1":@"2"}];
+    });
 }
 
 @end
