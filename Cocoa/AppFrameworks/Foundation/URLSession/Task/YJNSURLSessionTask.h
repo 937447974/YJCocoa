@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 // self = YJNSURLRequest.source
-typedef void (^ YJNSURLSessionTaskSuccess)(id data);
+typedef void (^ YJNSURLSessionTaskSuccess)(id respModel);
 typedef void (^ YJNSURLSessionTaskFailure)(NSError *error);
 
 /** */
