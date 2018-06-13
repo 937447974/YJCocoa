@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, YJNSURLRequestMethod) {
  *
  *  @return instancetype
  */
-+ (instancetype)requestWithSource:(nullable id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass;
++ (instancetype)requestWithSource:(nullable id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(nullable Class)respModelClass;
 
 @end
 
