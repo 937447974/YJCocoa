@@ -31,8 +31,13 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "2018-04-26 | URLSession 架构升级，支持指定线程返回数据和自定义数据模型转换。" with title "YJCocoa 8.1.0"'
-osascript -e 'display notification "2018-04-27 | NavigationRouter 和 Router 架构升级，支持外部依赖注入处理未注册的路由节点。" with title "YJCocoa 8.1.0"'
+osascript -e 'display notification "1. NSNotificationCenter 上线，主要用于 block 回调通知，并支持自动释放。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "2. TableViewManager 升级为 TableView 库，增加 YJUITableView 组件。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "3. CollectionViewManager 升级为CollectionView 库，增加 YJUICollectionView 组件。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "4. PageViewManager 升级为 PageView 库，增加 YJUIPageViewController 组件。" with title "YJCocoa 8.2.0"'
+
+osascript -e 'display notification "5. Dispatch 增加 strongSelfReturn 宏，支持self不存在时直接返回默认值。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "6. URLSession 修复相关 bug。" with title "YJCocoa 8.2.0"'
 
 
 
