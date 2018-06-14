@@ -367,7 +367,11 @@ YJ技术支持群：557445088
 | 8.0.2 | 2018-04-19 | Leaks 忽略对 WK 前缀对象的内存泄漏分析 |
 | 8.1.0 | 2018-04-26 | URLSession 架构升级，支持指定线程返回数据和自定义数据模型转换。 |
 | | 2018-04-27 | NavigationRouter 和 Router 架构升级，支持外部依赖注入处理未注册的路由节点。 | 
-| 8.2.0 |  2018-06-11 | NSNotificationCenter 上线，主要用于 block 回调通知，并支持自动释放。|
+| 8.2.0 |  2018-06-09 | TableViewManager 升级为 TableView 库，增加 YJUITableView 组件。|
+| |  2018-06-10 | CollectionViewManager 升级为CollectionView 库，添加 YJUICollectionView 组件。PageViewManager 升级为 PageView 库，添加 YJUIPageViewController 组件|
+| |  2018-06-11 | NSNotificationCenter 上线，主要用于 block 回调通知，并支持自动释放。|
+| | 2018-06-13 | URLSession 修复相关 bug |
+| |  2018-06-16 | Dispatch 增加 strongSelfReturn 宏，支持self不存在时直接返回默认值。|
 
 ## Copyright
 

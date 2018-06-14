@@ -40,7 +40,7 @@
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
     @weakSelf
     self.success = ^(id data) {
-        @strongSelfReturn
+        @strongSelf
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateSuccess;
             if (success && self.request.source) {
@@ -50,7 +50,7 @@
         }
     };
     self.failure = ^(NSError *error) {
-        @strongSelfReturn
+        @strongSelf
 #if DEBUG
         NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
 #endif
