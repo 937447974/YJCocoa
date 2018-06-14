@@ -14,6 +14,15 @@
 #import "YJTestURLRequestModel.h"
 #import "YJNSURLResponseModel.h"
 
+@interface ViewController1 : NSObject
+
+@property (nonatomic, copy) NSSet *set; ///<
+
+@end
+
+@implementation ViewController1
+@end
+
 @interface ViewController ()
 
 @property (nonatomic, copy) NSString *str; ///<
@@ -31,7 +40,14 @@
     //    [self testSwizzling];
     //    [self testLog];
 //    [self testKVO];
-    [self testNotificationCenter];
+//    [self testNotificationCenter];
+    ViewController1 * v = [ViewController1 new];
+    v.set = [NSSet setWithObjects:@"1",@"2",nil];
+    NSLog(@"%@", v.set);
+    NSLog(@"%@", v.modelDictionary);
+    NSDictionary *dictionary = v.modelDictionary;
+    v = [[ViewController1 alloc] initWithModelDictionary:dictionary];
+    NSLog(@"%@", v.set);
 }
 
 #pragma mark - log

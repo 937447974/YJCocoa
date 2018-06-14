@@ -61,6 +61,7 @@
             case YJNSDMPAttributeTypeNumber:     // NSNumber
             case YJNSDMPAttributeTypeString:     // NSString
             case YJNSDMPAttributeTypeDictionary: // NSDictionary
+            case YJNSDMPAttributeTypeSet:        // NSSet
                 break;
             case YJNSDMPAttributeTypeURL: {        // NSURL
                 NSURL *url = value;
@@ -125,6 +126,11 @@
                 break;
             case YJNSDMPAttributeTypeDictionary: // NSDictionary
                 if ([value isKindOfClass:[NSDictionary class]]) {
+                    [self setValue:value forKey:p.attributeName];
+                }
+                break;
+            case YJNSDMPAttributeTypeSet:
+                if ([value isKindOfClass:NSSet.class]) {
                     [self setValue:value forKey:p.attributeName];
                 }
                 break;
@@ -232,6 +238,8 @@
                     p.attributeType = YJNSDMPAttributeTypeURL;
                 } else if ([p.attributeClass isSubclassOfClass:[NSDictionary class]]) {
                     p.attributeType = YJNSDMPAttributeTypeDictionary;
+                } else if ([p.attributeClass isSubclassOfClass:NSSet.class]) {
+                    p.attributeType = YJNSDMPAttributeTypeSet;
                 } else if ([p.attributeClass isSubclassOfClass:[NSArray class]]) {
                     p.attributeType = YJNSDMPAttributeTypeArray;
                     p.importArrayClass = [dMManager.importArrayClasses objectForKey:p.attributeName];

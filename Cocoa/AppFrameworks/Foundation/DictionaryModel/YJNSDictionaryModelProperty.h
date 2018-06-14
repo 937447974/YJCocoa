@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, YJNSDMPAttributeType) {
     YJNSDMPAttributeTypeURL,        ///< NSURL 
     YJNSDMPAttributeTypeArray,      ///< NSArray
     YJNSDMPAttributeTypeDictionary, ///< NSDictionary
+    YJNSDMPAttributeTypeSet,        ///< NSSet
     YJNSDMPAttributeTypeModel       ///< Model
 };
 
