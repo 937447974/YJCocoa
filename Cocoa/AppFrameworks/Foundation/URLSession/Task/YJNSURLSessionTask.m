@@ -16,6 +16,7 @@
 
 @property (nonatomic) YJNSURLSessionTaskState state;
 @property (nonatomic) BOOL needResume;
+@property (nonatomic) BOOL mainQueue;
 @property (nonatomic, strong) YJNSURLRequest *request;
 @property (nonatomic, copy) YJNSURLSessionTaskSuccess success;
 @property (nonatomic, copy) YJNSURLSessionTaskFailure failure;
@@ -57,7 +58,8 @@
         self.needResume = YES;
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateFailure;
-            if (failure && self.request.source) failure(error);
+            if (failure && self.request.source)
+                self.mainQueue ? dispatch_async_main(^{failure(error);}) : failure(error);
         }
     };
     return self;
@@ -68,6 +70,7 @@
     NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
 #endif
     self.state = YJNSURLSessionTaskStateRunning;
+    self.mainQueue = NSThread.isMainThread;
     self.needResume = NO;
 }
 
