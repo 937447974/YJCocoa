@@ -37,7 +37,7 @@ osascript -e 'display notification "3. CollectionViewManager 升级为Collection
 osascript -e 'display notification "4. PageViewManager 升级为 PageView 库，增加 YJUIPageViewController 组件。" with title "YJCocoa 8.2.0"'
 
 osascript -e 'display notification "5. Dispatch 增加 strongSelfReturn 宏，支持self不存在时直接返回默认值。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "6. URLSession 修复相关 bug。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "6. URLSession、DictionaryModel 修复相关 bug。" with title "YJCocoa 8.2.0"'
 
 
 
