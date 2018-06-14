@@ -23,7 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 弱引用*/
 #define weakSelf symbol_at  __weak typeof(self) wSelf = self;
 /** 强引用*/
-#define strongSelf symbol_at __strong typeof(wSelf) self = wSelf;if(!self) return;
+#define strongSelf symbol_at __strong typeof(wSelf) self = wSelf;
+/** 强引用,self不存在时，直接返回*/
+#define strongSelfReturn strongSelf if(!self) return;
 
 
 #pragma mark - gcd

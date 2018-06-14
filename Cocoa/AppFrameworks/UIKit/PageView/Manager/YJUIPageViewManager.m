@@ -44,8 +44,8 @@
         self.dataSourcePlain = [NSMutableArray array];
         self.pageCache = [NSMutableDictionary dictionary];
         @weakSelf
-        self.timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer * _Nonnull timer) {
-            @strongSelf
+        self.timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer *timer) {
+            @strongSelfReturn
             [self gotoPageWithIndex:self.currentPageIndex+1 animated:YES completion:nil];
         }];
     }
@@ -112,7 +112,7 @@
         }
         @weakSelf
         pageVC.viewDidAppearBlock = ^ (YJUIPageViewCell *cell) {
-            @strongSelf
+            @strongSelfReturn
             self.currentPageIndex = cell.cellObject.pageIndex;
         };
     }
