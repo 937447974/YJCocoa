@@ -30,7 +30,7 @@
     YJNSURLSessionTask *task = [sPool objectForKey:request.identifier];
     if (!task) {
         task = [[self alloc] init];
-        [sPool setObject:task forKey:request.identifier];
+        if (request.identifier) [sPool setObject:task forKey:request.identifier];
         task.mainQueue = YES;
     }
     task.request = request;
