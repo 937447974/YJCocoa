@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
 /** NSURLSessionTask*/
 @interface YJNSURLSessionTask : NSObject
 
+@property (nonatomic) BOOL mainQueue;  ///< 是否主线程返回
+
 @property (nonatomic, readonly) YJNSURLSessionTaskState state; ///< 任务状态
 
 @property (nonatomic, strong, readonly) YJNSURLRequest *request;///< 请求
