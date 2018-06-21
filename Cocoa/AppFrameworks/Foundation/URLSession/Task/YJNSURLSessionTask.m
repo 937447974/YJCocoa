@@ -40,6 +40,9 @@
     @weakSelf
     self.success = ^(id data) {
         @strongSelf
+#if DEBUG
+        NSLog(@"%@网络请求成功<<<<<<<<<<<<<<<%@", self.request.identifier, data);
+#endif
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateSuccess;
             if (success && self.request.source) {
