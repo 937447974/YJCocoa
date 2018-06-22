@@ -49,6 +49,7 @@
 - (NSDictionary *)modelDictionaryWithOptionalAttributes:(NSDictionary<NSString *,NSString *> *)optionalAttributes {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSArray *propertys = [self.class propertys];
+    if (!propertys.count) return dict;
     for (YJNSDictionaryModelProperty *p in propertys) {
         id value = [self valueForKey:p.attributeName];
         switch (p.attributeType) {
