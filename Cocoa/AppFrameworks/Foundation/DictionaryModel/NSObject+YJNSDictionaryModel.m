@@ -15,18 +15,6 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation NSDictionary (YJNSDictionaryModel)
-
-- (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary {
-    return [self initWithDictionary:modelDictionary ?: @{}];
-}
-
-- (NSDictionary *)modelDictionary {
-    return self;
-}
-
-@end
-
 @implementation NSObject (YJNSDictionaryModel)
 
 #pragma mark public(+)
@@ -36,6 +24,9 @@
 
 #pragma mark - init
 - (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary {
+    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) {
+        return modelDictionary;
+    }
     return [self initWithModelDictionary:modelDictionary optionalAttributes:@{}];
 }
 
@@ -49,6 +40,9 @@
 
 #pragma mark - geter & setter
 - (NSDictionary *)modelDictionary {
+    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) {
+        return (NSDictionary *)self;
+    }
     return [self modelDictionaryWithOptionalAttributes:@{}];
 }
 

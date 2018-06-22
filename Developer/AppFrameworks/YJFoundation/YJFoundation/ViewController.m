@@ -48,6 +48,12 @@
     NSDictionary *dictionary = v.modelDictionary;
     v = [[ViewController1 alloc] initWithModelDictionary:dictionary];
     NSLog(@"%@", v.set);
+    dictionary = v.set.modelDictionary;
+    NSLog(@"%@", dictionary);
+    NSLog(@"%@", [[NSSet alloc] initWithModelDictionary:dictionary]);
+    dictionary = @{@"1":@(5)}.modelDictionary;
+    NSLog(@"%@", dictionary);
+    NSLog(@"%@", [[NSDictionary alloc] initWithModelDictionary:dictionary]);
 }
 
 #pragma mark - log
