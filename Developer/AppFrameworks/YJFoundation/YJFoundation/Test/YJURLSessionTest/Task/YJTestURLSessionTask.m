@@ -12,7 +12,7 @@
 
 - (void)resume {
     [super resume];
-    NSLog(@"请求方式：%@", self.request.requestMethod);
+    NSLog(@"请求方式：%ld", (long)self.request.requestMethod);
     if (random()%4 == 1) {
         NSDictionary *jsonDict = @{@"desc": @"请求成功"};
         self.success([[self.request.responseModelClass alloc] initWithModelDictionary:jsonDict]);

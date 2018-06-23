@@ -35,6 +35,13 @@
     return task;
 }
 
+- (instancetype)mainQueue:(BOOL)mainQueue {
+    if (self) {
+        self.mainQueue = mainQueue;
+    }
+    return self;
+}
+
 #pragma mark - business
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(YJNSURLSessionTaskFailure)failure {
     @weakSelf

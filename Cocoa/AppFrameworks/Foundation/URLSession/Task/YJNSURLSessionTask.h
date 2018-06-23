@@ -48,9 +48,18 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
  *
  *  @param request YJNSURLRequest
  *
- *  @return YJNSURLSessionTask
+ *  @return instancetype
  */
 + (instancetype)taskWithRequest:(YJNSURLRequest *)request;
+
+/**
+ *  @abstract 设置是否主线程返回
+ *
+ *  @param mainQueue 是否主线程
+ *
+ *  @return instancetype
+ */
+- (instancetype)mainQueue:(BOOL)mainQueue;
 
 /**
  *  @abstract 链式设置回调
@@ -59,7 +68,7 @@ typedef NS_ENUM(NSInteger, YJNSURLSessionTaskState) {
  *  @param success 成功回调
  *  @param failure 失败回调
  *
- *  @return YJNSURLSessionTask
+ *  @return instancetype
  */
 - (instancetype)completionHandler:(YJNSURLSessionTaskSuccess)success failure:(nullable YJNSURLSessionTaskFailure)failure;
 
