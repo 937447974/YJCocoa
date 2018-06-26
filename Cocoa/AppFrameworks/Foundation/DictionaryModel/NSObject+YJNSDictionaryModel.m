@@ -246,11 +246,11 @@
                 p.attributeType = YJNSDMPAttributeTypeModel;
             }
         } else {
-            NSLog(@"请通知阳君，QQ:937447974修复BUG:%@", propertyAttributes);
+            NSLog(@"❌ 请通知阳君(QQ:937447974)修复BUG，class: %@、propertyName：%@", self, propertyName);
             return nil;
         }
     } else {
-        NSLog(@"请通知阳君，QQ:937447974修复BUG:%@", propertyAttributes);
+        NSLog(@"⚠️ class: %@、propertyName：%@", self, propertyName);
         return nil;
     }
     return p;
