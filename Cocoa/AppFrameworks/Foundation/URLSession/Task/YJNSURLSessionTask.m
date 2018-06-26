@@ -82,18 +82,22 @@
 }
 
 - (void)suspend {
+    if (self.state == YJNSURLSessionTaskStateRunning) {
 #if DEBUG
-    NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+        NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
 #endif
-    self.state = YJNSURLSessionTaskStateSuspended;
+        self.state = YJNSURLSessionTaskStateSuspended;
+    }
 }
 
 - (void)cancel {
+    if (self.state == YJNSURLSessionTaskStateRunning) {
 #if DEBUG
-    NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
+        NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
 #endif
-    self.state = YJNSURLSessionTaskStateCanceling;
-    self.needResume = NO;
+        self.state = YJNSURLSessionTaskStateCanceling;
+        self.needResume = NO;
+    }
 }
 
 - (id)responseModelWithDictionary:(NSDictionary *)md {
