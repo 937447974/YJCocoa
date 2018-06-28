@@ -32,18 +32,18 @@
 #pragma mark -
 
 @interface MyModel2 : MyModel1
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) UITableViewStyle style;
 @property (nonatomic, strong) MyModel1 *obj; ///<
 @property (nonatomic, strong) NSArray *array1; ///<
 @property (nonatomic, strong) NSMutableArray<NSArray<MyModel1 *> *> *array2; ///<
 @property (nonatomic, strong) NSDictionary *dict; ///<
-@property (nonatomic) UITableViewStyle style;
 @property (nonatomic, weak) id <UITableViewDataSource> dataSource;
 @property (nonatomic, weak, nullable) id <UITableViewDelegate> delegate;
 @property (nonatomic, copy) void (^ __nullable block)(BOOL finished);
 @property (nonatomic, copy) NSArray *(^ __nullable block2)(BOOL finished);
 @property (nonatomic, strong) NSURL *httpURL; ///<
 @property (nonatomic, strong) NSURL *fileURL; ///<
-
 @end
 
 @implementation MyModel2
@@ -54,7 +54,6 @@
     dMManager.importArrayClasses = [NSDictionary dictionaryWithObject:[MyModel1 class] forKey:@"array2"];
     return dMManager;
 }
-
 @end
 
 #pragma mark -

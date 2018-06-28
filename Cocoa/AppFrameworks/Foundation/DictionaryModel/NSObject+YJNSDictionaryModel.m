@@ -175,10 +175,9 @@
         return [NSMutableArray array];
     }
     NSMutableDictionary *dict = YJNSSingletonW(NSMutableDictionary, @"NSObject(YJNSDictionaryModel)");
-    NSMutableArray<YJNSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
+    NSArray<YJNSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
     if (!propertys) {
-        propertys = [NSMutableArray array];
-        [dict setObject:propertys forKey:NSStringFromClass(self.class)];
+        NSMutableArray *propertysMutable = [NSMutableArray array];
         YJNSDictionaryModelManager *dMManager = [sourceClass dictionaryModelManager];
         unsigned int propertyCount;
         objc_property_t *properties = class_copyPropertyList(sourceClass, &propertyCount);
@@ -186,11 +185,13 @@
             objc_property_t property = properties[i];
             YJNSDictionaryModelProperty *p = [self getModelProperty:property dictionaryModelManager:dMManager];
             if (p) {
-                [propertys addObject:p];
+                [propertysMutable addObject:p];
             }
         }
         free(properties);
-        [propertys addObjectsFromArray:[[sourceClass superclass] propertys]];
+        [propertysMutable addObjectsFromArray:[[sourceClass superclass] propertys]];
+        propertys = propertysMutable.copy;
+        [dict setObject:propertys forKey:NSStringFromClass(self.class)];
     }
     return propertys;
 }
@@ -214,11 +215,9 @@
         return nil;
     }
     // immutable classes: NSNumber, NSString, NSURL, NSArray, NSDictionary
-    if (attributeItems.count == 3) {
-        p.attributeType = YJNSDMPAttributeTypeNumber;
-    } else if (attributeItems.count == 4) {
-        NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
-        if ([scanner scanString:@"T@\"" intoString:nil]) {
+    NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
+    if ([scanner scanString:@"T@\"" intoString:nil]) {
+        if (attributeItems.count == 4) {
             NSString *attributeClassName;
             [scanner scanUpToString:@"\"," intoString:&attributeClassName];
             p.attributeClass = NSClassFromString(attributeClassName);
@@ -246,11 +245,13 @@
                 p.attributeType = YJNSDMPAttributeTypeModel;
             }
         } else {
-            NSLog(@"❌ 请通知阳君(QQ:937447974)修复BUG，class: %@、propertyName：%@", self, propertyName);
+            NSLog(@"YJNSDictionaryModel jump parse class:%@; attributeName:%@, propertyAttributes:%@", self, p.attributeName, propertyAttributes);
             return nil;
         }
+    } else if (attributeItems.count == 3) {
+        p.attributeType = YJNSDMPAttributeTypeNumber;
     } else {
-        NSLog(@"⚠️ class: %@、propertyName：%@", self, propertyName);
+        NSLog(@"YJNSDictionaryModel ⚠️ class:%@; propertyAttributes:%@", self, propertyAttributes);
         return nil;
     }
     return p;
