@@ -28,7 +28,7 @@
     NSMutableDictionary *sPool = YJNSURLSessionPoolS;
     YJNSURLSessionTask *task = [sPool objectForKey:request.identifier];
     if (!task) {
-        task = [[self alloc] init];
+        task = self.new;
         if (task && request.identifier) {
             [sPool setObject:task forKey:request.identifier];
         }
