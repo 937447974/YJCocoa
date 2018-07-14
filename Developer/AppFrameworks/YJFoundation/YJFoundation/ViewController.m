@@ -23,9 +23,10 @@
 @implementation ViewController1
 @end
 
-@interface ViewController ()
+@interface ViewController () <NSCacheDelegate>
 
 @property (nonatomic, copy) NSString *str; ///<
+@property (nonatomic, strong) YJNSCache *cache; ///<
 
 @end
 
@@ -33,27 +34,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //        [self testSingleton];
-    //        [self testTimer];
-    //        [self testCalendar];
-//            [self testURLSession];
-    //    [self testSwizzling];
-    //    [self testLog];
+    [self testSingleton];
+//    [self testTimer];
+//    [self testCalendar];
+//    [self testURLSession];
+//    [self testSwizzling];
+//    [self testLog];
 //    [self testKVO];
 //    [self testNotificationCenter];
-    ViewController1 * v = [ViewController1 new];
-    v.set = [NSSet setWithObjects:@"1",@"2",nil];
-    NSLog(@"%@", v.set);
-    NSLog(@"%@", v.modelDictionary);
-    NSDictionary *dictionary = v.modelDictionary;
-    v = [[ViewController1 alloc] initWithModelDictionary:dictionary];
-    NSLog(@"%@", v.set);
-    dictionary = v.set.modelDictionary;
-    NSLog(@"%@", dictionary);
-    NSLog(@"%@", [[NSSet alloc] initWithModelDictionary:dictionary]);
-    dictionary = @{@"1":@(5)}.modelDictionary;
-    NSLog(@"%@", dictionary);
-    NSLog(@"%@", [[NSDictionary alloc] initWithModelDictionary:dictionary]);
+//    [self testCache];
 }
 
 #pragma mark - log
@@ -68,21 +57,30 @@
 
 #pragma mark - 单例
 - (void)testSingleton {
-    for (int i = 0; i<10; i++) {
+    for (int i = 0; i < 3; i++) {
         //异步执行队列任务
         dispatch_async_default(^{
             NSLog(@"0-%@", YJNSSingletonS(ViewController, nil));
         });
         dispatch_async_default(^{
-            NSLog(@"1- %@", YJNSSingletonS(ViewController, @"private"));
+            NSLog(@"1-%@", YJNSSingletonS(ViewController, @"private1"));
         });
         dispatch_async_default(^{
-            NSLog(@"2-  %@", YJNSSingletonW(ViewController, nil));
+            NSLog(@"2-%@", YJNSSingletonW(ViewController, @"private2"));
         });
         dispatch_async_default(^{
-            NSLog(@"3-   %@", YJNSSingletonW(ViewController, @"private"));
+            NSLog(@"3-%@", YJNSSingletonW(ViewController, @"private3"));
+        });
+        dispatch_async_default(^{
+            NSLog(@"4-%@", YJNSSingletonW(ViewController, @"private4"));
+        });
+        dispatch_async_default(^{
+            NSLog(@"5-%@", YJNSSingletonW(ViewController, @"private5"));
         });
     }
+    dispatch_after_main(1, ^{
+        [NSNotificationCenter.defaultCenter postNotificationName:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+    });
     NSLog(@"dispatch_queue_create");
 }
 
@@ -116,7 +114,7 @@
     YJNSURLRequest *request = [YJNSURLRequest requestWithSource:nil url:@"https://github.com/937447974/YJCocoa" reqMethod:YJNSURLRequestMethodPOST reqModel:requestModel respModelClass:YJNSURLResponseModel.class];
     [[[YJTestURLSessionTask taskWithRequest:request] completionHandler:^(YJNSURLResponseModel *responseModel) {
         NSLog(@"获取服务器数据:%@", responseModel.modelDictionary);
-        [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求        
+        [[YJTestURLSessionTask taskWithRequest:request] cancel]; // 取消请求
     } failure:^(NSError *error) {
         request.supportResume = YES; // 开启断网重连
         [YJNSURLSession resumeAllNeedTask];// 断网重连
@@ -207,6 +205,23 @@
     dispatch_async_main(^{
         [NSNotificationCenter.defaultCenter postNotificationName:@"test" object:nil userInfo:@{@"1":@"2"}];
     });
+}
+
+#pragma mark - Cache
+- (void)testCache {
+    self.cache = YJNSCache.new;
+    self.cache.delegate = self;
+    self.cache.countLimit = 9999;
+    [self.cache setObject:@"1" forKey:@"1"];
+    [self.cache setObject:@"2" forKey:@"2"];
+    [self.cache setObject:ViewController.new forKey:@"private"];
+    [self.cache setObject:ViewController.new forKey:@"private2"];
+    [self.cache setObject:ViewController.new forKey:@"private3"];
+    self.cache.countLimit = 1;
+}
+
+- (void)cache:(NSCache *)cache willEvictObject:(id)obj {
+    NSLog(@"%@%@", NSStringFromSelector(_cmd), obj);
 }
 
 @end

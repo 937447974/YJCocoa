@@ -61,6 +61,10 @@ Pod::Spec.new do |s|
             foundation.subspec 'AOP' do |aop|
                 aop.source_files = 'Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}'
             end
+            # Cache
+            foundation.subspec 'Cache' do |cache|
+                cache.source_files = 'Cocoa/AppFrameworks/Foundation/Cache/*.{h,m}'
+            end
             # Calendar
             foundation.subspec 'Calendar' do |calendar|
                 calendar.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'

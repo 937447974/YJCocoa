@@ -13,13 +13,16 @@
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
 #import "YJDispatch.h"
+#import "YJNSCache.h"
+#import "NSNotificationCenter+YJ.h"
 
-@interface YJNSSingletonMCenter() {
+@interface YJNSSingletonMCenter() <NSCacheDelegate> {
     pthread_mutex_t _lock;
 }
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict; ///< 随应用一直存在的单例
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict;   ///< 内存警告时会回收的单例
+@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict;   ///< 弱引用单例
+@property (nonatomic, strong) YJNSCache<NSString *, id> *weakCache; ///< weak缓存池
 
 @end
 
@@ -41,11 +44,26 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.strongDict = [NSMutableDictionary dictionary];
-        self.weakDict = [NSMutableDictionary dictionary];
         pthread_mutex_init(&_lock, NULL);
-        // 内存监听
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+        self.strongDict = NSMutableDictionary.dictionary;
+        self.weakDict = NSMutableDictionary.dictionary;
+        self.weakCache = YJNSCache.new;
+#if DEBUG
+        self.weakCache.delegate = self;
+#endif
+        @weakSelf
+        [NSNotificationCenter.defaultCenter addObserver:self name:UIApplicationDidReceiveMemoryWarningNotification usingBlock:^(NSNotification *note) {
+            dispatch_async_default(^{
+                @strongSelf
+                @synchronized_pthread (self -> _lock)
+                self.weakCache.countLimit = self.weakDict.count / 2;
+                for (NSString *key in self.weakDict.allKeys) {
+                    if (![self.weakCache objectForKey:key])
+                        [self.weakDict removeObjectForKey:key];
+                }
+                self.weakCache.countLimit = 0;
+            });
+        }];
     }
     return self;
 }
@@ -54,24 +72,19 @@
     pthread_mutex_destroy(&_lock);
 }
 
-- (void)didReceiveMemoryWarning {
-    @synchronized_pthread (self -> _lock)
-    [self.weakDict removeAllObjects];
-}
-
 #pragma mark - 注册单例
 - (id)registerStrongSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
+    identifier = identifier ?: YJNSStringFromClass(sClass);
     return [self registerSingleton:self.strongDict forClass:sClass forIdentifier:identifier];
 }
 
 - (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
+    identifier = identifier ?: YJNSStringFromClass(sClass);
+    [self.weakCache setObject:identifier forKey:identifier];
     return [self registerSingleton:self.weakDict forClass:sClass forIdentifier:identifier];
 }
 
 - (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)sClass forIdentifier:(NSString *)identifier {
-    if (!identifier) {
-        identifier = YJNSStringFromClass(sClass);
-    }
     id singleton;
     while (!singleton) {
         @synchronized_pthread_try(self -> _lock) {
@@ -95,6 +108,11 @@
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {
     @synchronized_pthread (self -> _lock)
     [self.weakDict removeObjectForKey:identifier];
+}
+
+#pragma mark - NSCacheDelegate
+- (void)cache:(NSCache *)cache willEvictObject:(id)obj {
+    NSLog(@"YJNSSingleton 释放：%@", obj);
 }
 
 @end

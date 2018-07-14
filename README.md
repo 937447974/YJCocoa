@@ -17,45 +17,49 @@ YJ系列开源库
 
 AOP切面编程，将一对一的通信转换为一对多的通信。
 
-### 1.1.2 Calendar
+### 1.1.2 Cache
+
+Cache 缓存工具，在 NSCache 的基础上增加了 NSDictionary 的相关功能。
+
+### 1.1.3 Calendar
 
 日历工具，快速将秒转换为天、时、分等。
 
-### 1.1.3 DictionaryModel
+### 1.1.4 DictionaryModel
 
 快速高效的转换模型和Model。
 
-### 1.1.4 Directory
+### 1.1.5 Directory
 
 快速获取应用内目录
 
-### 1.1.5 FileManager
+### 1.1.6 FileManager
 
 NSFileManager扩展，支持快速移动文件。主要是替换系统方法`moveItemAtPath:toPath:error:`和`moveItemAtURL:toURL:error:`
 
-### 1.1.6 Http
+### 1.1.7 Http
 
 1. http链接解析，快速获取其中参数，支持URLDecode解码;
 2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
-### 1.1.7 KVO
+### 1.1.8 KVO
 
 1. 支持 Block 的方式监听 KeyValue 变化。
 2. Observer 自动移除，无须手动调用 `removeObserver: forKeyPath:`移除。
 
-### 1.1.8 Log
+### 1.1.9 Log
 
 NSLog打印优化，Unicode自动转化为中文输出。
 
-### 1.1.9 NotificationCenter
+### 1.1.10 NotificationCenter
 
 NSNotificationCenter block 回调，并支持自动释放。
 
-### 1.1.10 PerformSelector
+### 1.1.11 PerformSelector
 
 合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
-### 1.1.11 Router
+### 1.1.12 Router
 
 Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
 
@@ -66,16 +70,16 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 	2. 原型模式：每次跳转时都会重新创建一份对应的控制器。
 	3. 内存警告模式：内存警告时，释放相关联的控制器。
 
-### 1.1.12 Singleton
+### 1.1.13 Singleton
 
 1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
 2. 可定制全局单例和局域单例。
 
-### 1.1.13 Swizzling
+### 1.1.14 Swizzling
 
 支持随时随地交换方法。
 
-### 1.1.14 Timer
+### 1.1.15 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -84,11 +88,11 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-### 1.1.15 URLCode
+### 1.1.16 URLCode
 
 URLEncode编码和URLDecode解码
 
-### 1.1.16 URLSession
+### 1.1.17 URLSession
 
 大型APP网络架构，具有以下特性：
 
