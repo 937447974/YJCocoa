@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "8.2.0"
+    s.version  = "8.3.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -121,6 +121,7 @@ Pod::Spec.new do |s|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.subspec 'Core' do |score|
                     score.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}'
+                    score.dependency 'YJCocoa/AppFrameworks/Foundation/Cache'
                     score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                     score.dependency 'YJCocoa/System/Dispatch'
                 end

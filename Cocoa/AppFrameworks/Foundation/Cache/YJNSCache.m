@@ -56,6 +56,11 @@
     [self.cacheSet removeAllObjects];
 }
 
+#pragma mark - Getter
+- (NSUInteger)count {
+    return self.allKeys.count;
+}
+
 - (NSArray *)allKeys {
     for (id key in self.cacheSet.allObjects) {
         [self objectForKey:key];
