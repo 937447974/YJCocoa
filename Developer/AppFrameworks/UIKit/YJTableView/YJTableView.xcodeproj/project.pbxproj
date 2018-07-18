@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D248615735AEB9ED4DAF126 /* libPods-YJTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C6D1708777DD9DE86D995A /* libPods-YJTableView.a */; };
+		4AB60D7120FED4250013DD0A /* YJUITableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB60D7020FED4250013DD0A /* YJUITableViewHeaderView.m */; };
 		845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D61CF015B800BCC14E /* YJFirstViewController.m */; };
 		845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D81CF015B800BCC14E /* YJSecondViewController.m */; };
 		84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6FDC1E02829D001F81E6 /* YJTestTableCellModel.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AB60D6F20FED4250013DD0A /* YJUITableViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJUITableViewHeaderView.h; sourceTree = "<group>"; };
+		4AB60D7020FED4250013DD0A /* YJUITableViewHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJUITableViewHeaderView.m; sourceTree = "<group>"; };
 		6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.release.xcconfig"; sourceTree = "<group>"; };
 		845CC1D51CF015B800BCC14E /* YJFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFirstViewController.h; sourceTree = "<group>"; };
 		845CC1D61CF015B800BCC14E /* YJFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFirstViewController.m; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				84AE6FDF1E02829D001F81E6 /* YJTestTableViewCell.xib */,
 				84AE6FE01E02829D001F81E6 /* YJTestTableViewCell2.h */,
 				84AE6FE11E02829D001F81E6 /* YJTestTableViewCell2.m */,
+				4AB60D6F20FED4250013DD0A /* YJUITableViewHeaderView.h */,
+				4AB60D7020FED4250013DD0A /* YJUITableViewHeaderView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				845CC1DA1CF015B800BCC14E /* YJSecondViewController.m in Sources */,
 				84AE6FE51E02829D001F81E6 /* YJTestTableViewCell2.m in Sources */,
 				84AE6FE21E02829D001F81E6 /* YJTestTableCellModel.m in Sources */,
+				4AB60D7120FED4250013DD0A /* YJUITableViewHeaderView.m in Sources */,
 				84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */,
 				84AE6FE31E02829D001F81E6 /* YJTestTableViewCell.m in Sources */,
 				845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */,

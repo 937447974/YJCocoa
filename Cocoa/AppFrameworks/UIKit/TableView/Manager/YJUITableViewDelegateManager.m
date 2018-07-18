@@ -63,15 +63,7 @@
     }
 }
 
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
-        return self.manager.tableView.rowHeight;
-    }
-    // 获取YJUITableCellObject
-    YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
-    cellObject.indexPath = indexPath;
+- (CGFloat)tableView:(UITableView *)tableView heightForCellObject:(YJUITableCellObject *)cellObject {
     // 存放缓存高的key
     NSString *key = [self getKeyFromCellObject:cellObject];
     CGFloat rowHeight = 0;
@@ -85,6 +77,35 @@
         [_cacheHeightDict setObject:[NSNumber numberWithFloat:rowHeight] forKey:key];
     }
     return rowHeight;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        return self.manager.tableView.rowHeight;
+    }
+    YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
+    cellObject.indexPath = indexPath;
+    return [self tableView:tableView heightForCellObject:cellObject];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.manager.dataSourceHeader.count <= section) {
+        return 0;
+    }
+    YJUITableCellObject *cellObject = self.manager.dataSourceHeader[section];
+    cellObject.indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    return [self tableView:tableView heightForCellObject:cellObject];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.manager.dataSourceHeader.count <= section) {
+        return nil;
+    }
+    YJUITableCellObject *cellObject = self.manager.dataSourceHeader[section];
+    cellObject.indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    return [self.manager.dataSourceManager dequeueReusableHeaderFooterViewWithCellObject:cellObject];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

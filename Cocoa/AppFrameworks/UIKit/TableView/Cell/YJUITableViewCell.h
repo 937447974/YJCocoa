@@ -20,19 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-/**
- *  @abstract 用户点击Cell中的某个控件，如按钮
- *
- *  @param cell       用户操作的cell
- *  @param cellObject cell携带的数据源
- */
-- (void)tableViewCell:(UITableViewCell *)cell sendWithCellObject:(YJUITableCellObject *)cellObject;
-
-@end
-
-/** UITableViewCell扩展*/
-@interface UITableViewCell (YJUITableView)
-
 @property (nonatomic, class, readonly) YJUITableViewCellCreate cellCreate; ///< 获取初始化cell的方式
 
 @property (nonatomic, class, readonly, weak) __kindof YJUITableCellObject *cellObject; ///< 获取YJUITableCellObject
@@ -63,6 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager;
 
+@end
+
+/** UITableViewCell扩展*/
+@interface UITableViewCell (YJUITableView) <YJUITableViewCellProtocol>
 @end
 
 

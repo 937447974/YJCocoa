@@ -41,7 +41,6 @@
     self.tag = 1;
     YJTestTableCellModel *celModel = self.cellObject.cellModel;
     celModel.switchOn = self.sSwitch.on;
-    [self.tableViewManager.delegate tableViewCell:self sendWithCellObject:self.cellObject];
 }
 
 @end

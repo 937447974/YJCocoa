@@ -25,6 +25,7 @@
     if (self) {
         self.dataSourceGrouped = [NSMutableArray array];
         [self.dataSourceGrouped addObject:[NSMutableArray array]];
+        self.dataSourceHeader = NSMutableArray.array;
         _tableView = tableView;
         _dataSourceManager = [[YJUITableViewDataSourceManager alloc] initWithManager:self];
         _delegateManager = [[YJUITableViewDelegateManager alloc] initWithManager:self];

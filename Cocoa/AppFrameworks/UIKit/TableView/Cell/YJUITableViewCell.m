@@ -11,13 +11,11 @@
 
 #import "YJUITableViewCell.h"
 #import "YJUITableViewManager.h"
-#import "YJDispatch.h"
 #import "YJNSFoundationOther.h"
 
-#pragma mark - UITableViewCell (YJUITableView)
-@implementation UITableViewCell (YJUITableView)
+#pragma mark - UIView (YJUITableView)
+@implementation UIView (YJUITableView)
 
-#pragma mark - (+)
 + (YJUITableViewCellCreate)cellCreate {
     [self doesNotRecognizeSelector:_cmd];
     return YJUITableViewCellCreateClass;
@@ -35,23 +33,28 @@
     return cellObject;
 }
 
-+ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
-    if (cellObject.createCell == YJUITableViewCellCreateClass) {
-        return tableViewManager.tableView.rowHeight; // 默认高
-    }
-    // soryboard方式创建cell
-    UITableViewCell *cell = [tableViewManager.tableView dequeueReusableCellWithIdentifier:cellObject.cellName];
-    if (cell) {
-        return CGRectGetHeight(cell.frame);
-    }
-    // xib创建cell
-    NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
-    return CGRectGetHeight(array.firstObject.frame);
-}
-
-#pragma mark - (-)
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     [self doesNotRecognizeSelector:_cmd];
+}
+
+@end
+
+#pragma mark - UITableViewCell (YJUITableView)
+@implementation UITableViewCell (YJUITableView)
+
++ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
+    switch (cellObject.createCell) {
+        case YJUITableViewCellCreateClass:
+            return tableViewManager.tableView.rowHeight;
+        case YJUITableViewCellCreateXib: {
+            NSArray<UITableView *> *array = [[NSBundle mainBundle] loadNibNamed:cellObject.cellName owner:nil options:nil];
+            return CGRectGetHeight(array.firstObject.frame);
+        }
+        case YJUITableViewCellCreateSoryboard: {
+            UITableViewCell *cell = [tableViewManager.tableView dequeueReusableCellWithIdentifier:cellObject.cellName];
+            return CGRectGetHeight(cell.frame);
+        }
+    }
 }
 
 @end

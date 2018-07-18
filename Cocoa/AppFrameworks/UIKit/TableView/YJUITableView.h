@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *dataSourcePlain; ///< 数据源单组
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<YJUITableCellObject *> *> *dataSourceGrouped; ///< 数据源多组
 
+@property (nonatomic, strong) NSMutableArray<YJUITableCellObject *> *dataSourceHeader; ///< 数据源头
+
 @end
 
 NS_ASSUME_NONNULL_END

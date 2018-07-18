@@ -34,29 +34,29 @@
     UITableViewCell *cell;
     for (YJUITableCellObject *cellObject in cellObjects) {
         cell = [self.manager.tableView cellForRowAtIndexPath:cellObject.indexPath];
-        [cell reloadDataWithCellObject:cellObject tableViewManager:_manager];
+        [cell reloadDataWithCellObject:cellObject tableViewManager:self.manager];
     }
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _manager.dataSourceGrouped.count;
+    return self.manager.dataSourceGrouped.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_manager.dataSourceGrouped.count <= section) {
+    if (self.manager.dataSourceGrouped.count <= section) {
         NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
         return 0;
     }
-    return [_manager.dataSourceGrouped objectAtIndex:section].count;
+    return [self.manager.dataSourceGrouped objectAtIndex:section].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
+    if (self.manager.dataSourceGrouped.count <= indexPath.section || self.manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
         NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
         return [[YJUITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YJUITableViewCell"];
     }
-    YJUITableCellObject *cellObject = _manager.dataSourceGrouped[indexPath.section][indexPath.row];
+    YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
     cellObject.indexPath = indexPath;
     return [self dequeueReusableCellWithCellObject:cellObject];
 }
@@ -76,9 +76,28 @@
         }
         [self.identifierSet addObject:cellObject.reuseIdentifier];
     }
-    UITableViewCell *cell = [_manager.tableView dequeueReusableCellWithIdentifier:cellObject.reuseIdentifier forIndexPath:cellObject.indexPath];
-    [cell reloadDataWithCellObject:cellObject tableViewManager:_manager];
+    UITableViewCell *cell = [self.manager.tableView dequeueReusableCellWithIdentifier:cellObject.reuseIdentifier forIndexPath:cellObject.indexPath];
+    [cell reloadDataWithCellObject:cellObject tableViewManager:self.manager];
     return cell;
+}
+
+- (UITableViewHeaderFooterView *)dequeueReusableHeaderFooterViewWithCellObject:(YJUITableCellObject *)cellObject {
+    if (![self.identifierSet containsObject:cellObject.reuseIdentifier]) {
+        switch (cellObject.createCell) {
+            case YJUITableViewCellCreateClass:
+                [self.manager.tableView registerClass:cellObject.cellClass forHeaderFooterViewReuseIdentifier:cellObject.reuseIdentifier];
+                break;
+            case YJUITableViewCellCreateXib:
+                [self.manager.tableView registerNib:[UINib nibWithNibName:cellObject.cellName bundle:nil] forHeaderFooterViewReuseIdentifier:cellObject.reuseIdentifier];
+                break;
+            case YJUITableViewCellCreateSoryboard:
+                break;
+        }
+        [self.identifierSet addObject:cellObject.reuseIdentifier];
+    }
+    UITableViewHeaderFooterView *headerFooterView = [self.manager.tableView dequeueReusableHeaderFooterViewWithIdentifier:cellObject.reuseIdentifier];
+    [headerFooterView reloadDataWithCellObject:cellObject tableViewManager:self.manager];
+    return headerFooterView;
 }
 
 @end

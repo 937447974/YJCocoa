@@ -11,6 +11,7 @@
 #import "YJTestTableViewCell2.h"
 #import "YJUITableView.h"
 #import "UIView+YJUIViewGeometry.h"
+#import "YJUITableViewHeaderView.h"
 
 @interface YJFirstViewController () <YJUITableViewManagerDelegate>
 
@@ -23,13 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[YJUITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     
     //    [self test1];
 //    [self test2];
-    [self test3];
+//    [self test3];
+    [self test4];
 }
 
 #pragma mark - 测试数据
@@ -72,11 +75,6 @@
     [self initTestData];
 }
 
-#pragma mark YJUITableViewCellProtocol
-- (void)tableViewCell:(UITableViewCell *)cell sendWithCellObject:(YJUITableCellObject *)cellObject {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
 #pragma mark YJUIScrollViewManagerDelegate
 - (void)scrollViewManager:(YJUIScrollViewManager *)manager didVerticalScroll:(YJUIScrollViewScroll)scroll {
     NSLog(@"%@ -- %ld", NSStringFromSelector(_cmd), (long)scroll);
@@ -89,6 +87,25 @@
 #pragma mark YJUITableViewManagerDelegate
 - (void)tableViewManager:(YJUITableViewManager *)manager didSelectCellWithCellObject:(YJUITableCellObject *)cellObject {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+#pragma mark -
+- (void)test4 {
+    self.tableView.sectionHeaderHeight = 20;
+    [self.tableView.dataSourceGrouped removeAllObjects];
+    for (int i = 0; i < 3; i++) {
+        [self.tableView.dataSourceHeader addObject:YJUITableViewHeaderView.cellObject];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
+        for (int j=0; j<10; j++) {
+            // 封装模型
+            YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
+            cellModel.userName = [NSString stringWithFormat:@"阳君-%d-%d", i, j];
+            YJUITableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
+            // 填充数据源
+            [array addObject:co];
+        }
+        [self.tableView.dataSourceGrouped addObject:array];
+    }    
 }
 
 @end

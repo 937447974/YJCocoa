@@ -38,4 +38,12 @@
     self.manager.dataSourceGrouped = dataSourceGrouped;
 }
 
+- (NSMutableArray<YJUITableCellObject *> *)dataSourceHeader {
+    return self.manager.dataSourceHeader;
+}
+
+- (void)setDataSourceHeader:(NSMutableArray<YJUITableCellObject *> *)dataSourceHeader {
+    self.manager.dataSourceHeader = dataSourceHeader;
+}
+
 @end

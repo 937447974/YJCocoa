@@ -11,6 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YJUITableViewCell.h"
+#import "YJUITableViewHeaderFooterView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,6 +39,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return UITableViewCell
  */
 - (__kindof UITableViewCell *)dequeueReusableCellWithCellObject:(YJUITableCellObject *)cellObject;
+
+/**
+ *  @abstract 根据 cellObject 创建 UITableViewHeaderFooterView
+ *
+ *  @param cellObject YJUITableCellObject
+ *
+ *  @return UITableViewHeaderFooterView
+ */
+- (__kindof UITableViewHeaderFooterView *)dequeueReusableHeaderFooterViewWithCellObject:(YJUITableCellObject *)cellObject;
 
 /**
  *  @abstract 快速刷新已加载cell
