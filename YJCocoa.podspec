@@ -247,7 +247,6 @@ Pod::Spec.new do |s|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/{Manager,Cell}/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
-                    core.dependency 'YJCocoa/System/Dispatch'
                 end
                 tv.subspec 'CellObject' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/CellObject/*.{h,m}'
