@@ -11,6 +11,7 @@
 
 #import "YJNSURLSession.h"
 
+
 @implementation YJNSURLSession
 
 + (void)resumeAllNeedTask {
@@ -26,11 +27,11 @@
 }
 
 + (NSArray *)allEffectiveTask {
-    NSMutableDictionary *sPool = YJNSURLSessionPoolS;
-    NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:sPool.count];
-    for (YJNSURLSessionTask *task in sPool.allValues) {
+    YJNSCache *cache = YJNSURLSessionPoolS.cache;
+    NSMutableArray *allEffectiveTask = [NSMutableArray arrayWithCapacity:cache.count];
+    for (YJNSURLSessionTask *task in cache.allValues) {
         YJNSURLRequest *request = task.request;
-        request.source ? [allEffectiveTask addObject:task] : [sPool removeObjectForKey:request.identifier];
+        request.source ? [allEffectiveTask addObject:task] : [cache removeObjectForKey:request.identifier];
     }    
     return allEffectiveTask;
 }

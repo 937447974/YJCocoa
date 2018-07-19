@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 #import "YJNSURLRequest.h"
-#import "YJNSURLSessionPool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 // self = YJNSURLRequest.source

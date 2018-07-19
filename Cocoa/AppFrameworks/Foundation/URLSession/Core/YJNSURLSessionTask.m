@@ -10,6 +10,7 @@
 //
 
 #import "YJNSURLSessionTask.h"
+#import "YJNSURLSessionPool.h"
 #import "YJDispatch.h"
 
 @interface YJNSURLSessionTask ()
@@ -25,12 +26,12 @@
 @implementation YJNSURLSessionTask
 
 + (instancetype)taskWithRequest:(YJNSURLRequest *)request {
-    NSMutableDictionary *sPool = YJNSURLSessionPoolS;
-    YJNSURLSessionTask *task = [sPool objectForKey:request.identifier];
+    YJNSCache *cache = YJNSURLSessionPoolS.cache;
+    YJNSURLSessionTask *task = [cache objectForKey:request.identifier];
     if (!task) {
         task = self.new;
         if (task && request.identifier) {
-            [sPool setObject:task forKey:request.identifier];
+            [cache setObject:task forKey:request.identifier];
         }
     }
     task.request = request;

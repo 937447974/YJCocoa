@@ -146,20 +146,16 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'URLSession' do |session|
                 session.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}'
-                session.subspec 'Pool' do |pool|
-                    pool.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Pool/*.{h,m}'
-                    pool.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                session.subspec 'Core' do |core|
+                    core.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Core/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/Request'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                    core.dependency 'YJCocoa/System/Dispatch'
                 end
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
                     request.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
-                end
-                session.subspec 'Task' do |task|
-                    task.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Task/*.{h,m}'
-                    task.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/Pool'
-                    task.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/Request'
-                    task.dependency 'YJCocoa/System/Dispatch'
-                end
+                end                
             end
             foundation.subspec 'Other' do |other|
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'

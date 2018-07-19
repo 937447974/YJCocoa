@@ -39,7 +39,11 @@
 #pragma mark - getter & setter
 - (NSString *)identifier {
     if (!_identifier) {
-        _identifier = [NSString stringWithFormat:@"%@-%@-%@", self.source, self.URL, self.requestModel];
+        if ([self.source isKindOfClass:YJNSURLRequest.class]) {
+            _identifier = [NSString stringWithFormat:@"%@-%@-%@", self.source, self.URL, self.requestModel];
+        } else {
+            _identifier = [NSString stringWithFormat:@"%@-%@", self.URL, self.requestModel];
+        }
     }
     return _identifier;
 }
