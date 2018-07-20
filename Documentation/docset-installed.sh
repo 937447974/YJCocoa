@@ -31,12 +31,9 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "1. NSNotificationCenter 上线，主要用于 block 回调通知，并支持自动释放。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "2. TableViewManager 升级为 TableView 库，增加 YJUITableView 组件。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "3. CollectionViewManager 升级为CollectionView 库，增加 YJUICollectionView 组件。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "4. PageViewManager 升级为 PageView 库，增加 YJUIPageViewController 组件。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "5. Dispatch 增加 strongSelfReturn 宏，支持self不存在时直接返回默认值。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "6. URLSession、DictionaryModel 修复相关 bug。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "1. YJNSCache 缓存工具上线，在 NSCache 的基础上增加了 NSDictionary 的相关功能。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "2. TableView 增加对 header 的支持。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "3. URLSession 启用 YJNSCache 缓存策略。" with title "YJCocoa 8.2.0"'
 
 
 

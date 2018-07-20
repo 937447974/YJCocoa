@@ -10,6 +10,7 @@
 //
 
 #import "YJNSURLSessionPool.h"
+#import "YJDispatch.h"
 
 @implementation YJNSURLSessionPool
 
@@ -25,11 +26,12 @@
 - (void)cache:(NSCache *)cache willEvictObject:(YJNSURLSessionTask *)task {
     switch (task.state) {
         case YJNSURLSessionTaskStateDefault:
-        case YJNSURLSessionTaskStateRunning:
-            [cache setObject:task forKey:task.request.identifier];
-            break;            
-        default:
-            break;
+        case YJNSURLSessionTaskStateRunning: {
+            dispatch_async_default(^{
+                [cache setObject:task forKey:task.request.identifier];
+            });
+        } break;
+        default: break;
     }
 }
 
