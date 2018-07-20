@@ -25,27 +25,23 @@
 
 @implementation YJNSURLRequest
 
-#pragma mark - init
-+ (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass{
++ (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass {
     YJNSURLRequest *request = [[self alloc] init];
     request.source = source ?: self;
     request.URL = url;
     request.requestMethod = reqMethod;
     request.requestModel = reqModel;
     request.responseModelClass = respModelClass;
+    NSMutableString *identifier = [NSMutableString stringWithString:url];
+    if ([source isKindOfClass:NSObject.class]) {
+        [identifier appendFormat:@"-%@", NSStringFromClass(((NSObject *)source).class)];
+    }
+    if (reqModel) {
+        [identifier appendFormat:@"-%@", reqModel];
+    }
+    request.identifier = identifier.copy;
     return request;
 }
 
-#pragma mark - getter & setter
-- (NSString *)identifier {
-    if (!_identifier) {
-        if ([self.source isKindOfClass:YJNSURLRequest.class]) {
-            _identifier = [NSString stringWithFormat:@"%@-%@-%@", self.source, self.URL, self.requestModel];
-        } else {
-            _identifier = [NSString stringWithFormat:@"%@-%@", self.URL, self.requestModel];
-        }
-    }
-    return _identifier;
-}
 
 @end
