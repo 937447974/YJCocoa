@@ -9,20 +9,16 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
 #import "YJDispatch.h"
-#import "YJNSCache.h"
-#import "NSNotificationCenter+YJ.h"
 
 @interface YJNSSingletonMCenter() <NSCacheDelegate> {
     pthread_mutex_t _lock;
 }
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict; ///< 随应用一直存在的单例
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *weakDict;   ///< 弱引用单例
-@property (nonatomic, strong) YJNSCache<NSString *, id> *weakCache; ///< weak缓存池
+@property (nonatomic, strong) NSCache<NSString *, id> *weakCache; ///< weak缓存池
 
 @end
 
@@ -46,24 +42,10 @@
     if (self) {
         pthread_mutex_init(&_lock, NULL);
         self.strongDict = NSMutableDictionary.dictionary;
-        self.weakDict = NSMutableDictionary.dictionary;
-        self.weakCache = YJNSCache.new;
+        self.weakCache = NSCache.new;
 #if DEBUG
         self.weakCache.delegate = self;
 #endif
-        @weakSelf
-        [NSNotificationCenter.defaultCenter addObserver:self name:UIApplicationDidReceiveMemoryWarningNotification usingBlock:^(NSNotification *note) {
-            dispatch_async_default(^{
-                @strongSelf
-                @synchronized_pthread (self -> _lock)
-                self.weakCache.countLimit = self.weakDict.count / 2;
-                for (NSString *key in self.weakDict.allKeys) {
-                    if (![self.weakCache objectForKey:key])
-                        [self.weakDict removeObjectForKey:key];
-                }
-                self.weakCache.countLimit = 0;
-            });
-        }];
     }
     return self;
 }
@@ -80,8 +62,7 @@
 
 - (id)registerWeakSingleton:(Class)sClass forIdentifier:(NSString *)identifier {
     identifier = identifier ?: YJNSStringFromClass(sClass);
-    [self.weakCache setObject:identifier forKey:identifier];
-    return [self registerSingleton:self.weakDict forClass:sClass forIdentifier:identifier];
+    return [self registerSingleton:(NSMutableDictionary *)self.weakCache forClass:sClass forIdentifier:identifier];
 }
 
 - (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)sClass forIdentifier:(NSString *)identifier {
@@ -107,7 +88,7 @@
 
 - (void)removeWeakSingletonWithIdentifier:(NSString *)identifier {
     @synchronized_pthread (self -> _lock)
-    [self.weakDict removeObjectForKey:identifier];
+    [self.weakCache removeObjectForKey:identifier];
 }
 
 #pragma mark - NSCacheDelegate
