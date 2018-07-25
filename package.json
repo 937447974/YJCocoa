@@ -14,11 +14,12 @@
     },
     "main": "commitlint.config.js",
     "devDependencies": {
+        "@commitlint/cli": "^7.0.0",
         "@commitlint/config-conventional": "^7.0.1",
         "husky": "^0.14.3"
     },
     "scripts": {
-      "commitmsg": "commitlint -E GIT_PARAMS",
-      "commit": "commit"
+        "commitmsg": "commitlint -E GIT_PARAMS",
+        "commit": "commit"
     }
 }
