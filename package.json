@@ -1,0 +1,24 @@
+{
+    "name": "yjcocoa",
+    "version": "8.3.0",
+    "description": "YJ系列开源库",
+    "author": "阳君",
+    "license": "MIT",
+    "homepage": "https://github.com/937447974/YJCocoa",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/937447974/YJCocoa.git"
+    },
+    "bugs": {
+        "url": "https://github.com/937447974/YJCocoa/issues"
+    },
+    "main": "commitlint.config.js",
+    "devDependencies": {
+        "@commitlint/config-conventional": "^7.0.1",
+        "husky": "^0.14.3"
+    },
+    "scripts": {
+      "commitmsg": "commitlint -E GIT_PARAMS",
+      "commit": "commit"
+    }
+}

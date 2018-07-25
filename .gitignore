@@ -5,3 +5,6 @@
 # CocoaPods
 **/Pods/**
 **/Podfile.lock
+
+# Node
+node_modules/
