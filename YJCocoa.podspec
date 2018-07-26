@@ -121,6 +121,8 @@ Pod::Spec.new do |s|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.subspec 'Core' do |score|
                     score.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}'
+                    score.dependency 'YJCocoa/AppFrameworks/Foundation/Cache'
+                    score.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
                     score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                     score.dependency 'YJCocoa/System/Dispatch'
                 end

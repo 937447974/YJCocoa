@@ -10,8 +10,11 @@
 //
 
 #import "YJNSCache.h"
+#import "YJDispatch.h"
 
-@interface YJNSCache ()
+@interface YJNSCache () {
+    pthread_mutex_t _lock;
+}
 
 @property (nonatomic, strong) NSMutableSet *cacheSet;
 
@@ -22,13 +25,19 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        pthread_mutex_init(&_lock, NULL);
         self.cacheSet = NSMutableSet.set;
     }
     return self;
 }
 
+- (void)dealloc {
+    pthread_mutex_destroy(&_lock);
+}
+
 #pragma mark - super
 - (id)objectForKey:(id)key {
+    @synchronized_pthread (self->_lock)
     id obj = [super objectForKey:key];
     if (!obj) {
         [self.cacheSet removeObject:key];
@@ -37,6 +46,7 @@
 }
 
 - (void)setObject:(id)obj forKey:(id)key {
+    @synchronized_pthread (self->_lock)
     [super setObject:obj forKey:key];
     [self.cacheSet addObject:key];
 }
@@ -47,11 +57,13 @@
 }
 
 - (void)removeObjectForKey:(id)key {
+    @synchronized_pthread (self->_lock)
     [super removeObjectForKey:key];
     [self.cacheSet removeObject:key];
 }
 
 - (void)removeAllObjects {
+    @synchronized_pthread (self->_lock)
     [super removeAllObjects];
     [self.cacheSet removeAllObjects];
 }

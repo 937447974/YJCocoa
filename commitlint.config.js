@@ -17,7 +17,7 @@ module.exports = {
                 "style",    // Improves formatting, white-space. 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑                
                 "test"     // Adds or modifies tests. 测试用例，包括单元测试、集成测试等                
             ]
-        ],
+        ]
     }
 };
 
