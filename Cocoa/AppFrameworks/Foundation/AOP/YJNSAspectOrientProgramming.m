@@ -61,17 +61,14 @@
     return NO;
 }
 
-- (NSMethodSignature*)methodSignatureForSelector:(SEL)selector {
-    NSMethodSignature *signature = [super methodSignatureForSelector:selector];
-    if (!signature) {
-        for (id target in self.weakTargets) {
-            signature = [target methodSignatureForSelector:selector];
-            if (signature) {
-                break;
-            }
-        }
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (signature) return signature;
+    for (id target in self.weakTargets) {
+        signature = [target methodSignatureForSelector:aSelector];
+        if (signature) return signature;
     }
-    return signature;
+    return nil;[NSMethodSignature signatureWithObjCTypes:@encode(id)];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {

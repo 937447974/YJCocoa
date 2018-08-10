@@ -41,6 +41,9 @@ FOUNDATION_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 /** 主线程延时执行*/
 FOUNDATION_EXPORT void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block);
+/** 子线程延时执行*/
+FOUNDATION_EXPORT void dispatch_after_default(NSTimeInterval delayInSeconds, dispatch_block_t block);
+
 
 #pragma mark - timer
 

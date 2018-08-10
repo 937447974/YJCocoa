@@ -38,6 +38,11 @@ void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block) 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
+void dispatch_after_default(NSTimeInterval delayInSeconds, dispatch_block_t block) {
+    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(when, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+}
+
 /*
 // 串行队列执行
 void dispatch_sync_serial(const char *label, dispatch_block_t block) {

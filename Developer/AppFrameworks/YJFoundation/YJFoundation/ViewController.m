@@ -34,16 +34,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self testAOP];
 //    [self testSingleton];
 //    [self testTimer];
 //    [self testCalendar];
-    [self testURLSession];
+//    [self testURLSession];
 //    [self testSwizzling];
 //    [self testLog];
 //    [self testKVO];
 //    [self testNotificationCenter];
 //    [self testCache];
 }
+
+#pragma mark - AOP
+- (void)testAOP {
+    YJNSAspectOrientProgramming *aop = YJNSAspectOrientProgramming.new;
+    ViewController *v = (ViewController *)aop;
+    NSLog(@"%@", [v testAOPSelector]);
+    [v testAOPSelector1];
+    [v performSelector:NSSelectorFromString(@"getArdddgument:atIndex:") withObject:nil];
+    [v performSelector:NSSelectorFromString(@"222:atIndex:") withObject:nil];
+    BOOL d = [v testAOPSelector2];
+    NSLog(@"%d", d);
+    [aop addTarget:self];
+    NSLog(@"%@", [v testAOPSelector]);
+    [v testAOPSelector1];
+    NSLog(@"%d", [v testAOPSelector2]);
+}
+
+- (UIView *)testAOPSelector {
+    NSLog(@"dodo");
+    return UIView.new;
+}
+
+- (void)testAOPSelector1 {}
+
+- (BOOL)testAOPSelector2 {
+    return YES;
+}
+
+
 
 #pragma mark - log
 - (void)testLog {
