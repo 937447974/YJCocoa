@@ -68,7 +68,7 @@
         signature = [target methodSignatureForSelector:aSelector];
         if (signature) return signature;
     }
-    return nil;[NSMethodSignature signatureWithObjCTypes:@encode(id)];
+    return [NSMethodSignature signatureWithObjCTypes:@encode(id)];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {

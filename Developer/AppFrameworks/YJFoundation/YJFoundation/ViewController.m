@@ -52,10 +52,7 @@
     ViewController *v = (ViewController *)aop;
     NSLog(@"%@", [v testAOPSelector]);
     [v testAOPSelector1];
-    [v performSelector:NSSelectorFromString(@"getArdddgument:atIndex:") withObject:nil];
-    [v performSelector:NSSelectorFromString(@"222:atIndex:") withObject:nil];
-    BOOL d = [v testAOPSelector2];
-    NSLog(@"%d", d);
+    NSLog(@"%d", [v testAOPSelector2]);
     [aop addTarget:self];
     NSLog(@"%@", [v testAOPSelector]);
     [v testAOPSelector1];
