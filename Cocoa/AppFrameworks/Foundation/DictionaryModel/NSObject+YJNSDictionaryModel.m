@@ -19,14 +19,12 @@
 
 #pragma mark public(+)
 + (YJNSDictionaryModelManager *)dictionaryModelManager {
-    return [[YJNSDictionaryModelManager alloc] init];
+    return YJNSDictionaryModelManager.new;
 }
 
 #pragma mark - init
 - (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary {
-    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) {
-        return modelDictionary;
-    }
+    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) return modelDictionary;
     return [self initWithModelDictionary:modelDictionary optionalAttributes:@{}];
 }
 
@@ -40,17 +38,13 @@
 
 #pragma mark - geter & setter
 - (NSDictionary *)modelDictionary {
-    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) {
-        return (NSDictionary *)self;
-    }
+    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) return (NSDictionary *)self;
     return [self modelDictionaryWithOptionalAttributes:@{}];
 }
 
 - (NSDictionary *)modelDictionaryWithOptionalAttributes:(NSDictionary<NSString *,NSString *> *)optionalAttributes {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    NSArray *propertys = [self.class propertys];
-    if (!propertys.count) return dict;
-    for (YJNSDictionaryModelProperty *p in propertys) {
+    for (YJNSDictionaryModelProperty *p in self.class.propertys) {
         id value = [self valueForKey:p.attributeName];
         switch (p.attributeType) {
             case YJNSDMPAttributeTypeNumber:     // NSNumber
@@ -58,16 +52,15 @@
             case YJNSDMPAttributeTypeDictionary: // NSDictionary
             case YJNSDMPAttributeTypeSet:        // NSSet
                 break;
-            case YJNSDMPAttributeTypeURL: {        // NSURL
-                NSURL *url = value;
-                value = url.fileURL ? url.path : url.absoluteString;
-                break;
-            }
+            case YJNSDMPAttributeTypeURL:        // NSURL
+                if (value) {
+                    NSURL *url = value;
+                    value = url.fileURL ? url.path : url.absoluteString;
+                } break;
             case YJNSDMPAttributeTypeArray:      // NSArray
                 if (value && !p.importArrayClassSystem) {
                     value = [self getDictionaryArrayValue:value forProperty:p];
-                }
-                break;
+                } break;
             case YJNSDMPAttributeTypeModel:      // Model
                 value = ((NSObject *)value).modelDictionary;
                 break;
@@ -84,58 +77,45 @@
     if (![modelDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    NSArray *propertys = [self.class propertys];
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-    for (YJNSDictionaryModelProperty *p in propertys) {
+    for (YJNSDictionaryModelProperty *p in self.class.propertys) {
         NSString *attributeKey = [optionalAttributes objectForKey:p.attributeName];
         id value = [modelDictionary objectForKey:attributeKey ?: p.attributeKey];
-        if (value == nil || [value isKindOfClass:[NSNull class]]) {
-            continue;
-        }
+        if (!value || [value isKindOfClass:NSNull.class]) continue;
         switch (p.attributeType) {
-            case YJNSDMPAttributeTypeNumber:     // NSNumber
-                if ([value isKindOfClass:[NSString class]]) {
+            case YJNSDMPAttributeTypeNumber:
+                if ([value isKindOfClass:NSString.class]) {
                     value = [numberFormatter numberFromString:value];
                 }
-                if ([value isKindOfClass:[NSNumber class]]) {
-                    [self setValue:value forKey:p.attributeName];
-                }
+                if (![value isKindOfClass:NSNumber.class]) value = nil;
                 break;
-            case YJNSDMPAttributeTypeString:     // NSString
-                [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
+            case YJNSDMPAttributeTypeString:
+                value = [NSString stringWithFormat:@"%@", value];
                 break;
-            case YJNSDMPAttributeTypeURL:        // NSURL
-                if ([value isKindOfClass:[NSString class]]) {
+            case YJNSDMPAttributeTypeURL:
+                if ([value isKindOfClass:NSString.class]) {
                     value = [value hasPrefix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
-                    [self setValue:value forKey:p.attributeName];
                 }
+                if (![value isKindOfClass:NSURL.class]) value = nil;
                 break;
-            case YJNSDMPAttributeTypeArray:      // NSArray
-                if ([value isKindOfClass:[NSArray class]]) {
-                    if (!p.importArrayClassSystem) {
+            case YJNSDMPAttributeTypeArray:
+                if ([value isKindOfClass:NSArray.class]) {
+                    if (!p.importArrayClassSystem)
                         value = [self getModelArrayValue:value forProperty:p];
-                    }
-                    [self setValue:value forKey:p.attributeName];
-                }
+                } else value = nil;
                 break;
-            case YJNSDMPAttributeTypeDictionary: // NSDictionary
-                if ([value isKindOfClass:[NSDictionary class]]) {
-                    [self setValue:value forKey:p.attributeName];
-                }
+            case YJNSDMPAttributeTypeDictionary:
+                if (![value isKindOfClass:NSDictionary.class]) value = nil;
                 break;
             case YJNSDMPAttributeTypeSet:
-                if ([value isKindOfClass:NSSet.class]) {
-                    [self setValue:value forKey:p.attributeName];
-                }
+                if (![value isKindOfClass:NSSet.class]) value = nil;
                 break;
-            case YJNSDMPAttributeTypeModel:      // Model
-                if ([value isKindOfClass:[NSDictionary class]]) {
-                    value = [[p.attributeClass alloc] initWithModelDictionary:value];
-                    [self setValue:value forKey:p.attributeName];
-                }
+            case YJNSDMPAttributeTypeModel:
+                value = [[p.attributeClass alloc] initWithModelDictionary:value];
                 break;
         }
+        if (value) [self setValue:value forKey:p.attributeName];
     }
 }
 
@@ -170,28 +150,24 @@
 
 #pragma mark - private(+)
 + (NSArray<YJNSDictionaryModelProperty *> *)propertys {
-    Class sourceClass = self.class;
-    if (sourceClass == [NSObject class]) {
-        return [NSMutableArray array];
-    }
-    NSMutableDictionary *dict = YJNSSingletonW(NSMutableDictionary, @"NSObject(YJNSDictionaryModel)");
-    NSArray<YJNSDictionaryModelProperty *> *propertys = [dict objectForKey:NSStringFromClass(sourceClass)];
+    Class cls = self.class;
+    NSString *key = NSStringFromClass(cls);
+    if (cls == NSObject.class || [key hasPrefix:@"__NS"]) return NSArray.array;
+    NSCache *cache = YJNSSingletonS(NSCache, @"NSObject(YJNSDictionaryModel)");
+    NSArray *propertys = [cache objectForKey:key];
     if (!propertys) {
-        NSMutableArray *propertysMutable = [NSMutableArray array];
-        YJNSDictionaryModelManager *dMManager = [sourceClass dictionaryModelManager];
+        NSMutableArray *propertysMutable = cls.superclass.propertys.mutableCopy;
+        YJNSDictionaryModelManager *dMManager = cls.dictionaryModelManager;
         unsigned int propertyCount;
-        objc_property_t *properties = class_copyPropertyList(sourceClass, &propertyCount);
+        objc_property_t *properties = class_copyPropertyList(cls, &propertyCount);
         for (unsigned int i = 0; i < propertyCount; i++) {
             objc_property_t property = properties[i];
-            YJNSDictionaryModelProperty *p = [self getModelProperty:property dictionaryModelManager:dMManager];
-            if (p) {
-                [propertysMutable addObject:p];
-            }
+            YJNSDictionaryModelProperty *p = [cls getModelProperty:property dictionaryModelManager:dMManager];
+            if (p) [propertysMutable addObject:p];
         }
         free(properties);
-        [propertysMutable addObjectsFromArray:[[sourceClass superclass] propertys]];
         propertys = propertysMutable.copy;
-        [dict setObject:propertys forKey:NSStringFromClass(self.class)];
+        [cache setObject:propertys forKey:key];
     }
     return propertys;
 }
@@ -201,9 +177,7 @@
     // 属性名
     const char *propertyName = property_getName(property);
     p.attributeName = @(propertyName);
-    if ([dMManager.ignoredAttributes containsObject:p.attributeName]) {
-        return nil;
-    }
+    if ([dMManager.ignoredAttributes containsObject:p.attributeName]) return nil;
     p.attributeKey = [dMManager.optionalAttributes objectForKey:p.attributeName];
     p.attributeKey = p.attributeKey ? p.attributeKey : p.attributeName;
     // 属性参数
@@ -211,9 +185,7 @@
     NSString *propertyAttributes = @(attrs);
     NSArray *attributeItems = [propertyAttributes componentsSeparatedByString:@","];
     // R:The property is read-only (readonly);W:The property is a weak;N:NSObject
-    if ([attributeItems containsObject:@"R"] || [attributeItems containsObject:@"W"] || ![attributeItems containsObject:@"N"]) {
-        return nil;
-    }
+    if ([attributeItems containsObject:@"R"] || [attributeItems containsObject:@"W"] || ![attributeItems containsObject:@"N"]) return nil;
     // immutable classes: NSNumber, NSString, NSURL, NSArray, NSDictionary
     NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
     if ([scanner scanString:@"T@\"" intoString:nil]) {
@@ -222,7 +194,7 @@
             [scanner scanUpToString:@"\"," intoString:&attributeClassName];
             p.attributeClass = NSClassFromString(attributeClassName);
             if (!p.attributeClass) {
-                NSLog(@"属性%@对应的类%@不存在", p.attributeName , attributeClassName);
+                NSLog(@"YJNSDictionaryModel ⚠️ 属性%@对应的类%@不存在", p.attributeName , attributeClassName);
                 return nil;
             }
             if ([dMManager.systemBaseClass containsObject:p.attributeClass]) {

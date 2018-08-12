@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testAOP];
+//    [self testAOP];
 //    [self testSingleton];
 //    [self testTimer];
 //    [self testCalendar];

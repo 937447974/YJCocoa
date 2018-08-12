@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, YJNSDMPAttributeType) {
     YJNSDMPAttributeTypeModel       ///< Model
 };
 
+
 /** 模型中的属性*/
 @interface YJNSDictionaryModelProperty : NSObject
 
