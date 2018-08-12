@@ -24,7 +24,7 @@
 #pragma mark - YJUIPageViewManager
 @interface YJUIPageViewManager ()
 
-@property (nonatomic) NSInteger currentPageIndex;
+@property (nonatomic, readwrite) NSInteger currentPageIndex;
 
 @property (nonatomic, weak) UIPageViewController *pageVC;
 @property (nonatomic, weak) UIScrollView *scrollView;

@@ -12,7 +12,7 @@
 #import "YJUIPageViewTestCell.h"
 #import "YJUIPageViewTestCell2.h"
 
-@interface ViewController ()
+@interface ViewController () <YJUIPageViewControllerDelegate>
 
 @property (nonatomic, strong) YJUIPageViewController *pageView;
 
@@ -24,8 +24,8 @@
     [super viewDidLoad];
     [self initUI];
     
-    [self testXib];
-//    [self testClass];
+//    [self testXib];
+    [self testClass];
 }
 
 - (void)initUI {
@@ -36,7 +36,7 @@
 }
 
 - (void)testXib {
-    self.pageView.manager.timeInterval = 1;
+//    self.pageView.manager.timeInterval = 1;
     // 填充数据源
     for (int i=0; i<5; i++) {
         [self.pageView.dataSourcePlain addObject:[YJUIPageViewTestCell cellObjectWithCellModel:nil]];
@@ -51,6 +51,12 @@
         [self.pageView.dataSourcePlain addObject:[YJUIPageViewTestCell2 cellObjectWithCellModel:nil]];
     }
     [self.pageView reloadData];
+    self.pageView.pageDelegate = self;
+}
+
+#pragma mark - YJUIPageViewControllerDelegate
+- (void)pageViewController:(YJUIPageViewController *)controller didScrolloffset:(CGFloat)offset {
+    NSLog(@"%f", offset);
 }
 
 

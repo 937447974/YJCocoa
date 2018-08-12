@@ -17,9 +17,6 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
     YJUIPageViewCellCacheIndex,  ///< 根据位置缓存
 };
 
-@protocol YJUIPageViewManagerDelegate <NSObject>
-@end
-
 /** UIPageViewController 管理器*/
 @interface YJUIPageViewManager : NSObject <UIPageViewControllerDataSource>
 
@@ -29,10 +26,9 @@ typedef NS_ENUM(NSInteger, YJUIPageViewCellCache) {
 @property (nonatomic) NSTimeInterval timeInterval;     ///< 轮播转动时间间隔（0停止；>0时开启，自动设置isLoop=YES,isDisableBounces=NO）
 @property (nonatomic) YJUIPageViewCellCache cellCache; ///< 缓存策略
 
-@property (nonatomic, weak) id<YJUIPageViewManagerDelegate> delegate; ///< YJUIPageViewManagerDelegate
+@property (nonatomic, readonly) NSInteger currentPageIndex;///< 当前页码
 
 @property (nonatomic, strong) NSMutableArray<YJUIPageViewCellObject *> *dataSourcePlain; ///< 数据源
-
 
 /**
  *  @abstract 初始化

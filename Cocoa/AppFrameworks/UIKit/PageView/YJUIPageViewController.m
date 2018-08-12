@@ -11,7 +11,9 @@
 
 #import "YJUIPageViewController.h"
 
-@interface YJUIPageViewController ()
+@interface YJUIPageViewController () <UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -30,8 +32,22 @@
     self.manager = [[YJUIPageViewManager alloc] initWithPageViewController:self];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    for(UIScrollView *subview in self.view.subviews) {
+        if([subview isKindOfClass:UIScrollView.class]) {
+            self.scrollView = subview;
+        }
+    }
+}
+
 - (void)reloadData {
     [self.manager reloadData];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat width = scrollView.frame.size.width;
+    [self.pageDelegate pageViewController:self didScrolloffset:(scrollView.contentOffset.x - width)/width];
 }
 
 #pragma mark - getter & setter
@@ -41,6 +57,11 @@
 
 - (void)setDataSourcePlain:(NSMutableArray<YJUIPageViewCellObject *> *)dataSourcePlain {
     self.manager.dataSourcePlain = dataSourcePlain;
+}
+
+- (void)setPageDelegate:(id<YJUIPageViewControllerDelegate>)pageDelegate {
+    _pageDelegate = pageDelegate;
+    self.scrollView.delegate = self;
 }
 
 @end

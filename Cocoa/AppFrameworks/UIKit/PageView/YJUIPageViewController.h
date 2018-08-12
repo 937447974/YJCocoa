@@ -14,10 +14,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class YJUIPageViewController;
+@protocol YJUIPageViewControllerDelegate <NSObject>
+
+/**
+ *  @abstract 页面滑动
+ *
+ *  @param controller YJUIPageViewController
+ *  @param offset 偏移量[-1, 1]
+ */
+- (void)pageViewController:(YJUIPageViewController *)controller didScrolloffset:(CGFloat)offset;
+
+@end
+
+
+/** UIPageViewController*/
 @interface YJUIPageViewController : UIPageViewController
 
 @property (nonatomic, strong) YJUIPageViewManager *manager; ///< 管理器
 @property (nonatomic, strong) NSMutableArray<YJUIPageViewCellObject *> *dataSourcePlain; ///< 数据源
+
+@property (nonatomic, weak) id<YJUIPageViewControllerDelegate> pageDelegate; ///< YJUIPageViewControllerDelegate
 
 /**
  *  @abstract 刷新pageVC
