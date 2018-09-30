@@ -10,7 +10,7 @@
 //
 
 #import "YJNSCache.h"
-#import "YJDispatch.h"
+#import "YJPthread.h"
 
 @interface YJNSCache () {
     pthread_mutex_t _lock;

@@ -11,20 +11,22 @@
 
 #import "NSObject+YJNSDictionaryModel.h"
 #import "YJNSDictionaryModelProperty.h"
-#import "YJNSSingleton.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import "YJNSSingleton.h"
+#import "YJNSFoundationOther.h"
+#import "YJDispatch.h"
 
 @implementation NSObject (YJNSDictionaryModel)
 
 #pragma mark public(+)
 + (YJNSDictionaryModelManager *)dictionaryModelManager {
-    return YJNSDictionaryModelManager.new;
+    return [[YJNSDictionaryModelManager alloc] init];
 }
 
 #pragma mark - init
 - (instancetype)initWithModelDictionary:(NSDictionary *)modelDictionary {
-    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) return modelDictionary;
+    if ([YJNSStringFromClass(self.class) hasPrefix:@"__NS"]) return modelDictionary;
     return [self initWithModelDictionary:modelDictionary optionalAttributes:@{}];
 }
 
@@ -38,7 +40,7 @@
 
 #pragma mark - geter & setter
 - (NSDictionary *)modelDictionary {
-    if ([NSStringFromClass(self.class) hasPrefix:@"__NS"]) return (NSDictionary *)self;
+    if ([YJNSStringFromClass(self.class) hasPrefix:@"__NS"]) return (NSDictionary *)self;
     return [self modelDictionaryWithOptionalAttributes:@{}];
 }
 
@@ -47,21 +49,21 @@
     for (YJNSDictionaryModelProperty *p in self.class.propertys) {
         id value = [self valueForKey:p.attributeName];
         switch (p.attributeType) {
-            case YJNSDMPAttributeTypeNumber:     // NSNumber
-            case YJNSDMPAttributeTypeString:     // NSString
-            case YJNSDMPAttributeTypeDictionary: // NSDictionary
-            case YJNSDMPAttributeTypeSet:        // NSSet
+            case YJNSDMPAttributeTypeNumber:
+            case YJNSDMPAttributeTypeString:
+            case YJNSDMPAttributeTypeDictionary:
+            case YJNSDMPAttributeTypeSet:
                 break;
-            case YJNSDMPAttributeTypeURL:        // NSURL
+            case YJNSDMPAttributeTypeURL:
                 if (value) {
                     NSURL *url = value;
                     value = url.fileURL ? url.path : url.absoluteString;
                 } break;
-            case YJNSDMPAttributeTypeArray:      // NSArray
+            case YJNSDMPAttributeTypeArray:
                 if (value && !p.importArrayClassSystem) {
                     value = [self getDictionaryArrayValue:value forProperty:p];
                 } break;
-            case YJNSDMPAttributeTypeModel:      // Model
+            case YJNSDMPAttributeTypeModel:
                 value = ((NSObject *)value).modelDictionary;
                 break;
         }
@@ -77,45 +79,52 @@
     if (![modelDictionary isKindOfClass:[NSDictionary class]]) {
         return;
     }
+    NSArray *propertys = [self.class propertys];
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-    for (YJNSDictionaryModelProperty *p in self.class.propertys) {
+    for (YJNSDictionaryModelProperty *p in propertys) {
         NSString *attributeKey = [optionalAttributes objectForKey:p.attributeName];
         id value = [modelDictionary objectForKey:attributeKey ?: p.attributeKey];
-        if (!value || [value isKindOfClass:NSNull.class]) continue;
+        if (value == nil || [value isKindOfClass:[NSNull class]]) {
+            continue;
+        }
         switch (p.attributeType) {
             case YJNSDMPAttributeTypeNumber:
                 if ([value isKindOfClass:NSString.class]) {
                     value = [numberFormatter numberFromString:value];
                 }
-                if (![value isKindOfClass:NSNumber.class]) value = nil;
-                break;
+                if ([value isKindOfClass:NSNumber.class]) {
+                    [self setValue:value forKey:p.attributeName];
+                } break;
             case YJNSDMPAttributeTypeString:
-                value = [NSString stringWithFormat:@"%@", value];
+                [self setValue:[NSString stringWithFormat:@"%@", value] forKey:p.attributeName];
                 break;
             case YJNSDMPAttributeTypeURL:
                 if ([value isKindOfClass:NSString.class]) {
                     value = [value hasPrefix:@"http"] ? [NSURL URLWithString:value] : [NSURL fileURLWithPath:value];
-                }
-                if (![value isKindOfClass:NSURL.class]) value = nil;
-                break;
+                    [self setValue:value forKey:p.attributeName];
+                } break;
             case YJNSDMPAttributeTypeArray:
                 if ([value isKindOfClass:NSArray.class]) {
-                    if (!p.importArrayClassSystem)
+                    if (!p.importArrayClassSystem) {
                         value = [self getModelArrayValue:value forProperty:p];
-                } else value = nil;
-                break;
+                    }
+                    [self setValue:value forKey:p.attributeName];
+                } break;
             case YJNSDMPAttributeTypeDictionary:
-                if (![value isKindOfClass:NSDictionary.class]) value = nil;
-                break;
+                if ([value isKindOfClass:NSDictionary.class]) {
+                    [self setValue:value forKey:p.attributeName];
+                } break;
             case YJNSDMPAttributeTypeSet:
-                if (![value isKindOfClass:NSSet.class]) value = nil;
-                break;
+                if ([value isKindOfClass:NSSet.class]) {
+                    [self setValue:value forKey:p.attributeName];
+                } break;
             case YJNSDMPAttributeTypeModel:
-                value = [[p.attributeClass alloc] initWithModelDictionary:value];
-                break;
+                if ([value isKindOfClass:NSDictionary.class]) {
+                    value = [[p.attributeClass alloc] initWithModelDictionary:value];
+                    [self setValue:value forKey:p.attributeName];
+                } break;
         }
-        if (value) [self setValue:value forKey:p.attributeName];
     }
 }
 
@@ -151,23 +160,26 @@
 #pragma mark - private(+)
 + (NSArray<YJNSDictionaryModelProperty *> *)propertys {
     Class cls = self.class;
-    NSString *key = NSStringFromClass(cls);
-    if (cls == NSObject.class || [key hasPrefix:@"__NS"]) return NSArray.array;
+    NSString *clsName = YJNSStringFromClass(cls);
+    if (cls == NSObject.class || [clsName hasPrefix:@"__NS"]) return NSArray.array;
     NSCache *cache = YJNSSingletonS(NSCache, @"NSObject(YJNSDictionaryModel)");
-    NSArray *propertys = [cache objectForKey:key];
+    __block NSArray *propertys = [cache objectForKey:clsName];
     if (!propertys) {
-        NSMutableArray *propertysMutable = cls.superclass.propertys.mutableCopy;
-        YJNSDictionaryModelManager *dMManager = cls.dictionaryModelManager;
-        unsigned int propertyCount;
-        objc_property_t *properties = class_copyPropertyList(cls, &propertyCount);
-        for (unsigned int i = 0; i < propertyCount; i++) {
-            objc_property_t property = properties[i];
-            YJNSDictionaryModelProperty *p = [cls getModelProperty:property dictionaryModelManager:dMManager];
-            if (p) [propertysMutable addObject:p];
-        }
-        free(properties);
-        propertys = propertysMutable.copy;
-        [cache setObject:propertys forKey:key];
+        dispatch_sync_serial(^{
+            if (propertys) return;
+            NSMutableArray *propertysMutable = cls.superclass.propertys.mutableCopy;
+            YJNSDictionaryModelManager *dMManager = cls.dictionaryModelManager;
+            unsigned int propertyCount;
+            objc_property_t *properties = class_copyPropertyList(cls, &propertyCount);
+            for (unsigned int i = 0; i < propertyCount; i++) {
+                objc_property_t property = properties[i];
+                YJNSDictionaryModelProperty *p = [cls getModelProperty:property dictionaryModelManager:dMManager];
+                if (p) [propertysMutable addObject:p];
+            }
+            free(properties);
+            propertys = propertysMutable.copy;
+            [cache setObject:propertys forKey:clsName];
+        });
     }
     return propertys;
 }
