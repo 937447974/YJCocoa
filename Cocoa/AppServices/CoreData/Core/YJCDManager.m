@@ -12,6 +12,7 @@
 #import "YJCDManager.h"
 #import "YJNSTimer.h"
 #import "YJDispatch.h"
+#import "YJSystemOther.h"
 
 @implementation YJCDManager
 

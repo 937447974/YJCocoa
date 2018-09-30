@@ -13,6 +13,7 @@
 #import <pthread/pthread.h>
 #import <signal.h>
 #import "YJDispatch.h"
+#import "YJSystemOther.h"
 #import "YJThreadLogger.h"
 #import "YJTimePageProfiler.h"
 

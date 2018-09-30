@@ -8,7 +8,7 @@
 
 #import "YJUIPageViewManager.h"
 #import "YJNSTimer.h"
-#import "YJDispatch.h"
+#import "YJSystemOther.h"
 
 #pragma mark - YJUIPageViewCellPrivateProperty
 @protocol YJUIPageViewCellPrivateProperty <NSObject>

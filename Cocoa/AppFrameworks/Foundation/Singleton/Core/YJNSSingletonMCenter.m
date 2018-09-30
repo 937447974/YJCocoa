@@ -11,7 +11,7 @@
 
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
-#import "YJDispatch.h"
+#import "YJPthread.h"
 
 @interface YJNSSingletonMCenter() <NSCacheDelegate> {
     pthread_mutex_t _lock;

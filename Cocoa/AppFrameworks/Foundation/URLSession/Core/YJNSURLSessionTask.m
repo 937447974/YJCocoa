@@ -12,6 +12,7 @@
 #import "YJNSURLSessionTask.h"
 #import "YJNSURLSessionPool.h"
 #import "YJDispatch.h"
+#import "YJSystemOther.h"
 
 @interface YJNSURLSessionTask ()
 

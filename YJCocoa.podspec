@@ -125,6 +125,7 @@ Pod::Spec.new do |s|
                     score.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
                     score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
                     score.dependency 'YJCocoa/System/Dispatch'
+                    score.dependency 'YJCocoa/System/Pthread'
                 end
             end
             # Swizzling
@@ -151,7 +152,7 @@ Pod::Spec.new do |s|
                     core.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Core/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/Request'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                    core.dependency 'YJCocoa/System/Dispatch'
+                    core.dependency 'YJCocoa/System/Other'
                 end
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
@@ -318,6 +319,13 @@ Pod::Spec.new do |s|
         system.source_files = 'Cocoa/System/*.{h,m}'
         system.subspec 'Dispatch' do |dispatch|
             dispatch.source_files = 'Cocoa/System/Dispatch/*.{h,m}'
+        end
+        system.subspec 'Other' do |other|
+            other.source_files = 'Cocoa/System/Other/*.{h,m}'
+        end
+        # pthread
+        system.subspec 'Pthread' do |pthread|
+            pthread.source_files = 'Cocoa/System/Pthread/*.{h,m}'
         end
         system.subspec 'Security' do |security|
             security.source_files = 'Cocoa/System/Security/*.{h,m}'
