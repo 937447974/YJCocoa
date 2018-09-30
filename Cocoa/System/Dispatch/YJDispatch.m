@@ -13,6 +13,14 @@
 
 #pragma mark - gcd
 
+dispatch_queue_t dispatch_get_default_queue(unsigned long flags) {
+    return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, flags);
+}
+
+dispatch_queue_t dispatch_get_background_queue(unsigned long flags) {
+    return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, flags);
+}
+
 // 主线程运行,同步
 void dispatch_sync_main(dispatch_block_t block) {
     NSThread.currentThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
@@ -25,12 +33,12 @@ void dispatch_async_main(dispatch_block_t block) {
 
 // queue default 运行
 void dispatch_async_default(dispatch_block_t block) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+    dispatch_async(dispatch_get_default_queue(0), block);
 }
 
 // 后台运行
 void dispatch_async_background(dispatch_block_t block) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block);
+    dispatch_async(dispatch_get_background_queue(0), block);
 }
 
 // 主线程延时执行
@@ -40,7 +48,7 @@ void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block) 
 
 void dispatch_after_default(NSTimeInterval delayInSeconds, dispatch_block_t block) {
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+    dispatch_after(when, dispatch_get_default_queue(0), block);
 }
 
 /*
@@ -75,7 +83,7 @@ dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t 
 }
 
 dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler) {
-    return dispatch_timer(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), interval, handler);
+    return dispatch_timer(dispatch_get_default_queue(0), interval, handler);
 }
 
 

@@ -30,19 +30,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - gcd
 
+/** default queue */
+DISPATCH_EXPORT dispatch_queue_t dispatch_get_default_queue(unsigned long flags);
+/** background queue*/
+DISPATCH_EXPORT dispatch_queue_t dispatch_get_background_queue(unsigned long flags);
+
 /** queue main 同步步执行 **/
-FOUNDATION_EXPORT void dispatch_sync_main(dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_sync_main(dispatch_block_t block);
 /** queue main 异步执行 **/
-FOUNDATION_EXPORT void dispatch_async_main(dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_async_main(dispatch_block_t block);
 /** queue default 异步执行 **/
-FOUNDATION_EXPORT void dispatch_async_default(dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_async_default(dispatch_block_t block);
 /** queue background 异步执行（I/O） **/
-FOUNDATION_EXPORT void dispatch_async_background(dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 /** 主线程延时执行*/
-FOUNDATION_EXPORT void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_after_main(NSTimeInterval delayInSeconds, dispatch_block_t block);
 /** 子线程延时执行*/
-FOUNDATION_EXPORT void dispatch_after_default(NSTimeInterval delayInSeconds, dispatch_block_t block);
+DISPATCH_EXPORT void dispatch_after_default(NSTimeInterval delayInSeconds, dispatch_block_t block);
 
 
 #pragma mark - timer
@@ -54,11 +59,11 @@ FOUNDATION_EXPORT void dispatch_after_default(NSTimeInterval delayInSeconds, dis
  *  @param interval 间隔
  *  @param handler  回调
  */
-FOUNDATION_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, NSTimeInterval interval, dispatch_block_t handler);
+DISPATCH_EXPORT dispatch_source_t dispatch_timer(dispatch_queue_t _Nullable queue, NSTimeInterval interval, dispatch_block_t handler);
 /** 主队列GCD计时器*/
-FOUNDATION_EXPORT dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler);
+DISPATCH_EXPORT dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t handler);
 /** DISPATCH_QUEUE_PRIORITY_DEFAULT队列GCD计时器*/
-FOUNDATION_EXPORT dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler);
+DISPATCH_EXPORT dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler);
 
 
 #pragma mark - @finally_execute{}
