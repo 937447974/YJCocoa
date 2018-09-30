@@ -21,9 +21,7 @@ OSStatus YJSecKeychainItemSelect(YJSecKeychainItem *item) {
         NSDictionary *dict = (__bridge NSDictionary *)(result);
         item.strongDict = [NSMutableDictionary dictionaryWithDictionary:dict];
     }
-    if (result) {
-        CFRelease(result);
-    }
+    if (result) CFRelease(result);
     return status;
 }
 
@@ -33,9 +31,6 @@ NSArray<YJSecKeychainItem *> * YJSecKeychainItemSelectAll(YJSecKeychainItem *ite
     [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     CFArrayRef result = NULL;
     OSStatus cm = SecItemCopyMatching((CFDictionaryRef)item.selectDict, (CFTypeRef *)&result);
-    if (status) {
-        status = &cm;
-    }
     NSMutableArray<YJSecKeychainItem *> *array = [NSMutableArray array];
     if (cm == errSecSuccess) {
         NSArray *rArray = (__bridge NSArray *)(result);
@@ -45,9 +40,8 @@ NSArray<YJSecKeychainItem *> * YJSecKeychainItemSelectAll(YJSecKeychainItem *ite
             [array addObject:rItem];
         }
     }
-    if (result) {
-        CFRelease(result);
-    }
+    if (result) CFRelease(result);
+    if (status) status = &cm;
     return array;
 }
 

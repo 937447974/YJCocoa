@@ -31,7 +31,7 @@
     YJNSURLSessionTask *task = [cache objectForKey:request.identifier];
     if (!task) {
         task = self.new;
-        if (task && request.identifier) {
+        if (request.identifier) {
             [cache setObject:task forKey:request.identifier];
         }
     }

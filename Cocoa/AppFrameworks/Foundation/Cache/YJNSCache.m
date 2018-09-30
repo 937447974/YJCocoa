@@ -46,12 +46,14 @@
 }
 
 - (void)setObject:(id)obj forKey:(id)key {
+    if (!(obj && key)) return;
     @synchronized_pthread (self->_lock)
     [super setObject:obj forKey:key];
     [self.cacheSet addObject:key];
 }
 
 - (void)setObject:(id)obj forKey:(id)key cost:(NSUInteger)g {
+    if (!(obj && key)) return;
     [super setObject:obj forKey:key cost:g];
     [self.cacheSet addObject:key];
 }
