@@ -14,12 +14,13 @@
 
 @implementation YJNSURLSessionPool
 
-- (YJNSCache<NSString *,YJNSURLSessionTask *> *)cache {
-    if (!_cache) {
-        _cache = YJNSCache.new;
-        _cache.delegate = self;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.cache = YJNSCache.new;
+        self.cache.delegate = self;
     }
-    return _cache;
+    return self;
 }
 
 #pragma mark - NSCacheDelegate
@@ -27,7 +28,7 @@
     switch (task.state) {
         case YJNSURLSessionTaskStateDefault:
         case YJNSURLSessionTaskStateRunning: {
-            dispatch_async_default(^{
+            dispatch_after_default(0.2, ^{
                 [cache setObject:task forKey:task.request.identifier];
             });
         } break;

@@ -13,7 +13,8 @@
 
 @interface YJNSAspectOrientProgramming ()
 
-@property (nonatomic, strong) NSPointerArray *weakTargets; ///< 目标集合
+@property (nonatomic, strong) NSPointerArray *weakTargets;
+@property (nonatomic, strong) NSPointerArray *workTargets;
 
 @end
 
@@ -30,11 +31,10 @@
 - (void)addTarget:(id)target {
     [self.weakTargets compact];
     for (id item in self.weakTargets) {
-        if ([item isEqual:target]) {
-            return;
-        }
+        if ([item isEqual:target]) return;
     }
     [self.weakTargets addPointer:(__bridge void *)target];
+    self.workTargets = self.weakTargets.copy;
 }
 
 - (void)removeTarget:(id)target {
@@ -42,6 +42,7 @@
     for (NSInteger index = 0; index < self.weakTargets.count; index++) {
         if ([target isEqual:[self.weakTargets pointerAtIndex:index]]) {
             [self.weakTargets removePointerAtIndex:index];
+            self.workTargets = self.weakTargets.copy;
             return;
         }
     }
@@ -49,34 +50,29 @@
 
 #pragma mark - aop
 - (BOOL)respondsToSelector:(SEL)aSelector {
-    if ([super respondsToSelector:aSelector]) {
-        return YES;
-    } else {
-        for (id target in self.weakTargets) {
-            if ([target respondsToSelector:aSelector]) {
-                return YES;
-            }
-        }
+    if ([super respondsToSelector:aSelector]) return YES;
+    for (id target in self.workTargets) {
+        if ([target respondsToSelector:aSelector]) return YES;
     }
     return NO;
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
-    if (signature) return signature;
-    for (id target in self.weakTargets) {
-        signature = [target methodSignatureForSelector:aSelector];
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
+    for (id target in self.workTargets) {
+        NSMethodSignature *signature = [target methodSignatureForSelector:selector];
         if (signature) return signature;
     }
-    return [NSMethodSignature signatureWithObjCTypes:@encode(id)];
+    return [YJNSAspectOrientProgramming instanceMethodSignatureForSelector:@selector(unrecognizedSelector)];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    for (id target in self.weakTargets) {
+    for (id target in self.workTargets) {
         if ([target respondsToSelector:anInvocation.selector]) {
             [anInvocation invokeWithTarget:target];
         }
     }
 }
+
+- (void)unrecognizedSelector {}
 
 @end
