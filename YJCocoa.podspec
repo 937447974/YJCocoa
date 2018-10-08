@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "8.3.0"
+    s.version  = "8.4.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -64,6 +64,7 @@ Pod::Spec.new do |s|
             # Cache
             foundation.subspec 'Cache' do |cache|
                 cache.source_files = 'Cocoa/AppFrameworks/Foundation/Cache/*.{h,m}'
+                cache.dependency 'YJCocoa/System/Pthread'
             end
             # Calendar
             foundation.subspec 'Calendar' do |calendar|
@@ -73,6 +74,7 @@ Pod::Spec.new do |s|
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
                 dm.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                dm.dependency 'YJCocoa/System/Dispatch'
             end
             # Directory
             foundation.subspec 'Directory' do |directory|
@@ -96,6 +98,9 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'NotificationCenter' do |nc|
                 nc.source_files = 'Cocoa/AppFrameworks/Foundation/NotificationCenter/*.{h,m}'
+            end
+            foundation.subspec 'Other' do |other|
+                other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
             end
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
@@ -121,10 +126,7 @@ Pod::Spec.new do |s|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.subspec 'Core' do |score|
                     score.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}'
-                    score.dependency 'YJCocoa/AppFrameworks/Foundation/Cache'
-                    score.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
                     score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                    score.dependency 'YJCocoa/System/Dispatch'
                     score.dependency 'YJCocoa/System/Pthread'
                 end
             end
@@ -150,17 +152,13 @@ Pod::Spec.new do |s|
                 session.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}'
                 session.subspec 'Core' do |core|
                     core.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Core/*.{h,m}'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Cache'
                     core.dependency 'YJCocoa/AppFrameworks/Foundation/URLSession/Request'
-                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                    core.dependency 'YJCocoa/System/Other'
                 end
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
                     request.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
                 end                
-            end
-            foundation.subspec 'Other' do |other|
-                other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
             end
         end
         # 1.2 UIKit
@@ -266,6 +264,7 @@ Pod::Spec.new do |s|
             cd.subspec 'Core' do |cdCore|
                 cdCore.source_files = 'Cocoa/AppServices/CoreData/Core/*.{h,m}'
                 cdCore.dependency 'YJCocoa/AppFrameworks/Foundation/Timer'
+                cdCore.dependency 'YJCocoa/System/Dispatch'
             end
             cd.subspec 'Migration' do |cdMigration|
                 cdMigration.source_files = 'Cocoa/AppServices/CoreData/Migration/*.{h,m}'
@@ -310,7 +309,6 @@ Pod::Spec.new do |s|
         dt.subspec 'TimeProfiler' do |tp|
             tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
             tp.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
-            tp.dependency 'YJCocoa/System/Dispatch'
         end
     end
 
@@ -319,6 +317,7 @@ Pod::Spec.new do |s|
         system.source_files = 'Cocoa/System/*.{h,m}'
         system.subspec 'Dispatch' do |dispatch|
             dispatch.source_files = 'Cocoa/System/Dispatch/*.{h,m}'
+            dispatch.dependency 'YJCocoa/System/Other'
         end
         system.subspec 'Other' do |other|
             other.source_files = 'Cocoa/System/Other/*.{h,m}'
@@ -326,6 +325,7 @@ Pod::Spec.new do |s|
         # pthread
         system.subspec 'Pthread' do |pthread|
             pthread.source_files = 'Cocoa/System/Pthread/*.{h,m}'
+            pthread.dependency 'YJCocoa/System/Other'
         end
         system.subspec 'Security' do |security|
             security.source_files = 'Cocoa/System/Security/*.{h,m}'
