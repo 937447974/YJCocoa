@@ -31,9 +31,9 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "1. YJNSCache 缓存工具上线，在 NSCache 的基础上增加了 NSDictionary 的相关功能。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "2. TableView 增加对 header 的支持。" with title "YJCocoa 8.2.0"'
-osascript -e 'display notification "3. URLSession 启用 YJNSCache 缓存策略。" with title "YJCocoa 8.2.0"'
+osascript -e 'display notification "1. PageView 增加页面滑动监听。" with title "YJCocoa 8.4.0"'
+osascript -e 'display notification "2. Dispatch 拆分 Pthread 库，并增加串行和并发队列操作。" with title "YJCocoa 8.4.0"'
+osascript -e 'display notification "3. 代码优化和崩溃修复。" with title "YJCocoa 8.4.0"'
 
 
 

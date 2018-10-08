@@ -210,13 +210,17 @@ CoreData封装
 
 ## 4.1 Dispatch
 
-GCD相关封装
+GCD 相关封装
+
+## 4.2 Pthread
+
+pthread 锁相关封装
 
 ## 4.2 Security
 
 ### 4.2.1 Keychain
 
-面向对象管理Keychain，支持自定义存储数据。
+面向对象管理 Keychain，支持自定义存储数据。
 
 ### 4.2.2 Random
 
