@@ -36,8 +36,9 @@
 
 - (void)testKeyChain {
     OSStatus status;
+    NSMutableArray *allArray = NSMutableArray.array;
     // 查询所有
-    NSArray *allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
+    YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], allArray);
     NSLog(@"%@", allArray);
     // 查询首个
     YJSecKeychainGPItem *item = [[YJSecKeychainGPItem alloc] init];
@@ -56,15 +57,18 @@
     item2.account = @"937447974";
     item2.desc = @"qq";
     status = YJSecKeychainItemSave(item2);
-    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], &status);
+    [allArray removeAllObjects];
+    YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], allArray);
     NSLog(@"%@", allArray);
     // 删除item2
     status = YJSecKeychainItemDelete(item2);
-    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
+    [allArray removeAllObjects];
+    YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], allArray);
     NSLog(@"%@", allArray);
     // 重置
     status = YJSecKeychainItemDelete([[YJSecKeychainGPItem alloc] init]);
-    allArray = YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], nil);
+    [allArray removeAllObjects];
+    YJSecKeychainItemSelectAll([[YJSecKeychainGPItem alloc] init], allArray);
     NSLog(@"%@", allArray);
 }
 

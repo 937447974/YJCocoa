@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 查询首个匹配的YJSecKeychainItem*/
 FOUNDATION_EXPORT OSStatus YJSecKeychainItemSelect(YJSecKeychainItem *item);
 /** 查询所有匹配的YJSecKeychainItem*/
-FOUNDATION_EXPORT NSArray<YJSecKeychainItem *> *YJSecKeychainItemSelectAll(YJSecKeychainItem *item, OSStatus * _Nullable status);
+FOUNDATION_EXPORT OSStatus YJSecKeychainItemSelectAll(YJSecKeychainItem *item, NSMutableArray<YJSecKeychainItem *> *result);
 
 /** 保存YJSecKeychainItem*/
 FOUNDATION_EXPORT OSStatus YJSecKeychainItemSave(YJSecKeychainItem *item);

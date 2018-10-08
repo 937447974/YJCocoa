@@ -26,23 +26,21 @@ OSStatus YJSecKeychainItemSelect(YJSecKeychainItem *item) {
 }
 
 // 查询所有匹配的YJSecKeychainItem
-NSArray<YJSecKeychainItem *> * YJSecKeychainItemSelectAll(YJSecKeychainItem *item, OSStatus * _Nullable status) {
+OSStatus YJSecKeychainItemSelectAll(YJSecKeychainItem *item, NSMutableArray<YJSecKeychainItem *> *result) {
     [item.selectDict setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
     [item.selectDict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    CFArrayRef result = NULL;
-    OSStatus cm = SecItemCopyMatching((CFDictionaryRef)item.selectDict, (CFTypeRef *)&result);
-    NSMutableArray<YJSecKeychainItem *> *array = [NSMutableArray array];
-    if (cm == errSecSuccess) {
-        NSArray *rArray = (__bridge NSArray *)(result);
+    CFArrayRef selectCFArray = NULL;
+    OSStatus status = SecItemCopyMatching((CFDictionaryRef)item.selectDict, (CFTypeRef *)&selectCFArray);
+    if (status == errSecSuccess) {
+        NSArray *rArray = (__bridge NSArray *)(selectCFArray);
         for (NSDictionary *dict in rArray) {
             YJSecKeychainItem *rItem = [item.class new];
             rItem.strongDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-            [array addObject:rItem];
+            [result addObject:rItem];
         }
     }
-    if (result) CFRelease(result);
-    if (status) status = &cm;
-    return array;
+    if (selectCFArray) CFRelease(selectCFArray);
+    return status;
 }
 
 // 保存YJSecKeychainItem
