@@ -36,8 +36,8 @@
     [super viewDidLoad];
 //    [self testAOP];
 //    [self testSingleton];
-//    [self testTimer];
-//    [self testCalendar];
+    [self testTimer];
+    [self testCalendar];
 //    [self testURLSession];
 //    [self testSwizzling];
 //    [self testLog];
@@ -115,9 +115,8 @@
 - (void)testTimer {
     for (int i=0; i<1; i++) {
         YJNSTimer *timer = [YJNSTimer timerIdentifier:nil target:self completionHandler:^(YJNSTimer *timer) {
-            NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%.3f;", timer.identifier, (long)timer.dateComponents.day, (long)timer.dateComponents.hour, (long)timer.dateComponents.minute, timer.dateComponents.second);
+            NSLog(@"%@ day:%ld; hour:%ld; minute:%ld; second:%ld;", timer.identifier, timer.day, timer.hour, timer.minute, timer.second);
         }];
-        timer.unitFlags =  YJNSCalendarUnitDay|YJNSCalendarUnitHour|YJNSCalendarUnitMinute|YJNSCalendarUnitSecond ;
         timer.timeInterval = 3;
         timer.time = 10;
         timer.countdown = YES;
@@ -128,9 +127,8 @@
 
 #pragma mark - Calendar
 - (void)testCalendar {
-    YJNSCalendar *calendar = [[YJNSCalendar alloc] init];
-    [calendar components:YJNSCalendarUnitDay | YJNSCalendarUnitHour | YJNSCalendarUnitMinute | YJNSCalendarUnitSecond fromSecond:86400+3600+60+5.98];
-    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%.3f;", (long)calendar.dateComponents.day, (long)calendar.dateComponents.hour, (long)calendar.dateComponents.minute, calendar.dateComponents.second);
+    YJNSCalendar *calendar = YJNSCalendar.currentCalendar;
+    NSLog(@"day:%ld; hour:%ld; minute:%ld; second:%ld;", calendar.day, calendar.hour, calendar.minute, calendar.second);
 }
 
 #pragma mark - URLSession

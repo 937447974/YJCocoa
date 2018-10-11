@@ -15,7 +15,7 @@
 /** 缓存工具*/
 #import "YJNSCache.h"
 
-// 日历工具，快速将秒转换为天、时、分等
+// 日历工具，快速获取天、时、分等
 #import "YJNSCalendar.h"
 
 // Dictionary转Model

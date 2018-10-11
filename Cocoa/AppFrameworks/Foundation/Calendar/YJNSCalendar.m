@@ -11,27 +11,134 @@
 
 #import "YJNSCalendar.h"
 
+@interface YJNSCalendar() {
+    NSInteger _era;
+    NSInteger _year;
+    NSInteger _month;
+    NSInteger _day;
+    NSInteger _hour;
+    NSInteger _minute;
+    NSInteger _second;
+    NSInteger _nanosecond;
+    NSInteger _weekday;
+    NSInteger _weekdayOrdinal;
+    NSInteger _quarter;
+    NSInteger _weekOfMonth;
+    NSInteger _weekOfYear;
+    NSInteger _yearForWeekOfYear;
+}
+
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSCalendar *calendar;
+
+@end
+
 @implementation YJNSCalendar
 
-- (instancetype)init {
++ (YJNSCalendar *)currentCalendar {
+    return [[YJNSCalendar alloc] initWithDate:NSDate.date calendar:NSCalendar.currentCalendar];
+}
+
+- (instancetype)initWithDate:(NSDate *)date calendar:(NSCalendar *)calendar {
     self = [super init];
     if (self) {
-        _dateComponents = [[YJNSDateComponents alloc] init];
+        _date = date;
+        _calendar = calendar;
     }
     return self;
 }
 
-- (void)components:(YJNSCalendarUnit)unitFlags fromSecond:(NSTimeInterval)second {
-    self.dateComponents.day = unitFlags & YJNSCalendarUnitDay ? second / 86400 : 0;
-    second -= self.dateComponents.day * 86400;
-    
-    self.dateComponents.hour = unitFlags & YJNSCalendarUnitHour ? second / 3600 : 0;
-    second -= self.dateComponents.hour * 3600;
-    
-    self.dateComponents.minute = unitFlags & YJNSCalendarUnitMinute ? second / 60 : 0;
-    second -= self.dateComponents.minute * 60;
-    
-    self.dateComponents.second = unitFlags & YJNSCalendarUnitSecond ? second : 0;
+- (void)initEra_Year_Month_Day {
+    [self.calendar getEra:&_era year:&_year month:&_month day:&_day fromDate:self.date];
+}
+
+- (void)initHour_Minute_Second_Nanosecond {
+    [self.calendar getHour:&_hour minute:&_minute second:&_second nanosecond:&_nanosecond fromDate:self.date];
+}
+
+- (void)initEra_YearForWeekOfYear_WeekOfYear_Weekday {
+    [self.calendar getEra:&_era yearForWeekOfYear:&_yearForWeekOfYear weekOfYear:&_weekOfYear weekday:&_weekday fromDate:self.date];
+}
+
+#pragma mark - getter
+- (NSInteger)era {
+    if (_era == 0) [self initEra_Year_Month_Day];
+    return _era;
+}
+
+- (NSInteger)year {
+    if (_year == 0) [self initEra_Year_Month_Day];
+    return _year;
+}
+
+- (NSInteger)month {
+    if (_month == 0) [self initEra_Year_Month_Day];
+    return _month;
+}
+
+- (NSInteger)day {
+    if (_day == 0) [self initEra_Year_Month_Day];
+    return _day;
+}
+
+#pragma mark
+- (NSInteger)hour {
+    if (_hour == 0) {
+        _hour = [self.calendar component:NSCalendarUnitHour fromDate:self.date];
+    }
+    return _hour;
+}
+
+- (NSInteger)minute {
+    if (_minute == 0) [self initHour_Minute_Second_Nanosecond];
+    return _minute;
+}
+
+- (NSInteger)second {
+    if (_second == 0) [self initHour_Minute_Second_Nanosecond];
+    return _second;
+}
+
+- (NSInteger)nanosecond {
+    if (_nanosecond == 0) [self initHour_Minute_Second_Nanosecond];
+    return _nanosecond;
+}
+
+#pragma mark
+- (NSInteger)weekday {
+    if (_weekday == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    return _weekday;
+}
+
+- (NSInteger)weekdayOrdinal {
+    if (_weekdayOrdinal == 0) {
+        _weekdayOrdinal = [self.calendar component:NSCalendarUnitWeekdayOrdinal fromDate:self.date];
+    }
+    return _weekdayOrdinal;
+}
+
+- (NSInteger)quarter {
+    if (_quarter == 0) {
+        _quarter = [self.calendar component:NSCalendarUnitQuarter fromDate:self.date];
+    }
+    return _quarter;
+}
+
+- (NSInteger)weekOfMonth {
+    if (_weekOfMonth == 0) {
+        _weekOfMonth = [self.calendar component:NSCalendarUnitWeekOfMonth fromDate:self.date];
+    }
+    return _weekOfMonth;
+}
+
+- (NSInteger)weekOfYear {
+    if (_weekOfYear == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    return _weekOfYear;
+}
+
+- (NSInteger)yearForWeekOfYear {
+    if (_yearForWeekOfYear == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    return _yearForWeekOfYear;
 }
 
 @end

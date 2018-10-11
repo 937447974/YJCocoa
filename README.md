@@ -23,7 +23,7 @@ Cache 缓存工具，在 NSCache 的基础上增加了 NSDictionary 的相关功
 
 ### 1.1.3 Calendar
 
-日历工具，快速将秒转换为天、时、分等。
+日历工具，快速获取天、时、分等。
 
 ### 1.1.4 DictionaryModel
 

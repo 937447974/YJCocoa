@@ -10,30 +10,40 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJNSDateComponents.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-/** 日历单位*/
-typedef NS_ENUM(NSInteger, YJNSCalendarUnit) {
-    YJNSCalendarUnitDay    = 1,    ///< 天
-    YJNSCalendarUnitHour   = 1<<1, ///< 时
-    YJNSCalendarUnitMinute = 1<<2, ///< 分
-    YJNSCalendarUnitSecond = 1<<3  ///< 秒
-};
 
 /** 日历*/
 @interface YJNSCalendar : NSObject
 
-@property (nonatomic, strong, readonly) YJNSDateComponents *dateComponents; ///< 组装的数据
+@property (nonatomic, class, readonly, copy) YJNSCalendar *currentCalendar;///< 当前时间
+
+@property (nonatomic, readonly) NSInteger era;  ///< NSDateComponents.era
+@property (nonatomic, readonly) NSInteger year; ///< NSDateComponents.year
+@property (nonatomic, readonly) NSInteger month;///< NSDateComponents.month
+@property (nonatomic, readonly) NSInteger day;///< NSDateComponents.day
+
+@property (nonatomic, readonly) NSInteger hour;///< NSDateComponents.hour
+@property (nonatomic, readonly) NSInteger minute;///< NSDateComponents.minute
+@property (nonatomic, readonly) NSInteger second;///< NSDateComponents.second
+@property (nonatomic, readonly) NSInteger nanosecond;///< NSDateComponents.nanosecond
+
+@property (nonatomic, readonly) NSInteger weekday;///< NSDateComponents.weekday
+@property (nonatomic, readonly) NSInteger weekdayOrdinal;///< NSDateComponents.weekdayOrdinal
+@property (nonatomic, readonly) NSInteger quarter;///< NSDateComponents.quarter
+@property (nonatomic, readonly) NSInteger weekOfMonth;///< NSDateComponents.weekOfMonth
+@property (nonatomic, readonly) NSInteger weekOfYear;///< NSDateComponents.weekOfYear
+@property (nonatomic, readonly) NSInteger yearForWeekOfYear;///< NSDateComponents.yearForWeekOfYear
 
 /**
- *  @abstract 提取日期相关数据
+ *  @abstract 初始化
  *
- *  @param unitFlags 日历单位，如YJNSCalendarUnitDay|YJNSCalendarUnitHour.
- *  @param second    秒
+ *  @param date NSDate
+ *  @param calendar NSCalendar
+ *
+ *  @return instancetype
  */
-- (void)components:(YJNSCalendarUnit)unitFlags fromSecond:(NSTimeInterval)second;
+- (instancetype)initWithDate:(NSDate *)date calendar:(NSCalendar *)calendar;
 
 @end
 

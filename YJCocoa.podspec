@@ -139,8 +139,6 @@ Pod::Spec.new do |s|
             # Timer
             foundation.subspec 'Timer' do |timer|
                 timer.source_files = 'Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}'
-                timer.dependency 'YJCocoa/AppFrameworks/Foundation/Calendar'
-                timer.dependency 'YJCocoa/AppFrameworks/Foundation/PerformSelector'
                 timer.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 timer.dependency 'YJCocoa/System/Security/Random'
             end

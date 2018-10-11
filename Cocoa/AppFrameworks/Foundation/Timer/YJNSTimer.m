@@ -10,7 +10,6 @@
 //
 
 #import "YJNSTimer.h"
-#import "NSObject+YJNSPerformSelector.h"
 #import "YJNSSingleton.h"
 #import "YJSecRandom.h"
 
@@ -90,14 +89,23 @@
 #pragma mark - getter & setter
 - (void)setTime:(NSTimeInterval)time {
     _time = time;
-    if (self.unitFlags) {
-        [self.calendar components:self.unitFlags fromSecond:time];
-    }
     self.success(self);
 }
 
-- (YJNSDateComponents *)dateComponents {
-    return self.calendar.dateComponents;
+- (NSInteger)day {
+    return (NSInteger)self.time / 86400;
+}
+
+- (NSInteger)hour {
+    return (NSInteger)self.time % 86400 / 3600;
+}
+
+- (NSInteger)minute {
+    return (NSInteger)self.time % 86400 % 3600 / 60;
+}
+
+- (NSInteger)second {
+    return (NSInteger)self.time % 86400 % 3600 % 60;
 }
 
 @end
