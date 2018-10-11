@@ -49,64 +49,65 @@
 }
 
 - (void)initEra_Year_Month_Day {
+    if (_year || _month || _day) return;
     [self.calendar getEra:&_era year:&_year month:&_month day:&_day fromDate:self.date];
 }
 
 - (void)initHour_Minute_Second_Nanosecond {
+    if (_hour || _minute || _second || _nanosecond) return;
     [self.calendar getHour:&_hour minute:&_minute second:&_second nanosecond:&_nanosecond fromDate:self.date];
 }
 
 - (void)initEra_YearForWeekOfYear_WeekOfYear_Weekday {
+    if (_yearForWeekOfYear || _weekOfYear || _weekday) return;
     [self.calendar getEra:&_era yearForWeekOfYear:&_yearForWeekOfYear weekOfYear:&_weekOfYear weekday:&_weekday fromDate:self.date];
 }
 
 #pragma mark - getter
 - (NSInteger)era {
-    if (_era == 0) [self initEra_Year_Month_Day];
+    [self initEra_Year_Month_Day];
     return _era;
 }
 
 - (NSInteger)year {
-    if (_year == 0) [self initEra_Year_Month_Day];
+    [self initEra_Year_Month_Day];
     return _year;
 }
 
 - (NSInteger)month {
-    if (_month == 0) [self initEra_Year_Month_Day];
+    [self initEra_Year_Month_Day];
     return _month;
 }
 
 - (NSInteger)day {
-    if (_day == 0) [self initEra_Year_Month_Day];
+    [self initEra_Year_Month_Day];
     return _day;
 }
 
 #pragma mark
 - (NSInteger)hour {
-    if (_hour == 0) {
-        _hour = [self.calendar component:NSCalendarUnitHour fromDate:self.date];
-    }
+    [self initHour_Minute_Second_Nanosecond];
     return _hour;
 }
 
 - (NSInteger)minute {
-    if (_minute == 0) [self initHour_Minute_Second_Nanosecond];
+    [self initHour_Minute_Second_Nanosecond];
     return _minute;
 }
 
 - (NSInteger)second {
-    if (_second == 0) [self initHour_Minute_Second_Nanosecond];
+    [self initHour_Minute_Second_Nanosecond];
     return _second;
 }
 
 - (NSInteger)nanosecond {
-    if (_nanosecond == 0) [self initHour_Minute_Second_Nanosecond];
+    [self initHour_Minute_Second_Nanosecond];
     return _nanosecond;
 }
 
 #pragma mark
 - (NSInteger)weekday {
-    if (_weekday == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
     return _weekday;
 }
 
@@ -132,12 +133,12 @@
 }
 
 - (NSInteger)weekOfYear {
-    if (_weekOfYear == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
     return _weekOfYear;
 }
 
 - (NSInteger)yearForWeekOfYear {
-    if (_yearForWeekOfYear == 0) [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
+    [self initEra_YearForWeekOfYear_WeekOfYear_Weekday];
     return _yearForWeekOfYear;
 }
 
