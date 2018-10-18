@@ -11,6 +11,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJNSWeakObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
