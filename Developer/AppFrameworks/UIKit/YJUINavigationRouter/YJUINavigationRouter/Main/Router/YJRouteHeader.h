@@ -6,5 +6,7 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "YJMainRouteManager.h"
-#import "YJOtherRouteManager.h"
+#import "UIViewController+YJUINavigationRouter.h"
+
+#define YJRouterURLMain @"YJRouterURLMain"
+#define YJRouterURLOther @"YJRouterURLOther" ///< 其他

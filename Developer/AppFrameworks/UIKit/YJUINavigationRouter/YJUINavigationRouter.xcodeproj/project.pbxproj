@@ -15,8 +15,6 @@
 		8480BC111E07D9D200A82399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8480BC0F1E07D9D200A82399 /* LaunchScreen.storyboard */; };
 		8480BC8D1E092ED200A82399 /* YJMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC831E092ED200A82399 /* YJMainViewController.m */; };
 		8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC861E092ED200A82399 /* YJOtherViewController.m */; };
-		8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC891E092ED200A82399 /* YJMainRouteManager.m */; };
-		8480BC901E092ED200A82399 /* YJOtherRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +32,6 @@
 		8480BC831E092ED200A82399 /* YJMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainViewController.m; sourceTree = "<group>"; };
 		8480BC851E092ED200A82399 /* YJOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOtherViewController.h; sourceTree = "<group>"; };
 		8480BC861E092ED200A82399 /* YJOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOtherViewController.m; sourceTree = "<group>"; };
-		8480BC881E092ED200A82399 /* YJMainRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainRouteManager.h; sourceTree = "<group>"; };
-		8480BC891E092ED200A82399 /* YJMainRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainRouteManager.m; sourceTree = "<group>"; };
-		8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOtherRouteManager.h; sourceTree = "<group>"; };
-		8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOtherRouteManager.m; sourceTree = "<group>"; };
 		8480BC8C1E092ED200A82399 /* YJRouteHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJRouteHeader.h; sourceTree = "<group>"; };
 		A597FD9AFB168767ECBE883E /* Pods-YJUINavigationRouter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJUINavigationRouter.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,10 +137,6 @@
 		8480BC871E092ED200A82399 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				8480BC881E092ED200A82399 /* YJMainRouteManager.h */,
-				8480BC891E092ED200A82399 /* YJMainRouteManager.m */,
-				8480BC8A1E092ED200A82399 /* YJOtherRouteManager.h */,
-				8480BC8B1E092ED200A82399 /* YJOtherRouteManager.m */,
 				8480BC8C1E092ED200A82399 /* YJRouteHeader.h */,
 			);
 			path = Router;
@@ -171,8 +161,6 @@
 				8480BBFA1E07D9D200A82399 /* Sources */,
 				8480BBFB1E07D9D200A82399 /* Frameworks */,
 				8480BBFC1E07D9D200A82399 /* Resources */,
-				6D1A62AC4AE7D34A10CD7F30 /* [CP] Embed Pods Frameworks */,
-				4742DD9653060D847950C296 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,36 +220,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4742DD9653060D847950C296 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D1A62AC4AE7D34A10CD7F30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJUINavigationRouter/Pods-YJUINavigationRouter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		76859F49F8054C8BC1EF9CE9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,12 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8480BC8F1E092ED200A82399 /* YJMainRouteManager.m in Sources */,
 				8480BC061E07D9D200A82399 /* AppDelegate.m in Sources */,
 				8480BC8D1E092ED200A82399 /* YJMainViewController.m in Sources */,
 				8480BC8E1E092ED200A82399 /* YJOtherViewController.m in Sources */,
 				8480BC031E07D9D200A82399 /* main.m in Sources */,
-				8480BC901E092ED200A82399 /* YJOtherRouteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

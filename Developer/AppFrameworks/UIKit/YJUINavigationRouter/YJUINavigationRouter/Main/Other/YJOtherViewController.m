@@ -15,6 +15,10 @@
 
 @implementation YJOtherViewController
 
++ (void)load {
+    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:self routerURL:YJRouterURLOther]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSStringFromClass(self.class);

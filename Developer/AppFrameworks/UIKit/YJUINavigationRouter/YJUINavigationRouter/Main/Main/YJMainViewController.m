@@ -21,6 +21,10 @@
     return [storyBoard instantiateViewControllerWithIdentifier:@"YJMainViewController"];
 }
 
++ (void)load {
+    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:self scope:YJNSRouterScopeSingleton routerURL:YJRouterURLMain]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSStringFromClass(self.class);
