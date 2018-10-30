@@ -45,4 +45,14 @@ static inline void executeCleanupBlock (__strong cleanup_block_t _Nonnull * _Non
 /** 强引用,self不存在时，直接返回*/
 #define strongSelfReturn(obj) symbol_at __strong typeof(wSelf) self = wSelf; if(!self) return obj;
 
+
+#pragma mark - warning
+/** 去掉 PerformSelector 警告*/
+#define warningPerformSelector(function) \
+symbol_at \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+function; \
+_Pragma("clang diagnostic pop")
+
 #endif /* YJSystemOther_h */

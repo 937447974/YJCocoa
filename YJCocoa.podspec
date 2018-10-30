@@ -105,23 +105,6 @@ Pod::Spec.new do |s|
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
             end
-            # Router
-            foundation.subspec 'Router' do |router|
-                router.source_files = 'Cocoa/AppFrameworks/Foundation/Router/*.{h,m}'
-                router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
-                router.subspec 'Manager' do |rManager|
-                    rManager.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Manager/*.{h,m}'
-                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Model'
-                    rManager.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                end
-                router.subspec 'Model' do |rModel|
-                    rModel.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Model/*.{h,m}'
-                    rModel.dependency 'YJCocoa/AppFrameworks/Foundation/Router/Protocol'
-                end
-                router.subspec 'Protocol' do |rProtocol|
-                    rProtocol.source_files = 'Cocoa/AppFrameworks/Foundation/Router/Protocol/*.{h,m}'
-                end
-            end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
                 singleton.subspec 'Core' do |score|
@@ -146,6 +129,14 @@ Pod::Spec.new do |s|
             foundation.subspec 'URLCode' do |urlCode|
                 urlCode.source_files = 'Cocoa/AppFrameworks/Foundation/URLCode/*.{h,m}'
             end
+            # Router
+            foundation.subspec 'URLRouter' do |router|
+                router.source_files = 'Cocoa/AppFrameworks/Foundation/URLRouter/**/*.{h,m}'
+                router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
+                router.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                router.dependency 'YJCocoa/System/Dispatch'
+            end
+            # URLSession
             foundation.subspec 'URLSession' do |session|
                 session.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}'
                 session.subspec 'Core' do |core|
@@ -214,7 +205,8 @@ Pod::Spec.new do |s|
             # NavigationRouter
             uik.subspec 'NavigationRouter' do |nr|
                 nr.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationRouter/*.{h,m}'
-                nr.dependency 'YJCocoa/AppFrameworks/Foundation/Router'
+                nr.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
+                nr.dependency 'YJCocoa/AppFrameworks/Foundation/URLRouter'                
             end
             # PageView
             uik.subspec 'PageView' do |pv|

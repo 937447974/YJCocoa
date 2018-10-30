@@ -15,6 +15,7 @@
 		0A83F3761F20874B00B9DCC7 /* YJLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355A81DAB60750097D526 /* YJLogTest.m */; };
 		0A83F3771F20874B00B9DCC7 /* YJPerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */; };
 		0A83F3781F20874B00B9DCC7 /* YJURLDecodeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480BBEF1E07C6C800A82399 /* YJURLDecodeTest.m */; };
+		6EF40600E4E060E17480C221 /* libPods-YJFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7EF092B716C3AEC9663FD /* libPods-YJFoundationTests.a */; };
 		84083A2D1E23395A00D89EAA /* YJTestURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */; };
 		84083A401E233A5A00D89EAA /* YJNSURLResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3D1E233A5A00D89EAA /* YJNSURLResponseModel.m */; };
 		84083A411E233A5A00D89EAA /* YJTestURLRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84083A3F1E233A5A00D89EAA /* YJTestURLRequestModel.m */; };
@@ -24,8 +25,7 @@
 		84D3558B1DAB5E700097D526 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D355891DAB5E700097D526 /* Main.storyboard */; };
 		84D3558D1DAB5E700097D526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558C1DAB5E700097D526 /* Assets.xcassets */; };
 		84D355901DAB5E700097D526 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D3558E1DAB5E700097D526 /* LaunchScreen.storyboard */; };
-		9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */; };
-		B4D211F776AFEC416D34795E /* libPods-YJFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */; };
+		A8D73CFD2272268F54761A50 /* libPods-YJFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D0E1C3F1AB665292CF057 /* libPods-YJFoundation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B7EF092B716C3AEC9663FD /* libPods-YJFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		070B08740082AF06FB0BD081 /* Pods-YJFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		0A83F3671F20872F00B9DCC7 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE61D82ED98CAD924530731 /* Pods-YJFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
-		708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84083A281E23395A00D89EAA /* YJTestURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestURLSessionTask.h; sourceTree = "<group>"; };
 		84083A291E23395A00D89EAA /* YJTestURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestURLSessionTask.m; sourceTree = "<group>"; };
 		84083A3C1E233A5A00D89EAA /* YJNSURLResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNSURLResponseModel.h; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		84D355DB1DAB6AA90097D526 /* YJPerformSelectorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPerformSelectorTest.m; sourceTree = "<group>"; };
 		84D355DD1DAB6DA70097D526 /* YJDictionaryModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDictionaryModelTest.m; sourceTree = "<group>"; };
 		9B48EAA311845AE2F047289A /* Pods-YJFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.debug.xcconfig"; sourceTree = "<group>"; };
-		B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE9D0E1C3F1AB665292CF057 /* libPods-YJFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC22DCABA42C821E860B026E /* Pods-YJFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4D211F776AFEC416D34795E /* libPods-YJFoundationTests.a in Frameworks */,
+				6EF40600E4E060E17480C221 /* libPods-YJFoundationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9911DDE50AFCC7A5298B0C12 /* libPods-YJFoundation.a in Frameworks */,
+				A8D73CFD2272268F54761A50 /* libPods-YJFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				84D355D71DAB66900097D526 /* libPods.a */,
-				B3472F734DE5B84356DC5613 /* libPods-YJFoundation.a */,
-				708C1E15A8E4A9CE6CD35725 /* libPods-YJFoundationTests.a */,
+				EE9D0E1C3F1AB665292CF057 /* libPods-YJFoundation.a */,
+				00B7EF092B716C3AEC9663FD /* libPods-YJFoundationTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

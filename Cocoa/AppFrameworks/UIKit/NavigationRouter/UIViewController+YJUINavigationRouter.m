@@ -10,34 +10,33 @@
 //
 
 #import "UIViewController+YJUINavigationRouter.h"
-#import <objc/runtime.h>
+#import "YJSwizzling.h"
 
 @implementation UIViewController (YJUINavigationRouter)
 
-- (BOOL)openCurrentRouterFromSourceRouter:(YJNSRouter *)sourceRouter completion:(void (^)(NSObject *))completion {
-    UIViewController *svc = [sourceRouter.delegate isKindOfClass:[UIViewController class]] ? (UIViewController *)sourceRouter.delegate : UIApplication.sharedApplication.keyWindow.rootViewController;
-    UINavigationController *snc = [svc isKindOfClass:[UINavigationController class]] ? (UINavigationController *)svc : svc.navigationController;
-    if (snc) {
-        UIViewController *targetVC = self;
-        YJNSRouterNode *routerNode = self.router.routerNode;
-        if (![routerNode.scope isEqualToString:YJNSRouterScopePrototype]) {
-            // navigationController 只能存在一份VC，否则程序崩溃
-            BOOL include = NO;
-            for (UIViewController *childVC in snc.viewControllers) {
-                if ([childVC isEqual:targetVC]) {
-                    include = YES;
-                    break;
-                }
-            }
-            if (include) {
-                targetVC = [[routerNode.routerClass alloc] initWithRouterURL:routerNode.routerURL];
-            }
-        }
-        [snc pushViewController:targetVC animated:YES];
-        completion(targetVC);
-        return YES;
++ (void)load {
+    [UIViewController swizzlingSEL:@selector(viewDidDisappear:) withSEL:@selector(router_viewDidDisappear:)];
+}
+
+- (void)router_viewDidDisappear:(BOOL)animated {
+    [self router_viewDidDisappear:animated];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isEqual:self]) return;
     }
-    return [super openCurrentRouterFromSourceRouter:sourceRouter completion:completion];
+    [YJNSURLRouterS offlineNode:self];
+}
+
+#pragma mark - YJNSURLRouterProtocol
++ (instancetype)newWithRouterURL:(YJNSRouterURL)url {
+    UIViewController *vc = self.new;
+    vc.view.backgroundColor = UIColor.whiteColor;
+    return vc;
+}
+
+- (void)openRouterCompletionHandler:(dispatch_block_t)completion {
+    UIViewController *vc = UIApplication.sharedApplication.keyWindow.rootViewController;
+    UINavigationController *nc = [vc isKindOfClass:[UINavigationController class]] ? (UINavigationController *)vc : vc.navigationController;
+    [nc pushViewController:self animated:YES];
 }
 
 @end

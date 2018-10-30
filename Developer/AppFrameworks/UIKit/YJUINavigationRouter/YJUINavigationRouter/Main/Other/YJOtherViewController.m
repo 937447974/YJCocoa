@@ -9,15 +9,11 @@
 #import "YJOtherViewController.h"
 #import "YJRouteHeader.h"
 
-@interface YJOtherViewController ()
+@interface YJOtherViewController () <YJNSURLRouterProtocol>
 
 @end
 
 @implementation YJOtherViewController
-
-+ (void)load {
-    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:self routerURL:YJRouterURLOther]];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +27,29 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:[NSString stringWithFormat:@"%@?name=阳君", YJRouterURLMain]];
+    [YJNSURLRouterS openURL:YJRouterURLMain options:@{@"name":@"阳君"} completionHandler:^{
+        NSLog(@"打开 YJRouterURLMain completionHandler");
+    }];
+}
+
+#pragma mark - YJNSURLRouterProtocol
++ (void)loadRouter {
+    YJNSRouterNodeConfig *config = [[YJNSRouterNodeConfig alloc] initWithRouterURL:YJRouterURLOther handler:^id<YJNSURLRouterProtocol>(NSDictionary *options, dispatch_block_t completion) {
+        YJOtherViewController *vc = YJOtherViewController.new;
+        vc.view.backgroundColor = UIColor.whiteColor;
+        [vc openRouterCompletionHandler:completion];
+        !completion?:completion();
+        return vc;
+    }];
+    [YJNSURLRouterS registerNodeConfig:config];
+}
+
+- (BOOL)receiveRouterData:(YJNSRouterDataID)dID options:(NSDictionary *)options {
+    if ([dID isEqualToString:@"test"]) {
+        NSLog(@"接受数据%@", options);
+        return YES;
+    }
+    return NO;
 }
 
 @end

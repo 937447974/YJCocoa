@@ -41,7 +41,7 @@
 #import "NSObject+YJNSPerformSelector.h"
 
 // 路由器导航基础库
-#import "NSObject+YJNSRouter.h"
+#import "YJNSURLRouter.h"
 
 // 宏定义，快速将类转换为单例类
 #import "YJNSSingleton.h"

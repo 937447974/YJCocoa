@@ -10,9 +10,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSObject+YJNSRouter.h"
+#import "YJNSURLRouter.h"
 
 /** UIViewController路由导航扩展*/
-@interface UIViewController (YJUINavigationRouter)
+@interface UIViewController (YJUINavigationRouter) <YJNSURLRouterProtocol>
 
 @end

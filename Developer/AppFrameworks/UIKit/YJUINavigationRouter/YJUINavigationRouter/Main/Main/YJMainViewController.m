@@ -9,21 +9,13 @@
 #import "YJMainViewController.h"
 #import "YJRouteHeader.h"
 #import "YJNSLog.h"
+#import "YJNSHttp.h"
 
-@interface YJMainViewController () <YJNSRouterDelegate>
+@interface YJMainViewController () <YJNSURLRouterProtocol>
 
 @end
 
 @implementation YJMainViewController
-
-- (instancetype)initWithRouterURL:(YJNSRouterURL)routerURL {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    return [storyBoard instantiateViewControllerWithIdentifier:@"YJMainViewController"];
-}
-
-+ (void)load {
-    [YJNSRouteManagerS registerRouterNode:[YJNSRouterNode nodeWithRouterClass:self scope:YJNSRouterScopeSingleton routerURL:YJRouterURLMain]];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,40 +23,32 @@
     NSLog(@"viewDidLoad--------%@", self);
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear--------%@", self);
-}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openRouterURL:YJRouterURLOther options:@{@"1":@"3"}];
+    NSString *url = [YJNSHttpAssembly assemblyHttpEncode:YJRouterURLOther params:@{@"1":@"3"}];
+    [YJNSURLRouterS openURL:url];
 }
 
 - (IBAction)onClickSend:(id)sender {
     NSLog(@"%@发送消息--------", self);
-    [self sendSourceRouter:@"test" options:@{@"name": @"YJCocoa"}];
+    [YJNSURLRouterS sendData:@"test" options:@{@"name": @"YJCocoa"}];
 }
 
 - (IBAction)onClickOnceJump:(id)sender {
-    // 使用按钮跳转
-//    [sender openRouterURL:YJRouterURLMain];
-    // 自定义跳转地址
-    YJNSRouteManagerS.routerNodeBlock = ^ YJNSRouterNode *(YJNSRouterURL routerURL) {
-        return [YJNSRouteManagerS routerNodeForURL:YJRouterURLMain];
-    };
-    [sender openRouterURL:@"HTTP"];
+    [YJNSURLRouterS openURL:@"https://github.com/937447974/YJCocoa"];
 }
 
-#pragma mark - YJNSRouterDelegate
-- (void)reloadRouterData {
-    NSLog(@"reloadRouterData----%@:%@", self, self.router.sourceOptions);
+#pragma mark - YJNSURLRouterProtocol
++ (void)loadRouter {
+    [YJNSURLRouterS registerNodeConfig:[[YJNSRouterNodeConfig alloc] initWithRouterURL:YJRouterURLMain cache:YES cls:self]];
 }
 
-- (BOOL)receiveTargetRouter:(YJNSRouterFoundationID)fID options:(NSDictionary<YJNSRouterOptionsKey,id> *)options sender:(YJNSRouter *)sender {
-    if ([@"test" isEqualToString:fID]) {
-        NSLog(@"%@处理消息----%@", self, options);
-    }
-    return [super receiveTargetRouter:fID options:options sender:sender]; // 不拦截，联动发送信息
++ (instancetype)newWithRouterURL:(YJNSRouterURL)url {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [storyBoard instantiateViewControllerWithIdentifier:@"YJMainViewController"];
+}
+
+- (void)reloadDataWithRouterOptions:(NSDictionary *)options {
+    NSLog(@"%@ %@", self, options);
 }
 
 @end
