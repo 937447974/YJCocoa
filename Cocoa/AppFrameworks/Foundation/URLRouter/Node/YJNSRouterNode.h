@@ -20,6 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id source; ///< 节点
 @property (nonatomic, strong) YJNSRouterNodeConfig *config; ///< 配置
 
+/**
+ *  @abstract 初始化
+ *
+ *  @param source 节点
+ *  @param config 节点配置
+ *
+ *  @return instancetype
+ */
 - (instancetype)initWithSource:(id)source config:(YJNSRouterNodeConfig *)config;
 
 @end

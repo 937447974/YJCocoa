@@ -12,7 +12,11 @@
 #import <UIKit/UIKit.h>
 #import "YJNSURLRouter.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** UIViewController路由导航扩展*/
 @interface UIViewController (YJUINavigationRouter) <YJNSURLRouterProtocol>
 
 @end
+
+NS_ASSUME_NONNULL_END

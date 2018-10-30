@@ -74,7 +74,7 @@
 }
 
 - (void)openURL:(NSString *)url options:(NSDictionary *)options completionHandler:(dispatch_block_t)completion {
-    NSAssert(NSThread.isMainThread, @"%@ %@ 主线程调用", NSStringFromClass(self.class), NSStringFromSelector(_cmd));
+    NSAssert(NSThread.isMainThread, @"%@ %@ 需主线程调用", NSStringFromClass(self.class), NSStringFromSelector(_cmd));
     YJNSRouterURL rUrl = url;
     NSRange range = [rUrl rangeOfString:@"?"];
     if (range.location != NSNotFound) {

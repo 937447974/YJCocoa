@@ -23,7 +23,7 @@ typedef NSString *YJNSRouterDataID NS_STRING_ENUM; ///< 路由包接受ID
 
 + (void)loadRouter;
 
-#pragma mark 页面
+#pragma mark 页面打开
 /**
  *  @abstract 初始化
  *
