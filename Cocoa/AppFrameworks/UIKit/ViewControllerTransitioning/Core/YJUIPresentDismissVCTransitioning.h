@@ -14,12 +14,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** UIViewController Present Dismiss 转场动画*/
 @interface YJUIPresentDismissVCTransitioning : NSObject <UIViewControllerTransitioningDelegate>
 
-@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *presentAT;
+@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *presentAT; ///< present 动画
 
-@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *dismissAT;
-@property (nonatomic, weak) UIViewController *dismissVC;
+@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *dismissAT; ///< dismiss 动画
+@property (nonatomic, weak) UIViewController *dismissVC; ///< dismiss 的VC
 
 @end
 

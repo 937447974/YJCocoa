@@ -13,8 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** Present 动画单例*/
 #define YJUIPresentVCAnimatedTransitioningS YJNSSingletonS(YJUIPresentVCAnimatedTransitioning, nil)
 
+/** Present 动画*/
 @interface YJUIPresentVCAnimatedTransitioning : YJUIViewControllerAnimatedTransitioning
 
 @end

@@ -14,12 +14,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** UINavigationController Push Pop 转场动画*/
 @interface YJUIPushPopVCTransitioning : NSObject <UINavigationControllerDelegate>
 
-@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *pushAT;
+@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *pushAT; ///< push 动画
 
-@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *popAT;
-@property (nonatomic, weak) UIViewController *popVC;
+@property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *popAT; ///< pop 动画
+@property (nonatomic, weak) UIViewController *popVC; ///< pop 的视图
 
 @end
 

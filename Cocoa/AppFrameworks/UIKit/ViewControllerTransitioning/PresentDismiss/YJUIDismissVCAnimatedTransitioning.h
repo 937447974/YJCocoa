@@ -13,8 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** Dismiss 动画单例*/
 #define YJUIDismissVCAnimatedTransitioningS YJNSSingletonS(YJUIDismissVCAnimatedTransitioning, nil)
 
+/** Dismiss 动画*/
 @interface YJUIDismissVCAnimatedTransitioning : YJUIViewControllerAnimatedTransitioning
 
 @end

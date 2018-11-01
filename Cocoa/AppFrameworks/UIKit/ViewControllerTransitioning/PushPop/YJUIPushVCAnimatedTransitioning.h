@@ -13,8 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** Push 动画单例*/
 #define YJUIPushVCAnimatedTransitioningS YJNSSingletonS(YJUIPushVCAnimatedTransitioning, nil)
 
+/** Push 动画*/
 @interface YJUIPushVCAnimatedTransitioning : YJUIViewControllerAnimatedTransitioning
 
 @end

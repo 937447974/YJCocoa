@@ -13,8 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** Pop 动画单例*/
 #define YJUIPopVCAnimatedTransitioningS YJNSSingletonS(YJUIPopVCAnimatedTransitioning, nil)
 
+/** Pop 动画*/
 @interface YJUIPopVCAnimatedTransitioning : YJUIViewControllerAnimatedTransitioning
 
 @end

@@ -172,7 +172,11 @@ UITableView管理器
 	2. 根据NSIndexPath对应的位置缓存高度；
 	3. 根据类名和NSIndexPath双重绑定缓存高度。
 
-### 1.2.10 ViewGeometry
+### 1.2.10 ViewControllerTransitioning
+
+UIViewController 和 UINavigationController 专场动画自定义。
+
+### 1.2.11 ViewGeometry
 
 UIView(UIViewGeometry)相关扩展，可快速设置frame、bounds和center。
 
