@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "8.4.0"
+    s.version  = "8.5.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -236,6 +236,23 @@ Pod::Spec.new do |s|
                 tv.subspec 'CellObject' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/CellObject/*.{h,m}'
                     co.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                end
+            end
+            # ViewControllerTransitioning
+            uik.subspec 'ViewControllerTransitioning' do |vct|
+                vct.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/YJUIViewControllerTransitioning.h'
+                vct.subspec 'Core' do |co|
+                    co.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/Core/*.{h,m}'
+                    co.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                    co.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'                    
+                end
+                vct.subspec 'PresentDismiss' do |pd|
+                    pd.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/PresentDismiss/*.{h,m}'
+                    pd.dependency 'YJCocoa/AppFrameworks/UIKit/ViewControllerTransitioning/Core'
+                end
+                vct.subspec 'PushPop' do |pp|
+                    pp.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/PushPop/*.{h,m}'
+                    pp.dependency 'YJCocoa/AppFrameworks/UIKit/ViewControllerTransitioning/Core'
                 end
             end
             # UIView(UIViewGeometry)相关扩展，可快速设置fram相关
