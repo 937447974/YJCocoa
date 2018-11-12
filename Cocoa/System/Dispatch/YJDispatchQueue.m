@@ -102,7 +102,7 @@ void dispatch_async_concurrent(dispatch_block_t block) {
         block();
         dispatch_semaphore_signal(self->_semaphore);
     };
-    if (dispatch_get_specific(_label)) semaphoreBlock();
+    if (dispatch_get_specific(_label)) block();
     else if (async) dispatch_async(_queue, semaphoreBlock);
     else dispatch_sync(_queue, semaphoreBlock);
 }
