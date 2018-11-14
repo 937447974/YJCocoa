@@ -53,7 +53,7 @@
     if (!self.timer || self.timer.timeInterval != self.timeInterval) {
         [self.timer invalidate];
         self.timer = [NSTimer timerWithTimeInterval:self.timeInterval target:self selector:@selector(autoUpdateTime) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     } else {
         self.timer.fireDate = [NSDate date];
     }
