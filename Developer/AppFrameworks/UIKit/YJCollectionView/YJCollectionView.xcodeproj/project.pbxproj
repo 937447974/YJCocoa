@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		32B7708714EE77F83F386259 /* libPods-YJCollectionView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 211806271E1C82FF12165BB3 /* libPods-YJCollectionView.a */; };
-		841DF9DD1DFFD85300A76B37 /* YJTest2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DF9D71DFFD85300A76B37 /* YJTest2CollectionViewCell.m */; };
-		841DF9DE1DFFD85300A76B37 /* YJTestCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DF9D91DFFD85300A76B37 /* YJTestCollectionReusableView.m */; };
-		841DF9DF1DFFD85300A76B37 /* YJTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DF9DB1DFFD85300A76B37 /* YJTestCollectionViewCell.m */; };
-		841DF9E01DFFD85300A76B37 /* YJTestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841DF9DC1DFFD85300A76B37 /* YJTestCollectionViewCell.xib */; };
+		4A7304CF219E9F0600E9B095 /* YJTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7304C8219E9F0600E9B095 /* YJTestCollectionViewCell.m */; };
+		4A7304D0219E9F0600E9B095 /* YJTest2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7304CB219E9F0600E9B095 /* YJTest2CollectionViewCell.m */; };
+		4A7304D1219E9F0600E9B095 /* YJTestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7304CC219E9F0600E9B095 /* YJTestCollectionViewCell.xib */; };
+		4A7304D2219E9F0600E9B095 /* YJTestCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7304CD219E9F0600E9B095 /* YJTestCollectionReusableView.m */; };
 		841DF9E31DFFD86800A76B37 /* YJTestCollectionCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DF9E21DFFD86800A76B37 /* YJTestCollectionCellModel.m */; };
 		8473AC451CE9A527000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC441CE9A527000E3580 /* main.m */; };
 		8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AC471CE9A527000E3580 /* AppDelegate.m */; };
@@ -24,14 +24,14 @@
 /* Begin PBXFileReference section */
 		210717020C687A6AD7337121 /* Pods-YJCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView.release.xcconfig"; sourceTree = "<group>"; };
 		211806271E1C82FF12165BB3 /* libPods-YJCollectionView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCollectionView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7304C8219E9F0600E9B095 /* YJTestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionViewCell.m; sourceTree = "<group>"; };
+		4A7304C9219E9F0600E9B095 /* YJTestCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionReusableView.h; sourceTree = "<group>"; };
+		4A7304CA219E9F0600E9B095 /* YJTestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionViewCell.h; sourceTree = "<group>"; };
+		4A7304CB219E9F0600E9B095 /* YJTest2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTest2CollectionViewCell.m; sourceTree = "<group>"; };
+		4A7304CC219E9F0600E9B095 /* YJTestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A7304CD219E9F0600E9B095 /* YJTestCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionReusableView.m; sourceTree = "<group>"; };
+		4A7304CE219E9F0600E9B095 /* YJTest2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTest2CollectionViewCell.h; sourceTree = "<group>"; };
 		65D606EE9F26AE678D09EBF2 /* Pods-YJCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
-		841DF9D61DFFD85300A76B37 /* YJTest2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTest2CollectionViewCell.h; sourceTree = "<group>"; };
-		841DF9D71DFFD85300A76B37 /* YJTest2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTest2CollectionViewCell.m; sourceTree = "<group>"; };
-		841DF9D81DFFD85300A76B37 /* YJTestCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionReusableView.h; sourceTree = "<group>"; };
-		841DF9D91DFFD85300A76B37 /* YJTestCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionReusableView.m; sourceTree = "<group>"; };
-		841DF9DA1DFFD85300A76B37 /* YJTestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionViewCell.h; sourceTree = "<group>"; };
-		841DF9DB1DFFD85300A76B37 /* YJTestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionViewCell.m; sourceTree = "<group>"; };
-		841DF9DC1DFFD85300A76B37 /* YJTestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJTestCollectionViewCell.xib; sourceTree = "<group>"; };
 		841DF9E11DFFD86800A76B37 /* YJTestCollectionCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJTestCollectionCellModel.h; sourceTree = "<group>"; };
 		841DF9E21DFFD86800A76B37 /* YJTestCollectionCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJTestCollectionCellModel.m; sourceTree = "<group>"; };
 		8473AC401CE9A527000E3580 /* YJCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,13 +72,13 @@
 			isa = PBXGroup;
 			children = (
 				841DF9D51DFFD85300A76B37 /* Model */,
-				841DF9D61DFFD85300A76B37 /* YJTest2CollectionViewCell.h */,
-				841DF9D71DFFD85300A76B37 /* YJTest2CollectionViewCell.m */,
-				841DF9D81DFFD85300A76B37 /* YJTestCollectionReusableView.h */,
-				841DF9D91DFFD85300A76B37 /* YJTestCollectionReusableView.m */,
-				841DF9DA1DFFD85300A76B37 /* YJTestCollectionViewCell.h */,
-				841DF9DB1DFFD85300A76B37 /* YJTestCollectionViewCell.m */,
-				841DF9DC1DFFD85300A76B37 /* YJTestCollectionViewCell.xib */,
+				4A7304CE219E9F0600E9B095 /* YJTest2CollectionViewCell.h */,
+				4A7304CB219E9F0600E9B095 /* YJTest2CollectionViewCell.m */,
+				4A7304C9219E9F0600E9B095 /* YJTestCollectionReusableView.h */,
+				4A7304CD219E9F0600E9B095 /* YJTestCollectionReusableView.m */,
+				4A7304CA219E9F0600E9B095 /* YJTestCollectionViewCell.h */,
+				4A7304C8219E9F0600E9B095 /* YJTestCollectionViewCell.m */,
+				4A7304CC219E9F0600E9B095 /* YJTestCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				8473AC531CE9A527000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AC501CE9A527000E3580 /* Assets.xcassets in Resources */,
 				8473AC4E1CE9A527000E3580 /* Main.storyboard in Resources */,
-				841DF9E01DFFD85300A76B37 /* YJTestCollectionViewCell.xib in Resources */,
+				4A7304D1219E9F0600E9B095 /* YJTestCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,12 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8473AC4B1CE9A527000E3580 /* ViewController.m in Sources */,
-				841DF9DD1DFFD85300A76B37 /* YJTest2CollectionViewCell.m in Sources */,
+				4A7304CF219E9F0600E9B095 /* YJTestCollectionViewCell.m in Sources */,
+				4A7304D0219E9F0600E9B095 /* YJTest2CollectionViewCell.m in Sources */,
+				4A7304D2219E9F0600E9B095 /* YJTestCollectionReusableView.m in Sources */,
 				8473AC481CE9A527000E3580 /* AppDelegate.m in Sources */,
 				841DF9E31DFFD86800A76B37 /* YJTestCollectionCellModel.m in Sources */,
-				841DF9DE1DFFD85300A76B37 /* YJTestCollectionReusableView.m in Sources */,
 				8473AC451CE9A527000E3580 /* main.m in Sources */,
-				841DF9DF1DFFD85300A76B37 /* YJTestCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
