@@ -18,6 +18,7 @@
 
 @interface YJNSTimer ()
 
+@property (nonatomic) CFAbsoluteTime callbackTime;
 @property (nonatomic, copy) NSString *identifier; ///< 标识符
 
 @property (nonatomic, weak) id target;                ///< 弱引用目标
@@ -61,9 +62,13 @@
 
 - (void)autoUpdateTime {
     if (!self.target) {
+        self.callbackTime = 0;
         [self invalidate];
         return;
     }
+    CFAbsoluteTime currentTime = CFAbsoluteTimeGetCurrent();
+    if (currentTime - self.callbackTime < self.timeInterval) return;
+    self.callbackTime = currentTime;
     if (self.countdown) {
         NSTimeInterval time = self.time - self.timeInterval;
         if (time <= 0) {
@@ -74,6 +79,7 @@
     } else {
         self.time = self.time + self.timeInterval;
     }
+    self.success(self);
 }
 
 - (void)pause {
@@ -87,11 +93,6 @@
 }
 
 #pragma mark - getter & setter
-- (void)setTime:(NSTimeInterval)time {
-    _time = time;
-    self.success(self);
-}
-
 - (NSInteger)day {
     return (NSInteger)self.time / 86400;
 }
