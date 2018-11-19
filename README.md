@@ -140,7 +140,7 @@ UITextField和UITextView可输入长度控制。
 
 ### 1.2.5 NavigationBar
 
-NavigationBar主要实现对UINavigationBar的封装，可快速自定义配置UINavigationBar。
+NavigationBar 主要用于配置导航标题和按钮。
 
 ### 1.2.6 NavigationRouter
 

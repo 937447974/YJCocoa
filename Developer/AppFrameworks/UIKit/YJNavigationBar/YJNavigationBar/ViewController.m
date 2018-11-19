@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YJUINavigationBar.h"
+#import "YJSystemOther.h"
 
 @interface ViewController ()
 
@@ -16,29 +17,32 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
-    // 修改默认配置
-    [YJUINavigationBar appearance].titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
-    YJUIBarButtonView *shareBarButtonView = [YJUIBarButtonView appearance];
-    shareBarButtonView.titleColor = [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0];
-    
-    // 显示
-    YJUINavigationBar *nb = [[YJUINavigationBar alloc] initWithFrame:CGRectZero];
-    nb.title = @"YJNavigationBar";
-    // 框架按钮
-    nb.leftBarButtonView.barButtonItem = [[YJUIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back"] target:self action:@selector(onClickButton:)];
-    // 自定义按钮
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    button.titleLabel.font = [YJUIBarButtonView appearance].titleFont;
-    [button setTitle:@"完成" forState:UIControlStateNormal];
-    [button setTitleColor:shareBarButtonView.titleColor forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
-    nb.rightBarButtonView.barButton = button;
-    self.navigationItem.titleView = nb;
+    [super viewDidLoad];
+    self.view.backgroundColor = UIColor.whiteColor;
+    if (self.navigationController.childViewControllers.count <= 2) {
+        [self test1];
+    } else {
+        [self test2];
+    }
 }
 
-- (void)onClickButton:(id)sender {
-    NSLog(@"%@", sender);
+- (void)test1 {
+    @weakSelf
+    YJUIBarButtonItem *item = [[YJUIBarButtonItem alloc] initWithTouchUpInsideBlock:^{
+        @strongSelf
+        [self.navigationController pushViewController:ViewController.new animated:YES];
+    }];
+    [item setTitle:@"跳转" font:nil color:nil highlightedColor:nil];
+    self.navigationItem.rightBarButtonItem = item.buildBarButtonItem;
+    YJUINavigationTitleView *titleView = [[YJUINavigationTitleView alloc] initWithFrame:CGRectZero];
+    titleView.titleLabel.text = @"test1-YJUINavigationTitleView-YJUINavigationTitleView";
+    self.navigationItem.titleView = titleView;
+}
+
+- (void)test2 {
+    YJUINavigationTitleView *titleView = [[YJUINavigationTitleView alloc] initWithFrame:CGRectZero];
+    titleView.titleLabel.text = @"test2-YJUINavigationTitleView-YJUINavigationTitleView";
+    self.navigationItem.titleView = titleView;
 }
 
 @end

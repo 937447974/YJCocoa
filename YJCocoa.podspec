@@ -196,10 +196,7 @@ Pod::Spec.new do |s|
             # NavigationBar
             uik.subspec 'NavigationBar' do |nb|
                 nb.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationBar/*.{h,m}'
-                nb.subspec 'Core' do |core|
-                    core.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationBar/Core/*.{h,m}'
-                    core.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
-                end
+                nb.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
             end
             # NavigationRouter
             uik.subspec 'NavigationRouter' do |nr|
