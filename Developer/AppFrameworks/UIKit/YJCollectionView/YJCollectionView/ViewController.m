@@ -42,7 +42,11 @@
     for (int i = 0; i < 2; i++) {
         YJTestCollectionCellModel *cellModel = [[YJTestCollectionCellModel alloc] init];
         cellModel.index = [NSString stringWithFormat:@"%d", i];
-        [self.collectionView.dataSourcePlain addObject:[YJTestCollectionViewCell cellObjectWithCellModel:cellModel]];
+        YJUICollectionCellObject *co = [YJTestCollectionViewCell cellObjectWithCellModel:cellModel];
+        co.didSelectItemBlock = ^{
+            NSLog(cellModel.index, nil);
+        };
+        [self.collectionView.dataSourcePlain addObject:co];
     }
     // 头部、尾部
     YJTestCollectionReusableViewModel *hvm = [[YJTestCollectionReusableViewModel alloc] init];

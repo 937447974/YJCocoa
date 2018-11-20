@@ -35,6 +35,7 @@
 
 // UITableView
 #import "YJUITableView.h"
+#import "YJUIViewControllerTransitioning.h" // 转场动画
 
 // UIView(UIViewGeometry)相关扩展，可快速设置fram相关
 #import "UIView+YJUIViewGeometry.h"

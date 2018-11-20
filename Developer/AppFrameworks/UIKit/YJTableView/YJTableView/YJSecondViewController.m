@@ -36,6 +36,9 @@
             YJTestTableCellModel *cellModel = [[YJTestTableCellModel alloc] init];
             cellModel.userName = [NSString stringWithFormat:@"阳君-%d", j];
             YJUITableCellObject *co = [YJTestTableViewCell cellObjectWithCellModel:cellModel];
+            co.didSelectRowBlock = ^{
+                NSLog(cellModel.userName, nil);
+            };
             // 填充数据源
             [array addObject:co];
         }

@@ -49,6 +49,7 @@
     color = color ?: [UINavigationBar appearance].tintColor;
     color = color ?: UIColor.blackColor;
     highlightedColor = highlightedColor ?: [color colorWithAlphaComponent:0.5];
+    self.button.titleLabel.font = font;
     [self.button setTitle:title forState:UIControlStateNormal];
     [self.button setTitleColor:color forState:UIControlStateNormal];
     [self.button setTitleColor:highlightedColor forState:UIControlStateHighlighted];
@@ -85,7 +86,7 @@
 - (UIBarButtonItem *)buildBarButtonItem {
     CGSize size = [self.button sizeThatFits:CGSizeMake(300, 30)];
     if (size.width > 30) {
-        self.button.widthFrame = size.width;
+        self.button.widthFrame = size.width + 1;
     }
     return [[UIBarButtonItem alloc] initWithCustomView:self.button];
 }

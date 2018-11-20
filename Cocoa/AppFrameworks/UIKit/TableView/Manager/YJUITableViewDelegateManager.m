@@ -13,9 +13,10 @@
 #import "YJUITableViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
 
-@interface YJUITableViewDelegateManager () {
-    NSMutableDictionary<NSString *, NSNumber *> *_cacheHeightDict; ///< 缓存高
-}
+@interface YJUITableViewDelegateManager ()
+
+@property (nonatomic, weak, readwrite) YJUITableViewManager *manager;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSNumber *> *cacheHeightDict;
 
 @end
 
@@ -26,23 +27,23 @@
 - (instancetype)initWithManager:(YJUITableViewManager *)manager {
     self = [super init];
     if (self) {
-        _cacheHeightDict = [[NSMutableDictionary alloc] init];
-        _isCacheHeight = YES;
-        _manager = manager;
+        self.cacheHeightDict = [[NSMutableDictionary alloc] init];
+        self.isCacheHeight = YES;
+        self.manager = manager;
     }
     return self;
 }
 
 #pragma mark - 清除缓存
 - (void)clearAllCacheHeight {
-    [_cacheHeightDict removeAllObjects];
+    [self.cacheHeightDict removeAllObjects];
 }
 
 - (void)clearCacheHeightWithCellObject:(YJUITableCellObject *)cellObject {
     if (!cellObject.indexPath) {
         return;
     }
-    [_cacheHeightDict removeObjectForKey:[self getKeyFromCellObject:cellObject]];
+    [self.cacheHeightDict removeObjectForKey:[self getKeyFromCellObject:cellObject]];
 }
 
 - (void)clearCacheHeightWithCellObjects:(NSArray<YJUITableCellObject *> *)cellObjects {
@@ -68,13 +69,13 @@
     NSString *key = [self getKeyFromCellObject:cellObject];
     CGFloat rowHeight = 0;
     if (self.isCacheHeight) {
-        rowHeight = [_cacheHeightDict objectForKey:key].floatValue;
+        rowHeight = [self.cacheHeightDict objectForKey:key].floatValue;
         if (rowHeight) return rowHeight;
     }
     rowHeight = [cellObject.cellClass tableViewManager:self.manager heightForCellObject:cellObject];
     // 添加缓存
     if (self.isCacheHeight) {
-        [_cacheHeightDict setObject:[NSNumber numberWithFloat:rowHeight] forKey:key];
+        [self.cacheHeightDict setObject:[NSNumber numberWithFloat:rowHeight] forKey:key];
     }
     return rowHeight;
 }
@@ -114,8 +115,9 @@
             NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
             return;
         }
-        YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
-        [self.manager.delegate tableViewManager:self.manager didSelectCellWithCellObject:cellObject];
+        YJUITableCellObject *co = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];
+        !co.didSelectRowBlock?:co.didSelectRowBlock();
+        [self.manager.delegate tableViewManager:self.manager didSelectCellWithCellObject:co];
     }
 }
 

@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 
 @property (nonatomic, strong) __kindof id<YJUICollectionCellModel> cellModel; ///< cell对应的VM
 @property (nonatomic, strong, nullable) id userInfo; ///< 携带的数据
+@property (nonatomic, copy, nullable) dispatch_block_t didSelectItemBlock; ///< 点击回调
 
 @property (nonatomic) YJUICollectionCellCreate createCell; ///< 创建cell的方式
 @property (nonatomic, strong) NSIndexPath *indexPath;      ///< cell所处位置，无须添加，自动填充

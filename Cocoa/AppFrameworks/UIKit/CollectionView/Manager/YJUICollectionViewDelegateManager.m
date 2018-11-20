@@ -29,8 +29,9 @@
             NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
             return;
         }
-        YJUICollectionCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
-        [self.manager.delegate collectionViewManager:self.manager didSelectCellWithCellObject:cellObject];
+        YJUICollectionCellObject *co = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
+        !co.didSelectItemBlock?:co.didSelectItemBlock();
+        [self.manager.delegate collectionViewManager:self.manager didSelectCellWithCellObject:co];
     }
 }
 
