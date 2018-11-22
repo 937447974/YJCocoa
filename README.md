@@ -174,7 +174,7 @@ UITableView管理器
 
 ### 1.2.10 ViewControllerTransitioning
 
-UIViewController 和 UINavigationController 专场动画自定义。
+UIViewController 和 UINavigationController 转场动画自定义。
 
 ### 1.2.11 ViewGeometry
 
@@ -386,3 +386,5 @@ YJ技术支持群：557445088
 CSDN：http://blog.csdn.net/y550918116j
 
 GitHub：https://github.com/937447974
+
+

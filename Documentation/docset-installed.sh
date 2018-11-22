@@ -31,9 +31,9 @@
 #fi
 
 # 更新记录
-osascript -e 'display notification "1. PageView 增加页面滑动监听。" with title "YJCocoa 8.4.0"'
-osascript -e 'display notification "2. Dispatch 拆分 Pthread 库，并增加串行和并发队列操作。" with title "YJCocoa 8.4.0"'
-osascript -e 'display notification "3. 代码优化和崩溃修复。" with title "YJCocoa 8.4.0"'
-
+osascript -e 'display notification "1. 新增 ViewControllerTransitioning，支持 UIViewController 和 UINavigationController 转场动画自定义" with title "YJCocoa 8.5.0"'
+osascript -e 'display notification "2. Calendar 增加年月日时分秒等获取" with title "YJCocoa 8.5.0"'
+osascript -e 'display notification "3. URLRouter、NavigationBar 重构升级" with title "YJCocoa 8.5.0"'
+osascript -e 'display notification "4. 代码优化和崩溃修复" with title "YJCocoa 8.5.0"'
 
 
