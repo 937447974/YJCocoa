@@ -40,6 +40,16 @@
 }
 
 - (void)test2 {
+    @weakSelf
+    YJUIBarButtonItem *item = [[YJUIBarButtonItem alloc] initWithTouchUpInsideBlock:^{
+        @strongSelf
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [item setImage:[UIImage imageNamed:@"nav_back"] highlightedImage:nil];
+    item.imageEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
+    
+    self.navigationItem.leftBarButtonItem = item.buildBarButtonItem;
+    
     YJUINavigationTitleView *titleView = [[YJUINavigationTitleView alloc] initWithFrame:CGRectZero];
     titleView.titleLabel.text = @"test2-YJUINavigationTitleView-YJUINavigationTitleView";
     self.navigationItem.titleView = titleView;

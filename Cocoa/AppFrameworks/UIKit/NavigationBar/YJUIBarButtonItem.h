@@ -58,11 +58,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setImageEdgeInsets:(UIEdgeInsets)imageEdgeInsets;
 
 /**
- *  @abstract 构建为 UIBarButtonItem
+ *  @abstract 构建 UIBarButtonItem
  *
  *  @return UIBarButtonItem
  */
 - (UIBarButtonItem *)buildBarButtonItem;
+
+/**
+ *  @abstract 构建返回按钮UIBarButtonItem
+ *
+ *  @return UIBarButtonItem
+ */
+- (UIBarButtonItem *)buildBackBarButtonItem;
 
 @end
 

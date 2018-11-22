@@ -55,18 +55,18 @@
     [self.button setTitleColor:highlightedColor forState:UIControlStateHighlighted];
 }
 
-- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets {
-    self.button.titleEdgeInsets = titleEdgeInsets;
-}
-
 - (void)setImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage {
     highlightedImage = highlightedImage ?: [self imageWithAlpha:0.5 image:image];
     [self.button setImage:image forState:UIControlStateNormal];
     [self.button setImage:[self imageWithAlpha:0.5 image:image] forState:UIControlStateHighlighted];
 }
 
+- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets {
+    self.button.titleEdgeInsets = titleEdgeInsets;
+}
+
 - (void)setImageEdgeInsets:(UIEdgeInsets)imageEdgeInsets {
-    self.imageEdgeInsets = imageEdgeInsets;
+    self.button.imageEdgeInsets = imageEdgeInsets;
 }
 
 - (UIImage *)imageWithAlpha:(CGFloat)alpha image:(UIImage*)image {
@@ -83,18 +83,26 @@
     return newImage;
 }
 
+#pragma mark - Build
 - (UIBarButtonItem *)buildBarButtonItem {
     CGSize size = [self.button sizeThatFits:CGSizeMake(300, 30)];
-    if (size.width > 30) {
-        self.button.widthFrame = size.width + 1;
+    if (size.width > 20) {
+        self.button.widthFrame = size.width;
     }
     return [[UIBarButtonItem alloc] initWithCustomView:self.button];
 }
 
-#pragma mark Getter
+- (UIBarButtonItem *)buildBackBarButtonItem {
+    UIBarButtonItem *item = [self buildBarButtonItem];
+    self.button.widthFrame += 3;
+    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    return item;
+}
+
+#pragma mark - Getter
 - (UIButton *)button {
     if (!_button) {
-        _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
         [_button addTarget:_button action:@selector(yj_touchUpInside) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
