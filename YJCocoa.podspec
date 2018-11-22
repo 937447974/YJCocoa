@@ -134,6 +134,7 @@ Pod::Spec.new do |s|
                 router.source_files = 'Cocoa/AppFrameworks/Foundation/URLRouter/**/*.{h,m}'
                 router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
                 router.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                router.dependency 'YJCocoa/System/Dispatch'
             end
             # URLSession
             foundation.subspec 'URLSession' do |session|
