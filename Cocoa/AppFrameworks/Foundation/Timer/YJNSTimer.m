@@ -24,8 +24,7 @@
 @property (nonatomic, weak) id target;                ///< 弱引用目标
 @property (nonatomic, copy) YJNSTimerSuccess success; ///< 成功回调
 
-@property (nonatomic, strong) NSTimer *timer;         ///< 计时器
-@property (nonatomic, strong) YJNSCalendar *calendar; ///< 日历
+@property (nonatomic, strong) NSTimer *timer; ///< 计时器
 
 @end
 
@@ -40,7 +39,6 @@
         timer = [[YJNSTimer alloc] init];
         timer.identifier = identifier;
         timer.timeInterval = 1;
-        timer.calendar = [[YJNSCalendar alloc] init];
     }
     [tDict setObject:timer forKey:timer.identifier];
     timer.target = target;
