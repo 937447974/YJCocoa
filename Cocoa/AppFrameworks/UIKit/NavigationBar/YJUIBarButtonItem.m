@@ -58,7 +58,7 @@
 - (void)setImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage {
     highlightedImage = highlightedImage ?: [self imageWithAlpha:0.5 image:image];
     [self.button setImage:image forState:UIControlStateNormal];
-    [self.button setImage:[self imageWithAlpha:0.5 image:image] forState:UIControlStateHighlighted];
+    [self.button setImage:highlightedImage forState:UIControlStateHighlighted];
 }
 
 - (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets {
