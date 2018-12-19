@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *dismissAT; ///< dismiss 动画
 @property (nonatomic, weak) UIViewController *dismissVC; ///< dismiss 的VC
+@property (nonatomic, strong, readonly) UIPanGestureRecognizer *dismissGesture; ///< dismiss 的手势
 
 @end
 

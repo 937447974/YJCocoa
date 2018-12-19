@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) YJUIViewControllerAnimatedTransitioning *popAT; ///< pop 动画
 @property (nonatomic, weak) UIViewController *popVC; ///< pop 的视图
+@property (nonatomic, strong, readonly) UIPanGestureRecognizer *popGesture; ///< pop 的手势
 
 @end
 

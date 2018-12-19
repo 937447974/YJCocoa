@@ -27,8 +27,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.pdVCTransitioning = YJUIPresentDismissVCTransitioning.new;
     self.ppVCTransitioning = YJUIPushPopVCTransitioning.new;
-        [self testPresentDismiss];
-    //    [self testPushPop];
+//        [self testPresentDismiss];
+        [self testPushPop];
 }
 
 - (void)testPresentDismiss {

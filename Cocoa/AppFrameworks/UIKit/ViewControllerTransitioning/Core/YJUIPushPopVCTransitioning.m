@@ -14,6 +14,7 @@
 @interface YJUIPushPopVCTransitioning ()
 
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *popIT;
+@property (nonatomic, strong, readwrite) UIPanGestureRecognizer *popGesture;
 
 @end
 
@@ -59,9 +60,15 @@
 - (void)setPopVC:(UIViewController *)popVC {
     if ([popVC isEqual:_popVC]) return;
     _popVC = popVC;
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] init];
-    [panGesture addTarget:self action:@selector(panGestureRecognizerAction:)];
-    [_popVC.view addGestureRecognizer:panGesture];
+    [_popVC.view addGestureRecognizer:self.popGesture];
+}
+
+- (UIPanGestureRecognizer *)popGesture {
+    if (!_popGesture) {
+       _popGesture = [[UIPanGestureRecognizer alloc] init];
+        [_popGesture addTarget:self action:@selector(panGestureRecognizerAction:)];
+    }
+    return _popGesture;
 }
 
 @end

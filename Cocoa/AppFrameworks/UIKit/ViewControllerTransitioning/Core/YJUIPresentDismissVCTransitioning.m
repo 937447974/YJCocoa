@@ -14,6 +14,7 @@
 @interface YJUIPresentDismissVCTransitioning ()
 
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *dismissIT;
+@property (nonatomic, strong, readwrite) UIPanGestureRecognizer *dismissGesture;
 
 @end
 
@@ -58,9 +59,15 @@
 - (void)setDismissVC:(UIViewController *)dismissVC {
     if ([_dismissVC isEqual:dismissVC]) return;
     _dismissVC = dismissVC;
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] init];
-    [panGesture addTarget:self action:@selector(panGestureRecognizerAction:)];
-    [_dismissVC.view addGestureRecognizer:panGesture];
+    [_dismissVC.view addGestureRecognizer:self.dismissGesture];
+}
+
+- (UIPanGestureRecognizer *)dismissGesture {
+    if (!_dismissGesture) {
+        _dismissGesture = [[UIPanGestureRecognizer alloc] init];
+        [_dismissGesture addTarget:self action:@selector(panGestureRecognizerAction:)];
+    }
+    return _dismissGesture;
 }
 
 @end
