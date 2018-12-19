@@ -46,6 +46,13 @@
     return YJUITableViewCellCreateClass;
 }
 
++ (CGFloat)tableViewManager:(YJUITableViewManager *)tableViewManager heightForCellObject:(YJUITableCellObject *)cellObject {
+    if ([self.class isEqual:YJUITableViewHeaderFooterView.class]) {
+        return 0;
+    }
+    return [super tableViewManager:tableViewManager heightForCellObject:cellObject];
+}
+
 - (void)reloadDataWithCellObject:(YJUITableCellObject *)cellObject tableViewManager:(YJUITableViewManager *)tableViewManager {
     _cellObject = cellObject;
     _tableViewManager = tableViewManager;

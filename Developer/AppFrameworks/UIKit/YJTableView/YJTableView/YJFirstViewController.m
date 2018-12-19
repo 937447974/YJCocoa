@@ -93,6 +93,7 @@
 - (void)test4 {
     self.tableView.sectionHeaderHeight = 20;
     [self.tableView.dataSourceGrouped removeAllObjects];
+    [self.tableView.dataSourceHeader addObject:YJUITableViewHeaderFooterView.cellObject];
     for (int i = 0; i < 3; i++) {
         [self.tableView.dataSourceHeader addObject:YJUITableViewHeaderView.cellObject];
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
