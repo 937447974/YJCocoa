@@ -86,9 +86,7 @@
 #pragma mark - Build
 - (UIBarButtonItem *)buildBarButtonItem {
     CGSize size = [self.button sizeThatFits:CGSizeMake(300, 30)];
-    if (size.width > 25) {
-        self.button.widthFrame = size.width;
-    }
+    self.button.widthFrame = size.width > 25 ? ceilf(size.width) : 25;
     return [[UIBarButtonItem alloc] initWithCustomView:self.button];
 }
 
@@ -102,7 +100,7 @@
 #pragma mark - Getter
 - (UIButton *)button {
     if (!_button) {
-        _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 30)];
+        _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
         [_button addTarget:_button action:@selector(yj_touchUpInside) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
