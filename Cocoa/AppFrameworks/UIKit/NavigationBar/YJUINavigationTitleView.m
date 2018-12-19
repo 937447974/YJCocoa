@@ -16,7 +16,7 @@
 
 #pragma mark - self
 - (instancetype)initWithFrame:(CGRect)frame {
-    frame = CGRectMake(0, 0, 9999, 100);
+    frame = CGRectMake(0, 0, 1000, 30);
     self = [super initWithFrame:frame];
     if (self) {
         self.middle = YES;
@@ -27,18 +27,25 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    UIView *sView = self.superview;
-    CGFloat leftSpace = sView.leadingFrame;
-    CGFloat rightSpace = sView.superview.widthFrame - sView.trailingFrame;
-    if (leftSpace <= 0 && rightSpace <= 0) return;
     self.titleLabel.frame = self.bounds;
-    if (self.middle) {
-        if (leftSpace > rightSpace) {
-            self.titleLabel.widthFrame -= leftSpace - rightSpace;
-        } else {
-            self.titleLabel.leadingFrame = rightSpace - leftSpace;
-            self.titleLabel.widthFrame = self.widthFrame - self.titleLabel.leadingFrame;
-        }
+    if (!self.middle) return;
+    UIView *cView = self;
+    BOOL noInBar = YES;
+    CGFloat leftSpace = 0;
+    CGFloat rightSpace = 0;
+    while (cView.superview && noInBar) {
+        UIView *sView = cView.superview;
+        noInBar = ![sView isKindOfClass:UINavigationBar.class];
+        leftSpace += cView.leadingFrame;
+        rightSpace += sView.widthFrame - cView.trailingFrame;
+        cView = sView;
+    }
+    if (noInBar) return;
+    if (leftSpace > rightSpace) {
+        self.titleLabel.widthFrame -= leftSpace - rightSpace;
+    } else {
+        self.titleLabel.leadingFrame = rightSpace - leftSpace;
+        self.titleLabel.widthFrame = self.widthFrame - self.titleLabel.leadingFrame;
     }
 }
 
@@ -52,6 +59,18 @@
         _titleLabel.font = [titleTextAttributes objectForKey:NSFontAttributeName];
     }
     return _titleLabel;
+}
+
+- (void)setFrame:(CGRect)frame {
+    if (self.superview) {
+        frame.size.height = MIN(frame.size.height , self.superview.heightFrame);
+        frame.size.width = MIN(frame.size.width, self.superview.widthFrame);
+    }
+    CGRect oldFrame = self.frame;
+    [super setFrame:frame];
+    if (oldFrame.size.width == frame.size.width && oldFrame.size.height == frame.size.height) {
+        [self layoutSubviews];
+    }
 }
 
 @end

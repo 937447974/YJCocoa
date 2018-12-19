@@ -86,7 +86,7 @@
 #pragma mark - Build
 - (UIBarButtonItem *)buildBarButtonItem {
     CGSize size = [self.button sizeThatFits:CGSizeMake(300, 30)];
-    if (size.width > 20) {
+    if (size.width > 25) {
         self.button.widthFrame = size.width;
     }
     return [[UIBarButtonItem alloc] initWithCustomView:self.button];

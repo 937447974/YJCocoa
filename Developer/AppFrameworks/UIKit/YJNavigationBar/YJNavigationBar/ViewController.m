@@ -46,8 +46,6 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [item setImage:[UIImage imageNamed:@"nav_back"] highlightedImage:nil];
-    item.imageEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
-    
     self.navigationItem.leftBarButtonItem = item.buildBarButtonItem;
     
     YJUINavigationTitleView *titleView = [[YJUINavigationTitleView alloc] initWithFrame:CGRectZero];
