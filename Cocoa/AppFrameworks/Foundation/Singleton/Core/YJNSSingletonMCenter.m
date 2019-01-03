@@ -12,6 +12,7 @@
 #import "YJNSSingletonMCenter.h"
 #import "YJNSFoundationOther.h"
 #import "YJPthread.h"
+#import "YJNSLog.h"
 
 @interface YJNSSingletonMCenter() <NSCacheDelegate> {
     pthread_mutex_t _lock;
@@ -93,7 +94,7 @@
 
 #pragma mark - NSCacheDelegate
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    NSLog(@"YJNSSingleton 释放：%@", obj);
+    YJLogDebug(@"YJNSSingleton 释放：%@", obj);
 }
 
 @end

@@ -46,10 +46,10 @@ YJLogLevel _logLevel;
 #endif
         YJNSLog.logBLock = ^(YJLogLevel level, NSString *str) {
             if (!(level & YJNSLog.logLevel)) return;
-            if (level & YJLogLevelDebug) NSLog(@"Debug: %@", str);
-            else if (level & YJLogLevelInfo) NSLog(@"Info: %@", str);
-            else if (level & YJLogLevelWarn) NSLog(@"Warn: %@", str);
-            else if (level & YJLogLevelError) NSLog(@"Error: %@", str);
+            if (level & YJLogLevelDebug) NSLog(@"DEBUG: %@", str);
+            else if (level & YJLogLevelInfo) NSLog(@"INFO: %@", str);
+            else if (level & YJLogLevelWarn) NSLog(@"⚠️: %@", str);
+            else if (level & YJLogLevelError) NSLog(@"❌: %@", str);
         };
     }
 }

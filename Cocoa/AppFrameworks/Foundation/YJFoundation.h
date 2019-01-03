@@ -33,7 +33,7 @@
 // KVO
 #import "NSObject+YJNSKVO.h"
 
-// NSLog打印优化，Unicode自动转化为中文输出。
+// NSLog打印优化
 #import "YJNSLog.h"
 #import "NSNotificationCenter+YJ.h" // 通知中心 block 回调
 

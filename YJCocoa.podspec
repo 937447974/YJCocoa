@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "8.5.0"
+    s.version  = "8.6.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -79,6 +79,7 @@ Pod::Spec.new do |s|
             # Directory
             foundation.subspec 'Directory' do |directory|
                 directory.source_files = 'Cocoa/AppFrameworks/Foundation/Directory/*.{h,m}'
+                directory.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 directory.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
             end
             # FileManager
@@ -111,13 +112,11 @@ Pod::Spec.new do |s|
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end
-            foundation.subspec 'Singleton' do |singleton|
-                singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
-                singleton.subspec 'Core' do |score|
-                    score.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}'
-                    score.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
-                    score.dependency 'YJCocoa/System/Pthread'
-                end
+            foundation.subspec 'Singleton' do |sub|
+                sub.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/**/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Other'
+                sub.dependency 'YJCocoa/System/Pthread'
             end
             # Swizzling
             foundation.subspec 'Swizzling' do |swizzling|

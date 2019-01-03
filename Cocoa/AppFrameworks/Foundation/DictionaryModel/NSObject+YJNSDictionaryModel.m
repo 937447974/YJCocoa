@@ -16,6 +16,7 @@
 #import "YJNSSingleton.h"
 #import "YJNSFoundationOther.h"
 #import "YJDispatch.h"
+#import "YJNSLog.h"
 
 @implementation NSObject (YJNSDictionaryModel)
 
@@ -206,7 +207,7 @@
             [scanner scanUpToString:@"\"," intoString:&attributeClassName];
             p.attributeClass = NSClassFromString(attributeClassName);
             if (!p.attributeClass) {
-                NSLog(@"YJNSDictionaryModel ⚠️ 属性%@对应的类%@不存在", p.attributeName , attributeClassName);
+                YJLogError(@"YJNSDictionaryModel 属性%@对应的类%@不存在", p.attributeName , attributeClassName);
                 return nil;
             }
             if ([dMManager.systemBaseClass containsObject:p.attributeClass]) {
@@ -229,13 +230,13 @@
                 p.attributeType = YJNSDMPAttributeTypeModel;
             }
         } else {
-            NSLog(@"YJNSDictionaryModel jump parse class:%@; attributeName:%@, propertyAttributes:%@", self, p.attributeName, propertyAttributes);
+            YJLogDebug(@"YJNSDictionaryModel jump parse class:%@; attributeName:%@, propertyAttributes:%@", self, p.attributeName, propertyAttributes);
             return nil;
         }
     } else if (attributeItems.count == 3) {
         p.attributeType = YJNSDMPAttributeTypeNumber;
     } else {
-        NSLog(@"YJNSDictionaryModel ⚠️ class:%@; propertyAttributes:%@", self, propertyAttributes);
+        YJLogError(@"YJNSDictionaryModel 无法解析 class:%@; propertyAttributes:%@", self, propertyAttributes);
         return nil;
     }
     return p;

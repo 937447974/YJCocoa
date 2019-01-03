@@ -37,21 +37,21 @@ FOUNDATION_EXPORT UIColor *YJUIColorRGBA(CGFloat red, CGFloat green, CGFloat blu
 /**
  *  @abstract 通过十六进制获取UIColor
  *
- *  @param hex 如#FFFFFF
+ *  @param hex 如0xFFFFFF
  *
  *  @return UIColor
  */
-FOUNDATION_EXPORT UIColor *YJUIColorHex(NSString *hex);
+FOUNDATION_EXPORT UIColor *YJUIColorHex(NSInteger hex);
 
 /**
  *  @abstract 通过十六进制以及透明度获取UIColor
  *
- *  @param hex 如#FFFFFF
+ *  @param hex 如0xFFFFFF
  *  @param alpha 透明度[0, 1]
  *
  *  @return UIColor
  */
-FOUNDATION_EXPORT UIColor *YJUIColorHexA(NSString *hex, CGFloat alpha);
+FOUNDATION_EXPORT UIColor *YJUIColorHexA(NSInteger hex, CGFloat alpha);
 
 
 /** UIView颜色扩展*/
