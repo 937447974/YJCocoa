@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A4383DF21D7006D000966C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4383DE21D7006D000966C8 /* AppDelegate.m */; };
+		4A4383E221D7006D000966C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4383E121D7006D000966C8 /* ViewController.m */; };
+		4A4383E721D7006D000966C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4383E621D7006D000966C8 /* Assets.xcassets */; };
+		4A4383EA21D7006D000966C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4383E821D7006D000966C8 /* LaunchScreen.storyboard */; };
+		4A4383ED21D7006D000966C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4383EC21D7006D000966C8 /* main.m */; };
+		DDD347C62E0A95514576CFE6 /* Pods_YJScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9698011B12B0696DF56A51 /* Pods_YJScheduler.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A4383DA21D7006D000966C8 /* YJScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A4383DD21D7006D000966C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A4383DE21D7006D000966C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A4383E021D7006D000966C8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4A4383E121D7006D000966C8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4A4383E621D7006D000966C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A4383E921D7006D000966C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4A4383EB21D7006D000966C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A4383EC21D7006D000966C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8EB6CA7D17182D8EFC65D04C /* Pods-YJScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJScheduler/Pods-YJScheduler.debug.xcconfig"; sourceTree = "<group>"; };
+		941101439485D86B375BF93E /* Pods-YJScheduler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJScheduler.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJScheduler/Pods-YJScheduler.release.xcconfig"; sourceTree = "<group>"; };
+		FD9698011B12B0696DF56A51 /* Pods_YJScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A4383D721D7006D000966C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD347C62E0A95514576CFE6 /* Pods_YJScheduler.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		133274BF5B725A09D3A30172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD9698011B12B0696DF56A51 /* Pods_YJScheduler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4651E4699E439F66396E25CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EB6CA7D17182D8EFC65D04C /* Pods-YJScheduler.debug.xcconfig */,
+				941101439485D86B375BF93E /* Pods-YJScheduler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A4383D121D7006D000966C8 = {
+			isa = PBXGroup;
+			children = (
+				4A4383DC21D7006D000966C8 /* YJScheduler */,
+				4A4383DB21D7006D000966C8 /* Products */,
+				4651E4699E439F66396E25CD /* Pods */,
+				133274BF5B725A09D3A30172 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4A4383DB21D7006D000966C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A4383DA21D7006D000966C8 /* YJScheduler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A4383DC21D7006D000966C8 /* YJScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				4A4383DD21D7006D000966C8 /* AppDelegate.h */,
+				4A4383DE21D7006D000966C8 /* AppDelegate.m */,
+				4A4383E021D7006D000966C8 /* ViewController.h */,
+				4A4383E121D7006D000966C8 /* ViewController.m */,
+				4A4383F421D70261000966C8 /* Resources */,
+				4A4383F621D705C9000966C8 /* Supporting Files */,
+			);
+			path = YJScheduler;
+			sourceTree = "<group>";
+		};
+		4A4383F421D70261000966C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A4383E621D7006D000966C8 /* Assets.xcassets */,
+				4A4383E821D7006D000966C8 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4A4383F621D705C9000966C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A4383EB21D7006D000966C8 /* Info.plist */,
+				4A4383EC21D7006D000966C8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A4383D921D7006D000966C8 /* YJScheduler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A4383F021D7006D000966C8 /* Build configuration list for PBXNativeTarget "YJScheduler" */;
+			buildPhases = (
+				C45B67135DF1ABBC6A31D3EA /* [CP] Check Pods Manifest.lock */,
+				4A4383D621D7006D000966C8 /* Sources */,
+				4A4383D721D7006D000966C8 /* Frameworks */,
+				4A4383D821D7006D000966C8 /* Resources */,
+				D69EE895F087DEC71DC3278D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YJScheduler;
+			productName = YJScheduler;
+			productReference = 4A4383DA21D7006D000966C8 /* YJScheduler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A4383D221D7006D000966C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = YJCocoa;
+				TargetAttributes = {
+					4A4383D921D7006D000966C8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 4A4383D521D7006D000966C8 /* Build configuration list for PBXProject "YJScheduler" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A4383D121D7006D000966C8;
+			productRefGroup = 4A4383DB21D7006D000966C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A4383D921D7006D000966C8 /* YJScheduler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A4383D821D7006D000966C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A4383EA21D7006D000966C8 /* LaunchScreen.storyboard in Resources */,
+				4A4383E721D7006D000966C8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C45B67135DF1ABBC6A31D3EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJScheduler-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D69EE895F087DEC71DC3278D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YJScheduler/Pods-YJScheduler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJScheduler/Pods-YJScheduler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A4383D621D7006D000966C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A4383E221D7006D000966C8 /* ViewController.m in Sources */,
+				4A4383ED21D7006D000966C8 /* main.m in Sources */,
+				4A4383DF21D7006D000966C8 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A4383E821D7006D000966C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A4383E921D7006D000966C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A4383EE21D7006D000966C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4A4383EF21D7006D000966C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A4383F121D7006D000966C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EB6CA7D17182D8EFC65D04C /* Pods-YJScheduler.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJScheduler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = yjcocoa.YJScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A4383F221D7006D000966C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 941101439485D86B375BF93E /* Pods-YJScheduler.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJScheduler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = yjcocoa.YJScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A4383D521D7006D000966C8 /* Build configuration list for PBXProject "YJScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A4383EE21D7006D000966C8 /* Debug */,
+				4A4383EF21D7006D000966C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A4383F021D7006D000966C8 /* Build configuration list for PBXNativeTarget "YJScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A4383F121D7006D000966C8 /* Debug */,
+				4A4383F221D7006D000966C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A4383D221D7006D000966C8 /* Project object */;
+}

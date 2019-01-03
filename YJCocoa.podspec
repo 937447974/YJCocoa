@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
 
     # ——— File patterns
     s.source_files = 'Cocoa/*.{h,m}'
-
+    s.private_header_files = '**/Private/*.h'
 
     # ——— Subspecs
     s.default_subspec = 'AppFrameworks', 'AppServices', 'System'
@@ -104,6 +104,12 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
+            end
+            foundation.subspec 'Scheduler' do |sub|
+                sub.source_files = 'Cocoa/AppFrameworks/Foundation/Scheduler/**/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                sub.dependency 'YJCocoa/System/Dispatch'
             end
             foundation.subspec 'Singleton' do |singleton|
                 singleton.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}'
