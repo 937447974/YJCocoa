@@ -13,7 +13,6 @@
 #import "YJTestURLSessionTask.h"
 #import "YJTestURLRequestModel.h"
 #import "YJNSURLResponseModel.h"
-#import <MJRefresh/MJRefresh.h>
 
 @interface ViewController1 : NSObject
 
@@ -45,8 +44,7 @@
 //    [self testKVO];
 //    [self testNotificationCenter];
 //    [self testCache];
-    MJRefreshAutoFooter *f = MJRefreshAutoFooter.new;
-    NSLog(@"%@", f);
+
 }
 
 #pragma mark - AOP

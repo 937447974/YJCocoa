@@ -11,6 +11,67 @@
 
 #import "YJNSLog.h"
 
+#define YJLogFormat va_list args;\
+va_start(args, format);\
+NSString *str = [[NSString alloc] initWithFormat:format arguments:args];\
+va_end(args);
+
+void YJLogDebug(NSString *format, ...) {
+    YJLogFormat
+    YJNSLog.logBLock(YJLogLevelDebug, str);
+}
+void YJLogInfo(NSString *format, ...) {
+    YJLogFormat
+    YJNSLog.logBLock(YJLogLevelInfo, str);
+}
+void YJLogWarn(NSString *format, ...) {
+    YJLogFormat
+    YJNSLog.logBLock(YJLogLevelWarn, str);
+}
+void YJLogError(NSString *format, ...) {
+    YJLogFormat
+    YJNSLog.logBLock(YJLogLevelError, str);
+}
+
+@implementation YJNSLog
+static YJLogBlock _logBLock;
+YJLogLevel _logLevel;
+
++ (void)initialize {
+    if (self == [YJNSLog class]) {
+#ifdef DEBUG
+        YJNSLog.logLevel = YJLogLevelDebug | YJLogLevelInfo | YJLogLevelWarn | YJLogLevelError;
+#else
+        YJNSLog.logLevel = YJLogLevelInfo | YJLogLevelWarn | YJLogLevelError;
+#endif
+        YJNSLog.logBLock = ^(YJLogLevel level, NSString *str) {
+            if (!(level & YJNSLog.logLevel)) return;
+            if (level & YJLogLevelDebug) NSLog(@"Debug: %@", str);
+            else if (level & YJLogLevelInfo) NSLog(@"Info: %@", str);
+            else if (level & YJLogLevelWarn) NSLog(@"Warn: %@", str);
+            else if (level & YJLogLevelError) NSLog(@"Error: %@", str);
+        };
+    }
+}
+
++(void)setLogBLock:(YJLogBlock)logBLock {
+    _logBLock = logBLock;
+}
+
++ (YJLogBlock)logBLock {
+    return _logBLock;
+}
+
++ (void)setLogLevel:(YJLogLevel)logLevel {
+    _logLevel = logLevel;
+}
+
++ (YJLogLevel)logLevel {
+    return _logLevel;
+}
+
+@end
+
 #pragma mark -  NSLog打印辅助方法
 id logExtension(id obj) {
     id tempObj = obj;
@@ -25,10 +86,7 @@ id logExtension(id obj) {
     return tempObj;
 }
 
-void NSLogS(id obj) {
-    NSLog(@"%@", obj);
-}
-
+// 样式：[NSArray]、{NSDictionary}、{(NSSet)}
 
 #pragma mark - 数组NSLog打印扩展
 @implementation NSArray (YJSLog)

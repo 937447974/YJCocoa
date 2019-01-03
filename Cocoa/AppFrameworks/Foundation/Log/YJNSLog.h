@@ -13,21 +13,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** 快速打印对象*/
-FOUNDATION_EXPORT void NSLogS(id obj);
+typedef NS_OPTIONS(NSUInteger, YJLogLevel){
+    YJLogLevelDebug = 1 << 0,
+    YJLogLevelInfo  = 1 << 1,
+    YJLogLevelWarn  = 1 << 2,
+    YJLogLevelError = 1 << 3
+};
 
-// 样式：[NSArray]、{NSDictionary}、{(NSSet)}
+typedef void (^ YJLogBlock)(YJLogLevel level, NSString *str);
 
-/** 数组NSLog打印扩展*/
-@interface NSArray (YJNSLog)
-@end
+FOUNDATION_EXPORT void YJLogDebug(NSString *format, ...);
+FOUNDATION_EXPORT void YJLogInfo(NSString *format, ...);
+FOUNDATION_EXPORT void YJLogWarn(NSString *format, ...);
+FOUNDATION_EXPORT void YJLogError(NSString *format, ...);
 
-/** 字典NSLog打印扩展*/
-@interface NSDictionary (YJNSLog)
-@end
+/** 日志输出*/
+@interface YJNSLog : NSObject
 
-/** NSSet打印扩展*/
-@interface NSSet (YJNSLog)
+@property (nonatomic, class) YJLogLevel logLevel; ///< 日志级别
+@property (nonatomic, copy, class) YJLogBlock logBLock; ///< 日志输出
+
 @end
 
 NS_ASSUME_NONNULL_END

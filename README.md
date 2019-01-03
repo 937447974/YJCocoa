@@ -49,7 +49,8 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 
 ### 1.1.9 Log
 
-NSLog打印优化，Unicode自动转化为中文输出。
+1. NSLog打印优化，Unicode自动转化为中文输出。
+2. YJLog 日志输出，支持自定义日志级别输出内容。
 
 ### 1.1.10 NotificationCenter
 
