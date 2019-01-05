@@ -152,6 +152,7 @@ Pod::Spec.new do |s|
                 session.subspec 'Request' do |request|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
                     request.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
+                    request.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 end                
             end
         end
@@ -185,6 +186,7 @@ Pod::Spec.new do |s|
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/CollectionView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
                     core.dependency 'YJCocoa/System/Dispatch'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 end
                 cv.subspec 'CellObject' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/CollectionView/CellObject/*.{h,m}'
@@ -235,6 +237,7 @@ Pod::Spec.new do |s|
                     core.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/{Manager,Cell}/*.{h,m}'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/TableView/CellObject'
                     core.dependency 'YJCocoa/AppFrameworks/UIKit/ScrollViewManager'
+                    core.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 end
                 tv.subspec 'CellObject' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/TableView/CellObject/*.{h,m}'

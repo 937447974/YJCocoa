@@ -10,7 +10,7 @@
 //
 
 #import "YJNSURLSession.h"
-
+#import "YJNSLog.h"
 
 @implementation YJNSURLSession
 
@@ -18,9 +18,7 @@
     NSArray *allEffectiveTask = [self allEffectiveTask];
     for (YJNSURLSessionTask *task in allEffectiveTask) {
         if (task.needResume && task.request.supportResume && task.request.source) {
-#if DEBUG
-            NSLog(@"%@重发网络请求>>>>>>>>>>>>>>>", task.request.identifier);
-#endif
+            YJLogInfo(@"%@重发网络请求>>>>>>>>>>>>>>>", task.request.identifier);
             [task resume];
         }
     }

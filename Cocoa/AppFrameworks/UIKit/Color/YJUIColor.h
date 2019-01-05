@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @abstract 通过RGB获取UIColor
  *
@@ -63,5 +65,7 @@ FOUNDATION_EXPORT UIColor *YJUIColorHexA(NSInteger hex, CGFloat alpha);
 @property (nonatomic, copy, readonly) void (^ backgroundColorRGBA)(CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 

@@ -13,6 +13,7 @@
 #import "YJNSURLSessionPool.h"
 #import "YJDispatch.h"
 #import "YJSystemOther.h"
+#import "YJNSLog.h"
 
 @interface YJNSURLSessionTask ()
 
@@ -51,9 +52,7 @@
     @weakSelf
     self.success = ^(id data) {
         @strongSelf
-#if DEBUG
-        NSLog(@"%@网络请求成功<<<<<<<<<<<<<<<%@", self.request.identifier, data);
-#endif
+        YJLogInfo(@"%@网络请求成功<<<<<<<<<<<<<<<%@", self.request.identifier, data);
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateSuccess;
             if (success && self.request.source) {
@@ -64,9 +63,7 @@
     };
     self.failure = ^(NSError *error) {
         @strongSelf
-#if DEBUG
-        NSLog(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
-#endif
+        YJLogInfo(@"%@网络请求出错<<<<<<<<<<<<<<<%@", self.request.identifier, error);
         self.needResume = YES;
         if (self.state == YJNSURLSessionTaskStateRunning) {
             self.state = YJNSURLSessionTaskStateFailure;
@@ -78,27 +75,21 @@
 }
 
 - (void)resume {
-#if DEBUG
-    NSLog(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
-#endif
+    YJLogInfo(@"%@发出网络请求>>>>>>>>>>>>>>>%@", self.request.identifier, self.request.requestModel.modelDictionary);
     self.state = YJNSURLSessionTaskStateRunning;
     self.needResume = NO;
 }
 
 - (void)suspend {
     if (self.state == YJNSURLSessionTaskStateRunning) {
-#if DEBUG
-        NSLog(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
-#endif
+        YJLogInfo(@"%@暂停网络请求<<<<<<<<<<<<<<<", self.request.identifier);
         self.state = YJNSURLSessionTaskStateSuspended;
     }
 }
 
 - (void)cancel {
     if (self.state == YJNSURLSessionTaskStateRunning) {
-#if DEBUG
-        NSLog(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
-#endif
+        YJLogInfo(@"%@取消网络请求<<<<<<<<<<<<<<<", self.request.identifier);
         self.state = YJNSURLSessionTaskStateCanceling;
         self.needResume = NO;
     }
