@@ -56,7 +56,7 @@
 #pragma mark - One To More
 #pragma mark subscribe
 - (void)subscribeTopic:(NSString *)topic subscriber:(id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler {
-    YJLogVerbose(@"订阅%@", topic);
+    YJLogVerbose(@"Scheduler 订阅%@", topic);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
@@ -101,7 +101,7 @@
 }
 
 - (void)publishTopic:(NSString *)topic data:(id)data serial:(BOOL)serial completionHandler:(YJSPublishHandler)handler {
-    YJLogVerbose(@"发布%@, data:%@", topic, data);
+    YJLogVerbose(@"Scheduler 发布%@, data:%@", topic, data);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf

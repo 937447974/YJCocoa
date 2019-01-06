@@ -18,6 +18,7 @@
 #import "YJDispatch.h"
 #import "YJSystemOther.h"
 #import "YJNSRouterUnregistered.h"
+#import "YJNSLog.h"
 
 @interface YJNSURLRouter () <YJSchedulerProtocol>
 
@@ -39,6 +40,7 @@
 
 #pragma mark - Router
 - (void)registerRouter:(YJNSRouterRegister *)rRegister {
+    YJLogVerbose(@"URLRouter 注册%@", rRegister.url);
     @weakSelf
     [YJSchedulerS subscribeTopic:[self topicWithURL:rRegister.url] subscriber:self onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
         @strongSelf
@@ -55,6 +57,7 @@
         @strongSelfReturn(NO)
         NSString *url = [self urlWithTopic:topic];
         if (canOpen(url)) {
+            YJLogVerbose(@"URLRouter 拦截%@", topic);
             openHandler(url, data, publishHandler);
             return YES;
         }
@@ -68,7 +71,8 @@
     return [YJSchedulerS canPublishTopic:[self topicWithURL:url]];
 }
 
-- (void)openURL:(NSString *)url options:(nullable NSDictionary *)options completionHandler:(nullable YJRCompletionHandler)completionHandler {
+- (void)openURL:(NSString *)url options:(NSDictionary *)options completionHandler:(YJRCompletionHandler)completionHandler {
+    YJLogVerbose(@"URLRouter 打开%@，options:%@", url, options);
     NSString *topic = [self topicWithURL:[self urlPrefixWithURL:url]];
     NSMutableDictionary *mOptions = NSMutableDictionary.dictionary;
     NSRange range = [url rangeOfString:@"?"];
