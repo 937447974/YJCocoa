@@ -12,48 +12,132 @@
 #import "YJNSURLRouter.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import "YJScheduler.h"
 #import "YJNSFoundationOther.h"
 #import "YJNSHttp.h"
-#import "YJNSRouterNode.h"
 #import "YJDispatch.h"
 #import "YJSystemOther.h"
+#import "YJNSRouterUnregistered.h"
 
-@interface YJNSURLRouter ()
+@interface YJNSURLRouter () <YJSchedulerProtocol>
 
-@property (nonatomic, strong) NSMutableDictionary<YJNSRouterURL, YJNSRouterNodeConfig *> *configDict;
-@property (nonatomic, strong) NSMutableArray<YJNSRouterNode *> *nodeList;
-@property (nonatomic, strong) NSCache<YJNSRouterURL, id> *nodeCache;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, YJNSRouterRegister *> *registerDict;
+@property (nonatomic, strong) NSCache<NSString *, id> *nodeCache;
 
 @end
 
 @implementation YJNSURLRouter
 
-+ (void)load {
-    dispatch_after_main(2, ^{
-        [YJNSURLRouterS configDict];
-    });
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.nodeList = NSMutableArray.array;
+        self.registerDict = NSMutableDictionary.dictionary;
         self.nodeCache = NSCache.new;
     }
     return self;
 }
 
-#pragma mark - 注册
-- (void)registerNodeConfig:(YJNSRouterNodeConfig *)config {
-    if (config.url) {
-        [self.configDict setObject:config forKey:config.url];
+#pragma mark - Router
+- (void)registerRouter:(YJNSRouterRegister *)rRegister {
+    @weakSelf
+    [YJSchedulerS subscribeTopic:[self topicWithURL:rRegister.url] subscriber:self onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
+        @strongSelf
+        [self openRouterRegister:rRegister options:data completionHandler:publishHandler];
+    }];
+}
+
+- (void)interceptUnregisteredCanOpen:(YJRUnregisteredCanOpen)canOpen openHandler:(YJROpenHandler)openHandler {
+    @weakSelf
+    [YJSchedulerS interceptWithInterceptor:self canHandler:^BOOL(NSString *topic) {
+        @strongSelfReturn(NO)
+        return canOpen([self urlWithTopic:topic]);
+    } completionHandler:^BOOL(NSString *topic, id data, YJSPublishHandler publishHandler) {
+        @strongSelfReturn(NO)
+        NSString *url = [self urlWithTopic:topic];
+        if (canOpen(url)) {
+            openHandler(url, data, publishHandler);
+            return YES;
+        }
+        return NO;
+    }];
+}
+
+
+- (BOOL)canOpenURL:(NSString *)url {
+    url = [self urlPrefixWithURL:url];
+    return [YJSchedulerS canPublishTopic:[self topicWithURL:url]];
+}
+
+- (void)openURL:(NSString *)url options:(nullable NSDictionary *)options completionHandler:(nullable YJRCompletionHandler)completionHandler {
+    NSString *topic = [self topicWithURL:[self urlPrefixWithURL:url]];
+    NSMutableDictionary *mOptions = NSMutableDictionary.dictionary;
+    NSRange range = [url rangeOfString:@"?"];
+    if (range.location != NSNotFound) [mOptions addEntriesFromDictionary:[YJNSHttpAnalysis analysisParamsDecode:url]];
+    if (options.count) [mOptions addEntriesFromDictionary:options];
+    [YJSchedulerS publishTopic:topic data:mOptions serial:YES completionHandler:completionHandler];
+}
+
+#pragma mark - Private
+- (NSString *)topicWithURL:(NSString *)url {
+    // scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
+    return [NSString stringWithFormat:@"url:%@", url];
+}
+
+- (NSString *)urlWithTopic:(NSString *)topic {
+    return [topic substringFromIndex:4];
+}
+
+- (NSString *)urlPrefixWithURL:(NSString *)url {
+    NSRange range = [url rangeOfString:@"?"];
+    if (range.location != NSNotFound) {
+        url = [url substringToIndex:range.location];
+    }
+    return url;
+}
+
+- (void)openRouterRegister:(YJNSRouterRegister *)rRegister options:(NSDictionary *)options completionHandler:(YJRCompletionHandler)completionHandler {
+    if (rRegister.handler) {
+        rRegister.handler(rRegister.url, options, completionHandler);
+    } else {
+        id<YJNSURLRouterProtocol> node = [self buildNodeWithRouterRegister:rRegister];
+        if ([node respondsToSelector:@selector(routerReloadDataWithOptions:completionHandler:)]) {
+            [node routerReloadDataWithOptions:options completionHandler:completionHandler];
+        }
+        if ([node respondsToSelector:@selector(routerOpen)]) {
+            [node routerOpen];
+        }
     }
 }
 
-- (void)loadRouter {
+- (id<YJNSURLRouterProtocol>)buildNodeWithRouterRegister:(YJNSRouterRegister *)rRegister {
+    id<YJNSURLRouterProtocol> node;
+    if (rRegister.cache) node = [self getCacheNodeWithRouterRegister:rRegister];
+    if (node) return node;
+    if ([rRegister.cls respondsToSelector:@selector(routerWithURL:)]) {
+        node = [rRegister.cls routerWithURL:rRegister.url];
+    } else {
+        node = rRegister.cls.new;
+    }
+    if (rRegister.cache) [self.nodeCache setObject:node forKey:rRegister.url];
+    return node;
+}
+
+- (id<YJNSURLRouterProtocol>)getCacheNodeWithRouterRegister:(YJNSRouterRegister *)rRegister {
+    id<YJNSURLRouterProtocol> cacheNode = [self.nodeCache objectForKey:rRegister.url];
+    if ([cacheNode isKindOfClass:UIViewController.class]) {
+        UINavigationController *nc = ((UIViewController *)cacheNode).navigationController;
+        for (UIViewController *vc in nc.viewControllers) {
+            if ([cacheNode isEqual:vc]) return nil;
+        }
+    }
+    return cacheNode;
+}
+
+#pragma mark - YJSchedulerProtocol
++ (void)schedulerLoad {
     unsigned int classCount;
     Class *classes = objc_copyClassList(&classCount);
-    SEL sel = @selector(loadRouter);
+    SEL sel = @selector(routerLoad);
     for (int i = 0; i < classCount; i++) {
         Class cls = classes[i];
         if (class_getClassMethod(cls, sel)) {
@@ -61,117 +145,6 @@
         }
     }
     free(classes);
-}
-
-#pragma mark - 打开
-- (BOOL)canOpenURL:(NSString *)url {
-    YJNSRouterNodeConfig *config = [self.configDict objectForKey:url];
-    return config != nil;
-}
-
-- (void)openURL:(NSString *)url {
-    [self openURL:url options:nil completionHandler:nil];
-}
-
-- (void)openURL:(NSString *)url options:(NSDictionary *)options completionHandler:(dispatch_block_t)completion {
-    NSAssert(NSThread.isMainThread, @"%@ %@ 需主线程调用", NSStringFromClass(self.class), NSStringFromSelector(_cmd));
-    YJNSRouterURL rUrl = url;
-    NSRange range = [rUrl rangeOfString:@"?"];
-    if (range.location != NSNotFound) {
-        rUrl = [rUrl substringToIndex:range.location];
-    }
-    NSMutableDictionary *mOptions = [YJNSHttpAnalysis analysisParamsDecode:url].mutableCopy;
-    if (options.count) [mOptions addEntriesFromDictionary:options];
-    YJNSRouterNodeConfig *config = [self.configDict objectForKey:rUrl];
-    [self openURL:rUrl options:mOptions config:config completionHandler:completion];
-}
-
-- (void)openURL:(YJNSRouterURL)url options:(NSDictionary *)options config:(YJNSRouterNodeConfig *)config completionHandler:(dispatch_block_t)completion {
-    if (config) {
-        id<YJNSURLRouterProtocol> node;
-        if (config.handler) {
-            node = config.handler(options, completion);
-        } else {
-            node = [self buildNodeWithConfig:config];
-            if ([node respondsToSelector:@selector(reloadDataWithRouterOptions:)]) {
-                [node reloadDataWithRouterOptions:options];
-            }
-            if ([node respondsToSelector:@selector(openRouterCompletionHandler:)]) {
-                [node openRouterCompletionHandler:completion];
-            } else {
-                !completion?:completion();
-            }
-        }
-        if (node) [self onlineNode:node config:config];
-    } else if ([self.delegate canOpenUnregisteredURL:url]) {
-        [self.delegate openUnregisteredURL:url options:options completionHandler:completion];
-    }
-}
-
-- (id<YJNSURLRouterProtocol>)buildNodeWithConfig:(YJNSRouterNodeConfig *)config {
-    id<YJNSURLRouterProtocol> node;
-    if (config.cache) node = [self getCacheNodeWithConfig:config];
-    if (!node && [config.cls respondsToSelector:@selector(newWithRouterURL:)]) {
-        node = [config.cls newWithRouterURL:config.url];
-    }
-    if (!node) node = config.cls.new;
-    if (config.cache) [self.nodeCache setObject:node forKey:config.url];
-    return node;
-}
-
-- (id<YJNSURLRouterProtocol>)getCacheNodeWithConfig:(YJNSRouterNodeConfig *)config {
-    id<YJNSURLRouterProtocol> cacheNode = [self.nodeCache objectForKey:config.url];
-    if (!cacheNode) return nil;
-    for (NSInteger i = self.nodeList.count - 1; i >= 0; i--) {
-        YJNSRouterNode *node = [self.nodeList objectAtIndex:i];
-        if (node.source) {
-            if ([node.config isEqual:config] && [node.source isEqual:cacheNode]) return nil;
-        } else {
-            [self.nodeList removeObjectAtIndex:i];
-        }
-    }
-    return cacheNode;
-}
-
-#pragma mark - 上下线
-- (void)onlineNode:(id<YJNSURLRouterProtocol>)node config:(YJNSRouterNodeConfig *)config {
-    [self.nodeList addObject:[[YJNSRouterNode alloc] initWithSource:node config:config]];
-}
-
-- (void)offlineNode:(id<YJNSURLRouterProtocol>)node {
-    for (NSInteger i = self.nodeList.count - 1; i >= 0; i--) {
-        YJNSRouterNode *item = [self.nodeList objectAtIndex:i];
-        if (item.source) {
-            if ([item.source isEqual:node]) {
-                [self.nodeList removeObjectAtIndex:i];
-                return;
-            }
-        } else {
-            [self.nodeList removeObjectAtIndex:i];
-        }
-    }
-}
-
-#pragma mark - 数据交互
-- (BOOL)sendData:(YJNSRouterDataID)dID options:(nullable NSDictionary *)options {
-    BOOL result = NO;
-    for (NSInteger i = self.nodeList.count - 1; i >= 0; i--) {
-        YJNSRouterNode *node = [self.nodeList objectAtIndex:i];
-        if ([node.source respondsToSelector:@selector(receiveRouterData:options:)]) {
-            result = [node.source receiveRouterData:dID options:options];
-            if (result) return result;
-        }
-    }
-    return result;
-}
-
-#pragma mark - getter
-- (NSMutableDictionary<YJNSRouterURL,YJNSRouterNodeConfig *> *)configDict {
-    if (!_configDict) {
-        _configDict = NSMutableDictionary.dictionary;
-        [self loadRouter];
-    }
-    return _configDict;
 }
 
 @end

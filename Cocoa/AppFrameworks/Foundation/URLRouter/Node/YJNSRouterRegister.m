@@ -1,16 +1,16 @@
 //
-//  YJNSRouterNodeConfig.m
+//  YJNSRouterRegister.m
 //  YJUINavigationRouter
 //
 //  Created by 阳君 on 2017/10/17.
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
-#import "YJNSRouterNodeConfig.h"
+#import "YJNSRouterRegister.h"
 
-@implementation YJNSRouterNodeConfig
+@implementation YJNSRouterRegister
 
-- (instancetype)initWithRouterURL:(YJNSRouterURL)url cache:(BOOL)cache cls:(Class)cls {
+- (instancetype)initWithURL:(NSString *)url cache:(BOOL)cache cls:(Class)cls {
     self = [super init];
     if (self) {
         self.url = url;
@@ -20,7 +20,7 @@
     return self;
 }
 
-- (instancetype)initWithRouterURL:(YJNSRouterURL)url handler:(YJNSRouterNodeConfigHandler)handler {
+- (instancetype)initWithURL:(NSString *)url handler:(YJROpenHandler)handler {
     self = [super init];
     if (self) {
         self.url = url;

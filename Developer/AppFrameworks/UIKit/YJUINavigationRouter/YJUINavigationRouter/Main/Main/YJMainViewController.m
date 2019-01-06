@@ -13,6 +13,8 @@
 
 @interface YJMainViewController () <YJNSURLRouterProtocol>
 
+@property (nonatomic, copy) YJRCompletionHandler completionHandler;
+
 @end
 
 @implementation YJMainViewController
@@ -24,31 +26,29 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSString *url = [YJNSHttpAssembly assemblyHttpEncode:YJRouterURLOther params:@{@"1":@"3"}];
-    [YJNSURLRouterS openURL:url];
+    [YJNSURLRouterS openURL:YJRouterURLOther options:@{@"1":@"3"} completionHandler:nil];
 }
 
 - (IBAction)onClickSend:(id)sender {
-    NSLog(@"%@发送消息--------", self);
-    [YJNSURLRouterS sendData:@"test" options:@{@"name": @"YJCocoa"}];
+    !self.completionHandler?:self.completionHandler(@{@"name": @"YJCocoa"});
 }
 
 - (IBAction)onClickOnceJump:(id)sender {
-    [YJNSURLRouterS openURL:@"https://github.com/937447974/YJCocoa"];
+    [YJNSURLRouterS openURL:@"https://github.com/937447974/YJCocoa" options:nil completionHandler:nil];
 }
 
 #pragma mark - YJNSURLRouterProtocol
-+ (void)loadRouter {
-    [YJNSURLRouterS registerNodeConfig:[[YJNSRouterNodeConfig alloc] initWithRouterURL:YJRouterURLMain cache:YES cls:self]];
++ (void)routerLoad {
+    [YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithURL:YJRouterURLMain cache:YES cls:self]];
 }
 
-+ (instancetype)newWithRouterURL:(YJNSRouterURL)url {
++ (instancetype)routerWithURL:(NSString *)url {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     return [storyBoard instantiateViewControllerWithIdentifier:@"YJMainViewController"];
 }
 
-- (void)reloadDataWithRouterOptions:(NSDictionary *)options {
-    NSLog(@"%@ %@", self, options);
+- (void)routerReloadDataWithOptions:(NSDictionary *)options completionHandler:(YJRCompletionHandler)completionHandler {
+    self.completionHandler = completionHandler;
 }
 
 @end

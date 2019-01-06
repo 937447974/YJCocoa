@@ -11,11 +11,9 @@
 #import "YJSchedulerIntercept.h"
 #import "YJSystemOther.h"
 #import "YJDispatch.h"
-#import "YJPthread.h"
+#import "YJNSLog.h"
 
-@interface YJScheduler () {
-    pthread_mutex_t _lock;
-}
+@interface YJScheduler ()
 
 @property (nonatomic, strong) NSMutableArray<YJSchedulerSubscribe *> *subArray;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerIntercept *> *intArray;
@@ -33,20 +31,19 @@
     if (self) {
         self.subArray = NSMutableArray.array;
         self.intArray = NSMutableArray.array;
-        pthread_mutex_init(&_lock, NULL);
-        [self initLoadScheduler];
+        @weakSelf
+        [self.workQueue addAsync:YES executionBlock:^{
+            @strongSelf
+            [self initLoadScheduler];
+        }];
     }
     return self;
-}
-
-- (void)dealloc {
-    pthread_mutex_destroy(&_lock);
 }
 
 - (void)initLoadScheduler {
     unsigned int classCount;
     Class *classes = objc_copyClassList(&classCount);
-    SEL sel = @selector(loadScheduler);
+    SEL sel = @selector(schedulerLoad);
     for (int i = 0; i < classCount; i++) {
         Class cls = classes[i];
         if (class_getClassMethod(cls, sel)) {
@@ -59,6 +56,7 @@
 #pragma mark - One To More
 #pragma mark subscribe
 - (void)subscribeTopic:(NSString *)topic subscriber:(id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler {
+    YJLogVerbose(@"订阅%@", topic);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
@@ -103,6 +101,7 @@
 }
 
 - (void)publishTopic:(NSString *)topic data:(id)data serial:(BOOL)serial completionHandler:(YJSPublishHandler)handler {
+    YJLogVerbose(@"发布%@, data:%@", topic, data);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf

@@ -8,5 +8,5 @@
 
 #import "UIViewController+YJUINavigationRouter.h"
 
-#define YJRouterURLMain @"YJRouterURLMain"
-#define YJRouterURLOther @"YJRouterURLOther" ///< 其他
+#define YJRouterURLMain @"/main"
+#define YJRouterURLOther @"/other"

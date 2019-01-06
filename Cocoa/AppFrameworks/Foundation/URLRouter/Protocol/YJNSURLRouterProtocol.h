@@ -11,52 +11,44 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NSString *YJNSRouterURL NS_STRING_ENUM; ///< 路由地址
-typedef NSString *YJNSRouterDataID NS_STRING_ENUM; ///< 路由包接受ID
+/** 路由回调*/
+typedef void (^ YJRCompletionHandler)(NSDictionary * _Nullable options);
+/** 未注册url能否打开*/
+typedef BOOL (^ YJRUnregisteredCanOpen)(NSString *url);
+/** 打开路由*/
+typedef void (^ YJROpenHandler)(NSString *url, NSDictionary *options, YJRCompletionHandler _Nullable handler);
 
 /** 路由代理*/
 @protocol YJNSURLRouterProtocol <NSObject>
 
 @optional
 
-#pragma mark 路由加载
-
-+ (void)loadRouter;
-
-#pragma mark 页面打开
 /**
- *  @abstract 初始化
+ *  @abstract 路由器加载
+ */
++ (void)routerLoad;
+
+/**
+ *  @abstract 路由器初始化
  *
  *  @param url 路由地址
  *
  *  @return instancetype
  */
-+ (instancetype)newWithRouterURL:(YJNSRouterURL)url;
++ (instancetype)routerWithURL:(NSString *)url;
 
 /**
- *  @abstract 刷新当前路由器数据
+ *  @abstract 路由器刷新数据
  *
  *  @param options 携带的数据
+ *  @param completionHandler 路由器执行相关操作后的回调
  */
-- (void)reloadDataWithRouterOptions:(NSDictionary *)options;
+- (void)routerReloadDataWithOptions:(NSDictionary *)options completionHandler:(nullable YJRCompletionHandler)completionHandler;
 
 /**
- *  @abstract 打开路由
- *
- *  @param completion 路由打开完成回调
+ *  @abstract 路由器打开
  */
-- (void)openRouterCompletionHandler:(nullable dispatch_block_t)completion;
-
-#pragma mark 数据接受
-/**
- *  @abstract 接收数据
- *
- *  @param dID     YJNSRouterDataID
- *  @param options 配置参数
- *
- *  @return BOOL YES拦截数据，NO不拦截数据
- */
-- (BOOL)receiveRouterData:(YJNSRouterDataID)dID options:(nullable NSDictionary *)options;
+- (void)routerOpen;
 
 @end
 

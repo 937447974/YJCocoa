@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "YJRouteHeader.h"
+#import "YJNSLog.h"
 
-@interface AppDelegate () <YJNSURLRouterDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -17,18 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    YJNSURLRouterS.delegate = self;
+    YJNSLog.logLevel = YJLogLevelVerbose | YJLogLevelDebug | YJLogLevelInfo | YJLogLevelWarn | YJLogLevelError;
+    [YJNSURLRouterS interceptUnregisteredCanOpen:^BOOL(NSString *url) {
+        return [url hasPrefix:@"http"]; // 网络跳转
+    } openHandler:^(NSString *url, NSDictionary *options, YJRCompletionHandler handler) {
+        // 做测试，直接转给 YJRouterURLMain
+        [YJNSURLRouterS openURL:YJRouterURLMain options:options completionHandler:handler];
+    }];
     return YES;
-}
-
-#pragma mark - YJNSURLRouterDelegate
-- (BOOL)canOpenUnregisteredURL:(NSString *)url {
-    return [url hasPrefix:@"http"]; // 网络跳转
-}
-
-- (void)openUnregisteredURL:(NSString *)url options:(nullable NSDictionary *)options completionHandler:(nullable dispatch_block_t)completion {
-    // 做测试，直接转给 YJRouterURLMain
-    [YJNSURLRouterS openURL:YJRouterURLMain options:options completionHandler:completion];
 }
 
 @end

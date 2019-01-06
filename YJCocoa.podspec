@@ -108,7 +108,6 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'Scheduler' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Scheduler/**/*'
-                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end
@@ -138,8 +137,7 @@ Pod::Spec.new do |s|
             foundation.subspec 'URLRouter' do |router|
                 router.source_files = 'Cocoa/AppFrameworks/Foundation/URLRouter/**/*.{h,m}'
                 router.dependency 'YJCocoa/AppFrameworks/Foundation/Http'
-                router.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                router.dependency 'YJCocoa/System/Dispatch'
+                router.dependency 'YJCocoa/AppFrameworks/Foundation/Scheduler'
             end
             # URLSession
             foundation.subspec 'URLSession' do |session|
@@ -209,7 +207,6 @@ Pod::Spec.new do |s|
             # NavigationRouter
             uik.subspec 'NavigationRouter' do |nr|
                 nr.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationRouter/*.{h,m}'
-                nr.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
                 nr.dependency 'YJCocoa/AppFrameworks/Foundation/URLRouter'                
             end
             # PageView

@@ -1,5 +1,5 @@
 //
-//  YJNSRouterNodeConfig.h
+//  YJNSRouterRegister.h
 //  YJUINavigationRouter
 //
 //  Created by 阳君 on 2017/10/17.
@@ -11,19 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class YJNSRouterNodeConfig;
-
-/** 节点block实现回调*/
-typedef _Nullable id<YJNSURLRouterProtocol> (^ YJNSRouterNodeConfigHandler)(NSDictionary *options, dispatch_block_t completion);
-
-/** 路由节点配置*/
-@interface YJNSRouterNodeConfig : NSObject
+/** 路由节点注册*/
+@interface YJNSRouterRegister : NSObject
 
 @property (nonatomic) BOOL cache; ///< 是否缓存
-@property (nonatomic, copy) YJNSRouterURL url; ///< 地址
+@property (nonatomic, copy) NSString *url; ///< 地址
 
 @property (nonatomic) Class cls; ///< 节点YJNSURLRouterProtocol实现类
-@property (nonatomic, copy, nullable) YJNSRouterNodeConfigHandler handler; ///< 节点block实现回调
+@property (nonatomic, copy, nullable) YJROpenHandler handler; ///< 节点block实现回调
 
 /**
  *  @abstract 初始化
@@ -34,7 +29,7 @@ typedef _Nullable id<YJNSURLRouterProtocol> (^ YJNSRouterNodeConfigHandler)(NSDi
  *
  *  @return instancetype
  */
-- (instancetype)initWithRouterURL:(YJNSRouterURL)url cache:(BOOL)cache cls:(Class)cls;
+- (instancetype)initWithURL:(NSString *)url cache:(BOOL)cache cls:(Class)cls;
 
 /**
  *  @abstract 初始化
@@ -44,7 +39,7 @@ typedef _Nullable id<YJNSURLRouterProtocol> (^ YJNSRouterNodeConfigHandler)(NSDi
  *
  *  @return instancetype
  */
-- (instancetype)initWithRouterURL:(YJNSRouterURL)url handler:(YJNSRouterNodeConfigHandler)handler;
+- (instancetype)initWithURL:(NSString *)url handler:(YJROpenHandler)handler;
 
 @end
 

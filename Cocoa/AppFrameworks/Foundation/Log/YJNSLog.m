@@ -16,6 +16,10 @@ va_start(args, format);\
 NSString *str = [[NSString alloc] initWithFormat:format arguments:args];\
 va_end(args);
 
+void YJLogVerbose(NSString *format, ...) {
+    YJLogFormat
+    YJNSLog.logBLock(YJLogLevelVerbose, str);
+}
 void YJLogDebug(NSString *format, ...) {
     YJLogFormat
     YJNSLog.logBLock(YJLogLevelDebug, str);
@@ -46,10 +50,11 @@ YJLogLevel _logLevel;
 #endif
         YJNSLog.logBLock = ^(YJLogLevel level, NSString *str) {
             if (!(level & YJNSLog.logLevel)) return;
-            if (level & YJLogLevelDebug) NSLog(@"DEBUG: %@", str);
-            else if (level & YJLogLevelInfo) NSLog(@"INFO: %@", str);
-            else if (level & YJLogLevelWarn) NSLog(@"⚠️: %@", str);
-            else if (level & YJLogLevelError) NSLog(@"❌: %@", str);
+            if (level & YJLogLevelVerbose) NSLog(@"YJCocoa %@", str);
+            if (level & YJLogLevelDebug) NSLog(@"DEBUG %@", str);
+            else if (level & YJLogLevelInfo) NSLog(@"INFO %@", str);
+            else if (level & YJLogLevelWarn) NSLog(@"⚠️ %@", str);
+            else if (level & YJLogLevelError) NSLog(@"❌ %@", str);
         };
     }
 }

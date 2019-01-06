@@ -19,37 +19,19 @@
     [super viewDidLoad];
     self.title = NSStringFromClass(self.class);
     self.view.backgroundColor = [UIColor greenColor];
-    NSLog(@"%@", self);
-}
-
-- (void)dealloc {
-    NSLog(@"%@-%@", NSStringFromSelector(_cmd), self);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [YJNSURLRouterS openURL:YJRouterURLMain options:@{@"name":@"阳君"} completionHandler:^{
-        NSLog(@"打开 YJRouterURLMain completionHandler");
+    [YJNSURLRouterS openURL:YJRouterURLMain options:@{@"name":@"阳君"}completionHandler:^(NSDictionary *options) {
+        NSLog(@"接受数据%@", options);
     }];
 }
 
 #pragma mark - YJNSURLRouterProtocol
-+ (void)loadRouter {
-    YJNSRouterNodeConfig *config = [[YJNSRouterNodeConfig alloc] initWithRouterURL:YJRouterURLOther handler:^id<YJNSURLRouterProtocol>(NSDictionary *options, dispatch_block_t completion) {
-        YJOtherViewController *vc = YJOtherViewController.new;
-        vc.view.backgroundColor = UIColor.whiteColor;
-        [vc openRouterCompletionHandler:completion];
-        !completion?:completion();
-        return vc;
-    }];
-    [YJNSURLRouterS registerNodeConfig:config];
-}
-
-- (BOOL)receiveRouterData:(YJNSRouterDataID)dID options:(NSDictionary *)options {
-    if ([dID isEqualToString:@"test"]) {
-        NSLog(@"接受数据%@", options);
-        return YES;
-    }
-    return NO;
++ (void)routerLoad {
+    [YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithURL:YJRouterURLOther handler:^(NSString *url, NSDictionary *options, YJRCompletionHandler handler) {
+        [YJOtherViewController.new routerOpen];
+    }]];
 }
 
 @end

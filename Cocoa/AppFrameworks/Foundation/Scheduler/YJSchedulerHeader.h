@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, YJSchedulerQueue) {
 @protocol YJSchedulerProtocol <NSObject>
 
 /** 调度器订阅、拦截加载*/
-+ (void)loadScheduler;
++ (void)schedulerLoad;
 
 @end
 
