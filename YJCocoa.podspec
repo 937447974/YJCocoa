@@ -46,7 +46,6 @@ Pod::Spec.new do |s|
 
     # ——— File patterns
     s.source_files = 'Cocoa/*.{h,m}'
-    s.private_header_files = '**/Private/*.h'
 
     # ——— Subspecs
     s.default_subspec = 'AppFrameworks', 'AppServices', 'System'
