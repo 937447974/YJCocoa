@@ -60,16 +60,10 @@ NSNotificationCenter block 回调，并支持自动释放。
 
 合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
-### 1.1.12 Router
+### 1.1.12 Scheduler
 
-Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，也可定制组件化开发方案。
+Scheduler 调度器，一站式解决代码耦合问题。
 
-1. 支持 Get 或 Post 跳转。
-2. 支持长连接或短连接。
-3. 支持作用域控制，单例模式，原型模式和内存警告模式。
-	1. 单例模式：项目中只存在一份对应的控制器。
-	2. 原型模式：每次跳转时都会重新创建一份对应的控制器。
-	3. 内存警告模式：内存警告时，释放相关联的控制器。
 
 ### 1.1.13 Singleton
 
@@ -93,7 +87,14 @@ Router 是 NavigationRouter 的基础库，主要用于实现组件化开发，�
 
 URLEncode编码和URLDecode解码
 
-### 1.1.17 URLSession
+### 1.1.17 URLRouter
+
+Router 是 NavigationRouter 的基础库，主要用于实现路由跳转。
+
+1. 自动注入，无需考虑加载时机。
+2. 支持拦截处理未注入的url。
+
+### 1.1.18 URLSession
 
 大型APP网络架构，具有以下特性：
 
