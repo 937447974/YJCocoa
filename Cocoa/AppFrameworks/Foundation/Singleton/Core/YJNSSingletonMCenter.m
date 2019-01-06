@@ -94,7 +94,7 @@
 
 #pragma mark - NSCacheDelegate
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    YJLogDebug(@"YJNSSingleton 释放：%@", obj);
+    YJLogVerbose(@"YJNSSingleton 释放：%@", obj);
 }
 
 @end

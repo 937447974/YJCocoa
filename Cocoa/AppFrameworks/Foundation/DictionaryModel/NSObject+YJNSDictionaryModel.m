@@ -230,7 +230,7 @@
                 p.attributeType = YJNSDMPAttributeTypeModel;
             }
         } else {
-            YJLogDebug(@"YJNSDictionaryModel jump parse class:%@; attributeName:%@, propertyAttributes:%@", self, p.attributeName, propertyAttributes);
+            YJLogVerbose(@"YJNSDictionaryModel jump parse class:%@; attributeName:%@, propertyAttributes:%@", self, p.attributeName, propertyAttributes);
             return nil;
         }
     } else if (attributeItems.count == 3) {
