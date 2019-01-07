@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 共享类*/
 #define YJNSURLRouterS YJNSSingletonS(YJNSURLRouter, nil)
+/** 路由 url 加载*/
+#define ROUTER_LOAD_URL(url) + (void)routerLoad {[YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithURL:url cache:YES cls:self]];}
 
 /** URL 路由器*/
 @interface YJNSURLRouter : NSObject
