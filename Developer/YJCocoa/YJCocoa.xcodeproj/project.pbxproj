@@ -352,7 +352,7 @@
 				INFOPLIST_FILE = YJCocoa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaojukeji.yjcocoa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4877a5c3-2bfd-4953-93ca-623dd28cbd28";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -371,7 +371,7 @@
 				INFOPLIST_FILE = YJCocoa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaojukeji.yjcocoa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

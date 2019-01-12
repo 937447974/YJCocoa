@@ -6,12 +6,12 @@
 //
 
 #import "YJScheduler.h"
-#import <objc/runtime.h>
-#import "YJSchedulerSubscribe.h"
-#import "YJSchedulerIntercept.h"
+#import "YJNSFoundationOther.h"
+#import "YJNSLog.h"
 #import "YJSystemOther.h"
 #import "YJDispatch.h"
-#import "YJNSLog.h"
+#import "YJSchedulerSubscribe.h"
+#import "YJSchedulerIntercept.h"
 
 @interface YJScheduler ()
 
@@ -41,16 +41,11 @@
 }
 
 - (void)initLoadScheduler {
-    unsigned int classCount;
-    Class *classes = objc_copyClassList(&classCount);
     SEL sel = @selector(schedulerLoad);
-    for (int i = 0; i < classCount; i++) {
-        Class cls = classes[i];
-        if (class_getClassMethod(cls, sel)) {
-            @warningPerformSelector([cls performSelector:sel])
-        }
+    NSArray *array = [NSObject allClassRespondsToSelector:sel];
+    for (Class cls in array) {
+        @warningPerformSelector([cls performSelector:sel])
     }
-    free(classes);
 }
 
 #pragma mark - One To More

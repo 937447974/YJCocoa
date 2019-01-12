@@ -7,10 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "YJSchedulerHeader.h"
+#import "YJNSSingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define YJSchedulerS [YJScheduler strongSingleton:nil]
+#define YJSchedulerS YJNSSingletonS(YJScheduler, nil)
 
 /** 调度中心*/
 @interface YJScheduler : NSObject

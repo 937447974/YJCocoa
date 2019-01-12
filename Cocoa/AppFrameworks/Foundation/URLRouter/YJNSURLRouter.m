@@ -10,8 +10,6 @@
 //
 
 #import "YJNSURLRouter.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import "YJScheduler.h"
 #import "YJNSFoundationOther.h"
 #import "YJNSHttp.h"
@@ -139,16 +137,11 @@
 
 #pragma mark - YJSchedulerProtocol
 + (void)schedulerLoad {
-    unsigned int classCount;
-    Class *classes = objc_copyClassList(&classCount);
     SEL sel = @selector(routerLoad);
-    for (int i = 0; i < classCount; i++) {
-        Class cls = classes[i];
-        if (class_getClassMethod(cls, sel)) {
-            @warningPerformSelector([cls performSelector:sel])
-        }
+    NSArray *array = [NSObject allClassRespondsToSelector:sel];
+    for (Class cls in array) {
+         @warningPerformSelector([cls performSelector:sel])
     }
-    free(classes);
 }
 
 @end
