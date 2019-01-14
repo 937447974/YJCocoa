@@ -51,7 +51,7 @@
 - (void)subscribeTopic:(NSString *)topic subscriber:(id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler {
     YJLogVerbose(@"Scheduler 订阅%@", topic);
     @weakSelf
-    [self.workQueue addAsync:YES executionBlock:^{
+    [self.workQueue addAsync:NO executionBlock:^{
         @strongSelf
         if (self.subArray.count >= 100) {
             NSMutableArray *array = NSMutableArray.array;
@@ -68,7 +68,7 @@
 #pragma mark intercept
 - (void)interceptWithInterceptor:(id)interceptor canHandler:(YJSInterceptCanHandler)canHandler completionHandler:(YJSInterceptHandler)handler {
     @weakSelf
-    [self.workQueue addAsync:YES executionBlock:^{
+    [self.workQueue addAsync:NO executionBlock:^{
         @strongSelf
         if (self.intArray.count >= 100) {
             NSMutableArray *array = NSMutableArray.array;
