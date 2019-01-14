@@ -15,6 +15,7 @@
 
 @interface YJScheduler ()
 
+@property (nonatomic) BOOL initSubInt;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerSubscribe *> *subArray;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerIntercept *> *intArray;
 
@@ -31,16 +32,13 @@
     if (self) {
         self.subArray = NSMutableArray.array;
         self.intArray = NSMutableArray.array;
-        @weakSelf
-        [self.workQueue addAsync:YES executionBlock:^{
-            @strongSelf
-            [self initLoadScheduler];
-        }];
     }
     return self;
 }
 
 - (void)initLoadScheduler {
+    if (self.initSubInt) return;
+    self.initSubInt = YES;
     SEL sel = @selector(schedulerLoad);
     NSArray *array = [NSObject allClassRespondsToSelector:sel];
     for (Class cls in array) {
@@ -86,6 +84,7 @@
 
 #pragma mark publish
 - (BOOL)canPublishTopic:(NSString *)topic {
+    [self initLoadScheduler];
     for (YJSchedulerIntercept *item in self.intArray.copy) {
         if (item.interceptor && item.canHandler(topic)) return YES;
     }
@@ -96,6 +95,7 @@
 }
 
 - (void)publishTopic:(NSString *)topic data:(id)data serial:(BOOL)serial completionHandler:(YJSPublishHandler)handler {
+    [self initLoadScheduler];
     YJLogVerbose(@"Scheduler 发布%@, data:%@", topic, data);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
