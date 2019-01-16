@@ -38,7 +38,7 @@
 }
 
 #pragma mark - YJNSURLRouterProtocol
-ROUTER_LOAD_URL(YJRouterURLMain)
+ROUTER_LOAD_URL(YJRouterURLMain, YES)
 + (instancetype)routerWithURL:(NSString *)url {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     return [storyBoard instantiateViewControllerWithIdentifier:@"YJMainViewController"];
