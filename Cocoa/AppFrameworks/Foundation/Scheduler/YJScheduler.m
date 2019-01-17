@@ -38,12 +38,16 @@
 
 - (void)initLoadScheduler {
     if (self.initSubInt) return;
-    self.initSubInt = YES;
-    SEL sel = @selector(schedulerLoad);
-    NSArray *array = [NSObject allClassRespondsToSelector:sel];
-    for (Class cls in array) {
-        @warningPerformSelector([cls performSelector:sel])
-    }
+    @weakSelf
+    [self.workQueue addAsync:NO executionBlock:^{
+        @strongSelf
+        self.initSubInt = YES;
+        SEL sel = @selector(schedulerLoad);
+        NSArray *array = [NSObject allClassRespondsToSelector:sel];
+        for (Class cls in array) {
+            @warningPerformSelector([cls performSelector:sel])
+        }
+    }];
 }
 
 #pragma mark - One To More
@@ -122,6 +126,18 @@
 }
 
 #pragma mark - One To one
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
+    YJLogError(@"Scheduler 调用未知方法：%@", NSStringFromSelector(selector));
+    return [YJScheduler instanceMethodSignatureForSelector:@selector(unrecognizedSelector)];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    [anInvocation invokeWithTarget:self];
+}
+
+- (id)unrecognizedSelector {
+    return nil;
+}
 
 #pragma mark - Getter
 - (YJDispatchQueue *)workQueue {
