@@ -9,3 +9,12 @@
 # Node
 node_modules/
 package-lock.json
+
+# Gemfile
+Gemfile.lock
+
+# fastlane
+fastlane/report.xml
+fastlane/README.md
+Carthage/
+Developer/YJCocoa/build/

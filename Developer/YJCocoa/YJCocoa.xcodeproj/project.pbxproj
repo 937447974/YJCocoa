@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		603641B25909CDBC3A1506D3 /* libPods-YJCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2693C405598AB85620A9F15C /* libPods-YJCocoa.a */; };
 		846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */ = {isa = PBXBuildFile; fileRef = 846C27BB1CF5BB66002DACDA /* docset-installed.sh */; };
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
@@ -15,11 +14,15 @@
 		8473AB861CE969DB000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB841CE969DB000E3580 /* Main.storyboard */; };
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
 		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
+		F25D77B7A0C96C0B7F520537 /* Pods_YJCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A3D0AB78446D7023087610 /* Pods_YJCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2693C405598AB85620A9F15C /* libPods-YJCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCocoa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4407B6F1F899FC094FD751AC /* Pods-YJCocoa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCocoa.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCocoa/Pods-YJCocoa.release.xcconfig"; sourceTree = "<group>"; };
+		4AFF567221F0CD3F00D958A4 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		4AFF567321F0CD3F00D958A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4AFF567421F0CD3F00D958A4 /* report.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
+		70A3D0AB78446D7023087610 /* Pods_YJCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846C27BB1CF5BB66002DACDA /* docset-installed.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "docset-installed.sh"; path = "../../../Documentation/docset-installed.sh"; sourceTree = "<group>"; };
 		8473AB781CE969DB000E3580 /* YJCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473AB7C1CE969DB000E3580 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -39,13 +42,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603641B25909CDBC3A1506D3 /* libPods-YJCocoa.a in Frameworks */,
+				F25D77B7A0C96C0B7F520537 /* Pods_YJCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AFF567021F0CD3F00D958A4 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				4AFF567221F0CD3F00D958A4 /* Fastfile */,
+				4AFF567321F0CD3F00D958A4 /* README.md */,
+				4AFF567421F0CD3F00D958A4 /* report.xml */,
+			);
+			name = fastlane;
+			path = ../../../fastlane;
+			sourceTree = "<group>";
+		};
 		8473AB6F1CE969DB000E3580 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,7 @@
 		8473AB7A1CE969DB000E3580 /* YJCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				4AFF567021F0CD3F00D958A4 /* fastlane */,
 				8473AB7E1CE969DB000E3580 /* AppDelegate.h */,
 				8473AB7F1CE969DB000E3580 /* AppDelegate.m */,
 				8473AB811CE969DB000E3580 /* ViewController.h */,
@@ -109,7 +124,7 @@
 		C610E2DA2928F10FFB3E22A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2693C405598AB85620A9F15C /* libPods-YJCocoa.a */,
+				70A3D0AB78446D7023087610 /* Pods_YJCocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,6 +140,7 @@
 				8473AB741CE969DB000E3580 /* Sources */,
 				8473AB751CE969DB000E3580 /* Frameworks */,
 				8473AB761CE969DB000E3580 /* Resources */,
+				6BA9391864B5AACBA6A70A64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +215,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BA9391864B5AACBA6A70A64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YJCocoa/Pods-YJCocoa-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCocoa/Pods-YJCocoa-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

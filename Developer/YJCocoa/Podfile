@@ -1,12 +1,34 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '9.0'
+
+use_frameworks!
+
+$all_frameworks = ['YJCocoa']
+$frameworks = {}
+def yj_pod(name, config)
+    if $all_frameworks.include?(name)
+        $frameworks[name] = "8.6.0"
+    end
+    pod(name, config)
+end
 
 target 'YJCocoa' do
     # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
     # use_frameworks!
     
     # Pods for YJCocoa
-    pod 'YJCocoa', :path => "../../YJCocoa.podspec"
-    pod 'YJCocoa/DeveloperTools', :path => "../../YJCocoa.podspec"
+    yj_pod 'YJCocoa', :path => "../../YJCocoa.podspec"
+    #yj_pod 'YJCocoa/DeveloperTools', :path => "../../YJCocoa.podspec"
     
+end
+
+post_install do |installer|
+    puts "打包：#{$frameworks}".green
+    project = installer.pods_project
+    project.recreate_user_schemes(:visible => true)
+    project.save
+    project.targets.each { |target|
+        if $frameworks.include?(target.name)
+            Xcodeproj::XCScheme.share_scheme(installer.sandbox.project_path, target)
+        end
+    }
 end

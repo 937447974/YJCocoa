@@ -1,0 +1,28 @@
+# This file contains the fastlane.tools configuration
+# https://docs.fastlane.tools/actions/cocoapods/
+# https://docs.fastlane.tools/actions/carthage/
+
+
+#update_fastlane
+default_platform(:ios)
+
+platform :ios do
+
+    desc "pod 打包"
+    lane :framework do
+        sh('rm -rf ../Carthage/Build/iOS')
+        sh('rm -rf ../Developer/YJCocoa/Pods/Pods.xcodeproj')
+        cocoapods(podfile: "./Developer/YJCocoa/Podfile")
+        carthage(
+            command: "build", 
+            use_binaries: true,
+            no_skip_current: true,
+            platform: "iOS",
+            configuration: "Release",
+            cache_builds: true
+        )
+        sh('open ../Carthage/Build/iOS')        
+    end
+
+end
+
