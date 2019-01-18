@@ -55,7 +55,7 @@
 }
 
 #pragma mark - YJUIPageViewControllerDelegate
-- (void)pageViewController:(YJUIPageViewController *)controller didScrolloffset:(CGFloat)offset {
+- (void)pageViewController:(YJUIPageViewController *)controller didScrollOffset:(CGFloat)offset {
     NSLog(@"%f", offset);
 }
 

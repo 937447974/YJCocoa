@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param controller YJUIPageViewController
  *  @param offset 偏移量[-1, 1]
  */
-- (void)pageViewController:(YJUIPageViewController *)controller didScrolloffset:(CGFloat)offset;
+- (void)pageViewController:(YJUIPageViewController *)controller didScrollOffset:(CGFloat)offset;
 
 @end
 

@@ -47,7 +47,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat width = scrollView.frame.size.width;
-    [self.pageDelegate pageViewController:self didScrolloffset:(scrollView.contentOffset.x - width)/width];
+    [self.pageDelegate pageViewController:self didScrollOffset:(scrollView.contentOffset.x - width)/width];
 }
 
 #pragma mark - getter & setter

@@ -10,17 +10,6 @@
 #import "YJNSTimer.h"
 #import "YJSystemOther.h"
 
-#pragma mark - YJUIPageViewCellPrivateProperty
-@protocol YJUIPageViewCellPrivateProperty <NSObject>
-
-@optional
-@property (nonatomic, copy) void (^ viewDidAppearBlock)(YJUIPageViewCell *cell); ///< cell显示, 框架使用
-
-@end
-
-@interface YJUIPageViewCell (YJPrivateProperty)<YJUIPageViewCellPrivateProperty>
-@end
-
 #pragma mark - YJUIPageViewManager
 @interface YJUIPageViewManager ()
 
@@ -111,16 +100,15 @@
             pageVC.view.backgroundColor = [UIColor whiteColor];
         }
         @weakSelf
-        pageVC.viewDidAppearBlock = ^ (YJUIPageViewCell *cell) {
+        [pageVC setCellDidAppear:^(NSInteger pageIndex) {
             @strongSelf
-            self.currentPageIndex = cell.cellObject.pageIndex;
-        };
+            self.currentPageIndex = pageIndex;
+        }];
     }
     // 刷新page
     [pageVC reloadDataWithPageViewCellObject:cellObject pageViewManager:self];
     return pageVC;
 }
-
 
 #pragma mark - UIPageViewControllerDataSource
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

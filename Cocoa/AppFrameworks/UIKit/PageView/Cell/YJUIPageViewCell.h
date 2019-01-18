@@ -16,11 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class YJUIPageViewManager;
 
-/** PageView的cell基类*/
-@interface YJUIPageViewCell : UIViewController
+/** page cell 显示*/
+typedef void(^ YJUIPageViewCellDidAppear)(NSInteger pageIndex);
 
-@property (nonatomic, weak, readonly) YJUIPageViewCellObject *cellObject;   ///< 封装的模型
-@property (nonatomic, weak, readonly) YJUIPageViewManager *pageViewManager; ///< YJUIPageViewManager
+/** PageView 的 cell 协议*/
+@protocol YJUIPageViewCellProtocol <NSObject>
+
+@optional
 
 /**
  *  @abstract 获取YJUITableCellObject并自动填充模型。
@@ -38,6 +40,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param pageViewManager   YJUIPageViewManager
  */
 - (void)reloadDataWithPageViewCellObject:(YJUIPageViewCellObject *)cellObject pageViewManager:(YJUIPageViewManager *)pageViewManager;
+
+/**
+ *  @abstract 设置界面显示回调
+ *
+ *  @param cellDidAppear YJUIPageViewCellDidAppear
+ *
+ */
+- (void)setCellDidAppear:(YJUIPageViewCellDidAppear)cellDidAppear;
+
+@end
+
+
+/** PageView 的 cell 基类*/
+@interface YJUIPageViewCell : UIViewController <YJUIPageViewCellProtocol>
+
+@property (nonatomic, weak,) YJUIPageViewCellObject *cellObject;   ///< 封装的模型
+@property (nonatomic, weak) YJUIPageViewManager *pageViewManager; ///< YJUIPageViewManager
 
 @end
 

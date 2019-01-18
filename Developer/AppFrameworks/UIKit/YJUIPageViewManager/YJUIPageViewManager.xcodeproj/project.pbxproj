@@ -164,7 +164,7 @@
 				TargetAttributes = {
 					8425A57F1EB9E3D500EBFFDA = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = P64WN7EK5E;
+						DevelopmentTeam = 7BT4LD3H35;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -371,10 +371,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = P64WN7EK5E;
+				DEVELOPMENT_TEAM = 7BT4LD3H35;
 				INFOPLIST_FILE = YJUIPageViewManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cisdi.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -385,10 +385,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = P64WN7EK5E;
+				DEVELOPMENT_TEAM = 7BT4LD3H35;
 				INFOPLIST_FILE = YJUIPageViewManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cisdi.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

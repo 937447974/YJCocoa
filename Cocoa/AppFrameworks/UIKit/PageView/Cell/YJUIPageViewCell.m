@@ -13,28 +13,27 @@
 
 @interface YJUIPageViewCell ()
 
-@property (nonatomic, copy) void (^ viewDidAppearBlock)(YJUIPageViewCell *cell); ///< cell显示, 框架使用
+@property (nonatomic, copy) YJUIPageViewCellDidAppear cellDidAppear;
 
 @end
 
 @implementation YJUIPageViewCell
 
-#pragma mark - (+)
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    !self.cellDidAppear?:self.cellDidAppear(self.cellObject.pageIndex);
+}
+
+#pragma mark - YJUIPageViewCellProtocol
 + (YJUIPageViewCellObject *)cellObjectWithCellModel:(id<YJUIPageViewCellModelProtocol>)cellModel {
     YJUIPageViewCellObject *co = [[YJUIPageViewCellObject alloc] initWithPageClass:[self class]];
     co.cellModel = cellModel;
     return co;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.viewDidAppearBlock(self);
-}
-
-#pragma mark - 刷新界面
 - (void)reloadDataWithPageViewCellObject:(YJUIPageViewCellObject *)cellObject pageViewManager:(YJUIPageViewManager *)pageViewManager {
-    _cellObject = cellObject;
-    _pageViewManager = pageViewManager;
+    self.cellObject = cellObject;
+    self.pageViewManager = pageViewManager;
 }
 
 @end
