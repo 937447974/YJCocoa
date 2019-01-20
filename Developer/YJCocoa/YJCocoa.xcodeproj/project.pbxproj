@@ -81,11 +81,11 @@
 		8473AB7A1CE969DB000E3580 /* YJCocoa */ = {
 			isa = PBXGroup;
 			children = (
-				4AFF567021F0CD3F00D958A4 /* fastlane */,
 				8473AB7E1CE969DB000E3580 /* AppDelegate.h */,
 				8473AB7F1CE969DB000E3580 /* AppDelegate.m */,
 				8473AB811CE969DB000E3580 /* ViewController.h */,
 				8473AB821CE969DB000E3580 /* ViewController.m */,
+				4AFF567021F0CD3F00D958A4 /* fastlane */,
 				8473AC051CE96C75000E3580 /* Resources */,
 				8473AB7B1CE969DB000E3580 /* Supporting Files */,
 			);

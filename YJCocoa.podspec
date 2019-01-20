@@ -313,6 +313,9 @@ Pod::Spec.new do |s|
         dt.subspec 'MemoryInfo' do |mi|
             mi.source_files = 'Cocoa/DeveloperTools/MemoryInfo/*.{h,m}'
         end
+        dt.subspec 'Timeline' do |tl|
+            tl.source_files = 'Cocoa/DeveloperTools/Timeline/*'
+        end
         # TimeProfiler
         dt.subspec 'TimeProfiler' do |tp|
             tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
