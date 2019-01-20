@@ -2,7 +2,7 @@
 //  YJSchedulerSubscribe.m
 //  Pods
 //
-//  Created by CISDI on 2018/12/29.
+//  Created by 阳君 on 2018/12/29.
 //
 
 #import "YJSchedulerSubscribe.h"
