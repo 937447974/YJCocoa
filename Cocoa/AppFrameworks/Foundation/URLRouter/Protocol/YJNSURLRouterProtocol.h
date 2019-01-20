@@ -29,6 +29,16 @@ typedef void (^ YJROpenHandler)(NSString *url, NSDictionary *options, YJRComplet
 + (void)routerLoad;
 
 /**
+ *  @abstract 获取路由缓存标识符
+ *
+ *  @param url 路由地址
+ *  @param options 携带的数据
+ *
+ *  @return NSString
+ */
++ (NSString *)routerCacheIdentifierWithURL:(NSString *)url options:(nullable NSDictionary *)options;
+
+/**
  *  @abstract 路由器初始化
  *
  *  @param url 路由地址
@@ -43,7 +53,7 @@ typedef void (^ YJROpenHandler)(NSString *url, NSDictionary *options, YJRComplet
  *  @param options 携带的数据
  *  @param completionHandler 路由器执行相关操作后的回调
  */
-- (void)routerReloadDataWithOptions:(NSDictionary *)options completionHandler:(nullable YJRCompletionHandler)completionHandler;
+- (void)routerReloadDataWithOptions:(nullable NSDictionary *)options completionHandler:(nullable YJRCompletionHandler)completionHandler;
 
 /**
  *  @abstract 路由器打开

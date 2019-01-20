@@ -101,7 +101,7 @@
     if (rRegister.handler) {
         rRegister.handler(rRegister.url, options, completionHandler);
     } else {
-        id<YJNSURLRouterProtocol> node = [self buildNodeWithRouterRegister:rRegister];
+        id<YJNSURLRouterProtocol> node = [self buildNodeWithRouterRegister:rRegister options:options];
         if ([node respondsToSelector:@selector(routerReloadDataWithOptions:completionHandler:)]) {
             [node routerReloadDataWithOptions:options completionHandler:completionHandler];
         }
@@ -111,20 +111,24 @@
     }
 }
 
-- (id<YJNSURLRouterProtocol>)buildNodeWithRouterRegister:(YJNSRouterRegister *)rRegister {
+- (id<YJNSURLRouterProtocol>)buildNodeWithRouterRegister:(YJNSRouterRegister *)rRegister options:(NSDictionary *)options {
+    NSString *ci = rRegister.url;
+    if ([rRegister.cls respondsToSelector:@selector(routerCacheIdentifierWithURL:options:)]) {
+        ci = [rRegister.cls routerCacheIdentifierWithURL:rRegister.url options:options];
+    }
     id<YJNSURLRouterProtocol> node;
-    if (rRegister.cache) node = [self getCacheNodeWithRouterRegister:rRegister];
+    if (rRegister.cache) node = [self getCacheNodeWithRouterRegister:rRegister cacheIdentifier:ci];
     if (node) return node;
     if ([rRegister.cls respondsToSelector:@selector(routerWithURL:)]) {
         node = [rRegister.cls routerWithURL:rRegister.url];
     } else {
         node = rRegister.cls.new;
     }
-    if (rRegister.cache) [self.nodeCache setObject:node forKey:rRegister.url];
+    if (rRegister.cache) [self.nodeCache setObject:node forKey:ci];
     return node;
 }
 
-- (id<YJNSURLRouterProtocol>)getCacheNodeWithRouterRegister:(YJNSRouterRegister *)rRegister {
+- (id<YJNSURLRouterProtocol>)getCacheNodeWithRouterRegister:(YJNSRouterRegister *)rRegister cacheIdentifier:(NSString *)cacheIdentifier {
     id<YJNSURLRouterProtocol> cacheNode = [self.nodeCache objectForKey:rRegister.url];
     if ([cacheNode isKindOfClass:UIViewController.class]) {
         UINavigationController *nc = ((UIViewController *)cacheNode).navigationController;
