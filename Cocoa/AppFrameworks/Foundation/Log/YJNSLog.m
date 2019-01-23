@@ -50,11 +50,11 @@ YJLogLevel _logLevel;
 #endif
         YJNSLog.logBLock = ^(YJLogLevel level, NSString *str) {
             if (!(level & YJNSLog.logLevel)) return;
-            if (level & YJLogLevelVerbose) NSLog(@"[Verbose] %@", str);
-            if (level & YJLogLevelDebug) NSLog(@"[DEBUG] %@", str);
-            else if (level & YJLogLevelInfo) NSLog(@"[INFO] %@", str);
+            if (level & YJLogLevelVerbose) NSLog(@"[🍏] %@", str);
+            if (level & YJLogLevelDebug) NSLog(@"[⚙] %@", str);
+            else if (level & YJLogLevelInfo) NSLog(@"[💚] %@", str);
             else if (level & YJLogLevelWarn) NSLog(@"[⚠️] %@", str);
-            else if (level & YJLogLevelError) NSLog(@"[❌] %@", str);
+            else if (level & YJLogLevelError) NSLog(@"[❤️] %@", str);
         };
     }
 }

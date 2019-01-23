@@ -14,7 +14,7 @@
 
 @interface UITextField (YJPrivate)
 
-@property (nonatomic, weak) NSString *oldInput; ///< 用户上一次输入
+@property (nonatomic, copy) NSString *oldInput; ///< 用户上一次输入
 
 @end
 

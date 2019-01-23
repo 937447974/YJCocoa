@@ -19,10 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-@property (nonatomic)           NSString *accessGroup; ///< 访问组，支持搜索
-@property (nonatomic, readonly) NSString *kClass;      ///< 存储类型，支持搜索
-@property (nonatomic)           NSString *accessible;  ///< 可访问性
-@property (nonatomic, nullable) NSString *label;       ///< 标签
+@property (nonatomic, copy)           NSString *accessGroup; ///< 访问组，支持搜索
+@property (nonatomic, copy, readonly) NSString *kClass;      ///< 存储类型，支持搜索
+@property (nonatomic, copy)           NSString *accessible;  ///< 可访问性
+@property (nonatomic, copy, nullable) NSString *label;       ///< 标签
 
 @end
 
@@ -32,17 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-@property (nonatomic)           NSString *account;   ///< 账号，支持搜索
-@property (nonatomic, readonly) NSDate *createDate;  ///< 创建日期
-@property (nonatomic, readonly) NSDate *modifyDate;  ///< 最后一次修改日期
-@property (nonatomic, nullable) NSString *desc;      ///< 描述
-@property (nonatomic, nullable) NSString *comment;   ///< 注释
-@property (nonatomic, nullable) NSNumber *creator;   ///< 创造者
-@property (nonatomic, nullable) NSNumber *type;      ///< 类型
-@property (nonatomic)           Boolean isInvisible; ///< 是否隐藏
-@property (nonatomic)           Boolean isNegative;  ///< 是否具有密码
-@property (nonatomic, nullable) NSString *service;   ///< 所具有服务
-@property (nonatomic, nullable) NSData *generic;     ///< 用户自定义内容
+@property (nonatomic, copy)             NSString *account;   ///< 账号，支持搜索
+@property (nonatomic, strong, readonly) NSDate *createDate;  ///< 创建日期
+@property (nonatomic, strong, readonly) NSDate *modifyDate;  ///< 最后一次修改日期
+@property (nonatomic, copy, nullable)   NSString *desc;      ///< 描述
+@property (nonatomic, copy, nullable)   NSString *comment;   ///< 注释
+@property (nonatomic, strong, nullable) NSNumber *creator;   ///< 创造者
+@property (nonatomic, strong, nullable) NSNumber *type;      ///< 类型
+@property (nonatomic)                   Boolean isInvisible; ///< 是否隐藏
+@property (nonatomic)                   Boolean isNegative;  ///< 是否具有密码
+@property (nonatomic, copy, nullable)   NSString *service;   ///< 所具有服务
+@property (nonatomic, strong, nullable) NSData *generic;     ///< 用户自定义内容
 
 @end
 

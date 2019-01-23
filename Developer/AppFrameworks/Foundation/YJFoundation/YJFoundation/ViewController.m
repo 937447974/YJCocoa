@@ -34,10 +34,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     YJNSLog.logLevel = YJLogLevelVerbose;
 //    [self testAOP];
-//    [self testSingleton];
-    [self testTimer];
-    [self testCalendar];
+    [self testSingleton];
+//    [self testTimer];
+//    [self testCalendar];
 //    [self testURLSession];
 //    [self testSwizzling];
 //    [self testLog];
@@ -85,30 +86,27 @@
 
 #pragma mark - 单例
 - (void)testSingleton {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 30; i++) {
         //异步执行队列任务
         dispatch_async_default(^{
-            NSLog(@"0-%@", YJNSSingletonS(ViewController, nil));
+            YJNSSingletonS(ViewController, nil);
         });
         dispatch_async_default(^{
-            NSLog(@"1-%@", YJNSSingletonS(ViewController, @"private1"));
+            YJNSSingletonS(ViewController, @"private1");
         });
         dispatch_async_default(^{
-            NSLog(@"2-%@", YJNSSingletonW(ViewController, @"private2"));
+           YJNSSingletonW(ViewController, @"private2");
         });
         dispatch_async_default(^{
-            NSLog(@"3-%@", YJNSSingletonW(ViewController, @"private3"));
+            YJNSSingletonW(ViewController, @"private3");
         });
         dispatch_async_default(^{
-            NSLog(@"4-%@", YJNSSingletonW(ViewController, @"private4"));
+            YJNSSingletonW(ViewController, @"private4");
         });
         dispatch_async_default(^{
-            NSLog(@"5-%@", YJNSSingletonW(ViewController, @"private5"));
+            YJNSSingletonW(ViewController, @"private5");
         });
     }
-    dispatch_after_main(1, ^{
-        [NSNotificationCenter.defaultCenter postNotificationName:UIApplicationDidReceiveMemoryWarningNotification object:nil];
-    });
     NSLog(@"dispatch_queue_create");
 }
 
