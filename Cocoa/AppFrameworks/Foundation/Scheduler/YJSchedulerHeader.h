@@ -12,6 +12,8 @@
 #ifndef YJSchedulerHeader_h
 #define YJSchedulerHeader_h
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** 发布后执行方处理完毕的回调*/
 typedef void (^ YJSPublishHandler)(id _Nullable data);
 /** 订阅回调*/
@@ -34,6 +36,8 @@ typedef NS_ENUM(NSInteger, YJSchedulerQueue) {
 
 /** 调度器订阅、拦截加载*/
 + (void)schedulerLoad;
+
+NS_ASSUME_NONNULL_END
 
 @end
 
