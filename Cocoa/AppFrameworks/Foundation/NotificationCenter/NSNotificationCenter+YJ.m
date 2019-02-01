@@ -12,6 +12,13 @@
 #import "NSNotificationCenter+YJ.h"
 #import <objc/runtime.h>
 
+@interface YJNSNotificationBlock : NSObject
+@property (nonatomic, weak) id observer;
+@property (nonatomic, copy) void (^ block)(NSNotification *);
+@end
+@implementation YJNSNotificationBlock
+@end
+
 @implementation NSObject (YJNotificationCenter)
 
 - (NSMutableDictionary *)yj_notificationCenterBlock {
@@ -26,8 +33,8 @@
 
 - (void)yj_notificationCenterCallback:(NSNotification *)note {
     NSMutableDictionary *blockDict = self.yj_notificationCenterBlock;
-    void (^ block)(NSNotification *) = [blockDict objectForKey:note.name];
-    block(note);
+    YJNSNotificationBlock *nb = [blockDict objectForKey:note.name];
+    if (nb.observer) nb.block(note);
 }
 
 @end
@@ -36,10 +43,14 @@
 
 - (void)addObserver:(NSObject *)observer name:(NSNotificationName)name usingBlock:(void (^)(NSNotification *))block {
     NSMutableDictionary *blockDict = observer.yj_notificationCenterBlock;
-    if (![blockDict objectForKey:name]) {
+    YJNSNotificationBlock *nb = [blockDict objectForKey:name];
+    if (!nb) {
+        nb = YJNSNotificationBlock.new;
+        nb.observer = observer;
+        [blockDict setObject:nb forKey:name];
         [self addObserver:observer selector:@selector(yj_notificationCenterCallback:) name:name object:nil];
     }
-    [blockDict setObject:block forKey:name];
+    nb.block = block;
 }
 
 @end

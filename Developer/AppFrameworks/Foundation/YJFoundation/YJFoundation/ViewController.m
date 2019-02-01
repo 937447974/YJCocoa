@@ -36,14 +36,14 @@
     [super viewDidLoad];
      YJNSLog.logLevel = YJLogLevelVerbose;
 //    [self testAOP];
-    [self testSingleton];
+//    [self testSingleton];
 //    [self testTimer];
 //    [self testCalendar];
 //    [self testURLSession];
 //    [self testSwizzling];
 //    [self testLog];
 //    [self testKVO];
-//    [self testNotificationCenter];
+    [self testNotificationCenter];
 //    [self testCache];
 
 }
