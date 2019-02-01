@@ -107,6 +107,7 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'Scheduler' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Scheduler/**/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end

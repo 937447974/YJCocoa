@@ -31,6 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)subscribeTopic:(NSString *)topic subscriber:(nullable id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler;
 
+/**
+ *  @abstract 取消订阅
+ *
+ *  @param topic 主题
+ *  @param subscriber 订阅者
+ */
+- (void)removeSubscribeTopic:(nullable NSString *)topic subscriber:(id)subscriber;
+
 #pragma mark intercept
 /**
  *  @abstract 拦截发布信息
@@ -59,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param serial  yes串行发布no并行发布
  *  @param handler 接受方处理数据后的回调
  */
-- (void)publishTopic:(NSString *)topic data:(id)data serial:(BOOL)serial completionHandler:(nullable YJSPublishHandler)handler;
+- (void)publishTopic:(NSString *)topic data:(nullable id)data serial:(BOOL)serial completionHandler:(nullable YJSPublishHandler)handler;
 
 @end
 

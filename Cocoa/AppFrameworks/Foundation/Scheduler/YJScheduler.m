@@ -10,6 +10,7 @@
 //
 
 #import "YJScheduler.h"
+#import "NSNotificationCenter+YJ.h"
 #import "YJNSFoundationOther.h"
 #import "YJNSLog.h"
 #import "YJSystemOther.h"
@@ -20,7 +21,7 @@
 @interface YJScheduler ()
 
 @property (nonatomic) BOOL initSubInt;
-@property (nonatomic, strong) NSMutableArray<YJSchedulerSubscribe *> *subArray;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableArray *> *subDict;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerIntercept *> *intArray;
 
 @property (nonatomic, strong) YJDispatchQueue *workQueue;
@@ -34,10 +35,29 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.subArray = NSMutableArray.array;
+        self.subDict = NSMutableDictionary.dictionary;
         self.intArray = NSMutableArray.array;
+        [self notificationInjection];
     }
     return self;
+}
+
+- (void)notificationInjection {
+    @weakSelf
+    void (^ block)(NSNotification *) = ^(NSNotification *note) {
+        @strongSelf
+        [self.workQueue addAsync:YES executionBlock:^{
+            @strongSelf
+            for (NSMutableArray *subArray in self.subDict.allValues) {
+                for (NSInteger i = subArray.count - 1; i >= 0; i--) {
+                    YJSchedulerSubscribe *item = subArray[i];
+                    if (!item.subscriber) [subArray removeObjectAtIndex:i];
+                }
+            }
+        }];
+    };
+    [NSNotificationCenter.defaultCenter addObserver:self name:UIApplicationDidReceiveMemoryWarningNotification usingBlock:block];
+    [NSNotificationCenter.defaultCenter addObserver:self name:UIApplicationDidEnterBackgroundNotification usingBlock:block];
 }
 
 - (void)initLoadScheduler {
@@ -54,23 +74,59 @@
     }];
 }
 
+- (NSMutableArray *)subscribeArrayWithTopic:(NSString *)topic {
+    NSMutableArray *array = [self.subDict objectForKey:topic];
+    if (!array) {
+        array = NSMutableArray.array;
+        [self.subDict setObject:array forKey:topic];
+    }
+    return array;
+}
+
 #pragma mark - One To More
 #pragma mark subscribe
 - (void)subscribeTopic:(NSString *)topic subscriber:(id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler {
-    YJLogVerbose(@"Scheduler 订阅%@", topic);
+    YJLogVerbose(@"[Scheduler] 订阅%@", topic);
+    subscriber = subscriber ?: self.class;
     @weakSelf
     [self.workQueue addAsync:NO executionBlock:^{
         @strongSelf
-        if (self.subArray.count >= 100) {
-            NSMutableArray *array = NSMutableArray.array;
-            for (YJSchedulerSubscribe *item in self.subArray) {
-                if (item) [array addObject:item];
-            }
-            self.subArray = array;
+        NSMutableArray *subArray = [self subscribeArrayWithTopic:topic];
+        for (YJSchedulerSubscribe *item in subArray) {
+            if ([item.topic isEqualToString:topic] && [item.subscriber isEqual:subscriber])
+            return;
         }
-        YJSchedulerSubscribe *item = [[YJSchedulerSubscribe alloc] initWithTopic:topic subscriber:subscriber?:self.class queue:queue completionHandler:handler];
-        [self.subArray addObject:item];
+        [subArray addObject:[[YJSchedulerSubscribe alloc] initWithTopic:topic subscriber:subscriber queue:queue completionHandler:handler]];
     }];
+}
+
+- (void)removeSubscribeTopic:(NSString *)topic subscriber:(id)subscriber {
+    if (!subscriber) return;
+    @weakSelf
+    [self.workQueue addAsync:YES executionBlock:^{
+        @strongSelf
+        if (topic.length) {
+            [self removeSubscribeArray:[self subscribeArrayWithTopic:topic] subscriber:subscriber];
+        } else {
+            for (NSMutableArray *subArray in self.subDict.allValues) {
+                [self removeSubscribeArray:subArray subscriber:subscriber];
+            }
+        }
+    }];
+}
+
+- (void)removeSubscribeArray:(NSMutableArray *)subArray subscriber:(id)subscriber {
+    for (NSInteger i = subArray.count - 1; i >= 0; i--) {
+        YJSchedulerSubscribe *item = subArray[i];
+        if (item.subscriber) {
+            if (item.subscriber == subscriber) {
+                [subArray removeObjectAtIndex:i];
+                return;
+            }
+        } else {
+            [subArray removeObjectAtIndex:i];
+        }
+    }
 }
 
 #pragma mark intercept
@@ -96,15 +152,16 @@
     for (YJSchedulerIntercept *item in self.intArray.copy) {
         if (item.interceptor && item.canHandler(topic)) return YES;
     }
-    for (YJSchedulerSubscribe *item in self.subArray.copy) {
-        if (item.subscriber && [topic isEqualToString:item.topic]) return YES;
+    NSArray *subArray = [self subscribeArrayWithTopic:topic].copy;
+    for (YJSchedulerSubscribe *item in subArray) {
+        if (item.subscriber) return YES;
     }
     return NO;
 }
 
 - (void)publishTopic:(NSString *)topic data:(id)data serial:(BOOL)serial completionHandler:(YJSPublishHandler)handler {
     [self initLoadScheduler];
-    YJLogVerbose(@"Scheduler 发布%@, data:%@", topic, data);
+    YJLogVerbose(@"[Scheduler] 发布%@, data:%@", topic, data);
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
@@ -113,8 +170,9 @@
                 if (item.completionHandler(topic, data, handler)) return;
             }
         }
-        for (YJSchedulerSubscribe *item in self.subArray) {
-            if (item.subscriber && [topic isEqualToString:item.topic]) {
+        NSArray *subArray = [self subscribeArrayWithTopic:topic].copy;
+        for (YJSchedulerSubscribe *item in subArray) {
+            if (item.subscriber) {
                 dispatch_block_t block = ^{
                     item.completionHandler(data, handler);
                 };
@@ -131,7 +189,7 @@
 
 #pragma mark - One To one
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
-    YJLogError(@"Scheduler 调用未知方法：%@", NSStringFromSelector(selector));
+    YJLogError(@"[Scheduler] 调用未知方法：%@", NSStringFromSelector(selector));
     return [YJScheduler instanceMethodSignatureForSelector:@selector(unrecognizedSelector)];
 }
 
@@ -165,7 +223,7 @@
 - (YJDispatchQueue *)concurrentQueue {
     if (!_concurrentQueue) {
         const char *label = "com.yjcocoa.scheduler.concurrent";
-        dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
         _concurrentQueue = [[YJDispatchQueue alloc] initWithLabel:label queue:queue maxConcurrent:6];
     }
     return _concurrentQueue;

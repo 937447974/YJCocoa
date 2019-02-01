@@ -17,7 +17,7 @@
 
 + (void)schedulerLoad {
     [YJSchedulerS subscribeTopic:@"test" subscriber:nil onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
-        NSLog(@"%@", data);
+        NSLog(@"1-%@", data);
         publishHandler(@"111");
     }];
 }
@@ -26,7 +26,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     [YJSchedulerS publishTopic:@"test" data:@"test" serial:NO completionHandler:^(id data) {
-        NSLog(@"%@", data);
+        NSLog(@"2-%@", data);
+    }];
+    [YJSchedulerS subscribeTopic:@"test" subscriber:self onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
+        NSLog(@"3-%@", data);
+    }];
+    [YJSchedulerS removeSubscribeTopic:nil subscriber:self];
+    [YJSchedulerS publishTopic:@"test" data:@"test11" serial:NO completionHandler:^(id data) {
+        NSLog(@"4-%@", data);
     }];
 }
 

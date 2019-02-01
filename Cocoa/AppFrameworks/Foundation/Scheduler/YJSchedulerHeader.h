@@ -17,11 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 发布后执行方处理完毕的回调*/
 typedef void (^ YJSPublishHandler)(id _Nullable data);
 /** 订阅回调*/
-typedef void (^ YJSSubscribeHandler)(id data, YJSPublishHandler _Nullable publishHandler);
+typedef void (^ YJSSubscribeHandler)(id _Nullable data, YJSPublishHandler _Nullable publishHandler);
 /** 能否拦截*/
 typedef BOOL (^ YJSInterceptCanHandler)(NSString *topic);
 /** 拦截回调*/
-typedef BOOL (^ YJSInterceptHandler)(NSString *topic, id data, YJSPublishHandler _Nullable publishHandler);
+typedef BOOL (^ YJSInterceptHandler)(NSString *topic, id _Nullable data, YJSPublishHandler _Nullable publishHandler);
 
 
 /** 调度队列*/
