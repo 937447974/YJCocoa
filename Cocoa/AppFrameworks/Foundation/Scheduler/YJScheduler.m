@@ -89,7 +89,7 @@
     YJLogVerbose(@"[Scheduler] 订阅%@", topic);
     subscriber = subscriber ?: self.class;
     @weakSelf
-    [self.workQueue addAsync:NO executionBlock:^{
+    [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
         NSMutableArray *subArray = [self subscribeArrayWithTopic:topic];
         for (YJSchedulerSubscribe *item in subArray) {
