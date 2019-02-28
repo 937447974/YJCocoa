@@ -101,6 +101,7 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'Other' do |other|
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
+                other.dependency 'YJCocoa/System/Dispatch'
             end
             foundation.subspec 'PerformSelector' do |performSelector|
                 performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
