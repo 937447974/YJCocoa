@@ -28,14 +28,14 @@ NSString *YJNSStringFromClass(Class aClass) {
     NSMutableArray *result = NSMutableArray.array;
     unsigned int classCount;
     Class *classes = objc_copyClassList(&classCount);
-
     for (int i = 0; i < classCount; i++) {
         Class cls = classes[i];
         NSString *clsName = YJNSStringFromClass(cls);
         if([clsName rangeOfString:@"_"].location != NSNotFound
            || [clsName rangeOfString:@"HTML"].location != NSNotFound
            || [clsName rangeOfString:@"Web"].location != NSNotFound
-           || [clsName rangeOfString:@"MFCompose"].location != NSNotFound) continue;
+           || [clsName rangeOfString:@"MFCompose"].location != NSNotFound
+           || [clsName isEqualToString:@"UIAlertTextView"]) continue;
         if (class_getClassMethod(cls, aSelector))
             [result addObject:cls];
     }

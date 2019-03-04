@@ -62,10 +62,10 @@
 
 - (void)initLoadScheduler {
     if (self.initSubInt) return;
+    self.initSubInt = YES;
     @weakSelf
     [self.workQueue addAsync:NO executionBlock:^{
         @strongSelf
-        self.initSubInt = YES;
         SEL sel = @selector(schedulerLoad);
         NSArray *array = [NSObject allClassRespondsToSelector:sel];
         for (Class cls in array) {
