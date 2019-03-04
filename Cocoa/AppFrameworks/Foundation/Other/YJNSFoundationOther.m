@@ -28,13 +28,17 @@ NSString *YJNSStringFromClass(Class aClass) {
     NSMutableArray *result = NSMutableArray.array;
     unsigned int classCount;
     Class *classes = objc_copyClassList(&classCount);
-    dispatch_sync_main(^{
-        for (int i = 0; i < classCount; i++) {
-            Class cls = classes[i];
-            if ([YJNSStringFromClass(cls) rangeOfString:@"_"].location != NSNotFound) continue;
-            if (class_getClassMethod(cls, aSelector)) [result addObject:cls];
-        }
-    });
+
+    for (int i = 0; i < classCount; i++) {
+        Class cls = classes[i];
+        NSString *clsName = YJNSStringFromClass(cls);
+        if([clsName rangeOfString:@"_"].location != NSNotFound
+           || [clsName rangeOfString:@"HTML"].location != NSNotFound
+           || [clsName rangeOfString:@"Web"].location != NSNotFound
+           || [clsName rangeOfString:@"MFCompose"].location != NSNotFound) continue;
+        if (class_getClassMethod(cls, aSelector))
+            [result addObject:cls];
+    }
     free(classes);
     return result;
 }
