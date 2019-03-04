@@ -24,13 +24,13 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
+        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        return;
+    }
+    YJUICollectionCellObject *co = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
+    !co.didSelectItemBlock?:co.didSelectItemBlock();
     if ([self.manager.delegate respondsToSelector:@selector(collectionViewManager:didSelectCellWithCellObject:)]) {
-        if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
-            NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
-            return;
-        }
-        YJUICollectionCellObject *co = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
-        !co.didSelectItemBlock?:co.didSelectItemBlock();
         [self.manager.delegate collectionViewManager:self.manager didSelectCellWithCellObject:co];
     }
 }
