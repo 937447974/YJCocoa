@@ -4,7 +4,7 @@
 
 YJ系列开源库
 
-1. 支持 iOS 8.0 和 Swift 4.0 开发。
+1. 支持 iOS 8.0 和 Swift 4.2 开发。
 2. 按需加载，可根据自己的需求加载不同的开源库。
 
 整体架构和苹果类似,每一层都有各自的开源库。
@@ -25,56 +25,60 @@ Cache 缓存工具，在 NSCache 的基础上增加了 NSDictionary 的相关功
 
 日历工具，快速获取天、时、分等。
 
-### 1.1.4 DictionaryModel
+### 1.1.4  CodeInject
+
+编译时注入代码，运行时提取函数或 Block 执行，一站式解决 APP 启动卡顿问题。
+
+### 1.1.5 DictionaryModel
 
 快速高效的转换模型和Model。
 
-### 1.1.5 Directory
+### 1.1.6 Directory
 
 快速获取应用内目录
 
-### 1.1.6 FileManager
+### 1.1.7 FileManager
 
 NSFileManager扩展，支持快速移动文件。主要是替换系统方法`moveItemAtPath:toPath:error:`和`moveItemAtURL:toURL:error:`
 
-### 1.1.7 Http
+### 1.1.8 Http
 
 1. http链接解析，快速获取其中参数，支持URLDecode解码;
 2. http链接组装，快速组装相关参数，支持URLEncode编码。
 
-### 1.1.8 KVO
+### 1.1.9 KVO
 
 1. 支持 Block 的方式监听 KeyValue 变化。
 2. Observer 自动移除，无须手动调用 `removeObserver: forKeyPath:`移除。
 
-### 1.1.9 Log
+### 1.1.10 Log
 
 1. NSLog打印优化，Unicode自动转化为中文输出。
 2. YJLog 日志输出，支持自定义日志级别输出内容。
 
-### 1.1.10 NotificationCenter
+### 1.1.11 NotificationCenter
 
 NSNotificationCenter block 回调，并支持自动释放。
 
-### 1.1.11 PerformSelector
+### 1.1.12 PerformSelector
 
 合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
 
-### 1.1.12 Scheduler
+### 1.1.13 Scheduler
 
 Scheduler 调度器，一站式解决代码耦合问题。
 
 
-### 1.1.13 Singleton
+### 1.1.14 Singleton
 
 1. 通过宏定义，快速将任何类转换为单例类。如`YJNSSingletonW(NSMutableDictionary, @"identifier")`
 2. 可定制全局单例和局域单例。
 
-### 1.1.14 Swizzling
+### 1.1.15 Swizzling
 
 支持随时随地交换方法。
 
-### 1.1.15 Timer
+### 1.1.16 Timer
 
 替换NSTimer实现相关计时器功能。
 
@@ -83,18 +87,18 @@ Scheduler 调度器，一站式解决代码耦合问题。
 1. 随着应用的回收而回收。
 2. 随着当前使用类的回收而回收。如VC回收时，YJSTimer也会回收。
 
-### 1.1.16 URLCode
+### 1.1.17 URLCode
 
 URLEncode编码和URLDecode解码
 
-### 1.1.17 URLRouter
+### 1.1.18 URLRouter
 
 Router 是 NavigationRouter 的基础库，主要用于实现路由跳转。
 
 1. 自动注入，无需考虑加载时机。
 2. 支持拦截处理未注入的url。
 
-### 1.1.18 URLSession
+### 1.1.19 URLSession
 
 大型APP网络架构，具有以下特性：
 

@@ -1,65 +1,46 @@
 //
-//  YJCodeInject.m
-//  Pods
+//  YJCodeInject.h
+//  YJCocoa
+//
+//  HomePage:https://github.com/937447974/YJCocoa
+//  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 2019/3/5.
+//  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
 #import "YJCodeInject.h"
 #import <dlfcn.h>
-#import <objc/runtime.h>
-#import <mach-o/dyld.h>
 #import <mach-o/getsect.h>
-#import <mach-o/ldsyms.h>
 
-#ifdef __LP64__
-typedef uint64_t YJCIExportValue;
-typedef struct section_64 YJCIExportSection;
-#define YJCIGetSectByNameFromHeader getsectbynamefromheader_64
-#else
-typedef uint32_t YJCIExportValue;
-typedef struct section YJCIExportSection;
-#define YJCIGetSectByNameFromHeader getsectbynamefromheader
-#endif
+@implementation YJCodeInject
 
-void RAMExecuteFunction(char *key) {
++ (void)executeFunctionForKey:(NSString *)key {
+    NSString *sectname = [NSString stringWithFormat:@"__%@.func", key?:@""];
     Dl_info info;
-    dladdr((const void *)&RAMExecuteFunction, &info);
-    const YJCIExportValue mach_header = (YJCIExportValue)info.dli_fbase;
-    const YJCIExportSection *section = YJCIGetSectByNameFromHeader((void *)mach_header, "__YJCocoa", key);
+    dladdr((__bridge void *)[UIApplication.sharedApplication.delegate class], &info);
+    const uint64_t mach_header = (uint64_t)info.dli_fbase;
+    const struct section_64 *section = getsectbynamefromheader_64((void *)mach_header, "__YJCocoa", sectname.UTF8String);
     if (section == NULL) return;
     int addrOffset = sizeof(struct YJCI_Function);
-    for (YJCIExportValue addr = section->offset; addr < section->offset + section->size; addr += addrOffset) {
+    for (uint64_t addr = section->offset; addr < section->offset + section->size; addr += addrOffset) {
         struct YJCI_Function entry = *(struct YJCI_Function *)(mach_header + addr);
         entry.function();
     }
 }
 
-void RAMExecuteBlock(char *key) {
++ (void)executeBlockForKey:(NSString *)key {
+    NSString *sectname = [NSString stringWithFormat:@"__%@.block", key?:@""];
     Dl_info info;
-    dladdr((const void *)&RAMExecuteBlock, &info);
-    const YJCIExportValue mach_header = (YJCIExportValue)info.dli_fbase;
-    const YJCIExportSection *section = YJCIGetSectByNameFromHeader((void *)mach_header, "__YJCocoa", key);
+    dladdr((__bridge void *)[UIApplication.sharedApplication.delegate class], &info);
+    const uint64_t mach_header = (uint64_t)info.dli_fbase;
+    const struct section_64 *section = getsectbynamefromheader_64((void *)mach_header, "__YJCocoa", sectname.UTF8String);
     if (section == NULL) return;
     int addrOffset = sizeof(struct YJCI_Block);
-    for (YJCIExportValue addr = section->offset; addr < section->offset + section->size; addr += addrOffset) {
+    for (uint64_t addr = section->offset; addr < section->offset + section->size; addr += addrOffset) {
         struct YJCI_Block entry = *(struct YJCI_Block *)(mach_header + addr);
-        if (entry.block) {
-            entry.block();
-        }
+        !entry.block ?: entry.block();
     }
-}
-
-@implementation YJCodeInject
-
-+ (void)executeFunctionForKey:(NSString *)key {
-    NSString *fKey = [NSString stringWithFormat:@"__%@.func", key?:@""];
-    RAMExecuteFunction((char *)[fKey UTF8String]);
-}
-
-+ (void)executeBlockForKey:(NSString *)key {
-    NSString *fKey = [NSString stringWithFormat:@"__%@.block", key?:@""];
-    RAMExecuteBlock((char *)[fKey UTF8String]);
 }
 
 @end

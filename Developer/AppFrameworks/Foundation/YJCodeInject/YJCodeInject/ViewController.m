@@ -17,11 +17,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [YJCodeInject executeFunctionForKey:@"A"];
-    [YJCodeInject executeFunctionForKey:@"B"];
-    [YJCodeInject executeBlockForKey:@"A"];
-    [YJCodeInject executeBlockForKey:@"B"];
+    YJCI_FUNCTION_EXECUTE(A)
+    YJCI_FUNCTION_EXECUTE(B)
+    YJCI_BLOCK_EXECUTE(A)
+    YJCI_BLOCK_EXECUTE(B)
 }
+
+YJCI_FUNCTION_EXPORT(A)(void) {
+    NSLog(@"ViewController FUNCTION A", nil);
+}
+
+YJCI_FUNCTION_EXPORT(B)(void) {
+    NSLog(@"ViewController FUNCTION B", nil);
+}
+
+YJCI_BLOCK_EXPORT(A, ^(void) {
+    NSLog(@"ViewController BLOCK A", nil);
+})
+
+YJCI_BLOCK_EXPORT(B, ^(void) {
+    NSLog(@"ViewController BLOCK B", nil);
+})
 
 
 @end

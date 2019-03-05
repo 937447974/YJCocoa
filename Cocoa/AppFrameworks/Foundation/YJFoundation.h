@@ -12,6 +12,7 @@
 #import "YJNSAspectOrientProgramming.h"//面向切面编程
 #import "YJNSCache.h"                  //缓存工具
 #import "YJNSCalendar.h"               // 日历工具，快速获取天、时、分等
+#import "YJCodeInject.h"               // 代码注入
 #import "NSObject+YJNSDictionaryModel.h" // Dictionary转Model
 #import "YJNSDirectory.h"           // 获取应用内目录
 #import "YJNSFileManager.h"         // NSFileManager扩展

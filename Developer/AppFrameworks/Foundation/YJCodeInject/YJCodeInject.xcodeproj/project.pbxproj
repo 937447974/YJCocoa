@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B6279C7271E7EB05DDA23B2 /* libPods-YJCodeInject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */; };
+		89C82015C36B368147C42735 /* libPods-YJCodeInject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */; };
 		D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74DD222E730F006ED36C /* AppDelegate.m */; };
 		D4CF74E1222E730F006ED36C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74E0222E730F006ED36C /* ViewController.m */; };
 		D4CF74E6222E7311006ED36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CF74E5222E7311006ED36C /* Assets.xcassets */; };
 		D4CF74EC222E7311006ED36C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74EB222E7311006ED36C /* main.m */; };
 		D4CF74FA222E815E006ED36C /* Test1.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74F9222E815E006ED36C /* Test1.m */; };
-		D4CF74FD222E8169006ED36C /* Test2.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74FC222E8169006ED36C /* Test2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCodeInject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9D7A759C4ADB4B7D3D6E6 /* Pods-YJCodeInject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.debug.xcconfig"; sourceTree = "<group>"; };
+		A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCodeInject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5AE2ED6EC35FD0DC755C03 /* Pods-YJCodeInject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.release.xcconfig"; sourceTree = "<group>"; };
 		D4CF74D9222E730F006ED36C /* YJCodeInject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCodeInject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CF74DC222E730F006ED36C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +29,6 @@
 		D4CF74EB222E7311006ED36C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4CF74F8222E815E006ED36C /* Test1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1.h; sourceTree = "<group>"; };
 		D4CF74F9222E815E006ED36C /* Test1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1.m; sourceTree = "<group>"; };
-		D4CF74FB222E8169006ED36C /* Test2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2.h; sourceTree = "<group>"; };
-		D4CF74FC222E8169006ED36C /* Test2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B6279C7271E7EB05DDA23B2 /* libPods-YJCodeInject.a in Frameworks */,
+				89C82015C36B368147C42735 /* libPods-YJCodeInject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,16 +46,9 @@
 		3E42FF5930F252413232F625 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */,
+				A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4AD29983222EB83000276627 /* RAMExport */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RAMExport;
 			sourceTree = "<group>";
 		};
 		D4CF74D0222E730F006ED36C = {
@@ -84,13 +74,10 @@
 			children = (
 				D4CF74DC222E730F006ED36C /* AppDelegate.h */,
 				D4CF74DD222E730F006ED36C /* AppDelegate.m */,
-				4AD29983222EB83000276627 /* RAMExport */,
 				D4CF74F2222E753B006ED36C /* Resources */,
 				D4CF74F5222E75A8006ED36C /* Supporting Files */,
 				D4CF74F8222E815E006ED36C /* Test1.h */,
 				D4CF74F9222E815E006ED36C /* Test1.m */,
-				D4CF74FB222E8169006ED36C /* Test2.h */,
-				D4CF74FC222E8169006ED36C /* Test2.m */,
 				D4CF74DF222E730F006ED36C /* ViewController.h */,
 				D4CF74E0222E730F006ED36C /* ViewController.m */,
 			);
@@ -220,7 +207,6 @@
 				D4CF74E1222E730F006ED36C /* ViewController.m in Sources */,
 				D4CF74EC222E7311006ED36C /* main.m in Sources */,
 				D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */,
-				D4CF74FD222E8169006ED36C /* Test2.m in Sources */,
 				D4CF74FA222E815E006ED36C /* Test1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
