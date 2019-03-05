@@ -14,7 +14,42 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+struct YJCI_Block {
+    char *key;
+    __unsafe_unretained void (^block)(void);
+};
+
+struct YJCI_Function {
+    char *key;
+    void (*function)(void);
+};
+
+#define YJCI_BLOCK_EXPORT(key, block) \
+__attribute__((used, section("__YJCocoa," "__"#key ".block"))) \
+static const struct YJCI_Block __B##key = (struct YJCI_Block){((char *)&#key), block};
+
+#define YJCI_FUNCTION_EXPORT(key) \
+static void _ci##key(void); \
+__attribute__((used, section("__YJCocoa," "__"#key ".func"))) \
+static const struct YJCI_Function __F##key = (struct YJCI_Function){(char *)(&#key), (void *)(&_ci##key)}; \
+static void _ci##key \
+
+
 @interface YJCodeInject : NSObject
+
+/**
+ *  @abstract 执行注册为 key 的 function
+ *
+ *  @param key function 的 key
+ */
++ (void)executeFunctionForKey:(NSString *)key;
+
+/**
+ *  @abstract 执行注册为key的block
+ *
+ *  @param key block 的 key
+ */
++ (void)executeBlockForKey:(NSString *)key;
 
 @end
 

@@ -12,6 +12,8 @@
 		D4CF74E1222E730F006ED36C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74E0222E730F006ED36C /* ViewController.m */; };
 		D4CF74E6222E7311006ED36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CF74E5222E7311006ED36C /* Assets.xcassets */; };
 		D4CF74EC222E7311006ED36C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74EB222E7311006ED36C /* main.m */; };
+		D4CF74FA222E815E006ED36C /* Test1.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74F9222E815E006ED36C /* Test1.m */; };
+		D4CF74FD222E8169006ED36C /* Test2.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74FC222E8169006ED36C /* Test2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		D4CF74E5222E7311006ED36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4CF74EA222E7311006ED36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CF74EB222E7311006ED36C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4CF74F8222E815E006ED36C /* Test1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1.h; sourceTree = "<group>"; };
+		D4CF74F9222E815E006ED36C /* Test1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1.m; sourceTree = "<group>"; };
+		D4CF74FB222E8169006ED36C /* Test2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2.h; sourceTree = "<group>"; };
+		D4CF74FC222E8169006ED36C /* Test2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,10 @@
 				D4CF74E0222E730F006ED36C /* ViewController.m */,
 				D4CF74F2222E753B006ED36C /* Resources */,
 				D4CF74F5222E75A8006ED36C /* Supporting Files */,
+				D4CF74F8222E815E006ED36C /* Test1.h */,
+				D4CF74F9222E815E006ED36C /* Test1.m */,
+				D4CF74FB222E8169006ED36C /* Test2.h */,
+				D4CF74FC222E8169006ED36C /* Test2.m */,
 			);
 			path = YJCodeInject;
 			sourceTree = "<group>";
@@ -225,6 +235,8 @@
 				D4CF74E1222E730F006ED36C /* ViewController.m in Sources */,
 				D4CF74EC222E7311006ED36C /* main.m in Sources */,
 				D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */,
+				D4CF74FD222E8169006ED36C /* Test2.m in Sources */,
+				D4CF74FA222E815E006ED36C /* Test1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
