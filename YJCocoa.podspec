@@ -69,6 +69,10 @@ Pod::Spec.new do |s|
             foundation.subspec 'Calendar' do |calendar|
                 calendar.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'
             end
+            # CodeInject
+            foundation.subspec 'CodeInject' do |sub|
+                sub.source_files = 'Cocoa/AppFrameworks/Foundation/CodeInject/*.{h,m}'
+            end
             # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
