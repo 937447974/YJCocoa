@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11E40445938323AAC2641CC1 /* Pods_YJCodeInject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F17736DEA0A0DD8BA34376 /* Pods_YJCodeInject.framework */; };
+		9B6279C7271E7EB05DDA23B2 /* libPods-YJCodeInject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */; };
 		D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74DD222E730F006ED36C /* AppDelegate.m */; };
 		D4CF74E1222E730F006ED36C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74E0222E730F006ED36C /* ViewController.m */; };
 		D4CF74E6222E7311006ED36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CF74E5222E7311006ED36C /* Assets.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		34F17736DEA0A0DD8BA34376 /* Pods_YJCodeInject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJCodeInject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCodeInject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9D7A759C4ADB4B7D3D6E6 /* Pods-YJCodeInject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD5AE2ED6EC35FD0DC755C03 /* Pods-YJCodeInject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.release.xcconfig"; sourceTree = "<group>"; };
 		D4CF74D9222E730F006ED36C /* YJCodeInject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCodeInject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11E40445938323AAC2641CC1 /* Pods_YJCodeInject.framework in Frameworks */,
+				9B6279C7271E7EB05DDA23B2 /* libPods-YJCodeInject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,9 +49,16 @@
 		3E42FF5930F252413232F625 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34F17736DEA0A0DD8BA34376 /* Pods_YJCodeInject.framework */,
+				7874D8C34456BD43CD1A45A5 /* libPods-YJCodeInject.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AD29983222EB83000276627 /* RAMExport */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RAMExport;
 			sourceTree = "<group>";
 		};
 		D4CF74D0222E730F006ED36C = {
@@ -77,14 +84,15 @@
 			children = (
 				D4CF74DC222E730F006ED36C /* AppDelegate.h */,
 				D4CF74DD222E730F006ED36C /* AppDelegate.m */,
-				D4CF74DF222E730F006ED36C /* ViewController.h */,
-				D4CF74E0222E730F006ED36C /* ViewController.m */,
+				4AD29983222EB83000276627 /* RAMExport */,
 				D4CF74F2222E753B006ED36C /* Resources */,
 				D4CF74F5222E75A8006ED36C /* Supporting Files */,
 				D4CF74F8222E815E006ED36C /* Test1.h */,
 				D4CF74F9222E815E006ED36C /* Test1.m */,
 				D4CF74FB222E8169006ED36C /* Test2.h */,
 				D4CF74FC222E8169006ED36C /* Test2.m */,
+				D4CF74DF222E730F006ED36C /* ViewController.h */,
+				D4CF74E0222E730F006ED36C /* ViewController.m */,
 			);
 			path = YJCodeInject;
 			sourceTree = "<group>";
@@ -126,7 +134,6 @@
 				D4CF74D5222E730F006ED36C /* Sources */,
 				D4CF74D6222E730F006ED36C /* Frameworks */,
 				D4CF74D7222E730F006ED36C /* Resources */,
-				A7C612747C7E813DA9E19699 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,28 +208,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7C612747C7E813DA9E19699 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
