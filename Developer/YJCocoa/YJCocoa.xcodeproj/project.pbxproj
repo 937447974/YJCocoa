@@ -11,9 +11,7 @@
 		8473AB7D1CE969DB000E3580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7C1CE969DB000E3580 /* main.m */; };
 		8473AB801CE969DB000E3580 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB7F1CE969DB000E3580 /* AppDelegate.m */; };
 		8473AB831CE969DB000E3580 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8473AB821CE969DB000E3580 /* ViewController.m */; };
-		8473AB861CE969DB000E3580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB841CE969DB000E3580 /* Main.storyboard */; };
 		8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB871CE969DB000E3580 /* Assets.xcassets */; };
-		8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */; };
 		F25D77B7A0C96C0B7F520537 /* Pods_YJCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A3D0AB78446D7023087610 /* Pods_YJCocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,9 +28,7 @@
 		8473AB7F1CE969DB000E3580 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8473AB811CE969DB000E3580 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8473AB821CE969DB000E3580 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8473AB851CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8473AB871CE969DB000E3580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8473AB8A1CE969DB000E3580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8473AB8C1CE969DB000E3580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98605078E7D98A394CB06DC8 /* Pods-YJCocoa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCocoa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCocoa/Pods-YJCocoa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,8 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				8473AB871CE969DB000E3580 /* Assets.xcassets */,
-				8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */,
-				8473AB841CE969DB000E3580 /* Main.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -191,9 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846C27BC1CF5BB66002DACDA /* docset-installed.sh in Resources */,
-				8473AB8B1CE969DB000E3580 /* LaunchScreen.storyboard in Resources */,
 				8473AB881CE969DB000E3580 /* Assets.xcassets in Resources */,
-				8473AB861CE969DB000E3580 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,25 +246,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8473AB841CE969DB000E3580 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8473AB851CE969DB000E3580 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8473AB891CE969DB000E3580 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8473AB8A1CE969DB000E3580 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8473AB8D1CE969DB000E3580 /* Debug */ = {
@@ -389,12 +362,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJCocoa/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yjcocoa.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4877a5c3-2bfd-4953-93ca-623dd28cbd28";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -408,11 +382,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJCocoa/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yjcocoa.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
