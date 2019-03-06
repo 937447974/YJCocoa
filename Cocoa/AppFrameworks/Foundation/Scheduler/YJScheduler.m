@@ -63,14 +63,8 @@
 - (void)initLoadScheduler {
     if (self.initSubInt) return;
     self.initSubInt = YES;
-    @weakSelf
     [self.workQueue addAsync:NO executionBlock:^{
-        @strongSelf
-        SEL sel = @selector(schedulerLoad);
-        NSArray *array = [NSObject allClassRespondsToSelector:sel];
-        for (Class cls in array) {
-            @warningPerformSelector([cls performSelector:sel])
-        }
+        YJCI_BLOCK_EXECUTE(YJSchedulerLoad)
     }];
 }
 

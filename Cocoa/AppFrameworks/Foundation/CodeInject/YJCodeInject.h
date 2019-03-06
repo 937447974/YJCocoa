@@ -13,31 +13,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-struct YJCI_Block {
-    char *key;
-    __unsafe_unretained void (^block)(void);
-};
-
 struct YJCI_Function {
     char *key;
     void (*function)(void);
 };
 
-// 存储 block
-#define YJCI_BLOCK_EXPORT(key, block) \
-__attribute__((used, section("__YJCocoa," "__"#key".block"))) \
-static const struct YJCI_Block __B##key = (struct YJCI_Block){((char *)&#key), block};
-// 执行 block
-#define YJCI_BLOCK_EXECUTE(key) [YJCodeInject executeBlockForKey:@""#key""];
+struct YJCI_Block {
+    char *key;
+    __unsafe_unretained void (^block)(void);
+};
 
 // 存储 function
 #define YJCI_FUNCTION_EXPORT(key) \
 static void _ci##key(void); \
-__attribute__((used, section("__YJCocoa," "__"#key".func"))) \
+__attribute__((used, section("__YJCocoa,"#key"f"))) \
 static const struct YJCI_Function __F##key = (struct YJCI_Function){(char *)(&#key), (void *)(&_ci##key)}; \
 static void _ci##key
 // 执行 function
 #define YJCI_FUNCTION_EXECUTE(key) [YJCodeInject executeFunctionForKey:@""#key""];
+
+// 存储 block
+#define YJCI_BLOCK_EXPORT(key, block) \
+__attribute__((used, section("__YJCocoa,"#key"b"))) \
+static const struct YJCI_Block __B##key = (struct YJCI_Block){((char *)&#key), block};
+// 执行 block
+#define YJCI_BLOCK_EXECUTE(key) [YJCodeInject executeBlockForKey:@""#key""];
 
 
 /** 代码注入*/

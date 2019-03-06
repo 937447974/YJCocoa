@@ -9,7 +9,17 @@
 //  Copyright © 2017年 YJCocoa. All rights reserved.
 //
 
+#ifndef YJNSURLRouterProtocol_h
+#define YJNSURLRouterProtocol_h
+#import "YJCodeInject.h"
+
 NS_ASSUME_NONNULL_BEGIN
+
+/** 路由懒加载*/
+#define YJNSURLROUTER_LOAD(block) YJCI_BLOCK_EXPORT(YJURLRouterLoad, block)
+/** 路由 url 懒加载*/
+#define YJNSURLROUTER_LOAD_URL(cls, _url, _cache) YJNSURLROUTER_LOAD(^{[YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithClass:cls.class url:_url cache:_cache]];})
+
 
 /** 路由回调*/
 typedef void (^ YJRCompletionHandler)(NSDictionary * _Nullable options);
@@ -18,15 +28,11 @@ typedef BOOL (^ YJRUnregisteredCanOpen)(NSString *url);
 /** 打开路由*/
 typedef void (^ YJROpenHandler)(NSString *url, NSDictionary *options, YJRCompletionHandler _Nullable handler);
 
+
 /** 路由代理*/
 @protocol YJNSURLRouterProtocol <NSObject>
 
 @optional
-
-/**
- *  @abstract 路由器加载
- */
-+ (void)routerLoad;
 
 /**
  *  @abstract 获取路由缓存标识符
@@ -64,3 +70,4 @@ typedef void (^ YJROpenHandler)(NSString *url, NSDictionary *options, YJRComplet
 
 NS_ASSUME_NONNULL_END
 
+#endif /* YJNSURLRouterProtocol_h */

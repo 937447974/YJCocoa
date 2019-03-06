@@ -16,7 +16,7 @@
 @implementation YJCodeInject
 
 + (void)executeFunctionForKey:(NSString *)key {
-    NSString *sectname = [NSString stringWithFormat:@"__%@.func", key?:@""];
+    NSString *sectname = [NSString stringWithFormat:@"%@f", key?:@""];
     Dl_info info;
     dladdr((__bridge void *)[UIApplication.sharedApplication.delegate class], &info);
     const uint64_t mach_header = (uint64_t)info.dli_fbase;
@@ -30,7 +30,7 @@
 }
 
 + (void)executeBlockForKey:(NSString *)key {
-    NSString *sectname = [NSString stringWithFormat:@"__%@.block", key?:@""];
+    NSString *sectname = [NSString stringWithFormat:@"%@b", key?:@""];
     Dl_info info;
     dladdr((__bridge void *)[UIApplication.sharedApplication.delegate class], &info);
     const uint64_t mach_header = (uint64_t)info.dli_fbase;

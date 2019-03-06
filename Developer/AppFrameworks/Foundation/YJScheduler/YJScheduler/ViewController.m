@@ -9,31 +9,31 @@
 #import "ViewController.h"
 #import "YJScheduler.h"
 
-@interface ViewController () <YJSchedulerProtocol>
+@interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-+ (void)schedulerLoad {
+YJSCHEDULER_LOAD(^{
     [YJSchedulerS subscribeTopic:@"test" subscriber:nil onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
-        NSLog(@"1-%@", data);
-        publishHandler(@"111");
+        NSLog(@"subscribe1-%@", data);
+        publishHandler(@"data1");
     }];
-}
+})
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
-    [YJSchedulerS publishTopic:@"test" data:@"test" serial:NO completionHandler:^(id data) {
-        NSLog(@"2-%@", data);
-    }];
     [YJSchedulerS subscribeTopic:@"test" subscriber:self onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
-        NSLog(@"3-%@", data);
+        NSLog(@"subscribe2-%@", data);
+    }];
+    [YJSchedulerS publishTopic:@"test" data:@"data2" serial:NO completionHandler:^(id data) {
+        NSLog(@"publish1-%@", data);
     }];
     [YJSchedulerS removeSubscribeTopic:nil subscriber:self];
-    [YJSchedulerS publishTopic:@"test" data:@"test11" serial:NO completionHandler:^(id data) {
-        NSLog(@"4-%@", data);
+    [YJSchedulerS publishTopic:@"test" data:@"data3" serial:NO completionHandler:^(id data) {
+        NSLog(@"publish2-%@", data);
     }];
 }
 

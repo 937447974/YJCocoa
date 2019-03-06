@@ -15,6 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 单例
 #define YJSchedulerS YJNSSingletonS(YJScheduler, nil)
 
 /** 调度中心*/

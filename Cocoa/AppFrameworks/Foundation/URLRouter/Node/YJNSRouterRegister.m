@@ -10,7 +10,7 @@
 
 @implementation YJNSRouterRegister
 
-- (instancetype)initWithURL:(NSString *)url cache:(BOOL)cache cls:(Class)cls {
+- (instancetype)initWithClass:(Class)cls url:(NSString *)url cache:(BOOL)cache {
     self = [super init];
     if (self) {
         self.url = url;

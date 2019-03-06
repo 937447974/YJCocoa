@@ -18,7 +18,7 @@
 #import "YJNSRouterUnregistered.h"
 #import "YJNSLog.h"
 
-@interface YJNSURLRouter () <YJSchedulerProtocol>
+@interface YJNSURLRouter ()
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, YJNSRouterRegister *> *registerDict;
 @property (nonatomic, strong) NSCache<NSString *, id> *nodeCache;
@@ -38,7 +38,7 @@
 
 #pragma mark - Router
 - (void)registerRouter:(YJNSRouterRegister *)rRegister {
-    YJLogVerbose(@"URLRouter 注册%@", rRegister.url);
+    YJLogVerbose(@"[URLRouter] 注册:%@", rRegister.url);
     @weakSelf
     [YJSchedulerS subscribeTopic:[self topicWithURL:rRegister.url] subscriber:self onQueue:YJSchedulerQueueMain completionHandler:^(id data, YJSPublishHandler publishHandler) {
         @strongSelf
@@ -55,7 +55,7 @@
         @strongSelfReturn(NO)
         NSString *url = [self urlWithTopic:topic];
         if (canOpen(url)) {
-            YJLogVerbose(@"URLRouter 拦截%@", topic);
+            YJLogVerbose(@"[URLRouter] 拦截:%@", topic);
             openHandler(url, data, publishHandler);
             return YES;
         }
@@ -70,7 +70,7 @@
 }
 
 - (void)openURL:(NSString *)url options:(NSDictionary *)options completionHandler:(YJRCompletionHandler)completionHandler {
-    YJLogVerbose(@"URLRouter 打开%@，options:%@", url, options);
+    YJLogVerbose(@"[URLRouter] 打开:%@，options:%@", url, options);
     NSString *topic = [self topicWithURL:[self urlPrefixWithURL:url]];
     NSMutableDictionary *mOptions = NSMutableDictionary.dictionary;
     NSRange range = [url rangeOfString:@"?"];
@@ -139,13 +139,7 @@
     return cacheNode;
 }
 
-#pragma mark - YJSchedulerProtocol
-+ (void)schedulerLoad {
-    SEL sel = @selector(routerLoad);
-    NSArray *array = [NSObject allClassRespondsToSelector:sel];
-    for (Class cls in array) {
-         @warningPerformSelector([cls performSelector:sel])
-    }
-}
+#pragma mark - YJScheduler
+YJSCHEDULER_LOAD(^{YJCI_BLOCK_EXECUTE(YJURLRouterLoad)})
 
 @end

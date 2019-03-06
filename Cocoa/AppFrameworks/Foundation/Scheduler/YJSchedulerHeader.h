@@ -11,8 +11,10 @@
 
 #ifndef YJSchedulerHeader_h
 #define YJSchedulerHeader_h
+#import "YJCodeInject.h"
 
-NS_ASSUME_NONNULL_BEGIN
+/** 调度器订阅、拦截加载*/
+#define YJSCHEDULER_LOAD(block) YJCI_BLOCK_EXPORT(YJSchedulerLoad, block)
 
 /** 发布后执行方处理完毕的回调*/
 typedef void (^ YJSPublishHandler)(id _Nullable data);
@@ -29,16 +31,5 @@ typedef NS_ENUM(NSInteger, YJSchedulerQueue) {
     YJSchedulerQueueMain,       ///< 主队列
     YJSchedulerQueueDefault     ///< 子队列
 };
-
-
-/** 调度器y协议*/
-@protocol YJSchedulerProtocol <NSObject>
-
-/** 调度器订阅、拦截加载*/
-+ (void)schedulerLoad;
-
-NS_ASSUME_NONNULL_END
-
-@end
 
 #endif /* YJSchedulerHeader_h */

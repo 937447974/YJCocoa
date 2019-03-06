@@ -48,13 +48,19 @@ YJLogLevel _logLevel;
 #else
         YJNSLog.logLevel = YJLogLevelInfo | YJLogLevelWarn | YJLogLevelError;
 #endif
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh-Hans-CN"]];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
         YJNSLog.logBLock = ^(YJLogLevel level, NSString *str) {
             if (!(level & YJNSLog.logLevel)) return;
-            if (level & YJLogLevelVerbose) NSLog(@"[🍏] %@", str);
-            if (level & YJLogLevelDebug) NSLog(@"[⚙] %@", str);
-            else if (level & YJLogLevelInfo) NSLog(@"[💚] %@", str);
-            else if (level & YJLogLevelWarn) NSLog(@"[⚠️] %@", str);
-            else if (level & YJLogLevelError) NSLog(@"[❤️] %@", str);
+            NSMutableString *mstr = [NSMutableString stringWithString:[formatter stringFromDate:NSDate.date]];
+            if (level & YJLogLevelVerbose) [mstr appendString:@" [🍏] "];
+            else if (level & YJLogLevelDebug) [mstr appendString:@" [⚙] "];
+            else if (level & YJLogLevelInfo) [mstr appendString:@" [💚] "];
+            else if (level & YJLogLevelWarn) [mstr appendString:@" [⚠️] "];
+            else if (level & YJLogLevelError) [mstr appendString:@" [❤️] "];
+            [mstr appendString:str];
+            printf("%s\n", mstr.UTF8String);
         };
     }
 }

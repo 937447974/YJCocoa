@@ -27,11 +27,11 @@
     }];
 }
 
-#pragma mark - YJNSURLRouterProtocol
-+ (void)routerLoad {
+#pragma mark - YJNSURLRouter
+YJNSURLROUTER_LOAD(^{
     [YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithURL:YJRouterURLOther handler:^(NSString *url, NSDictionary *options, YJRCompletionHandler handler) {
         [YJOtherViewController.new routerOpen];
     }]];
-}
+})
 
 @end
