@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89C82015C36B368147C42735 /* libPods-YJCodeInject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */; };
+		32E34A5139D64746DDA5AEA5 /* Pods_YJCodeInject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2778504BE90FF79CBDCD103 /* Pods_YJCodeInject.framework */; };
 		D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74DD222E730F006ED36C /* AppDelegate.m */; };
 		D4CF74E1222E730F006ED36C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74E0222E730F006ED36C /* ViewController.m */; };
 		D4CF74E6222E7311006ED36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CF74E5222E7311006ED36C /* Assets.xcassets */; };
 		D4CF74EC222E7311006ED36C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74EB222E7311006ED36C /* main.m */; };
-		D4CF74FA222E815E006ED36C /* Test1.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CF74F9222E815E006ED36C /* Test1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99F9D7A759C4ADB4B7D3D6E6 /* Pods-YJCodeInject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.debug.xcconfig"; sourceTree = "<group>"; };
-		A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJCodeInject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5AE2ED6EC35FD0DC755C03 /* Pods-YJCodeInject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCodeInject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject.release.xcconfig"; sourceTree = "<group>"; };
+		D2778504BE90FF79CBDCD103 /* Pods_YJCodeInject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJCodeInject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CF74D9222E730F006ED36C /* YJCodeInject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCodeInject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CF74DC222E730F006ED36C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4CF74DD222E730F006ED36C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -27,8 +26,6 @@
 		D4CF74E5222E7311006ED36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4CF74EA222E7311006ED36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CF74EB222E7311006ED36C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4CF74F8222E815E006ED36C /* Test1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1.h; sourceTree = "<group>"; };
-		D4CF74F9222E815E006ED36C /* Test1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89C82015C36B368147C42735 /* libPods-YJCodeInject.a in Frameworks */,
+				32E34A5139D64746DDA5AEA5 /* Pods_YJCodeInject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +43,7 @@
 		3E42FF5930F252413232F625 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6EA9DF3555886B2B756027F /* libPods-YJCodeInject.a */,
+				D2778504BE90FF79CBDCD103 /* Pods_YJCodeInject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,12 +71,10 @@
 			children = (
 				D4CF74DC222E730F006ED36C /* AppDelegate.h */,
 				D4CF74DD222E730F006ED36C /* AppDelegate.m */,
-				D4CF74F2222E753B006ED36C /* Resources */,
-				D4CF74F5222E75A8006ED36C /* Supporting Files */,
-				D4CF74F8222E815E006ED36C /* Test1.h */,
-				D4CF74F9222E815E006ED36C /* Test1.m */,
 				D4CF74DF222E730F006ED36C /* ViewController.h */,
 				D4CF74E0222E730F006ED36C /* ViewController.m */,
+				D4CF74F2222E753B006ED36C /* Resources */,
+				D4CF74F5222E75A8006ED36C /* Supporting Files */,
 			);
 			path = YJCodeInject;
 			sourceTree = "<group>";
@@ -121,6 +116,7 @@
 				D4CF74D5222E730F006ED36C /* Sources */,
 				D4CF74D6222E730F006ED36C /* Frameworks */,
 				D4CF74D7222E730F006ED36C /* Resources */,
+				56FDEDAEAFA4A26573B0ED7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +193,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		56FDEDAEAFA4A26573B0ED7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FrameworkA/FrameworkA.framework",
+				"${BUILT_PRODUCTS_DIR}/FrameworkB/FrameworkB.framework",
+				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FrameworkA.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FrameworkB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -207,7 +229,6 @@
 				D4CF74E1222E730F006ED36C /* ViewController.m in Sources */,
 				D4CF74EC222E7311006ED36C /* main.m in Sources */,
 				D4CF74DE222E730F006ED36C /* AppDelegate.m in Sources */,
-				D4CF74FA222E815E006ED36C /* Test1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJCodeInject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -358,7 +379,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJCodeInject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

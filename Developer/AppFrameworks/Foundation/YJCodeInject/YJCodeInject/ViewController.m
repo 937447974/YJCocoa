@@ -15,14 +15,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    YJCI_FUNCTION_EXECUTE(A)
-    YJCI_FUNCTION_EXECUTE(B)
-    YJCI_BLOCK_EXECUTE(A)
-    YJCI_BLOCK_EXECUTE(B)
-}
-
 YJCI_FUNCTION_EXPORT(I23456789012345)(void) {}
 YJCI_BLOCK_EXPORT(I23456789012345, ^(void) {})
 
@@ -41,6 +33,5 @@ YJCI_BLOCK_EXPORT(A, ^(void) {
 YJCI_BLOCK_EXPORT(B, ^(void) {
     NSLog(@"ViewController BLOCK B", nil);
 })
-
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <YJCocoa/YJCodeInject.h>
 
 @interface AppDelegate ()
 
@@ -15,13 +16,19 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.rootViewController = [[ViewController alloc] init];
     [self.window makeKeyAndVisible];
+
+    YJCI_FUNCTION_EXECUTE(A)
+    YJCI_FUNCTION_EXECUTE(B)
+
+    YJCI_BLOCK_EXECUTE(A)
+    YJCI_BLOCK_EXECUTE(B)
+    
     return YES;
 }
 
