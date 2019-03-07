@@ -90,7 +90,7 @@
     [mutex lock];
     id singleton = [dict objectForKey:identifier];
     if (!singleton) {
-        YJLogVerbose(@"[YJCocoa] YJNSSingleton 创建单例：%@-%@", YJNSStringFromClass(cls),identifier);
+        YJLogVerbose(@"[YJNSSingleton] 创建单例：%@-%@", YJNSStringFromClass(cls),identifier);
         singleton = [[cls alloc] init];
         [dict setObject:singleton forKey:identifier];
     }
@@ -121,7 +121,7 @@
 
 #pragma mark - NSCacheDelegate
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    YJLogVerbose(@"[YJCocoa] YJNSSingleton 释放：%@", obj);
+    YJLogVerbose(@"[YJNSSingleton] 释放：%@", obj);
 }
 
 @end
