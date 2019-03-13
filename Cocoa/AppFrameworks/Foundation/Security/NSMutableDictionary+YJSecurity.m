@@ -46,13 +46,9 @@ return [[Cls alloc] init];
 
 #define YJObjectGetM(ClsM, Cls) \
 ClsM *obj = [self objectForKey:aKey];\
-if ([obj isKindOfClass:ClsM.class])  { return obj;\
-} if ([obj isKindOfClass:Cls.class]) {\
-obj = obj.mutableCopy;\
-} else {\
-obj = [[ClsM alloc] init];\
-}\
-YJLogError(@"[Dictionary] get key: %@ 对应的 value 不存在或类型错误", aKey);\
+if ([obj isKindOfClass:ClsM.class])  return obj;\
+if ([obj isKindOfClass:Cls.class]) obj = obj.mutableCopy;\
+else obj = [[ClsM alloc] init];\
 [self setObject:obj forKey:aKey];\
 return obj;
 - (NSMutableSet *)mutableSetForKey:(id)aKey {YJObjectGetM(NSMutableSet, NSSet)}
