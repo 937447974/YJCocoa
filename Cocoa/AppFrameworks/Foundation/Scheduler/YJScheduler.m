@@ -17,11 +17,13 @@
 #import "YJDispatch.h"
 #import "YJSchedulerSubscribe.h"
 #import "YJSchedulerIntercept.h"
+#import "YJSecurity.h"
 
 @interface YJScheduler ()
 
 @property (nonatomic) BOOL initSubInt;
-@property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableArray *> *subDict;
+
+@property (nonatomic, strong) YJNSThreadDictionary<NSString *, NSMutableArray *> *subDict;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerIntercept *> *intArray;
 
 @property (nonatomic, strong) YJDispatchQueue *workQueue;
@@ -35,7 +37,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.subDict = NSMutableDictionary.dictionary;
+        self.subDict = YJNSThreadDictionary.dictionary;
         self.intArray = NSMutableArray.array;
         [self notificationInjection];
     }
@@ -68,15 +70,6 @@
     }];
 }
 
-- (NSMutableArray *)subscribeArrayWithTopic:(NSString *)topic {
-    NSMutableArray *array = [self.subDict objectForKey:topic];
-    if (!array) {
-        array = NSMutableArray.array;
-        [self.subDict setObject:array forKey:topic];
-    }
-    return array;
-}
-
 #pragma mark - One To More
 #pragma mark subscribe
 - (void)subscribeTopic:(NSString *)topic subscriber:(id)subscriber onQueue:(YJSchedulerQueue)queue completionHandler:(YJSSubscribeHandler)handler {
@@ -85,7 +78,7 @@
     @weakSelf
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
-        NSMutableArray *subArray = [self subscribeArrayWithTopic:topic];
+        NSMutableArray *subArray = [self.subDict mutableArrayForKey:topic];
         for (YJSchedulerSubscribe *item in subArray) {
             if ([item.topic isEqualToString:topic] && [item.subscriber isEqual:subscriber])
             return;
@@ -100,7 +93,7 @@
     [self.workQueue addAsync:YES executionBlock:^{
         @strongSelf
         if (topic.length) {
-            [self removeSubscribeArray:[self subscribeArrayWithTopic:topic] subscriber:subscriber];
+            [self removeSubscribeArray:[self.subDict mutableArrayForKey:topic] subscriber:subscriber];
         } else {
             for (NSMutableArray *subArray in self.subDict.allValues) {
                 [self removeSubscribeArray:subArray subscriber:subscriber];
@@ -146,7 +139,7 @@
     for (YJSchedulerIntercept *item in self.intArray.copy) {
         if (item.interceptor && item.canHandler(topic)) return YES;
     }
-    NSArray *subArray = [self subscribeArrayWithTopic:topic].copy;
+    NSArray *subArray = [self.subDict arrayForKey:topic].copy;
     for (YJSchedulerSubscribe *item in subArray) {
         if (item.subscriber) return YES;
     }
@@ -164,7 +157,7 @@
                 if (item.completionHandler(topic, data, handler)) return;
             }
         }
-        NSArray *subArray = [self subscribeArrayWithTopic:topic].copy;
+        NSArray *subArray = [self.subDict arrayForKey:topic].copy;
         for (YJSchedulerSubscribe *item in subArray) {
             if (item.subscriber) {
                 dispatch_block_t block = ^{

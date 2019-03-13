@@ -107,15 +107,17 @@ Pod::Spec.new do |s|
                 other.source_files = 'Cocoa/AppFrameworks/Foundation/Other/*.{h,m}'
                 other.dependency 'YJCocoa/System/Dispatch'
             end
-            foundation.subspec 'PerformSelector' do |performSelector|
-                performSelector.source_files = 'Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}'
-            end
             foundation.subspec 'Scheduler' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Scheduler/**/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/CodeInject'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Security'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
                 sub.dependency 'YJCocoa/System/Dispatch'
+            end
+            foundation.subspec 'Security' do |sub|
+                sub.source_files = 'Cocoa/AppFrameworks/Foundation/Security/**/*'
+                sub.dependency 'YJCocoa/System/Pthread'
             end
             foundation.subspec 'Singleton' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Singleton/**/*'

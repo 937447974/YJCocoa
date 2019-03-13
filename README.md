@@ -60,14 +60,13 @@ NSFileManager扩展，支持快速移动文件。主要是替换系统方法`mov
 
 NSNotificationCenter block 回调，并支持自动释放。
 
-### 1.1.12 PerformSelector
-
-合并 respondsToSelector 和 performSelector 方法，用于安全执行 Selector，可携带多个参数
-
-### 1.1.13 Scheduler
+### 1.1.12 Scheduler
 
 Scheduler 调度器，一站式解决代码耦合问题。
 
+### 1.1.13 Security
+
+保护 APP 稳定运行，不 crash。
 
 ### 1.1.14 Singleton
 

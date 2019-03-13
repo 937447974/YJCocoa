@@ -1,5 +1,5 @@
 //
-//  NSObject+YJNSPerformSelector.m
+//  NSObject+YJSecurity.m
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,9 +9,9 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#import "NSObject+YJNSPerformSelector.h"
+#import "NSObject+YJSecurity.h"
 
-@implementation NSObject (YJNSPerformSelector)
+@implementation NSObject (YJSecurity)
 
 - (id)performSelector:(SEL)aSelector withObjects:(NSArray<id> *)objects {
     NSMethodSignature *sig = [self methodSignatureForSelector:aSelector];
