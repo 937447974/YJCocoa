@@ -1,5 +1,5 @@
 //
-//  YJNSThreadDictionary.m
+//  YJNSSafetyDictionary.m
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,18 +9,18 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-#import "YJNSThreadDictionary.h"
-#import "NSMutableDictionary+YJSecurity.h"
+#import "YJNSSafetyDictionary.h"
+#import "NSMutableDictionary+YJSafety.h"
 #import "YJPthread.h"
 #import <objc/runtime.h>
 
-@interface YJNSThreadDictionary () {
+@interface YJNSSafetyDictionary () {
     pthread_mutex_t _lock;
     NSMutableDictionary *_mDict;
 }
 @end
 
-@implementation YJNSThreadDictionary
+@implementation YJNSSafetyDictionary
 
 - (instancetype)init {
     self = [super init];

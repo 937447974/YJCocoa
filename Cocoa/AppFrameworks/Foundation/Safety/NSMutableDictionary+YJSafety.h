@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+YJSecurity.h
+//  NSMutableDictionary+YJSafety.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSMutableDictionary<KeyType, ObjectType> (YJSecurity)
+@interface NSMutableDictionary<KeyType, ObjectType> (YJSafety)
 
 - (BOOL)boolForKey:(KeyType)aKey;
 - (NSInteger)integerForKey:(KeyType)aKey;

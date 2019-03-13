@@ -1,5 +1,5 @@
 //
-//  NSObject+YJSecurity.h
+//  NSObject+YJSafety.h
 //  YJFoundation
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** performSelector方法扩展*/
-@interface NSObject (YJSecurity)
+@interface NSObject (YJSafety)
 
 /**
  *  @abstract 线程安全执行Selector

@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+YJSecurity.m
+//  NSMutableDictionary+YJSafety.m
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,10 +9,10 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-#import "NSMutableDictionary+YJSecurity.h"
+#import "NSMutableDictionary+YJSafety.h"
 #import "YJNSLog.h"
 
-@implementation NSMutableDictionary (YJSecurity)
+@implementation NSMutableDictionary (YJSafety)
 
 #pragma mark - Getter
 - (BOOL)boolForKey:(id)aKey {

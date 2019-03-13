@@ -17,13 +17,13 @@
 #import "YJDispatch.h"
 #import "YJSchedulerSubscribe.h"
 #import "YJSchedulerIntercept.h"
-#import "YJSecurity.h"
+#import "YJSafety.h"
 
 @interface YJScheduler ()
 
 @property (nonatomic) BOOL initSubInt;
 
-@property (nonatomic, strong) YJNSThreadDictionary<NSString *, NSMutableArray *> *subDict;
+@property (nonatomic, strong) YJNSSafetyDictionary<NSString *, NSMutableArray *> *subDict;
 @property (nonatomic, strong) NSMutableArray<YJSchedulerIntercept *> *intArray;
 
 @property (nonatomic, strong) YJDispatchQueue *workQueue;
@@ -37,7 +37,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.subDict = YJNSThreadDictionary.dictionary;
+        self.subDict = YJNSSafetyDictionary.dictionary;
         self.intArray = NSMutableArray.array;
         [self notificationInjection];
     }

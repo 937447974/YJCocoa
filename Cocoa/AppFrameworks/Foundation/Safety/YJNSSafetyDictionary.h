@@ -1,5 +1,5 @@
 //
-//  YJNSThreadDictionary.h
+//  YJNSSafetyDictionary.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YJNSThreadDictionary<KeyType, ObjectType> : NSMutableDictionary<KeyType, ObjectType>
+@interface YJNSSafetyDictionary<KeyType, ObjectType> : NSMutableDictionary<KeyType, ObjectType>
 
 @end
 

@@ -21,7 +21,7 @@
 #import "YJNSLog.h"                 // NSLog打印优化
 #import "NSNotificationCenter+YJ.h" // 通知中心 block 回调
 #import "YJNSFoundationOther.h"     // 其他不可归类封装
-#import "YJSecurity.h"     // 运行安全
+#import "YJSafety.h"       // 运行安全
 #import "YJScheduler.h"    // 调度器
 #import "YJNSSingleton.h"  // 宏定义，快速将类转换为单例类
 #import "YJSwizzling.h"    // 交换方法

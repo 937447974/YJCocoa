@@ -1,5 +1,5 @@
 //
-//  YJSecurity.h
+//  YJSafety.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,11 +9,11 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-#ifndef YJSecurity_h
-#define YJSecurity_h
+#ifndef YJSafety_h
+#define YJSafety_h
 
-#import "NSMutableDictionary+YJSecurity.h"
-#import "NSObject+YJSecurity.h"
-#import "YJNSThreadDictionary.h"
+#import "NSMutableDictionary+YJSafety.h"
+#import "NSObject+YJSafety.h"
+#import "YJNSSafetyDictionary.h"
 
-#endif /* YJSecurity_h */
+#endif /* YJSafety_h */
