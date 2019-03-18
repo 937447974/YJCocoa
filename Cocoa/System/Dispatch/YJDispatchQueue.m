@@ -18,7 +18,7 @@ void dispatch_sync_main(dispatch_block_t block) {
     if (dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) == dispatch_queue_get_label(queue)) {
         block();
     } else {
-        dispatch_async(queue, block);
+        dispatch_sync(queue, block);
     }
 }
 
