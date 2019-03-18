@@ -13,7 +13,7 @@
 # pod开发环境：#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git'
 
 Pod::Spec.new do |s|
-
+    
     # ――― Root specification
     s.name     = "YJCocoa"
     s.version  = "8.6.0"
@@ -27,29 +27,29 @@ Pod::Spec.new do |s|
                       QQ：937447974
                       YJ技术支持群：557445088
                     DESC
-
-
+                    
+                    
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "8.0"
-
-
+    
+    
     # ——— Documentation And API Reference
     s.preserve_paths = 'Documentation/*.*'
     s.prepare_command = 'sh Documentation/docset-installed.sh'
-
-
+    
+    
     # ――― Build settings
     s.frameworks = "UIKit", "Foundation"
     s.requires_arc = true
-
-
+    
+    
     # ——— File patterns
     s.source_files = 'Cocoa/*.{h,m}'
-
+    
     # ——— Subspecs
     s.default_subspec = 'AppFrameworks', 'AppServices', 'System'
-
+    
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
         af.source_files = 'Cocoa/AppFrameworks/*.{h,m}'
@@ -159,7 +159,7 @@ Pod::Spec.new do |s|
                     request.source_files = 'Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}'
                     request.dependency 'YJCocoa/AppFrameworks/Foundation/DictionaryModel'
                     request.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
-                end                
+                end
             end
         end
         # 1.2 UIKit
@@ -215,7 +215,7 @@ Pod::Spec.new do |s|
             # NavigationRouter
             uik.subspec 'NavigationRouter' do |nr|
                 nr.source_files = 'Cocoa/AppFrameworks/UIKit/NavigationRouter/*.{h,m}'
-                nr.dependency 'YJCocoa/AppFrameworks/Foundation/URLRouter'                
+                nr.dependency 'YJCocoa/AppFrameworks/Foundation/URLRouter'
             end
             # PageView
             uik.subspec 'PageView' do |pv|
@@ -255,7 +255,7 @@ Pod::Spec.new do |s|
                 vct.subspec 'Core' do |co|
                     co.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/Core/*.{h,m}'
                     co.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                    co.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'                    
+                    co.dependency 'YJCocoa/AppFrameworks/UIKit/ViewGeometry'
                 end
                 vct.subspec 'PresentDismiss' do |pd|
                     pd.source_files = 'Cocoa/AppFrameworks/UIKit/ViewControllerTransitioning/PresentDismiss/*.{h,m}'
@@ -272,7 +272,7 @@ Pod::Spec.new do |s|
             end
         end
     end
-
+    
     # 2 AppServices
     s.subspec 'AppServices' do |as|
         as.source_files = 'Cocoa/AppServices/*.{h,m}'
@@ -295,7 +295,7 @@ Pod::Spec.new do |s|
             end
         end
     end
-
+    
     #3 DeveloperTools
     s.subspec 'DeveloperTools' do |dt|
         dt.source_files = 'Cocoa/DeveloperTools/*.{h,m}'
@@ -331,7 +331,7 @@ Pod::Spec.new do |s|
             tp.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
         end
     end
-
+    
     # 4 System
     s.subspec 'System' do |system|
         system.source_files = 'Cocoa/System/*.{h,m}'
@@ -360,8 +360,7 @@ Pod::Spec.new do |s|
             end
         end
     end
-
-
+    
 end
 
 

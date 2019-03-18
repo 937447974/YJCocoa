@@ -14,7 +14,12 @@
 
 #pragma mark - main queue
 void dispatch_sync_main(dispatch_block_t block) {
-    NSThread.currentThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
+    dispatch_queue_main_t queue = dispatch_get_main_queue();
+    if (dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) == dispatch_queue_get_label(queue)) {
+        block();
+    } else {
+        dispatch_async(queue, block);
+    }
 }
 
 void dispatch_async_main(dispatch_block_t block) {
