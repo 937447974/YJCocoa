@@ -63,25 +63,16 @@ return obj;
 NSNumber *obj = @(anObject); \
 if (obj && aKey) [self setObject:obj forKey:aKey]; \
 else YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", obj, aKey);
-
 - (void)setBOOL:(BOOL)anObject forKey:(id)aKey {YJObjectSet}
 - (void)setInteger:(NSInteger)anObject forKey:(id)aKey {YJObjectSet}
 - (void)setFloat:(CGFloat)anObject forKey:(id)aKey {YJObjectSet}
 
 #define YJObjectSet1(Cls) \
-if (anObject && aKey) {   \
-if ([anObject isKindOfClass:Cls.class]) { \
-YJLogError(@"[Dictionary] set key:%@ 对应的 value:%@ 类型错误", anObject, aKey);\
-} else { [self setObject:anObject forKey:aKey];}\
-} else { YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", anObject, aKey);}
-
-- (void)setString:(NSString *)anObject forKey:(id)aKey {
-    if (anObject && aKey) {
-        if ([anObject isKindOfClass:NSString.class]) {
-            [self setObject:anObject forKey:aKey];
-        } else {YJLogError(@"[Dictionary] set key:%@ 对应的 value:%@ 类型错误", anObject, aKey);}
-    } else {YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", anObject, aKey);}
-}
+if (anObject && aKey) {\
+if ([anObject isKindOfClass:Cls.class]) {[self setObject:anObject forKey:aKey];\
+} else {YJLogError(@"[Dictionary] set key:%@ 对应的 value:%@ 类型错误", anObject, aKey);}\
+} else {YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", anObject, aKey);}
+- (void)setString:(NSString *)anObject forKey:(id)aKey {YJObjectSet1(NSString)}
 - (void)setSet:(NSSet *)anObject forKey:(id)aKey {YJObjectSet1(NSSet)}
 - (void)setArray:(NSArray *)anObject forKey:(id)aKey {YJObjectSet1(NSArray)}
 - (void)setDictionary:(NSDictionary *)anObject forKey:(id)aKey {YJObjectSet1(NSDictionary)}
