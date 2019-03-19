@@ -12,7 +12,7 @@
 #ifndef YJSafety_h
 #define YJSafety_h
 
-#import "NSMutableDictionary+YJSafety.h"
+#import "NSDictionary+YJSafety.h"
 #import "NSObject+YJSafety.h"
 #import "YJNSSafetyDictionary.h"
 

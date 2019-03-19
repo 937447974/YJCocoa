@@ -109,6 +109,7 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'Safety' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Safety/**/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 sub.dependency 'YJCocoa/System/Pthread'
             end
             foundation.subspec 'Scheduler' do |sub|

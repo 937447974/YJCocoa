@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+YJSafety.h
+//  NSDictionary+YJSafety.h
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSMutableDictionary<KeyType, ObjectType> (YJSafety)
+@interface NSDictionary<KeyType, ObjectType> (YJSafety)
 
 - (BOOL)boolForKey:(KeyType)aKey;
 - (NSInteger)integerForKey:(KeyType)aKey;
@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSSet *)setForKey:(KeyType)aKey;
 - (NSArray *)arrayForKey:(KeyType)aKey;
 - (NSDictionary *)dictionaryForKey:(KeyType)aKey;
+
+@end
+
+
+@interface NSMutableDictionary<KeyType, ObjectType> (YJSafety)
+
 - (NSMutableSet *)mutableSetForKey:(KeyType)aKey;
 - (NSMutableArray *)mutableArrayForKey:(KeyType)aKey;
 - (NSMutableDictionary *)mutableDictionaryForKey:(KeyType)aKey;

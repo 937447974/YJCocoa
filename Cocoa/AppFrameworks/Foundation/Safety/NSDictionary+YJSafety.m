@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+YJSafety.m
+//  NSDictionary+YJSafety.m
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -9,12 +9,11 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-#import "NSMutableDictionary+YJSafety.h"
+#import "NSDictionary+YJSafety.h"
 #import "YJNSLog.h"
 
-@implementation NSMutableDictionary (YJSafety)
+@implementation NSDictionary (YJSafety)
 
-#pragma mark - Getter
 - (BOOL)boolForKey:(id)aKey {
     NSNumber *obj = [self objectForKey:aKey];
     if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSString.class])
@@ -44,6 +43,11 @@ return [[Cls alloc] init];
 - (NSArray *)arrayForKey:(id)aKey {YJObjectGet(NSArray)}
 - (NSDictionary *)dictionaryForKey:(id)aKey {YJObjectGet(NSDictionary)}
 
+@end
+
+
+@implementation NSMutableDictionary (YJSafety)
+
 #define YJObjectGetM(ClsM, Cls) \
 ClsM *obj = [self objectForKey:aKey];\
 if ([obj isKindOfClass:ClsM.class])  return obj;\
@@ -55,7 +59,6 @@ return obj;
 - (NSMutableArray *)mutableArrayForKey:(id)aKey {YJObjectGetM(NSMutableArray, NSArray)}
 - (NSMutableDictionary *)mutableDictionaryForKey:(id)aKey {YJObjectGetM(NSMutableDictionary, NSDictionary)}
 
-#pragma mark - Setter
 #define YJObjectSet \
 NSNumber *obj = @(anObject); \
 if (obj && aKey) [self setObject:obj forKey:aKey]; \
@@ -67,12 +70,18 @@ else YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", obj
 
 #define YJObjectSet1(Cls) \
 if (anObject && aKey) {   \
-if ([anObject isKindOfClass:NSString.class]) { \
+if ([anObject isKindOfClass:Cls.class]) { \
 YJLogError(@"[Dictionary] set key:%@ 对应的 value:%@ 类型错误", anObject, aKey);\
 } else { [self setObject:anObject forKey:aKey];}\
 } else { YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", anObject, aKey);}
 
-- (void)setString:(NSString *)anObject forKey:(id)aKey {YJObjectSet1(NSString)}
+- (void)setString:(NSString *)anObject forKey:(id)aKey {
+    if (anObject && aKey) {
+        if ([anObject isKindOfClass:NSString.class]) {
+            [self setObject:anObject forKey:aKey];
+        } else {YJLogError(@"[Dictionary] set key:%@ 对应的 value:%@ 类型错误", anObject, aKey);}
+    } else {YJLogError(@"[Dictionary] set 对应的 key:%@ 或 value:%@ 不存在", anObject, aKey);}
+}
 - (void)setSet:(NSSet *)anObject forKey:(id)aKey {YJObjectSet1(NSSet)}
 - (void)setArray:(NSArray *)anObject forKey:(id)aKey {YJObjectSet1(NSArray)}
 - (void)setDictionary:(NSDictionary *)anObject forKey:(id)aKey {YJObjectSet1(NSDictionary)}

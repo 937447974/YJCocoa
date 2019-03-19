@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 线程安全的可变字典*/
 @interface YJNSSafetyDictionary<KeyType, ObjectType> : NSMutableDictionary<KeyType, ObjectType>
 
 @end

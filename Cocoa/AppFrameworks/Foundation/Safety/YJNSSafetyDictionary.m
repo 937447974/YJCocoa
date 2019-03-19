@@ -10,7 +10,7 @@
 //
 
 #import "YJNSSafetyDictionary.h"
-#import "NSMutableDictionary+YJSafety.h"
+#import "NSDictionary+YJSafety.h"
 #import "YJPthread.h"
 #import <objc/runtime.h>
 
