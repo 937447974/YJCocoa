@@ -127,10 +127,11 @@ Pod::Spec.new do |s|
                 sub.dependency 'YJCocoa/System/Pthread'
             end
             # Swizzling
-            foundation.subspec 'Swizzling' do |swizzling|
-                swizzling.source_files = 'Cocoa/AppFrameworks/Foundation/Swizzling/*.{h,m}'
-                swizzling.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                swizzling.dependency 'YJCocoa/System/Dispatch'
+            foundation.subspec 'Swizzling' do |sub|
+                sub.source_files = 'Cocoa/AppFrameworks/Foundation/Swizzling/*.{h,m}'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                sub.dependency 'YJCocoa/System/Dispatch'
             end
             # Timer
             foundation.subspec 'Timer' do |timer|
@@ -301,35 +302,37 @@ Pod::Spec.new do |s|
     s.subspec 'DeveloperTools' do |dt|
         dt.source_files = 'Cocoa/DeveloperTools/*.{h,m}'
         # Leaks
-        dt.subspec 'Leaks' do |leaks|
-            leaks.source_files = 'Cocoa/DeveloperTools/Leaks/*.{h,m}'
-            leaks.subspec 'Core' do |lcore|
-                lcore.source_files = 'Cocoa/DeveloperTools/Leaks/Core/*.{h,m}'
-                lcore.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
-                lcore.dependency 'YJCocoa/System/Dispatch'
+        dt.subspec 'Leaks' do |sub|
+            sub.source_files = 'Cocoa/DeveloperTools/Leaks/*.{h,m}'
+            sub.subspec 'Core' do |sub2|
+                sub2.source_files = 'Cocoa/DeveloperTools/Leaks/Core/*.{h,m}'
+                sub2.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub2.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'
+                sub2.dependency 'YJCocoa/System/Dispatch'
             end
-            leaks.subspec 'UIView' do |luiv|
-                luiv.source_files = 'Cocoa/DeveloperTools/Leaks/UIView/*.{h,m}'
-                luiv.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
-                luiv.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
+            sub.subspec 'UIView' do |sub2|
+                sub2.source_files = 'Cocoa/DeveloperTools/Leaks/UIView/*.{h,m}'
+                sub2.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
+                sub2.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
             end
-            leaks.subspec 'UIViewController' do |luivc|
-                luivc.source_files = 'Cocoa/DeveloperTools/Leaks/UIViewController/*.{h,m}'
-                luivc.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
-                luivc.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
+            sub.subspec 'UIViewController' do |sub2|
+                sub2.source_files = 'Cocoa/DeveloperTools/Leaks/UIViewController/*.{h,m}'
+                sub2.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
+                sub2.dependency 'YJCocoa/DeveloperTools/Leaks/Core'
             end
         end
         # MemoryInfo
-        dt.subspec 'MemoryInfo' do |mi|
-            mi.source_files = 'Cocoa/DeveloperTools/MemoryInfo/*.{h,m}'
+        dt.subspec 'MemoryInfo' do |sub|
+            sub.source_files = 'Cocoa/DeveloperTools/MemoryInfo/*.{h,m}'
         end
-        dt.subspec 'Timeline' do |tl|
-            tl.source_files = 'Cocoa/DeveloperTools/Timeline/*'
+        dt.subspec 'Timeline' do |sub|
+            sub.source_files = 'Cocoa/DeveloperTools/Timeline/*'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
         end
         # TimeProfiler
-        dt.subspec 'TimeProfiler' do |tp|
-            tp.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
-            tp.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
+        dt.subspec 'TimeProfiler' do |sub|
+            sub.source_files = 'Cocoa/DeveloperTools/TimeProfiler/*.{h,m}'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/Swizzling'
         end
     end
     

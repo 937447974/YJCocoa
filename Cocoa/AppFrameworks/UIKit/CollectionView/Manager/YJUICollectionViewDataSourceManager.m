@@ -11,6 +11,7 @@
 
 #import "YJUICollectionViewDataSourceManager.h"
 #import "YJUICollectionViewManager.h"
+#import "YJNSLog.h"
 
 @interface YJUICollectionViewDataSourceManager ()
 
@@ -67,7 +68,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (_manager.dataSourceGrouped.count <= section) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+       YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         return 0;
     }
     return self.manager.dataSourceGrouped[section].count;
@@ -76,7 +77,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     YJUICollectionCellObject *cellObject;
     if (_manager.dataSourceGrouped.count <= indexPath.section || _manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         cellObject = [YJUICollectionViewCell cellObject];
     } else {
         cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.item];
@@ -90,7 +91,7 @@
     YJUICollectionCellObject *cellObject;
     NSArray *dataSource = [UICollectionElementKindSectionHeader isEqualToString:kind] ? self.dataSourceHeader : self.dataSourceFooter;
     if (dataSource.count <= indexPath.section) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         cellObject = [YJUICollectionReusableView cellObject];
     } else {
         cellObject = dataSource[indexPath.section];

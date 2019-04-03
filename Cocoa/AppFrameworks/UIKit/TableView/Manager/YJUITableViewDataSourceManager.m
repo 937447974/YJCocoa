@@ -11,6 +11,7 @@
 
 #import "YJUITableViewDataSourceManager.h"
 #import "YJUITableViewManager.h"
+#import "YJNSLog.h"
 
 @interface YJUITableViewDataSourceManager ()
 
@@ -45,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.manager.dataSourceGrouped.count <= section) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         return 0;
     }
     return [self.manager.dataSourceGrouped objectAtIndex:section].count;
@@ -53,7 +54,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.manager.dataSourceGrouped.count <= indexPath.section || self.manager.dataSourceGrouped[indexPath.section].count <= indexPath.row) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         return [[YJUITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YJUITableViewCell"];
     }
     YJUITableCellObject *cellObject = self.manager.dataSourceGrouped[indexPath.section][indexPath.row];

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 时间分析器*/
 @interface YJTimeProfiler : NSObject
 
-@property (nonatomic) NSTimeInterval interval; ///< 帧间隔，默认0.17秒
+@property (nonatomic) NSTimeInterval interval; ///< 帧间隔，默认0.017秒
 
 /**
  *  @abstract 启动

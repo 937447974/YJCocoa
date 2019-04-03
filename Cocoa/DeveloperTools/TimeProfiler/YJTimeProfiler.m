@@ -16,24 +16,19 @@
 #import "YJSystemOther.h"
 #import "YJThreadLogger.h"
 #import "YJTimePageProfiler.h"
-
-// 是否断点模式
-#define YJTimeProfilerDebug 0
+#import "YJNSLog.h"
 
 void YJTimeProfilerSingalHandler(int sig) {
     if (sig == SIGUSR1) {
-        NSLog(@"\nYJTimeProfiler捕获主线程耗时代码 : \n%@", [NSThread callStackSymbols]);
+        YJLogDebug(@"[YJCocoa] 捕获主线程耗时代码 : \n%@", [NSThread callStackSymbols]);
     }
 }
 
-@interface YJTimeProfiler ()
-{
+@interface YJTimeProfiler (){
     CFRunLoopObserverRef _runLoopObserver;
 }
 
-@property (nonatomic) pthread_t pthreadMain; ///< 主线程
 @property (nonatomic, strong) YJThreadLogger *threadLogger; ///< 线程日志记录器
-
 @property (nonatomic, strong) dispatch_source_t timeout; ///< 超时计时器
 
 @end
@@ -43,17 +38,11 @@ void YJTimeProfilerSingalHandler(int sig) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.interval = 0.17;
-#if YJTimeProfilerDebug
-        signal(SIGUSR1, YJTimeProfilerSingalHandler);
-        self.pthreadMain = pthread_self();
-#else
+        self.interval = 0.017;
         self.threadLogger = [[YJThreadLogger alloc] init];
-#endif
     }
     return self;
 }
-
 
 #pragma mark - run
 - (void)start {
@@ -75,19 +64,13 @@ void YJTimeProfilerSingalHandler(int sig) {
 
 #pragma mark - private
 - (void)runLoopAfterWaiting {
-    NSLog(@"YJTimeProfiler main queue start");
     self.timeout = dispatch_timer_default(self.interval, ^{
         [self runLoopBeforeWaiting];
-#if YJTimeProfilerDebug
-        pthread_kill(self.pthreadMain, SIGUSR1);
-#else
-        NSLog(@"\nYJTimeProfiler捕获主线程耗时代码 : \n%@", self.threadLogger.log);
-#endif
+        YJLogDebug(@"[YJCocoa] 捕获主线程耗时代码 : ", self.threadLogger.log);
     });
 }
 
 - (void)runLoopBeforeWaiting {
-    NSLog(@"YJTimeProfiler main queue end");
     if (self.timeout) {
         dispatch_source_cancel(self.timeout);
         self.timeout = nil;

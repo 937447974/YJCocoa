@@ -11,6 +11,7 @@
 
 #import "YJUITableViewManager.h"
 #import "YJNSAspectOrientProgramming.h"
+#import "YJNSLog.h"
 
 @interface YJUITableViewManager () {
     YJNSAspectOrientProgramming *_tableViewAOPDelegate; ///< 切面代理
@@ -50,7 +51,7 @@
 #pragma mark - getter and setter
 - (void)setDataSourcePlain:(NSMutableArray<YJUITableCellObject *> *)dataSourcePlain {
     if (!dataSourcePlain) {
-        NSLog(@"error:数组为空; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组为空; selector:%@", NSStringFromSelector(_cmd));
         dataSourcePlain = [NSMutableArray array];
     }
     if (self.dataSourceGrouped.count) {

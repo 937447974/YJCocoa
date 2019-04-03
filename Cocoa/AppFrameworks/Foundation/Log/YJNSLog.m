@@ -154,7 +154,6 @@ id logExtension(id obj) {
 - (NSString *)descriptionWithLocale:(id)locale {
     NSMutableString *str = [NSMutableString stringWithString:@"{(\n"];
     for (id value in self) {
-        NSLog(@"%@", value);
         [str appendFormat:@"\t%@,\n", logExtension(value)];
     }
     [str appendString:@")}"];

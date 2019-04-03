@@ -12,6 +12,7 @@
 #import "YJUICollectionViewDelegateFlowLayoutManager.h"
 #import "YJUICollectionViewManager.h"
 #import "UIView+YJUIViewGeometry.h"
+#import "YJNSLog.h"
 
 @interface YJUICollectionViewDelegateFlowLayoutManager () {
     NSMutableDictionary<NSString *, NSString*> *_cacheSizeDict; ///< 缓存Size
@@ -67,7 +68,7 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.manager.dataSourceGrouped.count <= indexPath.section || self.manager.dataSourceGrouped[indexPath.section].count <= indexPath.item) {
-        NSLog(@"error:数组越界; selector:%@", NSStringFromSelector(_cmd));
+        YJLogError(@"[YJCocoa] 数组越界; selector:%@", NSStringFromSelector(_cmd));
         return self.flowLayout.itemSize;
     }    
     // 获取YJUIableCellObject

@@ -13,6 +13,7 @@
 #import <objc/runtime.h>
 #import "YJDispatch.h"
 #import "YJNSSingleton.h"
+#import "YJNSLog.h"
 
 @implementation NSObject (YJSwizzling)
 
@@ -21,27 +22,25 @@
 }
 
 + (void)swizzlingSEL:(SEL)originalSEL withSEL:(SEL)swizzlingSEL {
-    dispatch_sync_main(^{
-        Class class = self.class;
-        // cache
-        NSMutableDictionary *selCache = YJNSSingletonS(NSMutableDictionary, @"YJSwizzling");
-        NSString *key = [NSString stringWithFormat:@"%@-%@-%@", NSStringFromClass(class), NSStringFromSelector(originalSEL), NSStringFromSelector(swizzlingSEL)];
-        if ([selCache objectForKey:key]) {
-            return;
-        }
-        [selCache setObject:@"YJSwizzling" forKey:key];
-        [selCache removeObjectForKey:[NSString stringWithFormat:@"%@-%@-%@", NSStringFromSelector(swizzlingSEL), NSStringFromClass(class), NSStringFromSelector(originalSEL)]];
-        NSLog(@"%@ %@(%@ <-> %@)", NSStringFromClass(class), NSStringFromSelector(_cmd), NSStringFromSelector(originalSEL), NSStringFromSelector(swizzlingSEL));
-        // swizzling
-        Method originalMethod = class_getInstanceMethod(class, originalSEL);
-        Method swizzlingMethod = class_getInstanceMethod(class, swizzlingSEL);
-        BOOL addMethod = class_addMethod(class, originalSEL, method_getImplementation(swizzlingMethod), method_getTypeEncoding(swizzlingMethod));
-        if (addMethod) {
-            class_replaceMethod(class, swizzlingSEL, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-        } else {
-            method_exchangeImplementations(originalMethod, swizzlingMethod);
-        }
-    });
+    Class class = self.class;
+    // cache
+    NSMutableDictionary *selCache = YJNSSingletonS(NSMutableDictionary, @"YJSwizzling");
+    NSString *key = [NSString stringWithFormat:@"%@-%@-%@", NSStringFromClass(class), NSStringFromSelector(originalSEL), NSStringFromSelector(swizzlingSEL)];
+    if ([selCache objectForKey:key]) {
+        return;
+    }
+    [selCache setObject:@"YJSwizzling" forKey:key];
+    [selCache removeObjectForKey:[NSString stringWithFormat:@"%@-%@-%@", NSStringFromSelector(swizzlingSEL), NSStringFromClass(class), NSStringFromSelector(originalSEL)]];
+    YJLogDebug(@"[YJCocoa] %@ 交换方法(%@ <-> %@)", NSStringFromClass(class), NSStringFromSelector(_cmd), NSStringFromSelector(originalSEL), NSStringFromSelector(swizzlingSEL));
+    // swizzling
+    Method originalMethod = class_getInstanceMethod(class, originalSEL);
+    Method swizzlingMethod = class_getInstanceMethod(class, swizzlingSEL);
+    BOOL addMethod = class_addMethod(class, originalSEL, method_getImplementation(swizzlingMethod), method_getTypeEncoding(swizzlingMethod));
+    if (addMethod) {
+        class_replaceMethod(class, swizzlingSEL, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, swizzlingMethod);
+    }
 }
 
 @end

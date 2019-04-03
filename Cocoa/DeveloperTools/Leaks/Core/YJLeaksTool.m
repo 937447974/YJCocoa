@@ -13,6 +13,7 @@
 #import <objc/runtime.h>
 #import "YJDispatch.h"
 #import "YJNSFoundationOther.h"
+#import "YJNSLog.h"
 
 @interface NSObject (YJLeaksProperty)
 
@@ -58,7 +59,7 @@
     for (NSString *prefix in @[@"UI", @"NS", @"WK", @"CA", @"_"]) {
         if ([className hasPrefix:prefix]) return;
     }
-    NSLog(@"%@ capture memory leaks start", className);
+    YJLogDebug(@"[YJLeaks] %@ capture memory leaks start", className);
     NSPointerArray *leakPropertyArray = [NSPointerArray weakObjectsPointerArray];
     [self captureMemory:(NSObject *)target leakPropertyArray:leakPropertyArray level:0];
     __weak typeof(target) wTarget = target;
@@ -70,16 +71,16 @@
             }
         }
         if (wTarget || leakPathSet.count) {
-            NSMutableString *log = [NSMutableString stringWithString:@"\nYJLeaks捕获内存泄漏"];
+            NSMutableString *log = [NSMutableString stringWithString:@"捕获内存泄漏"];
             if (wTarget) {
                 [log appendFormat:@"\nClass : %@", className];
             }
             if (leakPathSet.count) {
                 [log appendFormat:@"\nProperty : %@", leakPathSet];
             }
-            NSLog(@"%@", log);
+            YJLogDebug(@"[YJLeaks] %@", log);
         }
-        NSLog(@"%@ capture memory leaks end", className);
+        YJLogDebug(@"[YJLeaks] %@ capture memory leaks end", className);
     });
 }
 
@@ -98,7 +99,7 @@
     level++;
     for (NSString *p in [self leakProperties:target.class]) {
         id value = [target valueForKey:p];
-        if ([value isKindOfClass:[NSObject class]] && ![value isKindOfClass:[NSString class]]) { // 忽略 NSString
+        if (!([value isKindOfClass:NSString.class] || [value isKindOfClass:UIColor.class] || [value isKindOfClass:UIFont.class])) {
             NSObject *item = value;
             item.leakPropertyPath = [NSString stringWithFormat:@"%@.%@", target.leakPropertyPath, p];
             [leakPropertyArray addPointer:(__bridge void * _Nullable)(item)];
@@ -110,7 +111,7 @@
 #pragma mark - private(+)
 - (NSArray<NSString *> *)leakProperties:(Class)targetClass {
     NSString *className = YJNSStringFromClass(targetClass);
-    if ([className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"CA"] || [className hasPrefix:@"_"]) {
+    if (!className.length || [className hasPrefix:@"UI"] || [className hasPrefix:@"NS"] || [className hasPrefix:@"CA"] || [className hasPrefix:@"_"]) {
         return [NSMutableArray array];
     }
     NSMutableDictionary *dict = YJNSSingletonW(NSMutableDictionary, @"NSObject(YJLeaks)");

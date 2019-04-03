@@ -10,6 +10,7 @@
 //
 
 #import "YJTimeline.h"
+#import "YJNSLog.h"
 
 @implementation YJTimeline
 static NSMutableString *YJTimeline_log;
@@ -25,7 +26,7 @@ CFAbsoluteTime YJTimeline_time;
 }
 
 + (void)end {
-    NSLog(YJTimeline_log, nil);
+    YJLogDebug(YJTimeline_log);
     YJTimeline_log = nil;
 }
 

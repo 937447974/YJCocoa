@@ -12,6 +12,7 @@
 #import "YJTimePageProfiler.h"
 #import "YJSwizzling.h"
 #import "YJNSSingleton.h"
+#import "YJNSLog.h"
 
 @interface YJTimePageProfiler ()
 
@@ -89,7 +90,7 @@
         [mStr appendFormat:@"\t%.3f %@ start\n", CFAbsoluteTimeGetCurrent(), NSStringFromSelector(_cmd)];
         [self swizzling_viewDidAppear:animated];
         [mStr appendFormat:@"\t%.3f %@ end\n}", CFAbsoluteTimeGetCurrent(), NSStringFromSelector(_cmd)];
-        NSLog(@"%@", mStr);
+        YJLogDebug(@"[YJCocoa] %@", mStr);
     } else {
         [self swizzling_viewDidAppear:animated];
     }
