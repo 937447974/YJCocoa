@@ -14,26 +14,13 @@
 
 @implementation NSDictionary (YJSafety)
 
-- (BOOL)boolForKey:(id)aKey {
-    NSNumber *obj = [self objectForKey:aKey];
-    if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSString.class])
-        return obj.boolValue;
-    return NO;
-}
-
-- (NSInteger)integerForKey:(id)aKey {
-    NSNumber *obj = [self objectForKey:aKey];
-    if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSString.class])
-        return obj.integerValue;
-    return 0;
-}
-
-- (CGFloat)floatForKey:(id)aKey {
-    NSNumber *obj = [self objectForKey:aKey];
-    if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSString.class])
-        return obj.floatValue;
-    return 0;
-}
+#define YJNumberGet(value, default) NSNumber *obj = [self objectForKey:aKey];\
+if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSString.class])\
+return obj.value;\
+return default;
+- (BOOL)boolForKey:(id)aKey {YJNumberGet(boolValue, NO)}
+- (NSInteger)integerForKey:(id)aKey {YJNumberGet(integerValue, 0)}
+- (CGFloat)floatForKey:(id)aKey {YJNumberGet(floatValue, 0)}
 
 #define YJObjectGet(Cls) Cls *obj = [self objectForKey:aKey];\
 if ([obj isKindOfClass:Cls.class]) return obj;\
