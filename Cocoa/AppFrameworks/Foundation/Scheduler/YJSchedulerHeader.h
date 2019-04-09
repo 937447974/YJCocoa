@@ -16,6 +16,8 @@
 /** 调度器订阅、拦截加载*/
 #define YJSCHEDULER_LOAD(block) YJCI_BLOCK_EXPORT(YJSchedulerLoad, block)
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** 发布后执行方处理完毕的回调*/
 typedef void (^ YJSPublishHandler)(id _Nullable data);
 /** 订阅回调*/
@@ -31,5 +33,7 @@ typedef NS_ENUM(NSInteger, YJSchedulerQueue) {
     YJSchedulerQueueMain,       ///< 主队列
     YJSchedulerQueueDefault     ///< 子队列
 };
+
+NS_ASSUME_NONNULL_END
 
 #endif /* YJSchedulerHeader_h */
