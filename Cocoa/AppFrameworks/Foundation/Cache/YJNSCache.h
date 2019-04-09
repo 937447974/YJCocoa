@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** NSCache */
 @interface YJNSCache <KeyType, ObjectType> : NSCache <KeyType, ObjectType>
 
-@property (readonly) NSUInteger count; ///< 总数
+@property (nonatomic, readonly) NSUInteger count; ///< 总数
 @property (nonatomic, copy, readonly) NSArray<KeyType> *allKeys; ///< 所有 key
 @property (nonatomic, copy, readonly) NSArray<ObjectType> *allValues; ///< 所有 value
 

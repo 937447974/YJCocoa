@@ -13,13 +13,13 @@
 
 @interface YJNSURLRequest ()
 
-@property (nonatomic, weak) id source;
+@property (nonatomic, weak, readwrite) id source;
 
-@property (nonatomic, copy) NSString *URL;
-@property (nonatomic) YJNSURLRequestMethod requestMethod;
-@property (nonatomic, strong) NSObject *requestModel;
+@property (nonatomic, copy, readwrite) NSString *url;
+@property (nonatomic, readwrite) YJNSURLRequestMethod requestMethod;
+@property (nonatomic, strong, readwrite) NSObject *requestModel;
 
-@property (nonatomic) Class responseModelClass;
+@property (nonatomic, readwrite) Class responseModelClass;
 
 @end
 
@@ -28,7 +28,7 @@
 + (instancetype)requestWithSource:(id)source url:(NSString *)url reqMethod:(YJNSURLRequestMethod)reqMethod reqModel:(NSObject *)reqModel respModelClass:(Class)respModelClass {
     YJNSURLRequest *request = [[self alloc] init];
     request.source = source ?: self;
-    request.URL = url;
+    request.url = url;
     request.requestMethod = reqMethod;
     request.requestModel = reqModel;
     request.responseModelClass = respModelClass;
@@ -39,7 +39,7 @@
     if (reqModel) {
         [identifier appendFormat:@"-%@", reqModel];
     }
-    request.identifier = identifier.copy;
+    request.identifier = identifier;
     return request;
 }
 

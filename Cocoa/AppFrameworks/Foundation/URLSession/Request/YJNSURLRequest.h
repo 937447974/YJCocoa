@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, YJNSURLRequestMethod) {
 
 @property (nonatomic, weak, readonly) id source; ///< 发起网络请求的对象
 
-@property (nonatomic, copy, readonly) NSString *URL;                ///< 请求地址
+@property (nonatomic, copy, readonly) NSString *url;                ///< 请求地址
 @property (nonatomic, readonly) YJNSURLRequestMethod requestMethod; ///< 请求方式
 @property (nonatomic, strong, readonly) NSObject *requestModel;     ///< 请求参数模型
 
