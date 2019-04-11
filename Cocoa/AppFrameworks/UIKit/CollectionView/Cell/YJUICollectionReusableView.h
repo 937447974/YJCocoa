@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return YJUICollectionCellObject
  */
-+ (__kindof YJUICollectionCellObject *)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel;
++ (__kindof YJUICollectionCellObject *)cellObjectWithCellModel:(id)cellModel;
 
 /**
  *  @abstract 获取cell的显示Size。子类不实现时，会根据xib自动计算Size

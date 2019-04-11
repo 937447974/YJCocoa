@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return YJUITableCellObject
  */
-+ (__kindof YJUITableCellObject *)cellObjectWithCellModel:(id<YJUITableCellModelProtocol>)cellModel;
++ (__kindof YJUITableCellObject *)cellObjectWithCellModel:(id)cellModel;
 
 /**
  *  @abstract 获取cell的显示高。子类不实行时，会根据xib设置的高度自动计算高

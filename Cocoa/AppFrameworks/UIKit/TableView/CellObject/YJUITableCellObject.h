@@ -20,17 +20,10 @@ typedef NS_ENUM(NSInteger, YJUITableViewCellCreate) {
     YJUITableViewCellCreateSoryboard ///< 使用soryboard创建cell时，请使用类名作为标识符
 };
 
-
-/** cell模型协议*/
-@protocol YJUITableCellModelProtocol <NSObject>
-
-@end
-
-
 /** TableCell对象*/
 @interface YJUITableCellObject : NSObject
 
-@property (nonatomic, strong) __kindof id<YJUITableCellModelProtocol> cellModel; ///< cell对应的VM
+@property (nonatomic, strong) id cellModel;          ///< cell对应的VM
 @property (nonatomic, strong, nullable) id userInfo; ///< 携带的自定义数据
 @property (nonatomic, copy, nullable) dispatch_block_t didSelectRowBlock; ///< 点击回调
 

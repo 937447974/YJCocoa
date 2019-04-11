@@ -13,14 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** PageViewCell的数据模型协议*/
-@protocol YJUIPageViewCellModelProtocol <NSObject>
-@end
-
 /** pageViewCell对应的模型封装*/
 @interface YJUIPageViewCellObject : NSObject
 
-@property (nonatomic, strong) id<YJUIPageViewCellModelProtocol> cellModel; ///< PageViewCell对应的VM
+@property (nonatomic, strong) id cellModel; ///< PageViewCell对应的VM
 
 @property (nonatomic) NSInteger pageIndex;       ///< 当前页码
 @property (nonatomic, readonly) Class pageClass; ///< PageView对应的类

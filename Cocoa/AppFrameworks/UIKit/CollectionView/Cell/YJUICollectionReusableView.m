@@ -29,7 +29,7 @@
     return cellObject;
 }
 
-+ (YJUICollectionCellObject *)cellObjectWithCellModel:(id<YJUICollectionCellModel>)cellModel {
++ (YJUICollectionCellObject *)cellObjectWithCellModel:(id)cellModel {
     YJUICollectionCellObject *cellObject = self.cellObject;
     cellObject.cellModel = cellModel;
     return cellObject;

@@ -31,7 +31,7 @@ typedef void(^ YJUIPageViewCellDidAppear)(NSInteger pageIndex);
  *
  *  @return YJUITableCellObject
  */
-+ (YJUIPageViewCellObject *)cellObjectWithCellModel:(nullable id<YJUIPageViewCellModelProtocol>)cellModel;
++ (YJUIPageViewCellObject *)cellObjectWithCellModel:(id)cellModel;
 
 /**
  *  @abstract 刷新 YJUIPageViewCell

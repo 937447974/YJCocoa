@@ -25,7 +25,7 @@
 }
 
 #pragma mark - YJUIPageViewCellProtocol
-+ (YJUIPageViewCellObject *)cellObjectWithCellModel:(id<YJUIPageViewCellModelProtocol>)cellModel {
++ (YJUIPageViewCellObject *)cellObjectWithCellModel:(id)cellModel {
     YJUIPageViewCellObject *co = [[YJUIPageViewCellObject alloc] initWithPageClass:[self class]];
     co.cellModel = cellModel;
     return co;

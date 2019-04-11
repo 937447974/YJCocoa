@@ -13,11 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** cell模型协议*/
-@protocol YJUICollectionCellModel <NSObject>
-
-@end
-
 /** 创建cell的方式*/
 typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
     YJUICollectionCellCreateClass,     ///< 使用Class创建cell,即使用[[UICollectionViewCell alloc] initWithFrame:CGRectZero]创建cell
@@ -28,7 +23,7 @@ typedef NS_ENUM(NSInteger, YJUICollectionCellCreate) {
 /** UICollectionViewCell封装对象*/
 @interface YJUICollectionCellObject : NSObject
 
-@property (nonatomic, strong) __kindof id<YJUICollectionCellModel> cellModel; ///< cell对应的VM
+@property (nonatomic, strong) id cellModel; ///< cell对应的VM
 @property (nonatomic, strong, nullable) id userInfo; ///< 携带的数据
 @property (nonatomic, copy, nullable) dispatch_block_t didSelectItemBlock; ///< 点击回调
 
