@@ -14,12 +14,13 @@
 #import "YJPthread.h"
 #import "YJNSLog.h"
 
-@interface YJNSSingletonMutex : NSObject{
+@interface YJNSSingletonModel : NSObject{
     pthread_mutex_t _lock;
 }
+@property (nonatomic, strong) id obj;
 @end
 
-@implementation YJNSSingletonMutex
+@implementation YJNSSingletonModel
 - (instancetype)init{
     self = [super init];
     if (self) {
@@ -28,18 +29,25 @@
     return self;
 }
 - (void)dealloc {pthread_mutex_destroy(&_lock);}
-- (void)lock {pthread_mutex_lock(&_lock);}
-- (void)unLock {pthread_mutex_unlock(&_lock);}
+- (id)objectForClass:(Class)cls forIdentifier:(NSString *)identifier {
+    if (self.obj) return self.obj;
+    @synchronized_pthread (self -> _lock)
+    if (!self.obj) {
+        YJLogVerbose(@"[YJCocoa] 创建单例：%@-%@", YJNSStringFromClass(cls), identifier);
+        self.obj = [[cls alloc] init];
+    }
+    return self.obj;
+}
 @end
+
 
 #pragma mark -
 @interface YJNSSingletonMCenter() <NSCacheDelegate> {
     pthread_mutex_t _lock;
 }
 
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id> *strongDict;
-@property (nonatomic, strong) NSMutableDictionary<NSString *, YJNSSingletonMutex *> *mutexDict;
-@property (nonatomic, strong) NSCache<NSString *, id> *weakCache;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, YJNSSingletonModel *> *strongDict;
+@property (nonatomic, strong) NSCache<NSString *, YJNSSingletonModel *> *weakCache;
 
 @end
 
@@ -63,7 +71,6 @@
     if (self) {
         pthread_mutex_init(&_lock, NULL);
         self.strongDict = NSMutableDictionary.dictionary;
-        self.mutexDict = NSMutableDictionary.dictionary;
         self.weakCache = NSCache.new;
         self.weakCache.delegate = self;
     }
@@ -85,27 +92,19 @@
     return [self registerSingleton:(NSMutableDictionary *)self.weakCache forClass:sClass forIdentifier:identifier];
 }
 
-- (id)registerSingleton:(NSMutableDictionary<NSString *, id> *)dict forClass:(Class)cls forIdentifier:(NSString *)identifier {
-    YJNSSingletonMutex *mutex = [self getMutexWithIdentifier:identifier];
-    [mutex lock];
-    id singleton = [dict objectForKey:identifier];
-    if (!singleton) {
-        YJLogVerbose(@"[YJNSSingleton] 创建单例：%@-%@", YJNSStringFromClass(cls),identifier);
-        singleton = [[cls alloc] init];
-        [dict setObject:singleton forKey:identifier];
-    }
-    [mutex unLock];
-    return singleton;
+- (id)registerSingleton:(NSMutableDictionary *)dict forClass:(Class)cls forIdentifier:(NSString *)identifier {
+    YJNSSingletonModel *model = [self getModel:dict withIdentifier:identifier];
+    return [model objectForClass:cls forIdentifier:identifier];
 }
 
-- (YJNSSingletonMutex *)getMutexWithIdentifier:(NSString *)identifier {
+- (YJNSSingletonModel *)getModel:(NSMutableDictionary *)dict withIdentifier:(NSString *)identifier  {
     @synchronized_pthread (self -> _lock)
-    YJNSSingletonMutex *mutex = [self.mutexDict objectForKey:identifier];
-    if (!mutex) {
-        mutex = YJNSSingletonMutex.new;
-        [self.mutexDict setObject:mutex forKey:identifier];
+    YJNSSingletonModel *model = [dict objectForKey:identifier];
+    if (!model) {
+        model = YJNSSingletonModel.new;
+        [dict setObject:model forKey:identifier];
     }
-    return mutex;
+    return model;
 }
 
 #pragma mark - 移除weak单例
@@ -121,7 +120,7 @@
 
 #pragma mark - NSCacheDelegate
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    YJLogVerbose(@"[YJNSSingleton] 释放：%@", obj);
+    YJLogVerbose(@"[YJCocoa] 释放：%@", obj);
 }
 
 @end
