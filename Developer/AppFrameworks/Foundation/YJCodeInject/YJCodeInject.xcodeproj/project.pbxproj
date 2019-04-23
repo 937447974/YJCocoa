@@ -201,7 +201,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FrameworkA/FrameworkA.framework",
 				"${BUILT_PRODUCTS_DIR}/FrameworkB/FrameworkB.framework",
 				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
@@ -216,7 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJCodeInject/Pods-YJCodeInject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
