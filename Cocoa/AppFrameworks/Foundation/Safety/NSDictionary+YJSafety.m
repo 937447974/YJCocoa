@@ -22,10 +22,16 @@ return default;
 - (NSInteger)integerForKey:(id)aKey {YJNumberGet(integerValue, 0)}
 - (CGFloat)floatForKey:(id)aKey {YJNumberGet(floatValue, 0)}
 
+- (NSString *)stringForKey:(id)aKey {
+    NSString *obj = [self objectForKey:aKey];
+    if ([obj isKindOfClass:NSString.class]) return obj;
+    if ([obj isKindOfClass:NSNumber.class]) return ((NSNumber *)obj).stringValue;
+    return @"";
+}
+
 #define YJObjectGet(Cls) Cls *obj = [self objectForKey:aKey];\
 if ([obj isKindOfClass:Cls.class]) return obj;\
 return [[Cls alloc] init];
-- (NSString *)stringForKey:(id)aKey {YJObjectGet(NSString)}
 - (NSSet *)setForKey:(id)aKey {YJObjectGet(NSSet)}
 - (NSArray *)arrayForKey:(id)aKey {YJObjectGet(NSArray)}
 - (NSDictionary *)dictionaryForKey:(id)aKey {YJObjectGet(NSDictionary)}
