@@ -1,0 +1,77 @@
+//
+//  ViewController.swift
+//  YJFoundation
+//
+//  Created by 阳君 on 2019/5/6.
+//  Copyright © 2019 YJCocoa. All rights reserved.
+//
+
+import UIKit
+import YJCocoa
+
+class ViewController: UIViewController, NSCacheDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.testSafety()
+    }
+    
+}
+
+// MARK: - Safety
+extension ViewController {
+    
+    func testSafety() {
+        //        self.testSafetyDictionary()
+        //        self.testSafetyCache()
+        self.testDictionary()
+    }
+    
+    func testSafetyDictionary() {
+        let dict = YJNSSafetyDictionary()
+        dict.setObject(1, forKey: "2" as NSString)
+        NSLog("\(dict) count:\(dict.count)")
+        NSLog("obj:\(dict.object(forKey: "2") ?? "")")
+    }
+    
+    func testDictionary() {
+        let dict = NSMutableDictionary()
+        print("bool: \(dict.bool(forKey: "bool"))")
+        print("integer: \(dict.integer(forKey: "integer"))")
+        print("float: \(dict.float(forKey: "float"))")
+        print("string: \(dict.string(forKey: "string"))")
+        print("set: \(dict.set(forKey: "set"))")
+        print("array: \(dict.array(forKey: "array"))")
+        print("dictionary: \(dict.dictionary(forKey: "dictionary"))")
+        print("mutableSet: \(dict.mutableSet(forKey: "mutableSet"))")
+        print("mutableArray: \(dict.mutableArray(forKey: "mutableArray"))")
+        print("mutableDictionary: \(dict.mutableDictionary(forKey: "mutableDictionary"))")
+        print("dict: \(dict))")
+        dict.setBool(true, forKey: NSString("bool"))
+        dict.setInt(1, forKey: NSString("int"))
+        dict.setFloat(1.0, forKey: NSString("float"))
+        dict.setString("s", forKey: NSString("string"))
+        dict.setSet(NSSet(), forKey: NSString("set"))
+        dict.setArray(NSArray(), forKey: NSString("array"))
+        dict.setDictionary(NSDictionary(), forKey: NSString("dictionary"))
+        print("dict: \(dict))")
+    }
+    
+    func testSafetyCache() {
+        let cache = YJNSSafetyCache<NSString, NSString>()
+        cache.delegate = self
+        cache.countLimit = 999;
+        cache.setObject("1o", forKey: "1")
+        cache.setObject("2o", forKey: "2")
+        cache.setObject("3o", forKey: "3")
+        NSLog("\(cache) count:\(cache.count) allKeys:\(cache.allKeys) allValues:\(cache.allValues)")
+        cache.countLimit = 1;
+    }
+    
+    func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
+        NSLog("\(NSStringFromSelector(#function)) \(obj)")
+        
+    }
+    
+}
+
