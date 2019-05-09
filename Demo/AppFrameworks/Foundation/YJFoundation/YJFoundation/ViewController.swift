@@ -13,7 +13,19 @@ class ViewController: UIViewController, NSCacheDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.testSafety()
+        self.testCalendar()
+//        self.testSafety()
+    }
+    
+}
+
+extension ViewController {
+    
+    func testCalendar() {
+        let calendar = YJNSCalendar.current
+        print("era:\(calendar.era) year:\(calendar.year) month :\(calendar.month) day:\(calendar.day)")
+        print("hour:\(calendar.hour) minute:\(calendar.minute) second:\(calendar.second) nanosecond:\(calendar.nanosecond)")
+        print("weekday:\(calendar.weekday) weekOfYear:\(calendar.weekOfYear) yearForWeekOfYear:\(calendar.yearForWeekOfYear) ")
     }
     
 }
