@@ -1,0 +1,199 @@
+//
+//  YJUICollectionViewManager.swift
+//  YJCollectionView
+//
+//  Created by 阳君 on 2019/5/23.
+//  Copyright © 2019 YJCocoa. All rights reserved.
+//
+
+import UIKit
+
+/// 缓存 size 的策略
+enum YJUICollectionViewCacheSize : Int {
+    /// 根据相同的UITableViewCell类缓存高度
+    case `default`
+    /// 根据NSIndexPath对应的位置缓存高度
+    case indexPath
+    /// 根据类名和NSIndexPath双重绑定缓存高度
+    case classAndIndexPath
+}
+
+/** UICollectionView管理器*/
+open class YJUICollectionViewManager: NSObject {
+    
+    /// header 数据源
+    var dataSourceHeader = Array<YJUICollectionCellObject>()
+    /// header 数据源
+    var dataSourceFooter = Array<YJUICollectionCellObject>()
+    /// cell 数据源
+    var dataSourceCell = Array<Array<YJUICollectionCellObject>>()
+    /// cell 第一组数据源
+    var dataSourceCellFirst: Array<YJUICollectionCellObject> {
+        get {return self.dataSourceCell.first!}
+        set {
+            if self.dataSourceCell.count > 0 {
+                self.dataSourceCell[0] = newValue
+            } else {
+                self.dataSourceCell.append(newValue)
+            }
+        }
+    }
+    
+    /// 是否缓存高，默认缓存
+    var isCacheSize = true
+    /// 缓存size的策略
+    var cacheSize = YJUICollectionViewCacheSize.default
+    
+    weak private(set) var collectionView: UICollectionView!
+    weak private(set) var flowLayout: UICollectionViewFlowLayout!
+    
+    private var identifierSet = Set<String>()
+    private var cacheSizeDict = Dictionary<String, CGSize>()
+    
+    init(collectionView: UICollectionView) {
+        super.init()
+        self.collectionView = collectionView
+        self.flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        self.dataSourceCellFirst = Array()
+    }
+    
+}
+
+extension YJUICollectionViewManager: UICollectionViewDataSource {
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.dataSourceCell.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard section < self.dataSourceCell.count else {
+            print("error:数组越界; selector:\(#function)")
+            return 0
+        }
+        return self.dataSourceCell[section].count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard indexPath.section < self.dataSourceCell.count && indexPath.row < self.dataSourceCell[indexPath.section].count else {
+            print("error:数组越界; selector:\(#function)")
+            return UICollectionViewCell(frame: CGRect.zero)
+        }
+        let co = self.dataSourceCell[indexPath.section][indexPath.row]
+        co.indexPath = indexPath
+        return self.dequeueReusableCell(withCellObject: co)
+    }
+    
+    private func dequeueReusableCell(withCellObject cellObject: YJUICollectionCellObject) -> UICollectionViewCell {
+        if !self.identifierSet.contains(cellObject.reuseIdentifier) {
+            self.collectionView.register(cellObject.cellClass, forCellWithReuseIdentifier: cellObject.reuseIdentifier)
+            self.identifierSet.insert(cellObject.reuseIdentifier)
+        }
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: cellObject.reuseIdentifier, for: cellObject.indexPath)
+//        cell.collectionViewManager(self, reloadWith: cellObject)
+        return cell
+    }
+    
+}
+
+extension YJUICollectionViewManager: UICollectionViewDelegate {
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let co = self.cellObject(with: indexPath) {
+            if let block = co.didSelectBlock {
+                block(self, co)
+            }
+        }
+    }
+    
+}
+
+extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
+    
+    /// 清除所有缓存Size
+    public func clearAllCacheSize() {
+        self.cacheSizeDict.removeAll()
+    }
+    
+    //MARK: UICollectionViewDelegateFlowLayout
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let co = self.cellObject(with: indexPath) else {
+            print("error:数组越界; selector:\(#function)")
+            return self.flowLayout.itemSize
+        }
+        return self.collectionView(collectionView, referenceSizeFor: "cell", in: co)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let co = self.cellHeaderObject(with: section) else {
+            return self.flowLayout.itemSize
+        }
+        return self.collectionView(collectionView, referenceSizeFor: UICollectionView.elementKindSectionHeader, in: co)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        guard let co = self.cellFooterObject(with: section) else {
+            return self.flowLayout.itemSize
+        }
+        return self.collectionView(collectionView, referenceSizeFor: UICollectionView.elementKindSectionFooter, in: co)
+    }
+    
+    // MARK: private
+    private func cellObject(with indexPath: IndexPath) -> YJUICollectionCellObject? {
+        guard indexPath.section < self.dataSourceCell.count && indexPath.row < self.dataSourceCell[indexPath.section].count else {
+            return nil
+        }
+        let co = self.dataSourceCell[indexPath.section][indexPath.row]
+        co.indexPath = indexPath
+        return co
+    }
+    
+    private func cellHeaderObject(with section: Int) -> YJUICollectionCellObject? {
+        guard section < self.dataSourceHeader.count else {
+            return nil
+        }
+        let co = self.dataSourceHeader[section]
+        co.indexPath = IndexPath(row: 0, section: section)
+        return co
+    }
+    
+    private func cellFooterObject(with section: Int) -> YJUICollectionCellObject? {
+        guard section < self.dataSourceFooter.count else {
+            return nil
+        }
+        let co = self.dataSourceFooter[section]
+        co.indexPath = IndexPath(row: 0, section: section)
+        return co
+    }
+    
+    private func collectionView(_ collectionView: UICollectionView, referenceSizeFor kind: String, in cellObject: YJUICollectionCellObject) -> CGSize {
+        let key = self.getKeyFromCellObject(cellObject)
+        if self.isCacheSize {
+            if let size = self.cacheSizeDict[key] {
+                return size
+            }
+        }
+        var size = CGSize.zero
+        if let cellType = cellObject.cellClass as? UICollectionViewCell.Type {
+            size = cellType.collectionViewManager(self, sizeWith: cellObject)
+        } else if let headerType = cellObject.cellClass as? UICollectionReusableView.Type {
+            size = headerType.collectionViewManager(self, referenceSizeFor: kind, in: cellObject)
+        }
+        if self.isCacheSize {
+            self.cacheSizeDict[key] = size
+        }
+        return size
+    }
+    
+    private func getKeyFromCellObject(_ cellObject: YJUICollectionCellObject) -> String {
+        let indexPath = cellObject.indexPath!
+        switch self.cacheSize {
+        case .`default`:
+            return cellObject.cellName
+        case .indexPath:
+            return "\(indexPath.section)-\(indexPath.row)"
+        case .classAndIndexPath:
+            return "\(cellObject.cellName)(\(indexPath.section)-\(indexPath.row))"
+        }
+    }
+    
+}
