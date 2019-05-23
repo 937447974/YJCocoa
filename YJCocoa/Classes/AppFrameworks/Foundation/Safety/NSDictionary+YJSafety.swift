@@ -9,7 +9,7 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension NSDictionary {
     

@@ -26,4 +26,18 @@ open class YJPthreadMutex: NSObject {
         pthread_mutex_unlock(&mutex)
     }
     
+    public func lockObj(_ f: () -> AnyObject) -> AnyObject {
+        pthread_mutex_lock(&mutex)
+        let obj = f()
+        pthread_mutex_unlock(&mutex)
+        return obj
+    }
+    
+    public func lockAny(_ f: () -> Any?) -> Any? {
+        pthread_mutex_lock(&mutex)
+        let obj = f()
+        pthread_mutex_unlock(&mutex)
+        return obj
+    }
+    
 }

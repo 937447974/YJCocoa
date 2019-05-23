@@ -13,12 +13,37 @@ class ViewController: UIViewController, NSCacheDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.testCalendar()
+//        self.testCalendar()
 //        self.testSafety()
+        self.testSingletonCenter()
     }
     
 }
 
+// MARK: - SingletonCenter
+extension ViewController {
+    
+    func testSingletonCenter() {
+        print(" \(YJWeakSingleton(NSDictionary.self, "Dictionary"))")
+        for _ in 0..<5 {
+            DispatchQueue.global(qos: .default).async {
+                print("1 \(YJStrongSingleton(ViewController.self, nil))")
+            }
+            DispatchQueue.global(qos: .default).async {
+                print(" 2 \(YJStrongSingleton(ViewController.self, "private1"))")
+            }
+            DispatchQueue.global(qos: .default).async {
+                print("  3 \(YJWeakSingleton(ViewController.self, "private1"))")
+            }
+            DispatchQueue.global(qos: .default).async {
+                print("   4 \(YJWeakSingleton(ViewController.self, "private12"))")
+            }
+        }
+    }
+    
+}
+
+// MARK: - Calendar
 extension ViewController {
     
     func testCalendar() {

@@ -9,7 +9,7 @@
 //  Copyright © 2019年 YJCocoa. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class YJNSSafetyDictionary: NSMutableDictionary {
     
@@ -20,7 +20,6 @@ open class YJNSSafetyDictionary: NSMutableDictionary {
 
 //MARK: abstract class
 extension YJNSSafetyDictionary {
-    
     open override var count: Int {
         var count = 0
         self.mutex.lock {
@@ -30,23 +29,19 @@ extension YJNSSafetyDictionary {
     }
     
     open override func keyEnumerator() -> NSEnumerator {
-        var keyEnumerator: NSEnumerator!
-        self.mutex.lock {
-            keyEnumerator = self.dict.keyEnumerator()
-        }
-        return keyEnumerator
+        return (self.mutex.lockObj {[unowned self] in
+            self.dict.keyEnumerator()
+        }) as! NSEnumerator
     }
     
     open override func object(forKey aKey: Any) -> Any? {
-        var object: Any?
-        self.mutex.lock {
-            object = self.dict.object(forKey: aKey)
+        return self.mutex.lockAny {[unowned self] in
+            self.dict.object(forKey: aKey)
         }
-        return object
     }
     
     open override func removeObject(forKey aKey: Any) {
-        self.mutex.lock {
+        self.mutex.lock {[unowned self] in
             self.dict.removeObject(forKey: aKey)
         }
     }
@@ -54,6 +49,7 @@ extension YJNSSafetyDictionary {
     open override func setObject(_ anObject: Any, forKey aKey: NSCopying) {
         self.mutex.lock {
             self.dict.setObject(anObject, forKey: aKey)
+            
         }
     }
 }

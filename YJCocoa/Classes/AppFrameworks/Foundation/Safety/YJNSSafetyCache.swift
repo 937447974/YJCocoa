@@ -60,6 +60,7 @@ open class YJNSSafetyCache<KeyType, ObjectType> : NSCache<AnyObject, AnyObject> 
             super.setObject(obj, forKey: key, cost: g)
             self.cacheSet.add(key)
         }
+        
     }
     
     open func removeObject(forKey key: KeyType) {

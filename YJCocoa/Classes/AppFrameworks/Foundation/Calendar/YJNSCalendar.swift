@@ -5,7 +5,7 @@
 //  Created by 阳君 on 2019/5/9.
 //
 
-import UIKit
+import Foundation
 
 ///  日历
 open class YJNSCalendar: NSObject {
