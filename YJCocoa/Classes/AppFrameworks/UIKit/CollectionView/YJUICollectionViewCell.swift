@@ -17,6 +17,15 @@ import UIKit
     
 }
 
-class YJUICollectionViewCell: UICollectionViewCell {
+open class YJUICollectionViewCell: UICollectionViewCell {
+    
+    private(set) var cellObject: YJUICollectionCellObject!
+    private(set) var collectionViewManager: YJUICollectionViewManager!
+    
+    override open func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, reloadWith cellObject: YJUICollectionCellObject) {
+        super.collectionViewManager(collectionViewManager, reloadWith: cellObject)
+        self.collectionViewManager = collectionViewManager
+        self.cellObject = cellObject
+    }
     
 }

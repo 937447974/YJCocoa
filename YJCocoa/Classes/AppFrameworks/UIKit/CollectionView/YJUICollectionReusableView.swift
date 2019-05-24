@@ -11,12 +11,12 @@ import UIKit
 @objc extension UICollectionReusableView {
     
     /// 获取 YJUICollectionCellObject
-    open class func cellObject() -> YJUICollectionCellObject {
+    public class func cellObject() -> YJUICollectionCellObject {
         return YJUICollectionCellObject(cellClass: self)
     }
     
     /// 获取 YJUICollectionCellObject 并自动填充模型
-    open class func cellObject(withCellModel cellModel:AnyObject) -> YJUICollectionCellObject {
+    public class func cellObject(withCellModel cellModel:AnyObject) -> YJUICollectionCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
@@ -35,10 +35,19 @@ import UIKit
     }
     
     /// 刷新 UICollectionViewCell
-    func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, reloadWith cellObject: YJUICollectionCellObject) {}
+    open func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, reloadWith cellObject: YJUICollectionCellObject) {}
     
 }
 
-class YJUICollectionReusableView: UICollectionReusableView {
+open class YJUICollectionReusableView: UICollectionReusableView {
+    
+    private(set) var cellObject: YJUICollectionCellObject!
+    private(set) var collectionViewManager: YJUICollectionViewManager!
+    
+    override open func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, reloadWith cellObject: YJUICollectionCellObject) {
+        super.collectionViewManager(collectionViewManager, reloadWith: cellObject)
+        self.collectionViewManager = collectionViewManager
+        self.cellObject = cellObject
+    }
     
 }

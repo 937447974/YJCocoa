@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D18A438F3AC64C215D956D0 /* Pods_YJCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F2528A070BDF14EA79BF /* Pods_YJCollectionView.framework */; };
+		D405BD9C22977EDE00DA0380 /* YJTestCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D405BD9B22977EDE00DA0380 /* YJTestCVCell.swift */; };
+		D405BD9E22977F1E00DA0380 /* YJTestCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D405BD9D22977F1E00DA0380 /* YJTestCRView.swift */; };
 		D4FC953D229689C800F8C7C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC953C229689C800F8C7C7 /* AppDelegate.swift */; };
 		D4FC953F229689C800F8C7C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC953E229689C800F8C7C7 /* ViewController.swift */; };
 		D4FC9544229689C900F8C7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FC9543229689C900F8C7C7 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 		1ACA95706559846AE9C0E64F /* Pods-YJCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 		2843F2528A070BDF14EA79BF /* Pods_YJCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CD8965087D056753A1514B /* Pods-YJCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJCollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJCollectionView/Pods-YJCollectionView.release.xcconfig"; sourceTree = "<group>"; };
+		D405BD9B22977EDE00DA0380 /* YJTestCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTestCVCell.swift; sourceTree = "<group>"; };
+		D405BD9D22977F1E00DA0380 /* YJTestCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTestCRView.swift; sourceTree = "<group>"; };
 		D4FC9539229689C800F8C7C7 /* YJCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FC953C229689C800F8C7C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4FC953E229689C800F8C7C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				4AF64B762296F2B300DFE42C /* Resources */,
 				D4FC953C229689C800F8C7C7 /* AppDelegate.swift */,
 				D4FC953E229689C800F8C7C7 /* ViewController.swift */,
+				D405BD9B22977EDE00DA0380 /* YJTestCVCell.swift */,
+				D405BD9D22977F1E00DA0380 /* YJTestCRView.swift */,
 			);
 			path = YJCollectionView;
 			sourceTree = "<group>";
@@ -208,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D405BD9E22977F1E00DA0380 /* YJTestCRView.swift in Sources */,
 				D4FC953F229689C800F8C7C7 /* ViewController.swift in Sources */,
 				D4FC953D229689C800F8C7C7 /* AppDelegate.swift in Sources */,
+				D405BD9C22977EDE00DA0380 /* YJTestCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +345,7 @@
 			baseConfigurationReference = 1ACA95706559846AE9C0E64F /* Pods-YJCollectionView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJCollectionView/Info.plist;
@@ -344,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -356,6 +365,7 @@
 			baseConfigurationReference = 36CD8965087D056753A1514B /* Pods-YJCollectionView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJCollectionView/Info.plist;
@@ -363,7 +373,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

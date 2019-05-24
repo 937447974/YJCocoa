@@ -42,7 +42,7 @@ open class YJUITableViewManager: NSObject {
     /// 缓存高的策略
     public var cacheHeight = YJUITableViewCacheHeight.default
     
-    weak private(set) var tableView: UITableView!
+    weak public private(set) var tableView: UITableView!
     
     private var identifierSet = Set<String>()
     private var cacheHeightDict = Dictionary<String, CGFloat>()
@@ -90,11 +90,12 @@ extension YJUITableViewManager: UITableViewDataSource {
     }
     
     private func dequeueReusableHeaderFooterView(withCellObject cellObject: YJUITableCellObject)  -> UITableViewHeaderFooterView? {
-        if !self.identifierSet.contains(cellObject.reuseIdentifier) {
+        let identifier = "header/" + cellObject.reuseIdentifier
+        if !self.identifierSet.contains(identifier) {
             self.tableView.register(cellObject.cellClass, forHeaderFooterViewReuseIdentifier: cellObject.reuseIdentifier)
-            self.identifierSet.insert(cellObject.reuseIdentifier)
+            self.identifierSet.insert(identifier)
         }
-        let view = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: cellObject.reuseIdentifier)
+        let view = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
         view?.tableViewManager(self, reloadWith: cellObject)
         return view
     }

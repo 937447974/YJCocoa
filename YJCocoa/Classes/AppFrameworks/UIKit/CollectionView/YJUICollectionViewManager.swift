@@ -44,8 +44,8 @@ open class YJUICollectionViewManager: NSObject {
     /// 缓存size的策略
     var cacheSize = YJUICollectionViewCacheSize.default
     
-    weak private(set) var collectionView: UICollectionView!
-    weak private(set) var flowLayout: UICollectionViewFlowLayout!
+    weak public private(set) var collectionView: UICollectionView!
+    weak public private(set) var flowLayout: UICollectionViewFlowLayout!
     
     private var identifierSet = Set<String>()
     private var cacheSizeDict = Dictionary<String, CGSize>()
@@ -74,13 +74,19 @@ extension YJUICollectionViewManager: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard indexPath.section < self.dataSourceCell.count && indexPath.row < self.dataSourceCell[indexPath.section].count else {
+        guard let co = self.cellObject(with: indexPath) else {
             print("error:数组越界; selector:\(#function)")
             return UICollectionViewCell(frame: CGRect.zero)
         }
-        let co = self.dataSourceCell[indexPath.section][indexPath.row]
-        co.indexPath = indexPath
         return self.dequeueReusableCell(withCellObject: co)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let isHeader = UICollectionView.elementKindSectionHeader == kind
+        guard let co = isHeader ? self.cellHeaderObject(with: indexPath.section) : self.cellFooterObject(with: indexPath.section) else {
+            return UICollectionReusableView(frame: CGRect.zero)
+        }
+        return self.dequeueReusableSupplementaryView(ofKind: kind, for: co)
     }
     
     private func dequeueReusableCell(withCellObject cellObject: YJUICollectionCellObject) -> UICollectionViewCell {
@@ -89,8 +95,19 @@ extension YJUICollectionViewManager: UICollectionViewDataSource {
             self.identifierSet.insert(cellObject.reuseIdentifier)
         }
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: cellObject.reuseIdentifier, for: cellObject.indexPath)
-//        cell.collectionViewManager(self, reloadWith: cellObject)
+        cell.collectionViewManager(self, reloadWith: cellObject)
         return cell
+    }
+    
+    private func dequeueReusableSupplementaryView(ofKind elementKind: String, for cellObject: YJUICollectionCellObject) -> UICollectionReusableView {
+        let identifier = elementKind + cellObject.reuseIdentifier
+        if !self.identifierSet.contains(identifier) {
+            self.collectionView.register(cellObject.cellClass, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: identifier)
+            self.identifierSet.insert(identifier)
+        }
+        let reusableView = self.collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: identifier, for: cellObject.indexPath)
+        reusableView.collectionViewManager(self, reloadWith: cellObject)
+        return reusableView
     }
     
 }
