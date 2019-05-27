@@ -11,15 +11,33 @@
 		4AF93044228072D600AFE6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF93043228072D600AFE6A4 /* AppDelegate.swift */; };
 		4AF93046228072D600AFE6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF93045228072D600AFE6A4 /* ViewController.swift */; };
 		4AF9304B228072D600AFE6A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF9304A228072D600AFE6A4 /* Assets.xcassets */; };
+		4AFF22EA229C2CC1005E6248 /* DirectoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */; };
+		C74D6120474C1A0D8C165777 /* Pods_YJFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363D2707408AE73F68173DBE /* Pods_YJFoundationTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AFF22E4229C2C86005E6248 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF93038228072D600AFE6A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AF9303F228072D600AFE6A4;
+			remoteInfo = YJFoundation;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2D05B7CFF6917327EF8A0D8C /* Pods-YJFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		363D2707408AE73F68173DBE /* Pods_YJFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF93040228072D600AFE6A4 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF93043228072D600AFE6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF93045228072D600AFE6A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4AF9304A228072D600AFE6A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AF9304F228072D600AFE6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AFF22DF229C2C85005E6248 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AFF22E3229C2C86005E6248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryTest.swift; sourceTree = "<group>"; };
+		5F3597F076D73C3EEA21514C /* Pods-YJFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D7B5FE6838FA19284288111 /* Pods-YJFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D50F358140458B8044768A3A /* Pods-YJFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF208888E25A71D8D2AD69E8 /* Pods_YJFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -33,6 +51,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4AFF22DC229C2C85005E6248 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74D6120474C1A0D8C165777 /* Pods_YJFoundationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				4AF93042228072D600AFE6A4 /* YJFoundation */,
+				4AFF22E0229C2C86005E6248 /* YJFoundationTests */,
 				4AF93041228072D600AFE6A4 /* Products */,
 				E85CB1407037DD90472A3BC8 /* Pods */,
 				954F891D62C3EDC013B10D2A /* Frameworks */,
@@ -50,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				4AF93040228072D600AFE6A4 /* YJFoundation.app */,
+				4AFF22DF229C2C85005E6248 /* YJFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,10 +93,20 @@
 			path = YJFoundation;
 			sourceTree = "<group>";
 		};
+		4AFF22E0229C2C86005E6248 /* YJFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AFF22E3229C2C86005E6248 /* Info.plist */,
+				4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */,
+			);
+			path = YJFoundationTests;
+			sourceTree = "<group>";
+		};
 		954F891D62C3EDC013B10D2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				EF208888E25A71D8D2AD69E8 /* Pods_YJFoundation.framework */,
+				363D2707408AE73F68173DBE /* Pods_YJFoundationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -78,6 +116,8 @@
 			children = (
 				D50F358140458B8044768A3A /* Pods-YJFoundation.debug.xcconfig */,
 				2D05B7CFF6917327EF8A0D8C /* Pods-YJFoundation.release.xcconfig */,
+				9D7B5FE6838FA19284288111 /* Pods-YJFoundationTests.debug.xcconfig */,
+				5F3597F076D73C3EEA21514C /* Pods-YJFoundationTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -104,6 +144,25 @@
 			productReference = 4AF93040228072D600AFE6A4 /* YJFoundation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4AFF22DE229C2C85005E6248 /* YJFoundationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AFF22E8229C2C86005E6248 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */;
+			buildPhases = (
+				8AB91A0777938336C1BF85E3 /* [CP] Check Pods Manifest.lock */,
+				4AFF22DB229C2C85005E6248 /* Sources */,
+				4AFF22DC229C2C85005E6248 /* Frameworks */,
+				4AFF22DD229C2C85005E6248 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AFF22E5229C2C86005E6248 /* PBXTargetDependency */,
+			);
+			name = YJFoundationTests;
+			productName = YJFoundationTests;
+			productReference = 4AFF22DF229C2C85005E6248 /* YJFoundationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -116,6 +175,10 @@
 				TargetAttributes = {
 					4AF9303F228072D600AFE6A4 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					4AFF22DE229C2C85005E6248 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 4AF9303F228072D600AFE6A4;
 					};
 				};
 			};
@@ -133,6 +196,7 @@
 			projectRoot = "";
 			targets = (
 				4AF9303F228072D600AFE6A4 /* YJFoundation */,
+				4AFF22DE229C2C85005E6248 /* YJFoundationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -143,6 +207,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF9304B228072D600AFE6A4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AFF22DD229C2C85005E6248 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +236,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-YJFoundation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AB91A0777938336C1BF85E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJFoundationTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -205,7 +298,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4AFF22DB229C2C85005E6248 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AFF22EA229C2CC1005E6248 /* DirectoryTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AFF22E5229C2C86005E6248 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AF9303F228072D600AFE6A4 /* YJFoundation */;
+			targetProxy = 4AFF22E4229C2C86005E6248 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4AF93050228072D600AFE6A4 /* Debug */ = {
@@ -364,6 +473,50 @@
 			};
 			name = Release;
 		};
+		4AFF22E6229C2C86005E6248 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D7B5FE6838FA19284288111 /* Pods-YJFoundationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
+			};
+			name = Debug;
+		};
+		4AFF22E7229C2C86005E6248 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F3597F076D73C3EEA21514C /* Pods-YJFoundationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJFoundationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -381,6 +534,15 @@
 			buildConfigurations = (
 				4AF93053228072D600AFE6A4 /* Debug */,
 				4AF93054228072D600AFE6A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AFF22E8229C2C86005E6248 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AFF22E6229C2C86005E6248 /* Debug */,
+				4AFF22E7229C2C86005E6248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
