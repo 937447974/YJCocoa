@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,8 @@
 		4AF93044228072D600AFE6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF93043228072D600AFE6A4 /* AppDelegate.swift */; };
 		4AF93046228072D600AFE6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF93045228072D600AFE6A4 /* ViewController.swift */; };
 		4AF9304B228072D600AFE6A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF9304A228072D600AFE6A4 /* Assets.xcassets */; };
-		4AFF22EA229C2CC1005E6248 /* DirectoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */; };
 		C74D6120474C1A0D8C165777 /* Pods_YJFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363D2707408AE73F68173DBE /* Pods_YJFoundationTests.framework */; };
+		D4ED420F229D38CA00B89793 /* YJFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ED420E229D38CA00B89793 /* YJFoundationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +35,9 @@
 		4AF9304F228072D600AFE6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AFF22DF229C2C85005E6248 /* YJFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AFF22E3229C2C86005E6248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryTest.swift; sourceTree = "<group>"; };
 		5F3597F076D73C3EEA21514C /* Pods-YJFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D7B5FE6838FA19284288111 /* Pods-YJFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D4ED420E229D38CA00B89793 /* YJFoundationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJFoundationTests.swift; sourceTree = "<group>"; };
 		D50F358140458B8044768A3A /* Pods-YJFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF208888E25A71D8D2AD69E8 /* Pods_YJFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,8 +96,8 @@
 		4AFF22E0229C2C86005E6248 /* YJFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4ED420E229D38CA00B89793 /* YJFoundationTests.swift */,
 				4AFF22E3229C2C86005E6248 /* Info.plist */,
-				4AFF22E9229C2CC1005E6248 /* DirectoryTest.swift */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -271,19 +271,12 @@
 			);
 			inputFileListPaths = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJFoundation/Pods-YJFoundation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -302,7 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AFF22EA229C2CC1005E6248 /* DirectoryTest.swift in Sources */,
+				D4ED420F229D38CA00B89793 /* YJFoundationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

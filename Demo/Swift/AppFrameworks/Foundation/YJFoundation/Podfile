@@ -1,6 +1,6 @@
 platform :ios, '9.0'
 use_frameworks!
-#install! 'cocoapods', :disable_input_output_paths => true
+install! 'cocoapods', :disable_input_output_paths => true
 
 target 'YJFoundation' do
     pod 'YJCocoa', :path => "../../../../../YJCocoa.podspec"

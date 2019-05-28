@@ -1,17 +1,17 @@
 //
-//  DirectoryTest.swift
+//  YJFoundationTests.swift
 //  YJFoundationTests
 //
-//  Created by 阳君 on 2019/5/27.
+//  Created by 阳君 on 2019/5/28.
 //  Copyright © 2019 YJCocoa. All rights reserved.
 //
 
 import XCTest
-import YJCocoa
+@testable import YJCocoa
 
-class DirectoryTest: XCTestCase {
-    
-    func testExample() {
+class YJFoundationTests: XCTestCase {
+
+    func testDirectory() {
         let director = YJNSDirectoryS()
         XCTAssertNotNil(director.homeURL)
         XCTAssertNotNil(director.documentURL)
@@ -25,4 +25,9 @@ class DirectoryTest: XCTestCase {
         print("tempURL: \(director.tempURL!))")
     }
     
+    func testHttp() {
+        print(YJNSHttp.assemblyParams(nil, params: ["yj" : "阳君"], encode: false))
+        print(YJNSHttp.assemblyParams("http://www.baidu.com", params: [:], encode: true))
+    }
+
 }

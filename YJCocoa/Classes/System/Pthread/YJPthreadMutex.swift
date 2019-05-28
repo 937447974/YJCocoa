@@ -21,22 +21,30 @@ open class YJPthreadMutex: NSObject {
     }
     
     public func lock(_ f: () -> Void) {
-        pthread_mutex_lock(&mutex)
-        f()
-        pthread_mutex_unlock(&mutex)
+        _ = self.lockAny { () -> Any? in
+            f()
+            return nil
+        }
     }
     
     public func lockObj(_ f: () -> AnyObject) -> AnyObject {
-        pthread_mutex_lock(&mutex)
-        let obj = f()
-        pthread_mutex_unlock(&mutex)
-        return obj
+        return self.lockAny({ () -> Any? in
+            return f()
+        }) as AnyObject
     }
     
     public func lockAny(_ f: () -> Any?) -> Any? {
-        pthread_mutex_lock(&mutex)
-        let obj = f()
-        pthread_mutex_unlock(&mutex)
+        var finish = false
+        var obj: Any?
+        while !finish {
+            if pthread_mutex_trylock(&mutex) == 0 {
+                obj = f()
+                finish = true
+                pthread_mutex_unlock(&mutex)
+            } else {
+                usleep(10 * 1000)
+            }
+        }
         return obj
     }
     
