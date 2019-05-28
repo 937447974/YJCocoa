@@ -22,7 +22,7 @@ open class YJUIPageViewManager: NSObject {
     /// YJUIPageViewController
     weak public private(set) var pageVC: YJUIPageViewController!
     
-    private var cachePageDict = Dictionary<String, YJUIPageViewCell>()
+    private var cachePage = NSCache<NSString, YJUIPageViewCell>()
     private lazy var scrollView: UIScrollView? = {
         for view in self.pageVC.view.subviews {
             if let scrollView = view as? UIScrollView {
@@ -80,16 +80,18 @@ extension YJUIPageViewManager {
         if self.index == 0 {
             switch (self.pageVC.navigationOrientation) {
             case .horizontal:
-                guard offset.x < 0 else {
+                guard offset.x < self.scrollView!.frameWidth else {
                     return
                 }
-                offset.x = 0
+                offset.x = self.scrollView!.frameWidth
+                self.scrollView!.setContentOffset(offset, animated: false)
             case .vertical:
-                guard offset.y < 0 else {
+                guard offset.y < self.scrollView!.frameHeight else {
                     return
                 }
-                offset.y = 0
-            @unknown default: break
+                offset.y = self.scrollView!.frameHeight
+                self.scrollView!.setContentOffset(offset, animated: false)
+             default: return
             }
         } else if self.index == self.dataSourceCell.count - 1 {
             switch (self.pageVC.navigationOrientation) {
@@ -98,13 +100,17 @@ extension YJUIPageViewManager {
                     return
                 }
                 offset.x = self.scrollView!.frameWidth
+                self.scrollView!.setContentOffset(offset, animated: false)
             case .vertical:
                 guard offset.y > self.scrollView!.frameHeight else {
                     return
                 }
                 offset.y = self.scrollView!.frameHeight
-            @unknown default: break
+                self.scrollView!.setContentOffset(offset, animated: false)
+            @unknown default: return
             }
+        } else {
+            return
         }
         self.scrollView!.setContentOffset(offset, animated: false)
     }
@@ -130,14 +136,11 @@ extension YJUIPageViewManager: UIPageViewControllerDataSource {
             print("返回空cell")
             return nil
         }
-//        var key = "\(co.reuseIdentifier)-\(co.index % 3)"
-//        if co.index + 3 >= self.dataSourceCell.count {
-           let key = "\(co.reuseIdentifier)-\(index)"
-//        }
-        var cell: YJUIPageViewCell! = self.cachePageDict[key]
+        let key = "\(co.reuseIdentifier)-\(index)" as NSString
+        var cell: YJUIPageViewCell! = self.cachePage.object(forKey: key)
         if cell == nil {
             cell = (co.cellClass as! YJUIPageViewCell.Type).init()
-            self.cachePageDict[key] = cell
+            self.cachePage.setObject(cell, forKey: key)
             if cell.view.backgroundColor == nil {
                 cell.view.backgroundColor = UIColor.white
             }
