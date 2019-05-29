@@ -55,7 +55,14 @@ class YJFoundationTests: XCTestCase {
         auto()
         target.str = "3"
         print("end")
-        
+    }
+    
+    func testLog() {
+        YJLogVerbose("verbose")
+        YJLogDebug("debug")
+        YJLogInfo("info")
+        YJLogWarn("warn")
+        YJLogError("error")
     }
     
 }
