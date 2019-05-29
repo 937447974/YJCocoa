@@ -48,7 +48,7 @@ extension ViewController {
 extension ViewController {
     
     func testCalendar() {
-        let calendar = YJNSCalendar.current
+        let calendar = YJCalendar.current
         print("era:\(calendar.era) year:\(calendar.year) month :\(calendar.month) day:\(calendar.day)")
         print("hour:\(calendar.hour) minute:\(calendar.minute) second:\(calendar.second) nanosecond:\(calendar.nanosecond)")
         print("weekday:\(calendar.weekday) weekOfYear:\(calendar.weekOfYear) yearForWeekOfYear:\(calendar.yearForWeekOfYear) ")
@@ -66,7 +66,7 @@ extension ViewController {
     }
     
     func testSafetyDictionary() {
-        let dict = YJNSSafetyDictionary()
+        let dict = YJSafetyDictionary()
         dict.setObject(1, forKey: "2" as NSString)
         NSLog("\(dict) count:\(dict.count)")
         NSLog("obj:\(dict.object(forKey: "2") ?? "")")
@@ -96,7 +96,7 @@ extension ViewController {
     }
     
     func testSafetyCache() {
-        let cache = YJNSSafetyCache<NSString, NSString>()
+        let cache = YJSafetyCache<NSString, NSString>()
         cache.delegate = self
         cache.countLimit = 999;
         cache.setObject("1o", forKey: "1")

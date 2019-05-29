@@ -1,5 +1,5 @@
 //
-//  YJNSSingletonModel.swift
+//  YJSingletonModel.swift
 //  Pods
 //
 //  Created by 阳君 on 2019/5/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal class YJNSSingletonModel {
+internal class YJSingletonModel {
     
     private let mutex = YJPthreadMutex()
     var obj: AnyObject!

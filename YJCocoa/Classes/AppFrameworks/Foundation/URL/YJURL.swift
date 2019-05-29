@@ -1,5 +1,5 @@
 //
-//  YJNSHttp.swift
+//  YJHttp.swift
 //  YJCocoa
 //
 //  Created by 阳君 on 2019/5/28.
@@ -8,18 +8,18 @@
 import UIKit
 
 /// URLEncode编码
-public func YJNSURLEncode(_ str: String) -> String? {
+public func YJURLEncode(_ str: String) -> String? {
     let characters = CharacterSet(charactersIn: ":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`").inverted
     return str.addingPercentEncoding(withAllowedCharacters: characters)
 }
 
 /// URLEncode解码
-public func YJNSURLDecode(_ str: String) -> String? {
+public func YJURLDecode(_ str: String) -> String? {
     return str.removingPercentEncoding
 }
 
 /// http 参数解析与组装
-public class YJNSURL: NSObject {
+public class YJURL: NSObject {
     
     /**
      * http组装
@@ -32,7 +32,7 @@ public class YJNSURL: NSObject {
         for (key, var value) in params {
             if value is String {
                 if encode {
-                    value = YJNSURLEncode(value as! String) ?? ""
+                    value = YJURLEncode(value as! String) ?? ""
                 }
             }
             result += "&\(key)=\(value)"
@@ -65,7 +65,7 @@ public class YJNSURL: NSObject {
             let keyValue = item.components(separatedBy: "=")
             let key = keyValue[0]
             let value = keyValue.count == 2 ? keyValue[1] : ""
-            result[key] = decode ? YJNSURLDecode(value) ?? "" : ""
+            result[key] = decode ? YJURLDecode(value) ?? "" : ""
         }
         return result
     }

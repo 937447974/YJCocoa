@@ -1,5 +1,5 @@
 //
-//  YJNSSafetyCache.swift
+//  YJSafetyCache.swift
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -12,7 +12,7 @@
 import Foundation
 
 /// 线程安全的NSCache
-open class YJNSSafetyCache<KeyType, ObjectType> : NSCache<AnyObject, AnyObject> where KeyType : AnyObject, ObjectType : AnyObject {
+open class YJSafetyCache<KeyType, ObjectType> : NSCache<AnyObject, AnyObject> where KeyType : AnyObject, ObjectType : AnyObject {
     
     /// 所有 key
     open var allKeys: Array<KeyType> {

@@ -1,5 +1,5 @@
 //
-//  YJNSSingletonCenter.swift
+//  YJSingletonCenter.swift
 //  Pods
 //
 //  Created by 阳君 on 2019/5/22.
@@ -9,22 +9,22 @@ import Foundation
 
 /// 获取强引用单例
 public func YJStrongSingleton(_ aClass: AnyClass, _ identifier: String?) -> AnyObject {
-    return YJNSSingletonCenter.defaultCenter.strongSingleton(aClass: aClass, forIdentifier: identifier)
+    return YJSingletonCenter.defaultCenter.strongSingleton(aClass: aClass, forIdentifier: identifier)
 }
 
 /// 获取弱引用单例
 public func YJWeakSingleton(_ aClass: AnyClass, _ identifier: String) -> AnyObject {
-    return YJNSSingletonCenter.defaultCenter.weakSingleton(aClass: aClass, forIdentifier: identifier)
+    return YJSingletonCenter.defaultCenter.weakSingleton(aClass: aClass, forIdentifier: identifier)
 }
 
 /** 单例中心*/
-open class YJNSSingletonCenter: NSObject & NSCacheDelegate {
+open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
-    static var defaultCenter = YJNSSingletonCenter()
+    static var defaultCenter = YJSingletonCenter()
     
     private let mutex = YJPthreadMutex()
-    private var strongDict = YJNSSafetyDictionary()
-    private var weakCache = YJNSSafetyCache<NSString, YJNSSingletonModel>()
+    private var strongDict = YJSafetyDictionary()
+    private var weakCache = YJSafetyCache<NSString, YJSingletonModel>()
     
     public override init() {
         super.init()
@@ -36,13 +36,13 @@ open class YJNSSingletonCenter: NSObject & NSCacheDelegate {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.strongDict[identifier] else {
-                let model = YJNSSingletonModel()
+                let model = YJSingletonModel()
                 self.strongDict[identifier] = model
                 return model
             }
             return model as AnyObject
         }
-        return (model as! YJNSSingletonModel).object(aClass: aClass, forIdentifier: identifier)
+        return (model as! YJSingletonModel).object(aClass: aClass, forIdentifier: identifier)
     }
     
     /// 弱引用单例，自动回收
@@ -50,13 +50,13 @@ open class YJNSSingletonCenter: NSObject & NSCacheDelegate {
         let identifier1 = identifier as NSString
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.weakCache.object(forKey: identifier1) else {
-                let model = YJNSSingletonModel()
+                let model = YJSingletonModel()
                 self.weakCache.setObject(model, forKey: identifier1)
                 return model
             }
             return model
         }
-        return (model as! YJNSSingletonModel).object(aClass: aClass, forIdentifier: identifier)
+        return (model as! YJSingletonModel).object(aClass: aClass, forIdentifier: identifier)
     }
     
     /// 移除弱引用单例

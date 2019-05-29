@@ -1,5 +1,5 @@
 //
-//  YJNSCalendar.swift
+//  YJCalendar.swift
 //  Pods
 //
 //  Created by 阳君 on 2019/5/9.
@@ -8,11 +8,11 @@
 import Foundation
 
 ///  日历
-open class YJNSCalendar: NSObject {
+open class YJCalendar: NSObject {
     
     /// 当前时间
-    public class var current: YJNSCalendar {
-        return YJNSCalendar(date: NSDate(timeIntervalSinceNow: 0), calendar: NSCalendar.current as NSCalendar)
+    public class var current: YJCalendar {
+        return YJCalendar(date: NSDate(timeIntervalSinceNow: 0), calendar: NSCalendar.current as NSCalendar)
     }
     
     /// NSDateComponents.era

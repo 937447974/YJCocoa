@@ -8,14 +8,14 @@
 import UIKit
 
 /// KVO 回调
-public typealias YJNSKVOBlock = (_ oldValue: Any?, _ newValue: Any?) -> Void
+public typealias YJKVOBlock = (_ oldValue: Any?, _ newValue: Any?) -> Void
 
 private class YJKeyValueObserver : NSObject  {
     
     weak var observer: NSObject?
-    var kvoBlock: YJNSKVOBlock!
+    var kvoBlock: YJKVOBlock!
     
-    init(_ observer: NSObject, kvoBlock: @escaping YJNSKVOBlock) {
+    init(_ observer: NSObject, kvoBlock: @escaping YJKVOBlock) {
         super.init()
         self.observer = observer
         self.kvoBlock = kvoBlock
@@ -32,7 +32,7 @@ private class YJKeyValueObserver : NSObject  {
 public extension NSObject {
     
     /// 添加 KVO 监听
-    func addObserver(_ observer: NSObject, forKeyPath keyPath: String, kvoBlock: @escaping YJNSKVOBlock) {
+    func addObserver(_ observer: NSObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
         let kvoArray = self.kvoArray(keyPath: keyPath)
         for item in kvoArray {
             let kvoItem = item as! YJKeyValueObserver

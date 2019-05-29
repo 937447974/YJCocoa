@@ -1,5 +1,5 @@
 //
-//  YJNSDirectory.swift
+//  YJDirectory.swift
 //  Pods
 //
 //  Created by 阳君 on 2019/5/27.
@@ -7,11 +7,13 @@
 
 import UIKit
 
-public func YJNSDirectoryS() -> YJNSDirectory {
-    return YJWeakSingleton(YJNSDirectory.self, "YJNSDirectory") as! YJNSDirectory
+/// 应用内目录单例
+public func YJDirectoryS() -> YJDirectory {
+    return YJWeakSingleton(YJDirectory.self, "YJDirectory") as! YJDirectory
 }
 
-open class YJNSDirectory: NSObject {
+/// 应用内目录
+open class YJDirectory: NSObject {
     
     /// HomeDirectoryPath
     public let homePath: String!

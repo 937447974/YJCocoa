@@ -12,7 +12,7 @@ import XCTest
 class YJFoundationTests: XCTestCase {
     
     func testDirectory() {
-        let director = YJNSDirectoryS()
+        let director = YJDirectoryS()
         XCTAssertNotNil(director.homeURL)
         XCTAssertNotNil(director.documentURL)
         XCTAssertNotNil(director.libraryURL)
@@ -26,10 +26,10 @@ class YJFoundationTests: XCTestCase {
     }
     
     func testURL() {
-        print(YJNSURL.assemblyParams(nil, params: ["wd" : "阳君"], encode: false))
-        print(YJNSURL.assemblyParams("http://www.baidu.com", params: [:], encode: true))
-        print(YJNSURL.assemblyParams("http://www.baidu.com?rsv_sug7=101", params: ["wd":"阳君"], encode: true))
-        print(YJNSURL.analysisParams("https://www.baidu.com?rsv_sug7=101&wd=%E9%98%B3%E5%90%9B", decode: true))
+        print(YJURL.assemblyParams(nil, params: ["wd" : "阳君"], encode: false))
+        print(YJURL.assemblyParams("http://www.baidu.com", params: [:], encode: true))
+        print(YJURL.assemblyParams("http://www.baidu.com?rsv_sug7=101", params: ["wd":"阳君"], encode: true))
+        print(YJURL.analysisParams("https://www.baidu.com?rsv_sug7=101&wd=%E9%98%B3%E5%90%9B", decode: true))
     }
     
     func testKVO() {

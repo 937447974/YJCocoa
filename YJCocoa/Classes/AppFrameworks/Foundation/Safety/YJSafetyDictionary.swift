@@ -1,5 +1,5 @@
 //
-//  YJNSSafetyDictionary.swift
+//  YJSafetyDictionary.swift
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -11,7 +11,7 @@
 
 import Foundation
 
-open class YJNSSafetyDictionary: NSMutableDictionary {
+open class YJSafetyDictionary: NSMutableDictionary {
     
     private var dict = NSMutableDictionary()
     private var mutex = YJPthreadMutex()
@@ -19,7 +19,7 @@ open class YJNSSafetyDictionary: NSMutableDictionary {
 }
 
 //MARK: abstract class
-extension YJNSSafetyDictionary {
+extension YJSafetyDictionary {
     open override var count: Int {
         var count = 0
         self.mutex.lock {
@@ -55,7 +55,7 @@ extension YJNSSafetyDictionary {
 }
 
 //MARK: aop
-extension YJNSSafetyDictionary {
+extension YJSafetyDictionary {
     
     open override func responds(to aSelector: Selector!) -> Bool {
         return self.dict.responds(to: aSelector)
