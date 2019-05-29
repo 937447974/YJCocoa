@@ -32,4 +32,30 @@ class YJFoundationTests: XCTestCase {
         print(YJNSURL.analysisParams("https://www.baidu.com?rsv_sug7=101&wd=%E9%98%B3%E5%90%9B", decode: true))
     }
     
+    func testKVO() {
+        class TestKVO : NSObject {
+            @objc dynamic var str = "0"
+            deinit {
+                print("TestKVO deinit")
+            }
+        }
+        let target = TestKVO()
+        func auto() {
+            let observer = TestKVO()
+            target.addObserver(observer, forKeyPath: "str") { (oldValue: Any?, newValue: Any?) in
+                print("1- \(oldValue!) - \(newValue!)")
+            }
+            target.str = "1"
+            target.addObserver(observer, forKeyPath: "str") { (oldValue: Any?, newValue: Any?) in
+                print("2 - \(oldValue!) - \(newValue!)")
+            }
+            target.str = "1"
+            target.str = "2"
+        }
+        auto()
+        target.str = "3"
+        print("end")
+        
+    }
+    
 }

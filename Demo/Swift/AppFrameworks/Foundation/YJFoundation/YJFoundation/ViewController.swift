@@ -15,7 +15,8 @@ class ViewController: UIViewController, NSCacheDelegate {
         super.viewDidLoad()
 //        self.testCalendar()
 //        self.testSafety()
-        self.testSingletonCenter()
+//        self.testSingletonCenter()
+        
     }
     
 }
