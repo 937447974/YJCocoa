@@ -19,15 +19,15 @@ public func YJNSURLDecode(_ str: String) -> String? {
 }
 
 /// http 参数解析与组装
-public class YJNSHttp: NSObject {
+public class YJNSURL: NSObject {
     
     /**
      * http组装
-     * - Parameter http: 链接
+     * - Parameter url: 链接
      * - Parameter params: 参数
      * - Parameter encode: 是否 encode 编码参数
      */
-    class func assemblyParams(_ http: String?, params: Dictionary<String, Any>, encode: Bool) -> String {
+    class func assemblyParams(_ url: String?, params: Dictionary<String, Any>, encode: Bool) -> String {
         var result = ""
         for (key, var value) in params {
             if value is String {
@@ -38,29 +38,27 @@ public class YJNSHttp: NSObject {
             result += "&\(key)=\(value)"
         }
         if result.count != 0 {
-            let range = 
-            result = result.substring(with: Range(1..<result.count))
+            result = result[1..<result.count]
         }
-        
-        if http == nil {
-            
-        } else {
+        if url != nil {
             if result.count == 0 {
-                result = http
+                result = url!
+            } else {
+                let component = url!.contains("?") ? "&": "?"
+                result = url! + component + result
             }
-            result = http! + (http!.contains("?") ? "": "?") + result
         }
         return result
     }
     
     /**
      * http参数解析
-     * - Parameter http: 链接
+     * - Parameter url: 链接
      * - Parameter params: 参数
      * - Parameter encode: 是否 encode 编码参数
      */
-    class func analysisParams(_ http: String, decode: Bool) -> Dictionary<String, Any> {
-        var params: String = http.components(separatedBy: "?").last!
+    class func analysisParams(_ url: String, decode: Bool) -> Dictionary<String, Any> {
+        var params: String = url.components(separatedBy: "?").last!
         params = params.components(separatedBy: "#")[0]
         var result = Dictionary<String, Any>()
         for item in params.components(separatedBy: "&") {

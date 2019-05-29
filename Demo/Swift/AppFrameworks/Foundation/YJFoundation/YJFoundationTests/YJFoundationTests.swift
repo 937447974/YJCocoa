@@ -10,7 +10,7 @@ import XCTest
 @testable import YJCocoa
 
 class YJFoundationTests: XCTestCase {
-
+    
     func testDirectory() {
         let director = YJNSDirectoryS()
         XCTAssertNotNil(director.homeURL)
@@ -25,9 +25,11 @@ class YJFoundationTests: XCTestCase {
         print("tempURL: \(director.tempURL!))")
     }
     
-    func testHttp() {
-        print(YJNSHttp.assemblyParams(nil, params: ["yj" : "阳君"], encode: false))
-        print(YJNSHttp.assemblyParams("http://www.baidu.com", params: [:], encode: true))
+    func testURL() {
+        print(YJNSURL.assemblyParams(nil, params: ["wd" : "阳君"], encode: false))
+        print(YJNSURL.assemblyParams("http://www.baidu.com", params: [:], encode: true))
+        print(YJNSURL.assemblyParams("http://www.baidu.com?rsv_sug7=101", params: ["wd":"阳君"], encode: true))
+        print(YJNSURL.analysisParams("https://www.baidu.com?rsv_sug7=101&wd=%E9%98%B3%E5%90%9B", decode: true))
     }
-
+    
 }
