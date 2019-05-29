@@ -47,19 +47,25 @@ public extension NSObject {
     }
     
     /// 移除 KVO 监听
-    func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String) {
-        for item in self.kvoArray(keyPath: keyPath) {
-            let kvoItem = item as! YJKeyValueObserver
-            if observer == kvoItem.observer {
-                self.removeObserver(observer, forKeyPath: keyPath)
-                return
+    func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String?) {
+        if keyPath == nil {
+            for key in self.yj_kvoDictionary.allKeys {
+                self.removeObserverBlock(observer, forKeyPath: key as? String)
+            }
+        } else {
+            for item in self.kvoArray(keyPath: keyPath!) {
+                let kvoItem = item as! YJKeyValueObserver
+                if observer == kvoItem.observer {
+                    self.removeObserver(observer, forKeyPath: keyPath!)
+                    return
+                }
             }
         }
     }
     
     @objc private dynamic var yj_kvoDictionary: NSMutableDictionary {
         get {
-            let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_kvoDictionary:".hashValue)
+            let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_kvoDictionary".hashValue)
             guard let kvoDict = objc_getAssociatedObject(self, key) as? NSMutableDictionary else {
                 let kvoDict = NSMutableDictionary()
                 objc_setAssociatedObject(self, key, kvoDict, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -68,7 +74,7 @@ public extension NSObject {
             return kvoDict
         }
         set {
-            let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_kvoDictionary:".hashValue)
+            let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_kvoDictionary".hashValue)
             objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }

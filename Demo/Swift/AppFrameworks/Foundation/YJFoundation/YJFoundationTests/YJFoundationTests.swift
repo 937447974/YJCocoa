@@ -65,4 +65,17 @@ class YJFoundationTests: XCTestCase {
         YJLogError("error")
     }
     
+    func testNotification() {
+        let name = NSNotification.Name(rawValue: "test")
+        func auto() {
+            let target = NSObject()
+            NotificationCenter.default.addObserver(target, name: name) { (notification: Notification) in
+                print("\(notification.name.rawValue) \(notification.object!)")
+            }
+            NotificationCenter.default.post(name: name, object: "obj")
+        }
+        auto()
+        NotificationCenter.default.post(name: name, object: "obj1")
+    }
+    
 }
