@@ -10,7 +10,6 @@
 //
 
 #import "YJDispatchTimer.h"
-#import "YJDispatchQueue.h"
 
 dispatch_source_t dispatch_timer(dispatch_queue_t queue, NSTimeInterval interval, dispatch_block_t handler) {
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -28,5 +27,6 @@ dispatch_source_t dispatch_timer_main(NSTimeInterval interval, dispatch_block_t 
 }
 
 dispatch_source_t dispatch_timer_default(NSTimeInterval interval, dispatch_block_t handler) {
-    return dispatch_timer(dispatch_get_default_queue(0), interval, handler);
+    dispatch_queue_global_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    return dispatch_timer(queue, interval, handler);
 }

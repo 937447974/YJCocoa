@@ -36,7 +36,6 @@ public func dispatch_after_default(delayInSeconds: TimeInterval, block: @escapin
     DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + delayInSeconds, execute: block)
 }
 
-// MARK: background queue
 /// background queue 异步执行
 public func dispatch_async_background(block: @escaping YJDispatchBlock) {
     DispatchQueue.global(qos: .background).async(execute: block)
@@ -44,14 +43,12 @@ public func dispatch_async_background(block: @escaping YJDispatchBlock) {
 
 /// serial queue 异步执行
 public func dispatch_async_serial(block: @escaping YJDispatchBlock) {
-    
+    YJDispatchQueue.serial.async(execute: block)
 }
 
-let queue: DispatchQueue = DispatchQueue(label: "com.zhengwenxiang.con", qos: .utility, attributes: .concurrent)
 /// concurrent queue 异步执行
 public func dispatch_async_concurrent(block: @escaping YJDispatchBlock) {
-    
-   
+    YJDispatchQueue.concurrent.async(execute: block)
 }
 
 /// 调度队列
@@ -60,6 +57,18 @@ open class YJDispatchQueue: NSObject {
     var queue: DispatchQueue!
     var semaphore: DispatchSemaphore!
     let key = DispatchSpecificKey<String>()
+    
+    /// 串行
+    public static var serial: YJDispatchQueue = {
+        let queue = DispatchQueue(label: "com.yjcocoa.serial")
+        return YJDispatchQueue(queue: queue, maxConcurrent: 1)
+    }()
+    /// 并行
+    public static var concurrent: YJDispatchQueue = {
+        let queue = DispatchQueue.init(label: "com.codansYC.queue", attributes: DispatchQueue.Attributes.concurrent)
+        return YJDispatchQueue(queue: queue, maxConcurrent: 16)
+    }()
+    
     
     /**
      * init
@@ -70,8 +79,6 @@ open class YJDispatchQueue: NSObject {
         self.queue = queue
         self.semaphore = DispatchSemaphore(value: maxConcurrent)
         self.queue.setSpecific(key: self.key, value: "yj.dispatch.queue")
-        
-        
     }
     
     /// 同步执行
