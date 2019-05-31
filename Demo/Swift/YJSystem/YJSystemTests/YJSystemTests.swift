@@ -44,5 +44,11 @@ class YJSystemTests: XCTestCase {
             }
         }
     }
+    
+    func testRandom() {
+        print(YJSecRandomU(count: 8))
+        print(YJSecRandomL(count: 8))
+        print(YJSecRandomUL(count: 8))
+    }
 
 }
