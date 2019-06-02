@@ -50,5 +50,24 @@ class YJSystemTests: XCTestCase {
         print(YJSecRandomL(count: 8))
         print(YJSecRandomUL(count: 8))
     }
+    
+    func testKeyChain() {
+        let item = YJSecKeychainItem.buildGenericPassword()
+        item.account = "阳君"
+        // select
+        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
+        // save
+        item.desc = "设置描述"
+        print("save: \(YJSecKeychainSave(item: item))")
+        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
+        // update
+        item.desc = "修改描述"
+        print("save: \(YJSecKeychainSave(item: item))")
+        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
+        // delete
+        print("delete: \(YJSecKeychainDelete(item: item))")
+        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
+    }
+
 
 }

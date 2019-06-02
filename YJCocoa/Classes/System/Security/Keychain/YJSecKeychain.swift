@@ -7,15 +7,48 @@
 
 import UIKit
 
-func YJSecKeychainItemSelect(item: YJSecKeychainItem) {
+/// 查找钥匙串
+public func YJSecKeychainSelect(item: YJSecKeychainItem) -> YJSecKeychainItem? {
+    var selectDict = item.selectDict
+    selectDict[kSecMatchLimit] = kSecMatchLimitOne
+    selectDict[kSecReturnAttributes] = kCFBooleanTrue
     var result: CFTypeRef? = nil
-    let status = SecItemCopyMatching(item.selectDict as CFDictionary, &result)
-    var dict = result as! Dictionary<String, Any>
+    let status = SecItemCopyMatching(selectDict as CFDictionary, &result)
+    if status == errSecSuccess {
+        let selectItem = YJSecKeychainItem(kClass: item.kClass)
+        selectItem.selectDict = item.selectDict
+        selectItem.strongDict = result as! [CFString : Any]
+        return selectItem
+    }
+    return nil
 }
 
+/// 保存钥匙串
+public func YJSecKeychainSave(item: YJSecKeychainItem) -> OSStatus {
+    let selectDict = item.selectDict
+    if let selectItem = YJSecKeychainSelect(item: item) {
+        item.weakDict.merge(selectItem.strongDict) { (current, _) in current }
+        selectItem.strongDict = item.weakDict
+        item.weakDict.removeValue(forKey: kSecAttrCreationDate)
+        item.weakDict.removeValue(forKey: kSecAttrModificationDate)
+        return SecItemUpdate(selectDict as CFDictionary, item.weakDict as CFDictionary)
+    } else {
+        item.weakDict.merge(selectDict) { (_, new) in new }
+        return SecItemAdd(item.weakDict as CFDictionary, nil)
+    }
+}
+
+/// 删除钥匙串
+public func YJSecKeychainDelete(item: YJSecKeychainItem) -> OSStatus {
+    item.selectDict.removeValue(forKey: kSecMatchLimit)
+    item.selectDict.removeValue(forKey: kSecReturnAttributes)
+    return  SecItemDelete(item.selectDict as CFDictionary)
+}
+
+/// 钥匙串基础属性
 public protocol YJSecKItemAttribute {
     /// 存储类型，支持搜索
-    var kClass: CFString { get set }
+    var kClass: CFString { get }
     /// 访问组,支持搜索 kSecAttrAccessGroup
     var accessGroup: String { get set }
     /// 可访问性 kSecAttrAccessible
@@ -50,24 +83,30 @@ public protocol YJSecKItemGenericPasswordAttribute {
     var generic: Data? { get set }
 }
 
+/// 钥匙串 item
 open class YJSecKeychainItem: NSObject {
     
     /// 查询字典
-    fileprivate var selectDict = Dictionary<CFString, String>()
+    fileprivate var selectDict = Dictionary<CFString, Any>()
     /// 缓存字典
     fileprivate var weakDict = Dictionary<CFString, Any>()
     /// 持久化字典
     fileprivate var strongDict = Dictionary<CFString, Any>()
     
-    public var kClass: CFString = "" as CFString
+    public private(set) var kClass: CFString = "" as CFString
     
     public init(kClass: CFString) {
         self.kClass = kClass
+        self.selectDict[kSecClass] = kClass
     }
     
     /// 存储kSecClassGenericPassword(一般密码)数据
-    class func buildGenericPassword() -> YJSecKeychainItem {
+    public class func buildGenericPassword() -> YJSecKeychainItem {
         return YJSecKeychainItem(kClass: kSecClassGenericPassword)
+    }
+    
+    open override var description: String {
+        return "\(self.kClass): \(self.strongDict)"
     }
     
 }
