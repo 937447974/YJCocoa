@@ -25,23 +25,17 @@ public func YJSecKeychainSelect(item: YJSecKeychainItem) -> YJSecKeychainItem? {
 
 /// 保存钥匙串
 public func YJSecKeychainSave(item: YJSecKeychainItem) -> OSStatus {
-    let selectDict = item.selectDict
-    if let selectItem = YJSecKeychainSelect(item: item) {
-        item.weakDict.merge(selectItem.strongDict) { (current, _) in current }
-        selectItem.strongDict = item.weakDict
-        item.weakDict.removeValue(forKey: kSecAttrCreationDate)
-        item.weakDict.removeValue(forKey: kSecAttrModificationDate)
-        return SecItemUpdate(selectDict as CFDictionary, item.weakDict as CFDictionary)
+    if YJSecKeychainSelect(item: item) != nil {
+        item.strongDict.merge(item.weakDict) { (_, new) in new }
+        return SecItemUpdate(item.selectDict as CFDictionary, item.weakDict as CFDictionary)
     } else {
-        item.weakDict.merge(selectDict) { (_, new) in new }
+        item.weakDict.merge(item.selectDict) { (_, new) in new }
         return SecItemAdd(item.weakDict as CFDictionary, nil)
     }
 }
 
 /// 删除钥匙串
 public func YJSecKeychainDelete(item: YJSecKeychainItem) -> OSStatus {
-    item.selectDict.removeValue(forKey: kSecMatchLimit)
-    item.selectDict.removeValue(forKey: kSecReturnAttributes)
     return  SecItemDelete(item.selectDict as CFDictionary)
 }
 
@@ -178,11 +172,11 @@ extension YJSecKeychainItem: YJSecKItemGenericPasswordAttribute {
     
     public var comment: String? {
         get {
-            return self.strongDict[kSecAttrDescription] as? String
+            return self.strongDict[kSecAttrComment] as? String
         }
         set {
-            self.strongDict[kSecAttrDescription] = newValue
-            self.weakDict[kSecAttrDescription] = newValue
+            self.strongDict[kSecAttrComment] = newValue
+            self.weakDict[kSecAttrComment] = newValue
         }
     }
     

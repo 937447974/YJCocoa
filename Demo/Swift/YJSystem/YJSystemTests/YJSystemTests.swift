@@ -52,21 +52,34 @@ class YJSystemTests: XCTestCase {
     }
     
     func testKeyChain() {
-        let item = YJSecKeychainItem.buildGenericPassword()
-        item.account = "阳君"
-        // select
-        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
-        // save
-        item.desc = "设置描述"
-        print("save: \(YJSecKeychainSave(item: item))")
-        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
-        // update
-        item.desc = "修改描述"
-        print("save: \(YJSecKeychainSave(item: item))")
-        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
-        // delete
-        print("delete: \(YJSecKeychainDelete(item: item))")
-        print("find: \(String(describing: YJSecKeychainSelect(item: item)))")
+        func buildItem() -> YJSecKeychainItem {
+            let item = YJSecKeychainItem.buildGenericPassword()
+            item.account = "阳君"
+            return item
+        }
+        func select() {
+            print("find: \(String(describing: YJSecKeychainSelect(item: buildItem())))")
+        }
+        func save() {
+            let item = buildItem()
+            item.desc = "设置描述"
+            print("save: \(YJSecKeychainSave(item: item))")
+        }
+        func update() {
+            let item = buildItem()
+            item.comment = "设置注释"
+            print("save: \(YJSecKeychainSave(item: item))")
+        }
+        func delete() {
+            print("delete: \(YJSecKeychainDelete(item: buildItem()))")
+        }
+        select()
+        save()
+        select()
+        update()
+        select()
+        delete()
+        select()
     }
 
 
