@@ -97,11 +97,9 @@
 		4AF6F1D022A01DD100D95CAD /* YJSystem */ = {
 			isa = PBXGroup;
 			children = (
-				4AF79EDF22A3A36B00068789 /* YJSystem.entitlements */,
 				4AF6F1D122A01DD100D95CAD /* AppDelegate.swift */,
 				4AF6F1D322A01DD100D95CAD /* ViewController.swift */,
-				4AF6F1D822A01DD200D95CAD /* Assets.xcassets */,
-				4AF6F1DD22A01DD200D95CAD /* Info.plist */,
+				D410EB2E22A4B1B8001B4613 /* Resources */,
 			);
 			path = YJSystem;
 			sourceTree = "<group>";
@@ -113,6 +111,16 @@
 				4AF6F1E822A01DD200D95CAD /* Info.plist */,
 			);
 			path = YJSystemTests;
+			sourceTree = "<group>";
+		};
+		D410EB2E22A4B1B8001B4613 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4AF79EDF22A3A36B00068789 /* YJSystem.entitlements */,
+				4AF6F1DD22A01DD200D95CAD /* Info.plist */,
+				4AF6F1D822A01DD200D95CAD /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		F0B53153334AFC2AC445A5B6 /* Frameworks */ = {

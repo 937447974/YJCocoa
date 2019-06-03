@@ -10,15 +10,15 @@ import XCTest
 @testable import YJCocoa
 
 class YJSystemTests: XCTestCase {
-
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     
     func testDispatch() {
         dispatch_async_main {
@@ -43,6 +43,19 @@ class YJSystemTests: XCTestCase {
                 sleep(1)
             }
         }
+    }
+    
+    func testDispatchFlow() {
+        _ = YJDispatchFlow().async(execute: { (data: Any?) -> Any? in
+            print("操作1: \(String(describing: data))")
+            return "操作1的数据"
+        }).async(queue: DispatchQueue.main, execute: { (data: Any?) -> Any? in
+            print("操作2: \(String(describing: data))")
+            return "操作2的数据"
+        }).async(execute: { (data: Any?) -> Any? in
+            print("操作3: \(String(describing: data))")
+            return nil
+        })
     }
     
     func testRandom() {
@@ -81,6 +94,5 @@ class YJSystemTests: XCTestCase {
         delete()
         select()
     }
-
-
+    
 }
