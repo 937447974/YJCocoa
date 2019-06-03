@@ -78,4 +78,32 @@ class YJFoundationTests: XCTestCase {
         NotificationCenter.default.post(name: name, object: "obj1")
     }
     
+    var scheduler = YJScheduler()
+    func testScheduler() {
+        let subscriber = UIViewController()
+        let topic = "test"
+        // 订阅发布
+        self.scheduler.subscribe(topic: topic, subscriber: subscriber, queue: .main) { (data: Any?, handler: YJSPublishHandler?) in
+            print("接受发送数据： \(data ?? "nil")")
+            if handler != nil {
+                handler!("data2")
+            }
+        }
+        self.scheduler.publish(topic: topic, data: "data1", serial: false) { (data: Any?) in
+            print("接受回调数据1： \(data ?? "nil")")
+        }
+        self.scheduler.removeSubscribe(subscriber: subscriber)
+        self.scheduler.publish(topic: topic, data: "data2")
+        // 拦截
+        self.scheduler.intercept(interceptor: nil, canHandler: { (topic: String) -> Bool in
+            return topic == "test1"
+        }, completion: { (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
+            print("接受拦截数据2： \(data ?? "nil")")
+            if publishHandler != nil {publishHandler!("data3")}
+        })
+        self.scheduler.publish(topic: "test1", data: "data3", serial: false) { (data: Any?) in
+            print("接受回调数据3： \(data ?? "nil")")
+        }
+    }
+    
 }

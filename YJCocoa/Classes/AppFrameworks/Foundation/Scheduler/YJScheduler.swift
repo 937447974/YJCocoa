@@ -7,12 +7,15 @@
 
 import UIKit
 
+/// block 代码注入的调度器key
+public let kCodeInjectScheduler = "YJSchedulerLoad"
+
 /// 发布后执行方处理完毕的回调
 public typealias YJSPublishHandler = (_ data: Any?) -> Void
 /// 订阅回调
 public typealias YJSSubscribeHandler = (_ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 /// 能否拦截
-public typealias YJSInterceptCanHandler = (_ topic: String) -> Void
+public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 /// 拦截回调
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
@@ -32,6 +35,43 @@ open class YJScheduler: NSObject {
         case `default`
     }
     
+    private lazy var workQueue: YJDispatchQueue = {
+        let queue = DispatchQueue(label: "com.yjcocoa.scheduler.work")
+        return YJDispatchQueue(queue: queue, maxConcurrent: 1)
+    }()
+    private lazy var serialQueue: YJDispatchQueue = {
+        let queue = DispatchQueue(label: "com.yjcocoa.scheduler.serial")
+        return YJDispatchQueue(queue: queue, maxConcurrent: 1)
+    }()
+    private lazy var concurrentQueue: YJDispatchQueue = {
+        let queue = DispatchQueue(label: "com.yjcocoa.scheduler.concurrent", attributes: DispatchQueue.Attributes.concurrent)
+        return YJDispatchQueue(queue: queue, maxConcurrent: 8)
+    }()
+    
+    private var isInitSub = false
+    private var subDict = Dictionary<String, Array<YJSchedulerSubscribe>>()
+    private var intArray = Array<YJSchedulerIntercept>()
+    
+    public override init() {
+        super.init()
+        self.notificationInjection()
+    }
+    
+    private func notificationInjection() {
+        let block: (Notification) -> Void = { (_) in
+            
+        };
+        NotificationCenter.default.addObserver(self, name: UIApplication.didReceiveMemoryWarningNotification, using: block)
+        NotificationCenter.default.addObserver(self, name: UIApplication.didEnterBackgroundNotification, using: block)
+    }
+    
+    private func execute(queue: YJDispatchQueue, work: @escaping (YJScheduler) -> Void) {
+        queue.async { [weak self] in
+            if self != nil {
+                work(self!)
+            }
+        }
+    }
     
 }
 
@@ -46,6 +86,18 @@ extension YJScheduler {
      * - Parameter handler:    接受发布方传输的数据
      */
     public func subscribe(topic: String, subscriber: AnyObject?, queue:YJScheduler.Queue,  handler: @escaping YJSSubscribeHandler) {
+        YJLogVerbose("[Scheduler] 订阅\(topic)")
+        let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
+        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+            var subArray = self.subDict[topic] ?? Array()
+            for item in subArray {
+                if target.subscriber!.isEqual(item.subscriber) {
+                    return
+                }
+            }
+            subArray.append(target)
+            self.subDict[topic] = subArray
+        }
     }
     
     /**
@@ -55,9 +107,27 @@ extension YJScheduler {
      * - Parameter queue:      回调执行的队列
      * - Parameter handler:    接受发布方传输的数据
      */
-    public func removeSubscribe(topic: String, subscriber: AnyObject) {
-        
+    public func removeSubscribe(topic: String? = nil, subscriber: AnyObject) {
+        func removeSubscribe(topic: String, array: Array<YJSchedulerSubscribe>) {
+            var newArray = Array<YJSchedulerSubscribe>()
+            for item in array {
+                if item.subscriber != nil && !subscriber.isEqual(item.subscriber) {
+                    newArray.append(item)
+                }
+            }
+            self.subDict[topic] = newArray
+        }
+        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+            if let topic = topic {
+                removeSubscribe(topic: topic, array: self.subDict[topic] ?? [])
+            } else {
+                for (topic, array) in self.subDict {
+                    removeSubscribe(topic: topic, array: array)
+                }
+            }
+        }
     }
+    
 }
 
 // MARK: intercept
@@ -69,8 +139,11 @@ extension YJScheduler {
      *  - Parameter canHandler  能否拦截
      *  - Parameter handler     拦截后执行的操作
      */
-    public func intercept(interceptor: AnyObject?, canHandler: YJSInterceptCanHandler, completion handler: @escaping YJSInterceptHandler) {
-        
+    public func intercept(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completion handler: @escaping YJSInterceptHandler) {
+        let item = YJSchedulerIntercept(interceptor: interceptor ?? self, canHandler: canHandler, completionHandler: handler)
+        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+            self.intArray.append(item)
+        }
     }
 }
 
@@ -85,6 +158,18 @@ extension YJScheduler {
      *  @return BOOL
      */
     public func canPublish(topic: String) -> Bool {
+        self.initLoadScheduler()
+        for item in self.intArray {
+            if item.interceptor != nil && item.canHandler(topic) {
+                return true
+            }
+        }
+        let array = self.subDict[topic] ?? []
+        for item in array {
+            if item.subscriber != nil {
+                return true
+            }
+        }
         return false
     }
     
@@ -96,40 +181,73 @@ extension YJScheduler {
      *  @param serial  yes串行发布no并行发布
      *  @param handler 接受方处理数据后的回调
      */
-    public func publish(topic: String, data: Any?, serial:Bool, completion handler: YJSPublishHandler?) {
-        
+    public func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
+        self.initLoadScheduler()
+        YJLogVerbose("[Scheduler] 发布\(topic), data:\(data ?? "nil")")
+        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+            for item in self.intArray {
+                if item.interceptor != nil && item.canHandler(topic) {
+                    item.completionHandler(topic, data, handler)
+                    return
+                }
+            }
+            let subArray = self.subDict[topic] ?? []
+            for item in subArray {
+                let block: YJDispatchBlock = {
+                    item.completionHandler(data, handler)
+                }
+                if item.queue == .main {
+                    dispatch_async_main(block: block)
+                } else {
+                    let queue = serial ? self.serialQueue : self.concurrentQueue
+                    queue.async(execute: block)
+                }
+            }
+        }
     }
+    
+    private func initLoadScheduler() {
+        if self.isInitSub {
+            return
+        }
+        self.isInitSub = true
+        self.workQueue.sync {
+            YJCodeInject.executeBlock(forKey: YJSchedulerLoad)
+        }
+    }
+    
 }
 
 // MARK: -
-private class YJSchedulerIntercept: NSObject {
+/// 调度器订阅
+private class YJSchedulerSubscribe: NSObject {
     
-    weak var interceptor: AnyObject?
-    var canHandler: YJSInterceptCanHandler?
-    var completionHandler: YJSInterceptHandler?
+    var topic: String!
+    weak var subscriber: AnyObject?
+    var queue: YJScheduler.Queue!
+    var completionHandler: YJSSubscribeHandler!
     
-    init(interceptor: AnyObject?, canHandler: YJSInterceptCanHandler?, completionHandler: YJSInterceptHandler?) {
+    init(topic: String, subscriber: AnyObject?, queue: YJScheduler.Queue, completionHandler: @escaping YJSSubscribeHandler) {
         super.init()
-        self.interceptor = interceptor
-        self.canHandler = canHandler
+        self.topic = topic
+        self.subscriber = subscriber
+        self.queue = queue
         self.completionHandler = completionHandler
     }
     
 }
 
 /// 调度器拦截
-private class YJSchedulerSubscribe: NSObject {
+private class YJSchedulerIntercept: NSObject {
     
-    var topic: String!
-    weak var subscriber: AnyObject?
-    var queue: YJScheduler.Queue!
-    var completionHandler: YJSSubscribeHandler?
+    weak var interceptor: AnyObject?
+    var canHandler: YJSInterceptCanHandler!
+    var completionHandler: YJSInterceptHandler!
     
-    init(topic: String, subscriber: AnyObject?, queue: YJScheduler.Queue, completionHandler: YJSSubscribeHandler?) {
+    init(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completionHandler: @escaping YJSInterceptHandler) {
         super.init()
-        self.topic = topic
-        self.subscriber = subscriber
-        self.queue = queue
+        self.interceptor = interceptor
+        self.canHandler = canHandler
         self.completionHandler = completionHandler
     }
     
