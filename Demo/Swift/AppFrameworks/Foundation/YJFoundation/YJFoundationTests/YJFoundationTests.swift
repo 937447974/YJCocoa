@@ -11,6 +11,13 @@ import XCTest
 
 class YJFoundationTests: XCTestCase {
     
+    func testCalendar() {
+        let calendar = YJCalendar.current
+        print("era:\(calendar.era) year:\(calendar.year) month :\(calendar.month) day:\(calendar.day)")
+        print("hour:\(calendar.hour) minute:\(calendar.minute) second:\(calendar.second) nanosecond:\(calendar.nanosecond)")
+        print("weekday:\(calendar.weekday) weekOfYear:\(calendar.weekOfYear) yearForWeekOfYear:\(calendar.yearForWeekOfYear) ")
+    }
+    
     func testDirectory() {
         let director = YJDirectoryS()
         XCTAssertNotNil(director.homeURL)
@@ -104,6 +111,58 @@ class YJFoundationTests: XCTestCase {
         self.scheduler.publish(topic: "test1", data: "data3", serial: false) { (data: Any?) in
             print("接受回调数据3： \(data ?? "nil")")
         }
+    }
+    
+}
+
+
+// MARK: - Safety
+extension YJFoundationTests: NSCacheDelegate {
+    
+    func testSafetyDictionary() {
+        let dict = YJSafetyDictionary()
+        dict.setObject(1, forKey: "2" as NSString)
+        print("\(dict) count:\(dict.count)")
+        print("obj:\(dict.object(forKey: "2") ?? "")")
+    }
+    
+    func testDictionary() {
+        let dict = NSMutableDictionary()
+        print("bool: \(dict.bool(forKey: "bool"))")
+        print("integer: \(dict.integer(forKey: "integer"))")
+        print("float: \(dict.float(forKey: "float"))")
+        print("string: \(dict.string(forKey: "string"))")
+        print("set: \(dict.set(forKey: "set"))")
+        print("array: \(dict.array(forKey: "array"))")
+        print("dictionary: \(dict.dictionary(forKey: "dictionary"))")
+        print("mutableSet: \(dict.mutableSet(forKey: "mutableSet"))")
+        print("mutableArray: \(dict.mutableArray(forKey: "mutableArray"))")
+        print("mutableDictionary: \(dict.mutableDictionary(forKey: "mutableDictionary"))")
+        print("dict: \(dict))")
+        dict.setBool(true, forKey: NSString("bool"))
+        dict.setInt(1, forKey: NSString("int"))
+        dict.setFloat(1.0, forKey: NSString("float"))
+        dict.setString("s", forKey: NSString("string"))
+        dict.setSet(NSSet(), forKey: NSString("set"))
+        dict.setArray(NSArray(), forKey: NSString("array"))
+        dict.setDictionary(NSDictionary(), forKey: NSString("dictionary"))
+        print("dict: \(dict))")
+    }
+    
+    func testSafetyCache() {
+        let cache = YJSafetyCache<NSString, NSString>()
+        cache.delegate = self
+        cache.countLimit = 999;
+        cache.setObject("1o", forKey: "1")
+        cache.setObject("2o", forKey: "2")
+        cache.setObject("3o", forKey: "3")
+        print("\(cache) count:\(cache.count) allKeys:\(cache.allKeys) allValues:\(cache.allValues)")
+        cache.countLimit = 1;
+    }
+    
+    func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
+        print("\(NSStringFromSelector(#function)) \(obj)")
+        
     }
     
 }

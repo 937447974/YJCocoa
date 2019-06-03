@@ -212,7 +212,7 @@ extension YJScheduler {
         }
         self.isInitSub = true
         self.workQueue.sync {
-            YJCodeInject.executeBlock(forKey: YJSchedulerLoad)
+            YJCodeInject.executeBlock(forKey: kCodeInjectScheduler)
         }
     }
     
