@@ -9,18 +9,18 @@ import Foundation
 
 /// 获取强引用单例
 public func YJStrongSingleton(_ aClass: AnyClass, _ identifier: String?) -> AnyObject {
-    return YJSingletonCenter.defaultCenter.strongSingleton(aClass: aClass, forIdentifier: identifier)
+    return YJSingletonCenter.shared.strongSingleton(aClass: aClass, forIdentifier: identifier)
 }
 
 /// 获取弱引用单例
 public func YJWeakSingleton(_ aClass: AnyClass, _ identifier: String) -> AnyObject {
-    return YJSingletonCenter.defaultCenter.weakSingleton(aClass: aClass, forIdentifier: identifier)
+    return YJSingletonCenter.shared.weakSingleton(aClass: aClass, forIdentifier: identifier)
 }
 
 /** 单例中心*/
 open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
-    static var defaultCenter = YJSingletonCenter()
+    public static var shared = YJSingletonCenter()
     
     private let mutex = YJPthreadMutex()
     private var strongDict = YJSafetyDictionary()

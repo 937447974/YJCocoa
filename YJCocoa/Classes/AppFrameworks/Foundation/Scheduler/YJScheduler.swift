@@ -5,10 +5,7 @@
 //  Created by 阳君 on 2019/5/30.
 //
 
-import UIKit
-
-/// block 代码注入的调度器key
-public let kCodeInjectScheduler = "YJSchedulerLoad"
+import Foundation
 
 /// 发布后执行方处理完毕的回调
 public typealias YJSPublishHandler = (_ data: Any?) -> Void
@@ -20,9 +17,7 @@ public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
 /// 调度器 单例
-public func YJSchedulerS() -> YJScheduler {
-    return YJScheduler()
-}
+public let YJSchedulerS = YJStrongSingleton(YJScheduler.self, nil) as! YJScheduler
 
 /// 调度器
 open class YJScheduler: NSObject {
@@ -86,7 +81,7 @@ extension YJScheduler {
      * - Parameter handler:    接受发布方传输的数据
      */
     public func subscribe(topic: String, subscriber: AnyObject?, queue:YJScheduler.Queue,  handler: @escaping YJSSubscribeHandler) {
-        YJLogVerbose("[Scheduler] 订阅\(topic)")
+        YJLogVerbose("[YJScheduler] 订阅\(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.execute(queue: self.workQueue) { (self: YJScheduler) in
             var subArray = self.subDict[topic] ?? Array()
@@ -183,7 +178,7 @@ extension YJScheduler {
      */
     public func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
         self.initLoadScheduler()
-        YJLogVerbose("[Scheduler] 发布\(topic), data:\(data ?? "nil")")
+        YJLogVerbose("[YJScheduler] 发布\(topic), data:\(data ?? "nil")")
         self.execute(queue: self.workQueue) { (self: YJScheduler) in
             for item in self.intArray {
                 if item.interceptor != nil && item.canHandler(topic) {
@@ -212,7 +207,7 @@ extension YJScheduler {
         }
         self.isInitSub = true
         self.workQueue.sync {
-            YJCodeInject.executeBlock(forKey: kCodeInjectScheduler)
+            YJCodeInject.executeBlock(forKey: "YJURLRouterLoad")
         }
     }
     

@@ -98,7 +98,7 @@ open class YJDispatchQueue: NSObject {
             self?.semaphore.signal()
         }
         if DispatchQueue.getSpecific(key: self.key) != nil {
-            semaphoreBlock()
+            work();
         } else if async {
             self.queue.async(execute: semaphoreBlock)
         } else {

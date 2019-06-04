@@ -8,9 +8,7 @@
 import UIKit
 
 /// 应用内目录单例
-public func YJDirectoryS() -> YJDirectory {
-    return YJWeakSingleton(YJDirectory.self, "YJDirectory") as! YJDirectory
-}
+public let YJDirectoryS = YJWeakSingleton(YJDirectory.self, "YJDirectory") as! YJDirectory
 
 /// 应用内目录
 open class YJDirectory: NSObject {
