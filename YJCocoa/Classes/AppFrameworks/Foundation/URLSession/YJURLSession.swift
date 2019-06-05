@@ -7,18 +7,38 @@
 
 import UIKit
 
-typealias YJURLSessionTaskSuccess = (_ respModel: Any?) -> Void
-typealias YJURLSessionTaskFailure = (_ error: NSError) -> Void
+public typealias YJURLSessionTaskSuccess = (_ respModel: Any) -> Void
+public typealias YJURLSessionTaskFailure = (_ error: NSError) -> Void
 
-class YJURLSession: NSObject {
+/// URLSession
+open class YJURLSession: NSObject & NSCacheDelegate {
+    
+    /// 共享单例
+    @objc
+    public static let shared = YJStrongSingleton(YJURLSession.self, nil) as! YJURLSession
+    /// 共享网络会话池
+    public lazy var cache: YJSafetyCache<NSString, YJURLSessionTask> = {
+        let cache = YJSafetyCache<NSString, YJURLSessionTask>()
+        cache.delegate = self
+        return cache
+    }()
+    
+    // MARK: NSCacheDelegate
+    public func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: YJURLSessionTask) {
+        if obj.state == .default || obj.state == .running {
+            dispatch_after_default(delayInSeconds: 0.2) {
+                cache.setObject(obj, forKey: obj.request!.identifier as AnyObject)
+            }
+        }
+    }
     
 }
 
 /// NSURLSessionTask
-class YJURLSessionTask: NSObject {
+open class YJURLSessionTask: NSObject {
     
     /// 网络请求状态
-    enum State: Int {
+    public enum State: Int {
         /// 初始化状态
         case `default`
         /// 正在请求
@@ -34,49 +54,88 @@ class YJURLSessionTask: NSObject {
     }
     
     /// 任务状态
-    var state = YJURLSessionTask.State.default
-    var request: YJURLRequest!
-    var handler = Array<(YJURLSessionTaskSuccess, YJURLSessionTaskFailure?)>()
-    var mainQueue: Bool = false
+    public var state = YJURLSessionTask.State.default
+    /// YJURLRequest
+    public var request: YJURLRequest!
+    /// 失败回调
+    public private(set) var success: YJURLSessionTaskSuccess!
+    /// 成功回调
+    public private(set) var failure: YJURLSessionTaskFailure!
     
-    override init() {
+    private var mainQueue: Bool = false
+    private var handler = Array<(YJURLSessionTaskSuccess, YJURLSessionTaskFailure?)>()
+    
+    open class func task(with request: YJURLRequest) -> YJURLSessionTask {
+        let cache = YJURLSession.shared.cache
+        let key = request.identifier as NSString
+        var task = cache.object(forKey: key)
+        if task == nil {
+            task = self.init()
+            cache.setObject(task!, forKey: key)
+        }
+        task?.request = request
+        return task!
+    }
+    
+    public required override init() {
         super.init()
+        self.success = { [unowned self] (data) in
+            YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求成功: \(data)")
+            let block: YJDispatchBlock = { [unowned self] in
+                self.state = .success
+                for (success, _) in self.handler {
+                    success(data)
+                }
+            }
+            self.mainQueue ? dispatch_async_main(block: block) : block()
+        }
+        self.failure = { [unowned self] (error) in
+            YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求失败: \(error)")
+            let block: YJDispatchBlock = { [unowned self] in
+                self.state = .failure
+                for (_, failure) in self.handler {
+                    if failure != nil {
+                        failure!(error)
+                    }
+                }
+            }
+            self.mainQueue ? dispatch_async_main(block: block) : block()
+        }
     }
     
-    class func task(with request: YJURLRequest) {
-        
-    }
-    
-    func mainQueue(_ mainQueue: Bool) -> YJURLSessionTask {
+    open func mainQueue(_ mainQueue: Bool) -> YJURLSessionTask {
         return self
     }
     
-    func completionHandler(success: YJURLSessionTaskSuccess, failure: YJURLSessionTaskFailure?) -> YJURLSessionTask {
+    open func completionHandler(success: YJURLSessionTaskSuccess, failure: YJURLSessionTaskFailure?) -> YJURLSessionTask {
         return self
     }
     
     /// 发送请求
-    func resume() {
-        
+    open func resume() {
+        YJLogVerbose("[YJURLSession] \(self.request.identifier) 发送网络请求")
+        self.state = .running
     }
     
     /// 暂停请求
-    func suspend() {
-        
+    open func suspend() {
+        YJLogVerbose("[YJURLSession] \(self.request.identifier) 暂停网络请求")
+        self.state = .suspended
     }
     
     /// 取消请求
-    func cancel() {
-        
+    open func cancel() {
+        YJLogVerbose("[YJURLSession] \(self.request.identifier) 取消网络请求")
+        self.state = .cancel
     }
     
 }
 
 
-class YJURLRequest: NSObject {
+open class YJURLRequest: NSObject {
     
     /// 网络请求方式
-    enum Method: Int {
+    public enum Method: Int {
         /// POST请求   增
         case post
         /// DELETE请求 删
@@ -88,25 +147,29 @@ class YJURLRequest: NSObject {
     }
     
     /// 唯一标示
-    var identifier = ""
+    public var identifier = ""
     /// 发起网络请求的对象
-    weak var source: AnyObject?
+    public private(set) weak var source: AnyObject?
     /// 请求地址
-    var url = ""
+    public private(set) var url = ""
     /// 请求方式
-    var method: YJURLRequest.Method!
+    public private(set) var method: YJURLRequest.Method!
     /// 请求参数模型
-    var reqModel: AnyObject?
+    public var reqModel: AnyObject?
     /// 服务器返回数据对应的模型class
-    var respModelClass: AnyClass?
+    public var respModelClass: AnyClass?
     
-    init(source: AnyObject?, url: String, method: YJURLRequest.Method, reqModel: AnyObject? , respModelClass: AnyClass?) {
+    init(source: AnyObject?, url: String, method: YJURLRequest.Method, reqModel: AnyObject? , respModelClass: AnyClass? = nil) {
         super.init()
         self.source = source ?? YJURLRequest.self
         self.url = url
         self.method = method
         self.respModelClass = respModelClass
         self.identifier = "\(type(of: source))-\(url)-\(String(describing: reqModel))"
+    }
+    
+    open func responseModel(with dictionary: Dictionary<String, Any>) -> Any {
+        return dictionary
     }
     
 }

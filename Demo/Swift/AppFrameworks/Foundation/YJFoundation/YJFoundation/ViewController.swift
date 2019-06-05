@@ -8,6 +8,18 @@
 
 import UIKit
 import YJCocoa
+import HandyJSON
+
+class BasicTypes: HandyJSON {
+    var int: Int = 2
+    var doubleOptional: Double?
+    var stringImplicitlyUnwrapped: String!
+    var b: BasicTypes?
+    
+    required init() {}
+}
+
+
 
 class ViewController: UIViewController, NSCacheDelegate {
     
@@ -16,7 +28,14 @@ class ViewController: UIViewController, NSCacheDelegate {
 //        self.testCalendar()
 //        self.testSafety()
 //        self.testSingletonCenter()
-        self.testTimer()
+//        self.testTimer()
+        let jsonString = "{\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1}"
+        HandyJSONConfiguration.debugMode = .verbose
+        if let object = JSONDeserializer<BasicTypes>.deserializeFrom(json: jsonString) {
+            print(object.int)
+            print(object.doubleOptional!)
+            print(object.stringImplicitlyUnwrapped!)
+        }
     }
     
     func testTimer() {
