@@ -41,11 +41,10 @@ public struct YJLogLevels : OptionSet {
 /// 日志输出
 public class YJLog : NSObject {
     
+    /// 日志级别
     #if DEBUG
-    /// 日志级别
-    public static var levels: YJLogLevels = [.verbose, .debug, .info, .warn, .error]
+    public static var levels: YJLogLevels = [.debug, .info, .warn, .error]
     #else
-    /// 日志级别
     public static var levels: YJLogLevels = [.info, .warn, .error]
     #endif
     
@@ -66,7 +65,7 @@ public class YJLog : NSObject {
         } else if levels.contains(.error) {
             tag = "[❤️]"
         }
-        print("\(YJLog.formatter.string(from: Date())) \(tag) \(log)")
+        print(YJLog.formatter.string(from: Date()), tag, log)
     }
     
     private static var formatter: DateFormatter = {

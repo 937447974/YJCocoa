@@ -19,7 +19,7 @@ class YJFoundationTests: XCTestCase {
     }
     
     func testDirectory() {
-        let director = YJDirectoryS()
+        let director = YJDirectoryS
         XCTAssertNotNil(director.homeURL)
         XCTAssertNotNil(director.documentURL)
         XCTAssertNotNil(director.libraryURL)
