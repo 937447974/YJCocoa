@@ -17,7 +17,7 @@ public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
 /// 调度器 单例
-public let YJSchedulerS = YJStrongSingleton(YJScheduler.self, nil) as! YJScheduler
+public let YJSchedulerS = YJStrongSingleton(YJScheduler.self) as! YJScheduler
 
 /// 调度器
 open class YJScheduler: NSObject {

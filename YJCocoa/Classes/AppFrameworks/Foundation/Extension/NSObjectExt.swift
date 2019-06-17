@@ -29,6 +29,7 @@ private class YJKeyValueObserver : NSObject  {
     
 }
 
+//MARK: KVO
 public extension NSObject {
     
     /// 添加 KVO 监听
@@ -87,6 +88,35 @@ public extension NSObject {
             return kvoArray
         }
         return kvoArray
+    }
+    
+}
+
+//MARK:  Swizzling
+extension NSObject {
+    
+    /// 交换方法(Instance)
+    /// - parameter originalSEL:  原始方法
+    /// - parameter swizzlingSEL: 交换的方法
+    static func swizzling(originalSEL: Selector, swizzlingSEL: Selector) {
+        let cache = YJStrongSingleton(NSMutableDictionary.self, "YJSwizzling") as! NSMutableDictionary
+        let key = "\(self)-\(originalSEL)-\(swizzlingSEL)" as NSString
+        guard cache.object(forKey: key) == nil else {
+            return
+        }
+        cache.setObject("YJSwizzling", forKey: key)
+        cache.removeObject(forKey: "\(self)-\(swizzlingSEL)-\(originalSEL)" as NSString)
+        YJLogDebug("[YJCocoa] \(self) 交换方法(\(originalSEL) <-> \(swizzlingSEL)")
+        let originalM = class_getInstanceMethod(self, originalSEL)!
+        guard let swizzlingM = class_getInstanceMethod(self, swizzlingSEL) else {
+            YJLogError("[YJCocoa] \(self) 不存在方法: \(swizzlingSEL)")
+            return
+        }
+        if class_addMethod(self, originalSEL, method_getImplementation(swizzlingM), method_getTypeEncoding(swizzlingM)) {
+            class_replaceMethod(self, swizzlingSEL, method_getImplementation(originalM), method_getTypeEncoding(originalM));
+        } else {
+            method_exchangeImplementations(originalM, swizzlingM);
+        }
     }
     
 }

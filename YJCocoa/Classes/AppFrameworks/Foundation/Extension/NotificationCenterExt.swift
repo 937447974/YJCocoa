@@ -7,13 +7,12 @@
 
 import UIKit
 
-private class YJNotificationObserver: NSObject {
+private class NotificationObserver {
     
     weak var observer: NSObject?
     var block: ((Notification) -> Void)!
     
     init(_ observer: NSObject, block: @escaping (Notification) -> Void) {
-        super.init()
         self.observer = observer
         self.block = block
     }
@@ -30,10 +29,14 @@ private class YJNotificationObserver: NSObject {
 
 extension NotificationCenter {
     
+    /// Adds an entry to the notification center's dispatch table with an observer and a block, and an optional notification name.
+    /// - parameter observer: Object registering as an observer.
+    /// - parameter name: name The name of the notification for which to register the observer; that is, only notifications with this name are delivered to the observer.
+    /// - parameter block: The block to be executed when the notification is received.
     open func addObserver(_ observer: NSObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
         let array = self.notificatArray(name: name)
         for item in array {
-            let notificatItem = item as! YJNotificationObserver
+            let notificatItem = item as! NotificationObserver
             if notificatItem.observer == nil {
                 notificatItem.observer = observer
                 notificatItem.block = block
@@ -42,11 +45,12 @@ extension NotificationCenter {
                 return
             }
         }
-        let item = YJNotificationObserver(observer, block: block)
+        let item = NotificationObserver(observer, block: block)
         array.add(item)
-        self.addObserver(item, selector: #selector(YJNotificationObserver.post(_:)), name: name, object: nil)
+        self.addObserver(item, selector: #selector(NotificationObserver.post(_:)), name: name, object: nil)
     }
     
+    /// remove observer block
     open func removeObserverBlock(_ observer: NSObject, name: NSNotification.Name?) {
         if name == nil {
             for key in self.yj_notificatDict.allKeys {
@@ -54,7 +58,7 @@ extension NotificationCenter {
             }
         } else {
             for item in self.notificatArray(name: name!) {
-                let target = item as! YJNotificationObserver
+                let target = item as! NotificationObserver
                 if observer == target.observer {
                     self.removeObserver(target)
                     return
@@ -63,7 +67,8 @@ extension NotificationCenter {
         }
     }
     
-    @objc private dynamic var yj_notificatDict: NSMutableDictionary {
+    @objc
+    private dynamic var yj_notificatDict: NSMutableDictionary {
         get {
             let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_notificatDict".hashValue)
             guard let dict = objc_getAssociatedObject(self, key) as? NSMutableDictionary else {

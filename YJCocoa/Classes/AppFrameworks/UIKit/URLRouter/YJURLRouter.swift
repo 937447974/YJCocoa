@@ -31,7 +31,7 @@ open class YJURLRouter: NSObject {
     
     /// 共享单例
     @objc
-    public static var shared = YJStrongSingleton(YJURLRouter.self, nil) as! YJURLRouter
+    public static var shared = YJStrongSingleton(YJURLRouter.self) as! YJURLRouter
     
     var nodeCache = NSCache<NSString, UIViewController>()
     

@@ -166,3 +166,23 @@ extension YJFoundationTests: NSCacheDelegate {
     }
     
 }
+
+// MARK: - Swizzling
+extension YJFoundationTests {
+    
+    class TestSwizzling: NSObject {
+        @objc dynamic func test1() { print("\(#function) 1") }
+        @objc dynamic func test2() { print("\(#function) 2") }
+    }
+    
+    func testSwizzling() {
+        let originalSEL = #selector(TestSwizzling.test1)
+        let swizzlingSEL = #selector(TestSwizzling.test2)
+        TestSwizzling.swizzling(originalSEL: originalSEL, swizzlingSEL: swizzlingSEL)
+        TestSwizzling.swizzling(originalSEL: originalSEL, swizzlingSEL: swizzlingSEL)
+        TestSwizzling().test1()
+        TestSwizzling.swizzling(originalSEL: swizzlingSEL, swizzlingSEL: originalSEL)
+        TestSwizzling().test1()
+    }
+    
+}

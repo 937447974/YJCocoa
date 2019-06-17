@@ -15,7 +15,7 @@ open class YJURLSession: NSObject & NSCacheDelegate {
     
     /// 共享单例
     @objc
-    public static let shared = YJStrongSingleton(YJURLSession.self, nil) as! YJURLSession
+    public static let shared = YJStrongSingleton(YJURLSession.self) as! YJURLSession
     /// 共享网络会话池
     public lazy var cache: YJSafetyCache<NSString, YJURLSessionTask> = {
         let cache = YJSafetyCache<NSString, YJURLSessionTask>()

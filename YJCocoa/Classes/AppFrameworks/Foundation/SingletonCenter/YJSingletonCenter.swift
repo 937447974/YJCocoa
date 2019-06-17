@@ -8,7 +8,7 @@
 import Foundation
 
 /// 获取强引用单例
-public func YJStrongSingleton(_ aClass: AnyClass, _ identifier: String?) -> AnyObject {
+public func YJStrongSingleton(_ aClass: AnyClass, _ identifier: String? = nil) -> AnyObject {
     return YJSingletonCenter.shared.strongSingleton(aClass: aClass, forIdentifier: identifier)
 }
 
@@ -32,7 +32,7 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     }
     
     /// 强引用单例，一直存在
-    func strongSingleton(aClass: AnyClass, forIdentifier identifier: String?) -> AnyObject {
+    func strongSingleton(aClass: AnyClass, forIdentifier identifier: String? = nil) -> AnyObject {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.strongDict[identifier] else {
