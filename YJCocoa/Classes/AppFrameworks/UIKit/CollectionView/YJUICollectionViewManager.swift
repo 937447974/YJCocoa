@@ -67,7 +67,7 @@ extension YJUICollectionViewManager: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard section < self.dataSourceCell.count else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return 0
         }
         return self.dataSourceCell[section].count
@@ -75,7 +75,7 @@ extension YJUICollectionViewManager: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let co = self.cellObject(with: indexPath) else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return UICollectionViewCell(frame: CGRect.zero)
         }
         return self.dequeueReusableCell(withCellObject: co)
@@ -134,7 +134,7 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
     //MARK: UICollectionViewDelegateFlowLayout
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let co = self.cellObject(with: indexPath) else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return self.flowLayout.itemSize
         }
         return self.collectionView(collectionView, referenceSizeFor: "cell", in: co)

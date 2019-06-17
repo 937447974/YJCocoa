@@ -153,7 +153,7 @@ extension NSMutableDictionary {
     
     open func setString(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSString else {
-            print("[Dictionary] set key:%@ 对应的 value:%@ 错误", aKey, anObject)
+            YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
         }
         self.setObject(obj, forKey: aKey)
@@ -161,7 +161,7 @@ extension NSMutableDictionary {
     
     open func setSet(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSSet else {
-            print("[Dictionary] set key:%@ 对应的 value:%@ 错误", aKey, anObject)
+            YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
         }
         self.setObject(obj, forKey: aKey)
@@ -169,7 +169,7 @@ extension NSMutableDictionary {
     
     open func setArray(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSArray else {
-            print("[Dictionary] set key:%@ 对应的 value:%@ 错误", aKey, anObject)
+            YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
         }
         self.setObject(obj, forKey: aKey)
@@ -177,7 +177,7 @@ extension NSMutableDictionary {
     
     open func setDictionary(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSDictionary else {
-            print("[Dictionary] set key:%@ 对应的 value:%@ 错误", aKey, anObject)
+            YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
         }
         self.setObject(obj, forKey: aKey)

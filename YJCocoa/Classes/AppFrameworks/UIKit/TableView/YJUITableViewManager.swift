@@ -63,7 +63,7 @@ extension YJUITableViewManager: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard section < self.dataSourceCell.count else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return 0
         }
         return self.dataSourceCell[section].count
@@ -71,7 +71,7 @@ extension YJUITableViewManager: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.section < self.dataSourceCell.count && indexPath.row < self.dataSourceCell[indexPath.section].count else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return YJUITableViewCell.init(style: .default, reuseIdentifier: "YJUITableViewCell")
         }
         let co = self.dataSourceCell[indexPath.section][indexPath.row]
@@ -107,7 +107,7 @@ extension YJUITableViewManager: UITableViewDelegate {
     // MARK: cell
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let co = self.cellObject(with: indexPath) else {
-            print("error:数组越界; selector:\(#function)")
+            YJLogWarn("error:数组越界; selector:\(#function)")
             return tableView.rowHeight
         }
         return self.tableView(tableView, heightFor: co)

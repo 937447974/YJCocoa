@@ -31,7 +31,3 @@ extension PointerType {
         self = cast(UnsafePointer<Pointee>(pointer))
     }
 }
-
-func == <T: PointerType>(lhs: T, rhs: T) -> Bool {
-    return lhs.pointer == rhs.pointer
-}

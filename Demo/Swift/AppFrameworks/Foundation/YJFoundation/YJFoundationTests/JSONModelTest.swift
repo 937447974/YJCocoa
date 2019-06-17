@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import YJCocoa
-@testable import HandyJSON
 
 class JSONModelTest: XCTestCase {
     
@@ -27,18 +26,46 @@ class JSONModelTest: XCTestCase {
         }
         
         static func transform(toJSON value: Any) -> Any {
-            return YJJSONModel<TestItem>.transformToDict(value)
+            return YJJSONModel<TestItem>.transformToDict(value as! JSONModelTest.TestItem)
         }
         
     }
     
-    struct TestStruct: HandyJSON {
+    struct TestStruct {
         var bool: Bool = false
-        var int: Int = 0
-        var float: Float = 0
-        var cgFloat: CGFloat = 0
-        var double: Double = 0
-//        var string: String?
+        var int: Int?
+        var float: Float?
+        var cgFloat: CGFloat?
+        var double: Double?
+        var string: String?
+        var array1: Array<Any>?
+        var array2: Array<TestItem>?
+        var url: URL?
+        var date: Date?
+        var color: UIColor?
+        var item: TestItem?
+        
+        init() {
+            
+        }
+        
+        init(bool: Bool, int: Int, float: Float, cgFloat: CGFloat, double: Double, string: String?) {
+            self.bool = bool
+            self.int = int
+            self.float = float
+            self.cgFloat = cgFloat
+            self.double = double
+            self.string = string
+        }
+        
+        mutating func set(array1: Array<Any>?, array2: Array<TestItem>?, url: URL?, date: Date?, color: UIColor?, item: TestItem?) {
+            self.array1 = array1
+            self.array2 = array2
+            self.url = url
+            self.date = date
+            self.color = color
+            self.item = item
+        }
     }
     
     class TestClass: NSObject {
@@ -79,40 +106,33 @@ class JSONModelTest: XCTestCase {
         
     }
     
-    func headPointer(_ object: inout TestStruct) -> UnsafeMutablePointer<Int8> {
-        let stride = MemoryLayout.stride(ofValue: object)
-        return withUnsafeMutablePointer(to: &object) {
-            return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: stride)
-        }
-    }
-    
     func testStruct() {
-        var ts = TestStruct(bool: false, int: 1, float: 2, cgFloat: 3, double: 4)
-        print(ts.headPointerOfStruct())
-        
-        print(self.headPointer(&ts))
-        
-        
-        HandyJSONConfiguration.debugMode = .verbose
-
-//        let json1 = ts.toJSONString()
-//        let json2 = ts.toJSONString()
-        let json3 = ts.toJSONString()
-//        var t = ts
-//        let json4 = t.toJSONString()
-//        print(TestStruct.deserialize(from: json3))
-        YJLogDebug("\(json3)")
-        print(self.headPointer(&ts))
-        let json = YJJSONModel<TestStruct>.transformToDict(ts)
-//        XCTAssertNil(json)
-        YJLogDebug("\(json)")
+         // Struct -> json
+        var ts = TestStruct(bool: false, int: 1, float: 2, cgFloat: 3, double: 4, string: "阳君")
+        ts.set(array1: ["array1"], array2: [TestItem(name: "array2")], url: URL(string: "http://www.baidu.com"), date: Date(), color: UIColor.red, item: TestItem(name: "item"))
+        let json = YJJSONModel<TestStruct>.transformToJSON(ts, options: .prettyPrinted)
+        XCTAssertNotNil(json)
+        YJLogDebug(json!)
+        // json -> Struct
+        let jm = YJJSONModel<TestStruct>.transformToModel(TestStruct(), fromJSON: json)
+        XCTAssertNotNil(jm.int)
+        XCTAssertNotNil(jm.float)
+        XCTAssertNotNil(jm.cgFloat)
+        XCTAssertNotNil(jm.double)
+        XCTAssertNotNil(jm.string)
+        XCTAssertNotNil(jm.array1?.first)
+        XCTAssertNotNil(jm.array2?.first?.name)
+        XCTAssertNotNil(jm.url)
+        XCTAssertNotNil(jm.date)
+        XCTAssertNotNil(jm.color)
+        XCTAssertNotNil(jm.item?.name)
     }
     
     func testClass() {
         // model -> json
         let ts = TestClass(bool: true, int: 1, float: 2, cgFloat: 3, double: 4, string: "阳君")
         ts.set(array1: ["array1"], array2: [TestItem(name: "array2")], url: URL(string: "http://www.baidu.com"), date: Date(), color: UIColor.red, item: TestItem(name: "item"))
-        let json = YJJSONModel<TestClass>.transformToJSON(ts)
+        let json = YJJSONModel<TestClass>.transformToJSON(ts, options: .prettyPrinted)
         XCTAssertNotNil(json)
         YJLogDebug(json!)
         // json -> model
@@ -128,6 +148,25 @@ class JSONModelTest: XCTestCase {
         XCTAssertNotNil(jm.date)
         XCTAssertNotNil(jm.color)
         XCTAssertNotNil(jm.item?.name)
+    }
+    
+    func testJSONMOdel() {
+        let json = "{\"item\":{\"name\":\"item\"},\"double\":4,\"array2\":[{\"name\":\"array2\"}],\"float\":2,\"date\":1560741687.161411,\"string\":\"阳君\",\"int\":1,\"color\":16711680,\"bool\":true,\"cgfloat\":3,\"array1\":[\"array1\"],\"url\":\"http://www.baidu.com\"}"
+        for _ in 0..<100 {
+            let jm = YJJSONModel<TestStruct>.transformToModel(TestStruct(), fromJSON: json)
+            XCTAssertNotNil(jm.int)
+            XCTAssertNotNil(jm.float)
+            XCTAssertNotNil(jm.cgFloat)
+            XCTAssertNotNil(jm.double)
+            XCTAssertNotNil(jm.string)
+            XCTAssertNotNil(jm.array1?.first)
+            XCTAssertNotNil(jm.array2?.first?.name)
+            XCTAssertNotNil(jm.url)
+            XCTAssertNotNil(jm.date)
+            XCTAssertNotNil(jm.color)
+            XCTAssertNotNil(jm.item?.name)
+        }
+        
     }
     
 }

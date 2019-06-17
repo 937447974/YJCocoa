@@ -4,7 +4,6 @@ install! 'cocoapods', :disable_input_output_paths => true
 
 target 'YJFoundation' do
     pod 'YJCocoa', :path => "../../../../../YJCocoa.podspec"
-    pod 'HandyJSON', '~> 5.0.0'
     target 'YJFoundationTests' do
         inherit! :search_paths
         # Pods for testing

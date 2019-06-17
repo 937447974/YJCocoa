@@ -68,7 +68,7 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
     // MARK: NSCacheDelegate
     public func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
-        print("[YJCocoa] 释放：\(obj)")
+        YJLogVerbose("[YJCocoa] 释放：\(obj)")
     }
     
 }

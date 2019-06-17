@@ -121,19 +121,17 @@ extension YJUIPageViewManager: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let cell = viewController as! YJUIPageViewCell
-        print("- \(cell.cellObject.index)")
         return self.pageViewCell(at: cell.cellObject.index - 1)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let cell = viewController as! YJUIPageViewCell
-        print("+ \(cell.cellObject.index)")
         return self.pageViewCell(at: cell.cellObject.index + 1)
     }
     
     private func pageViewCell(at index:Int) -> YJUIPageViewCell? {
         guard let co = self.cellObject(at: index) else {
-            print("返回空cell")
+            YJLogWarn("[PageView] 返回空cell")
             return nil
         }
         let key = "\(co.reuseIdentifier)-\(index)" as NSString

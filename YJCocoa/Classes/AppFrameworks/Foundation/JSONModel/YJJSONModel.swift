@@ -55,7 +55,7 @@ extension YJJSONModelTransformModel {
         return nil
     }
     static func transform(toJSON value: Any) -> Any {
-        return YJJSONModel<Self>.transformToJSON(value) ?? ""
+        return YJJSONModel<Self>.transformToJSON(value as! Self) ?? ""
     }
 }
 
@@ -140,18 +140,19 @@ open class YJJSONModel<T> {
     
     /// 通过 Dictionary<String, Any> 转换模型
     public static func transformToModel(_ object: T, fromDict dict: [String: Any]?, designatedPath: String? = nil) -> T {
-        var object: Any = object
-        TransformTool.shared.transformToModel(&object, type: T.self, dict: dict, designatedPath: designatedPath)
-        return object as! T
+        var tt = TransformTool<T>(object: object)
+        tt.transformToModel(dict: dict, designatedPath: designatedPath)
+        return tt.object
     }
     
     /// 模型转换为 Dictionary<String, Any>
-    public static func transformToDict(_ object: Any) -> Dictionary<String, Any> {
-        return TransformTool.shared.transformToDict(object, type: T.self)
+    public static func transformToDict(_ object: T) -> Dictionary<String, Any> {
+        var tt = TransformTool<T>(object: object)
+        return tt.transformToDict()
     }
     
     /// 模型转换为 json 串
-    public static func transformToJSON(_ object: Any, options opt: JSONSerialization.WritingOptions = []) -> String? {
+    public static func transformToJSON(_ object: T, options opt: JSONSerialization.WritingOptions = []) -> String? {
         let dict = self.transformToDict(object)
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict, options: opt)

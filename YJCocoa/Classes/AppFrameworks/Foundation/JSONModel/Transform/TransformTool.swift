@@ -7,46 +7,28 @@
 
 import Foundation
 
-typealias Byte = Int8
+let CacheMetadataProperty = YJSafetyCache<NSString, NSArray>()
 
 // MARK: - Base
-class TransformTool {
+struct TransformTool<T> {
     
-    static var shared = TransformTool()
-    let cacheProperty = YJSafetyCache<NSString, NSArray>()
-    var cacheType = [String : Metadata.Kind]()
-    
-    func getProperties(forType type: Any.Type) -> [Metadata.Property] {
-        let key = "\(type)" as NSString
-        if let properties = self.cacheProperty.object(forKey: key) as? [Metadata.Property] {
-            return properties
-        }
-        let properties = self.getProperties(forMetadata: Metadata.build(type: type)!)
-        self.cacheProperty.setObject(properties as AnyObject, forKey: key)
-        return properties
-    }
-    
-    func getProperties(forMetadata metadata: Metadata) -> [Metadata.Property] {
-        self.cacheType[metadata.name] = metadata.kind
-        let properties = metadata.ivarList
-        if let superMetadata = metadata.superMetadata {
-            return self.getProperties(forMetadata: superMetadata) + properties
-        }
-        return properties
-    }
-    
-    func headPointer(_ object: inout Any, type: Any.Type) -> UnsafeMutablePointer<Int8> {
-        let stride = MemoryLayout.stride(ofValue: object)
-        let kind = self.cacheType["\(type)"]!
-        if kind == .class {
+    var object: T
+    var metadata: Metadata
+    lazy var headPointer: UnsafeMutablePointer<Int8> = {
+        if self.metadata.kind == .class {
             let opaquePointer = Unmanaged.passUnretained(object as AnyObject).toOpaque()
-            let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: stride)
+            let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: MemoryLayout<T>.stride)
             return UnsafeMutablePointer<Int8>(mutableTypedPointer)
         } else {
             return withUnsafeMutablePointer(to: &object) {
-                return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: stride)
+                return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: MemoryLayout<T>.stride)
             }
         }
+    }()
+    
+    init(object: T) {
+        self.object = object
+        self.metadata = Metadata.build(type: type(of: object))!
     }
     
     func getJsonKey(property: Metadata.Property, mapper: YJJSONModelTransformMapper) -> String? {
@@ -68,7 +50,7 @@ class TransformTool {
 // MARK: - Model
 extension TransformTool {
     
-    func transformToModel(_ object: inout Any, type: Any.Type, dict: Dictionary<String, Any>?, designatedPath: String? = nil) {
+    mutating func transformToModel(dict: [String: Any]?, designatedPath: String? = nil) {
         var dict = dict
         if let path = designatedPath {
             dict = self.getInnerObject(inside: dict, by: path)
@@ -78,22 +60,21 @@ extension TransformTool {
         }
         let mapper = YJJSONModelTransformMapper()
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
-        let properties = self.getProperties(forType: type)
-        let headPointer = self.headPointer(&object, type: type)
-        for property in properties {
-            let propAddr = headPointer.advanced(by: property.offset)
+        for property in self.metadata.allProperties {
+            let propAddr = self.headPointer.advanced(by: property.offset)
             if let key = self.getJsonKey(property: property, mapper: mapper), let rawValue = dict?[key] {
                 if let convertedValue = self.convertValue(rawValue: rawValue, property: property, mapper: mapper) {
-                    assignProperty(convertedValue: convertedValue, address: propAddr, instance: object, property: property, mapper: mapper)
+                    self.assignProperty(convertedValue: convertedValue, address: propAddr, instance: object, property: property, mapper: mapper)
                 } else {
-                    YJLogError("[YJCocoa] \(type).\(property.name) 转换异常数据：\(rawValue)")
+                    YJLogError("[YJCocoa] \(T.self).\(property.name) 转换异常数据：\(rawValue)")
                 }
             }
         }
         (object as? YJJSONModelTransformModel)?.transform(fromDict: dict!)
+        return
     }
     
-    func getInnerObject(inside object: Dictionary<String, Any>?, by designatedPath: String?) -> Dictionary<String, Any>? {
+    func getInnerObject(inside object: [String: Any]?, by designatedPath: String?) -> [String: Any]? {
         var result = object
         if let paths = designatedPath?.components(separatedBy: ".") {
             for path in paths {
@@ -127,16 +108,12 @@ extension TransformTool {
 // MARK: - Dictionary
 extension TransformTool {
     
-    func transformToDict(_ object: Any, type: Any.Type) -> Dictionary<String, Any> {
+    mutating func transformToDict() -> Dictionary<String, Any> {
         var dict = Dictionary<String, Any>()
         let mapper = YJJSONModelTransformMapper()
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
-        let properties = self.getProperties(forType: type)
-        var object = object
-        let headPointer = self.headPointer(&object, type: type)
-        print(headPointer)
-        for property in properties {
-            let address = headPointer.advanced(by: property.offset)
+        for property in self.metadata.allProperties {
+            let address = self.headPointer.advanced(by: property.offset)
             if let key = self.getJsonKey(property: property, mapper: mapper) {
                 dict[key] = self.jsonValue(forInstance: object, mapper: mapper, property: property, address: address)
             }

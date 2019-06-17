@@ -35,6 +35,12 @@ class Metadata {
     var type: Any.Type
     var kind: Metadata.Kind
     var ivarList: [Metadata.Property] = []
+    lazy var allProperties: [Metadata.Property] = {
+        if let superMetadata = self.superMetadata {
+            return superMetadata.allProperties + ivarList
+        }
+        return self.ivarList
+    }()
     
     static let cacheMetaClass = YJSafetyCache<NSString, Metadata>()
     
@@ -109,18 +115,9 @@ extension Metadata {
     struct Struct : ContextDescriptorType {
         
         var pointer: UnsafePointer<_Metadata._Struct>
-        
-        var kind: Metadata.Kind? {
-            return .struct
-        }
-
-        var contextDescriptorOffsetLocation: Int {
-            return 1
-        }
-        
-        var genericArgumentOffsetLocation: Int {
-            return 2
-        }
+        var kind: Metadata.Kind? { return .struct }
+        var contextDescriptorOffsetLocation: Int { return 1 }
+        var genericArgumentOffsetLocation: Int { return 2 }
         
         var genericArgumentVector: UnsafeRawPointer? {
             let pointer = UnsafePointer<Int>(self.pointer)
@@ -156,14 +153,8 @@ extension Metadata {
     struct Class : ContextDescriptorType {
         
         var pointer: UnsafePointer<_Metadata._Class>
-        
-        var kind: Metadata.Kind? {
-            return .class
-        }
-        
-        var contextDescriptorOffsetLocation: Int {
-            return is64BitPlatform ? 8 : 11
-        }
+        var kind: Metadata.Kind? { return .class }
+        var contextDescriptorOffsetLocation: Int { return is64BitPlatform ? 8 : 11 }
         
         var superclass: Class? {
             guard let superclass = pointer.pointee.superclass else {
