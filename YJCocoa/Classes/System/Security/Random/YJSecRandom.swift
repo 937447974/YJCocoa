@@ -12,15 +12,18 @@ private func randomUL(_ count: Int, format: String?) -> String {
     let status = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
     var result = ""
     if status == errSecSuccess {
-        for byte in bytes {
+        for var byte in bytes {
+            if byte < 0 {
+                byte = 0 - byte
+            }
             if format == nil {
                 if arc4random() % 2 == 0 {
-                    result += String(format: "%02X", abs(byte))
+                    result += String(format: "%02X", byte)
                 } else {
-                    result += String(format: "%02x", abs(byte))
+                    result += String(format: "%02x", byte)
                 }
             } else {
-                result += String(format: format!, abs(byte))
+                result += String(format: format!, byte)
             }
         }
     }
