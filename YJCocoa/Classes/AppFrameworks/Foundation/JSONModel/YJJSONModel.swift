@@ -146,7 +146,10 @@ open class YJJSONModel<T> {
     }
     
     /// 模型转换为 Dictionary<String, Any>
-    public static func transformToDict(_ object: T) -> Dictionary<String, Any> {
+    public static func transformToDict(_ object: T) -> [String: Any] {
+        if object is Dictionary<String, Any> || object is NSDictionary {
+            return object as! [String: Any]
+        }
         var tt = TransformTool<T>(object: object)
         return tt.transformToDict()
     }

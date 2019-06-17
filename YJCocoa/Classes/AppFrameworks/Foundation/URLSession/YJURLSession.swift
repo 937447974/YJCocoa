@@ -107,7 +107,8 @@ open class YJURLSessionTask: NSObject {
         return self
     }
     
-    open func completionHandler(success: YJURLSessionTaskSuccess, failure: YJURLSessionTaskFailure?) -> YJURLSessionTask {
+    open func completionHandler(success: @escaping YJURLSessionTaskSuccess, failure: YJURLSessionTaskFailure?) -> YJURLSessionTask {
+        self.handler.append((success, failure))
         return self
     }
     
@@ -153,23 +154,30 @@ open class YJURLRequest: NSObject {
     /// 请求地址
     public private(set) var url = ""
     /// 请求方式
-    public private(set) var method: YJURLRequest.Method!
+    public private(set) var method = YJURLRequest.Method.post
     /// 请求参数模型
-    public var reqModel: AnyObject?
-    /// 服务器返回数据对应的模型class
-    public var respModelClass: AnyClass?
+    public var reqModel: Any?
+    /// 服务器返回数据对应的模型
+    public var respModel: Any?
     
-    init(source: AnyObject?, url: String, method: YJURLRequest.Method, reqModel: AnyObject? , respModelClass: AnyClass? = nil) {
+    public init(source: AnyObject?, url: String, method: YJURLRequest.Method, reqModel: Any? , respModel: Any? = nil) {
         super.init()
+        self.identifier = url
         self.source = source ?? YJURLRequest.self
         self.url = url
         self.method = method
-        self.respModelClass = respModelClass
-        self.identifier = "\(type(of: source))-\(url)-\(String(describing: reqModel))"
+        self.reqModel = reqModel
+        self.respModel = respModel
+        if let rm = reqModel {
+            self.identifier = url + "-\(rm)"
+        }
     }
     
     open func responseModel(with dictionary: Dictionary<String, Any>) -> Any {
-        return dictionary
+        guard let respModel = self.respModel else {
+            return dictionary
+        }
+        return YJJSONModel.transformToModel(respModel, fromDict: dictionary)
     }
     
 }
