@@ -7,6 +7,6 @@ target 'YJLeaks' do
 
   # Pods for YJLeaks
   
-  pod 'YJCocoa/DeveloperTools/Leaks', :path => "../../../YJCocoa.podspec"
+  pod 'YJCocoa/DeveloperTools/Leaks', :path => "../../../YJCocoaOC.podspec"
 
 end

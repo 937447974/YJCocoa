@@ -15,13 +15,14 @@ struct TransformTool<T> {
     var object: T
     var metadata: Metadata
     lazy var headPointer: UnsafeMutablePointer<Int8> = {
+        let capacity = MemoryLayout.stride(ofValue: self.object)
         if self.metadata.kind == .class {
             let opaquePointer = Unmanaged.passUnretained(object as AnyObject).toOpaque()
-            let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: MemoryLayout<T>.stride)
+            let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: capacity)
             return UnsafeMutablePointer<Int8>(mutableTypedPointer)
         } else {
             return withUnsafeMutablePointer(to: &object) {
-                return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: MemoryLayout<T>.stride)
+                return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: capacity)
             }
         }
     }()
@@ -35,12 +36,11 @@ struct TransformTool<T> {
         guard !mapper.ignoredProperties.contains(property.name) else {
             return nil
         }
-        var key = mapper.optionalProperties[property.name]
-        if key == nil {
-            key = property.name
-            if !mapper.isCaseSensitive {
-                key = key?.lowercased()
+        guard let key = mapper.optionalProperties[property.name] else {
+            guard mapper.isCaseSensitive else {
+                return property.name.lowercased()
             }
+            return property.name
         }
         return key
     }
@@ -62,11 +62,13 @@ extension TransformTool {
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
         for property in self.metadata.allProperties {
             let propAddr = self.headPointer.advanced(by: property.offset)
+            print(property)
+            print(mapper)
             if let key = self.getJsonKey(property: property, mapper: mapper), let rawValue = dict?[key] {
                 if let convertedValue = self.convertValue(rawValue: rawValue, property: property, mapper: mapper) {
                     self.assignProperty(convertedValue: convertedValue, address: propAddr, instance: object, property: property, mapper: mapper)
                 } else {
-                    YJLogError("[YJCocoa] \(T.self).\(property.name) 转换异常数据：\(rawValue)")
+                    YJLogError("[YJCocoa] \(self.metadata.type).\(property.name) 转换异常数据：\(rawValue)")
                 }
             }
         }

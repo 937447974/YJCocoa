@@ -132,8 +132,6 @@
 				84083AE91E275E0600D89EAA /* Sources */,
 				84083AEA1E275E0600D89EAA /* Frameworks */,
 				84083AEB1E275E0600D89EAA /* Resources */,
-				B97DD859EC30885E9AE734C8 /* [CP] Embed Pods Frameworks */,
-				00ED5F7BCB1E49DB740EC98A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,36 +191,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00ED5F7BCB1E49DB740EC98A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJLeaks/Pods-YJLeaks-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B97DD859EC30885E9AE734C8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJLeaks/Pods-YJLeaks-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BAB44968B8CE10B9F94BF0D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -1,0 +1,12 @@
+platform :ios, '9.0'
+use_frameworks!
+install! 'cocoapods', :disable_input_output_paths => true
+
+target 'YJLeaks' do
+    pod 'YJCocoa', :path => "../../../../YJCocoa.podspec"
+    pod 'HandyJSON', '~> 5.0.0'
+    target 'YJLeaksTests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+end

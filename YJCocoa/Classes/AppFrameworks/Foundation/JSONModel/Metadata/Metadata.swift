@@ -71,8 +71,10 @@ class Metadata {
     
     static func build(type: Any.Type) -> Metadata? {
         let name = "\(type)" as NSString
-        guard name != "Swift._SwiftObject", name != "NSObject", !(type is YJJSONModelTransformModel.Type) else {
-            return nil
+        for prefix in ["Swift", "UI", "NS", "WK", "CA", "_", "Any"] {
+            if name.hasPrefix(prefix) {
+                return nil
+            }
         }
         if let metadata = Metadata.cacheMetaClass.object(forKey: name) {
             return metadata
@@ -156,17 +158,6 @@ extension Metadata {
         var kind: Metadata.Kind? { return .class }
         var contextDescriptorOffsetLocation: Int { return is64BitPlatform ? 8 : 11 }
         
-        var superclass: Class? {
-            guard let superclass = pointer.pointee.superclass else {
-                return nil
-            }
-            let type = "\(superclass)"
-            guard type != "Swift._SwiftObject", type != "NSObject" else {
-                return nil
-            }
-            return Metadata.Class(pointer: unsafeBitCast(superclass, to: UnsafePointer<Int>.self))
-        }
-        
         var vTableSize: Int {
             // memory size after ivar destroyer
             return Int(pointer.pointee.classObjectSize - pointer.pointee.classObjectAddressPoint) - (contextDescriptorOffsetLocation + 2) * MemoryLayout<Int>.size
@@ -175,11 +166,7 @@ extension Metadata {
         // reference: https://github.com/apple/swift/blob/master/docs/ABI/TypeMetadata.rst#generic-argument-vector
         var genericArgumentVector: UnsafeRawPointer? {
             let pointer = UnsafePointer<Int>(self.pointer)
-            var superVTableSize = 0
-            if let _superclass = self.superclass {
-                superVTableSize = _superclass.vTableSize / MemoryLayout<Int>.size
-            }
-            let base = pointer.advanced(by: contextDescriptorOffsetLocation + 2 + superVTableSize)
+            let base = pointer.advanced(by: contextDescriptorOffsetLocation + 2)
             if base.pointee == 0 {
                 return nil
             }
@@ -201,8 +188,7 @@ extension Metadata {
                 }
             }
             //  class 中属性的 offset 可能会发生变化
-            if let firstInstanceStart = self.pointer.pointee.class_rw_t()?.pointee.class_ro_t()?.pointee.instanceStart,
-                let firstProperty = result.first?.offset {
+            if let firstProperty = result.first?.offset, let firstInstanceStart = self.pointer.pointee.class_rw_t()?.pointee.class_ro_t()?.pointee.instanceStart {
                 return result.map({ (ivar) -> Metadata.Property in
                     let offset = ivar.offset - firstProperty + Int(firstInstanceStart)
                     return Metadata.Property(name: ivar.name, type: ivar.type, offset: offset)

@@ -22,11 +22,11 @@ class JSONModelTest: XCTestCase {
         }
         
         static func transform(fromJSON value: Any) -> Any? {
-            return YJJSONModel<TestItem>.transformToModel(TestItem(), fromDict: value as? [String: Any])
+            return YJJSONModel.transformToModel(TestItem(), fromDict: value as? [String: Any])
         }
         
         static func transform(toJSON value: Any) -> Any {
-            return YJJSONModel<TestItem>.transformToDict(value as! JSONModelTest.TestItem)
+            return YJJSONModel.transformToDict(value as! JSONModelTest.TestItem)
         }
         
     }

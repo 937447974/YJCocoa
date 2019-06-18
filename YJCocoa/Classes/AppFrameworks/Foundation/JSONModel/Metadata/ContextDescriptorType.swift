@@ -77,15 +77,16 @@ extension ContextDescriptorType {
             return nil
         }
         let vectorOffset = contextDescriptor.fieldOffsetVector
-        guard vectorOffset != 0 else {
+        let numberOfFields = contextDescriptor.numberOfFields
+        guard numberOfFields > 0, vectorOffset != 0 else {
             return nil
         }
         if self.kind == .class {
-            return (0..<contextDescriptor.numberOfFields).map {
+            return (0..<numberOfFields).map {
                 return UnsafePointer<Int>(pointer)[vectorOffset + $0]
             }
         } else {
-            return (0..<contextDescriptor.numberOfFields).map {
+            return (0..<numberOfFields).map {
                 return Int(UnsafePointer<Int32>(pointer)[vectorOffset * (is64BitPlatform ? 2 : 1) + $0])
             }
         }
