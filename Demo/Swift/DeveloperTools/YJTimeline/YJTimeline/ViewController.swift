@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import YJCocoa
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        YJTimeline.add(strp: "ViewController")
     }
 
 

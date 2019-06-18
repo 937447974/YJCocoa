@@ -2,5 +2,5 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'YJTimeline' do
-    pod 'YJCocoa/DeveloperTools/Timeline', :path => "../../../YJCocoa.podspec"
+    pod 'YJCocoa/DeveloperTools/Timeline', :path => "../../../YJCocoaOC.podspec"
 end

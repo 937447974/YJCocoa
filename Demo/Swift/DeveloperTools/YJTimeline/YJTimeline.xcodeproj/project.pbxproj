@@ -7,35 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3C29445276712075B71B749 /* Pods_YJTimeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996EAACCE4D19EBD816ECE97 /* Pods_YJTimeline.framework */; };
 		D4A36A2922B78F100095F7DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A36A2822B78F100095F7DC /* AppDelegate.swift */; };
 		D4A36A2B22B78F100095F7DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A36A2A22B78F100095F7DC /* ViewController.swift */; };
-		D4A36A2E22B78F100095F7DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A36A2C22B78F100095F7DC /* Main.storyboard */; };
 		D4A36A3022B78F100095F7DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A36A2F22B78F100095F7DC /* Assets.xcassets */; };
-		D4A36A3322B78F100095F7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A36A3122B78F100095F7DC /* LaunchScreen.storyboard */; };
-		D4A36A3E22B78F100095F7DC /* YJTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A36A3D22B78F100095F7DC /* YJTimelineTests.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D4A36A3A22B78F100095F7DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4A36A1D22B78F100095F7DC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D4A36A2422B78F100095F7DC;
-			remoteInfo = YJTimeline;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3B2FBE3CB5B6A57FCADA91D9 /* Pods-YJTimelineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimelineTests.release.xcconfig"; path = "Target Support Files/Pods-YJTimelineTests/Pods-YJTimelineTests.release.xcconfig"; sourceTree = "<group>"; };
+		4E8B7E4C370E88D69AD4C210 /* Pods-YJTimeline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimeline.debug.xcconfig"; path = "Target Support Files/Pods-YJTimeline/Pods-YJTimeline.debug.xcconfig"; sourceTree = "<group>"; };
+		5423F589A2DF62FFD8A1EE63 /* Pods-YJTimeline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimeline.release.xcconfig"; path = "Target Support Files/Pods-YJTimeline/Pods-YJTimeline.release.xcconfig"; sourceTree = "<group>"; };
+		84ACAD415BD127E2F4464880 /* Pods_YJTimelineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJTimelineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8505B5BCD1B600D6DAA7E815 /* Pods-YJTimelineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTimelineTests.debug.xcconfig"; path = "Target Support Files/Pods-YJTimelineTests/Pods-YJTimelineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		996EAACCE4D19EBD816ECE97 /* Pods_YJTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A36A2522B78F100095F7DC /* YJTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A36A2822B78F100095F7DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A36A2A22B78F100095F7DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D4A36A2D22B78F100095F7DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4A36A2F22B78F100095F7DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D4A36A3222B78F100095F7DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A36A3422B78F100095F7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4A36A3922B78F100095F7DC /* YJTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4A36A3D22B78F100095F7DC /* YJTimelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTimelineTests.swift; sourceTree = "<group>"; };
-		D4A36A3F22B78F100095F7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,25 +32,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4A36A3622B78F100095F7DC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				D3C29445276712075B71B749 /* Pods_YJTimeline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53B739F39F3110159D6D8585 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B7E4C370E88D69AD4C210 /* Pods-YJTimeline.debug.xcconfig */,
+				5423F589A2DF62FFD8A1EE63 /* Pods-YJTimeline.release.xcconfig */,
+				8505B5BCD1B600D6DAA7E815 /* Pods-YJTimelineTests.debug.xcconfig */,
+				3B2FBE3CB5B6A57FCADA91D9 /* Pods-YJTimelineTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6AD88946639025442D638079 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				996EAACCE4D19EBD816ECE97 /* Pods_YJTimeline.framework */,
+				84ACAD415BD127E2F4464880 /* Pods_YJTimelineTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4A36A1C22B78F100095F7DC = {
 			isa = PBXGroup;
 			children = (
 				D4A36A2722B78F100095F7DC /* YJTimeline */,
-				D4A36A3C22B78F100095F7DC /* YJTimelineTests */,
 				D4A36A2622B78F100095F7DC /* Products */,
+				53B739F39F3110159D6D8585 /* Pods */,
+				6AD88946639025442D638079 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				D4A36A2522B78F100095F7DC /* YJTimeline.app */,
-				D4A36A3922B78F100095F7DC /* YJTimelineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,21 +82,10 @@
 			children = (
 				D4A36A2822B78F100095F7DC /* AppDelegate.swift */,
 				D4A36A2A22B78F100095F7DC /* ViewController.swift */,
-				D4A36A2C22B78F100095F7DC /* Main.storyboard */,
 				D4A36A2F22B78F100095F7DC /* Assets.xcassets */,
-				D4A36A3122B78F100095F7DC /* LaunchScreen.storyboard */,
 				D4A36A3422B78F100095F7DC /* Info.plist */,
 			);
 			path = YJTimeline;
-			sourceTree = "<group>";
-		};
-		D4A36A3C22B78F100095F7DC /* YJTimelineTests */ = {
-			isa = PBXGroup;
-			children = (
-				D4A36A3D22B78F100095F7DC /* YJTimelineTests.swift */,
-				D4A36A3F22B78F100095F7DC /* Info.plist */,
-			);
-			path = YJTimelineTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A36A4222B78F100095F7DC /* Build configuration list for PBXNativeTarget "YJTimeline" */;
 			buildPhases = (
+				055EDDC3DDC571ADCDE3C3C7 /* [CP] Check Pods Manifest.lock */,
 				D4A36A2122B78F100095F7DC /* Sources */,
 				D4A36A2222B78F100095F7DC /* Frameworks */,
 				D4A36A2322B78F100095F7DC /* Resources */,
+				7D80B70FC7DDDBCE16D0D64C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -115,24 +109,6 @@
 			productName = YJTimeline;
 			productReference = D4A36A2522B78F100095F7DC /* YJTimeline.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D4A36A3822B78F100095F7DC /* YJTimelineTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D4A36A4522B78F100095F7DC /* Build configuration list for PBXNativeTarget "YJTimelineTests" */;
-			buildPhases = (
-				D4A36A3522B78F100095F7DC /* Sources */,
-				D4A36A3622B78F100095F7DC /* Frameworks */,
-				D4A36A3722B78F100095F7DC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D4A36A3B22B78F100095F7DC /* PBXTargetDependency */,
-			);
-			name = YJTimelineTests;
-			productName = YJTimelineTests;
-			productReference = D4A36A3922B78F100095F7DC /* YJTimelineTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -146,10 +122,6 @@
 				TargetAttributes = {
 					D4A36A2422B78F100095F7DC = {
 						CreatedOnToolsVersion = 10.2.1;
-					};
-					D4A36A3822B78F100095F7DC = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = D4A36A2422B78F100095F7DC;
 					};
 				};
 			};
@@ -167,7 +139,6 @@
 			projectRoot = "";
 			targets = (
 				D4A36A2422B78F100095F7DC /* YJTimeline */,
-				D4A36A3822B78F100095F7DC /* YJTimelineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,20 +148,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4A36A3322B78F100095F7DC /* LaunchScreen.storyboard in Resources */,
 				D4A36A3022B78F100095F7DC /* Assets.xcassets in Resources */,
-				D4A36A2E22B78F100095F7DC /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4A36A3722B78F100095F7DC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		055EDDC3DDC571ADCDE3C3C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJTimeline-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D80B70FC7DDDBCE16D0D64C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJTimeline/Pods-YJTimeline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4A36A2122B78F100095F7DC /* Sources */ = {
@@ -202,42 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4A36A3522B78F100095F7DC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4A36A3E22B78F100095F7DC /* YJTimelineTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D4A36A3B22B78F100095F7DC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D4A36A2422B78F100095F7DC /* YJTimeline */;
-			targetProxy = D4A36A3A22B78F100095F7DC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D4A36A2C22B78F100095F7DC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4A36A2D22B78F100095F7DC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D4A36A3122B78F100095F7DC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4A36A3222B78F100095F7DC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D4A36A4022B78F100095F7DC /* Debug */ = {
@@ -358,8 +325,10 @@
 		};
 		D4A36A4322B78F100095F7DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E8B7E4C370E88D69AD4C210 /* Pods-YJTimeline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJTimeline/Info.plist;
@@ -376,8 +345,10 @@
 		};
 		D4A36A4422B78F100095F7DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5423F589A2DF62FFD8A1EE63 /* Pods-YJTimeline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJTimeline/Info.plist;
@@ -389,48 +360,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D4A36A4622B78F100095F7DC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5657739M7;
-				INFOPLIST_FILE = YJTimelineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJTimelineTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJTimeline.app/YJTimeline";
-			};
-			name = Debug;
-		};
-		D4A36A4722B78F100095F7DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5657739M7;
-				INFOPLIST_FILE = YJTimelineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJTimelineTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJTimeline.app/YJTimeline";
 			};
 			name = Release;
 		};
@@ -451,15 +380,6 @@
 			buildConfigurations = (
 				D4A36A4322B78F100095F7DC /* Debug */,
 				D4A36A4422B78F100095F7DC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D4A36A4522B78F100095F7DC /* Build configuration list for PBXNativeTarget "YJTimelineTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D4A36A4622B78F100095F7DC /* Debug */,
-				D4A36A4722B78F100095F7DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

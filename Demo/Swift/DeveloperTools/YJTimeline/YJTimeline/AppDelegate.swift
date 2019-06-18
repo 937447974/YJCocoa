@@ -15,12 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        YJTimeline.add(strp: "didFinishLaunchingWithOptions")
         YJLog.levels = [.verbose, .debug, .info, .warn, .error]
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
         self.window?.rootViewController = ViewController()
         self.window?.makeKeyAndVisible()
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        YJTimeline.add(strp: "applicationDidBecomeActive")
+        YJTimeline.end()
     }
 
 }
