@@ -66,7 +66,7 @@ class Metadata {
                 self.superMetadata = Metadata.build(type: superclass)
             }
         }
-        YJLogVerbose("[JSONModel] 解析: \(type), ivarList: \(self.ivarList)")
+        YJLogVerbose("[YJJSONModel] 解析: \(type), ivarList: \(self.ivarList)")
     }
     
     static func build(type: Any.Type) -> Metadata? {

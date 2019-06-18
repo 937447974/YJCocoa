@@ -35,7 +35,7 @@ class URLSessionTest: XCTestCase {
     
     func testURLSession() {
         let reqModel = YJTestURLRequestModel(name: "阳君", qq: "557445088")
-        let reqDict = YJJSONModel.transformToDict(reqModel)
+        let reqDict = YJJSONModel<YJTestURLRequestModel>.transformToDict(reqModel)
         let request = YJURLRequest(source: nil, url: "https://github.com/937447974/YJCocoa", method: .post, reqModel: reqDict, respModel: YJTestURLResponseModel())
         let task = YJTestURLSessionTask.task(with: request)
         task.completionHandler(success: { (respModel) in

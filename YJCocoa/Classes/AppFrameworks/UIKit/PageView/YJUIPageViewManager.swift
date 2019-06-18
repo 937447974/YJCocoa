@@ -131,7 +131,7 @@ extension YJUIPageViewManager: UIPageViewControllerDataSource {
     
     private func pageViewCell(at index:Int) -> YJUIPageViewCell? {
         guard let co = self.cellObject(at: index) else {
-            YJLogWarn("[PageView] 返回空cell")
+            YJLogWarn("[YJPageView] 返回空cell")
             return nil
         }
         let key = "\(co.reuseIdentifier)-\(index)" as NSString

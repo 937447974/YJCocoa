@@ -27,8 +27,8 @@ struct TransformTool<T> {
         }
     }()
     
-    init(object: T) {
-        self.object = object
+    init(object: Any) {
+        self.object = object as! T
         self.metadata = Metadata.build(type: type(of: object))!
     }
     
@@ -62,8 +62,6 @@ extension TransformTool {
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
         for property in self.metadata.allProperties {
             let propAddr = self.headPointer.advanced(by: property.offset)
-            print(property)
-            print(mapper)
             if let key = self.getJsonKey(property: property, mapper: mapper), let rawValue = dict?[key] {
                 if let convertedValue = self.convertValue(rawValue: rawValue, property: property, mapper: mapper) {
                     self.assignProperty(convertedValue: convertedValue, address: propAddr, instance: object, property: property, mapper: mapper)

@@ -118,9 +118,9 @@ open class YJJSONModel<T> {
     /// - parameter object: 填充数据的模型
     /// - parameter json: json串
     /// - parameter designatedPath: 数据路径
-    public static func transformToModel(_ object: T, fromJSON json: String?, designatedPath: String? = nil) -> T {
+    public static func transformToModel(_ object: Any, fromJSON json: String?, designatedPath: String? = nil) -> T {
         guard let _json = json else {
-            return object
+            return object as! T
         }
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: _json.data(using: String.Encoding.utf8)!, options: .allowFragments)
@@ -130,23 +130,23 @@ open class YJJSONModel<T> {
         } catch let error {
             YJLogError("[YJJSONModel] error: \(error)")
         }
-        return object
+        return object as! T
     }
     
     /// 通过 NSDictionary 转换模型
-    public static func transformToModel(_ object: T, fromNSDict dict: NSDictionary?, designatedPath: String? = nil) -> T {
+    public static func transformToModel(_ object: Any, fromNSDict dict: NSDictionary?, designatedPath: String? = nil) -> T {
         return self.transformToModel(object, fromDict: dict as? [String: Any], designatedPath: designatedPath)
     }
     
     /// 通过 Dictionary<String, Any> 转换模型
-    public static func transformToModel(_ object: T, fromDict dict: [String: Any]?, designatedPath: String? = nil) -> T {
+    public static func transformToModel(_ object: Any, fromDict dict: [String: Any]?, designatedPath: String? = nil) -> T {
         var tt = TransformTool<T>(object: object)
         tt.transformToModel(dict: dict, designatedPath: designatedPath)
         return tt.object
     }
     
     /// 模型转换为 Dictionary<String, Any>
-    public static func transformToDict(_ object: T) -> [String: Any] {
+    public static func transformToDict(_ object: Any) -> [String: Any] {
         if object is Dictionary<String, Any> || object is NSDictionary {
             return object as! [String: Any]
         }
@@ -155,7 +155,7 @@ open class YJJSONModel<T> {
     }
     
     /// 模型转换为 json 串
-    public static func transformToJSON(_ object: T, options opt: JSONSerialization.WritingOptions = []) -> String? {
+    public static func transformToJSON(_ object: Any, options opt: JSONSerialization.WritingOptions = []) -> String? {
         let dict = self.transformToDict(object)
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict, options: opt)

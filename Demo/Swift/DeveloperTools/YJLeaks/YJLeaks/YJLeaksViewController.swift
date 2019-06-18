@@ -14,36 +14,22 @@ var obj: Any?
 
 class YJLeaksViewController: UIViewController & HandyJSON  {
     
+    var leakView = YJLeaksView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
-//        self.leakVC()
-        self.leakView()
-//        self.leakProperty()
-        YJLeaks.shared.captureMemoryLeaks(target: self)
-        
-//        JSONDeserializer<YJLeaksViewController>.deserializeFrom(dict: ["1":"1"])
-//        print(YJJSONModel.transformToDict(self))
-        
-   
+        self.testProperty()
     }
     
-    func leakVC() {
+    func testVC() {
         obj = self
     }
     
-    func leakView() {
-        let view = YJLeaksView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        view.backgroundColor = UIColor.white
-        self.view.addSubview(view)
-        obj = view
+    func testProperty() {
+        self.leakView.backgroundColor = UIColor.white
+        self.view.addSubview(self.leakView)
+        obj = self.leakView
     }
-    
-    func leakProperty() {
-        
-    }
-    
-    
-    
-    
+ 
 }

@@ -61,7 +61,6 @@ public class YJLeaks: NSObject {
             return []
         }
         var result = Array<Item>()
-        print(type(of: target))
         let dict = YJJSONModel<Any>.transformToDict(target)
         for (key, value) in dict {
             guard self.isValidation(value) else {
