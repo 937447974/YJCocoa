@@ -13,8 +13,10 @@ import YJCocoa
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let timeProfiler = YJTimeProfiler()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.timeProfiler.start()
         YJLog.levels = [.verbose, .debug, .info, .warn, .error]
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white

@@ -6,6 +6,6 @@ target 'YJTimeProfiler' do
     # use_frameworks!
     
     # Pods for YJTimeProfiler
-    pod 'YJCocoa/DeveloperTools/TimeProfiler', :path => "../../../YJCocoa.podspec"
+    pod 'YJCocoa/DeveloperTools/TimeProfiler', :path => "../../../YJCocoaOC.podspec"
     
 end
