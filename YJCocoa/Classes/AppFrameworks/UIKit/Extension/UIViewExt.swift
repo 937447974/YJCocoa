@@ -1,5 +1,5 @@
 //
-//  YJUIGeometry.swift
+//  UIViewExt.swift
 //  YJUIGeometry
 //
 //  Created by 阳君 on 2019/5/23.
@@ -8,9 +8,10 @@
 
 import UIKit
 
+// MARK: Geometry
 @objc public extension UIView {
     
-    // MARK: - frame
+    // MARK: frame
     /// .frame.origin.x
     var frameLeft: CGFloat {
         get {return self.frame.origin.x}
@@ -54,7 +55,7 @@ import UIKit
         set {self.frame.size = newValue}
     }
     
-    // MARK: - center
+    // MARK: center
     /// .center.x
     var centerX: CGFloat {
         get {return self.center.x}
@@ -66,7 +67,7 @@ import UIKit
         set {self.center.y = newValue}
     }
     
-    // MARK: - bounds
+    // MARK: bounds
     /// .bounds.origin.x
     var boundsLeft: CGFloat {
         get {return self.bounds.origin.x}

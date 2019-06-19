@@ -15,12 +15,22 @@ class YJOtherViewController: UIViewController {
         super.viewDidLoad()
         self.title = "YJOtherViewController"
         self.view.backgroundColor = UIColor.white
+        let backItem = YJUIBarButtonItem { [unowned self] (button: UIButton) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        backItem.button.setImage(UIImage(named: "nav_back"), highlightedImage: nil)
+        self.navigationItem.leftBarButtonItem = backItem.buildBackBarButtonItem()
+        
+        let rightItem = YJUIBarButtonItem { (button: UIButton) in
+            YJURLRouter.shared.openURL(url: "/main?1=3", options: ["name":"阳君"]) { (options: Dictionary<String, Any>) in
+                YJLogDebug("接收回调数据：\(options)")
+            }
+        }
+        rightItem.setTitle("跳转", font: nil, color: nil, highlightedColor: nil)
+        self.navigationItem.rightBarButtonItem = rightItem.buildBarButtonItem()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        YJURLRouter.shared.openURL(url: "/main?1=3", options: ["name":"阳君"]) { (options: Dictionary<String, Any>) in
-//            YJLogDebug("接收回调数据：\(options)")
-//        }
         YJURLRouter.shared.openURL(url: "https://www.baidu.com/s?wd=swift&rsv_spt=1&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg", options: ["name":"阳君"]) { (options: Dictionary<String, Any>) in
             YJLogDebug("接收回调数据：\(options)")
         }
