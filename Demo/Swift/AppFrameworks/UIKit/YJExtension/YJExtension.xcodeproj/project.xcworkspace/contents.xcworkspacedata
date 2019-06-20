@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:YJViewGeometry.xcodeproj">
+      location = "self:YJExtension.xcodeproj">
    </FileRef>
 </Workspace>

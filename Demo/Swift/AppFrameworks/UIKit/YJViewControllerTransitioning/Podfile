@@ -3,5 +3,5 @@ use_frameworks!
 install! 'cocoapods', :disable_input_output_paths => true
 
 target 'YJViewControllerTransitioning' do
-    pod 'YJCocoa', :path => "../../../../../YJCocoa.podspec"
+    pod 'YJCocoa/AppFrameworks/UIKit/ViewControllerTransitioning', :path => "../../../../../YJCocoa.podspec"
 end

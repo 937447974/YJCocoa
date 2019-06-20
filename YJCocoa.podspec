@@ -13,7 +13,7 @@
 # pod开发环境：#pod 'YJCocoa', :git => 'https://github.com/937447974/YJCocoa.git'
 
 Pod::Spec.new do |s|
-
+    
     # ――― Root specification
     s.name     = "YJCocoa"
     s.version  = "9.0.0"
@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
                       YJ技术支持群：557445088
                     DESC
 
-
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "9.0"
@@ -38,25 +37,62 @@ Pod::Spec.new do |s|
     s.pod_target_xcconfig = {
         'SWIFT_VERSION' => '5.0'
     }
-
+    
     # ——— File patterns
     s.source_files = 'YJCocoa/Classes/**/*'
-
+    
     # ——— Subspecs
-#s.default_subspec = 'AppFrameworks'
-
+    s.default_subspec = 'AppFrameworks'#, 'DeveloperTools', 'OC', 'System'
+    
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
-        af.source_files = 'YJCocoa/Classes/AppFrameworks/*'
         # 1.1 Foundation
         af.subspec 'Foundation' do |foundation|
             # AOP
             foundation.subspec 'AOP' do |aop|
-                aop.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/AOP/*.swift'
+                aop.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/AOP/*'
+            end
+        end
+        # 1.2 Foundation
+        af.subspec 'UIKit' do |ui|
+            ui.subspec 'CollectionView' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/CollectionView/*'
+            end
+            ui.subspec 'Extension' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/Extension/*'
+            end
+            ui.subspec 'NavigationBar' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/NavigationBar/*'
+            end
+            ui.subspec 'PageView' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/PageView/*'
+            end
+            ui.subspec 'ScrollView' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ScrollView/*'
+            end
+            ui.subspec 'TableView' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TableView/*'
+            end
+            ui.subspec 'URLRouter' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/URLRouter/*'
+            end
+            ui.subspec 'ViewControllerTransitioning' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ViewControllerTransitioning/*'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
         end
     end
-
+#    
+#    # 2 DeveloperTools
+#    s.subspec 'DeveloperTools' do |dt|
+#    end
+#    # 3 OC
+#    s.subspec 'OC' do |oc|
+#    end
+#    # 4 System
+#    s.subspec 'System' do |system|
+#    end
+    
 end
 
 
