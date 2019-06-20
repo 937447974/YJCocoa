@@ -18,6 +18,7 @@ public func YJWeakSingleton(_ aClass: AnyClass, _ identifier: String) -> AnyObje
 }
 
 /** 单例中心*/
+@objcMembers
 open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
     public static var shared = YJSingletonCenter()
@@ -32,7 +33,7 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     }
     
     /// 强引用单例，一直存在
-    func strongSingleton(aClass: AnyClass, forIdentifier identifier: String? = nil) -> AnyObject {
+    public func strongSingleton(aClass: AnyClass, forIdentifier identifier: String? = nil) -> AnyObject {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.strongDict[identifier] else {
@@ -46,7 +47,7 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     }
     
     /// 弱引用单例，自动回收
-    func weakSingleton(aClass: AnyClass, forIdentifier identifier: String) -> AnyObject {
+    public func weakSingleton(aClass: AnyClass, forIdentifier identifier: String) -> AnyObject {
         let identifier1 = identifier as NSString
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.weakCache.object(forKey: identifier1) else {

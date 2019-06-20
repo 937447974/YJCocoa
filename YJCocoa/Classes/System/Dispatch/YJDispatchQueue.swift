@@ -52,6 +52,7 @@ public func dispatch_async_concurrent(block: @escaping YJDispatchBlock) {
 }
 
 /// 调度队列
+@objcMembers
 open class YJDispatchQueue: NSObject {
     
     var queue: DispatchQueue!
@@ -104,6 +105,22 @@ open class YJDispatchQueue: NSObject {
         } else {
             self.queue.sync(execute: semaphoreBlock)
         }
+    }
+    
+}
+
+extension YJDispatchQueue {
+    
+    public static func syncMain(_ block: @escaping YJDispatchBlock) {
+        DispatchQueue.main.async(execute: block)
+    }
+    
+    public static func afterMain(delayInSeconds: TimeInterval, block: @escaping YJDispatchBlock) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: block)
+    }
+    
+    public static func asyncDefault(_ block: @escaping YJDispatchBlock) {
+        DispatchQueue.global(qos: .default).async(execute: block)
     }
     
 }

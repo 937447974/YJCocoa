@@ -8,6 +8,7 @@
 import Foundation
 
 ///  日历
+@objcMembers
 open class YJCalendar: NSObject {
     
     /// 当前时间
