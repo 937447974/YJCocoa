@@ -16,9 +16,6 @@ public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 /// 拦截回调
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
-/// 调度器 单例
-public let YJSchedulerS = YJStrongSingleton(YJScheduler.self) as! YJScheduler
-
 /// 调度器
 open class YJScheduler: NSObject {
     
@@ -29,6 +26,9 @@ open class YJScheduler: NSObject {
         /// 子队列
         case `default`
     }
+    
+    /// /// 调度器 单例
+    public static let shared = YJScheduler()
     
     private lazy var workQueue: YJDispatchQueue = {
         let queue = DispatchQueue(label: "com.yjcocoa.scheduler.work")

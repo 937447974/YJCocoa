@@ -44,7 +44,7 @@ open class YJTimer: NSObject {
     
     deinit {
         self.timer.invalidate()
-        YJLogDebug("[YJCocoa] timer 释放")
+        YJLogVerbose("[YJCocoa] timer 释放")
     }
     
 }

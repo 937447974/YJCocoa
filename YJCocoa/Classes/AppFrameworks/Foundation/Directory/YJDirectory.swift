@@ -7,11 +7,11 @@
 
 import UIKit
 
-/// 应用内目录单例
-public let YJDirectoryS = YJWeakSingleton(YJDirectory.self, "YJDirectory") as! YJDirectory
-
 /// 应用内目录
 open class YJDirectory: NSObject {
+    
+    /// 应用内目录单例
+    public static let shared = YJDirectory()
     
     /// HomeDirectoryPath
     public let homePath: String!

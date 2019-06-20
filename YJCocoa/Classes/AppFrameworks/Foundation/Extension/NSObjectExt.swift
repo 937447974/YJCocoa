@@ -92,6 +92,8 @@ public extension NSObject {
     
 }
 
+let cacheYJSwizzling = NSMutableDictionary()
+
 //MARK:  Swizzling
 extension NSObject {
     
@@ -99,7 +101,7 @@ extension NSObject {
     /// - parameter originalSEL:  原始方法
     /// - parameter swizzlingSEL: 交换的方法
     static func swizzling(originalSEL: Selector, swizzlingSEL: Selector) {
-        let cache = YJStrongSingleton(NSMutableDictionary.self, "YJSwizzling") as! NSMutableDictionary
+        let cache = cacheYJSwizzling
         let key = "\(self)-\(originalSEL)-\(swizzlingSEL)" as NSString
         guard cache.object(forKey: key) == nil else {
             return

@@ -31,7 +31,7 @@ open class YJURLRouter: NSObject {
     
     /// 共享单例
     @objc
-    public static var shared = YJStrongSingleton(YJURLRouter.self) as! YJURLRouter
+    public static var shared = YJURLRouter()
     
     var nodeCache = NSCache<NSString, UIViewController>()
     
@@ -59,7 +59,7 @@ open class YJURLRouter: NSObject {
     private func registerRouter(register: YJRouterRegister) {
         YJLogVerbose("[YJURLRouter] 注册:\(register.url)")
         let topic = self.topic(with: register.url)
-        YJSchedulerS.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
+        YJScheduler.shared.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
             let options: Dictionary<String, Any> = data as! Dictionary<String, Any>
             self.openRouter(register: register, options: options, completion: handler)
         }
@@ -108,7 +108,7 @@ extension YJURLRouter {
      *  - parameter openHandler: 打开路由
      */
     public func interceptUnregistered(canOpen: @escaping YJRUnregisteredCanOpen, openHandler: @escaping YJROpenHandler) {
-        YJSchedulerS.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
+        YJScheduler.shared.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
             return canOpen(self.url(with: topic))
         }) { [unowned self] (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
             let url = self.url(with: topic)
@@ -131,7 +131,7 @@ extension YJURLRouter {
     public func canOpen(url: String) -> Bool {
         let url = self.urlPrefix(with: url)
         let topic = self.topic(with: url)
-        return YJSchedulerS.canPublish(topic: topic)
+        return YJScheduler.shared.canPublish(topic: topic)
     }
     
     /**
@@ -155,7 +155,7 @@ extension YJURLRouter {
                 handler!(data as! Dictionary<String, Any>)
             }
         }
-        YJSchedulerS.publish(topic: topic, data: options, serial: true, completion: publishHandler)
+        YJScheduler.shared.publish(topic: topic, data: options, serial: true, completion: publishHandler)
     }
     
     func topic(with url: String) -> String {

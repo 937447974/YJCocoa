@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "9.0"
-
+    
     # ――― Build settings
     s.requires_arc = true
     s.pod_target_xcconfig = {
@@ -42,21 +42,62 @@ Pod::Spec.new do |s|
     s.source_files = 'YJCocoa/Classes/**/*'
     
     # ——— Subspecs
-    s.default_subspec = 'AppFrameworks'#, 'DeveloperTools', 'OC', 'System'
+    s.default_subspec = 'AppFrameworks', 'DeveloperTools', 'OC', 'System'
     
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
         # 1.1 Foundation
         af.subspec 'Foundation' do |foundation|
-            # AOP
-            foundation.subspec 'AOP' do |aop|
-                aop.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/AOP/*'
+            foundation.subspec 'Calendar' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Calendar/*'
+            end
+            foundation.subspec 'Directory' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Directory/*'
+            end
+            foundation.subspec 'Extension' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Extension/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+            end
+            foundation.subspec 'JSONModel' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/JSONModel/**/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+            end
+            foundation.subspec 'Log' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Log/*'
+            end
+            foundation.subspec 'Safety' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Safety/*'
+                sub.dependency 'YJCocoa/System/Pthread'
+            end
+            foundation.subspec 'Scheduler' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Scheduler/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Extension'
+                sub.dependency 'YJCocoa/OC/CodeInject'
+                sub.dependency 'YJCocoa/System/Dispatch'
+            end
+            foundation.subspec 'SingletonCenter' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/SingletonCenter/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/System/Pthread'
+            end
+            foundation.subspec 'Timer' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Timer/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+            end
+            foundation.subspec 'URL' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/URL/*'
+            end
+            foundation.subspec 'URLSession' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/URLSession/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/System/Dispatch'
             end
         end
         # 1.2 Foundation
         af.subspec 'UIKit' do |ui|
             ui.subspec 'CollectionView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/CollectionView/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
             end
             ui.subspec 'Extension' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/Extension/*'
@@ -66,15 +107,19 @@ Pod::Spec.new do |s|
             end
             ui.subspec 'PageView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/PageView/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
             end
             ui.subspec 'ScrollView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ScrollView/*'
             end
             ui.subspec 'TableView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TableView/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
             end
             ui.subspec 'URLRouter' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/URLRouter/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Scheduler'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/URL'
             end
             ui.subspec 'ViewControllerTransitioning' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ViewControllerTransitioning/*'
@@ -82,16 +127,44 @@ Pod::Spec.new do |s|
             end
         end
     end
-#    
-#    # 2 DeveloperTools
-#    s.subspec 'DeveloperTools' do |dt|
-#    end
-#    # 3 OC
-#    s.subspec 'OC' do |oc|
-#    end
-#    # 4 System
-#    s.subspec 'System' do |system|
-#    end
+    
+    # 2 DeveloperTools
+    s.subspec 'DeveloperTools' do |dt|
+        dt.subspec 'Leaks' do |sub|
+            sub.source_files = 'YJCocoa/Classes/DeveloperTools/Leaks/*'
+        end
+        dt.subspec 'Timeline' do |sub|
+            sub.source_files = 'YJCocoa/Classes/DeveloperTools/Timeline/*'
+        end
+    end
+    # 3 OC
+    s.subspec 'OC' do |oc|
+        oc.subspec 'CodeInject' do |sub|
+            sub.source_files = 'YJCocoa/Classes/OC/CodeInject/*'
+        end
+        oc.subspec 'MemoryInfo' do |sub|
+            sub.source_files = 'YJCocoa/Classes/OC/MemoryInfo/*'
+        end
+        oc.subspec 'Dispatch' do |sub|
+            sub.source_files = 'YJCocoa/Classes/OC/Dispatch/*'
+        end
+        oc.subspec 'TimeProfiler' do |sub|
+            sub.source_files = 'YJCocoa/Classes/OC/TimeProfiler/*'
+        end
+    end
+    
+    # 4 System
+    s.subspec 'System' do |system|
+        system.subspec 'Dispatch' do |sub|
+            sub.source_files = 'YJCocoa/Classes/System/Dispatch/*'
+        end
+        system.subspec 'Pthread' do |sub|
+            sub.source_files = 'YJCocoa/Classes/System/Pthread/*'
+        end
+        system.subspec 'Security' do |sub|
+            sub.source_files = 'YJCocoa/Classes/System/Security/**/*'
+        end
+    end
     
 end
 
