@@ -34,27 +34,28 @@ open class YJURLSession: NSObject & NSCacheDelegate {
     
 }
 
+/// 网络请求状态
+@objc public enum YJURLSessionTaskState: Int {
+    /// 初始化状态
+    case `default`
+    /// 正在请求
+    case running
+    /// 暂停请求
+    case suspended
+    /// 取消请求
+    case cancel
+    /// 请求成功
+    case success
+    /// 请求失败
+    case failure
+}
+
 /// NSURLSessionTask
+@objcMembers
 open class YJURLSessionTask: NSObject {
     
-    /// 网络请求状态
-    public enum State: Int {
-        /// 初始化状态
-        case `default`
-        /// 正在请求
-        case running
-        /// 暂停请求
-        case suspended
-        /// 取消请求
-        case cancel
-        /// 请求成功
-        case success
-        /// 请求失败
-        case failure
-    }
-    
     /// 任务状态
-    public var state = YJURLSessionTask.State.default
+    public var state = YJURLSessionTaskState.default
     /// YJURLRequest
     public var request: YJURLRequest!
     /// 失败回调
@@ -83,8 +84,9 @@ open class YJURLSessionTask: NSObject {
             YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求成功: \(data)")
             let block: YJDispatchBlock = { [unowned self] in
                 self.state = .success
+                let respModel = self.responseModel(with: data)
                 for (success, _) in self.handler {
-                    success(data)
+                    success(respModel)
                 }
             }
             self.mainQueue ? dispatch_async_main(block: block) : block()
@@ -130,22 +132,36 @@ open class YJURLSessionTask: NSObject {
         self.state = .cancel
     }
     
+    open func responseModel(with data: Any) -> Any {
+        guard let respModel = self.request.respModel else {
+            return data
+        }
+        if let json = data as? String {
+            return YJJSONModel.transformToModel(respModel, fromJSON: json)
+        }
+        if let dictionary = data as? [String: Any] {
+            return YJJSONModel.transformToModel(respModel, fromDict: dictionary)
+        }
+        return data
+    }
+    
 }
 
+/// 网络请求方式
+@objc
+public enum YJURLRequestMethod: Int {
+    /// POST请求   增
+    case post
+    /// DELETE请求 删
+    case delete
+    /// PUT请求    改
+    case put
+    /// GET请求    查
+    case get
+}
 
+@objcMembers
 open class YJURLRequest: NSObject {
-    
-    /// 网络请求方式
-    public enum Method: Int {
-        /// POST请求   增
-        case post
-        /// DELETE请求 删
-        case delete
-        /// PUT请求    改
-        case put
-        /// GET请求    查
-        case get
-    }
     
     /// 唯一标示
     public var identifier = ""
@@ -154,13 +170,13 @@ open class YJURLRequest: NSObject {
     /// 请求地址
     public private(set) var url = ""
     /// 请求方式
-    public private(set) var method = YJURLRequest.Method.post
+    public private(set) var method = YJURLRequestMethod.post
     /// 请求参数模型
     public var reqModel: Any?
     /// 服务器返回数据对应的模型
     public var respModel: Any?
     
-    public init(source: AnyObject?, url: String, method: YJURLRequest.Method, reqModel: Any? , respModel: Any? = nil) {
+    public init(source: AnyObject?, url: String, method: YJURLRequestMethod, reqModel: Any? , respModel: Any? = nil) {
         super.init()
         self.identifier = url
         self.source = source ?? YJURLRequest.self
@@ -171,13 +187,6 @@ open class YJURLRequest: NSObject {
         if let rm = reqModel {
             self.identifier = url + "-\(rm)"
         }
-    }
-    
-    open func responseModel(with dictionary: Dictionary<String, Any>) -> Any {
-        guard let respModel = self.respModel else {
-            return dictionary
-        }
-        return YJJSONModel.transformToModel(respModel, fromDict: dictionary)
     }
     
 }

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "YJFoundation.h"
+#import <YJCocoa/YJCocoa-Swift.h>
 
 @interface YJFileManagerTest : XCTestCase
 
@@ -17,18 +17,19 @@
 
 - (void)testExample {
     NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *documentPath = YJDirectory.shared.documentPath;
     
-    NSString *filePath1 = [YJNSDirectoryS.documentPath stringByAppendingPathComponent:@"test.txt"];
-    NSString *filePath2 = [YJNSDirectoryS.documentPath stringByAppendingPathComponent:@"test/1.txt"];
+    NSString *filePath1 = [documentPath stringByAppendingPathComponent:@"test.txt"];
+    NSString *filePath2 = [documentPath stringByAppendingPathComponent:@"test/1.txt"];
     
     NSError *error;
-    BOOL result= [@"阳君；937447974" writeToFile:filePath1 atomically:YES encoding:NSUTF8StringEncoding error:&error];
-    
-    NSLogS([fm subpathsOfDirectoryAtPath:YJNSDirectoryS.documentPath error:nil]);
-    
-    result = [fm moveSafeItemAtPath:filePath1 toPath:filePath2 error:&error];
-    
-    NSLogS([fm subpathsOfDirectoryAtPath:YJNSDirectoryS.documentPath error:nil]);
+    [@"阳君；937447974" writeToFile:filePath1 atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    NSLog(@"%@", error);
+    NSLog(@"%@", [fm subpathsOfDirectoryAtPath:YJDirectory.shared.documentPath error:nil]);
+    [YJFileManager moveItemWithFromePath:filePath1 toPath:filePath2 error:&error];
+    NSLog(@"%@", error);
+    NSLog(@"%@", [fm subpathsOfDirectoryAtPath:documentPath error:nil]);
+    NSLog(@"%@", error);
 }
 
 @end

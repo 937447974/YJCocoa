@@ -10,6 +10,7 @@ import UIKit
 public typealias YJTimerBlock = (_ target: AnyObject, _ timer: YJTimer) -> Void
 
 /// Timer 计时器
+@objcMembers
 open class YJTimer: NSObject {
     
     public private(set) var timer: Timer!

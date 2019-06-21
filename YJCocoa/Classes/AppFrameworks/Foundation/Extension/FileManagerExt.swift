@@ -26,9 +26,22 @@ extension FileManager {
                 try self.removeItem(at: toURL)
             }
         } else {
-           try self.createDirectory(at: toDirectory, withIntermediateDirectories: true, attributes: nil)
+            try self.createDirectory(at: toDirectory, withIntermediateDirectories: true, attributes: nil)
         }
         try self.moveItem(at: fromURL, to: toURL)
+    }
+    
+}
+
+@objcMembers
+open class YJFileManager: NSObject {
+    
+    public static func moveItem(fromePath: String, toPath: String) throws {
+        try FileManager.default.moveItem(fromePath: fromePath, toPath: toPath)
+    }
+    
+    public static func moveItem(fromURL: URL, toURL: URL) throws {
+        try FileManager.default.moveItem(fromURL: fromURL, toURL: toURL)
     }
     
 }

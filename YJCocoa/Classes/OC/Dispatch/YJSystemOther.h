@@ -12,6 +12,8 @@
 #ifndef YJSystemOther_h
 #define YJSystemOther_h
 
+#define SWIFT_SUBCLASS __attribute__((objc_subclassing_restricted))
+
 #pragma mark - @符号
 
 #define symbol_at try {} @catch (...) {}

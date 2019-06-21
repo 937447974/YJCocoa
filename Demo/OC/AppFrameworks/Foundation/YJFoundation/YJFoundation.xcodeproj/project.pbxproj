@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		346235B66E8FDA7DB872A7D9 /* Pods_YJFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5260950D921AEED31516E281 /* Pods_YJFoundation.framework */; };
 		BE5E16DF4DC2EFCEA92ECA5E /* Pods_YJFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A7FB9038000566FAA5E01 /* Pods_YJFoundationTests.framework */; };
+		D46442B722BB89A20077EEC6 /* YJFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D46442B622BB89A10077EEC6 /* YJFileManagerTest.m */; };
+		D46442BA22BC5EE60077EEC6 /* URLSessionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D46442B922BC5EE60077EEC6 /* URLSessionTest.m */; };
+		D46442C222BC6D8D0077EEC6 /* YJTestURLSessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46442C122BC6D8D0077EEC6 /* YJTestURLSessionTask.swift */; };
 		D4D0C95822BB6A11003C03A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D0C95722BB6A11003C03A8 /* AppDelegate.m */; };
 		D4D0C95B22BB6A11003C03A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D0C95A22BB6A11003C03A8 /* ViewController.m */; };
 		D4D0C96022BB6A11003C03A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D0C95F22BB6A11003C03A8 /* Assets.xcassets */; };
@@ -33,6 +36,10 @@
 		5260950D921AEED31516E281 /* Pods_YJFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7113BDA1CB6031EC13758605 /* Pods-YJFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundation.release.xcconfig"; path = "Target Support Files/Pods-YJFoundation/Pods-YJFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		79EEB858ED112733AD5DC40F /* Pods-YJFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJFoundationTests.debug.xcconfig"; path = "Target Support Files/Pods-YJFoundationTests/Pods-YJFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D46442B622BB89A10077EEC6 /* YJFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJFileManagerTest.m; path = ../../../YJFoundation/YJFoundationTests/YJFileManagerTest.m; sourceTree = "<group>"; };
+		D46442B922BC5EE60077EEC6 /* URLSessionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLSessionTest.m; sourceTree = "<group>"; };
+		D46442C022BC6D8C0077EEC6 /* YJFoundationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YJFoundationTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D46442C122BC6D8D0077EEC6 /* YJTestURLSessionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTestURLSessionTask.swift; sourceTree = "<group>"; };
 		D4D0C95322BB6A11003C03A8 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0C95622BB6A11003C03A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4D0C95722BB6A11003C03A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,8 +133,12 @@
 		D4D0C96E22BB6A11003C03A8 /* YJFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
-				D4D0C96F22BB6A11003C03A8 /* YJFoundationTests.m */,
 				D4D0C97122BB6A11003C03A8 /* Info.plist */,
+				D46442B922BC5EE60077EEC6 /* URLSessionTest.m */,
+				D46442B622BB89A10077EEC6 /* YJFileManagerTest.m */,
+				D4D0C96F22BB6A11003C03A8 /* YJFoundationTests.m */,
+				D46442C122BC6D8D0077EEC6 /* YJTestURLSessionTask.swift */,
+				D46442C022BC6D8C0077EEC6 /* YJFoundationTests-Bridging-Header.h */,
 			);
 			path = YJFoundationTests;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 					};
 					D4D0C96A22BB6A11003C03A8 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = D4D0C95222BB6A11003C03A8;
 					};
 				};
@@ -325,6 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46442B722BB89A20077EEC6 /* YJFileManagerTest.m in Sources */,
+				D46442BA22BC5EE60077EEC6 /* URLSessionTest.m in Sources */,
+				D46442C222BC6D8D0077EEC6 /* YJTestURLSessionTask.swift in Sources */,
 				D4D0C97022BB6A11003C03A8 /* YJFoundationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +520,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJFoundationTests/Info.plist;
@@ -515,6 +531,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YJFoundationTests/YJFoundationTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
 			};
@@ -526,6 +545,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y5657739M7;
 				INFOPLIST_FILE = YJFoundationTests/Info.plist;
@@ -536,6 +556,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa.YJFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YJFoundationTests/YJFoundationTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJFoundation.app/YJFoundation";
 			};

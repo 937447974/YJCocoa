@@ -139,6 +139,7 @@ Pod::Spec.new do |s|
     end
     # 3 OC
     s.subspec 'OC' do |oc|
+        oc.source_files = 'YJCocoa/Classes/OC/*'
         oc.subspec 'CodeInject' do |sub|
             sub.source_files = 'YJCocoa/Classes/OC/CodeInject/*'
         end
