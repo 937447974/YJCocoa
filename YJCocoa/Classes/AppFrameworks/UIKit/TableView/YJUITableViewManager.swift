@@ -9,6 +9,7 @@
 import UIKit
 
 /// 缓存高的策略
+@objc
 public enum YJUITableViewCacheHeight : Int {
     /// 根据相同的UITableViewCell类缓存高度
     case `default`
@@ -19,6 +20,7 @@ public enum YJUITableViewCacheHeight : Int {
 }
 
 /** UITableView管理器*/
+@objcMembers
 open class YJUITableViewManager: NSObject {
     
     /// header 数据源

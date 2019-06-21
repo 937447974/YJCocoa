@@ -167,19 +167,12 @@
 			);
 			inputFileListPaths = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/YJCocoa/YJCocoa.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YJCocoa.framework",
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		79377785DBE8736C2E5843EA /* [CP] Check Pods Manifest.lock */ = {

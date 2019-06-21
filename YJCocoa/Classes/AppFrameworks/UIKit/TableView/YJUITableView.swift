@@ -9,6 +9,7 @@
 import UIKit
 
 /// UITableView
+@objcMembers
 open class YJUITableView: UITableView {
     
     /// 管理器

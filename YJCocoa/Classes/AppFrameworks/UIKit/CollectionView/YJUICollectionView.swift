@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers
 open class YJUICollectionView: UICollectionView {
 
     /// 管理器

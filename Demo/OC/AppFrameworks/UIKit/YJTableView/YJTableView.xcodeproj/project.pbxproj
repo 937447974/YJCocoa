@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CC1D61CF015B800BCC14E /* YJFirstViewController.m */; };
+		84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FC1CEF1CAF0036C57B /* main.m */; };
+		84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */; };
+		84C9E5081CEF1CAF0036C57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9E5071CEF1CAF0036C57B /* Assets.xcassets */; };
+		D402E20422BCC252007B1216 /* YJSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402E20322BCC252007B1216 /* YJSwift.swift */; };
+		D402E20B22BCC65C007B1216 /* YJTestTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402E20A22BCC65C007B1216 /* YJTestTVCell.swift */; };
+		E7448BFDF5C13AFFF9CFCF2C /* Pods_YJTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECA393E52DF63F58B96AB8 /* Pods_YJTableView.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.release.xcconfig"; sourceTree = "<group>"; };
+		845CC1D51CF015B800BCC14E /* YJFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFirstViewController.h; sourceTree = "<group>"; };
+		845CC1D61CF015B800BCC14E /* YJFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFirstViewController.m; sourceTree = "<group>"; };
+		84C9E4F81CEF1CAE0036C57B /* YJTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C9E4FC1CEF1CAF0036C57B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84C9E5071CEF1CAF0036C57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84C9E50C1CEF1CAF0036C57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1ECA393E52DF63F58B96AB8 /* Pods_YJTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D402E20222BCC252007B1216 /* YJTableView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YJTableView-Bridging-Header.h"; sourceTree = "<group>"; };
+		D402E20322BCC252007B1216 /* YJSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSwift.swift; sourceTree = "<group>"; };
+		D402E20A22BCC65C007B1216 /* YJTestTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTestTVCell.swift; sourceTree = "<group>"; };
+		EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJTableView/Pods-YJTableView.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84C9E4F51CEF1CAE0036C57B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7448BFDF5C13AFFF9CFCF2C /* Pods_YJTableView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17AE06905E7AB4E2AB8D26C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */,
+				6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		418F167E49229DB1BCDFD89A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1ECA393E52DF63F58B96AB8 /* Pods_YJTableView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		845CC1D41CF015A000BCC14E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D402E20A22BCC65C007B1216 /* YJTestTVCell.swift */,
+				845CC1D51CF015B800BCC14E /* YJFirstViewController.h */,
+				845CC1D61CF015B800BCC14E /* YJFirstViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		84C9E4EF1CEF1CAE0036C57B = {
+			isa = PBXGroup;
+			children = (
+				84C9E4FA1CEF1CAF0036C57B /* YJTableView */,
+				84C9E4F91CEF1CAE0036C57B /* Products */,
+				17AE06905E7AB4E2AB8D26C9 /* Pods */,
+				418F167E49229DB1BCDFD89A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84C9E4F91CEF1CAE0036C57B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E4F81CEF1CAE0036C57B /* YJTableView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84C9E4FA1CEF1CAF0036C57B /* YJTableView */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E4FE1CEF1CAF0036C57B /* AppDelegate.h */,
+				84C9E4FF1CEF1CAF0036C57B /* AppDelegate.m */,
+				845CC1D41CF015A000BCC14E /* Main */,
+				84C9E5121CEF1D1C0036C57B /* Resources */,
+				84C9E4FB1CEF1CAF0036C57B /* Supporting Files */,
+				D402E20322BCC252007B1216 /* YJSwift.swift */,
+				D402E20222BCC252007B1216 /* YJTableView-Bridging-Header.h */,
+			);
+			path = YJTableView;
+			sourceTree = "<group>";
+		};
+		84C9E4FB1CEF1CAF0036C57B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E50C1CEF1CAF0036C57B /* Info.plist */,
+				84C9E4FC1CEF1CAF0036C57B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84C9E5121CEF1D1C0036C57B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E5071CEF1CAF0036C57B /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84C9E4F71CEF1CAE0036C57B /* YJTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C9E50F1CEF1CAF0036C57B /* Build configuration list for PBXNativeTarget "YJTableView" */;
+			buildPhases = (
+				A4595FB1F90D651523A352C3 /* [CP] Check Pods Manifest.lock */,
+				84C9E4F41CEF1CAE0036C57B /* Sources */,
+				84C9E4F51CEF1CAE0036C57B /* Frameworks */,
+				84C9E4F61CEF1CAE0036C57B /* Resources */,
+				508210173FF9E01C9D171B10 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YJTableView;
+			productName = YJTableView;
+			productReference = 84C9E4F81CEF1CAE0036C57B /* YJTableView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84C9E4F01CEF1CAE0036C57B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YJUI;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = YJ;
+				TargetAttributes = {
+					84C9E4F71CEF1CAE0036C57B = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Y5657739M7;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 84C9E4F31CEF1CAE0036C57B /* Build configuration list for PBXProject "YJTableView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 84C9E4EF1CEF1CAE0036C57B;
+			productRefGroup = 84C9E4F91CEF1CAE0036C57B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84C9E4F71CEF1CAE0036C57B /* YJTableView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84C9E4F61CEF1CAE0036C57B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C9E5081CEF1CAF0036C57B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		508210173FF9E01C9D171B10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YJTableView/Pods-YJTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4595FB1F90D651523A352C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YJTableView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84C9E4F41CEF1CAE0036C57B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D402E20B22BCC65C007B1216 /* YJTestTVCell.swift in Sources */,
+				84C9E5001CEF1CAF0036C57B /* AppDelegate.m in Sources */,
+				84C9E4FD1CEF1CAF0036C57B /* main.m in Sources */,
+				845CC1D91CF015B800BCC14E /* YJFirstViewController.m in Sources */,
+				D402E20422BCC252007B1216 /* YJSwift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		84C9E50D1CEF1CAF0036C57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84C9E50E1CEF1CAF0036C57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84C9E5101CEF1CAF0036C57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF1837CBAF921493D702E6F5 /* Pods-YJTableView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YJTableView/YJTableView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		84C9E5111CEF1CAF0036C57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6701C21E4D82A8FEA90AAF95 /* Pods-YJTableView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Y5657739M7;
+				INFOPLIST_FILE = YJTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjcocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YJTableView/YJTableView-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84C9E4F31CEF1CAE0036C57B /* Build configuration list for PBXProject "YJTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C9E50D1CEF1CAF0036C57B /* Debug */,
+				84C9E50E1CEF1CAF0036C57B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C9E50F1CEF1CAF0036C57B /* Build configuration list for PBXNativeTarget "YJTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C9E5101CEF1CAF0036C57B /* Debug */,
+				84C9E5111CEF1CAF0036C57B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84C9E4F01CEF1CAE0036C57B /* Project object */;
+}

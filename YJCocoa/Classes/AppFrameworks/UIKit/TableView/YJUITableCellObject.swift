@@ -11,6 +11,7 @@ import UIKit
 /// 点击cell的回调
 public typealias YJUITableCellSelectBlock = (_ tableViewManager: YJUITableViewManager, _ cellObject: YJUITableCellObject) -> Void
 
+@objcMembers
 open class YJUITableCellObject: NSObject {
     
     /// cell对应的VM
