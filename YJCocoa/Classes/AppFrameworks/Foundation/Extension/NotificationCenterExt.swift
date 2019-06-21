@@ -95,3 +95,17 @@ extension NotificationCenter {
     }
     
 }
+
+@objcMembers
+public class YJNotificationCenter: NSObject {
+    
+    public static func addObserver(_ observer: NSObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
+        NotificationCenter.default.addObserver(observer, name: name, using: block)
+    }
+    
+    /// remove observer block
+    public static func removeObserverBlock(_ observer: NSObject, name: NSNotification.Name?) {
+        NotificationCenter.default.removeObserverBlock(observer, name: name)
+    }
+    
+}

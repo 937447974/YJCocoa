@@ -33,7 +33,7 @@ private class YJKeyValueObserver : NSObject  {
 public extension NSObject {
     
     /// 添加 KVO 监听
-    func addObserver(_ observer: NSObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
+    @objc func addObserver(_ observer: NSObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
         let kvoArray = self.kvoArray(keyPath: keyPath)
         for item in kvoArray {
             let kvoItem = item as! YJKeyValueObserver
@@ -48,7 +48,7 @@ public extension NSObject {
     }
     
     /// 移除 KVO 监听
-    func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String?) {
+    @objc func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String?) {
         if keyPath == nil {
             for key in self.yj_kvoDictionary.allKeys {
                 self.removeObserverBlock(observer, forKeyPath: key as? String)
@@ -56,15 +56,16 @@ public extension NSObject {
         } else {
             for item in self.kvoArray(keyPath: keyPath!) {
                 let kvoItem = item as! YJKeyValueObserver
-                if observer == kvoItem.observer {
-                    self.removeObserver(observer, forKeyPath: keyPath!)
+                if kvoItem.observer != nil, observer.isEqual(kvoItem.observer) {
+                    self.removeObserver(kvoItem, forKeyPath: keyPath!)
+                    kvoItem.observer = nil
                     return
                 }
             }
         }
     }
     
-    @objc private dynamic var yj_kvoDictionary: NSMutableDictionary {
+    private dynamic var yj_kvoDictionary: NSMutableDictionary {
         get {
             let key : UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "yj_kvoDictionary".hashValue)
             guard let kvoDict = objc_getAssociatedObject(self, key) as? NSMutableDictionary else {
