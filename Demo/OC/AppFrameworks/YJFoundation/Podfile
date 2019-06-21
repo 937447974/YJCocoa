@@ -3,7 +3,7 @@ use_frameworks!
 install! 'cocoapods', :disable_input_output_paths => true
 
 target 'YJFoundation' do
-    pod 'YJCocoa/', :path => "../../../../../YJCocoa.podspec"
+    pod 'YJCocoa', :path => "../../../../YJCocoaOC.podspec"
     target 'YJFoundationTests' do
         inherit! :search_paths
         # Pods for testing

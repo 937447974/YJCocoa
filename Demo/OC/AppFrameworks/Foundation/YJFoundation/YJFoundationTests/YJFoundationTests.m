@@ -32,6 +32,12 @@
     NSLog(@"tempURL: %@", director.tempURL);
 }
 
+- (void)testURL {
+    NSLog(@"%@", [YJURL assemblyParams:nil params:@{@"wd" : @"阳君"} encode:NO]);
+    NSLog(@"%@", [YJURL assemblyParams:@"http://www.baidu.com" params:@{} encode:YES]);
+    NSLog(@"%@", [YJURL assemblyParams:@"http://www.baidu.com?rsv_sug7=101" params:@{@"wd" : @"阳君"} encode:YES]);
+    NSLog(@"%@", [YJURL analysisParams:@"https://www.baidu.com?rsv_sug7=101&wd=%E9%98%B3%E5%90%9B" decode:YES]);
+}
 
 
 @end
