@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
     s.source_files = 'YJCocoa/Classes/**/*'
     
     # ——— Subspecs
-    s.default_subspec = 'AppFrameworks', 'DeveloperTools', 'OC', 'System'
+    s.default_subspec = 'AppFrameworks', 'DeveloperTools', 'System'
     
     # 1 App Frameworks
     s.subspec 'AppFrameworks' do |af|
@@ -143,12 +143,15 @@ Pod::Spec.new do |s|
         oc.subspec 'CodeInject' do |sub|
             sub.source_files = 'YJCocoa/Classes/OC/CodeInject/*'
         end
+        oc.subspec 'Dispatch' do |sub|
+          sub.source_files = 'YJCocoa/Classes/OC/Dispatch/*'
+        end
+        oc.subspec 'Log' do |sub|
+          sub.source_files = 'YJCocoa/Classes/OC/Log/*'
+        end
         oc.subspec 'MemoryInfo' do |sub|
             sub.source_files = 'YJCocoa/Classes/OC/MemoryInfo/*'
-        end
-        oc.subspec 'Dispatch' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/Dispatch/*'
-        end
+        end        
         oc.subspec 'TimeProfiler' do |sub|
             sub.source_files = 'YJCocoa/Classes/OC/TimeProfiler/*'
         end

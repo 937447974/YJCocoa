@@ -8,6 +8,7 @@
 import UIKit
 
 /// UINavigationItem.*BarButtonItem
+@objcMembers
 open class YJUIBarButtonItem: NSObject {
     
     /// 按钮

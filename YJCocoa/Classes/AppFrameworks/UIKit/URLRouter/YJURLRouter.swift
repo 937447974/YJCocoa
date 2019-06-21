@@ -15,6 +15,7 @@ public typealias YJRUnregisteredCanOpen = (_ url: String) -> Bool
 public typealias YJROpenHandler = (_ url: String, _ options: Dictionary<String, Any>, _ handler: YJRCompletionHandler?) -> Void
 
 /// 路由协议
+@objc
 public protocol YJURLRouterProtocol {
     /// 获取路由缓存标识符
     static func routerCacheIdentifier(with url: String, options: Dictionary<String, Any>) -> String
@@ -27,10 +28,10 @@ public protocol YJURLRouterProtocol {
 }
 
 /// URL 路由器
+@objcMembers
 open class YJURLRouter: NSObject {
     
     /// 共享单例
-    @objc
     public static var shared = YJURLRouter()
     
     var nodeCache = NSCache<NSString, UIViewController>()
@@ -41,7 +42,6 @@ open class YJURLRouter: NSObject {
      *  - parameter cls:   UIViewController.Type
      *  - parameter cache: 是否缓存
      */
-    @objc
     public func register(url: String, cls: UIViewController.Type, cache: Bool = false) {
         self.registerRouter(register: YJRouterRegister(url: url, cls: cls, cache: cache))
     }
@@ -51,7 +51,6 @@ open class YJURLRouter: NSObject {
      *  - parameter url:     路由链接
      *  - parameter handler: block 自定义跳转
      */
-    @objc
     public func register(url: String, handler: @escaping YJROpenHandler) {
         self.registerRouter(register: YJRouterRegister(url: url, cls: nil, cache: false, handler: handler))
     }
@@ -99,7 +98,6 @@ open class YJURLRouter: NSObject {
     
 }
 
-@objc
 extension YJURLRouter {
     
     /**
@@ -120,7 +118,6 @@ extension YJURLRouter {
     
 }
 
-@objc
 extension YJURLRouter {
     
     /**

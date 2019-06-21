@@ -7,6 +7,7 @@
 
 import UIKit
 
+@objc
 public extension UIButton {
     
     /// 设置标题相关

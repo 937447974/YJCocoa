@@ -14,5 +14,6 @@
 #import "YJSystemOther.h"
 #import "YJMemoryInfo.h"
 #import "YJTimeProfiler.h"
+#import "YJNSLog.h"
 
 #endif /* YJCocoa_h */
