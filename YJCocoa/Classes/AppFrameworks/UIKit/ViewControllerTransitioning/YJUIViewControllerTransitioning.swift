@@ -8,6 +8,7 @@
 import UIKit
 
 /// UIViewController Present Dismiss 转场动画
+@objcMembers
 open class YJUIViewControllerTransitioning: NSObject {
     
     /// push 动画
@@ -101,6 +102,7 @@ extension YJUIViewControllerTransitioning: UINavigationControllerDelegate {
 }
 
 /// 转场动画基类
+@objcMembers
 open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerAnimatedTransitioning {
     
     ///  动画时间，默认0.5
