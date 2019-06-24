@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     lazy var tableView: YJUITableView = {
         let tableView = YJUITableView.init(frame: self.view.bounds, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = tableView.manamger
+        tableView.dataSource = tableView.manamger
         tableView.manamger.cacheHeight = .indexPath
         return tableView
     }()
@@ -36,22 +36,6 @@ class ViewController: UIViewController {
             self.tableView.dataSourceCellFirst.append(co)
         }
         self.tableView.reloadData()
-    }
-    
-}
-
-extension ViewController: UITableViewDelegate & UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableView.manamger.tableView(tableView, numberOfRowsInSection: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         return self.tableView.manamger.tableView(tableView, cellForRowAt: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.tableView.manamger.tableView(tableView, heightForRowAt: indexPath)
     }
     
 }

@@ -14,6 +14,7 @@
 		84554B0D1E0BD0DF0004636A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0A1E0BD0DE0004636A /* Assets.xcassets */; };
 		84554B0E1E0BD0DF0004636A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0B1E0BD0DE0004636A /* LaunchScreen.storyboard */; };
 		84554B0F1E0BD0DF0004636A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84554B0C1E0BD0DE0004636A /* Main.storyboard */; };
+		D402E20E22BCCDAD007B1216 /* YJSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402E20D22BCCDAD007B1216 /* YJSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		84554B0B1E0BD0DE0004636A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84554B0C1E0BD0DE0004636A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B09CE4D7F7EDD64D5458ACDF /* Pods-ScrollViewManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollViewManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollViewManager/Pods-ScrollViewManager.debug.xcconfig"; sourceTree = "<group>"; };
+		D402E20C22BCCDAD007B1216 /* ScrollViewManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrollViewManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		D402E20D22BCCDAD007B1216 /* YJSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				84554AD41E0BC3190004636A /* Main */,
 				84554B091E0BD0DE0004636A /* Resources */,
 				84554ABC1E0BC2880004636A /* Supporting Files */,
+				D402E20D22BCCDAD007B1216 /* YJSwift.swift */,
+				D402E20C22BCCDAD007B1216 /* ScrollViewManager-Bridging-Header.h */,
 			);
 			path = ScrollViewManager;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 					84554AB81E0BC2880004636A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = P64WN7EK5E;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -163,6 +169,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -245,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D402E20E22BCCDAD007B1216 /* YJSwift.swift in Sources */,
 				84554AC41E0BC2880004636A /* ViewController.m in Sources */,
 				84554AC11E0BC2880004636A /* AppDelegate.m in Sources */,
 				84554ABE1E0BC2880004636A /* main.m in Sources */,
@@ -350,12 +358,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = ScrollViewManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollViewManager/ScrollViewManager-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -365,12 +377,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P64WN7EK5E;
 				INFOPLIST_FILE = ScrollViewManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollViewManager/ScrollViewManager-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
