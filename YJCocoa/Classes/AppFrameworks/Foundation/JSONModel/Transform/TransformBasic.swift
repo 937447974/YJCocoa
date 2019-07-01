@@ -127,7 +127,7 @@ extension Date: YJJSONModelTransformBasic {
 extension UIColor: YJJSONModelTransformBasic {
     
     public static func transform(fromJSON value: Any) -> Any? {
-        if let hex = value as? Int {
+        if let hex = value as? Int64 {
             if hex <= 0xFFFFFF {
                 return UIColor(red: CGFloat((hex & 0xFF0000) >> 16)/255.0, green: CGFloat((hex & 0xFF00) >> 8)/255.0, blue: CGFloat(hex & 0xFF)/255.0, alpha: 1)
             } else {

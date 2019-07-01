@@ -16,7 +16,7 @@ target 'YJCocoa' do
     # use_frameworks!
     
     # Pods for YJCocoa
-    yj_pod 'YJCocoa', :path => "../../YJCocoa.podspec"
+    yj_pod 'YJCocoa', :path => "../../../YJCocoa.podspec"
 #    yj_pod 'YJCocoa/DeveloperTools', :path => "../../YJCocoa.podspec"
 
 end
