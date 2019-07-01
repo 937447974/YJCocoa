@@ -11,6 +11,7 @@ import Foundation
 /// 点击cell的回调
 public typealias YJUICollectionCellSelectBlock = (_ collectionViewManager: YJUICollectionViewManager, _ cellObject: YJUICollectionCellObject) -> Void
 
+@objcMembers
 open class YJUICollectionCellObject: NSObject {
     
     /// cell对应的VM

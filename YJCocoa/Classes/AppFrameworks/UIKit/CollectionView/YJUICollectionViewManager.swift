@@ -19,6 +19,7 @@ enum YJUICollectionViewCacheSize : Int {
 }
 
 /** UICollectionView管理器*/
+@objcMembers
 open class YJUICollectionViewManager: NSObject {
     
     /// header 数据源

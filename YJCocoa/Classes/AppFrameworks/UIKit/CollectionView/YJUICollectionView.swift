@@ -12,35 +12,31 @@ import UIKit
 open class YJUICollectionView: UICollectionView {
 
     /// 管理器
-    public var manamger: YJUICollectionViewManager!
+    public lazy var manager: YJUICollectionViewManager! = {
+        let _manager = YJUICollectionViewManager(collectionView: self)
+        self.delegate = _manager
+        self.dataSource = _manager
+        return _manager
+    }()
     /// header 数据源
     public var dataSourceHeader: Array<YJUICollectionCellObject> {
-        get {return self.manamger.dataSourceHeader}
-        set {self.manamger.dataSourceHeader = newValue}
+        get {return self.manager.dataSourceHeader}
+        set {self.manager.dataSourceHeader = newValue}
     }
     /// footer 数据源
     public var dataSourceFooter: Array<YJUICollectionCellObject> {
-        get {return self.manamger.dataSourceFooter}
-        set {self.manamger.dataSourceFooter = newValue}
+        get {return self.manager.dataSourceFooter}
+        set {self.manager.dataSourceFooter = newValue}
     }
     /// cell 数据源
     public var dataSourceCell: Array<Array<YJUICollectionCellObject>> {
-        get {return self.manamger.dataSourceCell}
-        set {self.manamger.dataSourceCell = newValue}
+        get {return self.manager.dataSourceCell}
+        set {self.manager.dataSourceCell = newValue}
     }
     /// cell 第一组数据源
     public var dataSourceCellFirst: Array<YJUICollectionCellObject> {
-        get {return self.manamger.dataSourceCellFirst}
-        set {self.manamger.dataSourceCellFirst = newValue}
-    }
-    
-    override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        self.manamger = YJUICollectionViewManager(collectionView: self)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        get {return self.manager.dataSourceCellFirst}
+        set {self.manager.dataSourceCellFirst = newValue}
     }
     
 }

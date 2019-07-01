@@ -17,10 +17,12 @@ import UIKit
     
 }
 
+@objc
+@objcMembers
 open class YJUICollectionViewCell: UICollectionViewCell {
     
-    private(set) var cellObject: YJUICollectionCellObject!
-    private(set) var collectionViewManager: YJUICollectionViewManager!
+    public private(set) var cellObject: YJUICollectionCellObject!
+    public private(set) var collectionViewManager: YJUICollectionViewManager!
     
     override open func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, reloadWith cellObject: YJUICollectionCellObject) {
         super.collectionViewManager(collectionViewManager, reloadWith: cellObject)
