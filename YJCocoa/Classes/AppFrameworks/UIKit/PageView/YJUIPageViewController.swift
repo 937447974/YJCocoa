@@ -7,20 +7,21 @@
 
 import UIKit
 
+@objcMembers
 open class YJUIPageViewController: UIPageViewController {
 
     /// 管理器
-    public var manamger: YJUIPageViewManager!
+    public var manager: YJUIPageViewManager!
     /// cell 数据源
     public var dataSourceCell: Array<YJUIPageViewCellObject> {
-        get {return self.manamger.dataSourceCell}
-        set {self.manamger.dataSourceCell = newValue}
+        get {return self.manager.dataSourceCell}
+        set {self.manager.dataSourceCell = newValue}
     }
 
     public override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
-        self.manamger = YJUIPageViewManager(pageViewController: self)
-        self.dataSource = self.manamger
+        self.manager = YJUIPageViewManager(pageViewController: self)
+        self.dataSource = self.manager
     }
     
     required public init?(coder: NSCoder) {
@@ -29,7 +30,7 @@ open class YJUIPageViewController: UIPageViewController {
     
     /// 刷新pageVC
     public func reloadData() {
-        self.manamger.setIndex(0, animated: false)
+        self.manager.setIndex(0, animated: false)
     }
     
 }

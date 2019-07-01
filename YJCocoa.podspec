@@ -108,6 +108,7 @@ Pod::Spec.new do |s|
             ui.subspec 'PageView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/PageView/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
             ui.subspec 'ScrollView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ScrollView/*'

@@ -7,12 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "YJUIPageViewController.h"
+#import "YJUIPageViewManager-Swift.h"
+#import <YJCocoa/YJCocoa-Swift.h>
 
-#import "YJUIPageViewTestCell.h"
-#import "YJUIPageViewTestCell2.h"
-
-@interface ViewController () <YJUIPageViewControllerDelegate>
+@interface ViewController ()
 
 @property (nonatomic, strong) YJUIPageViewController *pageView;
 
@@ -23,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    
-//    [self testXib];
     [self testClass];
 }
 
@@ -35,29 +31,15 @@
     [self addChildViewController:self.pageView];
 }
 
-- (void)testXib {
-//    self.pageView.manager.timeInterval = 1;
-    // 填充数据源
-    for (int i=0; i<5; i++) {
-        [self.pageView.dataSourcePlain addObject:[YJUIPageViewTestCell cellObjectWithCellModel:nil]];
-    }
-    [self.pageView reloadData];
-}
-
 - (void)testClass {
     self.pageView.manager.isDisableBounces = YES; // 关闭阻力效果
     // 填充数据源
+    NSMutableArray *array = NSMutableArray.array;
     for (int i=0; i<5; i++) {
-        [self.pageView.dataSourcePlain addObject:[YJUIPageViewTestCell2 cellObjectWithCellModel:nil]];
+        [array addObject:[YJTestPageViewCell cellObject]];
     }
+    self.pageView.dataSourceCell = array;
     [self.pageView reloadData];
-    self.pageView.pageDelegate = self;
 }
-
-#pragma mark - YJUIPageViewControllerDelegate
-- (void)pageViewController:(YJUIPageViewController *)controller didScrollOffset:(CGFloat)offset {
-    NSLog(@"%f", offset);
-}
-
 
 @end

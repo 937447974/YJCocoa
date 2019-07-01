@@ -11,6 +11,7 @@ import UIKit
 typealias YJUIPageViewCellDidAppear = (_ index: Int) -> Void
 
 /// PageView 的 cell 基类
+@objcMembers
 open class YJUIPageViewCell: UIViewController {
     
     public private(set) var cellObject: YJUIPageViewCellObject!

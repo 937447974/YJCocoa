@@ -7,6 +7,7 @@
 
 import UIKit
 
+@objcMembers
 open class YJUIPageViewManager: NSObject {
     
     /// cell 数据源
