@@ -8,6 +8,7 @@
 import UIKit
 
 /// 内存泄漏分析器
+@objcMembers
 public class YJLeaks: NSObject {
     
     struct Item {
@@ -29,8 +30,8 @@ public class YJLeaks: NSObject {
         UIView.yj_startCaptureMemoryLeaks()
     }
     
-    public func captureMemoryLeaks(target: AnyObject) {
-        guard self.isValidation(target) else {
+    public func captureMemoryLeaks(target: NSObject) {
+        guard self.isValidation("\(type(of: target))") else {
             return
         }
         let className = "\(type(of: target))"
@@ -56,26 +57,27 @@ public class YJLeaks: NSObject {
         })
     }
     
-    func captureMemory(target: Any, level: Int, path: String) -> Array<Item> {
-        guard level < 3, self.isValidation(target) else {
+    func captureMemory(target: NSObject, level: Int, path: String) -> Array<Item> {
+        guard level < 3, self.isValidation("\(type(of: target))") else {
             return []
         }
         var result = Array<Item>()
-        let dict = YJJSONModel<Any>.transformToDict(target)
-        for (key, value) in dict {
-            guard self.isValidation(value) else {
-                continue
+        for p in self.leakProperties(targetClass: type(of: target)) {
+            if let value = target.value(forKey: p) {
+                if !self.isValidation("\(type(of: value))") {
+                    continue
+                }
+                let item = Item(obj: value as AnyObject, path: path + "." + p)
+                result.append(item)
+                if let obj = value as? NSObject {
+                    result.append(contentsOf: self.captureMemory(target: obj, level: level + 1, path: item.path))
+                }
             }
-            let item = Item(obj: value as AnyObject, path: path + "." + key)
-            result.append(item)
-            result.append(contentsOf: self.captureMemory(target: value, level: level + 1, path: item.path))
         }
         return result
-        
     }
     
-    func isValidation(_ target: Any) -> Bool {
-        let className = "\(type(of: target))"
+    func isValidation(_ className: String) -> Bool {
         if self.ignoredClasses.contains(className) {
             return false
         }
@@ -85,6 +87,36 @@ public class YJLeaks: NSObject {
             }
         }
         return true
+    }
+    
+    func leakProperties(targetClass: AnyClass) -> [String] {
+        guard self.isValidation("\(targetClass)") else {
+            return []
+        }
+        let dict = YJWeakSingleton(NSMutableDictionary.self, "NSObject(YJLeaks)") as! NSMutableDictionary
+        let className = "\(targetClass)" as NSString
+        if let propertyArray = dict.object(forKey: className) as? [String] {
+            return propertyArray
+        }
+        var result = [String]()
+        var count: UInt32 = 0
+        guard let properties = class_copyPropertyList(targetClass, &count) else {
+            return result
+        }
+        for i in 0..<numericCast(count) {
+            let property = properties[i]
+            if let attributes = property_getAttributes(property), let propertyAttributes = String(utf8String: attributes), propertyAttributes.hasPrefix("T@"),
+                propertyAttributes.contains(",&,") {
+                    result.append(String(cString: property_getName(property)))
+            }
+        }
+        free(properties)
+        if let superclass = targetClass.superclass() {
+            result.append(contentsOf: self.leakProperties(targetClass: superclass))
+        }
+        dict.setObject(result, forKey: className)
+        YJLogVerbose("解析：\(className): \(result)")
+        return result
     }
     
 }
@@ -105,6 +137,7 @@ fileprivate extension NSObject {
 
 
 fileprivate extension UINavigationController {
+    
     @objc
     override class func yj_startCaptureMemoryLeaks() {
         self.swizzling(originalSEL: #selector(UINavigationController.popViewController(animated:)), swizzlingSEL: #selector(UINavigationController.yj_popViewController(animated:)))
@@ -112,7 +145,8 @@ fileprivate extension UINavigationController {
         self.swizzling(originalSEL: #selector(UINavigationController.popToRootViewController(animated:)), swizzlingSEL: #selector(UINavigationController.yj_popToRootViewController(animated:)))
     }
     
-    @objc dynamic func yj_popViewController(animated: Bool) -> UIViewController? {
+    @objc
+    func yj_popViewController(animated: Bool) -> UIViewController? {
         guard let vc = self.yj_popViewController(animated: animated) else {
             return nil
         }
@@ -120,7 +154,8 @@ fileprivate extension UINavigationController {
         return vc
     }
     
-    @objc dynamic func yj_popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+    @objc
+    func yj_popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
         guard let array = self.yj_popToViewController(viewController, animated: animated) else {
             return nil
         }
@@ -130,7 +165,8 @@ fileprivate extension UINavigationController {
         return array
     }
     
-    @objc dynamic func yj_popToRootViewController(animated: Bool) -> [UIViewController]? {
+    @objc
+    func yj_popToRootViewController(animated: Bool) -> [UIViewController]? {
         guard let array = self.yj_popToRootViewController(animated: animated) else {
             return nil
         }
@@ -149,7 +185,8 @@ fileprivate extension UIViewController {
         self.swizzling(originalSEL: #selector(UIViewController.dismiss(animated:completion:)), swizzlingSEL: #selector(UIViewController.yj_dismiss(animated:completion:)))
     }
     
-    @objc dynamic func yj_dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    @objc
+    func yj_dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         self.yj_captureMemoryLeaks()
         self.yj_dismiss(animated: flag, completion: completion)
     }
@@ -163,7 +200,8 @@ fileprivate extension UIView {
         self.swizzling(originalSEL: #selector(UIView.removeFromSuperview), swizzlingSEL: #selector(UIView.yj_removeFromSuperview))
     }
     
-    @objc dynamic func yj_removeFromSuperview() {
+    @objc
+    func yj_removeFromSuperview() {
         self.yj_captureMemoryLeaks()
         self.yj_removeFromSuperview()
     }

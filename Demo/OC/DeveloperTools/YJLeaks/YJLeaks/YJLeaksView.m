@@ -11,7 +11,7 @@
 @implementation YJLeaksView
 
 - (void)test {
-    NSLog(@"%@", self);
+//    NSLog(@"%@", self);
 }
 
 @end

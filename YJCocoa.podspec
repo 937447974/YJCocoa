@@ -133,9 +133,14 @@ Pod::Spec.new do |s|
     s.subspec 'DeveloperTools' do |dt|
         dt.subspec 'Leaks' do |sub|
             sub.source_files = 'YJCocoa/Classes/DeveloperTools/Leaks/*'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/Extension'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/Safety'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/SingletonCenter'            
+            sub.dependency 'YJCocoa/System/Dispatch'
         end
         dt.subspec 'Timeline' do |sub|
             sub.source_files = 'YJCocoa/Classes/DeveloperTools/Timeline/*'
+            sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
         end
     end
     # 3 OC

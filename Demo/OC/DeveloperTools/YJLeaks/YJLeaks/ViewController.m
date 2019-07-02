@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <YJCocoa/YJCocoa-Swift.h>
 #import "YJLeaksViewController.h"
-#import "YJLeaks.h"
 
 @interface ViewController ()
 

@@ -7,6 +7,7 @@
 //
 
 #import "YJLeaksViewController.h"
+#import <YJCocoa/YJCocoa-Swift.h>
 #import "YJLeaksView.h"
 
 @interface YJLeaksViewController ()
@@ -39,7 +40,7 @@
 }
 
 - (void)test {
-    NSLog(@"%@", self);
+//    NSLog(@"%@", self);
 }
 
 #pragma mark - UIView
