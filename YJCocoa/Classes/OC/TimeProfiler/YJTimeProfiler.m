@@ -16,12 +16,6 @@
 #import "YJSystemOther.h"
 #import "YJThreadLogger.h"
 
-void YJTimeProfilerSingalHandler(int sig) {
-    if (sig == SIGUSR1) {
-        NSLog(@"[YJCocoa] 捕获主线程耗时代码 : \n%@", [NSThread callStackSymbols]);
-    }
-}
-
 @interface YJTimeProfiler (){
     CFRunLoopObserverRef _runLoopObserver;
 }
