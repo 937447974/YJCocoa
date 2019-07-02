@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <YJCocoa/YJTimeline.h>
+#import <YJCocoa/YJCocoa-Swift.h>
 
 @interface ViewController ()
 
@@ -17,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [YJTimeline addSteps:@"ViewController-viewDidLoad"];
+    [YJTimeline addWithStep:@"ViewController-viewDidLoad"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [YJTimeline addSteps:@"ViewController-viewDidLoad"];
+    [YJTimeline addWithStep:@"ViewController-viewDidLoad"];
 }
 
 @end

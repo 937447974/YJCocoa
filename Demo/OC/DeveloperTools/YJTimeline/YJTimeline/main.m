@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import <YJCocoa/YJTimeline.h>
+#import <YJCocoa/YJCocoa-Swift.h>
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        [YJTimeline addSteps:@"main"];
+        [YJTimeline addWithStep:@"main"];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

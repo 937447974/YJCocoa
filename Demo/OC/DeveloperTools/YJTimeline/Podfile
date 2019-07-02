@@ -1,6 +1,8 @@
+# Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 use_frameworks!
 
-target 'YJTimeline' do
-    pod 'YJCocoa/DeveloperTools/Timeline', :path => "../../../YJCocoaOC.podspec"
+target 'YJTimeline' do  
+  pod 'YJCocoa/DeveloperTools/Timeline', :path => "../../../../"
+
 end

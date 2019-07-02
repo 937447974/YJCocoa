@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <YJCocoa/YJTimeline.h>
+#import <YJCocoa/YJCocoa-Swift.h>
 
 @interface AppDelegate ()
 
@@ -17,28 +17,28 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [YJTimeline addSteps:@"didFinishLaunchingWithOptions"];
+    [YJTimeline addWithStep:@"didFinishLaunchingWithOptions"];
     return YES;
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [YJTimeline addSteps:@"applicationWillResignActive"];
+    [YJTimeline addWithStep:@"applicationWillResignActive"];
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [YJTimeline addSteps:@"applicationDidEnterBackground"];
+    [YJTimeline addWithStep:@"applicationDidEnterBackground"];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [YJTimeline addSteps:@"applicationWillEnterForeground"];
+    [YJTimeline addWithStep:@"applicationWillEnterForeground"];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [YJTimeline addSteps:@"applicationDidBecomeActive"];
+    [YJTimeline addWithStep:@"applicationDidBecomeActive"];
     [YJTimeline end];
 }
 
