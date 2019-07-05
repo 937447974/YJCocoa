@@ -30,13 +30,11 @@ Pod::Spec.new do |s|
 
     # ――― Platform
     s.platform = :ios
-    s.ios.deployment_target = "9.0"
+    s.ios.deployment_target = '9.0'
     
     # ――― Build settings
     s.requires_arc = true
-    s.pod_target_xcconfig = {
-        'SWIFT_VERSION' => '5.0'
-    }
+    s.swift_version = '5.0'
     
     # ——— File patterns
     s.source_files = 'YJCocoa/Classes/**/*'
@@ -60,13 +58,14 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'JSONModel' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/JSONModel/**/*'
-                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Safety'
             end
             foundation.subspec 'Log' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Log/*'
             end
             foundation.subspec 'Safety' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Safety/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 sub.dependency 'YJCocoa/System/Pthread'
             end
             foundation.subspec 'Scheduler' do |sub|
@@ -77,8 +76,7 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'SingletonCenter' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/SingletonCenter/*'
-                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
-                sub.dependency 'YJCocoa/System/Pthread'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Safety'
             end
             foundation.subspec 'Timer' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Timer/*'
@@ -86,10 +84,11 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'URL' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/URL/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Extension'
             end
             foundation.subspec 'URLSession' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/URLSession/*'
-                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/JSONModel'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end
         end
@@ -104,6 +103,7 @@ Pod::Spec.new do |s|
             end
             ui.subspec 'NavigationBar' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/NavigationBar/*'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
             ui.subspec 'PageView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/PageView/*'
@@ -112,6 +112,7 @@ Pod::Spec.new do |s|
             end
             ui.subspec 'ScrollView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ScrollView/*'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
             ui.subspec 'TableView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TableView/*'
@@ -160,6 +161,7 @@ Pod::Spec.new do |s|
         end        
         oc.subspec 'TimeProfiler' do |sub|
             sub.source_files = 'YJCocoa/Classes/OC/TimeProfiler/*'
+            sub.dependency 'YJCocoa/OC/Dispatch'
         end
     end
     

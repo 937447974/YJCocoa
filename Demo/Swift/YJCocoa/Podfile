@@ -3,5 +3,5 @@ use_frameworks!
 install! 'cocoapods', :disable_input_output_paths => true
 
 target 'YJCocoa' do
-    pod 'YJCocoa/AppFrameworks/UIKit', :path => "../../../YJCocoa.podspec"
+    pod 'YJCocoa', :path => "../../../YJCocoa.podspec"
 end
