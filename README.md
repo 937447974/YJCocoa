@@ -186,7 +186,7 @@ YJ技术支持群：557445088
 
 如果你觉得这个框架很赞，请点击右上角的 Star 按钮；如果你对我的框架感兴趣，并想持续获得本人最新的框架源文件，欢迎点击右上角的 Fork 按钮。
 
-## Copyright
+## Copyright 2016-Now
 
 CSDN：http://blog.csdn.net/y550918116j
 
