@@ -6,7 +6,7 @@
 //  YJ技术支持群:557445088
 //
 //  Created by 阳君 on 2019/3/5.
-//  Copyright © 2019年 YJCocoa. All rights reserved.
+//  Copyright © 2016-现在 YJCocoa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
