@@ -211,7 +211,7 @@ extension YJScheduler {
         }
         self.isInitSub = true
         self.workQueue.sync {
-            YJCodeInject.executeBlock(forKey: "YJURLRouterLoad")
+            YJCodeInject.executeBlock(forKey: "YJSchedulerLoad")
         }
     }
     

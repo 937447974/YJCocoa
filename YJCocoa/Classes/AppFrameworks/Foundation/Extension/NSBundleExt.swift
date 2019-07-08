@@ -14,7 +14,12 @@ public extension Bundle {
     /// - parameter aClass: framework 中的某个 class 名
     static func budle(whit name: String, for aClass: AnyClass) -> Bundle? {
         let bundle = Bundle(for: aClass)
-        guard let path = bundle.path(forResource: name, ofType: "bundle") else {
+        return bundle.budle(forResource: name, ofType: "bundle")
+    }
+    
+    /// 替换 path(forResource name: String?, ofType ext: String?) 直接生成 Bundle
+    func budle(forResource name: String, ofType ext: String) -> Bundle? {
+        guard let path = self.path(forResource: name, ofType: ext) else {
             return nil
         }
         return Bundle(path: path)
