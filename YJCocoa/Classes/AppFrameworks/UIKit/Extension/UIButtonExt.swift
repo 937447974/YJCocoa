@@ -7,6 +7,8 @@
 
 import UIKit
 
+public typealias UIButtonTouchClosure =  (_ button: UIButton) -> ()
+
 @objc
 public extension UIButton {
     

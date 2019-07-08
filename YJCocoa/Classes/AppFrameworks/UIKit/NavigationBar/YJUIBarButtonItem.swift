@@ -15,7 +15,7 @@ open class YJUIBarButtonItem: NSObject {
     public let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
     
     /// 初始化
-    public convenience init(touchUpInside: @escaping ((_ button: UIButton) -> ())) {
+    public convenience init(touchUpInside: @escaping UIButtonTouchClosure) {
         self.init()
         self.button.touchUpInsideClosure = { (button: Any) in
             touchUpInside(button as! UIButton)
