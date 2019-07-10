@@ -25,8 +25,11 @@ class JSONModelTest: XCTestCase {
             return YJJSONModel.transformToModel(TestItem(), fromDict: value as? [String: Any])
         }
         
-        static func transform(toJSON value: Any) -> Any {
-            return YJJSONModel<Any>.transformToDict(value)
+        static func transform(toJSON value: Any) -> Any? {
+            guard let _value = value as? TestItem else {
+                return nil
+            }
+            return YJJSONModel<Any>.transformToDict(_value)
         }
         
     }

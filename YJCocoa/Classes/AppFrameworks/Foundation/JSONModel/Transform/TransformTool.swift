@@ -25,7 +25,7 @@ struct TransformTool<T> {
             let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: capacity)
             return UnsafeMutablePointer<Int8>(mutableTypedPointer)
         } else {
-            return withUnsafeMutablePointer(to: &object) {
+            return withUnsafeMutablePointer(to: &self.object) {
                 return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: capacity)
             }
         }
@@ -36,15 +36,15 @@ struct TransformTool<T> {
         self.metadata = Metadata.build(type: type(of: object))!
     }
     
-    func getJsonKey(property: Metadata.Property, mapper: YJJSONModelTransformMapper) -> String? {
-        guard !mapper.ignoredProperties.contains(property.name) else {
+    func getJsonKey(propertyName: String, mapper: YJJSONModelTransformMapper) -> String? {
+        guard !mapper.ignoredProperties.contains(propertyName) else {
             return nil
         }
-        guard let key = mapper.optionalProperties[property.name] else {
+        guard let key = mapper.optionalProperties[propertyName] else {
             guard mapper.isCaseSensitive else {
-                return property.name.lowercased()
+                return propertyName.lowercased()
             }
-            return property.name
+            return propertyName
         }
         return key
     }
@@ -66,9 +66,9 @@ extension TransformTool {
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
         for property in self.metadata.allProperties {
             let propAddr = self.headPointer.advanced(by: property.offset)
-            if let key = self.getJsonKey(property: property, mapper: mapper), let rawValue = dict?[key] {
+            if let key = self.getJsonKey(propertyName: property.name, mapper: mapper), let rawValue = dict?[key] {
                 if let convertedValue = self.convertValue(rawValue: rawValue, property: property, mapper: mapper) {
-                    self.assignProperty(convertedValue: convertedValue, address: propAddr, instance: object, property: property, mapper: mapper)
+                    self.assignProperty(convertedValue: convertedValue, address: propAddr, property: property, mapper: mapper)
                 } else {
                     YJLogError("[YJCocoa] \(self.metadata.type).\(property.name) 转换异常数据：\(rawValue)")
                 }
@@ -99,9 +99,9 @@ extension TransformTool {
         }
     }
     
-    func assignProperty(convertedValue: Any, address: UnsafeMutableRawPointer, instance: Any, property:  Metadata.Property, mapper: YJJSONModelTransformMapper) {
+    func assignProperty(convertedValue: Any, address: UnsafeMutableRawPointer, property:  Metadata.Property, mapper: YJJSONModelTransformMapper) {
         if mapper.kvcProperties.contains(property.name) {
-            (instance as! NSObject).setValue(convertedValue, forKey: property.name)
+            (self.object as! NSObject).setValue(convertedValue, forKey: property.name)
         } else {
             extensions(of: property.type).write(convertedValue, to: address)
         }
@@ -112,36 +112,52 @@ extension TransformTool {
 // MARK: - Dictionary
 extension TransformTool {
     
-    mutating func transformToDict() -> Dictionary<String, Any> {
+    func transformToDict() -> Dictionary<String, Any> {
         var dict = Dictionary<String, Any>()
-        let mapper = YJJSONModelTransformMapper()
-        (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
-        for property in self.metadata.allProperties {
-            let address = self.headPointer.advanced(by: property.offset)
-            if let key = self.getJsonKey(property: property, mapper: mapper) {
-                dict[key] = self.jsonValue(forInstance: object, mapper: mapper, property: property, address: address)
-            }
+        let mirror = Mirror(reflecting: self.object)
+        guard let displayStyle = mirror.displayStyle else {
+            return dict
         }
-        (object as? YJJSONModelTransformModel)?.transform(toDict: &dict)
+        switch displayStyle {
+        case .class, .struct:
+            let mapper = YJJSONModelTransformMapper()
+            (self.object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
+            self.transformToDict(mapper: mapper, mirror: mirror, dict: &dict)
+        default:
+            break
+        }
+        (self.object as? YJJSONModelTransformModel)?.transform(toDict: &dict)
         return dict
     }
     
-    func jsonValue(forInstance instance: Any, mapper: YJJSONModelTransformMapper, property: Metadata.Property, address: UnsafeRawPointer) -> Any? {
-        var value: Any?
-        if mapper.kvcProperties.contains(property.name) {
-            value = (instance as! NSObject).value(forKey: property.name)
-        } else {
-            value = extensions(of: property.type).value(from: address)
+    func transformToDict(mapper: YJJSONModelTransformMapper, mirror: Mirror, dict: inout Dictionary<String, Any>) {
+        let name = "\(mirror.subjectType)" as NSString
+        for prefix in ["Swift", "UI", "NS", "WK", "CA", "_", "Any"] {
+            if name.hasPrefix(prefix) {
+                return
+            }
         }
-        guard let object = value else {
-            return nil
+        self.transformToDict(mapper: mapper, children: mirror.children, dict: &dict)
+        if let superclassMirror = mirror.superclassMirror {
+            self.transformToDict(mapper: mapper, mirror: superclassMirror, dict: &dict)
         }
-        if let transformBasic = property.type as? YJJSONModelTransformBasic.Type {
-            value = transformBasic.transform(toJSON: object)
-        } else if let transformCustom = mapper.customProperties[property.name] {
-            value = transformCustom.toJSONClosure(object)
+    }
+    
+    func transformToDict(mapper: YJJSONModelTransformMapper, children: Mirror.Children, dict: inout Dictionary<String, Any>) {
+        for item in children {
+            if let label = item.label, let key = self.getJsonKey(propertyName: label, mapper: mapper) {
+                var value: Any? = item.value
+                if let transformCustom = mapper.customProperties[label] {
+                    value = transformCustom.toJSONClosure(value!)
+                } else {
+                    let type = Mirror(reflecting: value!).subjectType
+                    if let transformBasic = type as? YJJSONModelTransformBasic.Type {
+                        value = transformBasic.transform(toJSON: value!)
+                    }
+                }
+                dict[key] = value
+            }
         }
-        return value
     }
     
 }

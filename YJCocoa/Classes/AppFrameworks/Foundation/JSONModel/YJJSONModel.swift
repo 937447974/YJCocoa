@@ -16,17 +16,12 @@ public protocol YJJSONModelTransformBasic {
     /// 从 json 转换为模型
     static func transform(fromJSON value: Any) -> Any?
     /// 从模型转换为 json
-    static func transform(toJSON value: Any) -> Any
-}
-
-extension YJJSONModelTransformBasic {
-    public static func transform(toJSON value: Any) -> Any {
-        return value
-    }
+    static func transform(toJSON value: Any) -> Any?
 }
 
 /// stuct & class 转换协议
 public protocol YJJSONModelTransformModel: YJJSONModelTransformBasic {
+    /// 初始化
     init()
     /// 转换映射器配置
     func transform(mapper: YJJSONModelTransformMapper)
@@ -50,6 +45,7 @@ extension YJJSONModelTransformModel {
 
 /// YJJSONModelTransformModel + YJJSONModelTransformBasic
 extension YJJSONModelTransformModel {
+    
     static func transform(fromJSON value: Any) -> Any? {
         if let json = value as? String {
             return YJJSONModel<Self>.transformToModel(Self(), fromJSON: json)
@@ -58,9 +54,14 @@ extension YJJSONModelTransformModel {
         }
         return nil
     }
-    static func transform(toJSON value: Any) -> Any {
-        return YJJSONModel<Self>.transformToJSON(value as! Self) ?? ""
+    
+    static func transform(toJSON value: Any) -> Any? {
+        guard let _value = value as? Self else {
+            return nil
+        }
+        return YJJSONModel<Self>.transformToJSON(_value)
     }
+    
 }
 
 /// 自定义类型转换协议
@@ -154,7 +155,7 @@ open class YJJSONModel<T> {
         if object is Dictionary<String, Any> || object is NSDictionary {
             return object as! [String: Any]
         }
-        var tt = TransformTool<T>(object: object)
+        let tt = TransformTool<T>(object: object)
         return tt.transformToDict()
     }
     

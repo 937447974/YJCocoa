@@ -11,6 +11,12 @@
 
 import UIKit
 
+public extension YJJSONModelTransformBasic {
+    static func transform(toJSON value: Any) -> Any? {
+        return value
+    }
+}
+
 extension Bool: YJJSONModelTransformBasic {
     public static func transform(fromJSON value: Any) -> Any? {
         if let str = value as? String {
@@ -77,12 +83,19 @@ extension Array: YJJSONModelTransformBasic where Element: YJJSONModelTransformBa
         return result
     }
     
-    public static func transform(toJSON value: Any) -> Any {
-        return (value as! Array).map({ (value) -> Any in
-            return Element.transform(toJSON: value)
-        })
+    public static func transform(toJSON value: Any) -> Any? {
+        guard let _value = value as? Array else {
+            return nil
+        }
+        var result = Array<Any>()
+        for item in _value {
+            if let _item = Element.transform(toJSON: item) {
+                result.append(_item)
+            }
+        }
+        return result
     }
-
+    
 }
 
 extension Optional: YJJSONModelTransformBasic where Wrapped: YJJSONModelTransformBasic {
@@ -91,7 +104,7 @@ extension Optional: YJJSONModelTransformBasic where Wrapped: YJJSONModelTransfor
         return Wrapped.transform(fromJSON: value)
     }
     
-    public static func transform(toJSON value: Any) -> Any {
+    public static func transform(toJSON value: Any) -> Any? {
         return Wrapped.transform(toJSON: value)
     }
     
@@ -105,8 +118,11 @@ extension URL: YJJSONModelTransformBasic {
         return value as? URL
     }
     
-    public static func transform(toJSON value: Any) -> Any {
-        return "\(value as! URL)"
+    public static func transform(toJSON value: Any) -> Any? {
+        guard let url = value as? URL else {
+            return nil
+        }
+        return "\(url)"
     }
 }
 
@@ -122,8 +138,11 @@ extension Date: YJJSONModelTransformBasic {
         return value as? Date
     }
     
-    public static func transform(toJSON value: Any) -> Any {
-        return (value as! Date).timeIntervalSince1970
+    public static func transform(toJSON value: Any) -> Any? {
+        guard let _value = value as? Date else {
+            return nil
+        }
+        return _value.timeIntervalSince1970
     }
     
 }
@@ -141,8 +160,11 @@ extension UIColor: YJJSONModelTransformBasic {
         return value as? UIColor
     }
     
-    public static func transform(toJSON value: Any) -> Any {
-        let comps = (value as! UIColor).cgColor.components!
+    public static func transform(toJSON value: Any) -> Any? {
+        guard let _value = value as? UIColor else {
+            return nil
+        }
+        let comps = _value.cgColor.components!
         let r = Int(comps[0] * 255)
         let g = Int(comps[1] * 255)
         let b = Int(comps[2] * 255)

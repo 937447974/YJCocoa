@@ -25,22 +25,14 @@ protocol AnyExtensions {}
 
 extension AnyExtensions {
     
-    public static func value(from storage: UnsafeRawPointer) -> Any? {
-        let pointee = storage.assumingMemoryBound(to: self).pointee
-        guard "\(pointee)" != "nil" else {
-            return nil
-        }
-        return pointee
-    }
-    
-    public static func write(_ value: Any, to storage: UnsafeMutableRawPointer) {
+    static func write(_ value: Any, to storage: UnsafeMutableRawPointer) {
         guard let this = value as? Self else {
             return
         }
         storage.assumingMemoryBound(to: self).pointee = this
     }
     
-    public static func takeValue(from anyValue: Any) -> Self? {
+    static func takeValue(from anyValue: Any) -> Self? {
         return anyValue as? Self
     }
 }
