@@ -30,10 +30,10 @@ public typealias YJLogBlock = (_ level: YJLogLevels, _ log: String) -> Void
 public struct YJLogLevels : OptionSet {
     
     public static let verbose = YJLogLevels(rawValue: 1)
-    public static var debug = YJLogLevels(rawValue: 2)
-    public static var info = YJLogLevels(rawValue: 4)
-    public static var warn = YJLogLevels(rawValue: 8)
-    public static var error = YJLogLevels(rawValue: 16)
+    public static let debug = YJLogLevels(rawValue: 2)
+    public static let info = YJLogLevels(rawValue: 4)
+    public static let warn = YJLogLevels(rawValue: 8)
+    public static let error = YJLogLevels(rawValue: 16)
     
     public let rawValue: Int
     public init(rawValue: Int) {

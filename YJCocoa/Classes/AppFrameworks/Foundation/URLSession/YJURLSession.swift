@@ -12,7 +12,7 @@
 import UIKit
 
 public typealias YJURLSessionTaskSuccess = (_ respModel: Any) -> Void
-public typealias YJURLSessionTaskFailure = (_ error: NSError) -> Void
+public typealias YJURLSessionTaskFailure = (_ error: Error) -> Void
 
 /// URLSession
 open class YJURLSession: NSObject & NSCacheDelegate {
@@ -66,9 +66,7 @@ open class YJURLSessionTask: NSObject {
     public private(set) var success: YJURLSessionTaskSuccess!
     /// 成功回调
     public private(set) var failure: YJURLSessionTaskFailure!
-    
-    private var mainQueue: Bool = false
-    private var handler = Array<(YJURLSessionTaskSuccess, YJURLSessionTaskFailure?)>()
+    private var handler = Array<Handler>()
     
     open class func task(with request: YJURLRequest) -> YJURLSessionTask {
         let cache = YJURLSession.shared.cache
@@ -84,28 +82,28 @@ open class YJURLSessionTask: NSObject {
     
     public required override init() {
         super.init()
-        self.success = { [unowned self] (data) in
+        self.success = { [unowned self] (data: Any) in
             YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求成功: \(data)")
-            let block: YJDispatchBlock = { [unowned self] in
-                self.state = .success
-                let respModel = self.responseModel(with: data)
-                for (success, _) in self.handler {
-                    success(respModel)
+            let respModel = self.responseModel(with: data)
+            self.state = .success
+            let handler = self.handler
+            self.handler.removeAll()
+            for item in handler {
+                if item.source != nil, let success = item.success {
+                    item.mainQueue ? dispatch_async_main({success(respModel)}) : success(respModel)
                 }
             }
-            self.mainQueue ? dispatch_async_main(block: block) : block()
         }
         self.failure = { [unowned self] (error) in
             YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求失败: \(error)")
-            let block: YJDispatchBlock = { [unowned self] in
-                self.state = .failure
-                for (_, failure) in self.handler {
-                    if failure != nil {
-                        failure!(error)
-                    }
+            self.state = .failure
+            let handler = self.handler
+            self.handler.removeAll()
+            for item in handler {
+                if item.source != nil, let failure = item.failure {
+                    item.mainQueue ? dispatch_async_main({failure(error)}) : failure(error)
                 }
             }
-            self.mainQueue ? dispatch_async_main(block: block) : block()
         }
     }
     
@@ -113,8 +111,8 @@ open class YJURLSessionTask: NSObject {
         return self
     }
     
-    open func completionHandler(success: @escaping YJURLSessionTaskSuccess, failure: YJURLSessionTaskFailure?) -> YJURLSessionTask {
-        self.handler.append((success, failure))
+    open func completionHandler(mainQueue: Bool = false, success: YJURLSessionTaskSuccess? = nil, failure: YJURLSessionTaskFailure? = nil) -> YJURLSessionTask {
+        self.handler.append(Handler(source: self.request.source, mainQueue: mainQueue, success: success, failure: failure))
         return self
     }
     
@@ -151,6 +149,22 @@ open class YJURLSessionTask: NSObject {
     
 }
 
+extension YJURLSessionTask {
+    fileprivate class Handler: NSObject {
+        weak var source: AnyObject?
+        var mainQueue: Bool = false
+        var success: YJURLSessionTaskSuccess?
+        var failure: YJURLSessionTaskFailure?
+        public init(source: AnyObject?, mainQueue: Bool, success: YJURLSessionTaskSuccess?, failure: YJURLSessionTaskFailure?) {
+            super.init()
+            self.source = source
+            self.mainQueue = mainQueue
+            self.success = success
+            self.failure = failure
+        }
+    }
+}
+
 /// 网络请求方式
 @objc
 public enum YJURLRequestMethod: Int {
@@ -175,6 +189,8 @@ open class YJURLRequest: NSObject {
     public private(set) var url = ""
     /// 请求方式
     public private(set) var method = YJURLRequestMethod.post
+    /// 请求头
+    public var headers: [String: String]?
     /// 请求参数模型
     public var reqModel: Any?
     /// 服务器返回数据对应的模型
