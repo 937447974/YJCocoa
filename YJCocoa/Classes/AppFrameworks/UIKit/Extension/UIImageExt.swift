@@ -33,7 +33,7 @@ public extension UIImage {
     
     /// color 转 image
     static func image(with color: UIColor, size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             UIGraphicsEndImageContext()
             return nil
@@ -45,10 +45,25 @@ public extension UIImage {
         return image
     }
     
+    /// 生成圆角图片
+    func withCornerRadius(_ cornerRadius: Float, backgroundColor: UIColor = UIColor.white) -> UIImage? {
+        let rect = CGRect(origin: CGPoint(), size: self.size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
+        backgroundColor.setFill()
+        UIRectFill(rect)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: CGFloat(cornerRadius))
+        path.addClip()
+        path.stroke()
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
     /// Creates and returns a image object that has the same image space and component values as the receiver, but has the specified alpha component.
     /// - parameter alpha: The opacity value of the new color object, specified as a value from 0.0 to 1.0. Alpha values below 0.0 are interpreted as 0.0, and values above 1.0 are interpreted as 1.0
     func withAlphaComponent(_ alpha: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
         guard let context = UIGraphicsGetCurrentContext(), let cgImage = self.cgImage else {
             UIGraphicsEndImageContext()
             return nil
