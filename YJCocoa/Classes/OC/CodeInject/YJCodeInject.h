@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** YJScheduler 调度器订阅、拦截加载*/
 #define YJSCHEDULER_LOAD(block) YJCI_BLOCK_EXPORT(YJSchedulerLoad, block)
-/** YJURLRouter 路由懒加载*/
-#define YJURLROUTER_LOAD(block) YJCI_BLOCK_EXPORT(YJSchedulerLoad, block)
 
 struct YJCI_Function {
     char *key;

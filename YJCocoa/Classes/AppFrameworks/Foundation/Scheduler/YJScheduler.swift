@@ -25,10 +25,10 @@ open class YJScheduler: NSObject {
     
     /// 调度队列
     public enum Queue: Int {
-        /// 主队列
-        case main
         /// 子队列
         case `default`
+        /// 主队列
+        case main
     }
     
     /// /// 调度器 单例
@@ -81,10 +81,10 @@ extension YJScheduler {
      * 订阅
      * - Parameter topic:      主题
      * - Parameter subscriber: 订阅者，自动释放（传入nil代表永不释放）
-     * - Parameter queue:      回调执行的队列
+     * - Parameter queue:      回调执行的队列, 默认子线程
      * - Parameter handler:    接受发布方传输的数据
      */
-    public func subscribe(topic: String, subscriber: AnyObject?, queue:YJScheduler.Queue,  handler: @escaping YJSSubscribeHandler) {
+    public func subscribe(topic: String, subscriber: AnyObject? = nil, queue: YJScheduler.Queue = .default,  handler: @escaping YJSSubscribeHandler) {
         YJLogVerbose("[YJScheduler] 订阅\(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.execute(queue: self.workQueue) { (self: YJScheduler) in
@@ -196,7 +196,7 @@ extension YJScheduler {
                     item.completionHandler(data, handler)
                 }
                 if item.queue == .main {
-                    dispatch_async_main(block: block)
+                    dispatch_async_main(block)
                 } else {
                     let queue = serial ? self.serialQueue : self.concurrentQueue
                     queue.async(execute: block)

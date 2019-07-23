@@ -15,12 +15,12 @@ public typealias YJDispatchBlock = () -> Void
 
 // MARK: main queue
 /// main queue 同步执行
-public func dispatch_sync_main(block: @escaping YJDispatchBlock) {
+public func dispatch_sync_main(_ block: @escaping YJDispatchBlock) {
     DispatchQueue.main.async(execute: block)
 }
 
 /// main queue 异步执行
-public func dispatch_async_main(block: @escaping YJDispatchBlock) {
+public func dispatch_async_main(_ block: @escaping YJDispatchBlock) {
     DispatchQueue.main.async(execute: block)
 }
 
@@ -31,7 +31,7 @@ public func dispatch_after_main(delayInSeconds: TimeInterval, block: @escaping Y
 
 // MARK: default queue
 /// default queue 异步执行
-public func dispatch_async_default(block: @escaping YJDispatchBlock) {
+public func dispatch_async_default(_ block: @escaping YJDispatchBlock) {
     DispatchQueue.global(qos: .default).async(execute: block)
 }
 
@@ -41,17 +41,17 @@ public func dispatch_after_default(delayInSeconds: TimeInterval, block: @escapin
 }
 
 /// background queue 异步执行
-public func dispatch_async_background(block: @escaping YJDispatchBlock) {
+public func dispatch_async_background(_ block: @escaping YJDispatchBlock) {
     DispatchQueue.global(qos: .background).async(execute: block)
 }
 
 /// serial queue 异步执行
-public func dispatch_async_serial(block: @escaping YJDispatchBlock) {
+public func dispatch_async_serial(_ block: @escaping YJDispatchBlock) {
     YJDispatchQueue.serial.async(execute: block)
 }
 
 /// concurrent queue 异步执行
-public func dispatch_async_concurrent(block: @escaping YJDispatchBlock) {
+public func dispatch_async_concurrent(_ block: @escaping YJDispatchBlock) {
     YJDispatchQueue.concurrent.async(execute: block)
 }
 
