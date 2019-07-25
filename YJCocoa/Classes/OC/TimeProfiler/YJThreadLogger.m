@@ -91,6 +91,7 @@ typedef struct YJStackFramePointer YJStackFramePointer;
     return self;
 }
 
+#if DEBUG
 #pragma mark - getter
 - (NSString *)log {
     return [self logWithThread:self.currentThread];
@@ -365,5 +366,8 @@ uintptr_t bs_segmentBaseOfImageIndex(const uint32_t idx) {
     }
     return 0;
 }
+#else
+- (NSString *)log {}
+#endif
 
 @end

@@ -14,7 +14,7 @@ import UIKit
 public extension UIImage {
     
     /// Downsampling large images for display at smaller size
-    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage {
+    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
         let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
         let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
         let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
@@ -22,7 +22,9 @@ public extension UIImage {
                                  kCGImageSourceShouldCacheImmediately: true,
                                  kCGImageSourceCreateThumbnailWithTransform: true,
                                  kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
-        let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions)!
+        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+            return nil
+        }
         return UIImage(cgImage: downsampledImage)
     }
     
@@ -47,6 +49,9 @@ public extension UIImage {
     
     /// 生成圆角图片
     func withCornerRadius(_ cornerRadius: Float, backgroundColor: UIColor = UIColor.white) -> UIImage? {
+        guard cornerRadius > 0 else {
+            return self
+        }
         let rect = CGRect(origin: CGPoint(), size: self.size)
         UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
         backgroundColor.setFill()
@@ -63,6 +68,9 @@ public extension UIImage {
     /// Creates and returns a image object that has the same image space and component values as the receiver, but has the specified alpha component.
     /// - parameter alpha: The opacity value of the new color object, specified as a value from 0.0 to 1.0. Alpha values below 0.0 are interpreted as 0.0, and values above 1.0 are interpreted as 1.0
     func withAlphaComponent(_ alpha: CGFloat) -> UIImage? {
+        guard alpha < 1 else {
+            return self
+        }
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
         guard let context = UIGraphicsGetCurrentContext(), let cgImage = self.cgImage else {
             UIGraphicsEndImageContext()

@@ -62,9 +62,9 @@ open class YJURLSessionTask: NSObject {
     public var state = YJURLSessionTaskState.default
     /// YJURLRequest
     public var request: YJURLRequest!
-    /// 失败回调
-    public private(set) var success: YJURLSessionTaskSuccess!
     /// 成功回调
+    public private(set) var success: YJURLSessionTaskSuccess!
+    /// 失败回调
     public private(set) var failure: YJURLSessionTaskFailure!
     private var handler = Array<Handler>()
     
