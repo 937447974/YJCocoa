@@ -12,17 +12,17 @@
 import UIKit
 
 /// 点击cell的回调
-public typealias YJUITableCellSelectBlock = (_ tableViewManager: YJUITableViewManager, _ cellObject: YJUITableCellObject) -> Void
+public typealias YJUITableCellSelectClosure = (_ tableViewManager: YJUITableViewManager, _ cellObject: YJUITableCellObject) -> Void
 
 @objcMembers
 open class YJUITableCellObject: NSObject {
     
     /// cell对应的VM
-    public var cellModel: AnyObject?
+    public var cellModel: Any?
     /// 携带的自定义数据
-    public var userInfo: AnyObject?
+    public var userInfo: Any?
     /// cell 点击回调
-    public var didSelectBlock: YJUITableCellSelectBlock?
+    public var didSelectClosure: YJUITableCellSelectClosure?
     
     /// cell 所处位置
     public var indexPath: IndexPath!

@@ -54,8 +54,10 @@ open class YJUITableViewManager: NSObject {
     
     init(tableView: UITableView) {
         super.init()
-        self.tableView = tableView
         self.dataSourceCellFirst = Array()
+        self.tableView = tableView
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
 }
@@ -120,7 +122,7 @@ extension YJUITableViewManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let co = self.cellObject(with: indexPath) {
-            if let block = co.didSelectBlock {
+            if let block = co.didSelectClosure {
                 block(self, co)
             }
         }

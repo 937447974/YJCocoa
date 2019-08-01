@@ -19,7 +19,7 @@ import UIKit
     }
     
     /// 获取 YJUITableCellObject 并自动填充模型
-    public class func cellObject(withCellModel cellModel:AnyObject) -> YJUITableCellObject {
+    public class func cellObject(withCellModel cellModel: Any) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
@@ -37,19 +37,19 @@ import UIKit
 
 open class YJUITableViewCell: UITableViewCell {
     
-    private(set) var cellObject: YJUITableCellObject!
-    private(set) var tableViewManager: YJUITableViewManager!
+    public private(set) var cellObject: YJUITableCellObject!
+    public private(set) var tableViewManager: YJUITableViewManager!
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override open func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {
+    open override func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {
         super.tableViewManager(tableViewManager, reloadWith: cellObject)
         self.tableViewManager = tableViewManager
         self.cellObject = cellObject

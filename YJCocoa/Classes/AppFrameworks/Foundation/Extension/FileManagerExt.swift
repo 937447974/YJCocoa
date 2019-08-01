@@ -24,6 +24,9 @@ extension FileManager {
     /// - parameter fromURL: 源地址
     /// - parameter toURL:   目标地址
     open func moveItem(fromURL: URL, toURL: URL) throws {
+        guard fromURL != toURL else {
+            return
+        }
         let toDirectory = toURL.deletingLastPathComponent()
         if self.fileExists(atPath: toDirectory.path) {
             if self.fileExists(atPath: toURL.path) {

@@ -186,9 +186,9 @@ open class YJURLRequest: NSObject {
     /// 发起网络请求的对象
     public private(set) weak var source: AnyObject?
     /// 请求地址
-    public private(set) var url = ""
+    public var url = ""
     /// 请求方式
-    public private(set) var method = YJURLRequestMethod.post
+    public var method = YJURLRequestMethod.post
     /// 请求头
     public var headers: [String: String]?
     /// 请求参数模型
@@ -196,7 +196,7 @@ open class YJURLRequest: NSObject {
     /// 服务器返回数据对应的模型
     public var respModel: Any?
     
-    public init(source: AnyObject?, url: String, method: YJURLRequestMethod, reqModel: Any? , respModel: Any? = nil) {
+    public init(source: AnyObject?, url: String = "", method: YJURLRequestMethod = .get, reqModel: Any? = nil, respModel: Any? = nil) {
         super.init()
         self.identifier = url
         self.source = source ?? YJURLRequest.self

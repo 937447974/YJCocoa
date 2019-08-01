@@ -64,6 +64,9 @@ extension TransformTool {
         }
         let mapper = YJJSONModelTransformMapper()
         (object as? YJJSONModelTransformModel)?.transform(mapper: mapper)
+        if !mapper.isCaseSensitive {
+            dict = self.processDict(dict!)
+        }
         for property in self.metadata.allProperties {
             let propAddr = self.headPointer.advanced(by: property.offset)
             if let key = self.getJsonKey(propertyName: property.name, mapper: mapper), let rawValue = dict?[key] {
@@ -72,6 +75,8 @@ extension TransformTool {
                 } else {
                     YJLogError("[YJCocoa] \(self.metadata.type).\(property.name) 转换异常数据：\(rawValue)")
                 }
+            } else {
+                YJLogVerbose("[YJCocoa] \(self.metadata.type).\(property.name) 跳过转换")
             }
         }
         (object as? YJJSONModelTransformModel)?.transform(fromDict: dict!)
@@ -84,6 +89,14 @@ extension TransformTool {
             for path in paths {
                 result = result?[path] as? [String : Any]
             }
+        }
+        return result
+    }
+    
+    func processDict(_ dict: [String: Any]) -> [String: Any]  {
+        var result = [String: Any]()
+        for (key, value) in dict {
+            result[key.lowercased()] = value
         }
         return result
     }
