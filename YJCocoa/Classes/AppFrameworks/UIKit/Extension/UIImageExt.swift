@@ -44,7 +44,7 @@ public extension UIImage {
     
     /// UIView 转 UIImage
     static func image(with view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.frameSize, false, 0)
+        UIGraphicsBeginImageContextWithOptions(view.frameSize, true, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
@@ -59,7 +59,7 @@ public extension UIImage {
     /// - parameter rect: 矩形框
     /// - parameter corner: 是否圆角
     static func image(with view: UIView, rect: CGRect, corner: Bool = false) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.frameSize, false, 0)
+        UIGraphicsBeginImageContextWithOptions(view.frameSize, true, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
@@ -122,7 +122,7 @@ public extension UIImage {
     
     /// 图片压缩
     func compress(size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
         self.draw(in: CGRect(origin: CGPoint(), size: size))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
