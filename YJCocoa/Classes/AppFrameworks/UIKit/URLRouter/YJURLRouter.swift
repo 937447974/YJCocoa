@@ -182,19 +182,21 @@ extension UIViewController: YJURLRouterProtocol {
     
     public static func router(with url: String) -> UIViewController {
         let vc = self.init()
-        if vc.view.backgroundColor == nil {
-            vc.view.backgroundColor = UIColor.white
-        }
         return vc
     }
     
-    open func routerReloadData(with options: Dictionary<String, Any>, completion handler: YJRCompletionHandler?) {
-    }
+    open func routerReloadData(with options: Dictionary<String, Any>, completion handler: YJRCompletionHandler?) {}
     
     open func routerOpen() {
-        let vc  = UIApplication.shared.keyWindow?.rootViewController
+        var vc  = UIApplication.shared.keyWindow?.rootViewController
+        if let tc = vc as? UITabBarController {
+            vc  = tc.selectedViewController
+        }
         let nc = (vc as? UINavigationController) ?? vc?.navigationController
         nc?.pushViewController(self, animated: true)
+        if self.view.backgroundColor == nil {
+            self.view.backgroundColor = UIColor.white
+        }
     }
     
 }

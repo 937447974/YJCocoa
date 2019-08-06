@@ -28,8 +28,6 @@ open class YJUICollectionCellObject: NSObject {
     public var indexPath: IndexPath!
     /// UITableViewCell对应的类
     private(set) var cellClass: AnyClass
-    /// UITableViewCell对应的类名
-    private(set) var cellName = ""
     /// UITableViewCell.reuseIdentifier，默认类名
     public var reuseIdentifier = ""
     

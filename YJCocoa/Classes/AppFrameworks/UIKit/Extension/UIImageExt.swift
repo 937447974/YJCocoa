@@ -29,12 +29,7 @@ public extension UIImage {
     }
     
     /// color 转 image
-    static func image(with color: UIColor) -> UIImage? {
-        return self.image(with: color, size: CGSize(width: 1, height: 1))
-    }
-    
-    /// color 转 image
-    static func image(with color: UIColor, size: CGSize) -> UIImage? {
+    static func image(with color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             UIGraphicsEndImageContext()
@@ -45,6 +40,44 @@ public extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+    
+    /// UIView 转 UIImage
+    static func image(with view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.frameSize, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        view.layer.render(in: context)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    /// UIView 中指定位置取圆角
+    /// - parameter view: 视图
+    /// - parameter rect: 矩形框
+    /// - parameter corner: 是否圆角
+    static func image(with view: UIView, rect: CGRect, corner: Bool = false) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.frameSize, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        if corner {
+            context.addEllipse(in: rect)
+        } else {
+            let pathRef = CGMutablePath()
+            pathRef.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+            pathRef.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+            pathRef.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+            pathRef.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+            context.addPath(pathRef)
+        }
+        context.clip()
+        view.draw(view.bounds)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     /// 生成圆角图片
@@ -83,6 +116,15 @@ public extension UIImage {
         context.setAlpha(alpha)
         context.draw(cgImage, in: area)
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    /// 图片压缩
+    func compress(size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContext(size)
+        self.draw(in: CGRect(origin: CGPoint(), size: size))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
     }

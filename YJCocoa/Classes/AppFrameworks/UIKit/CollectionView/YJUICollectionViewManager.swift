@@ -209,11 +209,11 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
         let indexPath = cellObject.indexPath!
         switch self.cacheSize {
         case .`default`:
-            return cellObject.cellName
+            return cellObject.reuseIdentifier
         case .indexPath:
             return "\(indexPath.section)-\(indexPath.row)"
         case .classAndIndexPath:
-            return "\(cellObject.cellName)(\(indexPath.section)-\(indexPath.row))"
+            return "\(cellObject.reuseIdentifier)-(\(indexPath.section)-\(indexPath.row))"
         }
     }
     
