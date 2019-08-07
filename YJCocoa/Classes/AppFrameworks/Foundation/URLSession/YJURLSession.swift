@@ -196,7 +196,7 @@ open class YJURLRequest: NSObject {
     /// 服务器返回数据对应的模型
     public var respModel: Any?
     
-    public init(source: AnyObject?, url: String = "", method: YJURLRequestMethod = .get, reqModel: Any? = nil, respModel: Any? = nil) {
+    public init(source: AnyObject? = nil, url: String = "", method: YJURLRequestMethod = .get, reqModel: Any? = nil, respModel: Any? = nil) {
         super.init()
         self.identifier = url
         self.source = source ?? YJURLRequest.self
