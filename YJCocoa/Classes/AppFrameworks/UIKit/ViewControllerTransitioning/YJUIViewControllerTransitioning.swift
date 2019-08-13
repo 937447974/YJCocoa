@@ -19,6 +19,8 @@ open class YJUIViewControllerTransitioning: NSObject {
     public var pushAT: YJUIViewControllerAnimatedTransitioning?
     /// pop 动画
     public var popAT: YJUIViewControllerAnimatedTransitioning?
+    /// 自定义 UIPresentationController 管理动画
+    public var presentationControllerClass: UIPresentationController.Type?
     /// pop 的视图
     public weak var popVC: UIViewController? {
         willSet {
@@ -33,14 +35,17 @@ open class YJUIViewControllerTransitioning: NSObject {
     }()
     var popIT: UIPercentDrivenInteractiveTransition?
     
+    public init(popVC: UIViewController? = nil) {
+        super.init()
+        self.popVC = popVC
+    }
+    
     /// 属性设置
     /// - parameter pushAT: push 动画
     /// - parameter popAT: pop 动画
-    /// - parameter popVC: pop 的视图
-    open func setPushAT(_ pushAT: YJUIViewControllerAnimatedTransitioning, popAT: YJUIViewControllerAnimatedTransitioning, popVC: UIViewController) {
+    open func setPushAT(_ pushAT: YJUIViewControllerAnimatedTransitioning, popAT: YJUIViewControllerAnimatedTransitioning) {
         self.pushAT = pushAT
         self.popAT = popAT
-        self.popVC = popVC
     }
     
     @objc
@@ -83,6 +88,10 @@ extension YJUIViewControllerTransitioning: UIViewControllerTransitioningDelegate
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return self.popIT
+    }
+    
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return self.presentationControllerClass?.init(presentedViewController: presented, presenting: presenting)
     }
     
 }
