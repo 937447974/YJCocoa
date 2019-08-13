@@ -110,6 +110,13 @@ open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerA
     
     ///  动画时间，默认0.5
     public var transitionDuration: TimeInterval = 0.5
+    /// 是否隐藏
+    public var isHidden: Bool = false
+    
+    public init(isHidden: Bool) {
+        super.init()
+        self.isHidden = isHidden
+    }
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return self.transitionDuration
@@ -120,16 +127,24 @@ open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerA
             let toView = transitionContext.view(forKey: .to) else {
                 return
         }
-        self.animateTransition(using: transitionContext, fromView: fromView, toView: toView) { _ in
+        let containerView = transitionContext.containerView
+        if self.isHidden {
+            containerView.insertSubview(toView, belowSubview: fromView)
+        } else {
+            containerView.addSubview(toView)
+        }
+        self.animateTransition(using: transitionContext, fromView: fromView, toView: toView) { [unowned self] _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            if !self.isHidden {
+                containerView.insertSubview(fromView, belowSubview: toView)
+            }
         }
     }
     
     ///
     ///  @abstract 执行动画
-    ///  @discusstion 子类实现
     ///
-    ///  @param transitionContext id <UIViewControllerContextTransitioning>
+    ///  @param transitionContext UIViewControllerContextTransitioning
     ///  @param fromView 当前 UIView
     ///  @param toView 将要显示的 UIView
     ///  @param completion 完成回调
@@ -139,11 +154,57 @@ open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerA
     
 }
 
+/// 带暗淡的界面动画
+open class YJUIDimmingVCAnimatedTransitioning: YJUIViewControllerAnimatedTransitioning {
+    
+    /// 暗淡视图
+    public var dimmingView: UIView!
+    
+    public override init(isHidden: Bool) {
+        super.init(isHidden: isHidden)
+        self.dimmingView = UIView(frame: CGRect())
+        self.dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    }
+    
+    public override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromView = transitionContext.view(forKey: .from),
+            let toView = transitionContext.view(forKey: .to) else {
+                return
+        }
+        let containerView = transitionContext.containerView
+        if self.isHidden {
+            containerView.insertSubview(toView, belowSubview: fromView)
+            containerView.insertSubview(self.dimmingView, belowSubview: fromView)
+        } else {
+            self.dimmingView.frame = fromView.frame
+            containerView.insertSubview(self.dimmingView, aboveSubview: fromView)
+            containerView.insertSubview(toView, aboveSubview: fromView)
+        }
+        self.animateTransition(using: transitionContext, fromView: fromView, toView: toView) { [unowned self] _ in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            if transitionContext.transitionWasCancelled {
+                if self.isHidden {
+                    containerView.insertSubview(self.dimmingView, belowSubview: fromView)
+                }
+            } else if !self.isHidden {
+                containerView.insertSubview(fromView, belowSubview: toView)
+                containerView.insertSubview(self.dimmingView, belowSubview: toView)
+            }
+        }
+    }
+    
+}
+
+extension YJUIViewControllerAnimatedTransitioning {
+    public static let present = YJUIPresentVCAnimatedTransitioning(isHidden: false)
+    public static let dismiss = YJUIDismissVCAnimatedTransitioning(isHidden: true)
+    public static let push = YJUIPushVCAnimatedTransitioning(isHidden: false)
+    public static let pop = YJUIPopVCAnimatedTransitioning(isHidden: true)
+}
 
 /// Present 动画
 public class YJUIPresentVCAnimatedTransitioning: YJUIViewControllerAnimatedTransitioning {
     public override func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {
-        transitionContext.containerView.addSubview(toView)
         toView.frameTop = UIScreen.main.bounds.size.height
         UIView.animate(withDuration: self.transitionDuration, animations: {
             toView.frameTop = 0
@@ -154,7 +215,6 @@ public class YJUIPresentVCAnimatedTransitioning: YJUIViewControllerAnimatedTrans
 /// Dismiss 动画
 public class YJUIDismissVCAnimatedTransitioning: YJUIViewControllerAnimatedTransitioning {
     public override func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {
-        transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
         UIView.animate(withDuration: self.transitionDuration, animations: {
             fromView.frameTop = UIScreen.main.bounds.size.height;
         }, completion: completion)
@@ -164,7 +224,6 @@ public class YJUIDismissVCAnimatedTransitioning: YJUIViewControllerAnimatedTrans
 /// Push 动画
 public class YJUIPushVCAnimatedTransitioning: YJUIViewControllerAnimatedTransitioning {
     public override func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {
-        transitionContext.containerView.addSubview(toView)
         toView.frameLeft = fromView.frameRight
         UIView.animate(withDuration: self.transitionDuration, animations: {
             toView.frameLeft = fromView.frameLeft
@@ -175,7 +234,6 @@ public class YJUIPushVCAnimatedTransitioning: YJUIViewControllerAnimatedTransiti
 /// pop 动画
 public class YJUIPopVCAnimatedTransitioning: YJUIViewControllerAnimatedTransitioning {
     public override func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {
-        transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
         fromView.frameLeft = 0
         UIView.animate(withDuration: self.transitionDuration, animations: {
             fromView.frameLeft = UIScreen.main.bounds.size.width;

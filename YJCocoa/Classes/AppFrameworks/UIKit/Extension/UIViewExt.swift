@@ -112,4 +112,11 @@ import UIKit
         return origin
     }
     
+    /// 移除所有子视图
+    func removeAllSubviews() {
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+    }
+    
 }
