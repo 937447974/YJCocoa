@@ -132,7 +132,7 @@ open class YJJSONModel<T> {
             if let jsonDict = jsonObject as? [String: Any] {
                 return self.transformToModel(object, fromDict: jsonDict, designatedPath: designatedPath)
             }
-        } catch let error {
+        } catch {
             YJLogError("[YJJSONModel] error: \(error)")
         }
         return object as! T
@@ -165,7 +165,7 @@ open class YJJSONModel<T> {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict, options: opt)
             return String(data: jsonData, encoding: .utf8)
-        } catch let error {
+        } catch {
             YJLogError("[YJJSONModel] error: \(error)")
             return nil
         }

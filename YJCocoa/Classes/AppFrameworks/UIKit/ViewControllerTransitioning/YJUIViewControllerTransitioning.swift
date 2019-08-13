@@ -32,7 +32,7 @@ open class YJUIViewControllerTransitioning: NSObject {
         return gesture
     }()
     var popIT: UIPercentDrivenInteractiveTransition?
-
+    
     /// 属性设置
     /// - parameter pushAT: push 动画
     /// - parameter popAT: pop 动画
@@ -76,7 +76,6 @@ extension YJUIViewControllerTransitioning: UIViewControllerTransitioningDelegate
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.pushAT
     }
-    
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.popAT
@@ -134,7 +133,9 @@ open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerA
     ///  @param fromView 当前 UIView
     ///  @param toView 将要显示的 UIView
     ///  @param completion 完成回调
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {}
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning, fromView: UIView, toView: UIView, completion: @escaping ((_ finished: Bool) -> Void)) {
+        fatalError("animateTransition(using:, fromView:, toView:) has not been implemented")
+    }
     
 }
 
