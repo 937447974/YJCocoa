@@ -10,9 +10,10 @@
 //
 
 import Foundation
+import UIKit
 
 /// 点击cell的回调
-public typealias YJUICollectionCellSelectBlock = (_ collectionViewManager: YJUICollectionViewManager, _ cellObject: YJUICollectionCellObject) -> Void
+public typealias YJUICollectionCellSelectClosure = (_ collectionViewManager: YJUICollectionViewManager, _ cellObject: YJUICollectionCellObject) -> Void
 
 @objcMembers
 open class YJUICollectionCellObject: NSObject {
@@ -22,16 +23,16 @@ open class YJUICollectionCellObject: NSObject {
     /// 携带的自定义数据
     public var userInfo: AnyObject?
     /// cell 点击回调
-    public var didSelectBlock: YJUICollectionCellSelectBlock?
+    public var didSelectClosure: YJUICollectionCellSelectClosure?
     
     /// cell 所处位置
     public var indexPath: IndexPath!
     /// UITableViewCell对应的类
-    private(set) var cellClass: AnyClass
+    public private(set) var cellClass: UICollectionReusableView.Type
     /// UITableViewCell.reuseIdentifier，默认类名
     public var reuseIdentifier = ""
     
-    public init(cellClass: AnyClass) {
+    public init(cellClass: UICollectionReusableView.Type) {
         self.cellClass = cellClass
         self.reuseIdentifier = NSStringFromClass(cellClass)
     }

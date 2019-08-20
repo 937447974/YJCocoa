@@ -11,7 +11,8 @@
 
 import UIKit
 
-@objc extension UICollectionViewCell {
+@objc
+extension UICollectionViewCell {
     
     /// 获取 cell 的显示size
     open class func collectionViewManager(_ collectionViewManager: YJUICollectionViewManager, sizeWith cellObject: YJUICollectionCellObject) -> CGSize {
@@ -20,7 +21,6 @@ import UIKit
     
 }
 
-@objc
 @objcMembers
 open class YJUICollectionViewCell: UICollectionViewCell {
     

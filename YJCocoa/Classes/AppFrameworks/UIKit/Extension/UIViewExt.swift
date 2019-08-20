@@ -112,11 +112,30 @@ import UIKit
         return origin
     }
     
+}
+
+public extension UIView {
+    
     /// 移除所有子视图
     func removeAllSubviews() {
         for view in self.subviews {
             view.removeFromSuperview()
         }
+    }
+    
+    /// 圆角设置
+    func setCornerRadius(_ cornerRadius: CGFloat, masksToBounds: Bool = true) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.masksToBounds = masksToBounds
+    }
+    
+    /// 投影设置
+    func setShadow(color: UIColor, offset: CGSize, radius: CGFloat, opacity: Float) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = offset
+        self.layer.shadowRadius = radius
+        self.layer.shadowOpacity = opacity
     }
     
 }

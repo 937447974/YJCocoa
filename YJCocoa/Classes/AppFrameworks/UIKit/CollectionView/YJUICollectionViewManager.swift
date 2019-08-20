@@ -12,7 +12,7 @@
 import UIKit
 
 /// 缓存 size 的策略
-enum YJUICollectionViewCacheSize : Int {
+public enum YJUICollectionViewCacheSize : Int {
     /// 根据相同的UITableViewCell类缓存高度
     case `default`
     /// 根据NSIndexPath对应的位置缓存高度
@@ -26,13 +26,13 @@ enum YJUICollectionViewCacheSize : Int {
 open class YJUICollectionViewManager: NSObject {
     
     /// header 数据源
-    var dataSourceHeader = Array<YJUICollectionCellObject>()
+    public var dataSourceHeader = Array<YJUICollectionCellObject>()
     /// header 数据源
-    var dataSourceFooter = Array<YJUICollectionCellObject>()
+    public var dataSourceFooter = Array<YJUICollectionCellObject>()
     /// cell 数据源
-    var dataSourceCell = Array<Array<YJUICollectionCellObject>>()
+    public var dataSourceCell = Array<Array<YJUICollectionCellObject>>()
     /// cell 第一组数据源
-    var dataSourceCellFirst: Array<YJUICollectionCellObject> {
+    public var dataSourceCellFirst: Array<YJUICollectionCellObject> {
         get {return self.dataSourceCell.first!}
         set {
             if self.dataSourceCell.count > 0 {
@@ -44,17 +44,17 @@ open class YJUICollectionViewManager: NSObject {
     }
     
     /// 是否缓存高，默认缓存
-    var isCacheSize = true
+    public var isCacheSize = true
     /// 缓存size的策略
-    var cacheSize = YJUICollectionViewCacheSize.default
+    public var cacheSize = YJUICollectionViewCacheSize.default
     
-    weak public private(set) var collectionView: UICollectionView!
-    weak public private(set) var flowLayout: UICollectionViewFlowLayout!
+    public weak private(set) var collectionView: UICollectionView!
+    public weak private(set) var flowLayout: UICollectionViewFlowLayout!
     
     private var identifierSet = Set<String>()
     private var cacheSizeDict = Dictionary<String, CGSize>()
     
-    init(collectionView: UICollectionView) {
+    public init(collectionView: UICollectionView) {
         super.init()
         self.collectionView = collectionView
         self.flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -120,9 +120,7 @@ extension YJUICollectionViewManager: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let co = self.cellObject(with: indexPath) {
-            if let block = co.didSelectBlock {
-                block(self, co)
-            }
+            co.didSelectClosure?(self, co)
         }
     }
     
@@ -146,14 +144,14 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         guard let co = self.cellHeaderObject(with: section) else {
-            return self.flowLayout.itemSize
+            return self.flowLayout.headerReferenceSize
         }
         return self.collectionView(collectionView, referenceSizeFor: UICollectionView.elementKindSectionHeader, in: co)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard let co = self.cellFooterObject(with: section) else {
-            return self.flowLayout.itemSize
+            return self.flowLayout.footerReferenceSize
         }
         return self.collectionView(collectionView, referenceSizeFor: UICollectionView.elementKindSectionFooter, in: co)
     }
@@ -196,8 +194,8 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
         var size = CGSize.zero
         if let cellType = cellObject.cellClass as? UICollectionViewCell.Type {
             size = cellType.collectionViewManager(self, sizeWith: cellObject)
-        } else if let headerType = cellObject.cellClass as? UICollectionReusableView.Type {
-            size = headerType.collectionViewManager(self, referenceSizeFor: kind, in: cellObject)
+        } else {
+            size = cellObject.cellClass.collectionViewManager(self, referenceSizeFor: kind, in: cellObject)
         }
         if self.isCacheSize {
             self.cacheSizeDict[key] = size
