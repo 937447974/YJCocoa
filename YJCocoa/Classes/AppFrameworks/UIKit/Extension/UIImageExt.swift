@@ -81,7 +81,7 @@ public extension UIImage {
     }
     
     /// 生成圆角图片
-    func withCornerRadius(_ cornerRadius: Float, backgroundColor: UIColor = UIColor.white) -> UIImage? {
+    func withCornerRadius(_ cornerRadius: CGFloat, backgroundColor: UIColor = UIColor.white) -> UIImage? {
         guard cornerRadius > 0 else {
             return self
         }
@@ -89,7 +89,7 @@ public extension UIImage {
         UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
         backgroundColor.setFill()
         UIRectFill(rect)
-        let path = UIBezierPath(roundedRect: rect, cornerRadius: CGFloat(cornerRadius))
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
         path.addClip()
         path.stroke()
         self.draw(in: rect)
