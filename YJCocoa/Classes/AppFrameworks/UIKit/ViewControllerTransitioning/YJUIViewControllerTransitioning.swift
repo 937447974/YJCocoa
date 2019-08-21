@@ -54,6 +54,9 @@ open class YJUIViewControllerTransitioning: NSObject {
         process = min(1.0, max(0, process))
         switch pan.state {
         case .began:
+            guard pan.location(in: self.popVC!.view).x < 40 else {
+                return
+            }
             self.popIT = UIPercentDrivenInteractiveTransition()
             if let nc = self.popVC?.navigationController, nc.viewControllers.count > 1 {
                 nc.popViewController(animated: true)
@@ -117,8 +120,8 @@ extension YJUIViewControllerTransitioning: UINavigationControllerDelegate {
 @objcMembers
 open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerAnimatedTransitioning {
     
-    ///  动画时间，默认0.5
-    public var transitionDuration: TimeInterval = 0.5
+    ///  动画时间，默认0.3
+    public var transitionDuration: TimeInterval = 0.3
     /// 是否隐藏
     public var isHidden: Bool = false
     
@@ -186,8 +189,8 @@ open class YJUIDimmingVCAnimatedTransitioning: YJUIViewControllerAnimatedTransit
             containerView.insertSubview(self.dimmingView, belowSubview: fromView)
         } else {
             self.dimmingView.frame = fromView.frame
-            containerView.insertSubview(self.dimmingView, aboveSubview: fromView)
             containerView.insertSubview(toView, aboveSubview: fromView)
+            containerView.insertSubview(self.dimmingView, aboveSubview: fromView)
         }
         self.animateTransition(using: transitionContext, fromView: fromView, toView: toView) { [unowned self] _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
