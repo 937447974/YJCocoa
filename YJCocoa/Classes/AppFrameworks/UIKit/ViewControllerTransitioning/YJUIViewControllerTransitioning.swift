@@ -15,6 +15,11 @@ import UIKit
 @objcMembers
 open class YJUIViewControllerTransitioning: NSObject {
     
+    public static let presentAT = YJUIPresentVCAnimatedTransitioning(isHidden: false)
+    public static let dismissAT = YJUIDismissVCAnimatedTransitioning(isHidden: true)
+    public static let pushAT = YJUIPushVCAnimatedTransitioning(isHidden: false)
+    public static let popAT = YJUIPopVCAnimatedTransitioning(isHidden: true)
+
     /// push 动画
     public var pushAT: YJUIViewControllerAnimatedTransitioning?
     /// pop 动画
@@ -146,7 +151,9 @@ open class YJUIViewControllerAnimatedTransitioning: NSObject & UIViewControllerA
             containerView.addSubview(toView)
         }
         self.animateTransition(using: transitionContext, fromView: fromView, toView: toView) { [unowned self] _ in
+            let toFrame = toView.frame
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            toView.frame = toFrame
             if !self.isHidden {
                 containerView.insertSubview(fromView, belowSubview: toView)
             }
@@ -205,13 +212,6 @@ open class YJUIDimmingVCAnimatedTransitioning: YJUIViewControllerAnimatedTransit
         }
     }
     
-}
-
-extension YJUIViewControllerAnimatedTransitioning {
-    public static let present = YJUIPresentVCAnimatedTransitioning(isHidden: false)
-    public static let dismiss = YJUIDismissVCAnimatedTransitioning(isHidden: true)
-    public static let push = YJUIPushVCAnimatedTransitioning(isHidden: false)
-    public static let pop = YJUIPopVCAnimatedTransitioning(isHidden: true)
 }
 
 /// Present 动画

@@ -29,6 +29,8 @@ public protocol YJURLRouterProtocol {
     func routerReloadData(with options:Dictionary<String, Any>, completion handler: YJRCompletionHandler?)
     /// 路由器打开
     func routerOpen()
+    /// push失败后，present 打开当前路由
+    func routerOpenPresent()
 }
 
 /// URL 路由器
@@ -182,21 +184,22 @@ extension UIViewController: YJURLRouterProtocol {
     
     public static func router(with url: String) -> UIViewController {
         let vc = self.init()
+        vc.hidesBottomBarWhenPushed = true
         return vc
     }
     
     open func routerReloadData(with options: Dictionary<String, Any>, completion handler: YJRCompletionHandler?) {}
     
     open func routerOpen() {
-        var vc  = UIApplication.shared.keyWindow?.rootViewController
-        if let tc = vc as? UITabBarController {
-            vc  = tc.selectedViewController
+        guard let nc = UIViewController.current?.navigationController else {
+            self.routerOpenPresent()
+            return
         }
-        let nc = (vc as? UINavigationController) ?? vc?.navigationController
-        nc?.pushViewController(self, animated: true)
-        if self.view.backgroundColor == nil {
-            self.view.backgroundColor = UIColor.white
-        }
+        nc.pushViewController(self, animated: true)
+    }
+    
+    open func routerOpenPresent() {
+        UIViewController.current?.present(self, animated: true, completion: nil)
     }
     
 }
