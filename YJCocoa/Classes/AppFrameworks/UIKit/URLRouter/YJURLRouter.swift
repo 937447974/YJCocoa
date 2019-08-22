@@ -196,10 +196,16 @@ extension UIViewController: YJURLRouterProtocol {
             return
         }
         nc.pushViewController(self, animated: true)
+        if self.view.backgroundColor == nil {
+            self.view.backgroundColor = UIColor.white
+        }
     }
     
     open func routerOpenPresent() {
         UIViewController.current?.present(self, animated: true, completion: nil)
+        if self.view.backgroundColor == nil {
+            self.view.backgroundColor = UIColor.white
+        }
     }
     
 }
