@@ -41,5 +41,19 @@ public extension UIViewController {
         return result
     }
     
+    /// 返回上个页面
+    /// - parameter animated: 是否动画
+    func pop(animated flag: Bool) {
+        guard let nc = self.navigationController else {
+            self.dismiss(animated: flag, completion: nil)
+            return
+        }
+        if (nc.viewControllers.count == 1) {
+            self.dismiss(animated: flag, completion: nil)
+        } else {
+            nc.popViewController(animated: flag)
+        }
+    }
+    
 }
 
