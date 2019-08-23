@@ -13,21 +13,6 @@ import UIKit
 
 public extension UIImage {
     
-    /// Downsampling large images for display at smaller size
-    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
-        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
-        let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
-        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
-        let downsampleOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
-                                 kCGImageSourceShouldCacheImmediately: true,
-                                 kCGImageSourceCreateThumbnailWithTransform: true,
-                                 kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
-        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
-            return nil
-        }
-        return UIImage(cgImage: downsampledImage)
-    }
-    
     /// color 转 image
     static func image(with color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -42,10 +27,28 @@ public extension UIImage {
         return image
     }
     
+    /// 渐变色转 image
+    static func image(with gradientColors: [CGColor], start startPoint: CGPoint, end endPoint: CGPoint) -> UIImage? {
+        let size = CGSize(width: max(startPoint.x, endPoint.x), height:  max(startPoint.y, endPoint.y))
+        UIGraphicsBeginImageContextWithOptions(size, true, 0)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colors = gradientColors as CFArray
+        guard let context = UIGraphicsGetCurrentContext(),
+            let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil) else {
+                UIGraphicsEndImageContext()
+                return nil
+        }
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: 0))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
     /// UIView 转 UIImage
     static func image(with view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.frameSize, true, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
             return nil
         }
         view.layer.render(in: context)
@@ -61,6 +64,7 @@ public extension UIImage {
     static func image(with view: UIView, rect: CGRect, corner: Bool = false) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.frameSize, true, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
             return nil
         }
         if corner {
@@ -118,6 +122,21 @@ public extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
         return newImage
+    }
+    
+    /// 本地图片预解码加载 Downsampling large images for display at smaller size
+    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
+        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        let downsampleOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
+                                 kCGImageSourceShouldCacheImmediately: true,
+                                 kCGImageSourceCreateThumbnailWithTransform: true,
+                                 kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
+        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+            return nil
+        }
+        return UIImage(cgImage: downsampledImage)
     }
     
     /// 图片压缩
