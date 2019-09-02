@@ -11,21 +11,22 @@
 
 import UIKit
 
-/// 点击cell的回调
-typealias YJUIPageViewCellDidAppear = (_ index: Int) -> Void
-
 /// PageView 的 cell 基类
 @objcMembers
 open class YJUIPageViewCell: UIViewController {
     
+    /// 点击cell的回调
+    public typealias DidAppearClosure = (_ index: Int) -> Void
+    
     public private(set) var cellObject: YJUIPageViewCellObject!
     public private(set) var pageViewManager: YJUIPageViewManager!
-    var cellDidAppear: YJUIPageViewCellDidAppear!
+    var cellDidAppear: DidAppearClosure!
     
     // MARK: override
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.cellDidAppear(self.cellObject.index)
+        self.cellObject.didAppearClosure?(self.cellObject.index)
     }
     
     // MARK: YJCocoa

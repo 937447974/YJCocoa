@@ -18,6 +18,8 @@ open class YJUIPageViewCellObject: NSObject {
     public var cellModel: Any?
     /// 携带的自定义数据
     public var userInfo: Any?
+    /// 页面显示回调
+    public var didAppearClosure: YJUIPageViewCell.DidAppearClosure?
     
     /// cell 所处位置
     public var index: Int = 0
