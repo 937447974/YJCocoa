@@ -19,7 +19,7 @@ import UIKit
     }
     
     /// 获取 YJUITableCellObject 并自动填充模型
-    public class func cellObject(withCellModel cellModel: Any) -> YJUITableCellObject {
+    public class func cellObject(withCellModel cellModel: Any?) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co

@@ -64,7 +64,7 @@ import UIKit
         get {return self.center.x}
         set {self.center.x = newValue}
     }
-    /// .center.x
+    /// .center.y
     var centerY: CGFloat {
         get {return self.center.y}
         set {self.center.y = newValue}

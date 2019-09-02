@@ -20,7 +20,7 @@ open class YJUIPageViewManager: NSObject {
     /// 当前页码
     public private(set) var index: Int = 0
     /// 是否循环展示, 默认 true 循环
-    public var isLoop = true
+    public var isLoop = false
     /// 是否取消阻力效果
     public var isDisableBounces = false
     
@@ -75,49 +75,46 @@ open class YJUIPageViewManager: NSObject {
 extension YJUIPageViewManager {
     
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard "contentOffset" == keyPath else {
+        guard "contentOffset" == keyPath, self.isDisableBounces, let scrollView = self.scrollView, let pageVC = self.pageVC else {
             return
         }
-        guard self.isDisableBounces else {
-            return
-        }
-        var offset = self.scrollView!.contentOffset
+        var offset = scrollView.contentOffset
         if self.index == 0 {
-            switch (self.pageVC.navigationOrientation) {
+            switch (pageVC.navigationOrientation) {
             case .horizontal:
-                guard offset.x < self.scrollView!.frameWidth else {
+                guard offset.x < scrollView.frameWidth else {
                     return
                 }
-                offset.x = self.scrollView!.frameWidth
-                self.scrollView!.setContentOffset(offset, animated: false)
+                offset.x = scrollView.frameWidth
+                scrollView.setContentOffset(offset, animated: false)
             case .vertical:
-                guard offset.y < self.scrollView!.frameHeight else {
+                guard offset.y < scrollView.frameHeight else {
                     return
                 }
-                offset.y = self.scrollView!.frameHeight
-                self.scrollView!.setContentOffset(offset, animated: false)
+                offset.y = scrollView.frameHeight
+                scrollView.setContentOffset(offset, animated: false)
              default: return
             }
         } else if self.index == self.dataSourceCell.count - 1 {
             switch (self.pageVC.navigationOrientation) {
             case .horizontal:
-                guard offset.x > self.scrollView!.frameWidth else {
+                guard offset.x > scrollView.frameWidth else {
                     return
                 }
-                offset.x = self.scrollView!.frameWidth
-                self.scrollView!.setContentOffset(offset, animated: false)
+                offset.x = scrollView.frameWidth
+                scrollView.setContentOffset(offset, animated: false)
             case .vertical:
-                guard offset.y > self.scrollView!.frameHeight else {
+                guard offset.y > scrollView.frameHeight else {
                     return
                 }
-                offset.y = self.scrollView!.frameHeight
-                self.scrollView!.setContentOffset(offset, animated: false)
+                offset.y = scrollView.frameHeight
+                scrollView.setContentOffset(offset, animated: false)
             @unknown default: return
             }
         } else {
             return
         }
-        self.scrollView!.setContentOffset(offset, animated: false)
+        scrollView.setContentOffset(offset, animated: false)
     }
     
 }

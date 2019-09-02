@@ -15,9 +15,9 @@ import UIKit
 open class YJUIPageViewCellObject: NSObject {
     
     /// cell对应的VM
-    public var cellModel: AnyObject?
+    public var cellModel: Any?
     /// 携带的自定义数据
-    public var userInfo: AnyObject?
+    public var userInfo: Any?
     
     /// cell 所处位置
     public var index: Int = 0
