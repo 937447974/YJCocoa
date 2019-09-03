@@ -37,5 +37,10 @@ public extension UIButton {
         self.setImage(image, for: .normal)
         self.setImage(highlightedImage ?? image?.withAlphaComponent(0.75), for: .highlighted)
     }
+    
+    /// 设置背景色
+    func setBackgroundImage(_ color: UIColor, for state: UIControl.State) {
+        self.setBackgroundImage(UIImage.image(with: color, size: self.frameSize), for: .normal)
+    }
 
 }

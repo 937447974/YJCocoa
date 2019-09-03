@@ -13,7 +13,7 @@ import UIKit
 
 extension UIScrollView: UIGestureRecognizerDelegate {
     
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         guard otherGestureRecognizer.isKind(of: UIScreenEdgePanGestureRecognizer.self) else {
             return false
         }        
