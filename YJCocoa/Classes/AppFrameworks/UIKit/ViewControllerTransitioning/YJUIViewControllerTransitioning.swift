@@ -34,7 +34,8 @@ open class YJUIViewControllerTransitioning: NSObject {
     }
     /// pop 的手势
     public private(set) lazy var popGesture: UIPanGestureRecognizer = {
-        let gesture = UIPanGestureRecognizer()
+        let gesture = UIScreenEdgePanGestureRecognizer()
+        gesture.edges = UIRectEdge.left
         gesture.addTarget(self, action: #selector(YJUIViewControllerTransitioning.panGestureRecognizerAction(pan:)))
         return gesture
     }()
@@ -59,9 +60,6 @@ open class YJUIViewControllerTransitioning: NSObject {
         process = min(1.0, max(0, process))
         switch pan.state {
         case .began:
-            guard pan.location(in: self.popVC!.view).x < 40 else {
-                return
-            }
             self.popIT = UIPercentDrivenInteractiveTransition()
             if let nc = self.popVC?.navigationController, nc.viewControllers.count > 1 {
                 nc.popViewController(animated: true)

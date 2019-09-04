@@ -16,31 +16,45 @@ public typealias UIButtonTouchClosure =  (_ button: UIButton) -> ()
 @objc
 public extension UIButton {
     
-    /// 设置标题相关
+    /// 设置标题
     /// - parameter title: 标题
     /// - parameter font: 字体大小
     /// - parameter color: 字体颜色
     /// - parameter highlightedColor: 点击高亮，默认 color 的 0.75 透明度
-    func setTitle(_ title: String, font: UIFont?, color: UIColor?, highlightedColor: UIColor?) {
+    func setTitle(_ title: String, font: UIFont? = nil, color: UIColor? = nil, highlightedColor: UIColor? = nil) {
         self.setTitle(title, for: .normal)
         if let font = font {
             self.titleLabel?.font = font
         }
-        self.setTitleColor(color, for: .normal)
-        self.setTitleColor(highlightedColor ?? color?.withAlphaComponent(0.75), for: .highlighted)
+        if let color = color {
+            self.setTitleColor(color, highlightedColor: highlightedColor)
+        }
     }
     
-    /// 设置图片相关
+    /// 设置字体颜色
+    /// - parameter color: 默认色
+    /// - parameter highlighted: 高亮色，默认 color 的 0.75 透明度
+    func setTitleColor(_ color: UIColor, highlightedColor: UIColor? = nil) {
+        self.setTitleColor(color, for: .normal)
+        self.setTitleColor(highlightedColor ?? color.withAlphaComponent(0.75), for: .highlighted)
+    }
+    
+    /// 设置图片
     /// - parameter image: 标题
     /// - parameter highlightedImage: 高亮图片，默认 image 的 0.75 透明度
-    func setImage(_ image: UIImage?, highlightedImage: UIImage?) {
+    func setImage(_ image: UIImage?, highlightedImage: UIImage? = nil) {
         self.setImage(image, for: .normal)
-        self.setImage(highlightedImage ?? image?.withAlphaComponent(0.75), for: .highlighted)
+        let highlightedImage = highlightedImage ?? image?.withAlphaComponent(0.75)
+        self.setImage(highlightedImage, for: .highlighted)
     }
     
-    /// 设置背景色
-    func setBackgroundImage(_ color: UIColor, for state: UIControl.State) {
+    // 设置背景图片
+    /// - parameter color: 默认色
+    /// - parameter highlightedColor: 高亮色，默认 color 的 0.75 透明度
+    func setBackgroundImage(_ color: UIColor, highlightedColor: UIColor? = nil) {
         self.setBackgroundImage(UIImage.image(with: color, size: self.frameSize), for: .normal)
+        let highlightedColor = highlightedColor ?? color.withAlphaComponent(0.75)
+        self.setBackgroundImage(UIImage.image(with: highlightedColor, size: self.frameSize), for: .highlighted)
     }
-
+    
 }
