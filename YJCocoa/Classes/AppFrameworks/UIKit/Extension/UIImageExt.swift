@@ -46,7 +46,7 @@ public extension UIImage {
     
     /// UIView 转 UIImage
     static func image(with view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.frameSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(view.frameSize, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             UIGraphicsEndImageContext()
             return nil

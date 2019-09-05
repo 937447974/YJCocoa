@@ -122,9 +122,7 @@ extension YJUITableViewManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let co = self.cellObject(with: indexPath) {
-            if let block = co.didSelectClosure {
-                block(self, co)
-            }
+            co.didSelectClosure?(self, co)
         }
     }
     
