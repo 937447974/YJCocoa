@@ -129,6 +129,14 @@ public extension UIView {
         self.layer.masksToBounds = masksToBounds
     }
     
+    /// 圆角设置
+    func setCornerRadius(_ cornerRadius: CGFloat, byRoundingCorners corners: UIRectCorner) {
+        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let maskLayer = CAShapeLayer(layer: self.layer)
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
+    }
+    
     /// 投影设置
     func setShadow(color: UIColor, offset: CGSize, radius: CGFloat, opacity: Float) {
         self.layer.masksToBounds = false
@@ -137,5 +145,7 @@ public extension UIView {
         self.layer.shadowRadius = radius
         self.layer.shadowOpacity = opacity
     }
+    
+    
     
 }

@@ -29,7 +29,9 @@ open class YJUIViewControllerTransitioning: NSObject {
     /// pop 的视图
     public weak var popVC: UIViewController? {
         willSet {
-            newValue?.view.addGestureRecognizer(self.popGesture)
+            dispatch_async_main {
+                newValue?.view.addGestureRecognizer(self.popGesture)
+            }            
         }
     }
     /// pop 的手势
