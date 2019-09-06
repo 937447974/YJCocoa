@@ -83,8 +83,8 @@ open class YJURLRouter: NSObject {
                 self.nodeCache.setObject(node, forKey: key)
             }
         }
-        node.routerReloadData(with: options, completion: handler)
         node.routerOpen()
+        node.routerReloadData(with: options, completion: handler)
     }
     
     private func getCacheNode(with register: YJRouterRegister, key: NSString) -> UIViewController? {
