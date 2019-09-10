@@ -16,7 +16,7 @@ import UIKit
 open class YJUIBarButtonItem: NSObject {
     
     /// 按钮
-    public let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
+    public let button = YJTouchButton(frame: CGRect())
     
     /// 初始化
     public convenience init(touchUpInside: @escaping UIButtonTouchClosure) {
@@ -32,15 +32,14 @@ open class YJUIBarButtonItem: NSObject {
     /// - parameter color: 字体颜色，默认 UINavigationBar.barTintColor
     /// - parameter highlightedColor: 点击高亮，默认 color 的 0.75 透明度
     open func setTitle(_ title: String, font: UIFont?, color: UIColor?, highlightedColor: UIColor?) {
-        let _font = font ?? UIFont.systemFont(ofSize: 14)
-        let _color = color ?? UINavigationBar.appearance().tintColor
-        self.button.setTitle(title, font: _font, color: _color, highlightedColor: highlightedColor)
+        let font = font ?? UIFont.systemFont(ofSize: 14)
+        let color = color ?? UINavigationBar.appearance().tintColor
+        self.button.setTitle(title, font: font, color: color, highlightedColor: highlightedColor)
     }
     
     /// UIBarButtonItem
     open func buildBarButtonItem() -> UIBarButtonItem {
-        let size = self.button.sizeThatFits(CGSize(width: 0, height: 30))
-        self.button.frameWidth = size.width > 25 ? size.width : 25
+        self.button.sizeToFit()
         return UIBarButtonItem(customView: self.button)
     }
     
