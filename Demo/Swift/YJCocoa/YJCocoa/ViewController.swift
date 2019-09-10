@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YJCocoa
 
 class ViewController: UIViewController {
 

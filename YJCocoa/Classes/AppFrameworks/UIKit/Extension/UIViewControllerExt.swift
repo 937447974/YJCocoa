@@ -11,31 +11,34 @@
 
 import UIKit
 
-fileprivate func currentController(with subView: UIView) -> UIViewController? {
-    var result: UIViewController?
-    for view in subView.subviews {
-        if let vc = view.next as? UIViewController {
-            result = vc
+fileprivate func currentController() -> UIViewController? {
+    guard let keyWindow = UIWindow.current else {
+        return UIApplication.shared.keyWindow?.rootViewController
+    }
+    for subview in keyWindow.subviews.reversed() {
+        if let vc = subview.next as? UIViewController {
+            return vc
+        } else if let vc = currentController(with: subview) {
+            return vc
         }
     }
-    return result
+    return nil
+}
+
+fileprivate func currentController(with subView: UIView) -> UIViewController? {
+    for view in subView.subviews.reversed() {
+        if let vc = view.next as? UIViewController {
+            return vc
+        }
+    }
+    return nil
 }
 
 public extension UIViewController {
     
     /// 当前 UIViewController
     static var current: UIViewController? {
-        var result = UIApplication.shared.keyWindow?.rootViewController
-        guard let keyWindow = UIApplication.shared.keyWindow else {
-            return result
-        }
-        for subview in keyWindow.subviews {
-            if let vc = subview.next as? UIViewController {
-                result = vc
-            } else if let vc = currentController(with: subview) {
-                result = vc
-            }
-        }
+        var result = currentController()
         if let tabBarController = result as? UITabBarController {
             result = tabBarController.selectedViewController
         }

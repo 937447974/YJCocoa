@@ -17,7 +17,7 @@ public extension UIWindow {
     static var current: UIWindow? {
         let frontToBackWindows = UIApplication.shared.windows.reversed()
         for window in frontToBackWindows {
-            if window.isKeyWindow, window.windowLevel >= .normal, window.screen == UIScreen.main, !window.isHidden && window.alpha > 0 {
+            if window.isKeyWindow, window.windowLevel == .normal, window.screen == UIScreen.main, !window.isHidden && window.alpha > 0 {
                 return window
             }
         }
