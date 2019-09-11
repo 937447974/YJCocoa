@@ -13,7 +13,8 @@ import UIKit
 
 extension String {
     
-    public subscript(r: Range<Int>) ->String {
+    public subscript(r: Range<Int>) -> String {
+        guard r.upperBound <= self.count else { return "" }
         let start = self.index(self.startIndex, offsetBy: r.lowerBound)
         let end = self.index(self.startIndex, offsetBy: r.upperBound)
         return String(self[start..<end])

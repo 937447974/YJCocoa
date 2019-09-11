@@ -8,7 +8,7 @@
 import UIKit
 
 /// 扩展触摸的最大区域
-public var YJTouchMax: CGFloat = 30
+public var YJTouchMax: CGFloat = 44
 
 extension UIView {
     func hitTestTouch(_ point: CGPoint) -> CGPoint {
