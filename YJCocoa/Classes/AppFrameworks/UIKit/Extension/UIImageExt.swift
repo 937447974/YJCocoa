@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import CoreImage
 
 public extension UIImage {
     
@@ -82,6 +83,28 @@ public extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
+    }
+    
+    /// 生成二维码
+    static func imageQRCode(with url: String, to width: CGFloat) -> UIImage? {
+        guard let filter = CIFilter(name: "CIQRCodeGenerator"), let data = url.data(using: .utf8) else { return nil }
+        filter.setDefaults()
+        filter.setValue(data, forKey: "inputMessage")
+        guard let ciImage = filter.outputImage else { return nil }
+        // 生成高清的UIImage
+        let extent = ciImage.extent.integral
+        let scale = min(width/extent.width, width/extent.height)
+        let width = Int(extent.width * scale)
+        let height = Int(extent.height * scale)
+        let cs = CGColorSpaceCreateDeviceGray()
+        guard let bitmapRef = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: 0) else { return nil }
+        let context = CIContext(options: nil)
+        guard let bitmapImage = context.createCGImage(ciImage, from: extent) else { return nil }
+        bitmapRef.interpolationQuality = CGInterpolationQuality.none
+        bitmapRef.scaleBy(x: scale, y: scale)
+        bitmapRef.draw(bitmapImage, in: extent)
+        guard let cgImage = bitmapRef.makeImage() else { return nil }
+        return UIImage(cgImage: cgImage)
     }
     
     /// 生成圆角图片

@@ -19,7 +19,6 @@ open class YJTimer: NSObject {
     
     public private(set) var timer: Timer!
     private var block: YJTimerBlock!
-    private var callbackTime = 0.0
     private weak var target: AnyObject?
     
     /// 初始化，并添加到当前 RunLoop 的 common Mode
@@ -38,10 +37,6 @@ open class YJTimer: NSObject {
     @objc private func autoUpdateTime() {
         guard let target = self.target else {
             self.timer.invalidate()
-            return
-        }
-        let currentTime = CFAbsoluteTimeGetCurrent()
-        guard currentTime - self.callbackTime >= self.timer.timeInterval else {
             return
         }
         self.block(target, self)

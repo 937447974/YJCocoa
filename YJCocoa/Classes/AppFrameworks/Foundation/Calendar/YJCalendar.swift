@@ -17,7 +17,7 @@ open class YJCalendar: NSObject {
     
     /// 当前时间
     public class var current: YJCalendar {
-        return YJCalendar(date: NSDate(timeIntervalSinceNow: 0), calendar: NSCalendar.current as NSCalendar)
+        return YJCalendar(date: Date(), calendar: NSCalendar.current)
     }
     
     /// NSDateComponents.era
@@ -76,7 +76,7 @@ open class YJCalendar: NSObject {
         return self._weekday
     }
     
-    private var date: NSDate!
+    private var date: Date!
     private var calendar: NSCalendar!
     private var _era = 0
     private var _year = 0
@@ -92,31 +92,31 @@ open class YJCalendar: NSObject {
     
     
     /// 初始化
-    public init(date: NSDate, calendar: NSCalendar) {
+    public init(date: Date, calendar: Calendar) {
         super.init()
         self.date = date
-        self.calendar = calendar
+        self.calendar = calendar as NSCalendar
     }
     
     func getEraYearMonthDay() {
         if self._era > 0 || self._year > 0 || self._month > 0 || self._day > 0 {
             return
         }
-        self.calendar.getEra(&_era, year: &_year, month: &_month, day: &_day, from: self.date as Date)
+        self.calendar.getEra(&_era, year: &_year, month: &_month, day: &_day, from: self.date)
     }
     
     func getHourMinuteSecondNanosecond() {
         if self._hour > 0 || self._minute > 0 || self._second > 0 || self._nanosecond > 0 {
             return
         }
-        self.calendar.getHour(&_hour, minute: &_minute, second: &_second, nanosecond: &_nanosecond, from: self.date as Date)
+        self.calendar.getHour(&_hour, minute: &_minute, second: &_second, nanosecond: &_nanosecond, from: self.date)
     }
     
     func getYearForWeekOfYearWeekOfYearWeekday() {
         if self._yearForWeekOfYear > 0 || self._weekOfYear > 0 || self._weekday > 0{
             return
         }
-        self.calendar.getEra(nil, yearForWeekOfYear: &_yearForWeekOfYear, weekOfYear: &_weekOfYear, weekday: &_weekday, from: self.date as Date)
+        self.calendar.getEra(nil, yearForWeekOfYear: &_yearForWeekOfYear, weekOfYear: &_weekOfYear, weekday: &_weekday, from: self.date)
     }
     
 }

@@ -23,4 +23,15 @@ public extension UILabel {
         return fitsLabel.sizeThatFits(size)
     }
     
+    /// 设置标题
+    /// - parameter color: 字体颜色
+    /// - parameter font: 字体大小
+    /// - parameter text: 标题
+    
+    func setText(_ text: String, font: UIFont, color: UIColor) {
+        self.textColor = color
+        self.text = text
+        self.font = font        
+    }
+    
 }
