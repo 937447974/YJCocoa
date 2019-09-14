@@ -192,14 +192,14 @@ extension YJScheduler {
             }
             let subArray = self.subDict[topic] ?? []
             for item in subArray {
-                let block: YJDispatchBlock = {
+                let block: YJDispatchWork = {
                     item.completionHandler(data, handler)
                 }
                 if item.queue == .main {
                     dispatch_async_main(block)
                 } else {
                     let queue = serial ? self.serialQueue : self.concurrentQueue
-                    queue.async(execute: block)
+                    queue.async(block)
                 }
             }
         }

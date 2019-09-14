@@ -11,48 +11,48 @@
 
 import UIKit
 
-public typealias YJDispatchBlock = () -> Void
+public typealias YJDispatchWork = () -> Void
 
 // MARK: main queue
 /// main queue 同步执行
-public func dispatch_sync_main(_ block: @escaping YJDispatchBlock) {
-    DispatchQueue.main.async(execute: block)
+public func dispatch_sync_main(_ work: @escaping YJDispatchWork) {
+    DispatchQueue.main.async(execute: work)
 }
 
 /// main queue 异步执行
-public func dispatch_async_main(_ block: @escaping YJDispatchBlock) {
-    DispatchQueue.main.async(execute: block)
+public func dispatch_async_main(_ work: @escaping YJDispatchWork) {
+    DispatchQueue.main.async(execute: work)
 }
 
 /// main queue 延时执行
-public func dispatch_after_main(delayInSeconds: TimeInterval, block: @escaping YJDispatchBlock) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: block)
+public func dispatch_after_main(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: work)
 }
 
 // MARK: default queue
 /// default queue 异步执行
-public func dispatch_async_default(_ block: @escaping YJDispatchBlock) {
-    DispatchQueue.global(qos: .default).async(execute: block)
+public func dispatch_async_default(_ work: @escaping YJDispatchWork) {
+    DispatchQueue.global(qos: .default).async(execute: work)
 }
 
 /// default queue 延时执行
-public func dispatch_after_default(delayInSeconds: TimeInterval, block: @escaping YJDispatchBlock) {
-    DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + delayInSeconds, execute: block)
+public func dispatch_after_default(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
+    DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + delayInSeconds, execute: work)
 }
 
 /// background queue 异步执行
-public func dispatch_async_background(_ block: @escaping YJDispatchBlock) {
-    DispatchQueue.global(qos: .background).async(execute: block)
+public func dispatch_async_background(_ work: @escaping YJDispatchWork) {
+    DispatchQueue.global(qos: .background).async(execute: work)
 }
 
 /// serial queue 异步执行
-public func dispatch_async_serial(_ block: @escaping YJDispatchBlock) {
-    YJDispatchQueue.serial.async(execute: block)
+public func dispatch_async_serial(_ work: @escaping YJDispatchWork) {
+    YJDispatchQueue.serial.async(work)
 }
 
 /// concurrent queue 异步执行
-public func dispatch_async_concurrent(_ block: @escaping YJDispatchBlock) {
-    YJDispatchQueue.concurrent.async(execute: block)
+public func dispatch_async_concurrent(_ work: @escaping YJDispatchWork) {
+    YJDispatchQueue.concurrent.async(work)
 }
 
 /// 调度队列
@@ -87,17 +87,17 @@ open class YJDispatchQueue: NSObject {
     }
     
     /// 同步执行
-    public func sync(execute work: @escaping YJDispatchBlock) {
+    public func sync(_ work: @escaping YJDispatchWork) {
         self.execute(async: false, work: work)
     }
     
     /// 异步执行
-    public func async(execute work: @escaping YJDispatchBlock) {
+    public func async(_ work: @escaping YJDispatchWork) {
         self.execute(async: true, work: work)
     }
     
-    private func execute(async: Bool, work: @escaping YJDispatchBlock) {
-        let semaphoreBlock = {[weak self] in
+    private func execute(async: Bool, work: @escaping YJDispatchWork) {
+        let semaphoreWork = {[weak self] in
             self?.semaphore.wait()
             work();
             self?.semaphore.signal()
@@ -105,9 +105,9 @@ open class YJDispatchQueue: NSObject {
         if DispatchQueue.getSpecific(key: self.key) != nil {
             work();
         } else if async {
-            self.queue.async(execute: semaphoreBlock)
+            self.queue.async(execute: semaphoreWork)
         } else {
-            self.queue.sync(execute: semaphoreBlock)
+            self.queue.sync(execute: semaphoreWork)
         }
     }
     
@@ -115,16 +115,16 @@ open class YJDispatchQueue: NSObject {
 
 extension YJDispatchQueue {
     
-    public static func syncMain(_ block: @escaping YJDispatchBlock) {
-        DispatchQueue.main.async(execute: block)
+    public static func syncMain(_ work: @escaping YJDispatchWork) {
+        DispatchQueue.main.async(execute: work)
     }
     
-    public static func afterMain(delayInSeconds: TimeInterval, block: @escaping YJDispatchBlock) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: block)
+    public static func afterMain(delayInSeconds: TimeInterval, work: @escaping YJDispatchWork) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: work)
     }
     
-    public static func asyncDefault(_ block: @escaping YJDispatchBlock) {
-        DispatchQueue.global(qos: .default).async(execute: block)
+    public static func asyncDefault(_ work: @escaping YJDispatchWork) {
+        DispatchQueue.global(qos: .default).async(execute: work)
     }
     
 }
