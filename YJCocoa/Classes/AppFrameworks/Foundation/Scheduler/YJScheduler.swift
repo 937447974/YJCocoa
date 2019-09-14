@@ -49,7 +49,7 @@ open class YJScheduler: NSObject {
     
     private var isInitSub = false
     private var subDict = Dictionary<String, Array<YJSchedulerSubscribe>>()
-    private var intArray = Array<YJSchedulerIntercept>()
+    private var intArray = [YJSchedulerIntercept]()
     
     public override init() {
         super.init()
@@ -88,14 +88,18 @@ extension YJScheduler {
         YJLogVerbose("[YJScheduler] 订阅 \(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.execute(queue: self.workQueue) { (self: YJScheduler) in
-            var subArray = self.subDict[topic] ?? Array()
+            let subArray = self.subDict[topic] ?? []
+            var newArray = [target]
             for item in subArray {
                 if target.subscriber!.isEqual(item.subscriber) {
                     return
+                } else if item.subscriber != nil {
+                    newArray.append(item)
+                } else {
+                    YJLogVerbose("[YJScheduler] 自动取消订阅: \(item.topic)")
                 }
             }
-            subArray.append(target)
-            self.subDict[topic] = subArray
+            self.subDict[topic] = newArray
         }
     }
     
@@ -219,35 +223,16 @@ extension YJScheduler {
 
 // MARK: -
 /// 调度器订阅
-private class YJSchedulerSubscribe: NSObject {
-    
-    var topic: String!
+private struct YJSchedulerSubscribe {
+    let topic: String
     weak var subscriber: AnyObject?
-    var queue: YJScheduler.Queue!
-    var completionHandler: YJSSubscribeHandler!
-    
-    init(topic: String, subscriber: AnyObject?, queue: YJScheduler.Queue, completionHandler: @escaping YJSSubscribeHandler) {
-        super.init()
-        self.topic = topic
-        self.subscriber = subscriber
-        self.queue = queue
-        self.completionHandler = completionHandler
-    }
-    
+    let queue: YJScheduler.Queue
+    let completionHandler: YJSSubscribeHandler
 }
 
 /// 调度器拦截
-private class YJSchedulerIntercept: NSObject {
-    
+private struct YJSchedulerIntercept {
     weak var interceptor: AnyObject?
-    var canHandler: YJSInterceptCanHandler!
-    var completionHandler: YJSInterceptHandler!
-    
-    init(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completionHandler: @escaping YJSInterceptHandler) {
-        super.init()
-        self.interceptor = interceptor
-        self.canHandler = canHandler
-        self.completionHandler = completionHandler
-    }
-    
+    let canHandler: YJSInterceptCanHandler
+    let completionHandler: YJSInterceptHandler
 }
