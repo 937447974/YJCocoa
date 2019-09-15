@@ -16,7 +16,7 @@ import UIKit
 open class YJUIBarButtonItem: NSObject {
     
     /// 按钮
-    public let button = YJTouchButton(frame: CGRect())
+    public let button = UIButton(frame: CGRect())
     
     /// 初始化
     public convenience init(touchUpInside: @escaping UIButtonTouchClosure) {
@@ -40,6 +40,9 @@ open class YJUIBarButtonItem: NSObject {
     /// UIBarButtonItem
     open func buildBarButtonItem() -> UIBarButtonItem {
         self.button.sizeToFit()
+        if self.button.frameWidth < 25 {
+            self.button.frameWidth = 25
+        }
         return UIBarButtonItem(customView: self.button)
     }
     

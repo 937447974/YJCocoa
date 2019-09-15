@@ -22,7 +22,7 @@ public extension UINavigationController {
             }
         }
         if vcs.count != self.viewControllers.count {
-            self.setViewControllers(vcs, animated: false)
+            self.setViewControllers(vcs, animated: false)            
         }
     }
     
