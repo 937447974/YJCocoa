@@ -15,11 +15,18 @@ fileprivate let fitsLabel = UILabel(frame: CGRect())
 
 public extension UILabel {
     
-    /// 显示计算
+    /// 纯文本显示计算
     static func sizeThatFits(_ size: CGSize, numberOfLines: Int = 0, font: UIFont, text: String?) -> CGSize {
         fitsLabel.numberOfLines = numberOfLines
         fitsLabel.font = font
         fitsLabel.text = text
+        return fitsLabel.sizeThatFits(size)
+    }
+    
+    /// 富文本显示计算
+    static func sizeThatFits(_ size: CGSize, numberOfLines: Int = 0, text: NSAttributedString) -> CGSize {
+        fitsLabel.numberOfLines = numberOfLines
+        fitsLabel.attributedText = text
         return fitsLabel.sizeThatFits(size)
     }
     

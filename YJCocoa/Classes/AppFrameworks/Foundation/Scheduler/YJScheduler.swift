@@ -196,6 +196,7 @@ extension YJScheduler {
             }
             let subArray = self.subDict[topic] ?? []
             for item in subArray {
+                if item.subscriber == nil { continue }
                 let block: YJDispatchWork = {
                     item.completionHandler(data, handler)
                 }
