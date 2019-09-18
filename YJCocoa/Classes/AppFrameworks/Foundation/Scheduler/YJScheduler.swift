@@ -85,14 +85,15 @@ extension YJScheduler {
      * - Parameter handler:    接受发布方传输的数据
      */
     public func subscribe(topic: String, subscriber: AnyObject? = nil, queue: YJScheduler.Queue = .default,  handler: @escaping YJSSubscribeHandler) {
-        YJLogVerbose("[YJScheduler] 订阅 \(topic)")
+        YJLogVerbose("[YJScheduler] \(String(describing: subscriber)) 订阅 \(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.execute(queue: self.workQueue) { (self: YJScheduler) in
             let subArray = self.subDict[topic] ?? []
             var newArray = [target]
             for item in subArray {
-                if target.subscriber!.isEqual(item.subscriber) {
-                    return
+                guard let subscriber = target.subscriber else { return }
+                if subscriber.isEqual(item.subscriber) && !subscriber.isEqual(self) {
+                    continue
                 } else if item.subscriber != nil {
                     newArray.append(item)
                 } else {
