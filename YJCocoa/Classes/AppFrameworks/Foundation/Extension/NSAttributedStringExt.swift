@@ -21,11 +21,8 @@ public extension NSAttributedString {
     
     /// 通过 UIImage 初始化
     convenience init(image: UIImage) {
-        let attachment = NSTextAttachment()
-        attachment.image = image
-        attachment.bounds = CGRect(origin: CGPoint(), size: image.size)
-        self.init(attachment: attachment)
-    }    
+        self.init(attachment: NSTextAttachment(image: image, bounds: CGRect(origin: CGPoint(), size: image.size)))
+    }
     
 }
 

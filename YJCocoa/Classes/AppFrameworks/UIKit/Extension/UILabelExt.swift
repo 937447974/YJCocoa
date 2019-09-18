@@ -35,7 +35,7 @@ public extension UILabel {
     /// - parameter font: 字体大小
     /// - parameter text: 标题
     
-    func setText(_ text: String, font: UIFont, color: UIColor) {
+    func setText(_ text: String? = nil, font: UIFont, color: UIColor) {
         self.textColor = color
         self.text = text
         self.font = font        
