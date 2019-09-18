@@ -137,6 +137,12 @@ public extension UIView {
         self.layer.mask = maskLayer
     }
     
+    /// 边框设置
+    func setBorder(color: UIColor, width: CGFloat) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+    
     /// 投影设置
     func setShadow(color: UIColor, offset: CGSize, radius: CGFloat, opacity: Float) {
         self.layer.masksToBounds = false
