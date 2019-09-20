@@ -28,8 +28,8 @@ open class YJUIPageViewController: UIPageViewController {
         self.dataSource = self.manager
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     /// 刷新pageVC
