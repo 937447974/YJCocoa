@@ -144,6 +144,10 @@ public extension UIView {
     }
     
     /// 投影设置
+    /// - parameter color: 颜色
+    /// - parameter offset: 偏移
+    /// - parameter radius: 模糊半径
+    /// - parameter opacity: 不透明度
     func setShadow(color: UIColor, offset: CGSize, radius: CGFloat, opacity: Float) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
