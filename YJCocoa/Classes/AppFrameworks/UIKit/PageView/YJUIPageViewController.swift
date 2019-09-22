@@ -29,7 +29,7 @@ open class YJUIPageViewController: UIPageViewController {
     }
     
     public required init?(coder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: coder)
     }
     
     /// 刷新pageVC
