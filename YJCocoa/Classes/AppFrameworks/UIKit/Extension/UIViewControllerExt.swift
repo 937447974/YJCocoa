@@ -15,23 +15,18 @@ fileprivate func currentController() -> UIViewController? {
     guard let keyWindow = UIWindow.current else {
         return UIApplication.shared.keyWindow?.rootViewController
     }
-    for subview in keyWindow.subviews.reversed() {
-        if let vc = subview.next as? UIViewController {
-            return vc
-        } else if let vc = currentController(with: subview) {
-            return vc
+    func currentController(with view: UIView, depth: Int) -> UIViewController? {
+        guard depth < 3 else { return nil }
+        for subview in view.subviews.reversed() {
+            if let vc = subview.next as? UIViewController {
+                return vc
+            } else if let vc = currentController(with: subview, depth: depth + 1) {
+                return vc
+            }
         }
+        return nil
     }
-    return nil
-}
-
-fileprivate func currentController(with subView: UIView) -> UIViewController? {
-    for view in subView.subviews.reversed() {
-        if let vc = view.next as? UIViewController {
-            return vc
-        }
-    }
-    return nil
+    return currentController(with: keyWindow, depth: 0)
 }
 
 public extension UIViewController {
