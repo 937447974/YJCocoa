@@ -97,7 +97,7 @@ public class YJLeaks: NSObject {
         guard self.isValidation("\(targetClass)") else {
             return []
         }
-        let dict = YJWeakSingleton(NSMutableDictionary.self, "NSObject(YJLeaks)") as! NSMutableDictionary
+        let dict = YJWeakSingleton(NSMutableDictionary.self, "NSObject(YJLeaks)")
         let className = "\(targetClass)" as NSString
         if let propertyArray = dict.object(forKey: className) as? [String] {
             return propertyArray

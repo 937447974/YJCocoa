@@ -12,13 +12,13 @@
 import Foundation
 
 /// 获取强引用单例
-public func YJStrongSingleton(_ aClass: AnyClass, _ identifier: String? = nil) -> AnyObject {
-    return YJSingletonCenter.shared.strongSingleton(aClass: aClass, forIdentifier: identifier)
+public func YJStrongSingleton<Object: AnyObject>(_ aClass: Object.Type, _ identifier: String? = nil) -> Object {
+    return YJSingletonCenter.shared.strongSingleton(aClass: aClass, forIdentifier: identifier) as! Object
 }
 
 /// 获取弱引用单例
-public func YJWeakSingleton(_ aClass: AnyClass, _ identifier: String) -> AnyObject {
-    return YJSingletonCenter.shared.weakSingleton(aClass: aClass, forIdentifier: identifier)
+public func YJWeakSingleton<Object: AnyObject>(_ aClass: Object.Type, _ identifier: String) -> Object {
+    return YJSingletonCenter.shared.weakSingleton(aClass: aClass, forIdentifier: identifier) as! Object
 }
 
 /** 单例中心*/
@@ -37,7 +37,7 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     }
     
     /// 强引用单例，一直存在
-    public func strongSingleton(aClass: AnyClass, forIdentifier identifier: String? = nil) -> AnyObject {
+    public func strongSingleton(aClass: AnyObject.Type, forIdentifier identifier: String? = nil) -> AnyObject {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
             guard let model = self.strongDict[identifier] else {
