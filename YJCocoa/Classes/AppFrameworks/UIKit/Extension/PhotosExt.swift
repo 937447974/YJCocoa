@@ -8,11 +8,12 @@
 import UIKit
 import Photos
 
+/// PHPhotoLibrary.shared()
 public let PHPhotoLibraryS = PHPhotoLibrary.shared()
+/// PHImageManager.default()
+public let PHImageManagerS = PHImageManager.default()
 
-public extension PHPhotoLibrary {
-    typealias CompletionHandler = (Bool, Error?) -> Void
-}
+public typealias PHCompletionHandler = (Bool, Error?) -> Void
 
 /// PHAssetCollection扩展
 public extension PHAssetCollection {
@@ -22,7 +23,7 @@ public extension PHAssetCollection {
     /// - parameter options : PHFetchOptions?
     ///
     /// - returns: [PHAsset]
-    func fetchAssetsWithOptions(_ options: PHFetchOptions?) -> [PHAsset] {
+    func fetchAssetsWithOptions(_ options: PHFetchOptions? = nil) -> [PHAsset] {
         var assets = [PHAsset]()
         let fetchResult = PHAsset.fetchAssets(in: self, options: options)
         fetchResult.enumerateObjects { (asset, _, _) in
@@ -36,7 +37,7 @@ public extension PHAssetCollection {
     /// - parameter image: 图片
     ///
     /// - returns: void
-    func creationAssetFromImage(_ image: UIImage, completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    func creationAssetFromImage(_ image: UIImage, completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibraryS.performChanges({
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
             guard let placeholderForCreatedAsset = assetChangeRequest.placeholderForCreatedAsset,
@@ -52,7 +53,7 @@ public extension PHAssetCollection {
     /// 创建相薄
     ///
     /// - parameter title: 相薄名
-    class func creationWithTitle(_ title: String, completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    class func creationWithTitle(_ title: String, completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibrary.shared().performChanges({
             PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: title)
         }, completionHandler: completionHandler)
@@ -61,7 +62,7 @@ public extension PHAssetCollection {
     /// 修改相薄名
     ///
     /// - parameter title: 相薄名
-    func updateTitle(_ title: String, completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    func updateTitle(_ title: String, completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibraryS.performChanges({
             let aCChangeRequest = PHAssetCollectionChangeRequest(for: self)
             aCChangeRequest?.title = title
@@ -69,7 +70,7 @@ public extension PHAssetCollection {
     }
     
     /// 删除专辑
-    func deletes(_ completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    func deletes(_ completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibraryS.performChanges({
             PHAssetCollectionChangeRequest.deleteAssetCollections([self] as NSFastEnumeration)
         }, completionHandler: completionHandler)
@@ -84,7 +85,7 @@ public extension PHCollectionList {
     /// - parameter options : PHFetchOptions?
     ///
     /// - returns: [PHAsset]
-    func fetchAssetsWithOptions(_ options: PHFetchOptions?) -> [PHAsset] {
+    func fetchAssetsWithOptions(_ options: PHFetchOptions? = nil) -> [PHAsset] {
         var assets = [PHAsset]()
         let fetchResult = PHAssetCollection.fetchMoments(inMomentList: self, options: options)
         fetchResult.enumerateObjects { (assetCollection, _, _) in
@@ -102,7 +103,7 @@ public extension PHAsset {
     ///
     /// - parameter assetCollection: PHAssetCollection
     /// - parameter assetCollection: 执行回调
-    func delete(with assetCollection: PHAssetCollection? = nil, completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    func delete(with assetCollection: PHAssetCollection? = nil, completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibraryS.performChanges({
             let assets = [self] as NSFastEnumeration
             if let assetCollection = assetCollection {
@@ -117,11 +118,45 @@ public extension PHAsset {
     ///
     /// - parameter favorite: 是否收藏
     /// - parameter completionHandler: 执行完毕回调
-    func setFavorite(_ favorite: Bool, completionHandler: PHPhotoLibrary.CompletionHandler? = nil) {
+    func setFavorite(_ favorite: Bool, completionHandler: PHCompletionHandler? = nil) {
         PHPhotoLibraryS.performChanges({
             let request = PHAssetChangeRequest(for: self)
             request.isFavorite = favorite
         }, completionHandler: completionHandler)
+    }
+    
+}
+
+let ImageAssetCache = NSCache<NSString, UIImage>()
+let AssetIdentifier = UnsafeRawPointer.init(bitPattern: "yj_assetIdentifier".hashValue)!
+
+/// UIImageView+PHAsset
+public extension UIImageView {
+    
+    private var assetIdentifier: NSString {
+        get { return objc_getAssociatedObject(self, AssetIdentifier) as! NSString }
+        set { objc_setAssociatedObject(self, AssetIdentifier, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC) }
+    }
+    
+    func setImage(_ asset: PHAsset, placeholder: UIImage? = nil, progressHandler: PHAssetImageProgressHandler? = nil) {
+        let size = CGSize(width: self.frameWidth * UIScreen.main.scale, height: self.frameHeight * UIScreen.main.scale)
+        let key = asset.localIdentifier + "\(size)" as NSString
+        self.assetIdentifier = key
+        if let image = ImageAssetCache.object(forKey: key) {
+            self.image = image
+            return
+        } else {
+            self.image = placeholder
+        }
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = true
+        options.progressHandler = progressHandler
+        PHImageManagerS.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { [weak self] (image, _) in
+            guard let image = image else { return }
+            ImageAssetCache.setObject(image, forKey: key)
+            guard let assetIdentifier = self?.assetIdentifier, assetIdentifier == key else { return }
+            self?.image = image
+        }
     }
     
 }
