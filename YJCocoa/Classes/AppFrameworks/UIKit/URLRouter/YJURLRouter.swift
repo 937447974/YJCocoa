@@ -11,6 +11,9 @@
 
 import UIKit
 
+/// 路由器单例
+public let YJURLRouterS = YJURLRouter.shared
+
 /// 路由回调
 public typealias YJRCompletionHandler = (_ options: [String: Any]) -> Void
 /// 未注册 url 能否打开

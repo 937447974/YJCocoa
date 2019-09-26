@@ -20,6 +20,9 @@ public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 /// 拦截回调
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
+/// 调度器单例
+public let YJSchedulerS = YJScheduler.shared
+
 /// 调度器
 open class YJScheduler: NSObject {
     
@@ -161,6 +164,7 @@ extension YJScheduler {
      *
      *  @return BOOL
      */
+    @discardableResult
     public func canPublish(topic: String) -> Bool {
         self.initLoadScheduler()
         for item in self.intArray {
