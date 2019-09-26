@@ -12,21 +12,21 @@
 import UIKit
 
 /// 路由回调
-public typealias YJRCompletionHandler = (_ options: Dictionary<String, Any>) -> Void
+public typealias YJRCompletionHandler = (_ options: [String: Any]) -> Void
 /// 未注册 url 能否打开
 public typealias YJRUnregisteredCanOpen = (_ url: String) -> Bool
 /// 打开路由
-public typealias YJROpenHandler = (_ url: String, _ options: Dictionary<String, Any>, _ handler: YJRCompletionHandler?) -> Void
+public typealias YJROpenHandler = (_ url: String, _ options: [String: Any], _ handler: YJRCompletionHandler?) -> Void
 
 /// 路由协议
 @objc
 public protocol YJURLRouterProtocol {
     /// 获取路由缓存标识符
-    static func routerCacheIdentifier(with url: String, options: Dictionary<String, Any>) -> String
+    static func routerCacheIdentifier(with url: String, options: [String: Any]) -> String
     /// 路由器初始化
     static func router(with url: String) -> UIViewController
     /// 路由器刷新数据
-    func routerReloadData(with options:Dictionary<String, Any>, completion handler: YJRCompletionHandler?)
+    func routerReloadData(with options:[String: Any], completion handler: YJRCompletionHandler?)
     /// 路由器打开
     func routerOpen()
     /// push失败后，present 打开当前路由
@@ -65,12 +65,12 @@ open class YJURLRouter: NSObject {
         YJLogVerbose("[YJURLRouter] 注册:\(register.url)")
         let topic = self.topic(with: register.url)
         YJScheduler.shared.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
-            let options: Dictionary<String, Any> = data as! Dictionary<String, Any>
+            let options: [String: Any] = data as! [String: Any]
             self.openRouter(register: register, options: options, completion: handler)
         }
     }
     
-    private func openRouter(register: YJRouterRegister, options: Dictionary<String, Any>, completion handler:YJRCompletionHandler?) {
+    private func openRouter(register: YJRouterRegister, options: [String: Any], completion handler:YJRCompletionHandler?) {
         guard register.handler == nil else {
             register.handler!(register.url, options, handler)
             return
@@ -119,7 +119,7 @@ extension YJURLRouter {
         }) { [unowned self] (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
             let url = self.url(with: topic)
             YJLogVerbose("[YJURLRouter] 拦截:\(url)")
-            let options: Dictionary<String, Any> = data as? Dictionary<String, Any> ?? [:]
+            let options: [String: Any] = data as? [String: Any] ?? [:]
             openHandler(url, options, publishHandler);
         }
     }
@@ -145,7 +145,7 @@ extension YJURLRouter {
      * - parameter options: 参数
      * - parameter handler: 路由执行操作后的回调
      */
-    public func openURL(url: String, options: Dictionary<String, Any>? = [:], completion handler: YJRCompletionHandler? = nil) {
+    public func openURL(url: String, options: [String: Any]? = nil, completion handler: YJRCompletionHandler? = nil) {
         var options = options ?? [:]
         if url.contains("?") {
             let urlOptions = YJURL.analysisParams(url, decode: true)
@@ -154,13 +154,9 @@ extension YJURLRouter {
         let url = self.urlPrefix(with: url)
         YJLogVerbose("[YJURLRouter] 打开:\(url)，options:\(options)")
         let topic = self.topic(with: url)
-        var publishHandler: YJSPublishHandler?
-        if handler != nil {
-            publishHandler = { (data: Any?) in
-                handler!(data as! Dictionary<String, Any>)
-            }
+        YJScheduler.shared.publish(topic: topic, data: options, serial: true) { (data: Any?) in
+            handler?(data as! [String: Any])
         }
-        YJScheduler.shared.publish(topic: topic, data: options, serial: true, completion: publishHandler)
     }
     
     func topic(with url: String) -> String {
@@ -173,6 +169,10 @@ extension YJURLRouter {
     }
     
     func urlPrefix(with url: String) -> String {
+        guard url.count > 0 else {
+            YJLogError("[YJURLRouter] 打开的 url 为空")
+            return url
+        }
         return String(url.split(separator: "?")[0])
     }
 }
@@ -180,7 +180,7 @@ extension YJURLRouter {
 @objc
 extension UIViewController: YJURLRouterProtocol {
     
-    public static func routerCacheIdentifier(with url: String, options: Dictionary<String, Any>) -> String {
+    public static func routerCacheIdentifier(with url: String, options: [String: Any]) -> String {
         return url
     }
     
@@ -190,7 +190,7 @@ extension UIViewController: YJURLRouterProtocol {
         return vc
     }
     
-    open func routerReloadData(with options: Dictionary<String, Any>, completion handler: YJRCompletionHandler?) {}
+    open func routerReloadData(with options: [String: Any], completion handler: YJRCompletionHandler?) {}
     
     open func routerOpen() {
         guard let nc = UIViewController.current?.navigationController else {
