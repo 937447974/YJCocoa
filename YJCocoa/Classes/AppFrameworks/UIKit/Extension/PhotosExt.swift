@@ -19,6 +19,17 @@ public typealias PHCompletionHandler = (Bool, Error?) -> Void
 public extension PHAssetCollection {
     
     /// 获取PHAsset集合
+    class func fetchAssets(with type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, options: PHFetchOptions? = nil, assetOptions: PHFetchOptions? = nil) -> [PHAsset] {
+        var result = [PHAsset]()
+        let fetchResult = self.fetchAssetCollections(with: type, subtype: subtype, options: options)
+        fetchResult.enumerateObjects { (assetCollection: PHAssetCollection, _, _) in
+            let assectResult = assetCollection.fetchAssetsWithOptions(assetOptions)
+            result += assectResult
+        }
+        return result
+    }
+    
+    /// 获取PHAsset集合
     ///
     /// - parameter options : PHFetchOptions?
     ///
@@ -138,12 +149,20 @@ public extension UIImageView {
         set { objc_setAssociatedObject(self, AssetIdentifier, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC) }
     }
     
+    /// 清空 PHAsset 图片缓存
+    static func stopCachingImagesForAllAssets() {
+        ImageAssetCache.removeAllObjects()
+    }
+    
+    /// 设置 PHAsset 图片
     func setImage(_ asset: PHAsset, placeholder: UIImage? = nil, progressHandler: PHAssetImageProgressHandler? = nil) {
-        let size = CGSize(width: self.frameWidth * UIScreen.main.scale, height: self.frameHeight * UIScreen.main.scale)
+        self.contentMode = .scaleAspectFill
+        let scale = UIScreen.main.scale
+        let size = CGSize(width: self.frameWidth * scale, height: self.frameHeight * scale)
         let key = asset.localIdentifier + "\(size)" as NSString
         self.assetIdentifier = key
         if let image = ImageAssetCache.object(forKey: key) {
-            self.image = image
+            self.setAssetImage(image, identifier: key)
             return
         } else {
             self.image = placeholder
@@ -151,12 +170,22 @@ public extension UIImageView {
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = true
         options.progressHandler = progressHandler
+        options.resizeMode = .fast
         PHImageManagerS.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { [weak self] (image, _) in
             guard let image = image else { return }
             ImageAssetCache.setObject(image, forKey: key)
             guard let assetIdentifier = self?.assetIdentifier, assetIdentifier == key else { return }
-            self?.image = image
+            dispatch_async_main { [weak self] in
+                self?.setAssetImage(image, identifier: key)
+            }
         }
+    }
+    
+    private func setAssetImage(_ image: UIImage, identifier: NSString) {
+        guard self.assetIdentifier == identifier else { return }
+        let flexibleHeight = image.size.width <= image.size.height
+        self.autoresizingMask = flexibleHeight ? .flexibleHeight : .flexibleWidth
+        self.image = image
     }
     
 }
