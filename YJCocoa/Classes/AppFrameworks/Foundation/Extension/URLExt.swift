@@ -26,9 +26,19 @@ public extension URL {
             return nil
         }
         let extDict = ["255216" : "jpg", "13780" : "png", "7173" : "gif", "6677" : "bmp",
-            "8075":"zip", "8297":"rar",
-            "70105":"log", "102100":"txt"]
+                       "8075":"zip", "8297":"rar",
+                       "70105":"log", "102100":"txt"]
         return extDict["\(bytes[0])\(bytes[1])"]
+    }
+    
+    /// 添加文件夹路径
+    func appendingDirectory(pathComponent: String) -> URL {
+        let url = self.appendingPathComponent(pathComponent, isDirectory: true)
+        let fm = FileManager.default
+        if !fm.fileExists(atPath: url.absoluteString) {
+            try? fm.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+        }
+        return url
     }
     
 }

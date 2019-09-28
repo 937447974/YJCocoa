@@ -12,6 +12,9 @@
 import UIKit
 
 /// 应用内目录
+public let YJDirectoryS = YJDirectory()
+
+/// 应用内目录
 @objcMembers
 open class YJDirectory: NSObject {
     

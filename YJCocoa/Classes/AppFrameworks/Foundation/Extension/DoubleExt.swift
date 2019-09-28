@@ -16,7 +16,7 @@ public extension Double {
     /// 四舍五入保留小数位置
     func rounded(decimal: Int) -> Double {
         let divisor = pow(10.0, Double(decimal))
-        return (self * divisor).rounded()
+        return (self * divisor).rounded() / divisor
     }
     
 }
