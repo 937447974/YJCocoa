@@ -201,7 +201,7 @@ extension YJScheduler {
             }
             let subArray = self.subDict[topic] ?? []
             for item in subArray {
-                if item.subscriber == nil { continue }
+                guard let subscriber = item.subscriber else { continue }
                 let block: YJDispatchWork = {
                     item.completionHandler(data, handler)
                 }
@@ -211,6 +211,7 @@ extension YJScheduler {
                     let queue = serial ? self.serialQueue : self.concurrentQueue
                     queue.async(block)
                 }
+                _ = subscriber.hash
             }
         }
     }
