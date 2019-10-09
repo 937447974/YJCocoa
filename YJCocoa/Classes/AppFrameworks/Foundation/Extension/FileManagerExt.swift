@@ -38,6 +38,14 @@ extension FileManager {
         try self.moveItem(at: fromURL, to: toURL)
     }
     
+    /// 是否存在文件夹
+    open func directoryExists(atPath path: String) -> Bool {
+        let fm = FileManager.default
+        var isDirectory = ObjCBool.init(false)
+        let exists = fm.fileExists(atPath: path, isDirectory: &isDirectory)
+        return exists && isDirectory.boolValue
+    }
+    
 }
 
 @objcMembers

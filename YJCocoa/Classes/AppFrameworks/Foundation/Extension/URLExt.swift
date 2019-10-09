@@ -35,7 +35,7 @@ public extension URL {
     func appendingDirectory(pathComponent: String) -> URL {
         let url = self.appendingPathComponent(pathComponent, isDirectory: true)
         let fm = FileManager.default
-        if !fm.fileExists(atPath: url.absoluteString) {
+        if !fm.directoryExists(atPath: url.path) {
             try? fm.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
         }
         return url
