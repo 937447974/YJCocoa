@@ -28,12 +28,14 @@ public protocol YJURLRouterProtocol {
     static func routerCacheIdentifier(with url: String, options: [String: Any]) -> String
     /// 路由器初始化
     static func router(with url: String) -> UIViewController
-    /// 路由器刷新数据
-    func routerReloadData(with options:[String: Any], completion handler: YJRCompletionHandler?)
+    /// 路由器能否打开
+    func routerCanOpen(with options:[String: Any]) -> Bool
     /// 路由器打开
     func routerOpen()
     /// push失败后，present 打开当前路由
     func routerOpenPresent()
+    /// 路由器刷新数据
+    func routerReloadData(with options:[String: Any], completion handler: YJRCompletionHandler?)
 }
 
 /// URL 路由器
@@ -86,6 +88,7 @@ open class YJURLRouter: NSObject {
                 self.nodeCache.setObject(node, forKey: key)
             }
         }
+        guard node.routerCanOpen(with: options) else { return }
         node.routerOpen()
         dispatch_async_main {
             node.routerReloadData(with: options, completion: handler)
@@ -194,6 +197,10 @@ extension UIViewController: YJURLRouterProtocol {
     }
     
     open func routerReloadData(with options: [String: Any], completion handler: YJRCompletionHandler?) {}
+    
+    open func routerCanOpen(with options: [String : Any]) -> Bool {
+        return true
+    }
     
     open func routerOpen() {
         guard let nc = UIViewController.current?.navigationController else {
