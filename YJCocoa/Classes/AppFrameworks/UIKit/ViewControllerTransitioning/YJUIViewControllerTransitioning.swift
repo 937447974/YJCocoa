@@ -42,6 +42,7 @@ open class YJUIViewControllerTransitioning: NSObject {
         return gesture
     }()
     var popIT: UIPercentDrivenInteractiveTransition?
+    var popBeganTime: CFAbsoluteTime = 0
     
     public init(popVC: UIViewController? = nil) {
         super.init()
@@ -62,6 +63,7 @@ open class YJUIViewControllerTransitioning: NSObject {
         process = min(1.0, max(0, process))
         switch pan.state {
         case .began:
+            self.popBeganTime = CFAbsoluteTimeGetCurrent()
             self.popIT = UIPercentDrivenInteractiveTransition()
             if let nc = self.popVC?.navigationController, nc.viewControllers.count > 1 {
                 nc.popViewController(animated: true)
@@ -71,7 +73,7 @@ open class YJUIViewControllerTransitioning: NSObject {
         case.changed:
             self.popIT?.update(process)
         case .ended, .cancelled:
-            if (process > 0.5) {
+            if (process > 0.5 || (CFAbsoluteTimeGetCurrent() - self.popBeganTime < 0.5 && process > 0.2)) {
                 self.popIT?.finish()
             } else {
                 self.popIT?.cancel()
