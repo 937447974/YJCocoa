@@ -29,15 +29,19 @@ public extension UIImage {
     }
     
     /// 渐变色转 image
-    static func image(with gradientColors: [CGColor], start startPoint: CGPoint, end endPoint: CGPoint) -> UIImage? {
+    static func image(with gradientColors: [CGColor], opaque: Bool, start startPoint: CGPoint, end endPoint: CGPoint) -> UIImage? {
         let size = CGSize(width: max(startPoint.x, endPoint.x), height:  max(startPoint.y, endPoint.y))
-        UIGraphicsBeginImageContextWithOptions(size, true, 0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colors = gradientColors as CFArray
         guard let context = UIGraphicsGetCurrentContext(),
             let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil) else {
                 UIGraphicsEndImageContext()
                 return nil
+        }
+        if opaque {
+            context.setFillColor(UIColor.white.cgColor)
+            context.fill(CGRect(origin: CGPoint.zero, size: size))
         }
         context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: 0))
         let image = UIGraphicsGetImageFromCurrentImageContext()

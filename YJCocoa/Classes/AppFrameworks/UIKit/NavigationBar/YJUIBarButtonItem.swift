@@ -40,8 +40,8 @@ open class YJUIBarButtonItem: NSObject {
     /// UIBarButtonItem
     open func buildBarButtonItem() -> UIBarButtonItem {
         self.button.sizeToFit()
-        if self.button.frameWidth < 25 {
-            self.button.frameWidth = 25
+        if self.button.frameWidth < 30 {
+            self.button.frameWidth = 30
         }
         return UIBarButtonItem(customView: self.button)
     }
