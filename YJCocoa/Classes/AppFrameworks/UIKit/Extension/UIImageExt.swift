@@ -111,6 +111,21 @@ public extension UIImage {
         return UIImage(cgImage: cgImage)
     }
     
+    /// 本地图片预解码加载 Downsampling large images for display at smaller size
+    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions) else { return nil }
+        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        let downsampleOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
+                                 kCGImageSourceShouldCacheImmediately: true,
+                                 kCGImageSourceCreateThumbnailWithTransform: true,
+                                 kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
+        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+            return nil
+        }
+        return UIImage(cgImage: downsampledImage)
+    }
+    
     /// 生成圆角图片
     func withCornerRadius(_ cornerRadius: CGFloat, size: CGSize, backgroundColor: UIColor = UIColor.white) -> UIImage? {
         guard cornerRadius > 0 else {
@@ -124,6 +139,22 @@ public extension UIImage {
         path.addClip()
         path.stroke()
         self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    /// 图片换色
+    func withTintColor(color: UIColor) -> UIImage? {
+        if #available(iOS 13.0, *) {
+            return self.withTintColor(color)
+        }
+        UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
+        color.setFill()
+        let rect = CGRect(origin: CGPoint(), size: self.size)
+        UIRectFill(rect)
+        self.draw(in: rect, blendMode: .overlay, alpha: 1)
+        self.draw(in: rect, blendMode: .destinationIn, alpha: 1)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
@@ -149,21 +180,6 @@ public extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
         return newImage
-    }
-    
-    /// 本地图片预解码加载 Downsampling large images for display at smaller size
-    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
-        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
-        guard let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions) else { return nil }
-        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
-        let downsampleOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
-                                 kCGImageSourceShouldCacheImmediately: true,
-                                 kCGImageSourceCreateThumbnailWithTransform: true,
-                                 kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
-        guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
-            return nil
-        }
-        return UIImage(cgImage: downsampledImage)
     }
     
     /// 图片压缩
