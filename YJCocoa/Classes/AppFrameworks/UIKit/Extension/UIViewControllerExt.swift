@@ -29,10 +29,10 @@ fileprivate func currentController() -> UIViewController? {
     return currentController(with: keyWindow, depth: 0)
 }
 
-public extension UIViewController {
+extension UIViewController {
     
     /// 当前 UIViewController
-    static var current: UIViewController? {
+    public static var current: UIViewController? {
         var result = currentController()
         if let tabBarController = result as? UITabBarController {
             result = tabBarController.selectedViewController
@@ -45,7 +45,8 @@ public extension UIViewController {
     
     /// 返回上个页面
     /// - parameter animated: 是否动画
-    func pop(animated flag: Bool) {
+    @objc
+    open func pop(animated flag: Bool) {
         guard let nc = self.navigationController else {
             self.dismiss(animated: flag, completion: nil)
             return
