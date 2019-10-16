@@ -54,19 +54,6 @@ open class YJScheduler: NSObject {
     private var subDict = Dictionary<String, Array<YJSchedulerSubscribe>>()
     private var intArray = [YJSchedulerIntercept]()
     
-    public override init() {
-        super.init()
-        self.notificationInjection()
-    }
-    
-    private func notificationInjection() {
-        let block: (Notification) -> Void = { (_) in
-            
-        };
-        NotificationCenter.default.addObserver(self, name: UIApplication.didReceiveMemoryWarningNotification, using: block)
-        NotificationCenter.default.addObserver(self, name: UIApplication.didEnterBackgroundNotification, using: block)
-    }
-    
     private func execute(queue: YJDispatchQueue, work: @escaping (YJScheduler) -> Void) {
         queue.async { [weak self] in
             if self != nil {

@@ -16,10 +16,10 @@ public typealias YJKVOBlock = (_ oldValue: Any?, _ newValue: Any?) -> Void
 
 private class YJKeyValueObserver : NSObject  {
     
-    weak var observer: NSObject?
+    weak var observer: AnyObject?
     var kvoBlock: YJKVOBlock!
     
-    init(_ observer: NSObject, kvoBlock: @escaping YJKVOBlock) {
+    init(_ observer: AnyObject, kvoBlock: @escaping YJKVOBlock) {
         super.init()
         self.observer = observer
         self.kvoBlock = kvoBlock
@@ -37,11 +37,12 @@ private class YJKeyValueObserver : NSObject  {
 public extension NSObject {
     
     /// 添加 KVO 监听
-    @objc func addObserver(_ observer: NSObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
+    @objc
+    func addObserver(_ observer: AnyObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
         let kvoArray = self.kvoArray(keyPath: keyPath)
         for item in kvoArray {
             let kvoItem = item as! YJKeyValueObserver
-            if observer == kvoItem.observer {
+            if observer.isEqual(kvoItem.observer) {
                 kvoItem.kvoBlock = kvoBlock
                 return
             }
