@@ -57,7 +57,7 @@ public protocol YJSecKItemAttribute {
 
 /// kSecClassGenericPassword携带属性
 public protocol YJSecKItemGenericPasswordAttribute {
-    /// 账号，支持搜索 kSecAttrAccount
+    /// 帐号，支持搜索 kSecAttrAccount
     var account: String! { get set }
     /// 创建日期 kSecAttrCreationDate
     var createDate: Date! { get }
