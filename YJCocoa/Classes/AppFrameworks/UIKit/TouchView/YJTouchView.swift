@@ -53,3 +53,10 @@ open class YJTouchButton: UIButton {
         return super.hitTest(self.hitTestTouch(point), with: event)
     }
 }
+
+/** 扩大触摸区域的UITextView*/
+open class YJTouchTextView: UITextView {
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        return super.hitTest(self.hitTestTouch(point), with: event)
+    }
+}
