@@ -97,6 +97,8 @@ Pod::Spec.new do |s|
             end
             ui.subspec 'Extension' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/Extension/*'
+                sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/System/Dispatch'
             end
             ui.subspec 'NavigationBar' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/NavigationBar/*'
@@ -119,6 +121,7 @@ Pod::Spec.new do |s|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/URLRouter/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Scheduler'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/URL'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
             ui.subspec 'ViewControllerTransitioning' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/ViewControllerTransitioning/*'

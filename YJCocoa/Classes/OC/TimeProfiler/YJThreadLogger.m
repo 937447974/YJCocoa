@@ -367,7 +367,9 @@ uintptr_t bs_segmentBaseOfImageIndex(const uint32_t idx) {
     return 0;
 }
 #else
-- (NSString *)log {}
+- (NSString *)log {
+    return @"";
+}
 #endif
 
 @end

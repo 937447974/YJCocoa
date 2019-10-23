@@ -11,9 +11,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** 线程日志记录器*/
 @interface YJThreadLogger : NSObject
 
 @property (nonatomic, copy, readonly) NSString *log; ///< 线程堆栈信息
 
 @end
+
+NS_ASSUME_NONNULL_END
