@@ -53,7 +53,7 @@ public extension NSObject {
     }
     
     /// 移除 KVO 监听
-    @objc func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String?) {
+    @objc func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String? = nil) {
         if keyPath == nil {
             for key in self.yj_kvoDictionary.allKeys {
                 self.removeObserverBlock(observer, forKeyPath: key as? String)
