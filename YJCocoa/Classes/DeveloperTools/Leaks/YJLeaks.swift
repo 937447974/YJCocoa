@@ -11,6 +11,9 @@
 
 import UIKit
 
+/// 内存泄漏器单例
+public let YJLeaksS = YJLeaks()
+
 /// 内存泄漏分析器
 @objcMembers
 public class YJLeaks: NSObject {
@@ -24,7 +27,6 @@ public class YJLeaks: NSObject {
         }
     }
     
-    public static let shared = YJLeaks()
     var ignoredClasses = Set<String>()
     
     /// 启动
@@ -56,7 +58,7 @@ public class YJLeaks: NSObject {
                 log += "\nProperty : \(array)"
             }
             if log.count > 0 {
-               YJLogDebug("[YJLeaks] 捕获内存泄漏" + log)
+                YJLogDebug("[YJLeaks] 捕获内存泄漏" + log)
             }
         }
     }
@@ -111,7 +113,7 @@ public class YJLeaks: NSObject {
             let property = properties[i]
             if let attributes = property_getAttributes(property), let propertyAttributes = String(utf8String: attributes), propertyAttributes.hasPrefix("T@"),
                 propertyAttributes.contains(",&,") {
-                    result.append(String(cString: property_getName(property)))
+                result.append(String(cString: property_getName(property)))
             }
         }
         free(properties)
@@ -133,12 +135,10 @@ fileprivate extension NSObject {
     }
     
     func yj_captureMemoryLeaks() {
-        YJLeaks.shared.captureMemoryLeaks(target: self)
+        YJLeaksS.captureMemoryLeaks(target: self)
     }
     
 }
-
-
 
 fileprivate extension UINavigationController {
     

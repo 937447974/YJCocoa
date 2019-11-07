@@ -68,7 +68,6 @@ Pod::Spec.new do |s|
             foundation.subspec 'Scheduler' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/Scheduler/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Extension'
-                sub.dependency 'YJCocoa/OC/CodeInject'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end
             foundation.subspec 'SingletonCenter' do |sub|
@@ -144,28 +143,8 @@ Pod::Spec.new do |s|
             sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
         end
     end
-    # 3 OC
-    s.subspec 'OC' do |oc|
-        oc.source_files = 'YJCocoa/Classes/OC/*'
-        oc.subspec 'CodeInject' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/CodeInject/*'
-        end
-        oc.subspec 'Dispatch' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/Dispatch/*'
-        end
-        oc.subspec 'Log' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/Log/*'
-        end
-        oc.subspec 'MemoryInfo' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/MemoryInfo/*'
-        end
-        oc.subspec 'TimeProfiler' do |sub|
-            sub.source_files = 'YJCocoa/Classes/OC/TimeProfiler/*'
-            sub.dependency 'YJCocoa/OC/Dispatch'
-        end
-    end
-    
-    # 4 System
+   
+    # 3 System
     s.subspec 'System' do |system|
         system.subspec 'Dispatch' do |sub|
             sub.source_files = 'YJCocoa/Classes/System/Dispatch/*'

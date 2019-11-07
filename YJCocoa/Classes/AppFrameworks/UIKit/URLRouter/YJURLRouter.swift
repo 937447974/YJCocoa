@@ -11,9 +11,6 @@
 
 import UIKit
 
-/// 路由器单例
-public let YJURLRouterS = YJURLRouter.shared
-
 /// 路由回调
 public typealias YJRCompletionHandler = (_ options: [String: Any]) -> Void
 /// 未注册 url 能否打开
@@ -38,14 +35,17 @@ public protocol YJURLRouterProtocol {
     func routerReloadData(with options:[String: Any], completion handler: YJRCompletionHandler?)
 }
 
+/// 路由器单例
+public let YJURLRouterS = YJURLRouter()
+
 /// URL 路由器
-@objcMembers
 open class YJURLRouter: NSObject {
     
-    /// 共享单例
-    public static var shared = YJURLRouter()
+    /// 路由器初始化启动加载
+    public static var loadRouter: YJDispatchWork?
     
     var nodeCache = NSCache<NSString, UIViewController>()
+    var isInitRouter = false
     
     /**
      *  注册路由
@@ -69,7 +69,7 @@ open class YJURLRouter: NSObject {
     private func registerRouter(register: YJRouterRegister) {
         YJLogVerbose("[YJURLRouter] 注册:\(register.url)")
         let topic = self.topic(with: register.url)
-        YJScheduler.shared.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
+        YJSchedulerS.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
             let options: [String: Any] = data as! [String: Any]
             self.openRouter(register: register, options: options, completion: handler)
         }
@@ -120,7 +120,7 @@ extension YJURLRouter {
      *  - parameter openHandler: 打开路由
      */
     public func interceptUnregistered(canOpen: @escaping YJRUnregisteredCanOpen, openHandler: @escaping YJROpenHandler) {
-        YJScheduler.shared.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
+        YJSchedulerS.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
             return canOpen(self.url(with: topic))
         }) { [unowned self] (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
             let url = self.url(with: topic)
@@ -140,9 +140,10 @@ extension YJURLRouter {
      *  - Returns: BOOL
      */
     public func canOpen(url: String) -> Bool {
+        self.initLoadScheduler()
         let url = self.urlPrefix(with: url)
         let topic = self.topic(with: url)
-        return YJScheduler.shared.canPublish(topic: topic)
+        return YJSchedulerS.canPublish(topic: topic)
     }
     
     /**
@@ -152,6 +153,7 @@ extension YJURLRouter {
      * - parameter handler: 路由执行操作后的回调
      */
     public func openURL(url: String, options: [String: Any]? = nil, completion handler: YJRCompletionHandler? = nil) {
+        self.initLoadScheduler()
         var options = options ?? [:]
         if url.contains("?") {
             let urlOptions = YJURL.analysisParams(url, decode: true)
@@ -160,9 +162,15 @@ extension YJURLRouter {
         let url = self.urlPrefix(with: url)
         YJLogVerbose("[YJURLRouter] 打开:\(url)，options:\(options)")
         let topic = self.topic(with: url)
-        YJScheduler.shared.publish(topic: topic, data: options, serial: true) { (data: Any?) in
+        YJSchedulerS.publish(topic: topic, data: options, serial: true) { (data: Any?) in
             handler?(data as! [String: Any])
         }
+    }
+    
+    func initLoadScheduler() {
+        if self.isInitRouter { return }
+        self.isInitRouter = true
+        YJURLRouter.loadRouter?()
     }
     
     func topic(with url: String) -> String {

@@ -14,12 +14,12 @@ import UIKit
 public typealias YJURLSessionTaskSuccess = (_ respModel: Any) -> Void
 public typealias YJURLSessionTaskFailure = (_ error: Error) -> Void
 
+/// URLSession 单例
+public let YJURLSessionS = YJURLSession()
+
 /// URLSession
 open class YJURLSession: NSObject & NSCacheDelegate {
     
-    /// 共享单例
-    @objc
-    public static let shared = YJURLSession()
     /// 共享网络会话池
     public lazy var cache: YJSafetyCache<NSString, YJURLSessionTask> = {
         let cache = YJSafetyCache<NSString, YJURLSessionTask>()
@@ -69,7 +69,7 @@ open class YJURLSessionTask: NSObject {
     private var handler = Array<Handler>()
     
     open class func task(with request: YJURLRequest) -> YJURLSessionTask {
-        let cache = YJURLSession.shared.cache
+        let cache = YJURLSessionS.cache
         let key = request.identifier as NSString
         var task = cache.object(forKey: key)
         if task == nil {

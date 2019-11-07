@@ -25,7 +25,6 @@
 		D439D7AC22A603CF00AFEE83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D439D7C322A645EE00AFEE83 /* YJMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJMainViewController.swift; sourceTree = "<group>"; };
 		D439D7C522A645FE00AFEE83 /* YJOtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJOtherViewController.swift; sourceTree = "<group>"; };
-		D439D7C722A6465000AFEE83 /* YJURLRouter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YJURLRouter-Bridging-Header.h"; sourceTree = "<group>"; };
 		D439D7C822A6465000AFEE83 /* YJURLRouterLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJURLRouterLoad.h; sourceTree = "<group>"; };
 		D439D7C922A6465000AFEE83 /* YJURLRouterLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJURLRouterLoad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +83,6 @@
 				D439D7C022A604D100AFEE83 /* Resources */,
 				D439D7C322A645EE00AFEE83 /* YJMainViewController.swift */,
 				D439D7C522A645FE00AFEE83 /* YJOtherViewController.swift */,
-				D439D7C722A6465000AFEE83 /* YJURLRouter-Bridging-Header.h */,
 				D439D7C822A6465000AFEE83 /* YJURLRouterLoad.h */,
 				D439D7C922A6465000AFEE83 /* YJURLRouterLoad.m */,
 			);

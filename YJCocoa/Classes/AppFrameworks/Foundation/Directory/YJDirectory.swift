@@ -18,9 +18,6 @@ public let YJDirectoryS = YJDirectory()
 @objcMembers
 open class YJDirectory: NSObject {
     
-    /// 应用内目录单例
-    public static let shared = YJDirectory()
-    
     /// HomeDirectoryPath
     public let homePath: String!
     /// DocumentDirectoryPath

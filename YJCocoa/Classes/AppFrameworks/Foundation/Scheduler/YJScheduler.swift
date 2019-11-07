@@ -21,21 +21,13 @@ public typealias YJSInterceptCanHandler = (_ topic: String) -> Bool
 public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publishHandler: YJSPublishHandler?) -> Void
 
 /// 调度器单例
-public let YJSchedulerS = YJScheduler.shared
+public let YJSchedulerS = YJScheduler()
 
 /// 调度器
 open class YJScheduler: NSObject {
     
-    /// 调度队列
-    public enum Queue: Int {
-        /// 子队列
-        case `default`
-        /// 主队列
-        case main
-    }
-    
-    /// /// 调度器 单例
-    public static let shared = YJScheduler()
+    /// 调度器初始化启动加载
+    public static var loadScheduler: YJDispatchWork?
     
     private lazy var workQueue: YJDispatchQueue = {
         let queue = DispatchQueue(label: "com.yjcocoa.scheduler.work")
@@ -62,6 +54,16 @@ open class YJScheduler: NSObject {
         }
     }
     
+}
+
+extension YJScheduler {
+    /// 调度队列
+    public enum Queue: Int {
+        /// 子队列
+        case `default`
+        /// 主队列
+        case main
+    }
 }
 
 // MARK: subscribe
@@ -209,7 +211,7 @@ extension YJScheduler {
         }
         self.isInitSub = true
         self.workQueue.sync {
-            YJCodeInject.executeBlock(forKey: "YJSchedulerLoad")
+            YJScheduler.loadScheduler?()
         }
     }
     
