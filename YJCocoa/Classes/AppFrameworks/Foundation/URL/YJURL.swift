@@ -12,14 +12,14 @@
 import UIKit
 
 /// URLEncode编码
-public func YJURLEncode(_ str: String) -> String? {
+public func YJURLEncode(_ str: String) -> String {
     let characters = CharacterSet(charactersIn: ":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`").inverted
-    return str.addingPercentEncoding(withAllowedCharacters: characters)
+    return str.addingPercentEncoding(withAllowedCharacters: characters) ?? ""
 }
 
 /// URLEncode解码
-public func YJURLDecode(_ str: String) -> String? {
-    return str.removingPercentEncoding
+public func YJURLDecode(_ str: String?) -> String {
+    return str?.removingPercentEncoding ?? ""
 }
 
 /// http 参数解析与组装
@@ -37,7 +37,7 @@ public class YJURL: NSObject {
         for (key, var value) in params {
             if value is String {
                 if encode {
-                    value = YJURLEncode(value as! String) ?? ""
+                    value = YJURLEncode(value as! String)
                 }
             }
             result += "&\(key)=\(value)"
@@ -70,7 +70,7 @@ public class YJURL: NSObject {
             let keyValue = item.components(separatedBy: "=")
             let key = keyValue[0]
             let value = keyValue.count == 2 ? keyValue[1] : ""
-            result[key] = decode ? YJURLDecode(value) ?? "" : ""
+            result[key] = decode ? YJURLDecode(value) : ""
         }
         return result
     }
