@@ -27,7 +27,7 @@ public let YJSchedulerS = YJScheduler()
 open class YJScheduler: NSObject {
     
     /// 调度器初始化启动加载
-    public static var loadScheduler: YJDispatchWork?
+    public var loadScheduler: YJDispatchWork?
     
     private lazy var workQueue: YJDispatchQueue = {
         let queue = DispatchQueue(label: "com.yjcocoa.scheduler.work")
@@ -206,12 +206,10 @@ extension YJScheduler {
     }
     
     private func initLoadScheduler() {
-        if self.isInitSub {
-            return
-        }
+        if self.isInitSub { return }
         self.isInitSub = true
         self.workQueue.sync {
-            YJScheduler.loadScheduler?()
+            self.loadScheduler?()
         }
     }
     

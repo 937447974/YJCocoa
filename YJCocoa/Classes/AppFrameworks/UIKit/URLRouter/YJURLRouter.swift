@@ -36,13 +36,13 @@ public protocol YJURLRouterProtocol {
 }
 
 /// 路由器单例
-public let YJURLRouterS = YJURLRouter()
+public var YJURLRouterS = YJURLRouter()
 
 /// URL 路由器
 open class YJURLRouter: NSObject {
     
     /// 路由器初始化启动加载
-    public static var loadRouter: YJDispatchWork?
+    public var loadRouter: YJDispatchWork?
     
     var nodeCache = NSCache<NSString, UIViewController>()
     var isInitRouter = false
@@ -139,6 +139,7 @@ extension YJURLRouter {
      *  - parameter url: 路由链接
      *  - Returns: BOOL
      */
+    @discardableResult
     public func canOpen(url: String) -> Bool {
         self.initLoadScheduler()
         let url = self.urlPrefix(with: url)
@@ -170,7 +171,7 @@ extension YJURLRouter {
     func initLoadScheduler() {
         if self.isInitRouter { return }
         self.isInitRouter = true
-        YJURLRouter.loadRouter?()
+        self.loadRouter?()
     }
     
     func topic(with url: String) -> String {
