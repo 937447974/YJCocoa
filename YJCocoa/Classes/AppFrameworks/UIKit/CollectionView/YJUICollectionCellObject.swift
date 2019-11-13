@@ -19,9 +19,9 @@ public typealias YJUICollectionCellSelectClosure = (_ collectionViewManager: YJU
 open class YJUICollectionCellObject: NSObject {
     
     /// cell对应的VM
-    public var cellModel: AnyObject?
+    public var cellModel: Any?
     /// 携带的自定义数据
-    public var userInfo: AnyObject?
+    public var userInfo: Any?
     /// cell 点击回调
     public var didSelectClosure: YJUICollectionCellSelectClosure?
     
