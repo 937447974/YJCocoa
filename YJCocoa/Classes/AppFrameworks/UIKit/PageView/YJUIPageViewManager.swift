@@ -127,7 +127,7 @@ extension YJUIPageViewManager: UIPageViewControllerDataSource {
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let cell = viewController as! YJUIPageViewCell
+        guard let cell = viewController as? YJUIPageViewCell else { return nil }
         return self.pageViewCell(at: cell.cellObject.index + 1)
     }
     
