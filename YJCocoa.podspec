@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
     # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = '9.0'
-    s.swift_version = '5.0'
+    s.swift_version = '5.1'
     
     # ——— File patterns
     s.source_files = 'YJCocoa/Classes/**/*'
