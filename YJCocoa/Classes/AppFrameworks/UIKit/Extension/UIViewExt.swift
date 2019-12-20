@@ -100,7 +100,7 @@ import UIKit
     func frameOrigin(in view: UIView) -> CGPoint {
         var origin = self.frameOrigin
         var sv = self.superview
-        while sv != nil && sv == view {
+        while sv != nil && sv != view {
             origin.x += sv!.frameLeft
             origin.y += sv!.frameTop
             if let scrollView = sv as? UIScrollView {
