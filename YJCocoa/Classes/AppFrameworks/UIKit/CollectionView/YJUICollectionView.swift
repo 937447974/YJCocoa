@@ -13,13 +13,10 @@ import UIKit
 
 @objcMembers
 open class YJUICollectionView: UICollectionView {
-
+    
     /// 管理器
     public lazy var manager: YJUICollectionViewManager! = {
-        let _manager = YJUICollectionViewManager(collectionView: self)
-        self.delegate = _manager
-        self.dataSource = _manager
-        return _manager
+        return YJUICollectionViewManager(collectionView: self)
     }()
     /// header 数据源
     public var dataSourceHeader: Array<YJUICollectionCellObject> {
@@ -40,6 +37,16 @@ open class YJUICollectionView: UICollectionView {
     public var dataSourceCellFirst: Array<YJUICollectionCellObject> {
         get {return self.manager.dataSourceCellFirst}
         set {self.manager.dataSourceCellFirst = newValue}
+    }
+    
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        self.delegate = self.manager
+        self.dataSource = self.manager
+    }
+    
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

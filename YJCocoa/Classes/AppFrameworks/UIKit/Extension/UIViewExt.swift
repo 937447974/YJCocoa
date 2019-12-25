@@ -99,13 +99,17 @@ import UIKit
     /// 获取相对view的origin，当前view是相对view的子view
     func frameOrigin(in view: UIView) -> CGPoint {
         var origin = self.frameOrigin
+        if let scrollView = view as? UIScrollView {
+            origin.x -= scrollView.contentOffset.x
+            origin.y -= scrollView.contentOffset.y
+        }
         var sv = self.superview
         while sv != nil && sv != view {
             origin.x += sv!.frameLeft
             origin.y += sv!.frameTop
             if let scrollView = sv as? UIScrollView {
-                origin.x += scrollView.contentOffset.x
-                origin.y += scrollView.contentOffset.y
+                origin.x -= scrollView.contentOffset.x
+                origin.y -= scrollView.contentOffset.y
             }
             sv = sv!.superview
         }
