@@ -11,14 +11,22 @@
 
 import UIKit
 
-fileprivate let fitsTextView = UILabel(frame: CGRect())
+fileprivate let fitsTextView = UITextView(frame: CGRect())
 
 public extension UITextView {
     
     /// 纯文本显示计算
     static func sizeThatFits(_ size: CGSize, font: UIFont, text: String?) -> CGSize {
+        fitsTextView.contentInset = UIEdgeInsets()
         fitsTextView.font = font
         fitsTextView.text = text
+        return fitsTextView.sizeThatFits(size)
+    }
+    
+    /// 富文本显示计算
+    static func sizeThatFits(_ size: CGSize, text: NSAttributedString) -> CGSize {
+        fitsTextView.contentInset = UIEdgeInsets()
+        fitsTextView.attributedText = text
         return fitsTextView.sizeThatFits(size)
     }
     
