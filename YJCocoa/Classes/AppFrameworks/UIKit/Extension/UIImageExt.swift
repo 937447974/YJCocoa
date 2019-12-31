@@ -112,14 +112,15 @@ public extension UIImage {
     }
     
     /// 本地图片预解码加载 Downsampling large images for display at smaller size
-    static func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+    static func downsample(imageAt imageURL: URL, to pointSize: CGSize) -> UIImage? {
         let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
         guard let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions) else { return nil }
-        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        var maxPixelSize = max(pointSize.width, pointSize.height) * UIScreen.main.scale
+        if maxPixelSize <= 0 { maxPixelSize = UIScreen.main.bounds.height }
         let downsampleOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
                                  kCGImageSourceShouldCacheImmediately: true,
                                  kCGImageSourceCreateThumbnailWithTransform: true,
-                                 kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
+                                 kCGImageSourceThumbnailMaxPixelSize: maxPixelSize] as CFDictionary
         guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
             return nil
         }
