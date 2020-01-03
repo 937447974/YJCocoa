@@ -176,7 +176,7 @@ extension YJUITableViewManager: UITableViewDelegate {
         if self.isCacheHeight {
             self.cacheHeightDict[key] = height
         }
-        return height
+        return height >= 0 ? height : UITableView.automaticDimension
     }
     
     private func getKeyFromCellObject(_ cellObject: YJUITableCellObject) -> String {
