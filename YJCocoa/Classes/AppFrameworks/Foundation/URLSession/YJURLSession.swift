@@ -83,6 +83,7 @@ open class YJURLSessionTask: NSObject {
     public required override init() {
         super.init()
         self.success = { [unowned self] (data: Any) in
+            guard self.state == .running else { return }
             YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求成功: \(data)")
             let respModel = self.responseModel(with: data)
             self.state = .success
@@ -95,6 +96,7 @@ open class YJURLSessionTask: NSObject {
             }
         }
         self.failure = { [unowned self] (error) in
+            guard self.state == .running else { return }
             YJLogVerbose("[YJURLSession] \(self.request.identifier) 网络请求失败: \(error)")
             self.state = .failure
             let handler = self.handler
