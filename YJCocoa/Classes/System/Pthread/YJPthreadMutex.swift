@@ -31,25 +31,25 @@ open class YJPthreadMutex: NSObject {
         }
     }
     
-    public func lockObj(_ f: () -> AnyObject) -> AnyObject {
-        return self.lockAny({ () -> Any? in
-            return f()
-        }) as AnyObject
+    public func lockObj<Object>(_ f: () throws -> Object) rethrows -> Object where Object : AnyObject {
+        return try self.lockAny({ () -> Any? in
+            return try f()
+        }) as! Object
     }
     
-    public func lockAny(_ f: () -> Any?) -> Any? {
+    public func lockAny<Object>(_ f: () throws -> Object?) rethrows -> Object? where Object : Any {
         var finish = false
         var obj: Any?
         while !finish {
             if pthread_mutex_trylock(&mutex) == 0 {
-                obj = f()
+                obj = try f()
                 finish = true
                 pthread_mutex_unlock(&mutex)
             } else {
                 usleep(10 * 1000)
             }
         }
-        return obj
+        return obj as? Object
     }
     
 }
