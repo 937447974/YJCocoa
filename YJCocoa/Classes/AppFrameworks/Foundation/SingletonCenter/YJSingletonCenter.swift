@@ -29,8 +29,8 @@ public let YJSingletonCenterS = YJSingletonCenter()
 open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
     private let mutex = YJPthreadMutex()
-    private var strongDict = YJSafetyDictionary()
-    private var weakCache = YJSafetyCache<NSString, YJSingletonModel>()
+    private var strongDict = [String: YJSingletonModel]()
+    private var weakCache = NSCache<NSString, YJSingletonModel>()
     
     public override init() {
         super.init()
@@ -40,26 +40,26 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
     /// 强引用单例，一直存在
     public func strongSingleton(aClass: AnyObject.Type, forIdentifier identifier: String? = nil) -> AnyObject {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
-        let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
-            guard let model = self.strongDict[identifier] else {
-                let model = YJSingletonModel()
-                self.strongDict[identifier] = model
-                return model
+        let model = self.mutex.lockObj { [unowned self] () -> YJSingletonModel in
+            if let cache = self.strongDict[identifier] {
+                return cache
             }
-            return model as AnyObject
+            let model = YJSingletonModel()
+            self.strongDict[identifier] = model
+            return model
         }
-        return (model as! YJSingletonModel).object(aClass: aClass, forIdentifier: identifier)
+        return model.object(aClass: aClass, forIdentifier: identifier)
     }
     
     /// 弱引用单例，自动回收
     public func weakSingleton(aClass: AnyClass, forIdentifier identifier: String) -> AnyObject {
-        let identifier1 = identifier as NSString
         let model = self.mutex.lockObj {[unowned self] () -> AnyObject in
-            guard let model = self.weakCache.object(forKey: identifier1) else {
-                let model = YJSingletonModel()
-                self.weakCache.setObject(model, forKey: identifier1)
-                return model
+            let identifier = identifier as NSString
+            if let cache = self.weakCache.object(forKey: identifier) {
+                return cache
             }
+            let model = YJSingletonModel()
+            self.weakCache.setObject(model, forKey: identifier)
             return model
         }
         return (model as! YJSingletonModel).object(aClass: aClass, forIdentifier: identifier)
