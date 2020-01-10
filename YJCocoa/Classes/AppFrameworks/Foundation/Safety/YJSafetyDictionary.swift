@@ -31,7 +31,7 @@ extension YJSafetyDictionary {
     open override func keyEnumerator() -> NSEnumerator {
         return (self.mutex.lockObj {[unowned self] in
             self.dict.keyEnumerator()
-        }) as! NSEnumerator
+        })
     }
     
     open override func object(forKey aKey: Any) -> Any? {
