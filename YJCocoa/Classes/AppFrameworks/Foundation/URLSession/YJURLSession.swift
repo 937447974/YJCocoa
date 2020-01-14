@@ -68,7 +68,7 @@ open class YJURLSessionTask: NSObject {
     public private(set) var failure: YJURLSessionTaskFailure!
     private var handler = Array<Handler>()
     
-    open class func task(with request: YJURLRequest) -> YJURLSessionTask {
+    open class func task(with request: YJURLRequest) -> Self {
         let cache = YJURLSessionS.cache
         let key = request.identifier as NSString
         var task = cache.object(forKey: key)
@@ -77,7 +77,7 @@ open class YJURLSessionTask: NSObject {
             cache.setObject(task!, forKey: key)
         }
         task?.request = request
-        return task!
+        return task as! Self
     }
     
     public required override init() {
