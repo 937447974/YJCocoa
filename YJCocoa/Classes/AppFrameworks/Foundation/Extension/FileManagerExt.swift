@@ -11,19 +11,19 @@
 
 import UIKit
 
-extension FileManager {
+public extension FileManager {
     
     /// 安全的移动文件
     /// - parameter fromePath: 源地址
     /// - parameter toPath:   目标地址
-    open func moveItem(fromePath: String, toPath: String) throws {
+    func moveItem(fromePath: String, toPath: String) throws {
         try self.moveItem(fromURL: URL(fileURLWithPath: fromePath) , toURL: URL(fileURLWithPath: toPath))
     }
     
     /// 安全的移动文件
     /// - parameter fromURL: 源地址
     /// - parameter toURL:   目标地址
-    open func moveItem(fromURL: URL, toURL: URL) throws {
+    func moveItem(fromURL: URL, toURL: URL) throws {
         guard fromURL != toURL else {
             return
         }
@@ -39,11 +39,18 @@ extension FileManager {
     }
     
     /// 是否存在文件夹
-    open func directoryExists(atPath path: String) -> Bool {
+    func directoryExists(atPath path: String) -> Bool {
         let fm = FileManager.default
         var isDirectory = ObjCBool.init(false)
         let exists = fm.fileExists(atPath: path, isDirectory: &isDirectory)
         return exists && isDirectory.boolValue
+    }
+    
+    /// 移除文件夹
+    func removeDirectory(atPath path: String) throws {
+        try self.subpaths(atPath: path)?.forEach { [unowned self] (file) in
+            try self.removeItem(atPath: path + "/" + file)
+        }
     }
     
 }
