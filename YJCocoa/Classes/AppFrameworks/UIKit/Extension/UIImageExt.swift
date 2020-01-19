@@ -124,7 +124,23 @@ public extension UIImage {
         guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
             return nil
         }
-        return UIImage(cgImage: downsampledImage)
+        return UIImage(cgImage: downsampledImage).decodedImage
+    }
+    
+    /// 图片解码
+    var decodedImage: UIImage {
+        // Decoding only works for CG-based image.
+        guard let imageRef = self.cgImage else { return self }
+        let size = CGSize(width: CGFloat(imageRef.width) / self.scale, height: CGFloat(imageRef.height) / self.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return self }
+        defer { UIGraphicsEndImageContext() }
+        // If drawing a CGImage, we need to make context flipped.
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.translateBy(x: 0, y: -size.height)
+        context.draw(imageRef, in: CGRect(origin: .zero, size: size))
+        guard let cgImage = context.makeImage() else { return self }
+        return UIImage(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
     }
     
     /// 生成圆角图片
