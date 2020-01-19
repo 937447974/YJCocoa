@@ -127,6 +127,14 @@ public extension UIImage {
         return UIImage(cgImage: downsampledImage).decodedImage
     }
     
+    /// 生成本地图片预解码
+    static func image(contentsOf url: URL) -> UIImage? {
+        if let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)?.decodedImage
+        }
+        return UIImage(contentsOfFile: url.absoluteString)?.decodedImage
+    }
+    
     /// 图片解码
     var decodedImage: UIImage {
         // Decoding only works for CG-based image.
