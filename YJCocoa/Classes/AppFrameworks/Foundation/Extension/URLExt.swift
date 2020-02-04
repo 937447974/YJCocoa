@@ -32,7 +32,7 @@ public extension URL {
     }
     
     /// 添加文件夹路径
-    func appendingDirectory(pathComponent: String) -> URL {
+    func appendingDirectory(_ pathComponent: String) -> URL {
         let url = self.appendingPathComponent(pathComponent, isDirectory: true)
         let fm = FileManager.default
         if !fm.directoryExists(atPath: url.path) {
