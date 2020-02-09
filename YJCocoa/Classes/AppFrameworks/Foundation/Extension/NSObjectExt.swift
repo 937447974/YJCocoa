@@ -14,21 +14,31 @@ import UIKit
 /// KVO 回调
 public typealias YJKVOBlock = (_ oldValue: Any?, _ newValue: Any?) -> Void
 
-private class YJKeyValueObserver : NSObject  {
+private var kvos = Array<KeyValueObserver>()
+
+private class KeyValueObserver : NSObject  {
     
+    weak var target: AnyObject?
     weak var observer: AnyObject?
-    var kvoBlock: YJKVOBlock!
+    var keyPath: String!
+    var block: YJKVOBlock!
     
-    init(_ observer: AnyObject, kvoBlock: @escaping YJKVOBlock) {
+    init(_ target: AnyObject, observer: AnyObject, keyPath: String, block: @escaping YJKVOBlock) {
         super.init()
+        self.target = target
         self.observer = observer
-        self.kvoBlock = kvoBlock
+        self.keyPath = keyPath
+        self.block = block
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if self.observer != nil {
-            self.kvoBlock(change?[NSKeyValueChangeKey.oldKey], change?[NSKeyValueChangeKey.newKey])
+            self.block(change?[NSKeyValueChangeKey.oldKey], change?[NSKeyValueChangeKey.newKey])
         }
+    }
+    
+    deinit {
+        target?.removeObserver(self, forKeyPath: keyPath)
     }
     
 }
@@ -38,29 +48,30 @@ public extension NSObject {
     
     /// 添加 KVO 监听
     @objc
-    func addObserver(_ observer: AnyObject, forKeyPath keyPath: String, kvoBlock: @escaping YJKVOBlock) {
+    func addObserver(_ observer: AnyObject, forKeyPath keyPath: String, using block: @escaping YJKVOBlock) {
         let kvoArray = self.kvoArray(keyPath: keyPath)
         for item in kvoArray {
-            let kvoItem = item as! YJKeyValueObserver
+            let kvoItem = item as! KeyValueObserver
             if observer.isEqual(kvoItem.observer) {
-                kvoItem.kvoBlock = kvoBlock
+                kvoItem.block = block
                 return
             }
         }
-        let kvo = YJKeyValueObserver(observer, kvoBlock: kvoBlock)
+        let kvo = KeyValueObserver(self, observer: observer, keyPath: keyPath, block: block)
         kvoArray.add(kvo)
         self.addObserver(kvo, forKeyPath: keyPath, options: [.old, .new], context: nil)
     }
     
     /// 移除 KVO 监听
-    @objc func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String? = nil) {
+    @objc
+    func removeObserverBlock(_ observer: NSObject, forKeyPath keyPath: String? = nil) {
         if keyPath == nil {
             for key in self.yj_kvoDictionary.allKeys {
                 self.removeObserverBlock(observer, forKeyPath: key as? String)
             }
         } else {
             for item in self.kvoArray(keyPath: keyPath!) {
-                let kvoItem = item as! YJKeyValueObserver
+                let kvoItem = item as! KeyValueObserver
                 if kvoItem.observer != nil, observer.isEqual(kvoItem.observer) {
                     self.removeObserver(kvoItem, forKeyPath: keyPath!)
                     kvoItem.observer = nil
@@ -106,7 +117,7 @@ extension NSObject {
     /// 交换方法(Instance)
     /// - parameter originalSEL:  原始方法
     /// - parameter swizzlingSEL: 交换的方法
-    static func swizzling(originalSEL: Selector, swizzlingSEL: Selector) {
+    public static func swizzling(originalSEL: Selector, swizzlingSEL: Selector) {
         let cache = cacheYJSwizzling
         let key = "\(self)-\(originalSEL)-\(swizzlingSEL)" as NSString
         guard cache.object(forKey: key) == nil else {
