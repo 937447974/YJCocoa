@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
     s.platform = :ios
     s.ios.deployment_target = '9.0'
     s.swift_version = '5.1'
+    s.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'NO' }
     
     # ——— File patterns
     s.source_files = 'YJCocoa/Classes/**/*'
