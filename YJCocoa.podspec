@@ -34,9 +34,6 @@ Pod::Spec.new do |s|
     s.swift_version = '5.1'
     s.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'NO' }
     
-    # ——— File patterns
-    s.source_files = 'YJCocoa/Classes/**/*'
-    
     # ——— Subspecs
     s.default_subspec = 'AppFrameworks', 'DeveloperTools', 'System'
     
@@ -100,6 +97,9 @@ Pod::Spec.new do |s|
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
                 sub.dependency 'YJCocoa/System/Dispatch'
             end
+            ui.subspec 'LinkTextView' do |ltv|
+                ltv.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/LinkTextView/*'
+            end
             ui.subspec 'NavigationBar' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/NavigationBar/*'
                 sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
@@ -116,6 +116,9 @@ Pod::Spec.new do |s|
             ui.subspec 'TableView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TableView/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+            end
+            ui.subspec 'TouchView' do |sub|
+                sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TouchView/*'
             end
             ui.subspec 'URLRouter' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/URLRouter/*'
