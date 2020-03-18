@@ -37,6 +37,12 @@ open class YJSingletonCenter: NSObject & NSCacheDelegate {
         self.weakCache.delegate = self
     }
     
+    /// 重置
+    public func reset() {
+        self.strongDict.removeAll()
+        self.weakCache.removeAllObjects()
+    }
+    
     /// 强引用单例，一直存在
     public func strongSingleton(aClass: AnyObject.Type, forIdentifier identifier: String? = nil) -> AnyObject {
         let identifier = identifier ?? NSStringFromClass(aClass) as String
