@@ -15,6 +15,8 @@ import UIKit
 public typealias YJRCompletionHandler = (_ options: [String: Any]) -> Void
 /// 未注册 url 能否打开
 public typealias YJRUnregisteredCanOpen = (_ url: String) -> Bool
+/// 能否打开路由
+public typealias YJRCanOpenHandler = (_ can: Bool) -> Void
 /// 打开路由
 public typealias YJROpenHandler = (_ url: String, _ options: [String: Any], _ handler: YJRCompletionHandler?) -> Void
 
@@ -26,7 +28,7 @@ public protocol YJURLRouterProtocol {
     /// 路由器初始化
     static func router(with url: String) -> UIViewController
     /// 路由器能否打开
-    func routerCanOpen(with options:[String: Any]) -> Bool
+    func routerCanOpen(with options:[String: Any], handler: @escaping YJRCanOpenHandler)
     /// 路由器打开
     func routerOpen()
     /// push失败后，present 打开当前路由
@@ -88,11 +90,13 @@ open class YJURLRouter: NSObject {
                 self.nodeCache.setObject(node, forKey: key)
             }
         }
-        guard node.routerCanOpen(with: options) else { return }
-        node.routerOpen()
-        dispatch_async_main {
-            node.routerReloadData(with: options, completion: handler)
-        }        
+        node.routerCanOpen(with: options) { [weak node] (can) in
+            guard can else { return }
+            node?.routerOpen()
+            dispatch_async_main { [weak node] in
+                node?.routerReloadData(with: options, completion: handler)
+            }
+        }
     }
     
     private func getCacheNode(with register: YJRouterRegister, key: NSString) -> UIViewController? {
@@ -207,8 +211,8 @@ extension UIViewController: YJURLRouterProtocol {
     
     open func routerReloadData(with options: [String: Any], completion handler: YJRCompletionHandler?) {}
     
-    open func routerCanOpen(with options: [String : Any]) -> Bool {
-        return true
+    open func routerCanOpen(with options:[String: Any], handler: @escaping YJRCanOpenHandler) {
+        handler(true)
     }
     
     open func routerOpen() {
