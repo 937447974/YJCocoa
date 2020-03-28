@@ -11,7 +11,7 @@
 
 import UIKit
 
-public extension Array where Element == Any {
+public extension Array where Element: Any {
     
     /// 按个数分割数组
     /// - parameter count: 每组的个数

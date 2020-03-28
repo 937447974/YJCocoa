@@ -24,16 +24,16 @@ public func YJLogError(_ log: String) {YJLog.logBlock(.error, log)}
 
 
 /// 日志打印回调
-public typealias YJLogBlock = (_ level: YJLogLevels, _ log: String) -> Void
+public typealias YJLogBlock = (_ level: YJLogLevel, _ log: String) -> Void
 
 /// 日志级别
-public struct YJLogLevels : OptionSet {
+public struct YJLogLevel : OptionSet {
     
-    public static let verbose = YJLogLevels(rawValue: 1)
-    public static let debug = YJLogLevels(rawValue: 2)
-    public static let info = YJLogLevels(rawValue: 4)
-    public static let warn = YJLogLevels(rawValue: 8)
-    public static let error = YJLogLevels(rawValue: 16)
+    public static let verbose = YJLogLevel(rawValue: 1)
+    public static let debug = YJLogLevel(rawValue: 2)
+    public static let info = YJLogLevel(rawValue: 4)
+    public static let warn = YJLogLevel(rawValue: 8)
+    public static let error = YJLogLevel(rawValue: 16)
     
     public let rawValue: Int
     public init(rawValue: Int) {
@@ -47,27 +47,25 @@ public class YJLog : NSObject {
     
     /// 日志级别
     #if DEBUG
-    public static var levels: YJLogLevels = [.debug, .info, .warn, .error]
+    public static var levels: YJLogLevel = [.debug, .info, .warn, .error]
     #else
-    public static var levels: YJLogLevels = [.info, .warn, .error]
+    public static var levels: YJLogLevel = [.info, .warn, .error]
     #endif
     
     /// 日志输出
-    public static var logBlock: YJLogBlock = { (_ levels: YJLogLevels, _ log: String) in
-        guard YJLog.levels.contains(levels) else {
-            return
-        }
+    public static var logBlock: YJLogBlock = { (_ level: YJLogLevel, _ log: String) in
+        guard YJLog.levels.contains(level) else { return }
         var tag = ""
-        if levels.contains(.verbose) {
+        if level.contains(.verbose) {
             tag = "[🍏]"
-        } else if levels.contains(.debug) {
+        } else if level.contains(.debug) {
             tag = "[⚙]"
-        } else if levels.contains(.info) {
+        } else if level.contains(.info) {
             tag = "[💚]"
-        } else if levels.contains(.warn) {
+        } else if level.contains(.warn) {
             tag = "[⚠️]"
-        } else if levels.contains(.error) {
-            tag = "[❤️]"
+        } else if level.contains(.error) {
+            tag = "[🧨]"
         }
         print(YJLog.formatter.string(from: Date()), tag, log)
     }
