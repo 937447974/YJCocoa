@@ -69,10 +69,6 @@ Pod::Spec.new do |s|
             foundation.subspec 'Calendar' do |calendar|
                 calendar.source_files = 'Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}'
             end
-            # CodeInject
-            foundation.subspec 'CodeInject' do |sub|
-                sub.source_files = 'Cocoa/AppFrameworks/Foundation/CodeInject/*.{h,m}'
-            end
             # DictionaryModel
             foundation.subspec 'DictionaryModel' do |dm|
                 dm.source_files = 'Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}'
@@ -114,7 +110,6 @@ Pod::Spec.new do |s|
             end
             foundation.subspec 'Scheduler' do |sub|
                 sub.source_files = 'Cocoa/AppFrameworks/Foundation/Scheduler/**/*'
-                sub.dependency 'YJCocoa/AppFrameworks/Foundation/CodeInject'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/NotificationCenter'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Safety'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Singleton'

@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 调度中心*/
 @interface YJScheduler : NSObject
 
+@property (nonatomic, copy, nullable) dispatch_block_t loadScheduler; ///< 配置
+
 #pragma mark subscribe
 /**
  *  @abstract 订阅

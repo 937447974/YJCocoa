@@ -139,7 +139,4 @@
     return cacheNode;
 }
 
-#pragma mark - YJScheduler
-YJSCHEDULER_LOAD(^{YJCI_BLOCK_EXECUTE(YJURLRouterLoad)})
-
 @end

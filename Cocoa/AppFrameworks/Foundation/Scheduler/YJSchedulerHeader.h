@@ -11,10 +11,6 @@
 
 #ifndef YJSchedulerHeader_h
 #define YJSchedulerHeader_h
-#import "YJCodeInject.h"
-
-/** 调度器订阅、拦截加载*/
-#define YJSCHEDULER_LOAD(block) YJCI_BLOCK_EXPORT(YJSchedulerLoad, block)
 
 NS_ASSUME_NONNULL_BEGIN
 

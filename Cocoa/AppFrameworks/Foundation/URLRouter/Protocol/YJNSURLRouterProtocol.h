@@ -11,15 +11,8 @@
 
 #ifndef YJNSURLRouterProtocol_h
 #define YJNSURLRouterProtocol_h
-#import "YJCodeInject.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-/** 路由懒加载*/
-#define YJNSURLROUTER_LOAD(block) YJCI_BLOCK_EXPORT(YJURLRouterLoad, block)
-/** 路由 url 懒加载*/
-#define YJNSURLROUTER_LOAD_URL(cls, _url, _cache) YJNSURLROUTER_LOAD(^{[YJNSURLRouterS registerRouter:[[YJNSRouterRegister alloc] initWithClass:cls.class url:_url cache:_cache]];})
-
 
 /** 路由回调*/
 typedef void (^ YJRCompletionHandler)(NSDictionary * _Nullable options);
