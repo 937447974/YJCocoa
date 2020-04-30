@@ -66,7 +66,7 @@ open class YJURLSessionTask: NSObject {
     public private(set) var success: YJURLSessionTaskSuccess!
     /// 失败回调
     public private(set) var failure: YJURLSessionTaskFailure!
-    private var handler = Array<Handler>()
+    private var handler = [Handler]()
     
     open class func task(with request: YJURLRequest) -> Self {
         let cache = YJURLSessionS.cache
