@@ -48,6 +48,14 @@ public extension UIButton {
         self.setImage(highlightedImage, for: .highlighted)
     }
     
+    /// 设置图片
+    /// - parameter image: 标题
+    /// - parameter selectedImage: 选中的图片
+    func setImage(_ image: UIImage?, selectedImage: UIImage?) {
+        self.setImage(image, for: .normal)
+        self.setImage(selectedImage, for: .selected)
+    }
+    
     // 设置背景图片
     /// - parameter color: 默认色
     /// - parameter highlightedColor: 高亮色，默认 color 的 0.75 透明度
