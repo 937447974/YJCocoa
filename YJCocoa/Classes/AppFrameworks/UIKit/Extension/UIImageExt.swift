@@ -178,7 +178,6 @@ public extension UIImage {
         color.setFill()
         let rect = CGRect(origin: CGPoint(), size: self.size)
         UIRectFill(rect)
-        self.draw(in: rect, blendMode: .overlay, alpha: 1)
         self.draw(in: rect, blendMode: .destinationIn, alpha: 1)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
