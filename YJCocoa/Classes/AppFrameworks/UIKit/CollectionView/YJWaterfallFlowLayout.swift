@@ -18,13 +18,9 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
     public var columnCount: Int = 0
     private var maxHeight: CGFloat = 0
     private var layoutAttributes = [UICollectionViewLayoutAttributes]()
-    private var headerLayoutAttributes = [UICollectionViewLayoutAttributes]()
-    private var cellLayoutAttributes = [[UICollectionViewLayoutAttributes]]()
     
     open override var collectionViewContentSize: CGSize {
-        get {
-            return CGSize(width: (collectionView?.bounds.width)!, height: self.maxHeight)
-        }
+        get { return CGSize(width: self.collectionView!.bounds.width, height: self.maxHeight) }
     }
     
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -32,47 +28,44 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
     }
     
     open override func prepare() {
+        super.prepare()
         self.maxHeight = 0
         self.layoutAttributes.removeAll()
-        self.headerLayoutAttributes.removeAll()
-        self.cellLayoutAttributes.removeAll()
         guard let collectionView = self.collectionView,
             let delegate = collectionView.delegate as? UICollectionViewDelegateFlowLayout,
-            let dataSource = collectionView.dataSource
-            else {
+            let dataSource = collectionView.dataSource else {
                 return
         }
         let sectionCount = dataSource.numberOfSections!(in: collectionView)
         for section in 0..<sectionCount {
             // header
-            let headerLA = self.prepareHeader(delegate: delegate, section: section, y: self.maxHeight)
-            self.headerLayoutAttributes.append(headerLA)
-            self.layoutAttributes.append(headerLA)
-            self.maxHeight = headerLA.frame.maxY + self.sectionInset.top
+            if let headerLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, section: section, y: self.maxHeight) {
+                self.layoutAttributes.append(headerLA)
+                self.maxHeight = self.maxHeight + headerLA.frame.maxY
+            }
             // cell
+            self.maxHeight = self.maxHeight + self.sectionInset.top
             let cellLAList = self.prepareCell(delegate: delegate, dataSource: dataSource, section: section, y: self.maxHeight)
-            self.cellLayoutAttributes.append(cellLAList)
             self.layoutAttributes.append(contentsOf: cellLAList)
             cellLAList.forEach { (la) in
                 self.maxHeight = max(self.maxHeight, la.frame.maxY)
             }
-            // bottom
             self.maxHeight = self.maxHeight + self.sectionInset.bottom
+            // bottom
+            if let bottomLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, section: section, y: self.maxHeight) {
+                self.layoutAttributes.append(bottomLA)
+                self.maxHeight = self.maxHeight + bottomLA.frame.maxY
+            }
         }
     }
     
-    func prepareHeader(delegate: UICollectionViewDelegateFlowLayout, section: Int, y: CGFloat) -> UICollectionViewLayoutAttributes {
-        let headerSize = self.sizeForHeader(delegate: delegate, section: section)
-        let result = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: IndexPath(item: 0, section: section))
-        result.frame = CGRect(origin: CGPoint(x: 0, y: y), size: headerSize)
-        return result
-    }
-    
-    func sizeForHeader(delegate: UICollectionViewDelegateFlowLayout, section: Int) -> CGSize {
-        if let headerSize = delegate.collectionView?(self.collectionView!, layout: self, referenceSizeForHeaderInSection: section) {
-            return headerSize
+    func prepareSupplementaryView(ofKind elementKind: String, section: Int, y: CGFloat) -> UICollectionViewLayoutAttributes? {
+        let indexPath = IndexPath(item: 0, section: section)
+        guard let layoutAttributes = self.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath) else {
+            return nil
         }
-        return self.headerReferenceSize
+        layoutAttributes.frame.origin.y = y
+        return layoutAttributes
     }
     
     func prepareCell(delegate: UICollectionViewDelegateFlowLayout ,dataSource: UICollectionViewDataSource, section: Int, y: CGFloat) -> [UICollectionViewLayoutAttributes] {
