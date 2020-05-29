@@ -24,7 +24,10 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
     }
     
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return self.layoutAttributes
+        let result = super.layoutAttributesForElements(in: rect)
+        print(result!)
+        print(self.layoutAttributes)
+        return self.layoutAttributes//result
     }
     
     open override func prepare() {
@@ -37,10 +40,11 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
                 return
         }
         let sectionCount = dataSource.numberOfSections!(in: collectionView)
+        var laList = [UICollectionViewLayoutAttributes]()
         for section in 0..<sectionCount {
             // header
             if let headerLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, section: section, y: self.maxHeight) {
-                self.layoutAttributes.append(headerLA)
+                laList.append(headerLA)
                 self.maxHeight = self.maxHeight + headerLA.frame.maxY
             }
             // cell
@@ -53,10 +57,11 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
             self.maxHeight = self.maxHeight + self.sectionInset.bottom
             // bottom
             if let bottomLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, section: section, y: self.maxHeight) {
-                self.layoutAttributes.append(bottomLA)
+                laList.append(bottomLA)
                 self.maxHeight = self.maxHeight + bottomLA.frame.maxY
             }
         }
+        self.layoutAttributes.append(contentsOf: laList)
     }
     
     func prepareSupplementaryView(ofKind elementKind: String, section: Int, y: CGFloat) -> UICollectionViewLayoutAttributes? {
@@ -92,7 +97,7 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
                 layoutAttributes.frame.origin = CGPoint(x: columnXList[columnIndex], y: columnYList[columnIndex] + self.minimumLineSpacing)
                 columnYList[columnIndex] = layoutAttributes.frame.maxY
                 columnIndex = columnIndex + 1
-                if columnIndex == self.columnCount - 1 { // 换行
+                if columnIndex == self.columnCount { // 换行
                     highLowIndex = self.prepareHighLowIndex(columnYList: columnYList)
                     columnIndex = 0
                 }
