@@ -24,10 +24,7 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
     }
     
     open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let result = super.layoutAttributesForElements(in: rect)
-        print(result!)
-        print(self.layoutAttributes)
-        return self.layoutAttributes//result
+        return self.layoutAttributes
     }
     
     open override func prepare() {
@@ -45,7 +42,7 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
             // header
             if let headerLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, section: section, y: self.maxHeight) {
                 laList.append(headerLA)
-                self.maxHeight = self.maxHeight + headerLA.frame.maxY
+                self.maxHeight = headerLA.frame.maxY
             }
             // cell
             self.maxHeight = self.maxHeight + self.sectionInset.top
@@ -58,7 +55,7 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
             // bottom
             if let bottomLA = self.prepareSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, section: section, y: self.maxHeight) {
                 laList.append(bottomLA)
-                self.maxHeight = self.maxHeight + bottomLA.frame.maxY
+                self.maxHeight = bottomLA.frame.maxY
             }
         }
         self.layoutAttributes.append(contentsOf: laList)
@@ -66,7 +63,7 @@ open class YJWaterfallFlowLayout: UICollectionViewFlowLayout {
     
     func prepareSupplementaryView(ofKind elementKind: String, section: Int, y: CGFloat) -> UICollectionViewLayoutAttributes? {
         let indexPath = IndexPath(item: 0, section: section)
-        guard let layoutAttributes = self.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath) else {
+        guard let layoutAttributes = self.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath), layoutAttributes.size != CGSize() else {
             return nil
         }
         layoutAttributes.frame.origin.y = y
