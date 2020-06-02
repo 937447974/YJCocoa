@@ -16,7 +16,7 @@ fileprivate func currentController() -> UIViewController? {
         return UIApplication.shared.keyWindow?.rootViewController
     }
     func currentController(with view: UIView, depth: Int) -> UIViewController? {
-        guard depth < 3 else { return nil }
+        guard depth < 5 else { return nil }
         for subview in view.subviews.reversed() {
             if let vc = subview.next as? UIViewController {
                 return vc
