@@ -217,11 +217,20 @@ extension YJScheduler {
 
 // MARK: -
 /// 调度器订阅
-private struct YJSchedulerSubscribe {
+@objcMembers
+private class YJSchedulerSubscribe : NSObject {
     let topic: String
     weak var subscriber: AnyObject?
     let queue: YJScheduler.Queue
     let completionHandler: YJSSubscribeHandler
+    
+    init(topic: String, subscriber: AnyObject, queue: YJScheduler.Queue, completionHandler: @escaping YJSSubscribeHandler) {
+        self.topic = topic
+        self.subscriber = subscriber
+        self.queue = queue
+        self.completionHandler = completionHandler
+    }
+    
 }
 
 /// 调度器拦截
