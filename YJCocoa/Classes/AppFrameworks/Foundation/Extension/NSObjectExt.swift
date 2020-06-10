@@ -16,6 +16,7 @@ public typealias YJKVOBlock = (_ oldValue: Any?, _ newValue: Any?) -> Void
 
 private var kvos = Array<KeyValueObserver>()
 
+@objcMembers
 private class KeyValueObserver : NSObject  {
     
     weak var target: AnyObject?
