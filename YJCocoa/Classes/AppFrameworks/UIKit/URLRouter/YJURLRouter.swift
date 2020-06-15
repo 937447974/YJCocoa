@@ -164,6 +164,7 @@ extension YJURLRouter {
             let urlOptions = YJURL.analysisParams(url, decode: true)
             options.merge(urlOptions){ (current, _) in current }
         }
+        let url = self.urlPrefix(with: url)
         YJLogVerbose("[YJURLRouter] 打开:\(url)，options:\(options)")
         let topic = self.topic(with: url)
         YJSchedulerS.publish(topic: topic, data: options, serial: true) { (data: Any?) in

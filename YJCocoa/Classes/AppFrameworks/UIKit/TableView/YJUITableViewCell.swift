@@ -14,12 +14,12 @@ import UIKit
 @objc extension UITableViewCell {
     
     /// 获取 YJUITableCellObject
-    public class func cellObject() -> YJUITableCellObject {
+    open class func cellObject() -> YJUITableCellObject {
         return YJUITableCellObject(cellClass: self)
     }
     
     /// 获取 YJUITableCellObject 并自动填充模型
-    public class func cellObject(withCellModel cellModel: Any?) -> YJUITableCellObject {
+    open class func cellObject(withCellModel cellModel: Any?) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
