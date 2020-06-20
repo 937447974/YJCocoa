@@ -35,16 +35,16 @@ import UIKit
     
 }
 
-class YJUITableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class YJUITableViewHeaderFooterView: UITableViewHeaderFooterView {
     
     private(set) var cellObject: YJUITableCellObject!
     private(set) var tableViewManager: YJUITableViewManager!
     
-    override var reuseIdentifier: String? {
+    open override var reuseIdentifier: String? {
         return super.reuseIdentifier ?? NSStringFromClass(self.classForCoder)
     }
     
-    override func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {
+    open override func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {
         super.tableViewManager(tableViewManager, reloadWith: cellObject)
         self.tableViewManager = tableViewManager
         self.cellObject = cellObject
