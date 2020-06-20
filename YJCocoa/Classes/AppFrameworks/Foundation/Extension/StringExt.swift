@@ -27,7 +27,7 @@ public extension String {
     
     /// 字符串切割为数组
     func split(_ separator: Character) -> [String] {
-        return self.split(separator: separator).map {String($0)}
+        return self.split(separator: separator).map { String($0) }
     }
     
 }
