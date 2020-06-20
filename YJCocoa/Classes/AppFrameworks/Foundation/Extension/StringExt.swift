@@ -24,4 +24,10 @@ public extension String {
     func trimWhitespaces()-> String {
         return self.trimmingCharacters(in: .whitespaces)
     }
+    
+    /// 字符串切割为数组
+    func split(_ separator: Character) -> [String] {
+        return self.split(separator: separator).map {String($0)}
+    }
+    
 }
