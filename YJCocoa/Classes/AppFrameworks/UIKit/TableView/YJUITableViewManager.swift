@@ -87,20 +87,21 @@ extension YJUITableViewManager: UITableViewDataSource {
     }
     
     private func dequeueReusableCell(withCellObject cellObject: YJUITableCellObject) -> UITableViewCell {
-        if !self.identifierSet.contains(cellObject.reuseIdentifier) {
-            self.tableView.register(cellObject.cellClass, forCellReuseIdentifier: cellObject.reuseIdentifier)
-            self.identifierSet.insert(cellObject.reuseIdentifier)
+        let identifier = cellObject.reuseIdentifier
+        if !self.identifierSet.contains(identifier) {
+            self.identifierSet.insert(identifier)
+            self.tableView.register(cellObject.cellClass, forCellReuseIdentifier: identifier)
         }
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellObject.reuseIdentifier, for: cellObject.indexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: identifier, for: cellObject.indexPath)
         cell.tableViewManager(self, reloadWith: cellObject)
         return cell
     }
     
     private func dequeueReusableHeaderFooterView(withCellObject cellObject: YJUITableCellObject)  -> UITableViewHeaderFooterView? {
-        let identifier = "header/" + cellObject.reuseIdentifier
+        let identifier = cellObject.reuseIdentifier
         if !self.identifierSet.contains(identifier) {
-            self.tableView.register(cellObject.cellClass, forHeaderFooterViewReuseIdentifier: cellObject.reuseIdentifier)
             self.identifierSet.insert(identifier)
+            self.tableView.register(cellObject.cellClass, forHeaderFooterViewReuseIdentifier: identifier)
         }
         let view = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
         view?.tableViewManager(self, reloadWith: cellObject)

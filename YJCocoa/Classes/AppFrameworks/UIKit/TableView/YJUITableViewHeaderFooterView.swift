@@ -11,7 +11,8 @@
 
 import UIKit
 
-@objc extension UITableViewHeaderFooterView {
+@objc
+extension UITableViewHeaderFooterView {
     
     /// 获取 YJUITableCellObject
     public class func cellObject() -> YJUITableCellObject {
@@ -19,7 +20,7 @@ import UIKit
     }
     
     /// 获取YJUITableCellObject并自动填充模型
-    public class func cellObject(withCellModel cellModel:AnyObject) -> YJUITableCellObject {
+    public class func cellObject(withCellModel cellModel: Any?) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
@@ -31,14 +32,15 @@ import UIKit
     }
     
     /// 刷新 UITableViewHeaderFooterView
-    @objc func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {}
+    @objc
+    func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {}
     
 }
 
 open class YJUITableViewHeaderFooterView: UITableViewHeaderFooterView {
     
-    private(set) var cellObject: YJUITableCellObject!
-    private(set) var tableViewManager: YJUITableViewManager!
+    public private(set) var cellObject: YJUITableCellObject!
+    public private(set) var tableViewManager: YJUITableViewManager!
     
     open override var reuseIdentifier: String? {
         return super.reuseIdentifier ?? NSStringFromClass(self.classForCoder)
