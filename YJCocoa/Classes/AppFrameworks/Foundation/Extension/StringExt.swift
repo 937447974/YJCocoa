@@ -30,4 +30,14 @@ public extension String {
         return self.split(separator: separator).map { String($0) }
     }
     
+    /// 字符串替换
+    func replacingOccurrences(of target: String, with replacement: String) -> String {
+        return (self as NSString).replacingOccurrences(of: target, with: replacement)
+    }
+    
+    /// 区间替换字符串
+    func replacingCharacters(in range: NSRange, with replacement: String) -> String {
+        return (self as NSString).replacingCharacters(in: range, with: replacement)
+    }
+    
 }
