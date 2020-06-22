@@ -26,3 +26,18 @@ public extension NSAttributedString {
     
 }
 
+public extension NSMutableAttributedString {
+    
+    /// 安全 addAttribute
+    func addAttributeSafe(_ name: NSAttributedString.Key, value: Any, range: NSRange) {
+        if self.length < range.location + range.length { return }
+        self.addAttribute(name, value: value, range: range)
+    }
+    
+    /// 安全 addAttributes
+    func addAttributesSafe(_ attrs: [NSAttributedString.Key : Any], range: NSRange) {
+        if self.length < range.location + range.length { return }
+        self.addAttributes(attrs, range: range)
+    }
+    
+}
