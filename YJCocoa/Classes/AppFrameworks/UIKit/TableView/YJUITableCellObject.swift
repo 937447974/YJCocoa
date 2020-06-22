@@ -27,7 +27,7 @@ open class YJUITableCellObject: NSObject {
     /// cell 所处位置
     public var indexPath: IndexPath!
     /// UITableViewCell对应的类
-    private(set) var cellClass: AnyClass
+    public private(set) var cellClass: AnyClass
     /// UITableViewCell.reuseIdentifier，默认类名
     public var reuseIdentifier = ""
     

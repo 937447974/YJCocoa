@@ -42,6 +42,8 @@ open class YJUITableViewManager: NSObject {
         }
     }
     
+    /// 是否缓存cell
+    public var isCacheCell = true
     /// 是否缓存高，默认缓存
     public var isCacheHeight = true
     /// 缓存高的策略
@@ -52,7 +54,7 @@ open class YJUITableViewManager: NSObject {
     private var identifierSet = Set<String>()
     private var cacheHeightDict = Dictionary<String, CGFloat>()
     
-    init(tableView: UITableView) {
+    public init(tableView: UITableView) {
         super.init()
         self.dataSourceCellFirst = Array()
         self.tableView = tableView
@@ -92,7 +94,7 @@ extension YJUITableViewManager: UITableViewDataSource {
             self.identifierSet.insert(identifier)
             self.tableView.register(cellObject.cellClass, forCellReuseIdentifier: identifier)
         }
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: identifier, for: cellObject.indexPath)
+        let cell = self.isCacheCell ? self.tableView.dequeueReusableCell(withIdentifier: identifier, for: cellObject.indexPath) : self.tableView.dequeueReusableCell(withIdentifier: identifier)!
         cell.tableViewManager(self, reloadWith: cellObject)
         return cell
     }
