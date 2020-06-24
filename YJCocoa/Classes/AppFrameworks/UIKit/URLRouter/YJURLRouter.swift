@@ -45,9 +45,13 @@ open class YJURLRouter: NSObject {
     
     /// 路由器初始化启动加载
     public var loadRouter: YJDispatchWork?
+    /// 允许连续跳转的间隔
+    public var timeInterval = 0.5
     
     var nodeCache = NSCache<NSString, UIViewController>()
     var isInitRouter = false
+    var openTime: Double = 0
+    var openUrl = ""
     
     /**
      *  注册路由
@@ -159,6 +163,12 @@ extension YJURLRouter {
      */
     public func openURL(url: String, options: [String: Any]? = nil, completion handler: YJRCompletionHandler? = nil) {
         self.initLoadScheduler()
+        let time = CFAbsoluteTimeGetCurrent()
+        guard time - self.openTime >= self.timeInterval || self.openUrl != url else {
+            return
+        }
+        self.openTime = time
+        self.openUrl = url
         var options = options ?? [:]
         if url.contains("?") {
             let urlOptions = YJURL.analysisParams(url, decode: true)

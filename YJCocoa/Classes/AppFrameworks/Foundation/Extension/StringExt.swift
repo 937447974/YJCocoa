@@ -21,8 +21,13 @@ public extension String {
     }
     
     /// 移除前后空格
-    func trimWhitespaces()-> String {
+    func trimWhitespaces() -> String {
         return self.trimmingCharacters(in: .whitespaces)
+    }
+    
+    /// 移除前后换行
+    func trimNewlines() -> String {
+        return self.trimmingCharacters(in: .newlines)
     }
     
     /// 字符串切割为数组
