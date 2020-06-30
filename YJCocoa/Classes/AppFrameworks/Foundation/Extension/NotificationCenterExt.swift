@@ -11,12 +11,13 @@
 
 import UIKit
 
+@objcMembers
 private class NotificationObserver {
     
-    weak var observer: NSObject?
+    weak var observer: AnyObject?
     var block: ((Notification) -> Void)!
     
-    init(_ observer: NSObject, block: @escaping (Notification) -> Void) {
+    init(_ observer: AnyObject, block: @escaping (Notification) -> Void) {
         self.observer = observer
         self.block = block
     }
@@ -37,14 +38,14 @@ extension NotificationCenter {
     /// - parameter observer: Object registering as an observer.
     /// - parameter name: name The name of the notification for which to register the observer; that is, only notifications with this name are delivered to the observer.
     /// - parameter block: The block to be executed when the notification is received.
-    open func addObserver(_ observer: NSObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
+    open func addObserver(_ observer: AnyObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
         let array = self.notificatArray(name: name)
         for item in array {
             let notificatItem = item as! NotificationObserver
             if notificatItem.observer == nil {
                 notificatItem.observer = observer
                 notificatItem.block = block
-            } else if observer == notificatItem.observer {
+            } else if observer.isEqual(notificatItem.observer) {
                 notificatItem.block = block
                 return
             }
@@ -63,7 +64,7 @@ extension NotificationCenter {
         } else {
             for item in self.notificatArray(name: name!) {
                 let target = item as! NotificationObserver
-                if observer == target.observer {
+                if observer.isEqual(target.observer) {
                     self.removeObserver(target)
                     return
                 }
