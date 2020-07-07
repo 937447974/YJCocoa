@@ -13,6 +13,12 @@ import UIKit
 
 public extension URL {
     
+    /// http 中文链接utf8转码初始化
+    static func utf8(_ string: String) -> URL? {
+        guard let data = string.data(using: .utf8) else { return URL(string: string) }
+        return URL(dataRepresentation: data, relativeTo: nil)
+    }
+    
     /// 文件类型
     var fileExtension: String? {
         guard self.pathExtension == "" else {

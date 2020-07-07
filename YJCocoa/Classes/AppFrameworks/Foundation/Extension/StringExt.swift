@@ -45,4 +45,15 @@ public extension String {
         return (self as NSString).replacingCharacters(in: range, with: replacement)
     }
     
+    /// encode编码
+    func encode() -> String {
+        let characters = CharacterSet(charactersIn: ":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`").inverted
+        return self.addingPercentEncoding(withAllowedCharacters: characters) ?? ""
+    }
+    
+    /// decode解码
+    func decode() -> String {
+        return self.removingPercentEncoding ?? ""
+    }
+    
 }
