@@ -11,6 +11,14 @@
 
 import UIKit
 
+public extension Optional where Wrapped == String {
+    
+    var isEmpty: Bool {
+        get { return self?.isEmpty ?? true }
+    }
+    
+}
+
 public extension String {
     
     subscript(r: Range<Int>) -> String {
