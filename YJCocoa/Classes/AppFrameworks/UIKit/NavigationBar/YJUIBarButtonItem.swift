@@ -40,8 +40,8 @@ open class YJUIBarButtonItem: NSObject {
     /// UIBarButtonItem
     open func buildBarButtonItem() -> UIBarButtonItem {
         self.button.sizeToFit()
-        if self.button.frameWidth < 30 {
-            self.button.frameWidth = 30
+        if self.button.frameWidth < 36 {
+            self.button.frameWidth = 36
         }
         return UIBarButtonItem(customView: self.button)
     }
@@ -49,8 +49,8 @@ open class YJUIBarButtonItem: NSObject {
     /// 构建返回按钮UIBarButtonItem
     open func buildBackBarButtonItem() -> UIBarButtonItem {
         let item = self.buildBarButtonItem()
-        if self.button.frameWidth < 40 {
-            self.button.frameWidth = 40
+        if self.button.frameWidth < 44 {
+            self.button.frameWidth = 44
         }
         self.button.contentHorizontalAlignment = .left
         return item;
