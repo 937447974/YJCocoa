@@ -46,14 +46,6 @@ open class YJScheduler: NSObject {
     private var subDict = Dictionary<String, Array<YJSchedulerSubscribe>>()
     private var intArray = [YJSchedulerIntercept]()
     
-    private func execute(queue: YJDispatchQueue, work: @escaping (YJScheduler) -> Void) {
-        queue.async { [weak self] in
-            if self != nil {
-                work(self!)
-            }
-        }
-    }
-    
 }
 
 extension YJScheduler {
@@ -79,7 +71,7 @@ extension YJScheduler {
     public func subscribe(topic: String, subscriber: AnyObject? = nil, queue: YJScheduler.Queue = .default,  handler: @escaping YJSSubscribeHandler) {
         YJLogVerbose("[YJScheduler] \(String(describing: subscriber)) 订阅 \(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
-        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+        self.workQueue.async { [unowned self] in
             let subArray = self.subDict[topic] ?? []
             var newArray = [target]
             for item in subArray {
@@ -113,7 +105,7 @@ extension YJScheduler {
             }
             self.subDict[topic] = newArray
         }
-        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+        self.workQueue.async { [unowned self] in
             if let topic = topic {
                 removeSubscribe(topic: topic, array: self.subDict[topic] ?? [])
             } else {
@@ -137,7 +129,7 @@ extension YJScheduler {
      */
     public func intercept(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completion handler: @escaping YJSInterceptHandler) {
         let item = YJSchedulerIntercept(interceptor: interceptor ?? self, canHandler: canHandler, completionHandler: handler)
-        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+        self.workQueue.async { [unowned self] in
             self.intArray.append(item)
         }
     }
@@ -181,7 +173,7 @@ extension YJScheduler {
     public func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
         self.initLoadScheduler()
         YJLogVerbose("[YJScheduler] 发布\(topic), data:\(data ?? "nil")")
-        self.execute(queue: self.workQueue) { (self: YJScheduler) in
+       self.workQueue.async { [unowned self] in
             for item in self.intArray {
                 if item.interceptor != nil && item.canHandler(topic) {
                     item.completionHandler(topic, data, handler)
