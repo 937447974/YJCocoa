@@ -45,13 +45,12 @@ open class YJURLRouter: NSObject {
     
     /// 路由器初始化启动加载
     public var loadRouter: YJDispatchWork?
-    /// 允许连续跳转的间隔
-    public var timeInterval = 0.5
+    /// 跳转的超时时间
+    public var timeOut: CFAbsoluteTime = 3
     
     var nodeCache = NSCache<NSString, UIViewController>()
     var isInitRouter = false
-    var openTime: Double = 0
-    var openUrl = ""
+    var openTime: CFAbsoluteTime = 0
     
     /**
      *  注册路由
@@ -76,6 +75,7 @@ open class YJURLRouter: NSObject {
         YJLogVerbose("[YJURLRouter] 注册:\(register.url)")
         let topic = self.topic(with: register.url)
         YJSchedulerS.subscribe(topic: topic, subscriber: self, queue: .main) { [unowned self] (data: Any?, handler: YJSPublishHandler?) in
+            self.openTime = 0
             let options: [String: Any] = data as! [String: Any]
             self.openRouter(register: register, options: options, completion: handler)
         }
@@ -131,6 +131,7 @@ extension YJURLRouter {
         YJSchedulerS.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
             return canOpen(self.url(with: topic))
         }) { [unowned self] (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
+            self.openTime = 0
             let url = self.url(with: topic)
             YJLogVerbose("[YJURLRouter] 拦截:\(url)")
             let options: [String: Any] = data as? [String: Any] ?? [:]
@@ -164,11 +165,10 @@ extension YJURLRouter {
     public func openURL(url: String, options: [String: Any]? = nil, completion handler: YJRCompletionHandler? = nil) {
         self.initLoadScheduler()
         let time = CFAbsoluteTimeGetCurrent()
-        guard time - self.openTime >= self.timeInterval || self.openUrl != url else {
+        guard time - self.openTime >= self.timeOut else {
             return
         }
         self.openTime = time
-        self.openUrl = url
         var options = options ?? [:]
         if url.contains("?") {
             let urlOptions = YJURL.analysisParams(url, decode: true)
