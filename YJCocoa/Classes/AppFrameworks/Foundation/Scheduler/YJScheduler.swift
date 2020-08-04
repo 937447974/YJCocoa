@@ -72,14 +72,14 @@ extension YJScheduler {
         YJLogVerbose("[YJScheduler] \(String(describing: subscriber)) 订阅 \(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.workQueue.async { [unowned self] in
+            guard let newSubscriber = target.subscriber else { return }
             let subArray = self.subDict[topic] ?? []
             var newArray = [target]
             for item in subArray {
-                guard let subscriber = target.subscriber else { return }
-                if subscriber.isEqual(item.subscriber) && !subscriber.isEqual(self) {
-                    continue
-                } else if item.subscriber != nil {
-                    newArray.append(item)
+                if let oldSubscriber = item.subscriber {
+                    if !oldSubscriber.isEqual(newSubscriber) || self.isEqual(newSubscriber) {
+                        newArray.append(item)
+                    }
                 } else {
                     YJLogVerbose("[YJScheduler] 自动取消订阅: \(item.topic)")
                 }
@@ -173,7 +173,7 @@ extension YJScheduler {
     public func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
         self.initLoadScheduler()
         YJLogVerbose("[YJScheduler] 发布\(topic), data:\(data ?? "nil")")
-       self.workQueue.async { [unowned self] in
+        self.workQueue.async { [unowned self] in
             for item in self.intArray {
                 if item.interceptor != nil && item.canHandler(topic) {
                     item.completionHandler(topic, data, handler)
@@ -184,6 +184,7 @@ extension YJScheduler {
             for item in subArray {
                 guard let subscriber = item.subscriber else { continue }
                 let block: YJDispatchWork = {
+                    if item.subscriber == nil { return }
                     item.completionHandler(data, handler)
                 }
                 if item.queue == .main {
