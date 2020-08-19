@@ -17,27 +17,28 @@ open class YJUIRowActionTVCell: YJUITableViewCell {
     /// 滑动最大区域
     public var panMaxWidth: CGFloat = 0
     /// 滑动的手势
-    public lazy var panGesture: UIPanGestureRecognizer = {
+    lazy var panGesture: UIPanGestureRecognizer = {
         let gesture = UIPanGestureRecognizer()
         gesture.delegate = self
         gesture.addTarget(self, action: #selector(YJUIRowActionTVCell.gesturePanAction))
         return gesture
     }()
-    /// 滑动的视图
-    public lazy var sideView: UIView = UIView(frame: self.bounds)
+    lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.isEnabled = false
+        gesture.addTarget(self, action: #selector(YJUIRowActionTVCell.gestureTapAction))
+        return gesture
+    }()
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(self.sideView)
+        self.addGestureRecognizer(self.panGesture)
+        self.contentView.isUserInteractionEnabled = true
+        self.contentView.addGestureRecognizer(self.tapGesture)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        self.sideView.frame = self.bounds
     }
     
     @objc
@@ -46,18 +47,29 @@ open class YJUIRowActionTVCell: YJUITableViewCell {
         case .began:
             self.beginX = self.panGesture.translation(in: self).x
         case .changed:
-            var left = self.panGesture.translation(in: self).x - self.beginX
+            let x = self.panGesture.translation(in: self).x
+            var left = self.contentView.frameLeft + x - self.beginX
+            self.beginX = x
             if left < -self.panMaxWidth {
                 left = -self.panMaxWidth
             } else if left > 0 {
                 left = 0
             }
-            self.sideView.frameLeft = left
+            self.contentView.frameLeft = left
         default:
-            let left = self.sideView.frameLeft < -self.panMaxWidth / 2 ? -self.panMaxWidth : 0
+            let left = self.contentView.frameLeft < -self.panMaxWidth / 2 ? -self.panMaxWidth : 0
+            self.tapGesture.isEnabled = left != 0
             UIView.animate(withDuration: 0.2) {
-                self.sideView.frameLeft = left
+                self.contentView.frameLeft = left
             }
+        }
+    }
+    
+    @objc
+    func gestureTapAction() {
+        self.tapGesture.isEnabled = false
+        UIView.animate(withDuration: 0.2) {
+            self.contentView.frameLeft = 0
         }
     }
     
