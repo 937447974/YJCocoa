@@ -13,7 +13,7 @@ import UIKit
 
 @objcMembers
 open class YJUIPageViewController: UIPageViewController {
-
+    
     /// 管理器
     public var manager: YJUIPageViewManager!
     /// cell 数据源
@@ -21,7 +21,7 @@ open class YJUIPageViewController: UIPageViewController {
         get {return self.manager.dataSourceCell}
         set {self.manager.dataSourceCell = newValue}
     }
-
+    
     public override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
         self.manager = YJUIPageViewManager(pageViewController: self)
