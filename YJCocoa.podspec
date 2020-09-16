@@ -91,6 +91,7 @@ Pod::Spec.new do |s|
             ui.subspec 'CollectionView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/CollectionView/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/AppFrameworks/UIKit/Extension'
             end
             ui.subspec 'Extension' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/Extension/*'
