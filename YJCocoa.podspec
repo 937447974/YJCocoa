@@ -116,6 +116,7 @@ Pod::Spec.new do |s|
             ui.subspec 'TableView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TableView/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/Log'
+                sub.dependency 'YJCocoa/UIKit/Extension'
             end
             ui.subspec 'TouchView' do |sub|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/UIKit/TouchView/*'
