@@ -40,6 +40,12 @@ extension YJSafetyDictionary {
         }
     }
     
+    open override func removeAllObjects() {
+        self.mutex.lock {[unowned self] in
+            self.dict.removeAllObjects()
+        }
+    }
+    
     open override func removeObject(forKey aKey: Any) {
         self.mutex.lock {[unowned self] in
             self.dict.removeObject(forKey: aKey)
