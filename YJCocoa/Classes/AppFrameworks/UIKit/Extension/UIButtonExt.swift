@@ -60,9 +60,13 @@ public extension UIButton {
     /// - parameter color: 默认色
     /// - parameter highlightedColor: 高亮色，默认 color 的 0.75 透明度
     func setBackgroundImage(_ color: UIColor, highlightedColor: UIColor? = nil) {
-        self.setBackgroundImage(UIImage.image(with: color, size: self.frameSize), for: .normal)
         let highlightedColor = highlightedColor ?? color.withAlphaComponent(0.75)
-        self.setBackgroundImage(UIImage.image(with: highlightedColor, size: self.frameSize), for: .highlighted)
+        if let normalImage = UIImage.image(with: color, size: self.frameSize) {
+            self.setBackgroundImage(normalImage, for: .normal)
+            self.setBackgroundImage(UIImage.image(with: highlightedColor, size: self.frameSize), for: .highlighted)
+        } else {
+            self.backgroundColor = color
+        }
     }
     
 }
