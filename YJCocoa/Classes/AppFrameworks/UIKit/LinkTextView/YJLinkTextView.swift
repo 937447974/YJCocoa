@@ -26,7 +26,7 @@ open class YJLinkTextView: UITextView {
         let attributedText = NSMutableAttributedString(string: str, attributes: attrs)
         let regulaStr = "(((https?|ftp)://)|(www(\\.)){1})[-A-Za-z0-9+&@#/%?=~_|!:,;]+(\\.){1}[-A-Za-z0-9+&@#/:%=~_|.?]+"
         let regex = try! NSRegularExpression(pattern: regulaStr, options: .caseInsensitive)
-        let matches = regex.matches(in: str, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length: str.count))
+        let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: attributedText.length))
         var selectRanges = [NSRange]()
         for match in matches {
             let range = match.range
