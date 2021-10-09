@@ -19,6 +19,7 @@ public extension UILabel {
     static func sizeThatFits(_ size: CGSize, numberOfLines: Int = 0, font: UIFont, text: String?) -> CGSize {
         fitsLabel.numberOfLines = numberOfLines
         fitsLabel.font = font
+        fitsLabel.attributedText = nil
         fitsLabel.text = text
         return fitsLabel.sizeThatFits(size)
     }
@@ -26,6 +27,7 @@ public extension UILabel {
     /// 富文本显示计算
     static func sizeThatFits(_ size: CGSize, numberOfLines: Int = 0, text: NSAttributedString) -> CGSize {
         fitsLabel.numberOfLines = numberOfLines
+        fitsLabel.text = nil
         fitsLabel.attributedText = text
         return fitsLabel.sizeThatFits(size)
     }
