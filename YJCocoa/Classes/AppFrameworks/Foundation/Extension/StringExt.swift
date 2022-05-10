@@ -13,6 +13,7 @@ import UIKit
 
 public extension Optional where Wrapped == String {
     
+    /// 判断字符串是否为空
     var isEmpty: Bool {
         get { return self?.isEmpty ?? true }
     }
@@ -21,8 +22,9 @@ public extension Optional where Wrapped == String {
 
 public extension String {
     
+    /// 字符串[范围]截取
     subscript(r: Range<Int>) -> String {
-        guard r.upperBound <= self.count else { return "" }
+        guard r.upperBound <= self.count else { return self }
         let start = self.index(self.startIndex, offsetBy: r.lowerBound)
         let end = self.index(self.startIndex, offsetBy: r.upperBound)
         return String(self[start..<end])
