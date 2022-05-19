@@ -58,18 +58,6 @@ import UIKit
         set {self.frame.size = newValue}
     }
     
-    // MARK: center
-    /// .center.x
-    var centerX: CGFloat {
-        get {return self.center.x}
-        set {self.center.x = newValue}
-    }
-    /// .center.y
-    var centerY: CGFloat {
-        get {return self.center.y}
-        set {self.center.y = newValue}
-    }
-    
     // MARK: bounds
     /// .bounds.origin.x
     var boundsLeft: CGFloat {
