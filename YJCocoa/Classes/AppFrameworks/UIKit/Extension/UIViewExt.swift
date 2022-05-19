@@ -114,6 +114,7 @@ import UIKit
     
 }
 
+@objc
 public extension UIView {
     
     /// 移除所有子视图

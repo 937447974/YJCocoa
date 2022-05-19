@@ -16,7 +16,11 @@ public typealias YJDispatchWork = () -> Void
 // MARK: main queue
 /// main queue 同步执行
 public func dispatch_sync_main(_ work: @escaping YJDispatchWork) {
-    DispatchQueue.main.async(execute: work)
+    if pthread_main_np() == 0 {
+        DispatchQueue.main.sync(execute: work)
+    } else {
+        work()
+    }
 }
 
 /// main queue 异步执行
@@ -70,7 +74,7 @@ open class YJDispatchQueue: NSObject {
     }()
     /// 并行
     public static var concurrent: YJDispatchQueue = {
-        let queue = DispatchQueue.init(label: "com.codansYC.queue", attributes: DispatchQueue.Attributes.concurrent)
+        let queue = DispatchQueue(label: "com.yjcocoa.concurrent", attributes: DispatchQueue.Attributes.concurrent)
         return YJDispatchQueue(queue: queue, maxConcurrent: 16)
     }()
     
@@ -112,21 +116,4 @@ open class YJDispatchQueue: NSObject {
     }
     
 }
-
-extension YJDispatchQueue {
-    
-    public static func syncMain(_ work: @escaping YJDispatchWork) {
-        DispatchQueue.main.async(execute: work)
-    }
-    
-    public static func afterMain(delayInSeconds: TimeInterval, work: @escaping YJDispatchWork) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: work)
-    }
-    
-    public static func asyncDefault(_ work: @escaping YJDispatchWork) {
-        DispatchQueue.global(qos: .default).async(execute: work)
-    }
-    
-}
-
 
