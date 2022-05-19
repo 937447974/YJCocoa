@@ -12,6 +12,7 @@
 import UIKit
 
 /// pageViewCell对应的模型封装
+@objcMembers
 open class YJUIPageViewCellObject: NSObject {
     
     /// cell对应的VM

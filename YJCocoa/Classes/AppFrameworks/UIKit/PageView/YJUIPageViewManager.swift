@@ -19,7 +19,7 @@ open class YJUIPageViewManager: NSObject {
     
     /// 当前页码
     public private(set) var index: Int = 0
-    /// 是否循环展示, 默认 true 循环
+    /// 是否循环展示, 默认 false 不循环
     public var isLoop = false
     /// 是否取消阻力效果
     public var isDisableBounces = false
@@ -27,7 +27,7 @@ open class YJUIPageViewManager: NSObject {
     /// YJUIPageViewController
     weak public private(set) var pageVC: YJUIPageViewController!
     
-    private var cachePage = NSCache<NSString, YJUIPageViewCell>()
+    private var cachePage = NSCache<NSString, UIViewController>()
     private lazy var scrollView: UIScrollView? = {
         for view in self.pageVC.view.subviews {
             if let scrollView = view as? UIScrollView {
@@ -122,24 +122,24 @@ extension YJUIPageViewManager {
 extension YJUIPageViewManager: UIPageViewControllerDataSource {
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let cell = viewController as! YJUIPageViewCell
+        let cell = viewController as! YJUIPageViewCellProtocol
         return self.pageViewCell(at: cell.cellObject.index - 1)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let cell = viewController as? YJUIPageViewCell else { return nil }
+        guard let cell = viewController as? YJUIPageViewCellProtocol else { return nil }
         return self.pageViewCell(at: cell.cellObject.index + 1)
     }
     
-    private func pageViewCell(at index:Int) -> YJUIPageViewCell? {
+    private func pageViewCell(at index:Int) -> YJUIPageViewCellProtocol? {
         guard let co = self.cellObject(at: index) else {
             YJLogWarn("[YJPageView] 返回空cell")
             return nil
         }
         let key = "\(co.reuseIdentifier)-\(index)" as NSString
-        var cell: YJUIPageViewCell! = self.cachePage.object(forKey: key)
+        var cell: YJUIPageViewCellProtocol! = self.cachePage.object(forKey: key) as? YJUIPageViewCellProtocol
         if cell == nil {
-            cell = (co.cellClass as! YJUIPageViewCell.Type).init()
+            cell = (co.cellClass as! UIViewController.Type).init() as? YJUIPageViewCellProtocol
             self.cachePage.setObject(cell, forKey: key)
             if cell.view.backgroundColor == nil {
                 cell.view.backgroundColor = UIColor.white

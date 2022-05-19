@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     lazy var pageVC: YJUIPageViewController! = {
         let pageVC = YJUIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageVC.view.frame = self.view.bounds
-        pageVC.manamger.isLoop = false
-        pageVC.manamger.isDisableBounces = true
+        pageVC.manager.isLoop = false
+        pageVC.manager.isDisableBounces = true
         return pageVC
     }()
     
