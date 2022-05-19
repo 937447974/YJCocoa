@@ -1,5 +1,5 @@
 //
-//  YJUIScroolViewManager.swift
+//  YJUIScrollViewManager.swift
 //  YJCocoa
 //
 //  HomePage:https://github.com/937447974/YJCocoa
@@ -45,10 +45,10 @@ public enum YJUIScrollViewScroll: Int {
     case endRight
 }
 
-public typealias YJUIScroolViewManagerDidScroll = (_ scroll: YJUIScrollViewScroll) -> Void
-
 /// UIScrollView管理器
-open class YJUIScroolViewManager: NSObject {
+open class YJUIScrollViewManager: NSObject {
+    
+    public typealias DidScrollClosure = (_ scroll: YJUIScrollViewScroll) -> Void
     
     /// 已经滚动间隔,控制.Did...枚举提示间隔
     public var didSpacing: CGFloat = 30
@@ -58,45 +58,45 @@ open class YJUIScroolViewManager: NSObject {
     public var endInset = UIEdgeInsets.zero
     
     /// 垂直滚动回调
-    public var didVerticalScrollBlock: YJUIScroolViewManagerDidScroll?
+    public var didVerticalScrollClosure: DidScrollClosure?
     /// 水平滚动回调
-    public var didHorizontalScrollBlock: YJUIScroolViewManagerDidScroll?
+    public var didHorizontalScrollClosure: DidScrollClosure?
     
     private var contentOffset = CGPoint.zero
     private var verticalScroll = YJUIScrollViewScroll.none {
         willSet {
             if newValue != self.verticalScroll || newValue == .none  {
-                self.didVerticalScrollBlock!(newValue)
+                self.didVerticalScrollClosure!(newValue)
             }
         }
     }
     private var horizontalScroll = YJUIScrollViewScroll.none {
         willSet {
             if newValue != self.horizontalScroll || newValue == .none  {
-                self.didHorizontalScrollBlock!(newValue)
+                self.didHorizontalScrollClosure!(newValue)
             }
         }
     }
     
 }
 
-extension YJUIScroolViewManager: UIScrollViewDelegate {
+extension YJUIScrollViewManager: UIScrollViewDelegate {
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.contentOffset = scrollView.contentOffset
-        if self.didVerticalScrollBlock != nil {
+        if self.didVerticalScrollClosure != nil {
             self.verticalScroll = .none
         }
-        if self.didHorizontalScrollBlock != nil {
+        if self.didHorizontalScrollClosure != nil {
             self.horizontalScroll = .none
         }
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.didVerticalScrollBlock != nil {
+        if self.didVerticalScrollClosure != nil {
             self.scrollViewDidVerticalScroll(scrollView)
         }
-        if self.didHorizontalScrollBlock != nil {
+        if self.didHorizontalScrollClosure != nil {
             self.scrollViewDidHorizontalScroll(scrollView)
         }
     }
