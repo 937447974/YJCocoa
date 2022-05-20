@@ -171,7 +171,7 @@ extension YJURLRouter {
         self.openTime = time
         var options = options ?? [:]
         if url.contains("?") {
-            let urlOptions = YJURL.analysisParams(url, decode: true)
+            let urlOptions = YJURL.analysis(url: url, decode: true)
             options.merge(urlOptions){ (current, _) in current }
         }
         let url = self.urlPrefix(with: url)

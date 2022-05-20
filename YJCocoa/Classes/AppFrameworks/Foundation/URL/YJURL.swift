@@ -21,7 +21,7 @@ public class YJURL: NSObject {
      * - Parameter params: 参数
      * - Parameter encode: 是否 encode 编码参数
      */
-    public static func assemblyParams(_ url: String?, params: Dictionary<String, Any>, encode: Bool) -> String {
+    public static func assembly(url: String?, params: Dictionary<String, Any>, encode: Bool) -> String {
         var result = ""
         for (key, var value) in params {
             if encode, let str = value as? String {
@@ -49,7 +49,7 @@ public class YJURL: NSObject {
      * - Parameter params: 参数
      * - Parameter encode: 是否 encode 编码参数
      */
-    public static func analysisParams(_ url: String, decode: Bool) -> Dictionary<String, Any> {
+    public static func analysis(url: String, decode: Bool) -> Dictionary<String, Any> {
         var params: String = url.components(separatedBy: "?").last!
         params = params.components(separatedBy: "#")[0]
         var result = Dictionary<String, Any>()

@@ -18,8 +18,11 @@ public typealias YJTimerBlock = (_ target: AnyObject, _ timer: YJTimer) -> Void
 open class YJTimer: NSObject {
     
     public private(set) var timer: Timer!
-    private var block: YJTimerBlock!
-    private weak var target: AnyObject?
+    /// 携带的数据
+    public var userInfo: Any?
+    
+    var block: YJTimerBlock!
+    weak var target: AnyObject?
     
     /// 初始化，并添加到当前 RunLoop 的 common Mode
     /// - parameter timeInterval: 时间间隔
@@ -34,7 +37,12 @@ open class YJTimer: NSObject {
         RunLoop.current.add(self.timer, forMode: RunLoop.Mode.common)
     }
     
-    @objc private func autoUpdateTime() {
+    deinit {
+        YJLogVerbose("[YJCocoa] timer 释放")
+    }
+    
+    @objc
+    func autoUpdateTime() {
         guard let target = self.target else {
             self.timer.invalidate()
             return
@@ -42,9 +50,9 @@ open class YJTimer: NSObject {
         self.block(target, self)
     }
     
-    deinit {
+    /// 手动释放计时器
+    open func invalidate() {
         self.timer.invalidate()
-        YJLogVerbose("[YJCocoa] timer 释放")
     }
     
 }
