@@ -30,7 +30,7 @@ open class YJURLSession: NSObject & NSCacheDelegate {
     // MARK: NSCacheDelegate
     public func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: YJURLSessionTask) {
         if obj.state == .default || obj.state == .running {
-            dispatch_after_default(delayInSeconds: 0.2) {
+            DispatchQueue.afterDefault(delayInSeconds: 0.2) {
                 cache.setObject(obj, forKey: obj.request!.identifier as AnyObject)
             }
         }

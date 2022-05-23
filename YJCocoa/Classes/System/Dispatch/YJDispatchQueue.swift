@@ -13,50 +13,53 @@ import UIKit
 
 public typealias YJDispatchWork = () -> Void
 
-// MARK: main queue
-/// main queue 同步执行
-public func dispatch_sync_main(_ work: @escaping YJDispatchWork) {
-    if pthread_main_np() == 0 {
-        DispatchQueue.main.sync(execute: work)
-    } else {
-        work()
+public extension DispatchQueue {
+    
+    // MARK: main queue
+    /// main queue 同步执行
+    class func syncMain(_ work: @escaping YJDispatchWork) {
+        if pthread_main_np() == 0 {
+            DispatchQueue.main.sync(execute: work)
+        } else {
+            work()
+        }
     }
-}
-
-/// main queue 异步执行
-public func dispatch_async_main(_ work: @escaping YJDispatchWork) {
-    DispatchQueue.main.async(execute: work)
-}
-
-/// main queue 延时执行
-public func dispatch_after_main(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: work)
-}
-
-// MARK: default queue
-/// default queue 异步执行
-public func dispatch_async_default(_ work: @escaping YJDispatchWork) {
-    DispatchQueue.global(qos: .default).async(execute: work)
-}
-
-/// default queue 延时执行
-public func dispatch_after_default(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
-    DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + delayInSeconds, execute: work)
-}
-
-/// background queue 异步执行
-public func dispatch_async_background(_ work: @escaping YJDispatchWork) {
-    DispatchQueue.global(qos: .background).async(execute: work)
-}
-
-/// serial queue 异步执行
-public func dispatch_async_serial(_ work: @escaping YJDispatchWork) {
-    YJDispatchQueue.serial.async(work)
-}
-
-/// concurrent queue 异步执行
-public func dispatch_async_concurrent(_ work: @escaping YJDispatchWork) {
-    YJDispatchQueue.concurrent.async(work)
+    
+    /// main queue 异步执行
+    class func asyncMain(_ work: @escaping YJDispatchWork) {
+        DispatchQueue.main.async(execute: work)
+    }
+    
+    /// main queue 延时执行
+    class func afterMain(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute: work)
+    }
+    
+    // MARK: default queue
+    /// default queue 异步执行
+    class func asyncDefault(_ work: @escaping YJDispatchWork) {
+        DispatchQueue.global(qos: .default).async(execute: work)
+    }
+    
+    /// default queue 延时执行
+    class func afterDefault(delayInSeconds: TimeInterval, execute work: @escaping YJDispatchWork) {
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + delayInSeconds, execute: work)
+    }
+    
+    /// background queue 异步执行
+    class func asyncBackground(_ work: @escaping YJDispatchWork) {
+        DispatchQueue.global(qos: .background).async(execute: work)
+    }
+    
+    /// serial queue 异步执行
+    class func asyncSerial(_ work: @escaping YJDispatchWork) {
+        YJDispatchQueue.serial.async(work)
+    }
+    
+    /// concurrent queue 异步执行
+    class func asyncConcurrent(_ work: @escaping YJDispatchWork) {
+        YJDispatchQueue.concurrent.async(work)
+    }
 }
 
 /// 调度队列

@@ -11,15 +11,6 @@
 
 import UIKit
 
-/// 路由回调
-public typealias YJRCompletionHandler = (_ options: [String: Any]) -> Void
-/// 未注册 url 能否打开
-public typealias YJRUnregisteredCanOpen = (_ url: String) -> Bool
-/// 能否打开路由
-public typealias YJRCanOpenHandler = (_ can: Bool) -> Void
-/// 打开路由
-public typealias YJROpenHandler = (_ url: String, _ options: [String: Any], _ handler: YJRCompletionHandler?) -> Void
-
 /// 路由协议
 @objc
 public protocol YJURLRouterProtocol {
@@ -28,13 +19,13 @@ public protocol YJURLRouterProtocol {
     /// 路由器初始化
     static func router(with url: String) -> UIViewController
     /// 路由器能否打开
-    func routerCanOpen(with options:[String: Any], handler: @escaping YJRCanOpenHandler)
+    func routerCanOpen(with options:[String: Any], handler: @escaping YJURLRouter.CanOpenHandler)
     /// 路由器打开
     func routerOpen()
     /// push失败后，present 打开当前路由
     func routerOpenPresent()
     /// 路由器刷新数据
-    func routerReloadData(with options:[String: Any], completion handler: YJRCompletionHandler?)
+    func routerReloadData(with options:[String: Any], completion handler: YJURLRouter.CompletionHandler?)
 }
 
 /// 路由器单例
@@ -42,6 +33,15 @@ public var YJURLRouterS = YJURLRouter()
 
 /// URL 路由器
 open class YJURLRouter: NSObject {
+    
+    /// 路由回调
+    public typealias CompletionHandler = (_ options: [String: Any]) -> Void
+    /// 未注册 url 能否打开
+    public typealias UnregisteredCanOpen = (_ url: String) -> Bool
+    /// 能否打开路由
+    public typealias CanOpenHandler = (_ can: Bool) -> Void
+    /// 打开路由
+    public typealias OpenHandler = (_ url: String, _ options: [String: Any], _ handler: CompletionHandler?) -> Void
     
     /// 路由器初始化启动加载
     public var loadRouter: YJDispatchWork?
@@ -67,7 +67,7 @@ open class YJURLRouter: NSObject {
      *  - parameter url:     路由链接
      *  - parameter handler: block 自定义跳转
      */
-    public func register(url: String, handler: @escaping YJROpenHandler) {
+    public func register(url: String, handler: @escaping OpenHandler) {
         self.registerRouter(register: YJRouterRegister(url: url, cls: nil, cache: false, handler: handler))
     }
     
@@ -81,7 +81,7 @@ open class YJURLRouter: NSObject {
         }
     }
     
-    private func openRouter(register: YJRouterRegister, options: [String: Any], completion handler:YJRCompletionHandler?) {
+    private func openRouter(register: YJRouterRegister, options: [String: Any], completion handler: CompletionHandler?) {
         guard register.handler == nil else {
             register.handler!(register.url, options, handler)
             return
@@ -127,7 +127,7 @@ extension YJURLRouter {
      *  - parameter canOpen:     能否打开路由
      *  - parameter openHandler: 打开路由
      */
-    public func interceptUnregistered(canOpen: @escaping YJRUnregisteredCanOpen, openHandler: @escaping YJROpenHandler) {
+    public func interceptUnregistered(canOpen: @escaping UnregisteredCanOpen, openHandler: @escaping OpenHandler) {
         YJSchedulerS.intercept(interceptor: self, canHandler: { [unowned self] (topic: String) -> Bool in
             return canOpen(self.url(with: topic))
         }) { [unowned self] (topic: String, data: Any?, publishHandler: YJSPublishHandler?) in
@@ -162,7 +162,7 @@ extension YJURLRouter {
      * - parameter options: 参数
      * - parameter handler: 路由执行操作后的回调
      */
-    public func openURL(url: String, options: [String: Any]? = nil, completion handler: YJRCompletionHandler? = nil) {
+    public func openURL(url: String, options: [String: Any]? = nil, completion handler: CompletionHandler? = nil) {
         self.initLoadScheduler()
         let time = CFAbsoluteTimeGetCurrent()
         guard time - self.openTime >= self.timeOut else {
@@ -219,9 +219,9 @@ extension UIViewController: YJURLRouterProtocol {
         return vc
     }
     
-    open func routerReloadData(with options: [String: Any], completion handler: YJRCompletionHandler?) {}
+    open func routerReloadData(with options: [String: Any], completion handler: YJURLRouter.CompletionHandler?) {}
     
-    open func routerCanOpen(with options:[String: Any], handler: @escaping YJRCanOpenHandler) {
+    open func routerCanOpen(with options:[String: Any], handler: @escaping YJURLRouter.CanOpenHandler) {
         handler(true)
     }
     
@@ -254,9 +254,9 @@ private class YJRouterRegister {
     /// 节点YJNSURLRouterProtocol实现类
     var cls: UIViewController.Type?
     /// 节点 block 实现回调
-    var handler: YJROpenHandler?
+    var handler: YJURLRouter.OpenHandler?
     
-    init(url:String, cls: UIViewController.Type?, cache: Bool, handler: YJROpenHandler? = nil) {
+    init(url:String, cls: UIViewController.Type?, cache: Bool, handler: YJURLRouter.OpenHandler? = nil) {
         self.url = url
         self.cache = cache
         self.cls = cls
@@ -267,10 +267,10 @@ private class YJRouterRegister {
 
 private class YJRouterUnregistered {
     
-    var canOpen: YJRUnregisteredCanOpen!
-    var openHandler: YJROpenHandler!
+    var canOpen: YJURLRouter.UnregisteredCanOpen!
+    var openHandler: YJURLRouter.OpenHandler!
     
-    init(canOpen: @escaping YJRUnregisteredCanOpen, openHandler: @escaping YJROpenHandler) {
+    init(canOpen: @escaping YJURLRouter.UnregisteredCanOpen, openHandler: @escaping YJURLRouter.OpenHandler) {
         self.canOpen = canOpen
         self.openHandler = openHandler
     }

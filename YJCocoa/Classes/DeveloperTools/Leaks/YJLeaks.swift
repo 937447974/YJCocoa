@@ -43,7 +43,7 @@ public class YJLeaks: NSObject {
         let className = "\(type(of: target))"
         YJLogVerbose("[YJLeaks] \(className) capture memory leaks");
         let leakPropertyArray = self.captureMemory(target: target, level: 0, path: className)
-        dispatch_after_default(delayInSeconds: 3) { [weak target] in
+        DispatchQueue.afterMain(delayInSeconds: 3) { [weak target] in
             var array = [String]()
             for item in leakPropertyArray {
                 if item.obj != nil {
