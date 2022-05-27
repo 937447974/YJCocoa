@@ -20,9 +20,10 @@ extension UICollectionReusableView {
     }
     
     /// 获取 YJUICollectionCellObject 并自动填充模型
-    public class func cellObject(with cellModel: Any?) -> YJUICollectionCellObject {
+    public class func cellObject(with cellModel: Any?, didSelectClosure: YJUICollectionCellSelectClosure? = nil) -> YJUICollectionCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
+        co.didSelectClosure = didSelectClosure
         return co
     }
     

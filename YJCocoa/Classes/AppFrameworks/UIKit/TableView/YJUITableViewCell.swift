@@ -19,9 +19,10 @@ import UIKit
     }
     
     /// 获取 YJUITableCellObject 并自动填充模型
-    open class func cellObject(with cellModel: Any?) -> YJUITableCellObject {
+    open class func cellObject(with cellModel: Any?, didSelectClosure: YJUITableCellSelectClosure? = nil) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
+        co.didSelectClosure = didSelectClosure
         return co
     }
     
