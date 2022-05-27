@@ -97,7 +97,7 @@ open class YJURLRouter: NSObject {
         node.routerCanOpen(with: options) { [weak node] (can) in
             guard can else { return }
             node?.routerOpen()
-            dispatch_async_main { [weak node] in
+            DispatchQueue.asyncMain { [weak node] in
                 node?.routerReloadData(with: options, completion: handler)
             }
         }

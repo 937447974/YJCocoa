@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         let tableView = YJUITableView.init(frame: self.view.bounds, style: .plain)
         tableView.delegate = tableView.manamger
         tableView.dataSource = tableView.manamger
-        tableView.manamger.cacheHeight = .indexPath
         return tableView
     }()
     
@@ -23,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.init();
-        self.automaticallyAdjustsScrollViewInsets = false;
+//        self.automaticallyAdjustsScrollViewInsets = false;
         self.view.addSubview(self.tableView)
         self.testData()
     }
@@ -32,7 +31,7 @@ class ViewController: UIViewController {
         for i in 0..<50 {
             let cm = YJTestTVCellModel()
             cm.userName = "阳君-\(i)"
-            let co = YJTestTVCell.cellObject(withCellModel: cm)
+            let co = YJTestTVCell.cellObject(with: cm)
             self.tableView.dataSourceCellFirst.append(co)
         }
         self.tableView.reloadData()

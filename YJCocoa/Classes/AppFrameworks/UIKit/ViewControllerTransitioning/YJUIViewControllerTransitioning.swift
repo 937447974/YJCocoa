@@ -29,7 +29,7 @@ open class YJUIViewControllerTransitioning: NSObject {
     /// pop 的视图
     public weak var popVC: UIViewController? {
         willSet {
-            dispatch_async_main {
+            DispatchQueue.asyncMain {
                 newValue?.view.addGestureRecognizer(self.popGesture)
             }            
         }

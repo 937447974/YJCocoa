@@ -24,12 +24,14 @@ open class YJUITableCellObject: NSObject {
     /// cell 点击回调
     public var didSelectClosure: YJUITableCellSelectClosure?
     
-    /// cell 所处位置
-    public var indexPath: IndexPath!
-    /// UITableViewCell对应的类
+    /// cell 的类
     public private(set) var cellClass: AnyClass
-    /// UITableViewCell.reuseIdentifier，默认类名
+    /// cell 的缓存，UITableViewCell.reuseIdentifier，默认类名
     public var reuseIdentifier = ""
+    /// cell 的位置
+    public var indexPath: IndexPath!
+    /// cell 的高度
+    public var height: CGFloat?
     
     public init(cellClass: AnyClass) {
         self.cellClass = cellClass

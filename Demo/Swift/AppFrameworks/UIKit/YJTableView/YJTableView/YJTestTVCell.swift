@@ -31,7 +31,8 @@ class YJTestTVCell: YJUITableViewCell {
     
     // MARK: YJCocoa
     override class func tableViewManager(_ tableViewManager: YJUITableViewManager, heightWith cellObject: YJUITableCellObject) -> CGFloat {
-        return CGFloat(2 * cellObject.indexPath.row + 40)
+        cellObject.height = CGFloat(2 * cellObject.indexPath.row + 40)
+        return cellObject.height!
     }
     
     override func tableViewManager(_ tableViewManager: YJUITableViewManager, reloadWith cellObject: YJUITableCellObject) {

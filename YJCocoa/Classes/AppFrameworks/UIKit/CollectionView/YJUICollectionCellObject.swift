@@ -25,12 +25,15 @@ open class YJUICollectionCellObject: NSObject {
     /// cell 点击回调
     public var didSelectClosure: YJUICollectionCellSelectClosure?
     
-    /// cell 所处位置
-    public var indexPath: IndexPath!
     /// UITableViewCell对应的类
     public private(set) var cellClass: UICollectionReusableView.Type
     /// UITableViewCell.reuseIdentifier，默认类名
     public var reuseIdentifier = ""
+    /// cell 所处位置
+    public var indexPath: IndexPath!
+    /// cell 的大小
+    public var size: CGSize?
+
     
     public init(cellClass: UICollectionReusableView.Type) {
         self.cellClass = cellClass

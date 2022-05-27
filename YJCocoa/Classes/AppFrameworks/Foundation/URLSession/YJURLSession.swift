@@ -91,7 +91,7 @@ open class YJURLSessionTask: NSObject {
             self.handler.removeAll()
             for item in handler {
                 if item.source != nil, let success = item.success {
-                    item.mainQueue ? dispatch_async_main({success(respModel)}) : success(respModel)
+                    item.mainQueue ? DispatchQueue.asyncMain({success(respModel)}) : success(respModel)
                 }
             }
         }
@@ -103,7 +103,7 @@ open class YJURLSessionTask: NSObject {
             self.handler.removeAll()
             for item in handler {
                 if item.source != nil, let failure = item.failure {
-                    item.mainQueue ? dispatch_async_main({failure(error)}) : failure(error)
+                    item.mainQueue ? DispatchQueue.asyncMain({failure(error)}) : failure(error)
                 }
             }
         }

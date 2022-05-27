@@ -188,7 +188,7 @@ extension YJScheduler {
                     item.completionHandler(data, handler)
                 }
                 if item.queue == .main {
-                    dispatch_async_main(block)
+                    DispatchQueue.asyncMain(block)
                 } else {
                     let queue = serial ? self.serialQueue : self.concurrentQueue
                     queue.async(block)

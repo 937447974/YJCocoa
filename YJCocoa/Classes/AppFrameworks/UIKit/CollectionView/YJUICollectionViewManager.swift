@@ -11,16 +11,6 @@
 
 import UIKit
 
-/// 缓存 size 的策略
-public enum YJUICollectionViewCacheSize : Int {
-    /// 根据相同的UITableViewCell类缓存高度
-    case `default`
-    /// 根据NSIndexPath对应的位置缓存高度
-    case indexPath
-    /// 根据类名和NSIndexPath双重绑定缓存高度
-    case classAndIndexPath
-}
-
 /** UICollectionView管理器*/
 @objcMembers
 open class YJUICollectionViewManager: NSObject {
@@ -43,16 +33,10 @@ open class YJUICollectionViewManager: NSObject {
         }
     }
     
-    /// 是否缓存高，默认缓存
-    public var isCacheSize = true
-    /// 缓存size的策略
-    public var cacheSize = YJUICollectionViewCacheSize.default
-    
     public weak private(set) var collectionView: UICollectionView!
     public weak private(set) var flowLayout: UICollectionViewFlowLayout!
     
     private var identifierSet = Set<String>()
-    private var cacheSizeDict = Dictionary<String, CGSize>()
     
     public init(collectionView: UICollectionView) {
         super.init()
@@ -128,11 +112,6 @@ extension YJUICollectionViewManager: UICollectionViewDelegate {
 
 extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
     
-    /// 清除所有缓存Size
-    public func clearAllCacheSize() {
-        self.cacheSizeDict.removeAll()
-    }
-    
     //MARK: UICollectionViewDelegateFlowLayout
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let co = self.cellObject(with: indexPath) else {
@@ -185,11 +164,8 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
     }
     
     private func collectionView(_ collectionView: UICollectionView, referenceSizeFor kind: String, in cellObject: YJUICollectionCellObject) -> CGSize {
-        let key = self.getKeyFromCellObject(cellObject)
-        if self.isCacheSize {
-            if let size = self.cacheSizeDict[key] {
-                return size
-            }
+        if let size = cellObject.size {
+            return size
         }
         var size = CGSize.zero
         if let cellType = cellObject.cellClass as? UICollectionViewCell.Type {
@@ -197,22 +173,7 @@ extension YJUICollectionViewManager: UICollectionViewDelegateFlowLayout {
         } else {
             size = cellObject.cellClass.collectionViewManager(self, referenceSizeFor: kind, in: cellObject)
         }
-        if self.isCacheSize {
-            self.cacheSizeDict[key] = size
-        }
         return size
-    }
-    
-    private func getKeyFromCellObject(_ cellObject: YJUICollectionCellObject) -> String {
-        let indexPath = cellObject.indexPath!
-        switch self.cacheSize {
-        case .`default`:
-            return cellObject.reuseIdentifier
-        case .indexPath:
-            return "\(indexPath.section)-\(indexPath.row)"
-        case .classAndIndexPath:
-            return "\(cellObject.reuseIdentifier)-(\(indexPath.section)-\(indexPath.row))"
-        }
     }
     
 }

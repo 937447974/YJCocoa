@@ -49,7 +49,7 @@ public extension UIImageView {
             guard let image = image else { return }
             ImageAssetCache.setObject(image, forKey: key)
             guard let assetIdentifier = self?.assetIdentifier, assetIdentifier == key else { return }
-            dispatch_async_main { [weak self] in
+            DispatchQueue.asyncMain { [weak self] in
                 self?.setAssetImage(image, identifier: key)
             }
         }

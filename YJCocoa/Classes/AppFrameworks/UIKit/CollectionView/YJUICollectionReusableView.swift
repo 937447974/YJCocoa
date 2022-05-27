@@ -11,7 +11,8 @@
 
 import UIKit
 
-@objc extension UICollectionReusableView {
+@objc
+extension UICollectionReusableView {
     
     /// 获取 YJUICollectionCellObject
     public class func cellObject() -> YJUICollectionCellObject {
@@ -19,7 +20,7 @@ import UIKit
     }
     
     /// 获取 YJUICollectionCellObject 并自动填充模型
-    public class func cellObject(withCellModel cellModel: Any?) -> YJUICollectionCellObject {
+    public class func cellObject(with cellModel: Any?) -> YJUICollectionCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
