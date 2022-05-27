@@ -36,11 +36,7 @@ DISPATCH_EXPORT dispatch_queue_t dispatch_get_background_queue(unsigned long fla
 DISPATCH_EXPORT void dispatch_async_background(dispatch_block_t block);
 
 #pragma mark - serial queue
-/** serial queue 同步执行*/
+/** serial queue 异步 FIFO 执行*/
 DISPATCH_EXPORT void dispatch_sync_serial(dispatch_block_t block);
-
-#pragma mark - concurrent queue
-/** concurrent queue 异步执行*/
-DISPATCH_EXPORT void dispatch_async_concurrent(dispatch_block_t block);
 
 NS_ASSUME_NONNULL_END

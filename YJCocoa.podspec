@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     
     # ――― Root specification
     s.name     = "YJCocoa"
-    s.version  = "9.5.1"
+    s.version  = "10.0.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
@@ -30,8 +30,8 @@ Pod::Spec.new do |s|
     
     # ――― Platform
     s.platform = :ios
-    s.ios.deployment_target = '9.0'
-    s.swift_version = '5.1'
+    s.ios.deployment_target = '12.0'
+    s.swift_version = '5'
     s.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'NO' }
     
     # ——— Subspecs
@@ -154,6 +154,9 @@ Pod::Spec.new do |s|
     s.subspec 'System' do |system|
         system.subspec 'Dispatch' do |sub|
             sub.source_files = 'YJCocoa/Classes/System/Dispatch/*'
+        end
+        system.subspec 'OC' do |sub|
+            sub.source_files = 'YJCocoa/Classes/System/OC/*'
         end
         system.subspec 'Pthread' do |sub|
             sub.source_files = 'YJCocoa/Classes/System/Pthread/*'

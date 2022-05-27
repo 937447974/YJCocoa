@@ -11,7 +11,6 @@
 
 #import "YJDispatchQueue.h"
 #import "YJSystemMacro.h"
-#import <YJCocoaSwift/YJCocoaSwift-Swift.h>
 
 #pragma mark - main queue
 void dispatch_sync_main(dispatch_block_t block) {
@@ -56,11 +55,11 @@ void dispatch_async_background(dispatch_block_t block) {
 
 #pragma mark - serial queue
 void dispatch_sync_serial(dispatch_block_t block) {
-    [[YJDispatchQueue serial] async:block];
-    
-}
-
-#pragma mark - concurrent queue
-void dispatch_async_concurrent(dispatch_block_t block) {
-    [[YJDispatchQueue concurrent] async:block];
+    static dispatch_once_t onceToken;
+    static dispatch_queue_t queue;
+    dispatch_once(&onceToken, ^{
+        const char *label = "com.yjcocoa.dispatch.serial";
+        queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+    });
+    dispatch_async(queue, block);
 }
