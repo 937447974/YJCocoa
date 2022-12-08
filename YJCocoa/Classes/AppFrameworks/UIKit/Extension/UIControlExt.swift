@@ -11,6 +11,7 @@
 
 import UIKit
 
+@objc
 public extension UIControl {
     
     /// 点击回调

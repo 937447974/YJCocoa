@@ -32,8 +32,10 @@ public protocol YJURLRouterProtocol {
 public var YJURLRouterS = YJURLRouter()
 
 /// URL 路由器
+@objcMembers
 open class YJURLRouter: NSObject {
-    
+    /// 共享
+    public static let share = YJURLRouterS
     /// 路由回调
     public typealias CompletionHandler = (_ options: [String: Any]) -> Void
     /// 未注册 url 能否打开
@@ -94,10 +96,10 @@ open class YJURLRouter: NSObject {
                 self.nodeCache.setObject(node, forKey: key)
             }
         }
-        node.routerCanOpen(with: options) { [weak node] (can) in
+        node.routerCanOpen(with: options) { (can) in
             guard can else { return }
             node?.routerOpen()
-            DispatchQueue.asyncMain { [weak node] in
+            dispatch_async_main {
                 node?.routerReloadData(with: options, completion: handler)
             }
         }

@@ -28,6 +28,9 @@ public let YJSingletonCenterS = YJSingletonCenter()
 @objcMembers
 open class YJSingletonCenter: NSObject & NSCacheDelegate {
     
+    /// 共享
+    public static let share = YJSingletonCenterS
+    
     private let mutex = YJPthreadMutex()
     private var strongDict = [String: YJSingletonModel]()
     private var weakCache = NSCache<NSString, YJSingletonModel>()

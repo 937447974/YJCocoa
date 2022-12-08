@@ -29,7 +29,7 @@ open class YJUIViewControllerTransitioning: NSObject {
     /// pop 的视图
     public weak var popVC: UIViewController? {
         willSet {
-            DispatchQueue.asyncMain {
+            dispatch_async_main {
                 newValue?.view.addGestureRecognizer(self.popGesture)
             }            
         }
@@ -39,6 +39,7 @@ open class YJUIViewControllerTransitioning: NSObject {
         let gesture = UIScreenEdgePanGestureRecognizer()
         gesture.edges = UIRectEdge.left
         gesture.addTarget(self, action: #selector(YJUIViewControllerTransitioning.panGestureRecognizerAction(pan:)))
+        gesture.delegate = self
         return gesture
     }()
     var popIT: UIPercentDrivenInteractiveTransition?
@@ -119,6 +120,20 @@ extension YJUIViewControllerTransitioning: UINavigationControllerDelegate {
         case .pop:  return self.popAT
         default:    return nil
         }
+    }
+    
+}
+
+extension YJUIViewControllerTransitioning: UIGestureRecognizerDelegate {
+    
+    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let point = gestureRecognizer.location(in: gestureRecognizer.view)
+        return 0 < point.x && point.x < 40
+    }
+    
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // true 第二个失效
+        return self.gestureRecognizerShouldBegin(gestureRecognizer)
     }
     
 }

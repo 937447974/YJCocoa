@@ -9,8 +9,8 @@
 //  Copyright © 2016年 YJCocoa. All rights reserved.
 //
 
-#ifndef YJCocoa_h
-#define YJCocoa_h
+#ifndef YJCocoaOC_h
+#define YJCocoaOC_h
 
 #import "YJPthread.h"
 #import "YJSystemMacro.h"

@@ -19,7 +19,8 @@ public let YJURLSessionS = YJURLSession()
 
 /// URLSession
 open class YJURLSession: NSObject & NSCacheDelegate {
-    
+    /// 共享
+    public static let share = YJURLSessionS
     /// 共享网络会话池
     public lazy var cache: YJSafetyCache<NSString, YJURLSessionTask> = {
         let cache = YJSafetyCache<NSString, YJURLSessionTask>()
@@ -91,7 +92,7 @@ open class YJURLSessionTask: NSObject {
             self.handler.removeAll()
             for item in handler {
                 if item.source != nil, let success = item.success {
-                    item.mainQueue ? DispatchQueue.asyncMain({success(respModel)}) : success(respModel)
+                    item.mainQueue ? dispatch_async_main({success(respModel)}) : success(respModel)
                 }
             }
         }
@@ -103,7 +104,7 @@ open class YJURLSessionTask: NSObject {
             self.handler.removeAll()
             for item in handler {
                 if item.source != nil, let failure = item.failure {
-                    item.mainQueue ? DispatchQueue.asyncMain({failure(error)}) : failure(error)
+                    item.mainQueue ? dispatch_async_main({failure(error)}) : failure(error)
                 }
             }
         }

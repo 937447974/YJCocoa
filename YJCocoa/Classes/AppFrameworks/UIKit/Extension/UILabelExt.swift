@@ -13,6 +13,7 @@ import UIKit
 
 fileprivate let fitsLabel = UILabel(frame: CGRect())
 
+@objc
 public extension UILabel {
     
     /// 纯文本显示计算

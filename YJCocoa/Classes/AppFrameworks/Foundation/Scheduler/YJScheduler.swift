@@ -24,8 +24,11 @@ public typealias YJSInterceptHandler = (_ topic: String, _ data: Any?, _ publish
 public let YJSchedulerS = YJScheduler()
 
 /// 调度器
+@objcMembers
 open class YJScheduler: NSObject {
     
+    public static let share = YJSchedulerS
+
     /// 调度器初始化启动加载
     public var loadScheduler: YJDispatchWork?
     
@@ -59,7 +62,7 @@ extension YJScheduler {
 }
 
 // MARK: subscribe
-extension YJScheduler {
+public extension YJScheduler {
     
     /**
      * 订阅
@@ -68,7 +71,7 @@ extension YJScheduler {
      * - Parameter queue:      回调执行的队列, 默认子线程
      * - Parameter handler:    接受发布方传输的数据
      */
-    public func subscribe(topic: String, subscriber: AnyObject? = nil, queue: YJScheduler.Queue = .default,  handler: @escaping YJSSubscribeHandler) {
+    func subscribe(topic: String, subscriber: AnyObject? = nil, queue: YJScheduler.Queue = .default,  handler: @escaping YJSSubscribeHandler) {
         YJLogVerbose("[YJScheduler] \(String(describing: subscriber)) 订阅 \(topic)")
         let target = YJSchedulerSubscribe(topic: topic, subscriber: subscriber ?? self, queue: queue, completionHandler: handler)
         self.workQueue.async { [unowned self] in
@@ -95,7 +98,7 @@ extension YJScheduler {
      * - Parameter queue:      回调执行的队列
      * - Parameter handler:    接受发布方传输的数据
      */
-    public func removeSubscribe(topic: String? = nil, subscriber: AnyObject) {
+    func removeSubscribe(topic: String? = nil, subscriber: AnyObject) {
         func removeSubscribe(topic: String, array: Array<YJSchedulerSubscribe>) {
             var newArray = Array<YJSchedulerSubscribe>()
             for item in array {
@@ -119,7 +122,7 @@ extension YJScheduler {
 }
 
 // MARK: intercept
-extension YJScheduler {
+public extension YJScheduler {
     
     /**
      *  拦截发布信息
@@ -127,7 +130,7 @@ extension YJScheduler {
      *  - Parameter canHandler  能否拦截
      *  - Parameter handler     拦截后执行的操作
      */
-    public func intercept(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completion handler: @escaping YJSInterceptHandler) {
+    func intercept(interceptor: AnyObject?, canHandler: @escaping YJSInterceptCanHandler, completion handler: @escaping YJSInterceptHandler) {
         let item = YJSchedulerIntercept(interceptor: interceptor ?? self, canHandler: canHandler, completionHandler: handler)
         self.workQueue.async { [unowned self] in
             self.intArray.append(item)
@@ -136,7 +139,7 @@ extension YJScheduler {
 }
 
 // MARK: publish
-extension YJScheduler {
+public extension YJScheduler {
     
     /**
      *  @abstract 能否发布
@@ -146,7 +149,7 @@ extension YJScheduler {
      *  @return BOOL
      */
     @discardableResult
-    public func canPublish(topic: String) -> Bool {
+    func canPublish(topic: String) -> Bool {
         self.initLoadScheduler()
         for item in self.intArray {
             if item.interceptor != nil && item.canHandler(topic) {
@@ -170,7 +173,7 @@ extension YJScheduler {
      *  @param serial  yes串行发布no并行发布
      *  @param handler 接受方处理数据后的回调
      */
-    public func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
+    func publish(topic: String, data: Any? = nil, serial: Bool = false, completion handler: YJSPublishHandler? = nil) {
         self.initLoadScheduler()
         YJLogVerbose("[YJScheduler] 发布\(topic), data:\(data ?? "nil")")
         self.workQueue.async { [unowned self] in
@@ -188,7 +191,7 @@ extension YJScheduler {
                     item.completionHandler(data, handler)
                 }
                 if item.queue == .main {
-                    DispatchQueue.asyncMain(block)
+                    dispatch_async_main(block)
                 } else {
                     let queue = serial ? self.serialQueue : self.concurrentQueue
                     queue.async(block)

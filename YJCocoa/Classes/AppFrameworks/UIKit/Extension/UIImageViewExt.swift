@@ -16,6 +16,7 @@ let ImageAssetCache = NSCache<NSString, UIImage>()
 let AssetIdentifier = UnsafeRawPointer.init(bitPattern: "yj_assetIdentifier".hashValue)!
 
 /// UIImageView+PHAsset
+@objc
 public extension UIImageView {
     
     private var assetIdentifier: NSString {
@@ -49,7 +50,7 @@ public extension UIImageView {
             guard let image = image else { return }
             ImageAssetCache.setObject(image, forKey: key)
             guard let assetIdentifier = self?.assetIdentifier, assetIdentifier == key else { return }
-            DispatchQueue.asyncMain { [weak self] in
+            dispatch_async_main { [weak self] in
                 self?.setAssetImage(image, identifier: key)
             }
         }
