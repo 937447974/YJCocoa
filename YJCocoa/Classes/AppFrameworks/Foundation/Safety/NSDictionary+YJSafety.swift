@@ -11,9 +11,9 @@
 
 import Foundation
 
-extension NSDictionary {
+public extension NSDictionary {
     
-    open func bool(forKey key: Any) -> Bool {
+    func bool(forKey key: Any) -> Bool {
         guard let obj = self.object(forKey: key) else {
             return false
         }
@@ -26,7 +26,7 @@ extension NSDictionary {
         return false
     }
     
-    open func integer(forKey key: Any) -> Int {
+    func integer(forKey key: Any) -> Int {
         guard let obj = self.object(forKey: key) else {
             return 0
         }
@@ -39,7 +39,7 @@ extension NSDictionary {
         return 0
     }
     
-    open func float(forKey key: Any) -> Float {
+    func float(forKey key: Any) -> Float {
         guard let obj = self.object(forKey: key) else {
             return 0.0
         }
@@ -52,7 +52,7 @@ extension NSDictionary {
         return 0.0
     }
     
-    open func string(forKey key: Any) -> String {
+    func string(forKey key: Any) -> String {
         guard let obj = self.object(forKey: key) else {
             return ""
         }
@@ -65,7 +65,7 @@ extension NSDictionary {
         return ""
     }
     
-    open func set(forKey key: Any) -> NSSet {
+    func set(forKey key: Any) -> NSSet {
         guard let obj = self.object(forKey: key) else {
             return NSSet()
         }
@@ -75,7 +75,7 @@ extension NSDictionary {
         return NSSet()
     }
     
-    open func array(forKey key: Any) -> NSArray {
+    func array(forKey key: Any) -> NSArray {
         guard let obj = self.object(forKey: key) else {
             return NSArray()
         }
@@ -85,7 +85,7 @@ extension NSDictionary {
         return NSArray()
     }
     
-    open func dictionary(forKey key: Any) -> NSDictionary {
+    func dictionary(forKey key: Any) -> NSDictionary {
         guard let obj = self.object(forKey: key) else {
             return NSDictionary()
         }
@@ -98,9 +98,9 @@ extension NSDictionary {
 }
 
 
-extension NSMutableDictionary {
+public extension NSMutableDictionary {
     
-    open func mutableSet(forKey key: Any) -> NSMutableSet {
+    func mutableSet(forKey key: Any) -> NSMutableSet {
         var obj = self.object(forKey: key)
         if obj is NSMutableSet {
             return obj as! NSMutableSet
@@ -113,7 +113,7 @@ extension NSMutableDictionary {
         return obj as! NSMutableSet
     }
     
-    open func mutableArray(forKey key: Any) -> NSMutableArray {
+    func mutableArray(forKey key: Any) -> NSMutableArray {
         var obj = self.object(forKey: key)
         if obj is NSMutableArray {
             return obj as! NSMutableArray
@@ -126,7 +126,7 @@ extension NSMutableDictionary {
         return obj as! NSMutableArray
     }
     
-    open func mutableDictionary(forKey key: Any) -> NSMutableDictionary {
+    func mutableDictionary(forKey key: Any) -> NSMutableDictionary {
         var obj = self.object(forKey: key)
         if obj is NSMutableDictionary {
             return obj as! NSMutableDictionary
@@ -139,19 +139,19 @@ extension NSMutableDictionary {
         return obj as! NSMutableDictionary
     }
     
-    open func setBool(_ anObject: Bool, forKey aKey: NSCopying) {
+    func setBool(_ anObject: Bool, forKey aKey: NSCopying) {
         self.setObject(anObject, forKey: aKey)
     }
     
-    open func setInt(_ anObject: Int, forKey aKey: NSCopying) {
+    func setInt(_ anObject: Int, forKey aKey: NSCopying) {
         self.setObject(anObject, forKey: aKey)
     }
     
-    open func setFloat(_ anObject: Float, forKey aKey: NSCopying) {
+    func setFloat(_ anObject: Float, forKey aKey: NSCopying) {
         self.setObject(anObject, forKey: aKey)
     }
     
-    open func setString(_ anObject: Any, forKey aKey: NSCopying) {
+    func setString(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSString else {
             YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
@@ -159,7 +159,7 @@ extension NSMutableDictionary {
         self.setObject(obj, forKey: aKey)
     }
     
-    open func setSet(_ anObject: Any, forKey aKey: NSCopying) {
+    func setSet(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSSet else {
             YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
@@ -167,7 +167,7 @@ extension NSMutableDictionary {
         self.setObject(obj, forKey: aKey)
     }
     
-    open func setArray(_ anObject: Any, forKey aKey: NSCopying) {
+    func setArray(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSArray else {
             YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return
@@ -175,7 +175,7 @@ extension NSMutableDictionary {
         self.setObject(obj, forKey: aKey)
     }
     
-    open func setDictionary(_ anObject: Any, forKey aKey: NSCopying) {
+    func setDictionary(_ anObject: Any, forKey aKey: NSCopying) {
         guard let obj = anObject as? NSDictionary else {
             YJLogError("[Dictionary] set key:\(aKey) 对应的 value:\(anObject) 错误")
             return

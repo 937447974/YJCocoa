@@ -32,13 +32,13 @@ private class NotificationObserver {
     
 }
 
-extension NotificationCenter {
+public extension NotificationCenter {
     
     /// Adds an entry to the notification center's dispatch table with an observer and a block, and an optional notification name.
     /// - parameter observer: Object registering as an observer.
     /// - parameter name: name The name of the notification for which to register the observer; that is, only notifications with this name are delivered to the observer.
     /// - parameter block: The block to be executed when the notification is received.
-    open func addObserver(_ observer: AnyObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
+    func addObserver(_ observer: AnyObject, name: NSNotification.Name, using block: @escaping (Notification) -> Void) {
         let array = self.notificatArray(name: name)
         for item in array {
             let notificatItem = item as! NotificationObserver
@@ -56,7 +56,7 @@ extension NotificationCenter {
     }
     
     /// remove observer block
-    open func removeObserverBlock(_ observer: NSObject, name: NSNotification.Name?) {
+    func removeObserverBlock(_ observer: NSObject, name: NSNotification.Name?) {
         if name == nil {
             for key in self.yj_notificatDict.allKeys {
                 self.removeObserverBlock(observer, name: key as? NSNotification.Name)
