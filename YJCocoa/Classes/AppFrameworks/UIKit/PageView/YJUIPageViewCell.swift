@@ -36,7 +36,7 @@ open class YJUIPageViewCell: UIViewController {
     }
     
     /// 获取 YJUITableCellObject 并自动填充模型
-    public class func cellObject(withCellModel cellModel: Any) -> YJUIPageViewCellObject {
+    public class func cellObject(with cellModel: Any) -> YJUIPageViewCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co

@@ -20,7 +20,7 @@ extension UITableViewHeaderFooterView {
     }
     
     /// 获取YJUITableCellObject并自动填充模型
-    public class func cellObject(withCellModel cellModel: Any?) -> YJUITableCellObject {
+    public class func cellObject(with cellModel: Any?) -> YJUITableCellObject {
         let co = self.cellObject()
         co.cellModel = cellModel
         return co
