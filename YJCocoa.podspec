@@ -1,9 +1,10 @@
 #
-#  Be sure to run `pod spec lint YJCocoa.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
+# Be sure to run `pod lib lint MyLibrar.podspec' to ensure this is a
+# valid spec before submitting.
 #
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
+# To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
 # 注册pod权限：pod trunk register 937447974@qq.com '阳君' --description='YJCocoa'
@@ -20,11 +21,11 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJCocoa"
-    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => s.version }
+    s.source = { :git => "https://github.com/937447974/YJCocoa.git", :tag => s.version.to_s }
     s.summary  = "YJ系列开源库"
     s.description = <<-DESC
                     姓名：阳君
-                    QQ：937447974
+                    WX：y937447974
                     YJ技术支持群：557445088
                     DESC
     
