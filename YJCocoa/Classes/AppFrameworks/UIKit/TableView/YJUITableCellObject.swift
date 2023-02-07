@@ -23,9 +23,11 @@ open class YJUITableCellObject: NSObject {
     public var userInfo: Any?
     /// cell 点击回调
     public var didSelectClosure: YJUITableCellSelectClosure?
-    
+
     /// cell 所处位置
     public var indexPath: IndexPath!
+    /// cell 的缓存高度
+    public var height: CGFloat?
     /// UITableViewCell对应的类
     public private(set) var cellClass: AnyClass
     /// UITableViewCell.reuseIdentifier，默认类名

@@ -27,6 +27,8 @@ open class YJUICollectionCellObject: NSObject {
     
     /// cell 所处位置
     public var indexPath: IndexPath!
+    /// cell 的缓存大小
+    public var size: CGSize?
     /// UITableViewCell对应的类
     public private(set) var cellClass: UICollectionReusableView.Type
     /// UITableViewCell.reuseIdentifier，默认类名

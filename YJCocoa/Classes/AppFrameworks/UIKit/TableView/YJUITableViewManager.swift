@@ -11,17 +11,6 @@
 
 import UIKit
 
-/// 缓存高的策略
-@objc
-public enum YJUITableViewCacheHeight : Int {
-    /// 根据相同的UITableViewCell类缓存高度
-    case `default`
-    /// 根据NSIndexPath对应的位置缓存高度
-    case indexPath
-    /// 根据类名和NSIndexPath双重绑定缓存高度
-    case classAndIndexPath
-}
-
 /** UITableView管理器*/
 @objcMembers
 open class YJUITableViewManager: NSObject {
@@ -46,8 +35,6 @@ open class YJUITableViewManager: NSObject {
     public var isCacheCell = true
     /// 是否缓存高，默认缓存
     public var isCacheHeight = true
-    /// 缓存高的策略
-    public var cacheHeight = YJUITableViewCacheHeight.default
     
     weak public private(set) var tableView: UITableView!
     
@@ -164,34 +151,16 @@ extension YJUITableViewManager: UITableViewDelegate {
     }
     
     private func tableView(_ tableView: UITableView, heightFor cellObject: YJUITableCellObject) -> CGFloat {
-        let key = self.getKeyFromCellObject(cellObject)
-        if self.isCacheHeight {
-            if let height = self.cacheHeightDict[key] {
-                return height
-            }
+        if self.isCacheHeight, let height = cellObject.height {
+            return height
         }
-        var height = tableView.rowHeight
+        cellObject.height = tableView.rowHeight
         if let cellType = cellObject.cellClass as? UITableViewCell.Type {
-            height = cellType.tableViewManager(self, heightWith: cellObject)
+            cellObject.height = cellType.tableViewManager(self, heightWith: cellObject)
         } else if let headerType = cellObject.cellClass as? UITableViewHeaderFooterView.Type {
-            height = headerType.tableViewManager(self, heightWith: cellObject)
+            cellObject.height = headerType.tableViewManager(self, heightWith: cellObject)
         }
-        if self.isCacheHeight {
-            self.cacheHeightDict[key] = height
-        }
-        return height >= 0 ? height : UITableView.automaticDimension
-    }
-    
-    private func getKeyFromCellObject(_ cellObject: YJUITableCellObject) -> String {
-        let indexPath = cellObject.indexPath!
-        switch self.cacheHeight {
-        case .`default`:
-            return cellObject.reuseIdentifier
-        case .indexPath:
-            return "\(indexPath.section)-\(indexPath.row)"
-        case .classAndIndexPath:
-            return "\(cellObject.reuseIdentifier)-(\(indexPath.section)-\(indexPath.row))"
-        }
+        return cellObject.height! >= 0 ? cellObject.height! : UITableView.automaticDimension
     }
     
 }
