@@ -85,6 +85,7 @@ Pod::Spec.new do |s|
                 sub.source_files = 'YJCocoa/Classes/AppFrameworks/Foundation/URLSession/*'
                 sub.dependency 'YJCocoa/AppFrameworks/Foundation/JSONModel'
                 sub.dependency 'YJCocoa/System/Dispatch'
+                sub.dependency 'YJCocoa/System/OC'
             end
         end
         # 1.2 Foundation
